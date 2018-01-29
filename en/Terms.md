@@ -6,10 +6,10 @@
 </div>
 
 ### Account Linking {#AccountLinking}
-Used when an [extension](#ClovaExtension) provides a 3rd party service that requires users to authenticate their account. See [Linking user account](/CEK/Guides/LinkUserAccount.md) for more details.
+Used when an [extension](#ClovaExtension) provides a 3rd party service that requires users to authenticate their account. See [Linking user account](/CEK/Guides/Link_User_Account.md) for more details.
 
 ### CEK
-The abbreviation of [Clova Extension Kit](#CEK)
+The abbreviation of [Clova Extensions Kit](#CEK)
 
 ### CIC
 The abbreviation of [Clova Interface Connect](#CIC)
@@ -90,7 +90,7 @@ Messages that sent from clients to [Clova Interface Connect](#CIC). Event messag
 The second version of the HTTP protocol. It is based on [SPDY](https://en.wikipedia.org/wiki/SPDY) and developed by Internet Engineering Task Force (IETF). It is the enhanced version of HTTP 1.1, which was standardized in RFC 2068 in 1997. It was presented as a Proposed Standard in December 2014 and approved by IESG as Proposed Standard on February 17, 2015. It was published as [RFC 7540](https://tools.ietf.org/html/rfc7540) in May 2015.
 
 ### Intent {#Intent}
-An intent is a segment that distinguishes the user requests for a Clova extension to handle. The intent is divided into two: a custom intent and a built-in intent. Before implementing a [custom extension](#CustomExtension), an [interaction model](#InteractionModel) consisting of a set of intents has to be defined. See [An interaction model](/DevConsole/Guides/CEK/Define_Interaction_Model.md) for more details. 
+An intent is a segment that distinguishes the user requests for a Clova extension to handle. The intent is divided into two: a custom intent and a built-in intent. Before implementing a [custom extension](#CustomExtension), an [interaction model](#InteractionModel) consisting of a set of intents has to be defined. See [An interaction model](/DevConsole/Guides/CEK/Define_Interaction_Model.md) for more details.
 
 ### IntentRequest {#IntentRequest}
 A type of request message that sends analysis details of a user request ([Intent](#Intent)) to a [custom extension](#CustomExtension). See [Handling custom extension request](/CEK/Guides/Build_Custom_Extension.md#HandleCustomExtensionRequest) for more details.
@@ -105,13 +105,13 @@ A type of request message that notifies that a user has requested to start a cer
 A message ID is an identifier for distinguishing individual messages. All [event messages](#Event) and [directive messages](#Directive) have their own message ID.
 
 ### OAuth 2.0
-A public standard for delegation of access permission. The protocol allows internet users to grant account access right to other web services or applications. On the Clova platform, it is used for [account linking](/CEK/Guides/LinkUserAccount.md) when clients try to obtain [Clova access tokens](#ClovaAccessToken) or users try to use a certain extension. Refer to [https://tools.ietf.org/html/rfc6749](https://tools.ietf.org/html/rfc6749) for more details.
+A public standard for delegation of access permission. The protocol allows internet users to grant account access right to other web services or applications. On the Clova platform, it is used for [account linking](/CEK/Guides/Link_User_Account.md) when clients try to obtain [Clova access tokens](#ClovaAccessToken) or users try to use a certain extension. Refer to [https://tools.ietf.org/html/rfc6749](https://tools.ietf.org/html/rfc6749) for more details.
 
 ### SessionEndedRequest {#SessionEndedRequest}
 A type of request message that notifies that a user has requested to end a certain mode or [custom extension](#CustomExtension). See [Handling custom extension request](/CEK/Guides/Build_Custom_Extension.md#HandleCustomExtensionRequest) for more details.
 
 ### Session ID {#SessionID}
-A session ID is a session identifier used by [extensions](#ClovaExtension) to distinguish context of user requests. Generally, a one-time request has a unique session ID whereas a particular mode (Freetalk, for example) or multi-turn request has a same session ID. A session ID is created when [Clova Extensions Kit](#CEK) sends a user request to an extension. A same session ID is maintained when requests such as [LaunchRequest](#LaunchRequest) are made or when an extension sets the `response.shouldEndSession` field to `false`. See [Building custom extension](/CEK/Guides/Build_Custom_Extension.md) for more details.
+A session ID is a session identifier used by [extensions](#ClovaExtension) to distinguish context of user requests. Generally, a one-time request has a unique session ID whereas a particular mode or multi-turn request has a same session ID. A session ID is created when [Clova Extensions Kit](#CEK) sends a user request to an extension. A same session ID is maintained when requests such as [LaunchRequest](#LaunchRequest) are made or when an extension sets the `response.shouldEndSession` field to `false`. See [Building custom extension](/CEK/Guides/Build_Custom_Extension.md) for more details.
 
 ### Slot {#Slot}
 Information necessary for processing a request declared in an [intent](#Intent). It must be defined in pair with the intent. Clova analyzes a user request and extracts information specific to slots. See [An interaction model](/DevConsole/Guides/CEK/Define_Interaction_Model.md) for more details.
