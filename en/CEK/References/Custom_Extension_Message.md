@@ -37,7 +37,7 @@ Once Clova analyzes a user request, CEK forwards a request message to your custo
   },
   "request": {{object}},
   "session": {
-    "new": {{bolean}},
+    "new": {{boolean}},
     "sessionAttributes": {{object}},
     "sessionId": {{string}},
     "user": {
@@ -62,16 +62,16 @@ Once Clova analyzes a user request, CEK forwards a request message to your custo
 | `context.System`                           | object  | An object containing context information of the client system                          | Yes |
 | `context.System.device`                    | object  | An object containing information of the client device                               | Yes |
 | `context.System.device.deviceId`           | string  | The client device ID. Returns information that can help identify the user device, such as a combination of model name and device serial number. | Yes |
-| `content.System.device.display`            | object  | An object containing display information of the client device                                                 | Yes |
-| `content.System.device.display.contentLayer`        | object | An object containing resolution information of a display part displaying content.  If the value of `content.System.device.display.size` is `"none"`, this field will be omitted.   | No |
-| `content.System.device.display.contentLayer.width`  | number | The width of content being displayed on the display.  Its unit is pixel(px).             | Yes |
-| `content.System.device.display.contentLayer.height` | number | The height of content being displayed on the display. Its unit is pixel(px).             | Yes |
-| `content.System.device.display.dpi`         | number | DPI of the display device. If the value of `content.System.device.display.size` is `"none"`, this field will be omitted.          | No |
-| `content.System.device.display.orientation` | string | Direction of the display device. If the value of `content.System.device.display.size` is `"none"`, this field will be omitted.<ul><li><code>"landscape"</code>: Horizontal direction</li><li><code>"portrait"</code>: Vertical direction</li></ul>                      | No |
-| `content.System.device.display.size`        | string | A value that indicates volume of the resolution of the display device. A value indicating the resolution size of the display device. In the value, a pre-defined number or a value implying any resolution size `"custom"` or a value meaning no display `"none"` can be entered. Available values are: <ul><li><code>"none"</code>: No display found from the client appliance</li><li><code>"s100"</code>: Low resolution (160px X 107px)</li><li><code>"m100"</code>: Medium resolution (427px X 240px)</li><li><code>"l100"</code>: High resolution (640px X 360px)</li><li><code>"xl100"</code>: Ultra high resolution (xlarge type, 899px X 506px)</li><li><code>"custom"</code>: A resolution without a set standard </li></ul><div class="note"><p><strong>Note!</strong></p><p>A media content that has matching resolution to screen ratio of the client appliance and DPI must be provided. </p></div> | Yes |
+| `context.System.device.display`            | object  | An object containing display information of the client device                                                 | Yes |
+| `context.System.device.display.contentLayer`        | object | An object containing resolution information of a display part displaying content.  If the value of `context.System.device.display.size` is `"none"`, this field will be omitted.   | No |
+| `context.System.device.display.contentLayer.width`  | number | The width of content being displayed on the display.  Its unit is pixel(px).             | Yes |
+| `context.System.device.display.contentLayer.height` | number | The height of content being displayed on the display. Its unit is pixel(px).             | Yes |
+| `context.System.device.display.dpi`         | number | DPI of the display device. If the value of `context.System.device.display.size` is `"none"`, this field will be omitted.          | No |
+| `context.System.device.display.orientation` | string | Direction of the display device. If the value of `context.System.device.display.size` is `"none"`, this field will be omitted.<ul><li><code>"landscape"</code>: Horizontal direction</li><li><code>"portrait"</code>: Vertical direction</li></ul>                      | No |
+| `context.System.device.display.size`        | string | A value that indicates volume of the resolution of the display device. A value indicating the resolution size of the display device. In the value, a pre-defined number or a value implying any resolution size `"custom"` or a value meaning no display `"none"` can be entered. Available values are: <ul><li><code>"none"</code>: No display found from the client appliance</li><li><code>"s100"</code>: Low resolution (160px X 107px)</li><li><code>"m100"</code>: Medium resolution (427px X 240px)</li><li><code>"l100"</code>: High resolution (640px X 360px)</li><li><code>"xl100"</code>: Ultra high resolution (xlarge type, 899px X 506px)</li><li><code>"custom"</code>: A resolution without a set standard </li></ul><div class="note"><p><strong>Note!</strong></p><p>A media content that has matching resolution to screen ratio of the client appliance and DPI must be provided. </p></div> | Yes |
 | `context.System.user`                      | object  | An object containing information of the default user who has been authenticated in the client device.                 | Yes |
 | `context.System.user.userId`               | string  | The Clova ID of the default device user                                    | Yes |
-| `context.System.user.accessToken`          | string  | The access token for the user's service account. The access token belongs to a user account which is associated with a default device user. CEK forwards the access token by obtaining it from the authorization server of the 3rd party service. See [Linking user account](/CEK/Guides/LinkUserAccount.md) for more details. | Yes |
+| `context.System.user.accessToken`          | string  | The access token for the user's service account. The access token belongs to a user account which is associated with a default device user. CEK forwards the access token by obtaining it from the authorization server of the 3rd party service. See [Linking user account](/CEK/Guides/Link_User_Account.md) for more details. | Yes |
 | `request`                                 | object  | An object containing analysis details of user's speech input. Field configuration can vary depending on the [request type](#CustomExtRequestType). | Yes |
 | `session`                                  | object  | An object containing session information. A session is a logical unit that distinguishes individual user requests.     | Yes |
 | `session.new`                              | boolean | Distinguishes whether the request message is from a new session or previous session. <ul><li>true: New session</li><li>false: Previous session</li></ul>  | Yes |
@@ -79,7 +79,7 @@ Once Clova analyzes a user request, CEK forwards a request message to your custo
 | `session.sessionId`                        | string  | A session ID                                                    | Yes |
 | `session.user`                             | object  | An object containing information of the current user.                             | Yes |
 | `session.user.userId`                      | string  | The Clova ID of the current user. It can be different from the `context.System.user.userId` value. | Yes |
-| `session.user.accessToken`                 | string  | The access token for the user's service account. The access token belongs to a user account which is associated with a current user. CEK forwards the access token by obtaining it from the authorization server of the 3rd party service. See [Linking user account](/CEK/Guides/LinkUserAccount.md) for more details. | No |
+| `session.user.accessToken`                 | string  | The access token for the user's service account. The access token belongs to a user account which is associated with a current user. CEK forwards the access token by obtaining it from the authorization server of the 3rd party service. See [Linking user account](/CEK/Guides/Link_User_Account.md) for more details. | No |
 | `version`                                  | string  | The version of the message format (CEK version)                          | Yes |
 
 #### Message example
@@ -157,11 +157,11 @@ Once Clova analyzes a user request, CEK forwards a request message to your custo
   "request": {
     "type": "IntentRequest",
     "intent": {
-      "name": "FreeTalk",
+      "name": "OrderPizza",
       "slots": {
-        "q": {
-          "name": "q",
-          "value": "How are you"
+        "pizzaType": {
+          "name": "pizzaType",
+          "value": "pepperoni"
         }
       }
     }
