@@ -4,6 +4,7 @@
 
 * [ドキュメント情報](/README.md)
 * [著作権](/Copyright.md)
+* [リリースノート](/Release_Notes.md)
 * [用語および略語](/Glossary.md)
 
 ## デザイン
