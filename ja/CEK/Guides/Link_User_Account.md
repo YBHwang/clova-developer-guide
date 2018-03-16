@@ -99,7 +99,7 @@ Extensionにアカウント連携を適用するには、ユーザーがアカ�
 
 <div class="note">
 <p><strong>メモ</strong></p>
-<p><code>redirect_uri</code>は、Clova Developer Centerの<a href="/DevConsole/Guides/CEK/Register_Extension.html#RedirectURI">アカウント連携を設定</a>する画面で確認できます。</p>
+<p><code>redirect_uri</code>は、Clova Developer Centerの<a href="/DevConsole/Guides/CEK/Register_Extension.md#RedirectURI">アカウント連携を設定</a>する画面で確認できます。</p>
 </div>
 
 

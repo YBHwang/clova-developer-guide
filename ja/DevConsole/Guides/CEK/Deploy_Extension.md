@@ -37,7 +37,7 @@ Extensionをユーザーに説明するための情報として、Clovaアプリ
 
 <div class="note">
   <p><strong>メモ</strong></p>
-  <p><strong>{{ book.DevConsole.ExtensionPage }}</strong>に表示される一部の情報は、<a href="/DevConsole/Guides/CEK/Register_Extension.html#InputExtensionInfo">Extensionの基本情報を登録</a>する際に入力された情報を活用します。</p>
+  <p><strong>{{ book.DevConsole.ExtensionPage }}</strong>に表示される一部の情報は、<a href="/DevConsole/Guides/CEK/Register_Extension.md#InputExtensionInfo">Extensionの基本情報を登録</a>する際に入力された情報を活用します。</p>
 </div>
 
 ## プライバシーポリシーおよびコンプライアンス情報を入力する {#InputComplianceInfo}
