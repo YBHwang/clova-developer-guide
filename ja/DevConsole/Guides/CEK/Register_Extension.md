@@ -37,9 +37,9 @@ Extensionの基本情報は、Clova Developer CenterでExtensionを作成する�
       <li><strong>{{ book.DevConsole.cek_provider }}</strong>：Extensionを作成した主体(会社や個人)の名前、またはニックネームを入力します。後ほどスキルストアで表示され、Extensionを審査する際にチェックされます。</li>
     </ol>
   </li>
-  <li>Extensionが<a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a>ディレクティブを使用する場合、<strong>{{ book.DevConsole.cek_audioplayer }}</strong>項目で<strong>{{ book.DevConsole.cek_yes }}</strong>を選択します。Extensionがオーディオストリーミングサービスを提供する際に使用されます。</li>
+  <li>Extensionが<a href="/CIC/References/CICInterface/AudioPlayer.md">AudioPlayer</a>ディレクティブを使用する場合、<strong>{{ book.DevConsole.cek_audioplayer }}</strong>項目で<strong>{{ book.DevConsole.cek_yes }}</strong>を選択します。Extensionがオーディオストリーミングサービスを提供する際に使用されます。</li>
   <li><strong>{{ book.DevConsole.cek_email }}</strong>項目に、連絡可能なメールアドレスを入力します。</li>
-  <li><strong>{{ book.DevConsole.cek_tester }}</strong>項目に、Extensionのテストに使用する{{ book.OrientedService }}アカウントを入力します。必須ではなく、後ほど<a href="/DevConsole/Guides/CEK/Test_Extension.html">のExtensionをテスト</a>する際に入力することもできます。</li>
+  <li><strong>{{ book.DevConsole.cek_tester }}</strong>項目に、Extensionのテストに使用する{{ book.OrientedService }}アカウントを入力します。必須ではなく、後ほど<a href="/DevConsole/Guides/CEK/Test_Extension.md">のExtensionをテスト</a>する際に入力することもできます。</li>
   <li>Extensionの基本情報をすべて入力して、<strong>{{ book.DevConsole.cek_create }}</strong>ボタンをクリックします。</li>
 </ol>
 
@@ -87,14 +87,14 @@ Extensionが提供するサービスのアカウントが、Clovaのユーザー
   <li><strong>{{ book.DevConsole.cek_account_linking }}</strong>項目で<strong>{{ book.DevConsole.cek_yes }}</strong>を選択します。</li>
   <li>ユーザーにアカウント認証UIを提供する認証URLを、<strong>{{ book.DevConsole.cek_authorization_url }}</strong>項目に入力します。ユーザーがExtensionをアクティブにすると、このページに移動します。</li>
   <li>ユーザーが自身のアカウントを即座に設定できるようにする場合には、<strong>{{ book.DevConsole.cek_configuration_url }}</strong>項目にアカウント設定ページのURLを入力します。</li>
-  <li>ユーザーアカウント認証を行う際、HTTPSリクエストに必要な<strong>{{ book.DevConsole.cek_client_id }}</strong>を入力します。クライアントIDは、<a href="/CEK/Guides/Link_User_Account.html#BuildAuthServer">認証サーバーを構築</a>する際に生成した値です。</li>
+  <li>ユーザーアカウント認証を行う際、HTTPSリクエストに必要な<strong>{{ book.DevConsole.cek_client_id }}</strong>を入力します。クライアントIDは、<a href="/CEK/Guides/Link_User_Account.md#BuildAuthServer">認証サーバーを構築</a>する際に生成した値です。</li>
   <li><strong>{{ book.DevConsole.cek_privacy_policy_url }}</strong>項目に、Extensionが提供するサービスのプライバシーポリシーが提供されるURLを入力します。このページの内容は、後ほどストアで表示されます。</li>
   <li><strong>{{ book.DevConsole.cek_authorization_url }}</strong>または<strong>{{ book.DevConsole.cek_privacy_policy_url }}</strong>で提供するページが別のドメインから必要なリソースを読み込む場合、<strong>{{ book.DevConsole.cek_domain_list }}</strong>項目に必要なドメインを追加します。</li>
   <li>アカウントリンクの際に発行されるアクセストークンのスコープをあらかじめ定義している場合、<strong>{{ book.DevConsole.cek_scope }}</strong>項目に定義したスコープを追加します。</li>
   <img src="/DevConsole/Resources/Images/DevConsole-Extension_Accoun_Linking_Settings_2.png" />
   <li><strong>{{ book.DevConsole.cek_access_token_uri }}</strong>項目に、サービスのアクセストークンを発行できるURLを入力します。現在、<strong>許可付与タイプは許可コードのみサポート</strong>しています。</li>
   <li><strong>{{ book.DevConsole.cek_refresh_token_uri }}</strong>項目に、サービスのアクセストークンを更新できるURLを入力します。</li>
-  <li>サービスのアクセストークンを取得した後、HTTPSリクエストの送信に必要な<strong>{{ book.DevConsole.cek_client_secret }}</strong>を入力します。クライアントシークレットは、<a href="/CEK/Guides/Link_User_Account.html#BuildAuthServer">認証サーバーを構築</a>する際に生成した値です。</li>
+  <li>サービスのアクセストークンを取得した後、HTTPSリクエストの送信に必要な<strong>{{ book.DevConsole.cek_client_secret }}</strong>を入力します。クライアントシークレットは、<a href="/CEK/Guides/Link_User_Account.md#BuildAuthServer">認証サーバーを構築</a>する際に生成した値です。</li>
   <li><strong>{{ book.DevConsole.cek_client_authentication_scheme }}</strong>は、次のうち認証サーバーのインターフェースの実装に適した値を設定します。
     <ul>
       <li><strong>HTTPベーシック認証(推奨)</strong>：サービスのアクセストークンを取得するために、資格情報をヘッダーに入力される場合</li>

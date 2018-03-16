@@ -30,4 +30,4 @@ Content-Type: application/json;charset-UTF-8
 * ボディのデータはJSON形式で、UTF-8エンコーディングを使用します。
 
 ### HTTPボディ {#HTTPBody}
-HTTPSリクエストメッセージとレスポンスメッセージのボディはJSON形式で、解析されたユーザーの発話情報や、Extensionの処理結果が含まれています。それぞれのメッセージの構成は、使用するExtensionの種類によって異なります。メッセージ構成の詳細については、[Custom Extensionメッセージ](#CustomExtMessage)と[Clova Home Extensionメッセージ](#ClovaHomeExtMessage)を参照してください。
+HTTPSリクエストメッセージとレスポンスメッセージのボディはJSON形式で、解析されたユーザーの発話情報や、Extensionの処理結果が含まれています。それぞれのメッセージの構成は、使用するExtensionの種類によって異なります。メッセージ構成の詳細については、[Custom Extensionメッセージ](#CustomExtMessage)を参照してください。
