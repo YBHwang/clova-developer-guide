@@ -1,66 +1,17 @@
-# はじめに
+# Clova Developer Centerの概要
 
-Clovaは、ユーザの音声を認識・分析して必要な情報・サービスを提供する、{{ book.OrientedService }}の人工知能プラットフォームです。
+Clova Developer Centerは、Clovaプラットフォームと連携するデバイスまたはサービスを開発する際に、必要な情報や機能を提供するWebツールです。クライアントの開発者はClova Developer Centerで、開発するクライアント(デバイスまたはアプリ)の情報を入力し、そのクライアントが[CICにアクセス](/CIC/CIC_Overview.md)できるようにセキュリティ情報を設定します。Extensionの開発者は、CEKとExtensionがメッセージをやり取りできるように[Extensionの情報を入力](/DevConsole/Guides/CEK/Register_Extension.md)し、[interaction modelを登録](/DevConsole/Guides/CEK/Register_Interaction_Model.md)します。また、Extensionの開発者は、[Extensionを配布](/DevConsole/Guides/CEK/Deploy_Extension.md)するためにExtensionをテストし、Extensionの審査もリクエストする必要があります。
 
-本ドキュメントでは、Clovaの機能を用いるサービスのデザイン・開発ガイドと、開発済みサービスの登録ガイドを提供します。ターゲット読者としては、Clovaを利用したオンラインコンテンツ、オンラインサービスの開発を計画しているextension開発者を想定しています。
-下記表を参考に、必要なドキュメントのみピックアップして閲覧することができます。
+クライアントまたはExtensionを開発する際、Clova Developer Centerは以下の仕組みで使用されます。
 
-<table>
-<thead>
-<tr>
-<th>区分</th>
-<th>項目</th>
-<th>説明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td rowspan="2">デザイン</td>
-<td><a href="/ja/Glossary.md">用語および略語</a></td>
-<td>Clovaプラットフォームで使用される用語・略語を閲覧できます。</td>
-</tr>
-<tr>
-<td><a href="/Design/Design_Guideline_For_Extension.md">Extensionのデザインガイドライン</a></td>
-<td>Extension開発の必須要素の一つであるインタラクションモデルの詳細が確認できます。</td>
-</tr>
-<tr>
-<td rowspan="6">Clova Extensions Kit</td>
-<td><a href="/CEK/CEK_Overview.md">CEKの概要</a></td>
-<td>Extensionと連携されるClovaプラットフォームの基本概念が理解できます。</td>
-</tr>
-<tr>
-<td><a href="/CEK/Tutorials/Introduction.md">チュートリアル</a></td>
-<td>チュートリアルで簡単なextensionの作り方を学習できます。</td>
-</tr>
-<tr>
-<td><a href="/CEK/Guides/Build_Custom_Extension.md">Custom Extensionを作成する</a></td>
-<td>Extension開発の必須要件、Clovaとの連携規格を確認できます。</td>
-</tr>
-<tr>
-<td><a href="/CEK/Guides/Link_User_Account.md">ユーザアカウントを連携する</a></td>
-<td>Extensionにおける外部ユーザアカウントの使用方法を確認できます。</td>
-</tr>
-<tr>
-<td><a href="/CEK/Examples/Extension_Examples.md">サンプルのExtension</a></td>
-<td>Clovaが提供するサンプルextensionにはどのようなものがあるか確認できます。</td>
-</tr>
-<tr>
-<td><a href="/CEK/References/CEK_API.md">CEK APIのリファレンス</a></td>
-<td>Clovaがextensionに提供するAPIの詳細が確認できます。</td>
-</tr>
-<tr>
-<td rowspan="2">Clova Developer Center</td>
-<td><a href="/DevConsole/ClovaDevConsole_Overview.md">Clova Developer Centerの概要</a></td>
-<td>Clova Developer Centerの役割を紹介します。</td>
-</tr>
-<tr>
-<td><a href="/DevConsole/Guides/CEK/Using_CEK_Menu.md">CEKメニューを使用する</a></td>
-<td>Clova Developer Centerにextensionを登録し、サービスを実施する手順を確認できます。</td>
-</tr>
-</tbody>
-</table>
+![](/DevConsole/Resources/Images/DevConsole-Concept_Diagram.png)
 
-<div class="note">
-  <p><strong>Note!</strong></p>
-  <p>Clovaは今なお、開発が続いています。ドキュメントの内容は常時変更される可能性がありますので、<a href="Release_Notes.md">Release Notes</a>にて変更履歴をご確認ください。</p>
-</div>
+Clova Developer Centerは、CICメニューとCEKメニューを提供します。それぞれのメニューで、次の作業を行えます。
+
+* [CEKメニュー](/DevConsole/Guides/CEK/Using_CEK_Menu.md)
+  * [Extensionを登録する](/DevConsole/Guides/CEK/Register_Extension.md)
+  * [対話モデルを登録する](/DevConsole/Guides/CEK/Register_Interaction_Model.md)
+  * [Extensionをテストする](/DevConsole/Guides/CEK/Test_Extension.md)
+  * [Extensionを配布する](/DevConsole/Guides/CEK/Deploy_Extension.md)
+  * [Extensionをアップデートする](/DevConsole/Guides/CEK/Update_Extension.md)
+  * [Extensionを中止および削除する](/DevConsole/Guides/CEK/Remove_Extension.md)
