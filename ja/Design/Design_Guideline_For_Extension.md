@@ -246,7 +246,7 @@ BBQピザ1つ出前取ってくれる?
 
 <div class="note">
   <p><strong>メモ</strong></p>
-  <p>今後<a href="/DevConsole/Guides/CEK/Test_Extension.html#TestInteractionModel">対話モデルのテスト</a>や、実際のユーザーのログを参照して完成度を高めていくことができます。対話モデルをテストする際には、サンプル発話の作成者ではなく、第三者がテストすることをお勧めします。そうすることで、新たな発話パターンを見つける事ができます。</p>
+  <p>今後<a href="/DevConsole/Guides/CEK/Test_Extension.md#TestInteractionModel">対話モデルのテスト</a>や、実際のユーザーのログを参照して完成度を高めていくことができます。対話モデルをテストする際には、サンプル発話の作成者ではなく、第三者がテストすることをお勧めします。そうすることで、新たな発話パターンを見つける事ができます。</p>
 </div>
 
 
