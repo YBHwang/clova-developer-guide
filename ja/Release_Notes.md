@@ -5,7 +5,7 @@
 # 2018-02-05
 
 * CEK
-  - Extension起動の呼び出し([LaunchRequest](CEK/Guides/Build_Custom_Extension.html#HandleLaunchRequest))の説明を修正および[Extensionのデザインガイドラインドキュメントの内容を反映](/Design/Design_Guideline_For_Extension.md)
+  - Extension起動の呼び出し([LaunchRequest](CEK/Guides/Build_Custom_Extension.md#HandleLaunchRequest))の説明を修正および[Extensionのデザインガイドラインドキュメントの内容を反映](/Design/Design_Guideline_For_Extension.md)
   - CEKとExtensionの通信に使用される[HTTPプロトコルのバージョン](/CEK/CEK_Overview.md#WhatisCEK)を明示
   - [チュートリアル](/CEK/Tutorials/Introduction.md)ページに[基本的な意思表現を処理する](/CEK/Tutorials/Handle_Builtin_Intents.md)ページを追加
 
