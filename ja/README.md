@@ -62,5 +62,5 @@ Clovaは、ユーザの音声を認識・分析して必要な情報・サービ
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>Clovaは今なお、開発が続いています。ドキュメントの内容は常時変更される可能性がありますので、<a href="Release_Notes.md">Release Notes</a>にて変更履歴をご確認ください。</p>
+  <p>Clovaは今なお、開発が続いています。ドキュメントの内容は常時変更される可能性がありますので、<a href="/Release_Notes.md">リリースノート</a>にて変更履歴をご確認ください。</p>
 </div>
