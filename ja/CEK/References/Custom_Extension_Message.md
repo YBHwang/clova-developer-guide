@@ -60,7 +60,7 @@ CEKは、Clovaが解析したユーザーのリクエストをリクエストメ
 | `context.AudioPlayer`                      | object  | クライアントが現在再生しているか、最後に再生したメディアの情報を持っているオブジェクト | 選択 |
 | `context.AudioPlayer.offsetInMilliseconds` | number  | 最近再生したメディアの最後の再生ポイント(offset)。単位はミリ秒であり、`playerActivity`の値が"IDLE"の場合、このフィールドは空の場合があります。                                       | 選択 |
 | `context.AudioPlayer.playerActivity`       | string  | プレイヤーの状態を示す値です。次のような値を持ちます。<ul><li><code>"IDLE"</code>：非アクティブ状態</li><li><code>"PLAYING"</code>：再生中</li><li><code>"PAUSED"</code>：一時停止状態</li><li><code>"STOPPED"</code>：中止状態</li></ul> | 必須 |
-| `context.AudioPlayer.stream`               | [AudioStreamInfoObject](/CIC/References/CICInterface/AudioPlayer.md#AudioStreamInfoObject) | 再生中のオーディオの詳細情報を保存したオブジェクト`playerActivity`の値が`"IDLE"`の場合、このフィールドが空であることがあります。    | 選択 |
+| `context.AudioPlayer.stream`               | AudioStreamInfoObject(準備中) | 再生中のオーディオの詳細情報を保存したオブジェクト`playerActivity`の値が`"IDLE"`の場合、このフィールドが空であることがあります。    | 選択 |
 | `context.AudioPlayer.totalInMilliseconds`  | number  | 最近再生したオーディオの全体の長さ。単位はミリ秒で、`playerActivity`の値が"IDLE"の場合、このフィールドが空であることがあります。                                                                  | 選択 |
 | `context.System`                           | object  | クライアントシステムのコンテキスト情報を持っているオブジェクト                          | 必須 |
 | `context.System.application`               | object  | ユーザーの意図によって実行されるExtensionの情報を持っているオブジェクト       | 必須 |
@@ -223,7 +223,7 @@ CEKは、Clovaが解析したユーザーのリクエストをリクエストメ
 
 #### 次の項目も参照してください。
 * [Custom Extensionリクエストを処理する](/CEK/Guides/Build_Custom_Extension.md#HandleCustomExtensionRequest)
-* [AudioStreamInfoObject](/CIC/References/CICInterface/AudioPlayer.md#AudioStreamInfoObject)
+* AudioStreamInfoObject(準備中)
 
 ### リクエストタイプ {#CustomExtRequestType}
 リクエストメッセージは、次の3つのタイプがあります。リクエストのタイプによって、リクエストメッセージの`request`オブジェクトのフィールドの構成が異なります。
@@ -352,7 +352,7 @@ Extensionは、リクエストメッセージを処理して、レスポンス�
 | フィールド名       | データ型    | フィールドの説明                     | 必須 |
 |---------------|---------|-----------------------------|:---------:|
 | `response`                               | object       | Extensionのレスポンス情報を含むオブジェクト                            | 必須 |
-| `response.card`                          | object       | [コンテンツテンプレート](/CIC/References/Content_Templates.md)形式のデータで、クライアントの画面に表示するコンテンツをこのフィールドで渡すことができます。このフィールドにデータがある場合、CICはクライアントに[Clova.RenderTemplate](/CIC/References/CICInterface/Clova.md#RenderTemplate)ディレクティブを渡します。空のオブジェクトの場合、CICはクライアントに[Clova.RenderText](/CIC/References/CICInterface/Clova.md#RenderText)ディレクティブを渡し、`response.outputSpeech.values`フィールドの値を表示するようにします。        | 必須 |
+| `response.card`                          | object       | コンテンツテンプレート形式のデータで、クライアントの画面に表示するコンテンツをこのフィールドで渡すことができます。このフィールドにデータがある場合、CICはクライアントにClova.RenderTemplateディレクティブを渡します。空のオブジェクトの場合、CICはクライアントにClova.RenderTextディレクティブを渡し、`response.outputSpeech.values`フィールドの値を表示するようにします。        | 必須 |
 | `response.directives[]`                  | object array | ExtensionがCEKに渡すディレクティブです。`response.directives`フィールドで使用するディレクティブは、今後APIを提供する予定です。 | 必須 |
 | `response.directives[].header`           | object       | ディレクティブのヘッダー                                          | 必須 |
 | `response.directives[].header.messageId` | string       | メッセージID(UUID)。個別メッセージを区別するために使用される識別子です。   | 必須 |
@@ -366,7 +366,7 @@ Extensionは、リクエストメッセージを処理して、レスポンス�
 | `response.outputSpeech.verbose`          | object       | 画面を持たないクライアントデバイスに渡す際に使用されます。詳細音声情報を含んでいます。 | 選択 |
 | `response.outputSpeech.verbose.type`     | string       | 出力する音声情報のタイプ単文と複文タイプの音声情報のみ入力できます。<ul><li><code>"SimpleSpeech"</code>：単文タイプの音声情報です。最も基本的な音声情報を渡す際に使用されます。この値を指定した場合、<code>response.outputSpeech.verbose.values</code>フィールドが<a href="#CustomExtSpeechInfoObject"><code>SpeechInfoObject</code></a>オブジェクトを持っている必要があります。</li><li><code>"SpeechList"</code>：複文タイプの音声情報です。複数の文章を出力する際に使用されます。この値を指定した場合、<code>response.outputSpeech.verbose.values</code>フィールドが<a href="#CustomExtSpeechInfoObject"><code>SpeechInfoObject</code></a>オブジェクト配列を持っている必要があります。</li></ul> | 必須 |
 | `response.outputSpeech.verbose.values[]`           | [SpeechInfoObject](#CustomExtSpeechInfoObject) or [SpeechInfoObject](#CustomExtSpeechInfoObject) array | クライアントデバイスで出力する詳細音声情報を持っているオブジェクトまたはオブジェクト配列 | 必須 |
-| `response.reprompt`                               | obejct       | ユーザーの追加の発話を促す音声情報を含んでいるオブジェクト。`response.reprompt`フィールドを使用すると、ユーザーにマルチターン対話を続けるか尋ねたり、または必須情報を話すように促すことができます。マルチターン対話を行う際、ユーザーが追加の発話をしないまま待っていると、入力待ち時間が過ぎ、マルチターン対話が自動的に終了します。ただし、`response.reprompt`フィールドを使用すると、Clovaは、入力待ち時間が過ぎた後、クライアントが`response.reprompt`フィールドに作成した音声を出力し、再度ユーザーの追加の発話を促すように[`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak)ディレクティブと[`SpeechRecognizer.ExpectSpeech`](/CIC/References/CICInterface/SpeechRecognizer.md#ExpectSpeech)ディレクティブをクライアントに渡します。<div class="note"><p><strong>メモ</strong></p><p><code>response.reprompt</code>フィールドは、<code>response.shouldEndSession</code>フィールド値を<code>false</code>に入力した場合、有効です。主に単文タイプの音声情報(<code>"SimpleSpeech"</code>)を渡すことをお勧めします。<code>response.reprompt</code>フィールドを使用すると、入力待ち時間を最大1回まで延長できます。</p></div> | 選択 |
+| `response.reprompt`                               | obejct       | ユーザーの追加の発話を促す音声情報を含んでいるオブジェクト。`response.reprompt`フィールドを使用すると、ユーザーにマルチターン対話を続けるか尋ねたり、または必須情報を話すように促すことができます。マルチターン対話を行う際、ユーザーが追加の発話をしないまま待っていると、入力待ち時間が過ぎ、マルチターン対話が自動的に終了します。ただし、`response.reprompt`フィールドを使用すると、Clovaは、入力待ち時間が過ぎた後、クライアントが`response.reprompt`フィールドに作成した音声を出力し、再度ユーザーの追加の発話を促すように`SpeechSynthesizer.Speak`ディレクティブと`SpeechRecognizer.ExpectSpeech`ディレクティブをクライアントに渡します。<div class="note"><p><strong>メモ</strong></p><p><code>response.reprompt</code>フィールドは、<code>response.shouldEndSession</code>フィールド値を<code>false</code>に入力した場合、有効です。主に単文タイプの音声情報(<code>"SimpleSpeech"</code>)を渡すことをお勧めします。<code>response.reprompt</code>フィールドを使用すると、入力待ち時間を最大1回まで延長できます。</p></div> | 選択 |
 | `response.reprompt.outputSpeech`                  | object       | 音声に合成する情報を含んでいるオブジェクト。合成された音声はCICを介してクライアントに渡されます。              | 必須 |
 | `response.reprompt.outputSpeech.brief`            | [SpeechInfoObject](#CustomExtSpeechInfoObject) | 出力する要約音声情報                    | 選択 |
 | `response.reprompt.outputSpeech.type`             | string       | 出力する音声情報のタイプ<ul><li>"SimpleSpeech"：単文タイプの音声情報です。最も基本となるタイプであり、この値を指定した場合、<code>response.outputSpeech.values</code>フィールドが<a href="#CustomExtSpeechInfoObject"><code>SpeechInfoObject</code></a>オブジェクトを持っている必要があります。</li><li><code>"SpeechList"</code>：複文タイプの音声情報です。複数の文章を出力する際に使用されます。この値を指定した場合、<code>response.outputSpeech.values</code>フィールドが<a href="#CustomExtSpeechInfoObject"><code>SpeechInfoObject</code></a>オブジェクト配列を持っている必要があります。</li><li><code>"SpeechSet"</code>：複合タイプの音声情報です。画面を持たないクライアントデバイスに、要約音声情報と詳細音声情報を渡す際に使用されます。この値を指定した場合、<code>response.outputSpeech.values</code>フィールドの代わりに<code>response.outputSpeech.brief</code>と<code>response.outputSpeech.verbose</code>フィールドを持つ必要があります。</li></ul> | 必須 |
@@ -532,4 +532,4 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 
 #### 次の項目も参照してください。
 * [Custom　Extensionレスポンスを返す](/CEK/Guides/Build_Custom_Extension.md#ReturnCustomExtensionResponse)
-* [コンテンツテンプレート](/CIC/References/Content_Templates.md)
+* コンテンツテンプレート(準備中)
