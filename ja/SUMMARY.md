@@ -3,7 +3,6 @@
 ## このドキュメントについて
 
 * [はじめに](/README.md)
-* [リリースノート](/Release_Notes.md)
 * [用語および略語](/Glossary.md)
 
 ## デザイン
