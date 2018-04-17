@@ -65,10 +65,17 @@ IoTサービスを提供する際、ユーザーアカウントに登録され�
       {
         "applianceId": "device-001",
         "manufacturerName": "device-manufacturer-name",
+<<<<<<< HEAD:ja/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md
         "modelName": "スマート照明",
         "version": "v1.0",
         "friendlyName": "リビングの照明",
         "friendlyDescription": "スマートフォンで制御できる照明",
+=======
+        "modelName": "Smart lamp,"
+        "version": "v1.0",
+        "friendlyName": "Living room lamp,"
+        "friendlyDescription": "A lamp that can be controlled using a smartphone,"
+>>>>>>> parent of 2c4b30d... Merge pull request #448 from leejungho86/Review-Clova-Home-extension-translations:en/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md
         "isReachable": true,
           "actions": [
             "DecrementBrightness",
@@ -84,10 +91,17 @@ IoTサービスを提供する際、ユーザーアカウントに登録され�
       {
         "applianceId": "device-002",
         "manufacturerName": "device-manufacturer-name",
+<<<<<<< HEAD:ja/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md
         "modelName": "スマートコンセント",
         "version": "v1.0",
         "friendlyName": "キッチンのコンセント",
         "friendlyDescription": "節電コンセント",
+=======
+        "modelName": "Smart plug,"
+        "version": "v1.0",
+        "friendlyName": "Kitchen plug,"
+        "friendlyDescription": "An energy-saving plug,"
+>>>>>>> parent of 2c4b30d... Merge pull request #448 from leejungho86/Review-Clova-Home-extension-translations:en/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md
         "isReachable": true,
         "actions": [
           "HealthCheck",
