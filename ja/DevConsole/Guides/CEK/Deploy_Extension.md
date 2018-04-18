@@ -125,6 +125,6 @@ Extensionを審査する際に確認する評価項目は次のとおりです�
 その際、**{{ book.DevConsole.cek_message }}**の**{{ book.DevConsole.cek_view }}**メニューをクリックすると、審査のフィードバックを確認できます。
 
 ![](/DevConsole/Resources/Images/DevConsole-Show_Submission_Feedback.png)
+{% endif %}
 詳細については、別途ご連絡致します。
 
-{% endif %}
