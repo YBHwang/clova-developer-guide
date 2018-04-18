@@ -11,14 +11,14 @@ Extensionの登録は、通常、次の順で行われます。
   <li><a href="#InputExtensionInfo">Extensionの基本情報を入力する</a></li>
   <li><a href="#SetServerConnection">サーバーとの連携を設定する</a>
     <ul>
-      <li><a href="#SetAccountLinking">アカウントリンクを設定する</a></li>
+      <li><a href="#SetAccountLinking">アカウント連携を設定する</a></li>
     </ul>
   </li>
 </ol>
 
 ## 利用規約および個人情報の取得に同意する {#AgreeTermsOfUse}
 
-Extensionを登録するには、先にCEKのAPIサービスの利用規約と個人情報の取得に同意する必要があります。利用規約および個人情報の取得に関する内容は、最初の一度のみ表示され、同意した後は表示されません。
+Extensionを登録するには、先にCEKのAPIサービスの利用規約と個人情報の取得に同意する必要があります。
 
 ![](/DevConsole/Resources/Images/DevConsole-Agree_Terms_of_Use_and_Collecting_Personal_Info.png)
 
@@ -76,16 +76,16 @@ $ curl "https://yourdomain.com/pizzabot" -X POST
     <p>テスト段階ではHTTPも使用できますが、正式なサービスのためにはHTTPSを使用する必要があります。Extensionのサーバーは、HTTPで80ポート、HTTPSで443ポートに設定してください。</p>
   </div>
   </li>
-  <li>Extensionが提供するサービスのアカウントが、Clovaのユーザーアカウントとのリンクを必要とする場合、<strong>{{ book.DevConsole.cek_account_linking }}</strong>項目で<strong>{{ book.DevConsole.cek_yes }}</strong>を選択します。アカウントリンクの詳細については、<a href="#SetAccountLinking">アカウントリンクを設定する</a>を参照してください。</li>
+  <li>Extensionが提供するサービスのアカウントが、Clovaのユーザーアカウントとのリンクを必要とする場合、<strong>{{ book.DevConsole.cek_account_linking }}</strong>項目で<strong>{{ book.DevConsole.cek_yes }}</strong>を選択します。アカウント連携の詳細については、<a href="#SetAccountLinking">アカウント連携を設定する</a>を参照してください。</li>
   <li><strong>{{ book.DevConsole.cek_ssl_certificate }}</strong>項目のボタンをクリックします。Extensionを提供するサーバーは、必ず信頼された認証局から発行された証明書を使用しなければなりません。(自己署名証明書は使用できません)</li>
   <li>サーバーとの連携に関する内容を入力して、<strong>{{ book.DevConsole.cek_save }}</strong>ボタンをクリックします。</li>
 </ol>
 
-### アカウントリンクを設定する {#SetAccountLinking}
+### アカウント連携を設定する {#SetAccountLinking}
 
-Extensionが提供するサービスのアカウントが、Clovaのユーザーアカウントとのリンクを必要とする場合、[サーバーとの連携を設定する](#SetServerConnection)の内、[アカウントリンク](/CEK/Guides/Link_User_Account.md)に関連情報を入力します。
+Extensionが提供するサービスのアカウントが、Clovaのユーザーアカウントとのリンクを必要とする場合、[サーバーとの連携を設定する](#SetServerConnection)の内、[アカウント連携](/CEK/Guides/Link_User_Account.md)に関連情報を入力します。
 
-次の順で、アカウントリンクの設定に[必要な情報](/CEK/Guides/Link_User_Account.md#RegisterAccountLinkingInfo)を入力します。
+次の順で、アカウント連携の設定に[必要な情報](/CEK/Guides/Link_User_Account.md#RegisterAccountLinkingInfo)を入力します。
 
 <ol>
   <img src="/DevConsole/Resources/Images/DevConsole-Extension_Accoun_Linking_Settings_1.png" />
@@ -95,7 +95,7 @@ Extensionが提供するサービスのアカウントが、Clovaのユーザー
   <li>ユーザーアカウント認証を行う際、HTTPSリクエストに必要な<strong>{{ book.DevConsole.cek_client_id }}</strong>を入力します。クライアントIDは、<a href="/CEK/Guides/Link_User_Account.md#BuildAuthServer">認証サーバーを構築</a>する際に生成した値です。</li>
   <li><strong>{{ book.DevConsole.cek_privacy_policy_url }}</strong>項目に、Extensionが提供するサービスのプライバシーポリシーが提供されるURLを入力します。このページの内容は、後ほどストアで表示されます。</li>
   <li><strong>{{ book.DevConsole.cek_authorization_url }}</strong>または<strong>{{ book.DevConsole.cek_privacy_policy_url }}</strong>で提供するページが別のドメインから必要なリソースを読み込む場合、<strong>{{ book.DevConsole.cek_domain_list }}</strong>項目に必要なドメインを追加します。</li>
-  <li>アカウントリンクの際に発行されるアクセストークンのスコープをあらかじめ定義している場合、<strong>{{ book.DevConsole.cek_scope }}</strong>項目に定義したスコープを追加します。</li>
+  <li>アカウント連携の際に発行されるアクセストークンのスコープをあらかじめ定義している場合、<strong>{{ book.DevConsole.cek_scope }}</strong>項目に定義したスコープを追加します。</li>
   <img src="/DevConsole/Resources/Images/DevConsole-Extension_Accoun_Linking_Settings_2.png" />
   <li><strong>{{ book.DevConsole.cek_access_token_uri }}</strong>項目に、サービスのアクセストークンを発行できるURLを入力します。現在、<strong>許可付与タイプは許可コードのみサポート</strong>しています。</li>
   <li><strong>{{ book.DevConsole.cek_refresh_token_uri }}</strong>項目に、サービスのアクセストークンを更新できるURLを入力します。</li>

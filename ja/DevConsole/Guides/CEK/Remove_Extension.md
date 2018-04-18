@@ -1,5 +1,5 @@
 # Extensionを中止および削除する
-
+{% if book.language !== "ja" %}
 審査をリクエストする前のExtensionは、[Extensionの基本情報を入力](/DevConsole/Guides/CEK/Register_Extension.md#InputExtensionInfo)するページで削除できます。
 
 ![](/DevConsole/Resources/Images/DevConsole-Remove_Extension.png)
@@ -19,3 +19,6 @@ Extensionが審査中の場合、審査をキャンセルして、自由にExten
   <p><strong>メモ</strong></p>
   <p>サービスを中止する際には、Clova運営チームの確認が必要です。Extensionを中止するには、<a href="mailto://{{ book.ExtensionAdminEmail }}">{{ book.ExtensionAdminEmail }}</a>まで連絡してください。</p>
 </div>
+
+{% endif %}
+詳細については、別途ご連絡致します。

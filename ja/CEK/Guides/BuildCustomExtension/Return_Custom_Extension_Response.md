@@ -130,7 +130,7 @@
           },
           "referenceText": {
             "type": "string",
-            "value": "NAVER検索結果"
+            "value": "検索結果"
           },
           "referenceUrl": {
             "type": "url",
@@ -178,7 +178,7 @@
           },
           "referenceText": {
             "type": "string",
-            "value": "NAVER検索結果"
+            "value": "検索結果"
           },
           "referenceUrl": {
             "type": "url",

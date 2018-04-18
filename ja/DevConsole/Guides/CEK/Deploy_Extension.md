@@ -3,12 +3,18 @@
 
 Extensionの配布は、通常、次の順で行われます。
 
+<div class="danger">
+ <p><strong>注意</strong></p>
+ <p>プレオープン時には配布することはできません。</p>
+</div>
+
 * [配布情報を入力する](#InputDeploymentInfo)
 * [プライバシーポリシーおよびコンプライアンス情報を入力する](#InputComplianceInfo)
 * [審査をリクエストする](#RequestExtensionSubmission)
 
 ## 配布情報を入力する {#InputDeploymentInfo}
 
+{% if book.language !== "ja" %}
 Clova Developer Centerで[Extensionを登録](/DevConsole/Guides/CEK/Register_Extension.md)し、[対話モデルを作成](/DevConsole/Guides/CEK/Register_Interaction_Model.md)すると、配布情報の入力が可能になります。Extensionのメニュー画面で**{{ book.DevConsole.cek_publishing }}**を選択してください。
 
 ![](/DevConsole/Resources/Images/DevConsole-Deployment_Info_Menu.png)
@@ -40,8 +46,11 @@ Clovaアプリの**{{ book.DevConsole.ManageExtensions }}**メニュー(スキ�
   <p><strong>{{ book.DevConsole.ExtensionPage }}</strong>に表示される一部の情報には、登録されている<a href="/DevConsole/Guides/CEK/Register_Extension.md#InputExtensionInfo">Extensionの基本情報</a>が使用されます。</p>
 </div>
 
-## プライバシーポリシーおよびコンプライアンス情報を入力する {#InputComplianceInfo}
+{% endif %}
+詳細については、別途ご連絡致します。
 
+## プライバシーポリシーおよびコンプライアンス情報を入力する {#InputComplianceInfo}
+{% if book.language !== "ja" %}
 Extensionの配布に必要な情報を入力する最後の段階です。プライバシーポリシーおよびコンプライアンス関連内容を入力します。Extensionの登録メニューで**{{ book.DevConsole.cek_privacy }}**を選択します。
 
 ![](/DevConsole/Resources/Images/DevConsole-Policy_Menu.png)
@@ -60,8 +69,11 @@ Extensionの配布に必要な情報を入力する最後の段階です。プ�
 
 ![](/DevConsole/Resources/Images/DevConsole-Store_UI_Example-Extension_Policy.png)
 
-## 審査をリクエストする {#RequestExtensionSubmission}
+{% endif %}
+詳細については、別途ご連絡致します。
 
+## 審査をリクエストする {#RequestExtensionSubmission}
+{% if book.language !== "ja" %}
 Extensionの[配布情報](#InputDeploymentInfo)と[プライバシーポリシーおよびコンプライアンス情報](#InputComplianceInfo)まで入力すると、登録したExtensionの審査をリクエストできます。Clovaの運営者は、登録されたExtensionの情報、実際の動作確認と適合性などを審査します。
 
 * Extensionが正常に動作し、検討した結果特に異常がない場合、Extensionは審査を通過します。審査を通過すると、直ちに、または好きな時にExtensionを配布できます。
@@ -113,3 +125,6 @@ Extensionを審査する際に確認する評価項目は次のとおりです�
 その際、**{{ book.DevConsole.cek_message }}**の**{{ book.DevConsole.cek_view }}**メニューをクリックすると、審査のフィードバックを確認できます。
 
 ![](/DevConsole/Resources/Images/DevConsole-Show_Submission_Feedback.png)
+詳細については、別途ご連絡致します。
+
+{% endif %}
