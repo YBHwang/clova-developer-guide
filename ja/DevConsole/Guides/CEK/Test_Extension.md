@@ -4,7 +4,6 @@
 
 * (Custom Extension専用)[対話モデルをビルドする](#BuildInteractionModel)
 * (Custom Extension専用)[対話モデルをテストする](#TestInteractionModel)
-* [ClovaアプリでExtensionをテストする](#TestOnClovaApp)
 
 ## 対話モデルをビルドする {#BuildInteractionModel}
 
