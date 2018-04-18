@@ -5,7 +5,7 @@ Extensionを構築するには、サーバーにHTTPを使用してメッセー�
 
 <div class="note">
  <p><strong>Note!</strong></p>
- <p>プレオープン時にはgithub上にコードを公開することができず、以下のreposirotyについては未だご利用いただくことができません。</p>
+ <p>プレオープン時にはgithub上にコードを公開することができず、以下のrepositoryについては未だご利用いただくことができません。</p>
 </div>
 
 Clovaがサービスする「サイコロ遊び」というExtensionは、そのソースコードが公開されています。
