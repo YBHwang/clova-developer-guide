@@ -1,4 +1,5 @@
 # Extensionをアップデートする
+{% if book.language !== "ja" %}
 
 Extensionが審査を通過し、配布が承認されると、そのExtensionは**{{ book.DevConsole.cek_status_prd }}**状態になります。Clova Developer Centerはその際、次のようにExtensionの2つのバージョンを作成します。
 
@@ -18,3 +19,7 @@ Extensionが審査を通過し、配布が承認されると、そのExtension�
 以下の図は、Clova Developer CenterでExtensionがアップデートされる仕組みを示します。
 
 ![](/DevConsole/Resources/Images/DevConsole-Branch_Chart_For_Extension_Update.png)
+
+{% endif %}
+詳細については、別途ご連絡致します。
+
