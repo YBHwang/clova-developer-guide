@@ -56,6 +56,7 @@
 * [サンプルのExtension](/CEK/Examples/Extension_Examples.md)
 * [CEK APIのリファレンス](/CEK/References/CEK_API.md)
   * [HTTPメッセージ](/CEK/References/CEK_API.md#HTTPMessage)
+  * [署名を確認する](/CEK/References/CEK_API.md#Signature)
   * [Custom Extensionのメッセージ](/CEK/References/CEK_API.md#CustomExtMessage)
     * [リクエストメッセージ](/CEK/References/CEK_API.md#CustomExtRequestMessage)
     * [リクエストタイプ](/CEK/References/CEK_API.md#CustomExtRequestType)
