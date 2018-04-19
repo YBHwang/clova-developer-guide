@@ -44,7 +44,7 @@ Extensionの基本情報は、Clova Developer CenterでExtensionを作成する�
   </li>
   <li>Extensionが<a href="/CIC/References/CICInterface/AudioPlayer.md">AudioPlayer</a>ディレクティブを使用する場合、<strong>{{ book.DevConsole.cek_audioplayer }}</strong>項目で<strong>{{ book.DevConsole.cek_yes }}</strong>を選択します。Extensionがオーディオストリーミングサービスを提供する際に使用されます。</li>
   <li><strong>{{ book.DevConsole.cek_email }}</strong>項目に、連絡可能なメールアドレスを入力します。</li>
-  <li><strong>{{ book.DevConsole.cek_tester }}</strong>項目に、Extensionのテストに使用する{{ book.OrientedService }}アカウントを入力します。必須ではなく、後ほど<a href="/DevConsole/Guides/CEK/Test_Extension.md">のExtensionをテスト</a>する際に入力することもできます。</li>
+  <li><strong>{{ book.DevConsole.cek_tester }}</strong>項目に、Extensionのテストに使用する{{ book.OrientedService }}アカウントを入力します。必須ではなく、後ほど<a href="/DevConsole/Guides/CEK/Test_Extension.md">Extensionをテスト</a>する際に入力することもできます。</li>
   <li>Extensionの基本情報をすべて入力して、<strong>{{ book.DevConsole.cek_create }}</strong>ボタンをクリックします。</li>
 </ol>
 
