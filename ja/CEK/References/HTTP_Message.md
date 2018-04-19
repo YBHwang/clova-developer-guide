@@ -42,11 +42,11 @@ HTTPSリクエストメッセージとレスポンスメッセージのボディ
 [HTTPヘッダー](#HTTPHeader)には、リクエストの署名を確認するための2つのパラメータが含まれています。
 
 <ol>
-    <li><code>SignatureCEKCertChainUrl</code>のホスト名が<code>line.me</code>であり、httpsから始まるURLであることを確認してください。もし、正しくないURLである場合、リクエストを拒否して下さい。
+    <li><code>SignatureCEKCertChainUrl</code>のホスト名が<code>clova-cek-requests.line.me</code>であり、httpsから始まるURLであることを確認してください。もし、正しくないURLである場合、リクエストを拒否して下さい。
         <p>例) https://clova-cek-requests.line.me/cek/request-cert.crt</p>
     </li>
     <li>ClovaのPEMエンコード済みのX.509証明書チェーンを<code>SignatureCEKCertChainUrl</code>に指定されたURLからダウンロードしてください。</li>
-    <li>ダウンロードした証明書のSubject Alternaive Names(SAN)セクションに<code>line.me</code>ドメインが有ることを確認して下さい。</li>
+    <li>ダウンロードした証明書のSubject Alternaive Names(SAN)セクションに<code>clova-cek-requests.line.me</code>ドメインが有ることを確認して下さい。</li>
     <li>信頼できるルート証明書によって全てのチェーンが作られていることを確認してください。</li>
     <li>ダウンロードした証明書の期限が有効期限内であることを確認してください。</li>
     <li>ここまでの確認に問題が無ければ、公開鍵を証明書から取得して下さい</li>
