@@ -8,7 +8,8 @@ CEKメニューでは、次の作業を行うことができます。
 
 * [Extensionを登録する](/DevConsole/Guides/CEK/Register_Extension.md)
 * [対話モデルを登録する](/DevConsole/Guides/CEK/Register_Interaction_Model.md)
-* [Extensionをテストする](/DevConsole/Guides/CEK/Test_Extension.md)
+* [対話モデルをテストする](/DevConsole/Guides/CEK/Test_Extension.md)
+* [Clovaデバイスでテストする](/DevConsole/Guides/CEK/Device_Test_Extension.md)
 * [Extensionを配布する](/DevConsole/Guides/CEK/Deploy_Extension.md)
 * [Extensionをアップデートする](/DevConsole/Guides/CEK/Update_Extension.md)
 * [Extensionを中止および削除する](/DevConsole/Guides/CEK/Remove_Extension.md)
