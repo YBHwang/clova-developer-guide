@@ -81,6 +81,7 @@
       "cek_builder_test_request_test": "テスト",
       "cek_builder_test_result_title": "テスト結果",
       "cek_builder_test_user_expression": "サンプル発話",
+      "cek_device_test": "発話履歴",
       "cek_invocation_name": "呼び出し名",
       "cek_builder_new_extension_create": "新規のExtensionを作成",
       "cek_id": "Extension ID",
