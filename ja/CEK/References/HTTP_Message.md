@@ -11,7 +11,7 @@ Host: your.extension.endpoint
 Content-Type: application/json;charset-UTF-8
 Accept: application/json
 Accept-Charset: utf-8
-SignatureCEK: SIGNATURE
+SignatureCEK: SIGNATURE_CEK
 SignatureCEKCertChainUrl: SIGNATURE_CEK_CER_CHAIN_URL
 ```
 {% endraw %}
@@ -50,6 +50,6 @@ HTTPSリクエストメッセージとレスポンスメッセージのボディ
     <li>信頼できるルート証明書によって全てのチェーンが作られていることを確認してください。</li>
     <li>ダウンロードした証明書の期限が有効期限内であることを確認してください。</li>
     <li>ここまでの確認に問題が無ければ、公開鍵を証明書から取得して下さい</li>
-    <li><code>Signature</code>をBase64でデコードしてください。</li>
-    <li>証明書から取得した公開鍵を使って<code>Signature</code>を復号化し、HTTPSリクエストボディのSHA-1値と一致することを確認して下さい。</li>
+    <li><code>SignatureCEK</code>をBase64でデコードしてください。</li>
+    <li>証明書から取得した公開鍵を使って<code>SignatureCEK</code>を復号化し、HTTPSリクエストボディのSHA-1値と一致することを確認して下さい。</li>
 </ol>
