@@ -390,7 +390,7 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 |----------------|--------------|--------------------------------------------------------------------|:-----:|
 | `lang`           | string       | 音声を合成する際に使用する言語のコード。現在、次の値を持ちます。<ul><li><code>"en"</code>：英語</li><li><code>"ja"</code>：日本語</li><li><code>"ko"</code>：韓国語</li><li><code>""</code>：<code>type</code>フィールドの値が<code>"URL"</code>の場合、このフィールドは空の文字列(empty string)を持ちます。</li></ul>         |  |
 | `type`           | string       | 再生する音声のタイプ。このフィールドの値によって、`value`フィールドの値の形式が異なります。現在、次の値を持ちます。<ul><li><code>"PlainText"</code>：テキスト</li><li><code>"URL"</code>：音声および音楽を再生できるファイルのURI</li></ul>            |  |
-| `value`          | string       | 音声を合成する内容または音声ファイルのURI                                    |  |
+| `value`          | string       | 音声を合成する内容または音声ファイルのURI<ul><li>音声ファイル：ファイル形式については、<a href="/Design/Design_Guideline_For_Extension.md#SupportedAudioCompressionFormat">プラットフォームでサポートされるオーディオ圧縮形式</a>を参照してください。</li></ul>                               |  |
 
 #### Message example
 {% raw %}
