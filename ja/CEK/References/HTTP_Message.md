@@ -12,7 +12,7 @@ Content-Type: application/json;charset-UTF-8
 Accept: application/json
 Accept-Charset: utf-8
 SignatureCEK: SIGNATURE_CEK
-SignatureCEKCertChainUrl: SIGNATURE_CEK_CER_CHAIN_URL
+SignatureCEKCertChainUrl: SIGNATURE_CEK_CERT_CHAIN_URL
 ```
 {% endraw %}
 
