@@ -168,6 +168,8 @@ Extensionの設計は、まず最初にExtensionの目標を設定すること�
 | CLOVA.MONEY          | 数字+通貨単位を提供します。(例:"四千円"、"1ドル") |
 | CLOVA.CURRENCY       | 通貨単位を提供します。(例:"円"、"ドル") |
 | CLOVA.OFFICIALDATE   | 公休日を提供します。(例:"元日"、"成人の日") |
+| CLOVA.DATETIME       | 日付や時刻表現を提供します。(例:"午前9時20分"、"正午"、"2017年8月4日")|
+| CLOVA.DURATION       | 期間の表現を提供します。 (例:"10分間"、"1時間")|
 
 #### カスタムスロットタイプ {#CustomSlotType}
 
