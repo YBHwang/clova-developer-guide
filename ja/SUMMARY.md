@@ -66,6 +66,9 @@
 
 * [Clova Developer Centerの概要](/DevConsole/ClovaDevConsole_Overview.md)
 * [CEKメニューを使用する](/DevConsole/Guides/CEK/Using_CEK_Menu.md)
+  * [チャネルを作成する](/DevConsole/Guides/CEK/Create_Channel.md)
+    * [LINE Developersコンソールにログインする](/DevConsole/Guides/CEK/Create_Channel.md#LoginClovaDevCenter)
+    * [Clova Developer Center βにログインする](/DevConsole/Guides/CEK/Create_Channel.md#CreateSkillChannel)
   * [Extensionを登録する](/DevConsole/Guides/CEK/Register_Extension.md)
     * [利用規約および個人情報の取得に同意する](/DevConsole/Guides/CEK/Register_Extension.md#AgreeTermsOfUse)
     * [Extensionの基本情報を入力する](/DevConsole/Guides/CEK/Register_Extension.md#InputExtensionInfo)
