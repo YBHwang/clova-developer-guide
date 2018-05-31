@@ -10,6 +10,8 @@
 * [Extensionのデザインガイドライン](/Design/Design_Guideline_For_Extension.md)
   * [目標を設定する](/Design/Design_Guideline_For_Extension.md#SettingGoal)
   * [ユーザーシナリオスクリプトを作成する](/Design/Design_Guideline_For_Extension.md#MakeUseCaseScenarioScript)
+  * [呼び出し名を定義する](/Design/Design_Guideline_For_Extension.md#DefineInvocationName)
+      * [呼び出し名の要件](/Design/Design_Guideline_For_Extension.md#InvocationNameRequirement)
   * [対話モデルを定義する](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel)
     * [インテント(Intent)](/Design/Design_Guideline_For_Extension.md#Intent)
       * [カスタムインテント](/Design/Design_Guideline_For_Extension.md#CustomIntent)
