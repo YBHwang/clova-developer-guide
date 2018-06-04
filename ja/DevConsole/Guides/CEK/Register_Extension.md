@@ -38,7 +38,7 @@ Extensionの基本情報は、Clova Developer CenterでExtensionを作成する�
     <ol>
       <li><strong>{{ book.DevConsole.cek_id }}</strong>：Extensionの一意のIDです。リバースドメインネームの形式で入力します。(例：com.yourdomain.Extension.pizzabot)</li>
       <li><strong>{{ book.DevConsole.cek_name }}</strong>：Extensionの名前です。今後スキルストアで表示されます。</li>
-      <li><strong>{{ book.DevConsole.cek_invocation_name }}</strong>：ユーザーがExtensionを呼び出す際に呼ぶ名前です。保有しているサービス、会社および組織の名前を使用できますが、ユーザーにとって呼びやすい、シンプルで独特な言葉を指定することをお勧めします。一般的に使われている言葉、他社の名前やサービスに該当する言葉は使用できません。<strong>{{ book.DevConsole.cek_invocation_name }}</strong>は、Extensionを審査する際にチェックされます。</li>
+      <li><strong>{{ book.DevConsole.cek_invocation_name }}</strong>：ユーザーがExtensionを呼び出す際に呼ぶ名前です。保有しているサービス、会社および組織の名前を使用できますが、ユーザーにとって呼びやすい、シンプルな言葉を指定することをお勧めします。汎用的な言葉、他社の名前やサービスに該当する言葉は使用できません。<strong>{{ book.DevConsole.cek_invocation_name }}</strong>は、Extensionを審査する際にチェックされます。なお、<strong>{{ book.DevConsole.cek_invocation_name }}</strong>は音声認識結果によって表記が揺らぐ可能性があります。Extensionを正しく呼び出すために、必須項目の「呼び出し名（メイン）」のほか、追加で2つの「呼び出し名（サブ）」を設定することができます。</li>
       <li><strong>{{ book.DevConsole.cek_provider }}</strong>：Extensionを作成した主体(会社や個人)の名前、またはニックネームを入力します。後ほどスキルストアで表示され、Extensionを審査する際にチェックされます。</li>
     </ol>
   </li>
