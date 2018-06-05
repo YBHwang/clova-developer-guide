@@ -4,7 +4,7 @@ Extensionを構築するには、サーバーにHTTPを使用してメッセー�
 ここでは、できるだけ短時間でExtensionを作成してみるために、直接サーバーを構築せず、すでに作成されたExtensionをを使用します。
 
 <div class="note">
- <p><strong>Note!</strong></p>
+ <p><strong>メモ</strong></p>
  <p>プレオープン時にはgithub上にコードを公開することができず、以下のrepositoryについては未だご利用いただくことができません。</p>
 </div>
 

@@ -11,6 +11,7 @@ Clova Developer Centerは、Clovaプラットフォームと連携するデバ�
 Clova Developer Centerは、CEKメニューを提供します。それぞれのメニューで、次の作業を行えます。
 
 * [CEKメニュー](/DevConsole/Guides/CEK/Using_CEK_Menu.md)
+  * [チャネルを作成する](/DevConsole/Guides/CEK/Create_Channel.md)
   * [Extensionを登録する](/DevConsole/Guides/CEK/Register_Extension.md)
   * [対話モデルを登録する](/DevConsole/Guides/CEK/Register_Interaction_Model.md)
   * [対話モデルをテストする](/DevConsole/Guides/CEK/Test_Extension.md)

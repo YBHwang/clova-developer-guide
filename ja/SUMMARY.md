@@ -10,6 +10,8 @@
 * [Extensionのデザインガイドライン](/Design/Design_Guideline_For_Extension.md)
   * [目標を設定する](/Design/Design_Guideline_For_Extension.md#SettingGoal)
   * [ユーザーシナリオスクリプトを作成する](/Design/Design_Guideline_For_Extension.md#MakeUseCaseScenarioScript)
+  * [スキル名/呼び出し名を定義する](/Design/Design_Guideline_For_Extension.md#DefineInvocationName)
+      * [スキル名/呼び出し名の要件](/Design/Design_Guideline_For_Extension.md#InvocationNameRequirement)
   * [対話モデルを定義する](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel)
     * [インテント(Intent)](/Design/Design_Guideline_For_Extension.md#Intent)
       * [カスタムインテント](/Design/Design_Guideline_For_Extension.md#CustomIntent)
@@ -66,6 +68,9 @@
 
 * [Clova Developer Centerの概要](/DevConsole/ClovaDevConsole_Overview.md)
 * [CEKメニューを使用する](/DevConsole/Guides/CEK/Using_CEK_Menu.md)
+  * [チャネルを作成する](/DevConsole/Guides/CEK/Create_Channel.md)
+    * [LINE Developersコンソールにログインする](/DevConsole/Guides/CEK/Create_Channel.md#LoginClovaDevCenter)
+    * [Clova Developer Center βにログインする](/DevConsole/Guides/CEK/Create_Channel.md#CreateSkillChannel)
   * [Extensionを登録する](/DevConsole/Guides/CEK/Register_Extension.md)
     * [利用規約および個人情報の取得に同意する](/DevConsole/Guides/CEK/Register_Extension.md#AgreeTermsOfUse)
     * [Extensionの基本情報を入力する](/DevConsole/Guides/CEK/Register_Extension.md#InputExtensionInfo)

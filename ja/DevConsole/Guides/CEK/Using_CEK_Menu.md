@@ -6,6 +6,7 @@ Clova Developer CenterのCEKメニューは、Extensionを登録および配布�
 
 CEKメニューでは、次の作業を行うことができます。
 
+* [チャネルを作成する](/DevConsole/Guides/CEK/Create_Channel.md)
 * [Extensionを登録する](/DevConsole/Guides/CEK/Register_Extension.md)
 * [対話モデルを登録する](/DevConsole/Guides/CEK/Register_Interaction_Model.md)
 * [対話モデルをテストする](/DevConsole/Guides/CEK/Test_Extension.md)

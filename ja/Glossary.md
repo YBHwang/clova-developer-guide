@@ -90,3 +90,6 @@ Clova Extensionが処理するユーザーの意図を区分したカテゴリ�
 
 ### セッションID {#SessionID}
 [Extension](#ClovaExtension)がユーザーリクエストのコンテクストを区分するためのセッション識別子です。通常、一回性のユーザーリクエストはそのたびにセッションIDが変わりますが、特定のモードや連続的な(マルチターン)ユーザーリクエストの場合、同じセッションIDを持ちます。このセッションIDは、[Clova Extensions Kit](#CEK)がExtensionにユーザーのリクエストを渡すとき生成されます。セッションIDが維持されるのは、[LaunchRequest](#LaunchRequest)のようなリクエストを受け取ったか、またはExtensionが必要に応じて`response.shouldEndSession`フィールドを`false`に設定した場合です。詳細については、[Custom Extensionを作成する](/CEK/Guides/Build_Custom_Extension.md)ドキュメントを参照してください。
+
+## ビルトインスキル {#BuiltinSkill}
+Clovaデバイスに標準で搭載されているスキルで、ミュージック、LINE送受信、LINE無料通話、天気、ニュース、アラーム・タイマーなどがあります。詳細については、[Clova > Clovaのスキル](https://clova.line.me/clova-ai/) をご参照ください。
