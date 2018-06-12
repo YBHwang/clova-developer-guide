@@ -13,7 +13,7 @@ Extensionが審査中の場合、審査をキャンセルして、自由にExten
 
 ![](/DevConsole/Resources/Images/DevConsole-Cancel_Submission.png)
 
-もし、Extensionが審査を通過し、サービスが開始されている場合には、サービスを一度中止の状態にする事で削除できるようになります。サービスを中止すると、Extensionは**{{ book.DevConsole.cek_status_dev }}**状態に戻ります。
+もし、Extensionが審査を通過し、サービスが開始されている場合には、サービスを一度中止の状態にすることで削除できるようになります。サービスを中止すると、Extensionは**{{ book.DevConsole.cek_status_dev }}**状態に戻ります。
 
 <div class="note">
   <p><strong>メモ</strong></p>
