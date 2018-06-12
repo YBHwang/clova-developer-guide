@@ -1,6 +1,6 @@
 # Extensionを登録する
 
-[Custom Extension](/CEK/Guides/Build_Custom_Extension.md)または[Clova Home Extension](/CEK/Guides/Build_Clova_Home_Extension.md)を開発しているか、または開発済みの場合、そのExtensionをClova Developer Centerに登録する必要があります。CEKのメニューページで、ページの下にある**新規のExtensionを作成**ボタンをクリックすると、新規のExtensionを登録できます。
+[Custom Extension](/CEK/Guides/Build_Custom_Extension.md)または[Clova Home Extension](/CEK/Guides/Build_Clova_Home_Extension.md)を開発しているか、または開発済みの場合、そのExtensionをClova Developer Centerに登録する必要があります。CEKのメニューページで、ページの下にある **新規のExtensionを作成** ボタンをクリックすると、新規のExtensionを登録できます。
 
 ![](/DevConsole/Resources/Images/DevConsole-First_Look_of_Extension_List.png)
 
@@ -45,10 +45,10 @@ Extensionの基本情報は、Clova Developer CenterでExtensionを作成する�
   <li>Extensionが<a href="/CIC/References/CICInterface/AudioPlayer.md">AudioPlayer</a>ディレクティブを使用する場合、<strong>{{ book.DevConsole.cek_audioplayer }}</strong>項目で<strong>{{ book.DevConsole.cek_yes }}</strong>を選択します。Extensionがオーディオストリーミングサービスを提供する際に使用されます。</li>
   <li><strong>{{ book.DevConsole.cek_email }}</strong>項目に、連絡可能なメールアドレスを入力します。</li>
   <li><strong>{{ book.DevConsole.cek_tester }}</strong>項目に、Extensionのテストに使用する{{ book.OrientedService }}アカウントを入力します。必須ではなく、後ほど<a href="/DevConsole/Guides/CEK/Test_Extension.md">Extensionをテスト</a>する際に入力することもできます。</li>
-  <li>Extensionの基本情報をすべて入力して、<strong>{{ book.DevConsole.cek_create }}</strong>ボタンをクリックします。</li>
+  <li>Extensionの基本情報をすべて入力したら、<strong>{{ book.DevConsole.cek_create }}</strong>ボタンをクリックします。</li>
 </ol>
 
-Extensionの基本情報をすべて入力すると、作成されたExtensionの情報を修正する画面に切り替わります。ページの下にある**{{ book.DevConsole.cek_save }}**ボタンをクリックして、入力中の内容を自由に保存できます。また、CEKのメニューで、登録されたExtensionのリストを確認することもできます。
+Extensionの基本情報をすべて入力すると、作成されたExtensionの情報を修正する画面に切り替わります。ページの下にある **{{ book.DevConsole.cek_save }}** ボタンをクリックして、入力中の内容を自由に保存できます。また、CEKのメニューで、登録されたExtensionのリストを確認することもできます。
 
 ![](/DevConsole/Resources/Images/DevConsole-Extension_List_After_Creation.png)
 
