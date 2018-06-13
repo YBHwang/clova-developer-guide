@@ -22,7 +22,7 @@
     "RedirectURLforAccountLinking": "https://prod-ni-cic.clova.ai/v1/al/token/",
     "ReleaseYear": "2018",
     "DevConsole": {
-      "ManageExtensions": "Extension list",
+      "ManageExtensions": "スキルストア",
       "ExtensionPage": "Extensionページ",
       "StoreHome": "スキルストアホーム",
       "cek_builder_header_title_dashboard": "ダッシュボード",
@@ -47,7 +47,7 @@
       "cek_no": "いいえ",
       "cek_child_directed": "未成年者が利用できますか",
       "cek_terms_of_use": "利用規約のURL",
-      "cek_request_submit": "審査申請",
+      "cek_request_submit": "審査をリクエスト",
       "cek_cancel_review": "審査をキャンセル",
       "cek_test_instructions": "審査担当者へのコメント",
       "cek_status": "状態",
