@@ -7,7 +7,7 @@
 
 ## 対話モデルをビルドする {#BuildInteractionModel}
 
-Custom Extensionを配布する場合、先に[対話モデルを登録](/DevConsole/Guides/CEK/Register_Interaction_Model.md)しておく必要があります。また、対話モデルの[テスト](#TestInteractionModel)や実行には、ビルドが必要です。作成した対話モデルは次のようにビルドする事ができます。
+Custom Extensionを配布する場合、先に[対話モデルを登録](/DevConsole/Guides/CEK/Register_Interaction_Model.md)しておく必要があります。また、対話モデルの[テスト](#TestInteractionModel)や実行には、ビルドが必要です。作成した対話モデルは次のようにビルドすることができます。
 
 <ol>
   <li>登録したExtensionのリストから、ビルドする対話モデルの<strong>{{ book.DevConsole.cek_edit }}</strong>メニューをクリックします。</li>
