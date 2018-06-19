@@ -7,6 +7,7 @@
 * [목표 수립](#SettingGoal)
 * [사용 시나리오 스크립트 작성](#MakeUseCaseScenarioScript)
 * [Interaction 모델 정의](#DefineInteractionModel)
+* [응답 유형 결정](#DecideSoundOutputType)
 * [유의사항](#Precautions)
 * [플랫폼 지원 오디오 압축 포맷](#SupportedAudioCompressionFormat)
 * [지속적인 업데이트](#ContinuousUpdate)
@@ -333,6 +334,20 @@ BBQ 피자 하나만 배달시켜줄래?
 ```
 
 {% endraw %}
+
+## 응답 유형 결정 {#DecideSoundOutputType}
+
+Extension은 사용자의 요청을 처리한 후 그 결과를 Clova를 통해 사용자에게 전달해야 합니다. Clova는 기본적으로 사용자와 대화할 때 소리를 이용하며, 요청을 받을 때 뿐만 아니라 사용자에게 응답할 때도 소리를 이용합니다. Clova는 소리를 이용한 응답 유형으로 다음과 같은 유형을 제공합니다. Extension은 사용자의 사용 시나리오에 따라 그에 맞는 유형으로 응답을 제공해야 합니다.
+
+* [음성 출력 유형](#OutpuSpeech)
+* [오디오 콘텐츠 재생 유형](#AudioPlayer)
+
+### 음성 출력 유형 {OutpuSpeech}
+
+문자로 표현된 정보를 음성 합성 기술을 이용해 가공된 목소리로 음성을 출력하는 유형입니다. 사용자의 질문이나 요청에 대답하는 형태의 시나리오에서 많이 사용되며, 짧은 효과음과 함께 음성을 제공할 수도 있습니다.
+
+
+### 오디오 콘텐츠 재생 유형 {AudioPlayer}
 
 ## 유의사항 {#Precautions}
 
