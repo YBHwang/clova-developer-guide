@@ -282,18 +282,33 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
 #### EventRequest {#CustomExtEventRequest}
 `EventRequest` 타입은 클라이언트의 상태 변화나 그와 관련된 부수적인 요청을 extension에 전달해야 할 때 사용되는 요청 타입입니다. CEK는 `EventRequest` 요청 타입을 사용하여 사용자가 특정 skill을 활성 또는 비활성화한 결과나 클라이언트의 오디오 재생 상태를 extension에게 보고합니다. 또는 오디오 재생 관련 부가 정보를 extension에게 요청하기도 합니다. Extension 개발자는 skill의 활성/비활성화, 오디오 재생 상태 보고 또는 부가 정보 요청에 상응하는 작업 처리를 수행하고 결과를 응답해야 합니다.
 
-현재 `EventRequest` 요청 타입을 사용하여 오디오 재생 관련된 정보를 extension으로 전달할 때 다음과 같은 [CIC API](/CIC/References/CIC_API.md)의 [이벤트 메시지](/CIC/References/CIC_API.md#Event)를 이용합니다.
+{% if book.TargetCountryCode == "KR" %}
+현재 `EventRequest` 요청 타입을 사용하여 오디오 재생 상태 보고나 부가 정보 요청 정보를 extension으로 전달할 때 다음과 같은 [CIC API](/CIC/References/CIC_API.md)의 [이벤트 메시지](/CIC/References/CIC_API.md#Event)를 이용합니다.
 
 * [`AudioPlayer.PlayFinished`](/CIC/References/CICInterface/AudioPlayer.md#PlayFinished)
 * [`AudioPlayer.PlayPaused`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)
-* [`AudioPlayer.PlayResumed`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)
-* [`AudioPlayer.PlayStarted`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)
-* [`AudioPlayer.PlayStopped`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)
-* [`AudioPlayer.ProgressReportDelayPassed`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)
-* [`AudioPlayer.ProgressReportIntervalPassed`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)
-* [`AudioPlayer.ProgressReportPositionPassed`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)
-* [`AudioPlayer.StreamRequested`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)
-* [`TemplateRuntime.RequestPlayerInfo`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)
+* [`AudioPlayer.PlayResumed`](/CIC/References/CICInterface/AudioPlayer.md#PlayResumed)
+* [`AudioPlayer.PlayStarted`](/CIC/References/CICInterface/AudioPlayer.md#PlayStarted)
+* [`AudioPlayer.PlayStopped`](/CIC/References/CICInterface/AudioPlayer.md#PlayStopped)
+* [`AudioPlayer.ProgressReportDelayPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportDelayPassed)
+* [`AudioPlayer.ProgressReportIntervalPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportIntervalPassed)
+* [`AudioPlayer.ProgressReportPositionPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportPositionPassed)
+* [`AudioPlayer.StreamRequested`](/CIC/References/CICInterface/AudioPlayer.md#StreamRequested)
+* [`TemplateRuntime.RequestPlayerInfo`](/CIC/References/CICInterface/AudioPlayer.md#RequestPlayerInfo)
+{% elif book.TargetCountryCode == "JP" %}
+`EventRequest` 요청 타입을 사용하여 오디오 재생 상태 보고나 부가 정보 요청 정보를 extension으로 전달할 때 다음과 같은 [CIC API](CICAPIforEventRequest)를 이용합니다.
+
+* [`AudioPlayer.PlayFinished`](#PlayFinished)
+* [`AudioPlayer.PlayPaused`](#PlayPaused)
+* [`AudioPlayer.PlayResumed`](#PlayResumed)
+* [`AudioPlayer.PlayStarted`](#PlayStarted)
+* [`AudioPlayer.PlayStopped`](#PlayStopped)
+* [`AudioPlayer.ProgressReportDelayPassed`](#ProgressReportDelayPassed)
+* [`AudioPlayer.ProgressReportIntervalPassed`](#ProgressReportIntervalPassed)
+* [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
+* [`AudioPlayer.StreamRequested`](#StreamRequested)
+* [`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo)
+{% endif }
 
 `EventRequest` 타입 메시지의 `request` 객체 필드 구성은 다음과 같습니다.
 
@@ -315,9 +330,9 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
 | 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
 |---------------|---------|-----------------------------|:---------:|
 | `event`           | object  | 클라이언트가 Clova로 전달한 정보가 저장된 객체                                       | 항상   |
-| `event.name`      | string  | 클라이언트가 Clova로 전달한 [이벤트 메시지](/CIC/References/CIC_API.md#Event)의 이름이나 skill 활성/비활성 동작을 구분하는 이름. Skill 활성/비활성 동작을 구분하는 이름은 `SkillEnabled` 또는 `SkillDisabled`를 가집니다.      | 항상   |
-| `event.namespace` | string  | 클라이언트가 Clova로 전달한 [이벤트 메시지](/CIC/References/CIC_API.md#Event)의 네임스페이스이나 skill 활성/비활성 동작을 구분하는 네임스페이스. Skill 활성/비활성 동작을 구분하는 네임스페이스는 `ClovaSkill`로 고정됩니다.  | 항상  |
-| `event.payload`   | object  | 클라이언트가 Clova로 전달한 [이벤트 메시지](/CIC/References/CIC_API.md#Event)의 `payload`나 `payload`의 일부 정보. 일부 이벤트 메시지나 skill 활성/비활성 동작을 구분하기 위한 `EventRequest` 요청 타입은 `payload`가 빈 객체일 수 있습니다.   | 항상  |
+| `event.name`      | string  | 클라이언트가 Clova로 전달한 이벤트 메시지의 이름이나 skill 활성/비활성 동작을 구분하는 이름. Skill 활성/비활성 동작을 구분하는 이름은 `SkillEnabled` 또는 `SkillDisabled`를 가집니다.      | 항상   |
+| `event.namespace` | string  | 클라이언트가 Clova로 전달한 이벤트 메시지의 네임스페이스이나 skill 활성/비활성 동작을 구분하는 네임스페이스. Skill 활성/비활성 동작을 구분하는 네임스페이스는 `ClovaSkill`로 고정됩니다.  | 항상  |
+| `event.payload`   | object  | 클라이언트가 Clova로 전달한 이벤트 메시지의 `payload`나 `payload`의 일부 정보. 일부 이벤트 메시지나 skill 활성/비활성 동작을 구분하기 위한 `EventRequest` 요청 타입은 `payload`가 빈 객체일 수 있습니다.   | 항상  |
 | `requestId`       | string  | 클라이언트가 Clova로 정보를 전달할 때 생성된 대화 ID(`event.header.dialogRequestId`)    | 항상   |
 | `timestamp`       | string  | 클라이언트가 Clova로 정보를 전달한 시간(Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).<div class="note"><p><strong>Note!</strong></p><p>CEK는 <code>EventRequest</code> 타입 요청 간의 순서를 보장하지 않기 때문에 이 필드 값을 활용하여 클라이언트의 요청의 순서를 파악할 수 있습니다.</p></div>                    |   |
 | `type`            | string  | 요청 메시지의 타입. `"EventRequest"` 값으로 고정됩니다.         | 항상 |
@@ -690,3 +705,481 @@ SpeechInfoObject 객체는 응답 메시지의 `response.outputSpeech`에서 재
 #### See also
 * [Custom extension 응답 반환하기](/CEK/Guides/Build_Custom_Extension.md#ReturnCustomExtensionResponse)
 * [Content template](/CIC/References/Content_Templates.md)
+
+{% if book.TargetCountryCode == "JP" %}
+## 부록. EventRequest 관련 CIC API {#CICAPIforEventRequest}
+
+CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 받는 메시지 규격입니다. CEK는 클라이언트가 Clova에게 전달한 CIC API 메시지를 [`EventRequest`](#CustomExtEventRequest) 타입 메시지의 `event` 필드에 그대로 채워 보냅니다. 따라서, `EventRequest` 타입 메시지에 포함된 필드 값의 의미를 알아야 합니다. `EventRequest` 타입 메시지에 관련된 CIC API는 다음과 같습니다.
+
+* [`AudioPlayer.PlayFinished`](#PlayFinished)
+* [`AudioPlayer.PlayPaused`](#PlayPaused)
+* [`AudioPlayer.PlayResumed`](#PlayResumed)
+* [`AudioPlayer.PlayStarted`](#PlayStarted)
+* [`AudioPlayer.PlayStopped`](#PlayStopped)
+* [`AudioPlayer.ProgressReportDelayPassed`](#ProgressReportDelayPassed)
+* [`AudioPlayer.ProgressReportIntervalPassed`](#ProgressReportIntervalPassed)
+* [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
+* [`AudioPlayer.StreamRequested`](#StreamRequested)
+* [`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo)
+
+### AudioPlayer.PlayFinished event {#PlayFinished}
+클라이언트가 오디오 스트림 재생을 완료할 때 재생 완료된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다.
+
+#### Payload fields
+
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `token`                | string | 오디오 스트림 token    | 필수 |
+| `offsetInMilliseconds` | number | 현재 클라이언트가 재생하고 있는 음원의 재생 시점. 단위는 밀리 초입니다.                         | 필수  |
+
+#### Message example
+{% raw %}
+
+```json
+{
+  "context": [
+    ...
+  ],
+  "event": {
+    "header": {
+      "namespace": "AudioPlayer",
+      "name": "PlayFinished",
+      "messageId": "4e4080d6-c440-498a-bb73-ae86c6312806"
+    },
+    "payload": {
+      "token": "TR-NM-4435786",
+      "offsetInMilliseconds": 183000
+    }
+  }
+}
+```
+
+{% endraw %}
+
+#### See also
+* [`AudioPlayer.PlayStarted`](#PlayStarted)
+* [`AudioPlayer.PlayStopped`](#PlayStopped)
+
+### AudioPlayer.PlayPaused event {#PlayPaused}
+클라이언트가 오디오 스트림 재생을 일시 정지할 때 일시 정지된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다.
+
+#### Payload fields
+
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `token`                | string | 오디오 스트림 token | 필수 |
+| `offsetInMilliseconds` | number | 현재 클라이언트가 재생하고 있는 음원의 재생 시점. 단위는 밀리 초입니다.                         | 필수  |
+
+#### Message example
+{% raw %}
+
+```json
+{
+  "context": [
+    ...
+  ],
+  "event": {
+    "header": {
+      "namespace": "AudioPlayer",
+      "name": "PlayPaused",
+      "messageId": "4e4080d6-c440-498a-bb73-ae86c6312806"
+    },
+    "payload": {
+      "token": "TR-NM-4435786",
+      "offsetInMilliseconds": 83100
+    }
+  }
+}
+```
+
+{% endraw %}
+
+#### See also
+* [`AudioPlayer.PlayResumed`](#PlayResumed)
+
+### AudioPlayer.PlayResumed event {#PlayResumed}
+
+클라이언트가 오디오 스트림 재생을 재개할 때 재개된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다.
+
+#### Payload fields
+
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `token`                | string | 오디오 스트림 token | 필수 |
+| `offsetInMilliseconds` | number | 현재 클라이언트가 재생하고 있는 음원의 재생 시점. 단위는 밀리 초입니다.                         | 필수  |
+
+#### Message example
+{% raw %}
+
+```json
+{
+  "context": [
+    {{Alerts.AlertsState}},
+    {{AudioPlayer.PlayerState}},
+    {{Device.DeviceState}},
+    {{Device.Display}},
+    {{Clova.Location}},
+    {{Clova.SavedPlace}},
+    {{Speaker.VolumeState}},
+    {{SpeechSynthesizer.SpeechState}}
+  ],
+  "event": {
+    "header": {
+      "namespace": "AudioPlayer",
+      "name": "PlayResumed",
+      "messageId": "4e4080d6-c440-498a-bb73-ae86c6312806"
+    },
+    "payload": {
+      "token": "TR-NM-4435786",
+      "offsetInMilliseconds": 83100
+    }
+  }
+}
+```
+
+{% endraw %}
+
+#### See also
+* [`AudioPlayer.PlayPaused`](#PlayPaused)
+
+### AudioPlayer.PlayStarted event {#PlayStarted}
+클라이언트가 오디오 스트림 재생을 시작할 때 재생이 시작된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다.
+
+#### Payload fields
+
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `token`                | string | 오디오 스트림 token | 필수 |
+| `offsetInMilliseconds` | number | 현재 클라이언트가 재생하고 있는 음원의 재생 시점. 단위는 밀리 초입니다.                         | 필수  |
+
+#### Message example
+{% raw %}
+
+```json
+{
+  "context": [
+    ...
+  ],
+  "event": {
+    "header": {
+      "namespace": "AudioPlayer",
+      "name": "PlayStarted",
+      "messageId": "4e4080d6-c440-498a-bb73-ae86c6312806"
+    },
+    "payload": {
+      "token": "TR-NM-4435786",
+      "offsetInMilliseconds": 0
+    }
+  }
+}
+```
+
+{% endraw %}
+
+#### See also
+* [`AudioPlayer.PlayStopped`](#PlayStopped)
+
+### AudioPlayer.PlayStopped event {#PlayStopped}
+클라이언트가 오디오 스트림 재생을 중지할 때 재생이 중지된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다.
+
+#### Payload fields
+
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `token`                | string | 오디오 스트림 token | 필수 |
+| `offsetInMilliseconds` | number | 현재 재생하고 있는 음원의 재생 시점. 단위는 밀리 초입니다.                         | 필수  |
+
+#### Message example
+{% raw %}
+
+```json
+{
+  "context": [
+    ...
+  ],
+  "event": {
+    "header": {
+      "namespace": "AudioPlayer",
+      "name": "PlayStopped",
+      "messageId": "4e4080d6-c440-498a-bb73-ae86c6312806"
+    },
+    "payload": {
+      "token": "TR-NM-4435786",
+      "offsetInMilliseconds": 83100
+    }
+  }
+}
+```
+
+{% endraw %}
+
+#### See also
+* [`AudioPlayer.PlayStarted`](#PlayStarted)
+
+### AudioPlayer.ProgressReportDelayPassed event {#ProgressReportDelayPassed}
+오디오 스트림 재생이 시작된 후 지정된 지연 시간만큼 시간이 지났을 때 현재 재생 상태를 CIC로 보고하기 위해 사용됩니다.
+
+#### Payload fields
+
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `token`                | string | 오디오 스트림 token | 필수 |
+| `offsetInMilliseconds` | number | 현재 재생하고 있는 음원의 재생 시점. 단위는 밀리 초입니다.                         | 필수  |
+
+#### Message example
+{% raw %}
+
+```json
+{
+  "context": [
+    {{Alerts.AlertsState}},
+    {{AudioPlayer.PlayerState}},
+    {{Device.DeviceState}},
+    {{Device.Display}},
+    {{Clova.Location}},
+    {{Clova.SavedPlace}},
+    {{Speaker.VolumeState}},
+    {{SpeechSynthesizer.SpeechState}}
+  ],
+  "event": {
+    "header": {
+      "namespace": "AudioPlayer",
+      "name": "ProgressReportDelayPassed",
+      "messageId": "4e4080d6-c440-498a-bb73-ae86c6312806"
+    },
+    "payload": {
+      "token": "TR-NM-4435786",
+      "offsetInMilliseconds": 60000
+    }
+  }
+}
+```
+
+{% endraw %}
+
+#### See also
+* [`AudioPlayer.ProgressReportIntervalPassed`](#ProgressReportIntervalPassed)
+* [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
+
+### AudioPlayer.ProgressReportIntervalPassed event {#ProgressReportIntervalPassed}
+오디오 스트림 재생이 시작된 후 지정된 간격마다 현재 재생 상태를 CIC로 보고하기 위해 사용됩니다.
+
+#### Payload fields
+
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `token`                | string | 오디오 스트림 token | 필수 |
+| `offsetInMilliseconds` | number | 현재 재생하고 있는 음원의 재생 시점. 단위는 밀리 초입니다.                         | 필수  |
+
+#### Message example
+{% raw %}
+
+```json
+{
+  "context": [
+    ...
+  ],
+  "event": {
+    "header": {
+      "namespace": "AudioPlayer",
+      "name": "ProgressReportIntervalPassed",
+      "messageId": "4e4080d6-c440-498a-bb73-ae86c6312806"
+    },
+    "payload": {
+      "token": "TR-NM-4435786",
+      "offsetInMilliseconds": 120000
+    }
+  }
+}
+```
+
+{% endraw %}
+
+#### See also
+* [`AudioPlayer.ProgressReportDelayPassed`](#ProgressReportDelayPassed)
+* [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
+
+### AudioPlayer.ProgressReportPositionPassed event {#ProgressReportPositionPassed}
+오디오 스트림 재생이 시작된 후 지정된 보고 시점에 현재 재생 상태를 CIC로 보고하기 위해 사용됩니다.
+
+#### Payload fields
+
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `token`                | string | 오디오 스트림 token | 필수 |
+| `offsetInMilliseconds` | number | 현재 재생하고 있는 음원의 재생 시점. 단위는 밀리 초입니다.                         | 필수  |
+
+#### Message example
+{% raw %}
+
+```json
+{
+  "context": [
+    ...
+  ],
+  "event": {
+    "header": {
+      "namespace": "AudioPlayer",
+      "name": "ProgressReportPositionPassed",
+      "messageId": "4e4080d6-c440-498a-bb73-ae86c6312806"
+    },
+    "payload": {
+      "token": "TR-NM-4435786",
+      "offsetInMilliseconds": 150000
+    }
+  }
+}
+```
+
+{% endraw %}
+
+#### See also
+* [`AudioPlayer.ProgressReportDelayPassed`](#ProgressReportDelayPassed)
+* [`AudioPlayer.ProgressReportIntervalPassed`](#ProgressReportIntervalPassed)
+
+### AudioPlayer.StreamRequested event {#StreamRequested}
+오디오 스트림 재생을 위해 CIC로 스트리밍 URL과 같은 추가 정보를 요청하는 이벤트 메시지입니다.
+
+#### Payload fields
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `audioItemId`   | string  | 오디오 스트림 token          | 필수 |
+| `audioStream`   | [AudioStreamInfoObject](#AudioStreamInfoObject) | Play 지시 메시지의 `audioItem.stream` | 필수 |
+
+#### Remarks
+음악 서비스의 과금 등을 고려하여 실제 오디오 스트림 정보 발급을 재생 직전으로 지연 해야 할 때가 있습니다. 이 이벤트 메시지는 이처럼 오디오 스트림 정보를 미리 준비하면 안되는 경우를 위해 설계된 API이며, 따라서 클라이언트는 이 이벤트 메시지를 재생 직전 시점보다 일찍 전달하면 안됩니다.
+
+#### Message example
+{% raw %}
+
+```json
+{
+  "context": [
+    ...
+  ],
+  "event": {
+    "header": {
+      "namespace": "AudioPlayer",
+      "name": "StreamRequested",
+      "messageId": "198cf12-4020-b98a-b73b-1234ab312806"
+    },
+    "payload": {
+      "audioItemId": "ac192f4c-8f12-4a58-8ace-e3127eb297a4",
+      "audioStream": {
+        "beginAtInMilliseconds": 0,
+        "progressReport": {
+            "progressReportDelayInMilliseconds": null,
+            "progressReportIntervalInMilliseconds": null,
+            "progressReportPositionInMilliseconds": 60000
+        },
+        "token": "TR-NM-4435786",
+        "urlPlayable": false,
+        "url": "clova:TR-NM-4435786"
+      }
+    }
+  }
+}
+```
+
+{% endraw %}
+
+#### See also
+없음
+
+## TemplateRuntime.RequestPlayerInfo event {#RequestPlayerInfo}
+클라이언트가 미디어 플레이어에 표시할 재생 목록, 앨범 이미지, 가사와 같은 재생 메타 정보를 CIC에게 요청합니다.
+
+### Payload fields
+
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `token`        | string  | 재생 메타 정보를 가져올 때 시작 기준이 되는 오디오 스트림 token. | 필수 |
+| `range`        | object  | 재생 메타 정보의 범위를 지정하는 객체. 이 필드가 사용되지 않으면 클라이언트는 임의의 개수만큼 메타 정보를 수신하게 됩니다.   | 선택  |
+| `range.before` | number  | 기준 미디어 콘텐츠로부터 n개만큼 이전 재생 목록에 포함되는 재생 메타 정보를 요청합니다.  | 선택  |
+| `range.after`  | number  | 기준 미디어 콘텐츠로부터 n개만큼 다음 재생 목록에 포함되는 재생 메타 정보를 요청합니다. 예를 들어, `range.before` 필드의 값을 지정하지 않고 `range.after`의 값을 `5`로 설정하면 기준 미디어 콘텐츠를 포함한 총 6개의 미디어 콘텐츠에 해당하는 재생 메타 정보를 수신하게 됩니다. | 선택  |
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "context": [
+    ...
+  ],
+  "event": {
+    "header": {
+      "namespace": "TemplateRuntime",
+      "name": "RequestPlayerInfo",
+      "messageId": "2fcb6a62-393d-46ad-a5c4-b3db9b640045"
+    },
+    "payload": {
+      "token": "eJyr5lIqSSyITy4tKs4vUrJSUE"
+    }
+  }
+}
+```
+{% endraw %}
+
+### See also
+없음
+
+### AudioStreamInfoObject {#AudioStreamInfoObject}
+재생할 음악의 오디오 스트림의 스트리밍 정보를 담고 있는 객체입니다. 클라이언트에게 재생할 스트리밍 정보를 전달하거나 클라이언트가 CIC로 현재 재생 중인 음악의 스트리밍 정보를 전달해야 할 때 사용합니다.
+
+#### Object fields
+| 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |
+|---------------|---------|-----------------------------|:-------------:|
+| `beginAtInMilliseconds`  | number | 재생을 시작할 지점. 단위는 밀리초이며, 이 값이 지정된 경우 클라이언트는 해당 오디오 스트림을 지정된 위치부터 재생해야 합니다. 이 값이 0이면 해당 스트림을 처음부터 재생해야 합니다.          | 필수/항상 |
+| `customData`             | string | 현재 음원과 관련하여 임의의 형식을 가지는 메타 데이터 정보. 특정 범주로 분류되거나 정의될 수 없는 스트리밍 정보는 이 필드에 포함되거나 입력되어야 합니다. 오디오 스트림 재생 문맥에 추가로 필요한 값을 서비스 제공자 임의대로 추가할 수 있습니다.<div class="danger"><p><strong>Caution!</strong></p><p>이 필드의 값을 클라이언트가 임의로 이용해서는 안되며 이는 문제를 발생시킬 수 있습니다. 또한, 이 필드 값은 오디오 재생 상태를 전달할 때 <a href="/CIC/References/Context_Objects.html#PlaybackState">PlaybackState 문맥 정보</a>의 `stream` 필드에 그대로 첨부되어야 합니다.</p></div> | 선택/조건부  |
+| `durationInMilliseconds` | number | 오디오 스트림의 재생 시간. 클라이언트는 `beginAtInMilliseconds` 필드에 지정된 재생 시작 시점부터 이 필드에 지정된 재생 시간만큼 해당 오디오 스트림을 탐색 및 재생할 수 있습니다. 예를 들면, `beginAtInMilliseconds` 필드의 값이 `10000`이고, 이 필드의 값이 `60000`이면 해당 오디오 스트림의 10초부터 70초까지의 구간을 재생 및 탐색할 수 있게 됩니다. 단위는 밀리 초입니다.   | 선택/조건부  |
+| `progressReport`         | object  | 재생 후 재생 상태 정보를 보고 받기 위해 보고 시간을 정해둔 객체                                                  | 선택/조건부 |
+| `progressReport.progressReportDelayInMilliseconds`    | number | 재생 시작 후 지정된 시간이 지났을 때 재생 상태 정보를 보고받기 위해 지정되는 값입니다. 단위는 밀리 초이며, 이 필드는 null 값을 가질 수 있습니다.  | 선택/조건부 |
+| `progressReport.progressReportIntervalInMilliseconds` | number | 재생 중 지정된 시간 간격으로 재생 상태 정보를 보고받기 위해 지정되는 값입니다. 단위는 밀리 초이며, 이 필드는 null 값을 가질 수 있습니다.        | 선택/조건부 |
+| `progressReport.progressReportPositionInMilliseconds` | number | 재생 중 지정된 시점을 지날 때마다 재생 상태 정보를 보고받기 위해 지정되는 값입니다. 단위는 밀리 초이며, 이 필드는 null 값을 가질 수 있습니다.    | 선택/조건부 |
+| `token`                  | string  | 오디오 스트림 token                                                                                   | 필수/항상 |
+| `url`                    | string  | 오디오 스트림 URL                                                                                     | 필수/항상 |
+| `urlPlayable`            | boolean | `url` 필드의 오디오 스트림 URL이 바로 재생 가능한 형태인지 구분하는 값. <ul><li><code>true</code>: 바로 재생이 가능한 형태의 URL</li><li><code>false</code>: 바로 재생이 불가능한 형태의 URL. <a href="#StreamRequested"><code>AudioPlayer.StreamRequested</code></a> 이벤트 메시지를 사용하여 오디오 스트림 정보를 추가로 요청해야 합니다.</li></ul>        | 필수/항상 |
+
+#### Remarks
+* 클라이언트는 `beginAtInMilliseconds`와 `durationInMilliseconds` 필드에 지정된 구간에 대해 음악 재생을 완료하면 [`AudioPlayer.PlayFinished`](#PlayFinished) 이벤트 메시지를 CIC로 전송합니다.
+
+#### Object Example
+{% raw %}
+
+```json
+// 바로 재생 가능한 오디오 스트림 URL 정보가 담긴 객체
+{
+  "beginAtInMilliseconds": 0,
+  "episodeId": 22346122,
+  "playType": "NONE",
+  "podcastId": 12548,
+  "progressReport": {
+    "progressReportDelayInMilliseconds": null,
+    "progressReportIntervalInMilliseconds": 60000,
+    "progressReportPositionInMilliseconds": null
+  },
+  "url": "https://api-ex.podbbang.com/file/12548/22346122",
+  "urlPlayable": true
+}
+
+// 바로 재생 가능하지 않은 오디오 스트림 URL 정보가 담긴 예제
+{
+  "beginAtInMilliseconds": 0,
+  "progressReport": {
+      "progressReportDelayInMilliseconds": null,
+      "progressReportIntervalInMilliseconds": null,
+      "progressReportPositionInMilliseconds": 60000
+  },
+  "token": "TR-NM-4435786",
+  "urlPlayable": false,
+  "url": "clova:TR-NM-4435786"
+}
+```
+
+{% endraw %}
+
+#### See also
+* [`AudioPlayer.PlayFinished`](#PlayFinished)
+* [`AudioPlayer.StreamRequested`](#StreamRequested)
+{% endif %}
