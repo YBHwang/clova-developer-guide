@@ -32,7 +32,6 @@ Clova Home extension이 CEK에게 오류를 반환할 때 사용되는 인터페
 
 ### Remarks
 * 오류 메시지도 정상적인 HTTP 응답(200 OK)으로 CEK에게 메시지를 전달해야 합니다.
-* 오류 메시지의 이름으로 상황을 판단하기 때문에 별도의 `payload`가 필요하지 않습니다.
 
 ### Message example
 

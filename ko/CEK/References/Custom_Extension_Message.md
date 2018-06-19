@@ -1,5 +1,5 @@
 ## Custom extension 메시지 {#CustomExtMessage}
-Custom extension 메시지는 CEK와 custom extension 사이에서 정보를 주고 받을 때 사용하는 메시지입니다. Custom extension 메시지는 [요청 메시지](#CustomExtRequestMessage)와 [응답 메시지](#CustomExtResponseMessage)로 나뉩니다. 요청 메시지는 다시 [요청 타입](#CustomExtRequestType)에 따라 `LaunchRequest`, `IntentRequest`, `SessionEndedRequest`과 같이 3가지 타입으로 구분됩니다.
+Custom extension 메시지는 CEK와 custom extension 사이에서 정보를 주고 받을 때 사용하는 메시지입니다. Custom extension 메시지는 [요청 메시지](#CustomExtRequestMessage)와 [응답 메시지](#CustomExtResponseMessage)로 나뉩니다. 요청 메시지는 다시 [요청 타입](#CustomExtRequestType)에 따라 `EventRequest`, `IntentRequest`, `LaunchRequest`, `SessionEndedRequest`과 같이 4가지 타입으로 구분됩니다.
 
 ### 요청 메시지 {#CustomExtRequestMessage}
 CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 전달할 때 요청 메시지를 전달합니다(HTTP Reqeuset). 여기에서는 요청 메시지의 구조, 각 필드의 설명, 그리고 요청 타입과 각 타입에 따라 달라지는 `request` 필드에 대해 설명합니다.
@@ -280,7 +280,20 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
 * [`SessionEndedRequest`](#CustomExtSessionEndedRequest)
 
 #### EventRequest {#CustomExtEventRequest}
-`EventRequest` 타입은 사용자가 특정 skill을 활성화하거나 비활성화할 때 이를 extension에 알리기 위해 사용되는 요청 타입입니다. Extension 개발자는 사용자가 skill을 활성화할 때 개인 정보 사용에 대한 사용자 동의를 확인 등 사용자가 서비스 사용을 위해 필요한 준비를 할 수 있습니다. 반대로 사용자가 skill을 비활성화할 때 개인 정보 폐기와 같은 사용 중지에 따른 동작을 진행해야 할 수도 있습니다.
+`EventRequest` 타입은 클라이언트의 상태 변화나 그와 관련된 부수적인 요청을 extension에 전달해야 할 때 사용되는 요청 타입입니다. CEK는 `EventRequest` 요청 타입을 사용하여 사용자가 특정 skill을 활성 또는 비활성화한 결과나 클라이언트의 오디오 재생 상태를 extension에게 보고합니다. 또는 오디오 재생 관련 부가 정보를 extension에게 요청하기도 합니다. Extension 개발자는 skill의 활성/비활성화, 오디오 재생 상태 보고 또는 부가 정보 요청에 상응하는 작업 처리를 수행하고 결과를 응답해야 합니다.
+
+현재 `EventRequest` 요청 타입을 사용하여 오디오 재생 관련된 정보를 extension으로 전달할 때 다음과 같은 [CIC API](/CIC/References/CIC_API.md)의 [이벤트 메시지](/CIC/References/CIC_API.md#Event)를 이용합니다.
+
+* [`AudioPlayer.PlayFinished`](/CIC/References/CICInterface/AudioPlayer.md#PlayFinished)
+* [`AudioPlayer.PlayPaused`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)
+* [`AudioPlayer.PlayResumed`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)
+* [`AudioPlayer.PlayStarted`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)
+* [`AudioPlayer.PlayStopped`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)
+* [`AudioPlayer.ProgressReportDelayPassed`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)
+* [`AudioPlayer.ProgressReportIntervalPassed`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)
+* [`AudioPlayer.ProgressReportPositionPassed`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)
+* [`AudioPlayer.StreamRequested`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)
+* [`TemplateRuntime.RequestPlayerInfo`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)
 
 `EventRequest` 타입 메시지의 `request` 객체 필드 구성은 다음과 같습니다.
 
@@ -301,12 +314,12 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
 
 | 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
 |---------------|---------|-----------------------------|:---------:|
-| `event`           | object  |                     |   |
-| `event.name`      | string  |                     |   |
-| `event.namespace` | string  |   |   |
-| `event.payload`   | object  |   |   |
-| `requestId`       | string  |                     |   |
-| `timestamp`       | string  |                     |   |
+| `event`           | object  | 클라이언트가 Clova로 전달한 정보가 저장된 객체                                       | 항상   |
+| `event.name`      | string  | 클라이언트가 Clova로 전달한 [이벤트 메시지](/CIC/References/CIC_API.md#Event)의 이름이나 skill 활성/비활성 동작을 구분하는 이름. Skill 활성/비활성 동작을 구분하는 이름은 `SkillEnabled` 또는 `SkillDisabled`를 가집니다.      | 항상   |
+| `event.namespace` | string  | 클라이언트가 Clova로 전달한 [이벤트 메시지](/CIC/References/CIC_API.md#Event)의 네임스페이스이나 skill 활성/비활성 동작을 구분하는 네임스페이스. Skill 활성/비활성 동작을 구분하는 네임스페이스는 `ClovaSkill`로 고정됩니다.  | 항상  |
+| `event.payload`   | object  | 클라이언트가 Clova로 전달한 [이벤트 메시지](/CIC/References/CIC_API.md#Event)의 `payload`나 `payload`의 일부 정보. 일부 이벤트 메시지나 skill 활성/비활성 동작을 구분하기 위한 `EventRequest` 요청 타입은 `payload`가 빈 객체일 수 있습니다.   | 항상  |
+| `requestId`       | string  | 클라이언트가 Clova로 정보를 전달할 때 생성된 대화 ID(`event.header.dialogRequestId`)    | 항상   |
+| `timestamp`       | string  | 클라이언트가 Clova로 정보를 전달한 시간(Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).<div class="note"><p><strong>Note!</strong></p><p>CEK는 <code>EventRequest</code> 타입 요청 간의 순서를 보장하지 않기 때문에 이 필드 값을 활용하여 클라이언트의 요청의 순서를 파악할 수 있습니다.</p></div>                    |   |
 | `type`            | string  | 요청 메시지의 타입. `"EventRequest"` 값으로 고정됩니다.         | 항상 |
 
 다음은 `EventRequest` 타입 메시지 `request` 객체 필드의 예제입니다.
@@ -333,6 +346,30 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
     "namespace":"ClovaSkill",
     "name":"SkillEnabled",
     "payload": null
+  }
+}
+
+// 예제 3. 음악에 대한 메타 정보를 요청했을 때
+"event": {
+  "namespace": "TemplateRuntime",
+  "name": "RequestPlayerInfo",
+  "payload": {
+    "token": "eJyr5lIqSSyITy4tKs4vUrJSUE",
+    "range": {
+      "after": 10
+    }
+  }
+}
+
+// 예제 4. 음악 재생을 중지했을 때
+"request": {
+  "type": "EventRequest",
+  "requestId": "e5464288-50ff-4e99-928d-4a301e083d41",
+  "timestamp": "2017-09-05T05:41:21Z",
+  "event": {
+    "namespace": "AudioPlayer",
+    "name": "PlayStopped",
+    "payload": {}
   }
 }
 ```
