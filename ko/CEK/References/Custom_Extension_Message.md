@@ -308,7 +308,7 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
 * [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
 * [`AudioPlayer.StreamRequested`](#StreamRequested)
 * [`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo)
-{% endif }
+{% endif %}
 
 `EventRequest` 타입 메시지의 `request` 객체 필드 구성은 다음과 같습니다.
 
@@ -814,14 +814,7 @@ CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 
 ```json
 {
   "context": [
-    {{Alerts.AlertsState}},
-    {{AudioPlayer.PlayerState}},
-    {{Device.DeviceState}},
-    {{Device.Display}},
-    {{Clova.Location}},
-    {{Clova.SavedPlace}},
-    {{Speaker.VolumeState}},
-    {{SpeechSynthesizer.SpeechState}}
+    ...
   ],
   "event": {
     "header": {
@@ -932,14 +925,7 @@ CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 
 ```json
 {
   "context": [
-    {{Alerts.AlertsState}},
-    {{AudioPlayer.PlayerState}},
-    {{Device.DeviceState}},
-    {{Device.Display}},
-    {{Clova.Location}},
-    {{Clova.SavedPlace}},
-    {{Speaker.VolumeState}},
-    {{SpeechSynthesizer.SpeechState}}
+    ...
   ],
   "event": {
     "header": {
