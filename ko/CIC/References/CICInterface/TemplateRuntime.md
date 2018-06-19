@@ -236,7 +236,6 @@ CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 
 ## RequestPlayerInfo event {#RequestPlayerInfo}
 클라이언트가 미디어 플레이어에 표시할 재생 목록, 앨범 이미지, 가사와 같은 재생 메타 정보를 CIC에게 요청합니다. 이 이벤트 메시지를 CIC에게 전송하면 CIC는 [`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo) 지시 메시지를 클라이언트에게 전송합니다.
 
-
 ### Context fields
 
 {% include "/CIC/References/CICInterface/Context_Objects_List.md" %}
@@ -249,9 +248,6 @@ CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 
 | `range`        | object  | 재생 메타 정보의 범위를 지정하는 객체. 이 필드가 사용되지 않으면 클라이언트는 임의의 개수만큼 메타 정보를 수신하게 됩니다.   | 선택  |
 | `range.before` | number  | 기준 미디어 콘텐츠로부터 n개만큼 이전 재생 목록에 포함되는 재생 메타 정보를 요청합니다.  | 선택  |
 | `range.after`  | number  | 기준 미디어 콘텐츠로부터 n개만큼 다음 재생 목록에 포함되는 재생 메타 정보를 요청합니다. 예를 들어, `range.before` 필드의 값을 지정하지 않고 `range.after`의 값을 `5`로 설정하면 기준 미디어 콘텐츠를 포함한 총 6개의 미디어 콘텐츠에 해당하는 재생 메타 정보를 수신하게 됩니다. | 선택  |
-
-### Remarks
-* 클라이언트 기기의 버튼은 물리적인 하드웨어 방식의 버튼일 수도 있고 음악 플레이어 위젯 버튼과 같은 소프트웨어 방식의 버튼일 수도 있습니다.
 
 ### Message example
 
