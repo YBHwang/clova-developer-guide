@@ -342,7 +342,7 @@ Extensionは、リクエストメッセージを処理して、レスポンス�
     },
     "shouldEndSession": {{boolean}},
   },
-  "sessionAttibutes": {{object}},
+  "sessionAttributes": {{object}},
   "version": {{string}}
 }
 ```
