@@ -90,11 +90,11 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
 #### Message example
 {% raw %}
 ```json
-// 예제 1: LaunchRequest 타입
+// 예제 1: EventRequest 타입
 {
   "version": "0.1.0",
   "session": {
-    "new": true,
+    "new": false,
     "sessionAttributes": {},
     "sessionId": "a29cfead-c5ba-474d-8745-6c1a6625f0c5",
     "user": {
@@ -126,7 +126,14 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
     }
   },
   "request": {
-    "type": "LaunchRequest"
+    "type": "EventRequest",
+    "requestId": "f09874hiudf-sdf-4wku-flksdjfo4hjsdf",
+    "timestamp": "2018-06-11T09:19:23Z",
+    "event" : {
+      "namespace":"ClovaSkill",
+      "name":"SkillEnabled",
+      "payload": null
+    }
   }
 }
 
@@ -179,7 +186,47 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
   }
 }
 
-// 예제 3: SessionEndedRequest 타입
+// 예제 3: LaunchRequest 타입
+{
+  "version": "0.1.0",
+  "session": {
+    "new": true,
+    "sessionAttributes": {},
+    "sessionId": "a29cfead-c5ba-474d-8745-6c1a6625f0c5",
+    "user": {
+      "userId": "V0qe",
+      "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
+    }
+  },
+  "context": {
+    "System": {
+      "application": {
+        "applicationId": "com.yourdomain.extension.pizzabot"
+      },
+      "user": {
+        "userId": "V0qe",
+        "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
+      },
+      "device": {
+        "deviceId": "096e6b27-1717-33e9-b0a7-510a48658a9b",
+        "display": {
+          "size": "l100",
+          "orientation": "landscape",
+          "dpi": 96,
+          "contentLayer": {
+            "width": 640,
+            "height": 360
+          }
+        }
+      }
+    }
+  },
+  "request": {
+    "type": "LaunchRequest"
+  }
+}
+
+// 예제 4: SessionEndedRequest 타입
 {
   "version": "0.1.0",
   "session": {
@@ -226,29 +273,69 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
 * [AudioStreamInfoObject](/CIC/References/CICInterface/AudioPlayer.md#AudioStreamInfoObject)
 
 ### 요청 타입 {#CustomExtRequestType}
-요청 메시지는 다음과 같이 3가지 요청 타입으로 나뉘며, 각 요청 타입마다 요청 메시지의 `request` 객체의 필드 구성이 달라집니다.
-* [`LaunchRequest`](#CustomExtLaunchRequest)
+요청 메시지는 다음과 같이 4가지 요청 타입으로 나뉘며, 각 요청 타입마다 요청 메시지의 `request` 객체의 필드 구성이 달라집니다.
+* [`EventRequest`](#CustomExtEventRequest)
 * [`IntentRequest`](#CustomExtIntentRequest)
+* [`LaunchRequest`](#CustomExtLaunchRequest)
 * [`SessionEndedRequest`](#CustomExtSessionEndedRequest)
 
-#### LaunchRequest {#CustomExtLaunchRequest}
-`LaunchRequest` 타입은 사용자의 특정 extension 사용 시작을 알리는 요청 타입입니다. 예를 들면, 사용자가 "영어 대화 시작하자"라고 말한 것과 같이 특정 모드로 진입하겠다고 선언한 상황입니다. 주로 특정 모드로 진입해야 되는 서비스를 제공하는 extension이 이 타입의 메시지를 받게 됩니다.
+#### EventRequest {#CustomExtEventRequest}
+`EventRequest` 타입은 사용자가 특정 skill을 활성화하거나 비활성화할 때 이를 extension에 알리기 위해 사용되는 요청 타입입니다. Extension 개발자는 사용자가 skill을 활성화할 때 개인 정보 사용에 대한 사용자 동의를 확인 등 사용자가 서비스 사용을 위해 필요한 준비를 할 수 있습니다. 반대로 사용자가 skill을 비활성화할 때 개인 정보 폐기와 같은 사용 중지에 따른 동작을 진행해야 할 수도 있습니다.
 
-`LaunchRequest` 타입 메시지의 `request` 객체 필드 구성은 다음과 같습니다.
+`EventRequest` 타입 메시지의 `request` 객체 필드 구성은 다음과 같습니다.
 
 {% raw %}
 ```json
 {
-  "type": "LaunchRequest"
+  "type": "EventRequest",
+  "requestId": {{string}},
+  "timestamp": {{string}},
+  "event": {
+    "namespace": {{string}},
+    "name": {{string}},
+    "payload": {{object}}
+  }
 }
 ```
 {% endraw %}
 
 | 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
 |---------------|---------|-----------------------------|:---------:|
-| `type`          | string  | 요청 메시지의 타입. `"LaunchRequest"` 값으로 고정됩니다. | 항상 |
+| `event`           | object  |                     |   |
+| `event.name`      | string  |                     |   |
+| `event.namespace` | string  |   |   |
+| `event.payload`   | object  |   |   |
+| `requestId`       | string  |                     |   |
+| `timestamp`       | string  |                     |   |
+| `type`            | string  | 요청 메시지의 타입. `"EventRequest"` 값으로 고정됩니다.         | 항상 |
 
-다음은 LaunchRequest 타입의 요청 메시지 예제입니다.
+다음은 `EventRequest` 타입 메시지 `request` 객체 필드의 예제입니다.
+
+```json
+// 예제 1. Skill을 활성화했을 때
+"request": {
+  "type": "EventRequest",
+  "requestId": "f09874hiudf-sdf-4wku-flksdjfo4hjsdf",
+  "timestamp": "2018-06-11T09:19:23Z",
+  "event" : {
+    "namespace":"ClovaSkill",
+    "name":"SkillEnabled",
+    "payload": null
+  }
+}
+
+// 예제 2. Skill을 비활성화했을 때
+"request": {
+  "type": "EventRequest",
+  "requestId": "f09874hiudf-sdf-4wku-flksdjfo4hjsdf",
+  "timestamp": "2018-06-19T11:37:21Z",
+  "event" : {
+    "namespace":"ClovaSkill",
+    "name":"SkillEnabled",
+    "payload": null
+  }
+}
+```
 
 #### IntentRequest {#CustomExtIntentRequest}
 `IntentRequest` 타입은 분석한 사용자의 요청을 전달하여 그 내용을 수행하도록 하는 요청 타입입니다. Extension 개발자는 서비스를 만들 때 사용자의 요청을 어떻게 받을지 [interaction 모델을 정의](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel)해야 하며, Interaction 모델은 [Clova developer console](/DevConsole/ClovaDevConsole_Overview.md)을 통해 등록할 수 있습니다. 이때, 구별되는 사용자의 요청을 Intent라는 정보 형태로 정의합니다. 분석된 사용자의 발화 정보는 Intent로 변환되며, `intent` 필드를 통해 extension에게 전달됩니다.
@@ -269,15 +356,48 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
 
 | 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
 |---------------|---------|-----------------------------|:---------:|
-| `type`          | string  | 요청 메시지의 타입. `"IntentRequest"` 값으로 고정됩니다.                                                                              | 항상 |
 | `intent`        | object  | 사용자의 요청을 분석한 정보가 저장된 객체 [intent](/Design/Design_Guideline_For_Extension.md#Intent)                          | 항상 |
 | `intent.name`   | string  | Intent 이름. Interaction 모델에 정의한 [intent](/Design/Design_Guideline_For_Extension.md#Intent)를 이 필드로 식별할 수 있다.  | 항상 |
 | `intent.slots`  | object  | Extension이 intent를 처리할 때 요구되는 정보(slot)가 저장된 객체. 이 필드는 `intent.name` 필드에 입력된 [intent](/Design/Design_Guideline_For_Extension.md#Intent)에 따라 구성이 달라질 수 있다. | 항상 |
+| `type`          | string  | 요청 메시지의 타입. `"IntentRequest"` 값으로 고정됩니다.                                                                     | 항상 |
 
+다음은 `IntentRequest` 타입 메시지 `request` 객체 필드의 예제입니다.
+
+```json
+"request": {
+  "type": "IntentRequest",
+  "intent": {
+    "name": "OrderPizza",
+    "slots": {
+      "pizzaType": {
+        "name": "pizzaType",
+        "value": "페퍼로니"
+      }
+    }
+  }
+}
+```
+
+#### LaunchRequest {#CustomExtLaunchRequest}
+`LaunchRequest` 타입은 사용자의 특정 extension 사용 시작을 알리는 요청 타입입니다. 예를 들면, 사용자가 "주사위 놀이 시작해줘"라고 말한 것과 같이 특정 skill을 사용하겠다고 선언한 상황입니다. 사용자가 skill을 그만 사용하겠다고 선언할 때까지 해당 extension의 [`IntentRequest`](#CustomExtIntentRequest) 타입의 메시지를 받게 됩니다.
+
+`LaunchRequest` 타입 메시지의 `request` 객체 필드 구성은 다음과 같습니다.
+
+{% raw %}
+```json
+{
+  "type": "LaunchRequest"
+}
+```
+{% endraw %}
+
+| 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `type`          | string  | 요청 메시지의 타입. `"LaunchRequest"` 값으로 고정됩니다. | 항상 |
 
 #### SessionEndedRequest {#CustomExtSessionEndedRequest}
-`SessionEndedRequest` 타입은 사용자의 특정 extension 사용이 종료되었음을 알리는 요청입니다. 다음과 같은 상황에서 이 메시지를 받게 됩니다.
-* 사용자가 extension 종료를 요청한 경우
+`SessionEndedRequest` 타입은 사용자의 특정 skill 사용이 종료되었음을 알리는 요청입니다. 다음과 같은 상황에서 이 메시지를 받게 됩니다.
+* 사용자가 skill 종료를 요청한 경우
 * 특정 시간 동안 사용자의 입력이 없을 경우(Timeout)
 * 오류가 발생한 경우
 
