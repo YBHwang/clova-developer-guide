@@ -38,7 +38,7 @@
     * [발화 예시](/Design/Design_Guideline_For_Extension.md#UtteranceExample)
   * [응답 유형 결정](/Design/Design_Guideline_For_Extension.md#DecideSoundOutputType)
     * [음성 출력 유형](/Design/Design_Guideline_For_Extension.md#OutpuSpeech)
-    * [오디오 콘텐츠 재생 유형](/Design/Design_Guideline_For_Extension.md#AudioPlayer) 
+    * [오디오 콘텐츠 재생 유형](/Design/Design_Guideline_For_Extension.md#AudioPlayer)
   * [유의사항](/Design/Design_Guideline_For_Extension.md#Precautions)
   * [플랫폼 지원 오디오 압축 포맷](/Design/Design_Guideline_For_Extension.md#SupportedAudioCompressionFormat)
   * [지속적인 업데이트](/Design/Design_Guideline_For_Extension.md#ContinuousUpdate)
