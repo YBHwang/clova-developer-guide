@@ -43,8 +43,8 @@
     "name": "PlaybackState"
   },
   "payload": {
-    "offsetInMilliseconds": 1,
-    "totalInMilliseconds": 100,
+    "offsetInMilliseconds": 10000,
+    "totalInMilliseconds": 300000,
     "playerActivity": "STOPPED",
     "repeatMode": "NONE",
     "stream": {

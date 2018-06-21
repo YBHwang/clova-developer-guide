@@ -281,7 +281,7 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
 
 #### EventRequest {#CustomExtEventRequest}
 {% if book.TargetCountryCode == "KR" %}
-`EventRequest` 타입은 클라이언트의 상태 변화나 그와 관련된 부수적인 요청을 extension에 전달해야 할 때 사용되는 요청 타입입니다. CEK는 `EventRequest` 요청 타입을 사용하여 클라이언트의 오디오 재생 상태를 extension에게 보고하거나 오디오 재생 관련 부가 정보를 extension에게 요청합니다. Extension 개발자는 오디오 재생 상태 보고 또는 부가 정보 요청에 상응하는 작업을 처리해야 합니다.
+`EventRequest` 타입은 클라이언트의 상태 변화나 그와 관련된 부수적인 요청을 extension에 전달해야 할 때 사용되는 요청 타입입니다. CEK는 `EventRequest` 요청 타입을 사용하여 클라이언트의 [오디오 재생 상태를 extension에게 보고](TBD)하거나 [오디오 재생 관련 부가 정보를 extension에게 요청](TBD)합니다. Extension 개발자는 오디오 재생 상태 보고 또는 부가 정보 요청에 상응하는 작업을 처리해야 합니다.
 
 현재 `EventRequest` 요청 타입을 사용하여 오디오 재생 상태 보고나 부가 정보 요청 정보를 extension으로 전달할 때 다음과 같은 [CIC API](/CIC/References/CIC_API.md)의 [이벤트 메시지](/CIC/References/CIC_API.md#Event)를 이용합니다.
 
@@ -296,9 +296,9 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
 * [`AudioPlayer.StreamRequested`](/CIC/References/CICInterface/AudioPlayer.md#StreamRequested)
 * [`TemplateRuntime.RequestPlayerInfo`](/CIC/References/CICInterface/AudioPlayer.md#RequestPlayerInfo)
 {% elif book.TargetCountryCode == "JP" %}
-`EventRequest` 타입은 클라이언트의 상태 변화나 그와 관련된 부수적인 요청을 extension에 전달해야 할 때 사용되는 요청 타입입니다. CEK는 `EventRequest` 요청 타입을 사용하여 사용자가 특정 skill을 활성 또는 비활성화한 결과나 클라이언트의 오디오 재생 상태를 extension에게 보고합니다. 또는 오디오 재생 관련 부가 정보를 extension에게 요청하기도 합니다. Extension 개발자는 skill의 활성/비활성화, 오디오 재생 상태 보고 또는 부가 정보 요청에 상응하는 작업을 처리해야 합니다.
+`EventRequest` 타입은 클라이언트의 상태 변화나 그와 관련된 부수적인 요청을 extension에 전달해야 할 때 사용되는 요청 타입입니다. CEK는 `EventRequest` 요청 타입을 사용하여 사용자가 특정 skill을 활성 또는 비활성화한 결과나 클라이언트의 [오디오 재생 상태를 extension에게 보고](TBD)합니다. 또는 [오디오 재생 관련 부가 정보를 extension에게 요청](TBD)하기도 합니다. Extension 개발자는 skill의 활성/비활성화, 오디오 재생 상태 보고 또는 부가 정보 요청에 상응하는 작업을 처리해야 합니다.
 
-`EventRequest` 요청 타입을 사용하여 오디오 재생 상태 보고나 부가 정보 요청 정보를 extension으로 전달할 때 다음과 같은 [CIC API](CICAPIforEventRequest)를 이용합니다.
+`EventRequest` 요청 타입을 사용하여 오디오 재생 상태 보고나 부가 정보 요청 정보를 extension으로 전달할 때 다음과 같은 [CIC API](#CICAPIforAudioPlayback)를 이용합니다.
 
 * [`AudioPlayer.PlayFinished`](#PlayFinished)
 * [`AudioPlayer.PlayPaused`](#PlayPaused)
@@ -555,7 +555,7 @@ Extension은 요청 메시지를 처리한 후 응답 메시지를 전달해야 
 |---------------|---------|-----------------------------|:---------:|
 | `response`                               | object       | Extension의 응답 정보가 담긴 객체                            | 필수 |
 | `response.card`                          | object       | [Content template](/CIC/References/Content_Templates.md) 형태의 데이터이며, 클라이언트 화면에 표시할 콘텐트를 이 필드를 통해 전달할 수 있습니다. 이 필드에 데이터가 있으면 CIC는 클라이언트에게 [Clova.RenderTemplate](/CIC/References/CICInterface/Clova.md#RenderTemplate) 지시 메시지를 전달하게 되며, 빈 객체일 경우 CIC는 클라이언트에게 [Clova.RenderText](/CIC/References/CICInterface/Clova.md#RenderText) 지시 메시지를 전달하여 `response.outputSpeech.values` 필드의 값을 표시하게 합니다.        | 필수 |
-| `response.directives[]`                  | object array | Extension이 CEK로 전달하는 지시 메시지입니다. `response.directives` 필드에서 사용할 지시 메시지는 추후 API를 제공할 예정입니다. | 필수 |
+| `response.directives[]`                  | object array | Extension이 CEK로 전달하는 지시 메시지입니다. `response.directives` 필드는 주로 오디오 콘텐츠 제공을 위해 사용되며, 다음과 같은 {{ "[CIC API](/CIC/References/CIC_API.md)" if book.TargetCountryCode == "KR" else "[CIC API](#CICAPIforAudioPlayback)" }} 지시 메시지를 지원합니다.<ul><li><code>AudioPlayer.Play</code></li><li><code>TBD</code></li></ul> | 필수 |
 | `response.directives[].header`           | object       | 지시 메시지의 헤더                                          | 필수 |
 | `response.directives[].header.messageId` | string       | 메시지 ID(UUID). 개별 메시지를 구분하기 위해 사용하는 식별자입니다.   | 필수 |
 | `response.directives[].header.name`      | string       | 지시 메시지의 API 이름                                      | 필수 |
@@ -729,6 +729,44 @@ SpeechInfoObject 객체는 응답 메시지의 `response.outputSpeech`에서 재
     "shouldEndSession": false
   }
 }
+
+// 예제 6: 클라이언트에게 오디오 콘텐츠 재생 지시하는 응답(response.directives[] 필드 사용)
+{
+  "version": "0.1.0",
+  "sessionAttributes": {},
+  "response": {
+    "card": {},
+    "directives": [
+      {
+        "header": {
+          "namespace": "AudioPlayer",
+          "name": "Play"
+        },
+        "payload": {
+          "audioItem": {
+            "audioItemId": "9CPWU-c82302b2-ea29-4f6c-ba6e-20fd268d8c3b-c1570067",
+            "title": "Symphony No.4 In A Op.90 'Italian' - III. Con Moto Moderato",
+            "artist": "Unknown",
+            "stream": {
+              "beginAtInMilliseconds": 0,
+              "progressReport": {
+                "progressReportDelayInMilliseconds": null,
+                "progressReportIntervalInMilliseconds": null,
+                "progressReportPositionInMilliseconds": 60000
+              },
+              "token": "TR-NM-17413540",
+              "url": "clova:TR-NM-17413540",
+              "urlPlayable": false
+            },
+            "playBehavior": "REPLACE_ALL"
+          }
+        }
+      }
+    ],
+    "outputSpeech": {},
+    "shouldEndSession": true
+  }
+}
 ```
 {% endraw %}
 
@@ -737,11 +775,144 @@ SpeechInfoObject 객체는 응답 메시지의 `response.outputSpeech`에서 재
 * [Content template](/CIC/References/Content_Templates.md)
 
 {% if book.TargetCountryCode == "JP" %}
-## 부록. EventRequest 관련 CIC API {#CICAPIforEventRequest}
+## 오디오 콘텐츠 재생 관련 CIC API {#CICAPIforAudioPlayback}
 
-CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 받는 메시지 규격입니다. CEK는 클라이언트가 Clova에게 전달한 CIC API 메시지를 [`EventRequest`](#CustomExtEventRequest) 타입 메시지의 `event` 필드에 그대로 채워 보냅니다. 따라서, `EventRequest` 타입 메시지에 포함된 필드 값의 의미를 알아야 합니다. `EventRequest` 타입 메시지에 관련된 CIC API는 다음과 같습니다.
+CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 받는 메시지 규격입니다. 여기서 설명하는 CIC API는 custom extension의 [오디오 콘텐츠 제공](/CEK/Guides/Build_Custom_Extension.md#ProvideAudioContent)과 관련하여 CEK에서 지원하는 CIC API입니다. CEK는 클라이언트가 Clova에게 전달한 이벤트 메시지를 [`EventRequest`](#CustomExtEventRequest) 타입 메시지의 `event` 필드에 채워 보냅니다. 또한, Custom extension은 사용자에게 오디오 콘텐츠를 제공하기 위해 오디오 콘텐츠 재생 제어와 관련된 지시 메시지를 [`응답 메시지`](#CustomExtResponseMessage)의 `response.directives[]` 필드에 채워 보내야 합니다.
 
-* [`AudioPlayer.PlayFinished`](#PlayFinished)
+따라서, custom extension이 오디오 콘텐츠를 제공한다면 다음과 같은 CIC API를 알아야 합니다.
+
+| 네임스페이스   | 메시지 이름         | 메시지 타입  | 메시지 설명                                   |
+|-------------|------------------|-----------|---------------------------------------------|
+| AudioPlayer | [`Play`](#Play)                       | Directive | 클라이언트에게 특정 오디오 스트림을 재생하거나 재생 대기열에 추가하도록 지시합니다.                         |
+| AudioPlayer | [`PlayFinished`](#PlayFinished)       | Event     | 클라이언트가 오디오 스트림 재생을 완료할 때 재생 완료된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다.     |
+| AudioPlayer | [`PlayPaused`](#PlayPaused)           | Event     | 클라이언트가 오디오 스트림 재생을 일시 정지할 때 일시 정지된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다. |
+| AudioPlayer | [`PlayResumed`](#PlayResumed)         | Event     | 클라이언트가 오디오 스트림 재생을 재개할 때 재개된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다.         |
+| AudioPlayer | [`PlayStarted`](#PlayStarted)         | Event     | 클라이언트가 오디오 스트림 재생을 시작할 때 재생이 시작된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다.    |
+| AudioPlayer | [`PlayStopped`](#PlayStopped)         | Event     | 클라이언트가 오디오 스트림 재생을 중지할 때 재생이 중지된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다.    |
+| AudioPlayer | [`ProgressReportDelayPassed`](#ProgressReportPositionPassed) | Event | 오디오 스트림 재생이 시작된 후 지정된 지연 시간만큼 시간이 지났을 때 현재 재생 상태를 CIC로 보고하기 위해 사용됩니다. |
+| AudioPlayer | [`ProgressReportIntervalPassed`](#ProgressReportPositionPassed)| Event | 오디오 스트림 재생이 시작된 후 지정된 간격마다 현재 재생 상태를 CIC로 보고하기 위해 사용됩니다. |
+| AudioPlayer | [`ProgressReportPositionPassed`](#ProgressReportPositionPassed) | Event | 오디오 스트림 재생이 시작된 후 지정된 보고 시점에 현재 재생 상태를 CIC로 보고하기 위해 사용됩니다. |
+| AudioPlayer | [`StreamDeliver`](#StreamDeliver)     | Directive | [`AudioPlayer.StreamRequested`](#StreamRequested) 이벤트 메시지의 응답이며, 실제 음악 재생이 가능한 오디오 스트림 정보를 수신해야 할 때 사용합니다. |
+| AudioPlayer | [`StreamRequested`](#StreamRequested) | Event     | 오디오 스트림 재생을 위해 CIC로 스트리밍 URL과 같은 추가 정보를 요청하는 이벤트 메시지입니다.               |
+| PlaybackController | [`Pause`](#Pause)              | Directive | 클라이언트에게 재생 중인 오디오 스트림을 일시 정지하도록 지시합니다.        |
+| PlaybackController | [`Resume`](#Resume)            | Directive | 클라이언트에게 오디오 스트림 재생을 재개하도록 지시합니다.                |
+| PlaybackController | [`Stop`](#Stop)                | Directive | 클라이언트에게 오디오 스트림 재생을 중지하도록 지시합니다.                |
+| TemplateRuntime | [`RenderPlayerInfo`](#RenderPlayerInfo)        | Directive | CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 앨범 이미지, 가사와 같은 재생 메타 정보를 전달하고 이를 표시하도록 지시합니다. |
+| TemplateRuntime | [`RequestPlayerInfo`](#RequestPlayerInfo)      | Event     | 클라이언트가 미디어 플레이어에 표시할 재생 목록, 앨범 이미지, 가사와 같은 재생 메타 정보를 CIC에게 요청합니다. |
+
+## Play directive {#Play}
+클라이언트에게 특정 오디오 스트림을 재생하거나 재생 대기열에 추가하도록 지시합니다.
+
+### Payload fields
+| 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `audioItem`               | object | 재생할 오디오 스트림의 메타 정보와 재생에 필요한 오디오 스트림 정보를 담고 있는 객체                     | 항상 |
+| `audioItem.artImageUrl`   | string | 오디오 콘텐츠 관련 이미지(앨범 이미지)의 URL                                                  | 조건부  |
+| `audioItem.audioItemId`   | string | 오디오 스트림 정보를 구분하는 ID. 클라이언트는 이 값을 기준으로 중복된 Play 지시 메시지를 제거할 수 있습니다. | 항상 |
+| `audioItem.headerText`    | string | 주로 현재 재생 목록의 제목을 표현하는 텍스트 필드                                                | 조건부  |
+| `audioItem.stream`        | [AudioStreamInfoObject](#AudioStreamInfoObject) | 재생에 필요한 오디오 스트림 정보를 담고 있는 객체        | 항상 |
+| `audioItem.titleSubText1` | string | 주로 가수 이름을 표현하는 텍스트 필드                                                          | 항상 |
+| `audioItem.titleSubText2` | string | 주로 앨범 이름을 표현하는 보조 텍스트 필드                                                      | 조건부 |
+| `audioItem.titleText`     | string | 현재 음악의 제목을 표현하는 텍스트 필드                                                         | 항상  |
+| `playBehavior`            | string | 지시 메시지에 포함된 오디오 스트림을 클라이언트에서 언제 재생할지를 결정하는 구분자 <ul><li><code>"REPLACE_ALL"</code>: 재생 대기열을 모두 비우고, 전달받은 오디오 스트림을 즉시 재생합니다.</li><li><code>"ENQUEUE"</code>: 재생 대기열에 전달받은 오디오 스트림을 추가합니다.</li></ul> | 항상 |
+| `source`                  | object | 오디오 스트리밍 서비스의 출처 정보                                                    | 항상 |
+| `source.logoUrl`          | string | 오디오 스트리밍 서비스의 로고 이미지 URL. 이 필드 또는 필드의 값이 없거나 로고 이미지를 표시할 수 없을 경우 `source.name` 필드에 있는 오디오 스트리밍 서비스의 이름이라도 표시해야 합니다.  | 조건부 |
+| `source.name`             | string | 오디오 스트리밍 서비스의 이름                                                        | 항상 |
+
+### Remarks
+음악 서비스의 과금 문제 등으로 인해 실제 스트리밍 정보, 즉 스트리밍 URL과 같은 정보는 재생 직전에 획득할 수 있는 경우가 있습니다. 이는 `audioItem.stream.urlPlayable` 필드 값에 따라 다음과 같이 구분됩니다.
+* `urlPlayable` 필드 값이 `true`이면 `audioItem.stream.url` 필드에 포함된 URL로 오디오 스트림을 바로 재생할 수 있습니다.
+* `urlPlayable` 필드 값이 `false`이면 `audioItem.stream.url` 필드에 포함된 URL로 오디오 스트림을 바로 재생할 수 없고 [`AudioPlayer.StreamRequested`](#StreamRequested) 이벤트 메시지를 사용하여 오디오 스트림 정보를 추가로 요청해야 합니다.
+
+### Message example
+{% raw %}
+
+```json
+// 바로 재생 가능한 오디오 스트림 URL 정보가 담긴 예제
+{
+  "directive": {
+    "header": {
+      "namespace": "AudioPlayer",
+      "name": "Play",
+      "dialogRequestId": "34abac3-cb46-611c-5111-47eab87b7",
+      "messageId": "ad13f0d6-bb11-ca23-99aa-312a0b213805"
+    },
+    "payload": {
+      "audioItem": {
+        "audioItemId": "90b77646-93ab-444f-acd9-60f9f278ca38",
+        "episodeId": 22346122,
+        "stream": {
+          "beginAtInMilliseconds": 0,
+          "episodeId": 22346122,
+          "playType": "NONE",
+          "podcastId": 12548,
+          "progressReport": {
+            "progressReportDelayInMilliseconds": null,
+            "progressReportIntervalInMilliseconds": 60000,
+            "progressReportPositionInMilliseconds": null
+          },
+          "url": "https://streaming.example.com/1212334548/2231122",
+          "urlPlayable": true
+        },
+        "type": "podcast"
+      },
+      "source": {
+        "name": "Potbbang",
+        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png"
+      },
+      "playBehavior": "REPLACE_ALL"
+    }
+  }
+}
+
+// 바로 재생 가능하지 않은 오디오 스트림 URL 정보가 담긴 예제
+{
+  "directive": {
+    "header": {
+      "namespace": "AudioPlayer",
+      "name": "Play",
+      "dialogRequestId": "277b40c3-b046-4f61-a551-783b1547e7b7",
+      "messageId": "4e4080d6-c440-498a-bb73-ae86c6312806"
+    },
+    "payload": {
+      "audioItem": {
+        "audioItemId": "9CPWU-8362fe7c-f75c-42c6-806b-6f3e00aba8f1-c1862201",
+        "album": {
+          "albumId": "2000240",
+          "genres": [
+            "Classic"
+          ],
+          "title": "Wonderland - Edvard Grieg : Piano Concerto, Lyric Pieces"
+        },
+        ...
+        "stream": {
+          "beginAtInMilliseconds": 0,
+          "durationInMilliseconds": 60000,
+          "progressReport": {
+            "progressReportDelayInMilliseconds": null,
+            "progressReportIntervalInMilliseconds": null,
+            "progressReportPositionInMilliseconds": 60000
+          },
+          "token": "TR-NM-17716562",
+          "url": "clova:TR-NM-17716562",
+          "urlPlayable": false
+        },
+        "title": "Symphony No.4 In A Op.90 'Italian' - III. Con Moto Moderato",
+        "type": "SampleMusicProvider"
+      },
+      "source": {
+        "name": "Sample Music Provider",
+        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png"
+      },
+      "playBehavior": "REPLACE_ALL"
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### See also
 * [`AudioPlayer.PlayPaused`](#PlayPaused)
 * [`AudioPlayer.PlayResumed`](#PlayResumed)
 * [`AudioPlayer.PlayStarted`](#PlayStarted)
@@ -750,7 +921,6 @@ CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 
 * [`AudioPlayer.ProgressReportIntervalPassed`](#ProgressReportIntervalPassed)
 * [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
 * [`AudioPlayer.StreamRequested`](#StreamRequested)
-* [`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo)
 
 ### AudioPlayer.PlayFinished event {#PlayFinished}
 클라이언트가 오디오 스트림 재생을 완료할 때 재생 완료된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다.
@@ -787,6 +957,7 @@ CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 
 {% endraw %}
 
 #### See also
+* [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.PlayStarted`](#PlayStarted)
 * [`AudioPlayer.PlayStopped`](#PlayStopped)
 
@@ -825,6 +996,7 @@ CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 
 {% endraw %}
 
 #### See also
+* [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.PlayResumed`](#PlayResumed)
 
 ### AudioPlayer.PlayResumed event {#PlayResumed}
@@ -863,6 +1035,7 @@ CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 
 {% endraw %}
 
 #### See also
+* [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.PlayPaused`](#PlayPaused)
 
 ### AudioPlayer.PlayStarted event {#PlayStarted}
@@ -900,6 +1073,7 @@ CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 
 {% endraw %}
 
 #### See also
+* [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.PlayStopped`](#PlayStopped)
 
 ### AudioPlayer.PlayStopped event {#PlayStopped}
@@ -937,6 +1111,7 @@ CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 
 {% endraw %}
 
 #### See also
+* [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.PlayStarted`](#PlayStarted)
 
 ### AudioPlayer.ProgressReportDelayPassed event {#ProgressReportDelayPassed}
@@ -974,6 +1149,7 @@ CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 
 {% endraw %}
 
 #### See also
+* [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.ProgressReportIntervalPassed`](#ProgressReportIntervalPassed)
 * [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
 
@@ -1012,6 +1188,7 @@ CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 
 {% endraw %}
 
 #### See also
+* [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.ProgressReportDelayPassed`](#ProgressReportDelayPassed)
 * [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
 
@@ -1050,8 +1227,50 @@ CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 
 {% endraw %}
 
 #### See also
+* [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.ProgressReportDelayPassed`](#ProgressReportDelayPassed)
 * [`AudioPlayer.ProgressReportIntervalPassed`](#ProgressReportIntervalPassed)
+
+### AudioPlayer.StreamDeliver directive {#StreamDeliver}
+[`AudioPlayer.StreamRequested`](#StreamRequested) 이벤트 메시지의 응답이며, 실제 음악 재생이 가능한 오디오 스트림 정보를 수신해야 할 때 사용합니다. 클라이언트가 음악을 재생할 수 있도록 오디오 스트림 정보에 스트리밍할 수 있는 URL 정보가 필수로 포함되어 있습니다.
+
+#### Payload fields
+| 필드 이름 | 자료형 | 필드 설명 | 포함 여부 |
+|---------|------|--------|:---------:|
+| `audioItemId` | string | 오디오 스트림 정보를 구분하는 값. 클라이언트는 이 값을 기준으로 중복된 Play 지시 메시지를 제거할 수 있습니다. | 항상 |
+| `audioStream` | [AudioStreamInfoObject](#AudioStreamInfoObject) | 재생에 필요한 오디오 스트림 정보를 담고 있는 객체       | 항상 |
+
+#### Remarks
+`StreamDeliver` 지시 메시지를 통해 전달받는 `AudioStreamInfoObject` 객체는 기존 [`AudioPlayer.Play`](#Play) 지시 메시지를 통해 전달받은 `AudioStreamInfoObject` 객체의 내용과 중복을 피하기 위해 일부 내용이 생략될 수 있습니다. 따라서, 음원을 재생할 때 `StreamDeliver` 지시 메시지와 이미 수신한 [`Play`](#Play) 지시 메시지의 `payload.audioStream` 정보를 조합해서 사용해야 합니다.
+
+#### Message example
+{% raw %}
+
+```json
+{
+  "directive": {
+    "header": {
+      "namespace": "AudioPlayer",
+      "name": "StreamDeliver",
+      "dialogRequestId": "277b40c3-b046-4f61-a551-783b1547e7b7",
+      "messageId": "4e4080d6-c440-498a-bb73-ae86c6312806"
+    },
+    "payload": {
+        "audioItemId": "5313c879-25bb-461c-93fc-f85d95edf2a0",
+        "stream": {
+            "token": "b767313e-6790-4c28-ac18-5d9f8e432248",
+            "url": "https://sample.musicservice.net/b767313e.mp3"
+        }
+    }
+  }
+}
+```
+
+{% endraw %}
+
+#### See also
+* [`AudioPlayer.Play`](#Play)
+* [`AudioPlayer.StreamRequested`](#StreamRequested)
 
 ### AudioPlayer.StreamRequested event {#StreamRequested}
 오디오 스트림 재생을 위해 CIC로 스트리밍 URL과 같은 추가 정보를 요청하는 이벤트 메시지입니다.
@@ -1100,12 +1319,229 @@ CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 
 {% endraw %}
 
 #### See also
+* [`AudioPlayer.Play`](#Play)
+
+### PlaybackController.Pause directive {#Pause}
+클라이언트에게 재생 중인 오디오 스트림을 일시 정지하도록 지시합니다. 클라이언트는 이 지시 메시지를 받은 후 오디오 스트림 재생을 일시 정지해야 합니다.
+
+#### Payload fields
 없음
 
-## TemplateRuntime.RequestPlayerInfo event {#RequestPlayerInfo}
-클라이언트가 미디어 플레이어에 표시할 재생 목록, 앨범 이미지, 가사와 같은 재생 메타 정보를 CIC에게 요청합니다.
+#### Message example
+{% raw %}
+```json
+{
+  "directive": {
+    "header": {
+      "namespace": "PlaybackController",
+      "name": "Pause",
+      "dialogRequestId": "42390b12-ae91-4121-aa0a-37f74e8e422b",
+      "messageId": "b1f88d7d-bbb8-44fa-a0a2-c5a7553e6f8a"
+    },
+    "payload": {}
+  }
+}
+```
+{% endraw %}
+
+#### See also
+* [`AudioPlayer.PlayPaused`](#PlayPaused)
+
+### PlaybackController.Resume directive {#Resume}
+클라이언트에게 오디오 스트림 재생을 재개하도록 지시합니다. 클라이언트는 이 지시 메시지를 받은 후 오디오 스트림 재생을 재개해야 합니다.
+
+#### Payload fields
+없음
+
+#### Message example
+{% raw %}
+```json
+{
+  "directive": {
+    "header": {
+      "namespace": "PlaybackController",
+      "name": "Resume",
+      "dialogRequestId": "42390b12-ae91-4121-aa0a-37f74e8e422b",
+      "messageId": "b1f88d7d-bbb8-44fa-a0a2-c5a7553e6f8a"
+    },
+    "payload": {}
+  }
+}
+```
+{% endraw %}
+
+## PlaybackController.Stop directive {#Stop}
+클라이언트에게 오디오 스트림 재생을 중지하도록 지시합니다. 클라이언트는 이 지시 메시지를 받은 후 오디오 스트림 재생을 중지해야 합니다.
 
 ### Payload fields
+없음
+
+### Message example
+{% raw %}
+```json
+{
+  "directive": {
+    "header": {
+      "namespace": "PlaybackController",
+      "name": "Stop",
+      "dialogRequestId": "42390b12-ae91-4121-aa0a-37f74e8e422b",
+      "messageId": "b1f88d7d-bbb8-44fa-a0a2-c5a7553e6f8a"
+    },
+    "payload": {}
+  }
+}
+```
+{% endraw %}
+
+### See also
+* [`AudioPlayer.PlayStopped`](/CIC/References/CICInterface/AudioPlayer.md#PlayStopped)
+
+#### See also
+* [`AudioPlayer.PlayResumed`](#PlayResumed)
+
+### TemplateRuntime.RenderPlayerInfo directive {#RenderPlayerInfo}
+
+CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 앨범 이미지, 가사와 같은 재생 메타 정보를 전달하고 이를 표시하도록 지시합니다. 사용자가 음악 재생을 요청한 경우 클라이언트는 [`AudioPlayer.Play`](#Play) 지시 메시지를 받아 미디어를 재생하게 됩니다. 디스플레이 장치가 있는 클라이언트라면 필요에 따라 미디어 플레이어에 재생 관련 정보를 표현해야 할 수 있습니다. 이때, [`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo) 이벤트 메시지를 통해 재생 메타 정보를 CIC에 요청할 수 있으며, `TemplateRuntime.RenderPlayerInfo` 지시 메시지를 수신할 수 있습니다. `TemplateRuntime.RenderPlayerInfo` 지시 메시지는 현재 재생해야 하는 미디어 콘텐츠와 추후 재생해야 하는 미디어 콘텐츠의 재생 메타 정보를 담고 있습니다. 클라이언트는 `TemplateRuntime.RenderPlayerInfo` 지시 메시지의 재생 메타 정보를 사용자에게 제공하므로써 현재 재생 미디어의 메타 정보 및 재생 목록을 표시할 수 있습니다.
+
+#### Payload fields
+| 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `displayType`               | string | 미디어 콘텐츠 표시 형태.<ul><li><code>"list"</code>: 목록 표시 형태</li><li><code>"single"</code>: 단일 항목 표시 형태</li></ul>       | 항상 |
+| `controls[]`                | object array | 클라이언트가 미디어 플레이어에서 반드시 표시해야 버튼의 정보를 담고 있는 객체 배열입니다.             | 항상 |
+| `controls[].enabled`        | boolean      | `controls[].name`에 명시된 버튼이 미디어 플레이어에서 활성화되어야 하는지 나타냅니다.<ul><li><code>true</code>: 활성화</li><li><code>false</code>: 비활성화</li></ul>  | 항상  |
+| `controls[].name`           | string       | 버튼 이름. 다음과 같은 값이 포함될 수 있습니다.<ul><li><code>"NEXT"</code>: 다음 버튼</li><li><code>"PLAY_PAUSE"</code>: 재생/일시 정지 버튼</li><li><code>"PREVIOUS"</code>: 이전 버튼</li></ul>  | 항상  |
+| `controls[].selected`       | boolean      | 미디어 콘텐츠가 선택된 상태 여부. 이 값은 선호 항목의 개념이 들어간 것을 표현할 때 사용될 수 있습니다. 이 값이 `true`로 선택되었다면 사용자가 선호 항목으로 등록해둔 콘텐츠이기 때문에 미디어 플레이어에서 관련된 UI에 표현해야 합니다. <ul><li><code>true</code>: 선택됨</li><li><code>false</code>: 선택 안됨</li></ul> | 항상  |
+| `controls[].type`           | string       | 버튼의 타입. 현재는 `"BUTTON"` 값만 사용됩니다.  | 항상 |
+| `playableItems[]`           | object array | 재생할 수 있는 미디어 콘텐츠 목록의 정보를 담고 있는 객체 배열입니다. 이 필드는 빈 배열일 수 있습니다.  | 항상 |
+| `playableItems[].artImageUrl`  | string    | 미디어 콘텐츠 관련 이미지의 URL. 앨범 자켓 이미지나 관련 아이콘 등의 이미지가 위치한 URL입니다.      | 조건부 |
+| `playableItems[].controls[]`                | object array  | 특정 미디어 콘텐츠를 재생할 때 반드시 표시해야 하는 버튼의 정보를 담고 있는 객체 배열입니다. 이 객체 배열을 생략될 수 있습니다.  | 조건부 |
+| `playableItems[].controls[].enabled`        | boolean      | `playableItems[].controls[].name`에 명시된 버튼이 미디어 플레이어에서 활성화되어야 하는지 나타냅니다.<ul><li><code>true</code>: 활성화</li><li><code>false</code>: 비활성화</li></ul>  | 항상  |
+| `playableItems[].controls[].name`           | string       | 버튼 이름. 다음과 같은 값이 포함될 수 있습니다.<ul><li><code>"NEXT"</code>: 다음 버튼</li><li><code>"PLAY_PAUSE"</code>: 재생/일시 정지 버튼</li><li><code>"PREVIOUS"</code>: 이전 버튼</li></ul>  | 항상  |
+| `playableItems[].controls[].selected`       | boolean      | 미디어 콘텐츠가 선택된 상태 여부. 이 값은 선호 항목의 개념이 들어간 것을 표현할 때 사용될 수 있습니다. 이 값이 `true`로 선택되었다면 사용자가 선호 항목으로 등록해둔 콘텐츠이기 때문에 미디어 플레이어에서 관련된 UI에 표현해야 합니다. <ul><li><code>true</code>: 선택됨</li><li><code>false</code>: 선택 안됨</li></ul> | 항상  |
+| `playableItems[].controls[].type`           | string       | 버튼의 타입. 현재는 `"BUTTON"` 값만 사용됩니다.  | 항상 |
+| `playableItems[].headerText`       | string        | 주로 현재 재생 목록의 제목을 표현하는 텍스트 필드                                                | 조건부  |
+| `playableItems[].isLive`           | boolean       | 실시간 콘텐츠 여부.<ul><li><code>true</code>: 실시간 콘텐츠</li><li><code>false</code>: 실시간 콘텐츠 아님</li></ul><div class="note"><p><strong>Note!</strong></p><p>실시간 콘텐츠일 경우 실시간 콘텐츠임을 의미하는 아이콘(예, live 아이콘)을 표시해야 합니다.</p></div>  | 조건부  |
+| `playableItems[].lyrics[]`         | object array  | 가사 정보를 담고 있는 객체 배열.                                                            | 조건부  |
+| `playableItems[].lyrics[].data`    | string        | 가사 데이터. 이 필드 또는 `playableItems[].lyrics[].url` 필드 중 하나는 존재합니다.              | 조건부  |
+| `playableItems[].lyrics[].format`  | string        | 가사 데이터의 포맷.<ul><li><code>"LRC"</code>: <a href="https://en.wikipedia.org/wiki/LRC_(file_format)" target="_blank">LRC 포맷</a></li><li><code>"PLAIN"</code>: 일반 텍스트 형식</li></ul>  | 항상  |
+| `playableItems[].lyrics[].url`     | string        | 가사 데이터의 URL. 이 필드 또는 `playableItems[].lyrics[].data` 필드 중 하나는 존재합니다.        | 조건부  |
+| `playableItems[].showAdultIcon`    | boolean       | 성인용 콘텐츠를 나타내는 아이콘의 표시 여부.<ul><li><code>true</code>: 표시해야 함.</li><li><code>false</code>: 표시 안해야 함.</li></ul>   | 항상  |
+| `playableItems[].titleSubText1`    | string        | 주로 가수 이름을 표현하는 텍스트 필드                                                          | 항상 |
+| `playableItems[].titleSubText2`    | string        | 주로 앨범 이름을 표현하는 보조 텍스트 필드                                                      | 조건부 |
+| `playableItems[].titleText`        | string        | 현재 음악의 제목을 표현하는 텍스트 필드                                                         | 항상  |
+| `playableItems[].token`            | string        | 미디어 콘텐츠의 token                                                                     | 항상 |
+| `provider`                         | object        | 미디어 콘텐츠 제공자의 정보가 담긴 객체                                                         | 조건부 |
+| `provider.logoUrl`                 | string        | 미디어 콘텐츠 제공자 로고 이미지의 URL                                                         | 조건부 |
+| `provider.name`                    | string        | 미디어 콘텐츠 제공자의 이름                                                                   | 항상  |
+| `provider.smallLogoUrl`            | string        | 크기가 작은 미디어 콘텐츠 제공자 로고 이미지의 URL                                                | 조건부 |
+
+#### Message example
+{% raw %}
+
+```json
+{
+  "directive": {
+    "header": {
+      "namespace": "TemplateRuntime",
+      "name": "RenderPlayerInfo",
+      "dialogRequestId": "34abac3-cb46-611c-5111-47eab87b7",
+      "messageId": "ad13f0d6-bb11-ca23-99aa-312a0b213805"
+    },
+    "payload": {
+      "controls": [
+        {
+          "enabled": true,
+          "name": "PLAY_PAUSE",
+          "selected": false,
+          "type": "BUTTON"
+        },
+        {
+          "enabled": true,
+          "name": "NEXT",
+          "selected": false,
+          "type": "BUTTON"
+        },
+        {
+          "enabled": true,
+          "name": "PREVIOUS",
+          "selected": false,
+          "type": "BUTTON"
+        }
+      ],
+      "displayType": "list",
+      "playableItems": [
+        {
+          "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/662058.jpg",
+          "controls": [
+            {
+              "enabled": true,
+              "name": "LIKE_DISLIKE",
+              "selected": false,
+              "type": "BUTTON"
+            }
+          ],
+          "headerText": "Classic",
+          "lyrics": [
+            {
+              "data": null,
+              "format": "PLAIN",
+              "url": null
+            }
+          ],
+          "isLive": false,
+          "showAdultIcon": false,
+          "titleSubText1": "Alice Sara Ott, Symphonie Orchester Des Bayerischen Rundfunks, Esa-Pekka Salonen",
+          "titleSubText2": "Wonderland - Edvard Grieg : Piano Concerto, Lyric Pieces",
+          "titleText": "Grieg : Piano Concerto In A Minor, Op.16 - 3. Allegro moderato molto e marcato (Live)",
+          "token": "eJyr5lIqSSyITy4tKs4vUrJSUE="
+        },
+        {
+          "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/202646.jpg",
+          "controls": [
+            {
+              "enabled": true,
+              "name": "LIKE_DISLIKE",
+              "selected": false,
+              "type": "BUTTON"
+            }
+          ],
+          "headerText": "Classic",
+          "lyrics": [
+            {
+              "data": null,
+              "format": "PLAIN",
+              "url": null
+            }
+          ],
+          "isLive": true,
+          "showAdultIcon": false,
+          "titleSubText1": "Berliner Philharmoniker, Herbert Von Karajan",
+          "titleSubText2": "Mendelssohn : Violin Concerto; A Midsummer Night`s Dream",
+          "titleText": "Symphony No.4 In A Op.90 'Italian' - III. Con Moto Moderato",
+          "token": "eJyr5lIqSSyITy4tKs4vUrJSUEo2"
+        },
+        ...
+      ],
+      "provider": {
+        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png",
+        "name": "SampleMusicProvider",
+        "smallLogoUrl": "https://img.musicproviderdomain.net/smallLogo_180125.png"
+      }
+    }
+  }
+}
+```
+
+{% endraw %}
+
+#### See also
+* [`AudioPlayer.Play`](#Play)
+* [`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo)
+
+### TemplateRuntime.RequestPlayerInfo event {#RequestPlayerInfo}
+클라이언트가 미디어 플레이어에 표시할 재생 목록, 앨범 이미지, 가사와 같은 재생 메타 정보를 CIC에게 요청합니다.
+
+#### Payload fields
 
 | 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:---------:|
@@ -1114,7 +1550,7 @@ CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 
 | `range.before` | number  | 기준 미디어 콘텐츠로부터 n개만큼 이전 재생 목록에 포함되는 재생 메타 정보를 요청합니다.  | 선택  |
 | `range.after`  | number  | 기준 미디어 콘텐츠로부터 n개만큼 다음 재생 목록에 포함되는 재생 메타 정보를 요청합니다. 예를 들어, `range.before` 필드의 값을 지정하지 않고 `range.after`의 값을 `5`로 설정하면 기준 미디어 콘텐츠를 포함한 총 6개의 미디어 콘텐츠에 해당하는 재생 메타 정보를 수신하게 됩니다. | 선택  |
 
-### Message example
+#### Message example
 
 {% raw %}
 
@@ -1137,8 +1573,8 @@ CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 
 ```
 {% endraw %}
 
-### See also
-없음
+#### See also
+* [`AudioPlayer.Play`](#Play)
 
 ### AudioStreamInfoObject {#AudioStreamInfoObject}
 재생할 음악의 오디오 스트림의 스트리밍 정보를 담고 있는 객체입니다. 클라이언트에게 재생할 스트리밍 정보를 전달하거나 클라이언트가 CIC로 현재 재생 중인 음악의 스트리밍 정보를 전달해야 할 때 사용합니다.
@@ -1196,6 +1632,93 @@ CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 
 {% endraw %}
 
 #### See also
+* [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.PlayFinished`](#PlayFinished)
+* [`AudioPlayer.StreamRequested`](#StreamRequested)
+
+## 오디오 콘텐츠 재생 관련 맥락 정보 {#ContextObjectforAudioPlayback}
+클라이언트가 Clova에게 [CIC API](#CICAPIforAudioPlayback) 이벤트 메시지를 전송할 때 다음과 같은 다양한 맥락 정보(context)를 보냅니다. 이 중 오디오 콘텐츠 재생과 관련된 맥락 정보는 [`AudioPlayer.PlaybackState`](#PlaybackState) 입니다.
+
+### AudioPlayer.PlaybackState {#PlaybackState}
+`AudioPlayer.PlaybackState`는 현재 재생하고 있거나 마지막으로 재생한 미디어 정보를 CIC에게 보고할때 사용하는 메시지 포맷입니다.
+
+#### Object structure
+{% raw %}
+```json
+{
+  "header": {
+    "namespace": "AudioPlayer",
+    "name": "PlaybackState"
+  },
+  "payload": {
+    "offsetInMilliseconds": {{number}},
+    "playerActivity": {{string}},
+    "repeatMode": {{string}},
+    "stream": {{AudioStreamInfoObject}},
+    "totalInMilliseconds": {{number}}
+  }
+}
+```
+{% endraw %}
+
+
+#### Payload fields
+
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `offsetInMilliseconds` | number | 최근 재생 미디어의 마지막 재생 지점(offset). 단위는 밀리초이며, `playerActivity` 값이 `"IDLE"`이면 이 필드 값은 입력하지 않아도 됩니다.                                                  | 선택 |
+| `playerActivity`       | string | 플레이어의 상태를 나타내는 값이며 다음과 같은 값을 가집니다.<ul><li><code>"IDLE"</code>: 비활성 상태</li><li><code>"PLAYING"</code>: 재생 중인 상태</li><li><code>"PAUSED"</code>: 일시 정지 상태</li><li><code>"STOPPED"</code>: 중지 상태</li></ul> | 필수 |
+| `repeatMode`           | string  | 반복 재생 모드.<ul><li><code>"NONE"</code>: 반복 재생 안함</li><li><code>"REPEAT_ONE"</code>: 한 곡 반복 재생</li></ul>                                                   | 필수  |
+| `stream`               | [AudioStreamInfoObject](#AudioStreamInfoObject) | 재생 중인 미디어의 상세 정보를 보관한 객체. `playerActivity` 값이 `"IDLE"`이면 이 필드 값은 입력하지 않아도 됩니다. [`AudioPlayer.Play`](#Play) 또는 [`AudioPlayer.StreamDeliver`](#StreamDeliver) 지시 메시지로 전달되었던 미디어 정보(`stream` 객체)의 값을 입력합니다. | 선택 |
+| `totalInMilliseconds`  | number | 최근 재생 미디어의 전체 길이. [`AudioPlayer.Play`](#Play) 지시 메시지를 통해 전달받은 오디오 정보([AudioStreamInfoObject](#AudioStreamInfoObject))에 `durationInMilliseconds` 필드 값이 있는 경우 이 필드의 값으로 입력하면 됩니다. 단위는 밀리초이며, `playerActivity` 값이 `"IDLE"`이면 이 필드 값은 입력하지 않아도 됩니다.                                                               | 선택 |
+
+#### Object example
+
+{% raw %}
+
+```json
+// Case 1: 재생이 중지된 상태
+{
+  "header": {
+    "namespace": "AudioPlayer",
+    "name": "PlaybackState"
+  },
+  "payload": {
+    "offsetInMilliseconds": 10000,
+    "totalInMilliseconds": 300000,
+    "playerActivity": "STOPPED",
+    "repeatMode": "NONE",
+    "stream": {
+      "beginAtInMilliseconds": 0,
+      "progressReport": {
+        "progressReportDelayInMilliseconds": null,
+        "progressReportIntervalInMilliseconds": null,
+        "progressReportPositionInMilliseconds": 60000
+      },
+      "token": "TR-NM-17740107",
+      "url": "clova:TR-NM-17740107",
+      "urlPlayable": false
+    }
+  }
+}
+
+// 예제 2: 플레이어가 비활성화된 상태
+{
+  "header": {
+    "namespace": "AudioPlayer",
+    "name": "PlaybackState"
+  },
+  "payload": {
+    "playerActivity": "IDLE",
+    "repeatMode": "NONE"
+  }
+}
+```
+
+{% endraw %}
+
+#### See also
+* [`AudioPlayer.Play`](#Play)
+* [`AudioPlayer.StreamDeliver`](#StreamDeliver)
 * [`AudioPlayer.StreamRequested`](#StreamRequested)
 {% endif %}
