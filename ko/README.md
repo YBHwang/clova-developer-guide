@@ -25,6 +25,7 @@
     <td>
       <ul>
         <li>[Design] Extension의 <a href="/Design/Design_Guideline_For_Extension.html#DecideSoundOutputType">응답 유형</a>에 대한 가이드라인 추가</li>
+        <li>[CEK] Custom extension 만들기 문서에 <a href="/CEK/Guides/Build_Custom_Extension.html#ProvideAudioContent">오디오 콘텐츠 제공하기</a> 절 추가</li>
         <li>[CEK] Custom extension 메시지의 <a href="/CEK/References/CEK_API.html#CustomExtRequestType">요청 타입</a>에 <a href="/CEK/References/CEK_API.html#CustomExtEventRequest">EventRequest 타입</a> 추가</li>
       </ul>
     </td>
