@@ -764,7 +764,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
         "audioItemId": "5313c879-25bb-461c-93fc-f85d95edf2a0",
         "stream": {
             "token": "b767313e-6790-4c28-ac18-5d9f8e432248",
-            "url": "https://aod.musicservice.net/b767313e.mp3"
+            "url": "https://sample.musicservice.net/b767313e.mp3"
         }
     }
   }

@@ -2852,7 +2852,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 | フィールド名       | データ型    | フィールドの説明                     | 必須/選択 |
 |---------------|---------|-----------------------------|:---------:|
 | `isReachable` | boolean | ネットワークでデバイスにアクセスできるかを示す値。<ul><li><code>true</code>：アクセス可能(オンライン)</li><li><code>false</code>：アクセス不可(オフライン)</li></ul> | 必須    |
-| `isTurnOn`    | boolean | デバイスの動作状態を示す値。<ul><li><code>true</code>：アイドル状態</li><li><code>false</code>：動作中</li></ul>                  | 必須    |
+| `isTurnOn`    | boolean | デバイスの動作状態を示す値。<ul><li><code>true</code>：動作中</li><li><code>false</code>：アイドル状態</li></ul>                  | 必須    |
 
 ### Message example
 
