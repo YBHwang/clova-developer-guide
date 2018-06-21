@@ -1,7 +1,7 @@
 ## 오디오 콘텐츠 제공하기 {#ProvideAudioContent}
 
 {% if book.TargetCountryCode == "KR" %}
-Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디오 콘텐츠를 제공할 수 있습니다. 이를 위해 [Custom extension 메시지](/CEK/References/CEK_API.md#CustomExtMessage)의 명세에서 오디오 콘텐츠 재생 관련 [CIC API](/CIC/References/CIC_API.md)를 활용해야 합니다. 오디오 콘텐츠를 사용자에게 제공하려면 다음에 해당하는 내용을 extension에 구현해야 하며, **특히 필수 구현 항목은 반드시 구현해야 합니다.**
+Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디오 콘텐츠를 제공할 수 있습니다. 이를 위해 [Custom extension 메시지](/CEK/References/CEK_API.md#CustomExtMessage)의 명세에서 오디오 콘텐츠 재생 관련 [CIC API](/CIC/References/CIC_API.md)를 활용해야 합니다. 오디오 콘텐츠를 사용자에게 제공하려면 다음에 해당하는 내용을 extension에 구현해야 합니다. **특히, 필수 구현 항목은 반드시 구현해야 합니다.**
 
 * 필수 구현
   * [오디오 콘텐츠 재생 지시](#DirectClientToPlayAudio)
@@ -50,22 +50,28 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
         },
         "payload": {
           "audioItem": {
-            "audioItemId": "9CPWU-c82302b2-ea29-4f6c-ba6e-20fd268d8c3b-c1570067",
-            "title": "Symphony No.4 In A Op.90 'Italian' - III. Con Moto Moderato",
-            "artist": "Unknown",
+            "audioItemId": "90b77646-93ab-444f-acd9-60f9f278ca38",
+            "episodeId": 22346122,
             "stream": {
               "beginAtInMilliseconds": 0,
+              "episodeId": 22346122,
+              "playType": "NONE",
+              "podcastId": 12548,
               "progressReport": {
                 "progressReportDelayInMilliseconds": null,
-                "progressReportIntervalInMilliseconds": null,
-                "progressReportPositionInMilliseconds": 60000
+                "progressReportIntervalInMilliseconds": 60000,
+                "progressReportPositionInMilliseconds": null
               },
-              "token": "TR-NM-17413540",
-              "url": "clova:TR-NM-17413540",
-              "urlPlayable": false
+              "url": "https://streaming.example.com/1212334548/2231122",
+              "urlPlayable": true
             },
-            "playBehavior": "REPLACE_ALL"
-          }
+            "type": "podcast"
+          },
+          "source": {
+            "name": "Potbbang",
+            "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png"
+          },
+          "playBehavior": "REPLACE_ALL"
         }
       }
     ],
@@ -91,7 +97,7 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
 
 <div class="danger">
   <p><strong>Caution!</strong></p>
-  <p>재생 제어와 관련된 내용은 필수 구현 항목입니다. 특히, `Clova.PauseIntent`와 `Clova.StopIntent` built-in intent에 대응하는 동작을 구현하지 않으면, 사용자에게 심각한 불편을 줄 수 있습니다.</p>
+  <p>재생 제어와 관련된 내용은 필수 구현 항목입니다. 특히, <code>Clova.PauseIntent</code>와 <code>Clova.StopIntent</code> built-in intent에 대응하는 동작을 구현하지 않으면, 사용자에게 심각한 불편을 줄 수 있습니다.</p>
 </div>
 
 사용자가 "잠깐 멈춰", "다시 재생해", "중지 해줘"와 같이 발화하면, custom extension은 재생 일시 정지, 재생 재개, 재생 중지 요청에 대응해야 합니다. 이때, 클라이언트는 각각의 요청에 대해 `Clova.PauseIntent`, `Clova.ResumeIntent`, `Clova.StopIntent` built-int intent를 `IntentRequest` 타입 요청 메시지로 받게 됩니다. Custom extension은 이에 대응하여 각각 다음과 같은 지시 메시지를 [응답 메시지](/CEK/References/CEK_API.md#CustomExtResponseMessage)로 CEK에게 전달해야 합니다.
@@ -134,7 +140,7 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>만약, 이전이나 다음에 해당하는 오디오 콘텐츠가 없거나 유효하지 않는 경우 "재생할 수 있는 이전/다음 곡이 없습니다."와 같은 음성 출력을 응답 메시지로 보내면 됩니다.</p>
+  <p>만약, 이전이나 다음에 해당하는 오디오 콘텐츠가 없거나 유효하지 않는 경우 "재생할 수 있는 이전 또는 다음 곡이 없습니다."와 같은 음성 출력을 응답 메시지로 보내면 됩니다.</p>
 </div>
 
 ### 재생 상태 변경 및 경과 보고 수집 {#CollectPlaybackStatusAndProgress}
@@ -193,7 +199,9 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
 }
 ```
 
-위 `EventRequest` 타입 요청 메시지는 클라이언트가 총 5분짜리 오디오 콘텐츠에서 1분이되는 시점에 재생을 중지한 것을 보고하고 있습니다. 이와 같이 custom extension은 클라이언트의 재생 상태 변화를 추적할 수 있습니다. 예를 들면, `AudioPlayer.PlayStopped`와 `AudioPlayer.PlayFinished` 이벤트 메시지 정보가 포함된 `EventRequest` 타입 요청 메시지를 수집하여 오디오를 끝까지 듣거나 듣지 않는 사용자를 구분하고 이를 통계 데이터로 만들 수 있습니다. 또, `AudioPlayer.ProgressReportIntervalPassed` 이벤트 메시지가 포함된 `EventRequest` 타입 요청 메시지를 이용하여 완전히 정확한 것은 아니지만 사용자가 오디오 콘텐츠를 어디까지 들었는지 파악할 수 있습니다. 만약, 사용자가 다음 번에 같은 오디오 콘텐츠에 대한 재생을 요청하면 이 데이터를 기반으로 마지막으로 들었던 위치부터 재생할 수 있습니다.
+위 `EventRequest` 타입 요청 메시지는 클라이언트가 총 5분짜리 오디오 콘텐츠에서 1분이되는 시점에 재생을 중지한 것을 보고하고 있습니다. 이와 같이 custom extension은 클라이언트의 재생 상태 변화를 추적할 수 있습니다. 예를 들면, `AudioPlayer.PlayStopped`와 `AudioPlayer.PlayFinished` 이벤트 메시지 정보가 포함된 `EventRequest` 타입 요청 메시지를 수집하여 오디오를 끝까지 듣거나 듣지 않는 사용자를 구분하고 이를 통계 데이터로 만들 수 있습니다.
+
+또, `AudioPlayer.ProgressReportIntervalPassed` 이벤트 메시지가 포함된 `EventRequest` 타입 요청 메시지를 이용하여 완전히 정확한 것은 아니지만 사용자가 오디오 콘텐츠를 어디까지 들었는지 파악할 수 있습니다. 만약, 사용자가 다음 번에 같은 오디오 콘텐츠에 대한 재생을 요청하면 이 데이터를 기반으로 마지막으로 들었던 위치부터 재생할 수 있습니다.
 
 <div class="danger">
   <p><strong>Caution!</strong></p>
