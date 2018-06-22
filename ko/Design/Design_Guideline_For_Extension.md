@@ -392,7 +392,7 @@ Extension은 사용자의 요청을 처리한 후 그 결과를 Clova를 통해 
 다음은 오디오 콘텐츠 재생 유형의 간단한 사용 시나리오입니다.
 
 > <p class="ldiag">"클래식 박스 시작해줘"</p>
-> > <p class="rdiag">"어떤 클래식 음악 틀어드릴까요?"(TTS)</p>
+> <p class="rdiag">"어떤 클래식 음악 틀어드릴까요?"(TTS)</p>
 > <p class="ldiag">"비발디의 사계 틀어줘"</p>
 > <p class="rdiag">"네, 비발디의 사계 1 악장을 들려드릴게요."(TTS)</p>
 > <p class="rdiag">AudioPlayer.Play: 비발디 사계 1 악장</p>
