@@ -57,7 +57,7 @@ Systemインターフェースは、Clovaとクライアントの間で、クラ
 
 ### Payload fields
 
-| フィールド名       | データ型    | 説明                     | 常時/条件付き |
+| フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `allAlerts[]`   | object array | **(非推奨)** クライアントが同期すべきアラームのリストを含むオブジェクト配列。[`Alerts.SetAlert`](/CIC/References/CICInterface/Alerts.md#SetAlert)ディレクティブで使用される[`payload`](/CIC/References/CICInterface/Alerts.md#SetAlertPayload)オブジェクトと同じ形式です。 | 常時    |
 

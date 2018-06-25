@@ -22,7 +22,7 @@ SpeechRecognizerは、次のイベントとディレクティブを提供しま�
 
 ### Payload fields
 
-| フィールド名       | データ型    | 説明                     | 常時/条件付き |
+| フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `expectContentType`        | string  | クライアントが追加でユーザーの音声を取得するとき、その音声データを送信するファイルフォーマットを指定します。次の値を持ちます。<ul><li><code>"audio/l16"</code>：音声認識のために、エコー/ノイズ除去および後処理をしていない、PCMフォーマットの音声データ</li><li><code>"application/x-clova-feat"</code>：音声認識のために、エコー/ノイズの除去および後処理をした、PCMフォーマットの音声データ</li></ul>  | 条件付き  |
 | `expectSpeechId`        | string  | ユーザーの音声を追加で取得するとき、それをCICで識別するためのID。この値は後に、追加で取得したユーザーの音声を[`SpeechRecognizer.Recognize`](#Recognize)イベントでCICに送信するとき、`speechId`フィールドに入力する必要があります。    | 常時 |
@@ -118,7 +118,7 @@ SpeechRecognizerは、次のイベントとディレクティブを提供しま�
 | `initiator.payload.wakeWord`                             | object   | クライアントで認識されたウェイクワードを持つオブジェクト。ウェイクワード認識の精度を高めるために使用されます。       | 選択 |
 | `initiator.payload.wakeWord.confidence`                  | number   | デバイスで、ウェイクワードの認識を確信する程度(confidence)を示します。0から1までの実数(float)型の値を入力します。現在、このフィールドは有効ではありません。今後のために確保されているフィールドです。                 | 選択 |
 | `initiator.payload.wakeWord.indices`                      | object   | ユーザーの音声が含まれたオーディオストリームで、ウェイクワードに該当する区間の情報を持つオブジェクト                                           | 必須 |
-| `initiator.payload.wakeWord.indices.endIndexInSamples`    | number   | オーディオストリームで、ウェイクワードが終了する位置のインデックス情報。音声入力が16kHzのサンプリングレートを持つため、インデックスの1単位は1/16,000秒になります。ウェイクワードに該当する区間が、オーディオストリーム全体の再生時間のうち0秒から1秒の間にある場合、ウェイクワードの終了のインデックスに16000を入力します。  | 必須  |
+| `initiator.payload.wakeWord.indices.endIndexInSmaples`    | number   | オーディオストリームで、ウェイクワードが終了する位置のインデックス情報。音声入力が16kHzのサンプリングレートを持つため、インデックスの1単位は1/16,000秒になります。ウェイクワードに該当する区間が、オーディオストリーム全体の再生時間のうち0秒から1秒の間にある場合、ウェイクワードの終了のインデックスに16000を入力します。  | 必須  |
 | `initiator.payload.wakeWord.indices.startIndexInSamples`  | number   | オーディオストリームで、ウェイクワードが開始する位置のインデックス情報。音声入力が16kHzのサンプリングレートを持つため、インデックスの1単位は1/16,000秒になります。通常、ユーザーの発話はウェイクワードで開始することが多いため、その場合にはインデックスの値を0に入力します。   | 必須 |
 | `initiator.payload.wakeWord.name`                         | string   | クライアントデバイスに設定されているウェイクワード。次の値を入力できます。<ul><li><code>"clova"</code></li><li><code>"jesika"</code></li><li><code>"jjangguya"</code></li><li><code>"seliya"</code></li><li><code>"pinokio"</code></li></ul>                        | 選択  |
 | `initiator.type`                                         | string   | ユーザーがClovaを呼び出すために行ったアクション。次の値を入力できます。<ul><li><code>"PRESS_AND_HOLD"</code>：音声入力取得ボタン(wake up)を押したまま音声を入力した場合</li><li><code>"TAP"</code>：音声入力受信ボタン(wake up)を押したまま音声を入力した場合</li><li><code>"WAKEWORD"</code>：ウェイクワードにより音声を入力した場合</li></ul>  | 必須 |
@@ -226,7 +226,7 @@ Clovaの音声認識システムは、[`SpeechRecognizer.Recognize`](#Recognize)
 
 ### Payload fields
 
-| フィールド名       | データ型    | 説明                     | 常時/条件付き |
+| フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `text`  | string | 取得したユーザーの音声が認識されていく結果がリアルタイムで含まれます。 | 常時    |
 
@@ -301,7 +301,7 @@ CICが[`SpeechRecognizer.Recognize`](#Recognize)イベントを受信して、�
 ### Payload fields
 
 {% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}
-| フィールド名       | データ型    | 説明                     | 常時/条件付き |
+| フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `recognizedText` | string | 取得したユーザーの音声がどのように認識されたかという結果が含まれます。このフィールドは、基本的に`SpeechRecognizer.StopCapture`ディレクティブに含まれず、一部特殊な条件でのみ含まれます。 | 条件付き |
 {% else %}
