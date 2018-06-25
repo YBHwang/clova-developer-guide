@@ -16,6 +16,11 @@ Custom extension은 CEK로부터 [custom extension 메시지](/CEK/References/CE
 | [IntentRequest](#HandleIntentRequest) | _[extension 호출 이름]_ + "에게/에서/한테/로" + _[extension 별로 등록한 실행 명령어]_, 혹은 <br/>(`LaunchRequest` 타입 요청 받은 상태에서) _[extension 별로 등록한 실행 명령어]_ | "피자봇에서 피자 시켜줘" <br/> (피자봇 시작 상태에서) "주문 조회해줘" |
 | [SessionEndedRequest](#HandleSessionEndedRequest) | (`LaunchRequest` 타입 요청 받은 상태에서) "종료해줘/종료/그만" | "(피자봇) 종료해줘" |
 
+<div class="note">
+<p><strong>Note!</strong></p>
+<p><a href="/CEK/References/CEK_API.html#CustomExtEventRequest"><code>EventRequest</code></a> 요청 타입은 사용자의 발화 보다는 주로 클라이언트 상태 변화 등에 의해 extension으로 전달되는 메시지입니다. 클라이언트 상태에 대한 정보 수집 및 클라이언트 상태 변화에 대한 extension의 대응을 위해 사용되며, extension이 <a href="/CEK/Guides/Build_Custom_Extension.html#ProvideAudioContent">오디오 콘텐츠를 제공</a>할 때 사용됩니다. 따라서 이 절에서는 <code>EventRequest</code>에 대해서 다루지 않습니다.</p>
+</div>
+
 ### LaunchRequest 요청 처리 {#HandleLaunchRequest}
 [`LaunchRequest` 타입](/CEK/References/CEK_API.md#CustomExtLaunchRequest) 요청은 사용자가 특정 extension을 사용하기로 선언한 것을 알릴 때 사용됩니다. 예를 들면, 사용자가 "피자봇 시작해줘"나 "피자봇 열어줘"와 같은 명령을 내린 경우 CEK는 피자 배달 서비스를 제공하는 extension에게 `LaunchRequest` 타입 요청을 전달합니다. 이 요청 타입을 수신한 extension은 사용자의 다음 요청을 수신할 수 있도록 준비해야 합니다.
 
