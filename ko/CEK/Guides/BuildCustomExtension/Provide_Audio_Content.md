@@ -6,12 +6,12 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
 * 필수 구현
   * [오디오 콘텐츠 재생 지시](#DirectClientToPlayAudio)
   * [오디오 콘텐츠 재생 제어](#ControlAudioPlayback)
+  * [오디오 콘텐츠의 메타 정보 제공](#ProvidingMetaDataForDisplay)
 
 * 선택 구현
   * [재생 상태 변경 및 경과 보고 수집](#CollectPlaybackStatusAndProgress)
   * [보안을 위한 오디오 콘텐츠 URL 갱신](#UpdateAudioURLForSecurity)
   * [재생 제어의 동작 방식 변경](#CustomizePlaybackControl)
-  * [오디오 콘텐츠의 메타 정보 제공](#ProvidingMetaDataForDisplay)
 {% elif book.TargetCountryCode == "JP" %}
 Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디오 콘텐츠를 제공할 수 있습니다. 이를 위해 [Custom extension 메시지](/CEK/References/CEK_API.md#CustomExtMessage)의 [`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest) 타입의 요청 메시지와 [응답 메시지](/CEK/References/CEK_API.md#CustomExtResponseMessage) 명세에서 [오디오 콘텐츠 재생 관련 CIC API](/CEK/References/CEK_API.md#CICAPIforAudioPlayback)를 활용해야 합니다. 오디오 콘텐츠를 사용자에게 제공하려면 다음에 해당 하는 내용을 extension에 구현해야 합니다.
 
@@ -142,6 +142,144 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
   <p><strong>Note!</strong></p>
   <p>만약, 이전이나 다음에 해당하는 오디오 콘텐츠가 없거나 유효하지 않는 경우 "재생할 수 있는 이전 또는 다음 곡이 없습니다."와 같은 음성 출력을 <a href="/CEK/Guides/Build_Custom_Extension.html#ReturnCustomExtensionResponse">응답 메시지로 반환</a>하면 됩니다.</p>
 </div>
+
+### 오디오 콘텐츠의 메타 정보 제공 {#ProvidingMetaDataForDisplay}
+
+[오디오 콘텐츠의 재생을 지시](#DirectClientToPlayAudio)하는 {{ "[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)" if book.TargetCountryCode == "KR" else "[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)" }} 지시 메시지에는 제목, 앨범, 가수, 가사 등과 같은 정보는 포함되어 있지 않습니다. Custom extension은 클라이언트가 요청할 때 이런 메타 정보를 제공해야 합니다.
+
+클라이언트는 콘텐츠에 대한 재생 메타 정보를 얻기 위해 {{ "[`TeamplteRuntime.ReqeusetPlayerInfo`](/CIC/References/CICInterface/TeamplteRuntime.md#ReqeusetPlayerInfo)" if book.TargetCountryCode == "KR" else "[`TeamplteRuntime.ReqeusetPlayerInfo`](/CEK/References/CEK_API.md#ReqeusetPlayerInfo)" }} 이벤트 메시지를 Clova에게 전송합니다. 이때, 이벤트 메시지의 내용이 [`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest) 타입의 요청 메시지로 다음과 같이 전달됩니다. 참고로 아래 예는 `eJyr5lIqSSyITy4tKs4vUrJSUE` 토큰을 가지는 콘텐츠를 기준으로 다음 10 곡에 대한 메타 정보를 요청한 것을 의미합니다.
+
+```json
+{
+  "context": {
+    ...
+  },
+  "request": {
+    "type": "EventRequest",
+    "requestId": "e5464288-50ff-4e99-928d-4a301e083d41",
+    "timestamp": "2017-09-05T05:41:21Z",
+    "event": {
+      "namespace": "TemplateRuntime",
+      "name": "RequestPlayerInfo",
+      "payload": {
+        "token": "eJyr5lIqSSyITy4tKs4vUrJSUE",
+        "range": {
+          "after": 10
+        }
+      }
+    }
+  },
+  "session": {
+      "new": true,
+      "sessionAttributes": {},
+      "sessionId": "69b20cc1-9166-41f3-a2dd-85b70f8e0bf5"
+  },
+  "version": "1.0"
+}
+```
+
+Custom extension은 응답 메시지를 통해 클라이언트가 요청한 콘텐츠의 메타 정보를 전송해야 합니다. {{ "[`TeamplteRuntime.RenderPlayerInfo`](/CIC/References/CICInterface/TeamplteRuntime.md#RenderPlayerInfo)" if book.TargetCountryCode == "KR" else "[`TeamplteRuntime.RenderPlayerInfo`](/CEK/References/CEK_API.md#RenderPlayerInfo)" }} 지시 메시지를 응답 메시지에 포함시켜야 합니다.
+
+```json
+{
+  "version": "0.1.0",
+  "sessionAttributes": {},
+  "response": {
+    "card": {},
+    "directives": [
+      {
+        "header": {
+          "namespace": "TeamplteRuntime",
+          "name": "RenderPlayerInfo"
+        },
+        "payload": {
+          "controls": [
+            {
+              "enabled": true,
+              "name": "PLAY_PAUSE",
+              "selected": false,
+              "type": "BUTTON"
+            },
+            {
+              "enabled": true,
+              "name": "NEXT",
+              "selected": false,
+              "type": "BUTTON"
+            },
+            {
+              "enabled": true,
+              "name": "PREVIOUS",
+              "selected": false,
+              "type": "BUTTON"
+            }
+          ],
+          "displayType": "list",
+          "playableItems": [
+            {
+              "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/662058.jpg",
+              "controls": [
+                {
+                  "enabled": true,
+                  "name": "LIKE_DISLIKE",
+                  "selected": false,
+                  "type": "BUTTON"
+                }
+              ],
+              "headerText": "Classic",
+              "lyrics": [
+                {
+                  "data": null,
+                  "format": "PLAIN",
+                  "url": null
+                }
+              ],
+              "isLive": false,
+              "showAdultIcon": false,
+              "titleSubText1": "Alice Sara Ott, Symphonie Orchester Des Bayerischen Rundfunks, Esa-Pekka Salonen",
+              "titleSubText2": "Wonderland - Edvard Grieg : Piano Concerto, Lyric Pieces",
+              "titleText": "Grieg : Piano Concerto In A Minor, Op.16 - 3. Allegro moderato molto e marcato (Live)",
+              "token": "eJyr5lIqSSyITy4tKs4vUrJSUE"
+            },
+            {
+              "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/202646.jpg",
+              "controls": [
+                {
+                  "enabled": true,
+                  "name": "LIKE_DISLIKE",
+                  "selected": false,
+                  "type": "BUTTON"
+                }
+              ],
+              "headerText": "Classic",
+              "lyrics": [
+                {
+                  "data": null,
+                  "format": "PLAIN",
+                  "url": null
+                }
+              ],
+              "isLive": true,
+              "showAdultIcon": false,
+              "titleSubText1": "Berliner Philharmoniker, Herbert Von Karajan",
+              "titleSubText2": "Mendelssohn : Violin Concerto; A Midsummer Night`s Dream",
+              "titleText": "Symphony No.4 In A Op.90 'Italian' - III. Con Moto Moderato",
+              "token": "eJyr5lIqSSyITy4tKs4vUrJSUEo2"
+            },
+            ...
+          ],
+          "provider": {
+            "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png",
+            "name": "SampleMusicProvider",
+            "smallLogoUrl": "https://img.musicproviderdomain.net/smallLogo_180125.png"
+          }
+        }
+      }
+    ],
+    "outputSpeech": {},
+    "shouldEndSession": true
+  }
+}
+```
 
 ### 재생 상태 변경 및 경과 보고 수집 {#CollectPlaybackStatusAndProgress}
 
@@ -336,141 +474,3 @@ Custom extension은 이 시점에 재생 가능한 오디오 콘텐츠의 URL을
   <p><strong>Note!</strong></p>
   <p>사용자의 혼란을 막기 위해 실시간 스트리밍 콘텐츠와 같이 특수한 경우에만 재생 제어의 동작 방식을 변경하고 되도록이면 기본 방식으로 구현할 것을 권장합니다.</p>
 </div>
-
-### 오디오 콘텐츠의 메타 정보 제공 {#ProvidingMetaDataForDisplay}
-
-[오디오 콘텐츠의 재생을 지시](#DirectClientToPlayAudio)하는 {{ "[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)" if book.TargetCountryCode == "KR" else "[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)" }} 지시 메시지에는 제목, 앨범, 가수, 가사 등과 같은 정보는 포함되어 있지 않습니다. Custom extension은 클라이언트가 요청할 때 이런 메타 정보를 제공해야 합니다.
-
-클라이언트는 콘텐츠에 대한 재생 메타 정보를 얻기 위해 {{ "[`TeamplteRuntime.ReqeusetPlayerInfo`](/CIC/References/CICInterface/TeamplteRuntime.md#ReqeusetPlayerInfo)" if book.TargetCountryCode == "KR" else "[`TeamplteRuntime.ReqeusetPlayerInfo`](/CEK/References/CEK_API.md#ReqeusetPlayerInfo)" }} 이벤트 메시지를 Clova에게 전송합니다. 이때, 이벤트 메시지의 내용이 [`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest) 타입의 요청 메시지로 다음과 같이 전달됩니다. 참고로 아래 예는 `eJyr5lIqSSyITy4tKs4vUrJSUE` 토큰을 가지는 콘텐츠를 기준으로 다음 10 곡에 대한 메타 정보를 요청한 것을 의미합니다.
-
-```json
-{
-  "context": {
-    ...
-  },
-  "request": {
-    "type": "EventRequest",
-    "requestId": "e5464288-50ff-4e99-928d-4a301e083d41",
-    "timestamp": "2017-09-05T05:41:21Z",
-    "event": {
-      "namespace": "TemplateRuntime",
-      "name": "RequestPlayerInfo",
-      "payload": {
-        "token": "eJyr5lIqSSyITy4tKs4vUrJSUE",
-        "range": {
-          "after": 10
-        }
-      }
-    }
-  },
-  "session": {
-      "new": true,
-      "sessionAttributes": {},
-      "sessionId": "69b20cc1-9166-41f3-a2dd-85b70f8e0bf5"
-  },
-  "version": "1.0"
-}
-```
-
-Custom extension은 응답 메시지를 통해 클라이언트가 요청한 콘텐츠의 메타 정보를 전송해야 합니다. {{ "[`TeamplteRuntime.RenderPlayerInfo`](/CIC/References/CICInterface/TeamplteRuntime.md#RenderPlayerInfo)" if book.TargetCountryCode == "KR" else "[`TeamplteRuntime.RenderPlayerInfo`](/CEK/References/CEK_API.md#RenderPlayerInfo)" }} 지시 메시지를 응답 메시지에 포함시켜야 합니다.
-
-```json
-{
-  "version": "0.1.0",
-  "sessionAttributes": {},
-  "response": {
-    "card": {},
-    "directives": [
-      {
-        "header": {
-          "namespace": "TeamplteRuntime",
-          "name": "RenderPlayerInfo"
-        },
-        "payload": {
-          "controls": [
-            {
-              "enabled": true,
-              "name": "PLAY_PAUSE",
-              "selected": false,
-              "type": "BUTTON"
-            },
-            {
-              "enabled": true,
-              "name": "NEXT",
-              "selected": false,
-              "type": "BUTTON"
-            },
-            {
-              "enabled": true,
-              "name": "PREVIOUS",
-              "selected": false,
-              "type": "BUTTON"
-            }
-          ],
-          "displayType": "list",
-          "playableItems": [
-            {
-              "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/662058.jpg",
-              "controls": [
-                {
-                  "enabled": true,
-                  "name": "LIKE_DISLIKE",
-                  "selected": false,
-                  "type": "BUTTON"
-                }
-              ],
-              "headerText": "Classic",
-              "lyrics": [
-                {
-                  "data": null,
-                  "format": "PLAIN",
-                  "url": null
-                }
-              ],
-              "isLive": false,
-              "showAdultIcon": false,
-              "titleSubText1": "Alice Sara Ott, Symphonie Orchester Des Bayerischen Rundfunks, Esa-Pekka Salonen",
-              "titleSubText2": "Wonderland - Edvard Grieg : Piano Concerto, Lyric Pieces",
-              "titleText": "Grieg : Piano Concerto In A Minor, Op.16 - 3. Allegro moderato molto e marcato (Live)",
-              "token": "eJyr5lIqSSyITy4tKs4vUrJSUE"
-            },
-            {
-              "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/202646.jpg",
-              "controls": [
-                {
-                  "enabled": true,
-                  "name": "LIKE_DISLIKE",
-                  "selected": false,
-                  "type": "BUTTON"
-                }
-              ],
-              "headerText": "Classic",
-              "lyrics": [
-                {
-                  "data": null,
-                  "format": "PLAIN",
-                  "url": null
-                }
-              ],
-              "isLive": true,
-              "showAdultIcon": false,
-              "titleSubText1": "Berliner Philharmoniker, Herbert Von Karajan",
-              "titleSubText2": "Mendelssohn : Violin Concerto; A Midsummer Night`s Dream",
-              "titleText": "Symphony No.4 In A Op.90 'Italian' - III. Con Moto Moderato",
-              "token": "eJyr5lIqSSyITy4tKs4vUrJSUEo2"
-            },
-            ...
-          ],
-          "provider": {
-            "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png",
-            "name": "SampleMusicProvider",
-            "smallLogoUrl": "https://img.musicproviderdomain.net/smallLogo_180125.png"
-          }
-        }
-      }
-    ],
-    "outputSpeech": {},
-    "shouldEndSession": true
-  }
-}
-```
