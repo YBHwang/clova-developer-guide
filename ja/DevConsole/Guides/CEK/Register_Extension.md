@@ -1,6 +1,6 @@
 # Extensionを登録する
 
-LINE Developer コンソールで[チャネルを作成](/CEK/Guides/Create_Channel.md)すると、**Clova Developer Center β** に遷移し、下記の画面が開きます。ここで必要な情報を入力し、Extensionの登録を完了させます。  
+LINE Developersコンソールで[チャネルを作成](/CEK/Guides/Create_Channel.md)すると、**Clova Developer Center β** に遷移し、下記の画面が開きます。ここで必要な情報を入力し、Extensionの登録を完了させます。  
 ![](/DevConsole/Resources/Images/DevConsole-New_Extension.png)
 
 Extensionの登録は、通常、次の順で行われます。
