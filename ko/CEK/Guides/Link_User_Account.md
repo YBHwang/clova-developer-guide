@@ -26,11 +26,11 @@ Clova는 [custom extension](/CEK/Guides/Build_Custom_Extension.md)이나 [Clova 
 
 2. 클라이언트 앱 또는 클라이언트 기기와 페어링하는 앱에서 외부 서비스의 로그인 페이지를 표시합니다. 이때, extension 개발자가 미리 등록해 둔 인증 서버의 **[Authorization URL](#BuildAuthServer)**을 이용합니다.
 
-3. 사용자가 계정 인증을 완료하면 authorization code 혹은 access token이 반환됩니다.
+3. 사용자가 계정 인증을 완료하면 authorization code가 반환됩니다.
 
-4. 클라이언트는 전달받은 authorization code 혹은 access token을 Clova로 전달합니다.
+4. 클라이언트는 전달받은 authorization code를 Clova로 전달합니다.
 
-5. **(3번 단계에서 authorization code를 받은 경우)** Clova는 **[Access Token URI](#RegisterAccountLinkingInfo)**로 access token과 refresh token을 요청합니다. 이때 authorization code를 전달하며, 사용자의 Clova 계정 정보에 획득한 access token과 refresh token을 저장합니다.
+5. Clova는 **[Access Token URI](#RegisterAccountLinkingInfo)**로 access token과 refresh token을 요청합니다. 이때 authorization code를 전달하며, 사용자의 Clova 계정 정보에 획득한 access token과 refresh token을 저장합니다.
 
 6. 이제 사용자는 계정 인증이 필요한 서비스를 사용할 수 있습니다.
 
@@ -69,7 +69,7 @@ Extension에 계정 연결을 적용하려면 우선 사용자가 계정 인증�
 * HTTPS 프로토콜로 페이지를 제공해야 합니다.
 * 모바일용 페이지를 지원해야 합니다.
 * 팝업 형태의 창을 제공하면 안됩니다.
-* 인증이 완료되면 redirect URL(`redirect_uri`)로 이동해야 합니다. 이때, authorization code 또는 access token을 파라미터로 전송해야 합니다.
+* 인증이 완료되면 redirect URL(`redirect_uri`)로 이동해야 합니다. 이때, authorization code를 파라미터로 전송해야 합니다.
 * `state` 파라미터를 redirect URL(`redirect_uri`)로 계속 전달해야 합니다.
 
 
@@ -79,7 +79,7 @@ Extension에 계정 연결을 적용하려면 우선 사용자가 계정 인증�
 |:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `state`         | 인증 세션의 시간 만료 여부를 확인하는 상태 값. 이 값은 5분 뒤에 만료되므로 사용자가 인증을 5분 안에 마치지 않으면 인증을 다시 시도해야 합니다.                                                                                                                                                   |
 | `client_id`     | Clova가 외부 서비스의 access token을 발급 받기 위해 사용할 ID. 개발자는 Clova developer console을 통해 미리 `cliend_id`를 등록해둬야 합니다.                                                                                                                                                     |
-| `response_type` | OAuth 2.0 인가 타입(`"code"` 또는 `"token"`)을 정의해 둔 파라미터. 높은 보안이 필요한 경우 `"code"` 타입을 사용합니다. Clova Home extension은 항상 `"code"` 타입을 사용합니다. Clova developer console을 통해 미리 `response_type`을 등록해둬야 합니다.                                          |
+| `response_type` | OAuth 2.0 인가 타입을 정의해 둔 파라미터. `"code"` 타입을 사용합니다. Clova developer console에서 지정하며 현재 `"code"` 타입만 지원하고 있습니다.              |
 | `scope`         | OAuth의 `scope` 필드. 접근 수준을 정의할 수 있습니다. Clova developer console을 통해 미리 `scope`를 등록해둬야 합니다.                                                                                                                                                                           |
 | `redirect_uri`  | 계정 인증 후 이동할 URL(redirect URL)이며, `redirect_uri`의 값은 Clova developer console에서 extension을 등록할 때 [계정 연결 설정](/DevConsole/Guides/CEK/Register_Extension.md#SetAccountLinking) 중에서 확인할 수 있으며, 현재 `{{ book.RedirectURLforAccountLinking }}`을 사용하고 있습니다. |
 
@@ -111,27 +111,17 @@ Extension에 계정 연결을 적용하려면 우선 사용자가 계정 인증�
 | `vendorId`     | Extension 개발자에게 부여된 ID. 외부 서비스 또는 기업을 구분하기 위해 Clova developer console에 등록된 ID입니다. `redirect_uri`에 미리 포함되어 있습니다. |
 | `state`        | 인증 세션의 시간 만료 여부를 확인하는 상태 값. **Authorization URL**을 통해 전달받은 `state` 파라미터를 그대로 입력합니다.                                |
 | `code`         | Authorization code. `response_type` 값이 `"code"`이면, 이 파라미터에 authorization code를 입력합니다.                                                     |
-| `access_token` | Access token. `response_type` 값이 `"token"`이면, 이 파라미터에 access token을 입력합니다.                                                                |
 | `token_type`   | Access token의 타입. `access_token`과 함께 전달해야 하며, `"Bearer"`로 고정됩니다.                                                                        |
 
 다음은 사용자의 계정 인증이 완료된 후 이동할 redirect URL 예입니다.
 
-<pre><code>// 예제 1: Authorization code grant 방식을 사용할 경우
-{{ book.RedirectURLforAccountLinking }}?vendorId=YourServiceOrCompanyID
+<pre><code>{{ book.RedirectURLforAccountLinking }}?vendorId=YourServiceOrCompanyID
                                 &state=qwer123
                                 &code=nl__eCSTdsdlkjfweyuxXvnl
-
-// 예제 2: Implicit grant 방식을 사용할 경우
-{{ book.RedirectURLforAccountLinking }}?vendorId=YourServiceOrCompanyID
-                                &state=qwer123
-                                &access_token=sdfljnFZFEjr1zCsicM
-                                &token_type=Bearer
 </code></pre>
 
 
-Clova가 사용자 계정 연결을 위해 Authorization code를 획득한 경우(authorization code grant 방식), Clova는 다시 extension 개발자가 Clova developer console에 미리 등록해 둔 **[Access Token URI](#RegisterAccountLinkingInfo)**로 access token을 요청하게 됩니다. 이때, Clova는 획득한 authorization code를 파라미터로 전송하게 되며, 인증 서버는 외부 서비스의 계정 권한이 부여된 access token과 access token을 갱신할 수 있는 refresh token을 발급해야 합니다.
-
-Clova가 사용자 계정 연결을 위해 access token을 바로 획득한 경우(implicit grant 방식), refresh token을 발급받지 않으며 access token이 만료되면 사용자 계정 연결을 다시 시도해야 합니다.
+Clova가 사용자 계정 연결을 위해 Authorization code를 획득한 경우, Clova는 다시 extension 개발자가 Clova developer console에 미리 등록해 둔 **[Access Token URI](#RegisterAccountLinkingInfo)**로 access token을 요청하게 됩니다. 이때, Clova는 획득한 authorization code를 파라미터로 전송하게 되며, 인증 서버는 외부 서비스의 계정 권한이 부여된 access token과 access token을 갱신할 수 있는 refresh token을 발급해야 합니다.
 
 ### 계정 권한 검증 구현 {#AddValidationLogic}
 계정 연결을 적용하려면 extension 개발자는 access token이 유효한지 검증하는 코드를 작성해야 합니다. Custom extension과 Clova Home extension으로 전달되는 extension 메시지는 각각 다음과 같은 `accessToken` 필드를 가지고 있습니다.
@@ -219,7 +209,7 @@ Clova가 사용자 계정 연결을 위해 access token을 바로 획득한 경�
 |:-----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Authorization URL            | 사용자가 [계정 인증](#SetupAccountLinking)을 위해 접속할 URL                                                                                                                     |
 | Client ID                    | 사용자 [계정 인증](#SetupAccountLinking) 페이지를 요청할 때 서비스를 식별하기 위해 부여한 클라이언트 ID                                                                          |
-| Authorization Grant Type     | OAuth 2.0의 인가 방식. <ul><li>Implicit grant 방식(custom extension 적용 가능)</li><li>Authorization code grant 방식(custom extension, Clova Home extension 적용 가능)</li></ul> |
+| Authorization Grant Type     | OAuth 2.0의 인가 방식. 현재 Authorization code grant 방식만 지원하고 있습니다. |
 | Access Token URI             | Authorization code로 access token을 획득하기 위한 주소. Authorization code grant 방식을 설정한 경우 입력합니다.                                                                  |
 | Client Secret                | Authorization code로 access token을 획득할 때 **Client ID**와 함께 전달되어야 하는 클라이언트 Secret. Authorization code grant 방식을 설정한 경우 입력합니다.                    |
 | Client Authentication Scheme | Access Token URI로 access token을 요청할 때 사용하는 scheme                                                                                                                      |
