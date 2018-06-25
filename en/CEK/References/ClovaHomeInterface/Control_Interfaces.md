@@ -2852,7 +2852,7 @@ Sends the information on the state of the designated appliance to CEK as a respo
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
 | `isReachable` | boolean | The value indicating whether it is possible to access the target appliance via the network. <ul><li><code>true</code>: Accessible (online)</li><li><code>false</code>: Inaccessible (offline)</li></ul> | Required    |
-| `isTurnOn`    | boolean | The value indicating the action state of the target appliance. <ul><li><code>true</code>: Idle state</li><li><code>false</code>: Working state</li></ul>                  | Required    |
+| `isTurnOn`    | boolean | The value indicating the action state of the target appliance. <ul><li><code>true</code>: Working state</li><li><code>false</code>: Idle state</li></ul>                  | Required    |
 
 ### Message example
 
