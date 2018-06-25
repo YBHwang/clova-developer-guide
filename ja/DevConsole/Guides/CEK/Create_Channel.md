@@ -14,7 +14,7 @@ Clova Developer Center βにログインします。
 2. 同意画面が表示されたら、**同意する** をクリックします（初回ログイン時のみ）。  
 ![](/DevConsole/Resources/Images/DevConsole-Access_Agreement.png)
 
-3. **スキルを開発する** をクリックします。  
+3. **スキル設定** または **スキルを開発する** をクリックします。  
 ![](/DevConsole/Resources/Images/DevConsole-DevConsole_Home.png)
 
 4. **LINE Developersに遷移してスキルを作成** をクリックします。  
