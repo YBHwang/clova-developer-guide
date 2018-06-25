@@ -28,7 +28,7 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
 
 ### 오디오 콘텐츠 재생 지시 {#DirectClientToPlayAudio}
 
-사용자가 음악이나 음악과 같은 형식으로 재생해야 하는 음원을 재생하도록 요청한 경우 해당 오디오 콘텐츠의 정보를 전달해야 합니다. 이를 위해, Custom extension은 [`IntentRequest`](/CEK/References/CEK_API.md#CustomExtIntentRequest) 타입의 요청 메시지에 대한 [응답 메시지](/CEK/References/CEK_API.md#CustomExtResponseMessage)를 보내야 하며, 이 메시지에 클라이언트가 오디오 콘텐츠를 재생하도록 지시하는 {{ "[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)" if book.TargetCountryCode == "KR" else "[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)" }} 지시 메시지를 포함시켜야 합니다.
+사용자가 음악이나 음악과 같은 방식으로 음원을 재생하도록 요청한 경우 해당 오디오 콘텐츠의 정보를 전달해야 합니다. 사용자의 음원 재생 요청이  [`IntentRequest`](/CEK/References/CEK_API.md#CustomExtIntentRequest) 타입의 요청 메시지로 custom extension에게 전달될 것이며, custom extension은 해당 `IntentRequest` 타입의 요청 메시지에 대한 [응답 메시지](/CEK/References/CEK_API.md#CustomExtResponseMessage)를 보내야 합니다. 이때, 이 메시지에 클라이언트가 오디오 콘텐츠를 재생하도록 지시하는 {{ "[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)" if book.TargetCountryCode == "KR" else "[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)" }} 지시 메시지를 포함시키면 됩니다.
 
 <div class="danger">
   <p><strong>Caution!</strong></p>
@@ -83,7 +83,7 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p><code>response.outputSpeech</code> 필드도 함께 지정할 수 있습니다. 예를 들면 "요청하신 오디오를 들려드릴게요" 라는 음성 출력(TTS)을 먼저 사용자에게 들려준 후 오디오의 재생을 시작할 수 있습니다.</p>
+  <p><a href="/CEK/Guides/Build_Custom_Extension.html#ReturnCustomExtensionResponse">응답 메시지로 반환</a>할 때 <code>response.outputSpeech</code> 필드도 함께 지정할 수 있습니다. 예를 들면 "요청하신 오디오를 들려드릴게요" 라는 음성 출력(TTS)을 먼저 사용자에게 들려준 후 오디오의 재생을 시작할 수 있습니다.</p>
 </div>
 
 ### 오디오 콘텐츠 재생 제어 {#ControlAudioPlayback}
@@ -100,7 +100,7 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
   <p>재생 제어와 관련된 내용은 필수 구현 항목입니다. 특히, <code>Clova.PauseIntent</code>와 <code>Clova.StopIntent</code> built-in intent에 대응하는 동작을 구현하지 않으면, 사용자에게 심각한 불편을 줄 수 있습니다.</p>
 </div>
 
-사용자가 "잠깐 멈춰", "다시 재생해", "중지 해줘"와 같이 발화하면, custom extension은 재생 일시 정지, 재생 재개, 재생 중지 요청에 대응해야 합니다. 이때, 클라이언트는 각각의 요청에 대해 `Clova.PauseIntent`, `Clova.ResumeIntent`, `Clova.StopIntent` built-int intent를 `IntentRequest` 타입 요청 메시지로 받게 됩니다. Custom extension은 이에 대응하여 각각 다음과 같은 지시 메시지를 [응답 메시지](/CEK/References/CEK_API.md#CustomExtResponseMessage)로 CEK에게 전달해야 합니다.
+사용자가 "잠깐 멈춰", "다시 재생해", "중지 해줘"와 같이 발화하면, custom extension은 재생 일시 정지, 재생 재개, 재생 중지 요청에 대응해야 합니다. 이때, 클라이언트는 각각의 요청에 대해 `Clova.PauseIntent`, `Clova.ResumeIntent`, `Clova.StopIntent` built-in intent를 `IntentRequest` 타입 요청 메시지로 받게 됩니다. Custom extension은 이에 대응하여 각각 다음과 같은 지시 메시지를 [응답 메시지](/CEK/References/CEK_API.md#CustomExtResponseMessage)로 CEK에게 전달해야 합니다.
 
 {% if book.TargetCountryCode == "KR" %}
 * [`PlaybackController.Pause`](/CIC/References/CICInterface/PlaybackController.md#Pause) 지시 메시지: 클라이언트에게 재생 중인 오디오 스트림을 일시 정지하도록 지시
@@ -140,7 +140,7 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>만약, 이전이나 다음에 해당하는 오디오 콘텐츠가 없거나 유효하지 않는 경우 "재생할 수 있는 이전 또는 다음 곡이 없습니다."와 같은 음성 출력을 응답 메시지로 보내면 됩니다.</p>
+  <p>만약, 이전이나 다음에 해당하는 오디오 콘텐츠가 없거나 유효하지 않는 경우 "재생할 수 있는 이전 또는 다음 곡이 없습니다."와 같은 음성 출력을 <a href="/CEK/Guides/Build_Custom_Extension.html#ReturnCustomExtensionResponse">응답 메시지로 반환</a>하면 됩니다.</p>
 </div>
 
 ### 재생 상태 변경 및 경과 보고 수집 {#CollectPlaybackStatusAndProgress}
@@ -148,7 +148,7 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
 {% if book.TargetCountryCode == "KR" %}
 [`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play) 지시 메시지에 의해 오디오를 재생하는 클라이언트는 재생의 시작, 일시 정지, 재개, 중지, 종료 시점에 [`AudioPlayer.PlayStarted`](/CIC/References/CICInterface/AudioPlayer.md#PlayStarted), [`AudioPlayer.PlayPaused`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused), [`AudioPlayer.PlayResumed`](/CIC/References/CICInterface/AudioPlayer.md#PlayResumed), [`AudioPlayer.PlayStopped`](/CIC/References/CICInterface/AudioPlayer.md#PlayStopped), [`AudioPlayer.PlayFinished`](/CIC/References/CICInterface/AudioPlayer.md#PlayFinished)와 같은 이벤트 메시지를 Clova로 전송합니다. 이때 Clova는 이 이벤트 메시지의 내용을 [`EventReqeust`](/CEK/References/CEK_API.md#CustomExtEventRequest) 타입 요청 메시지로 custom extension에 전송합니다.
 
-뿐만 아니라 클라이언트는 `AudioPlayer.Play` 지시 메시지의 `progressReport` 필드에 정의한 설정에 따라 재생 경과 보고를 하게 됩니다. 이 또한 [`EventReqeust`](/CEK/References/CEK_API.md#CustomExtEventRequest) 타입 요청 메시지로 custom extension에 전송합니다. 클라이언트는 다음과 같은 경과 보고용 이벤트 메시지를 전송합니다.
+뿐만 아니라 클라이언트는 [오디오 콘텐츠를 재생하도록 지시(`AudioPlayer.Play`)](#DirectClientToPlayAudio) 받은 후 `AudioPlayer.Play` 지시 메시지의 `progressReport` 필드에 정의한 설정에 따라 재생 경과 보고를 하게 됩니다. 이 또한 [`EventReqeust`](/CEK/References/CEK_API.md#CustomExtEventRequest) 타입 요청 메시지로 custom extension에 전송됩니다. 클라이언트는 다음과 같은 경과 보고용 이벤트 메시지를 전송합니다.
 
 * [`AudioPlayer.ProgressReportDelayPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportDelayPassed) 이벤트 메시지: 재생 시작 후 특정 시간이 지난 후 재새 경과 보고
 * [`AudioPlayer.ProgressReportPositionPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportPositionPassed) 이벤트 메시지: 오디오 콘텐츠의 특정 위치(offset)를 재생할 때 경과 보고
@@ -156,7 +156,7 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
 {% elif book.TargetCountryCode == "JP" %}
 [`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play) 지시 메시지에 의해 오디오를 재생하는 클라이언트는 재생의 시작, 일시 정지, 재개, 중지, 종료 시점에 [`AudioPlayer.PlayStarted`](/CEK/References/CEK_API.md#PlayStarted), [`AudioPlayer.PlayPaused`](/CEK/References/CEK_API.md#PlayPaused), [`AudioPlayer.PlayResumed`](/CEK/References/CEK_API.md#PlayResumed), [`AudioPlayer.PlayStopped`](/CEK/References/CEK_API.md#PlayStopped), [`AudioPlayer.PlayFinished`](/CEK/References/CEK_API.md#PlayFinished)와 같은 이벤트 메시지를 Clova로 전송합니다. 이때 Clova는 이 이벤트 메시지의 내용을 [`EventReqeust`](/CEK/References/CEK_API.md#CustomExtEventRequest) 타입 요청 메시지로 custom extension에 전송합니다.
 
-뿐만 아니라 클라이언트는 `AudioPlayer.Play` 지시 메시지의 `progressReport` 필드에 정의한 설정에 따라 재생 경과 보고를 하게 됩니다. 이 또한 [`EventReqeust`](/CEK/References/CEK_API.md#CustomExtEventRequest) 타입 요청 메시지로 custom extension에 전송합니다. 클라이언트는 다음과 같은 경과 보고용 이벤트 메시지를 전송합니다.
+뿐만 아니라 클라이언트는 [오디오 콘텐츠를 재생하도록 지시(`AudioPlayer.Play`)](#DirectClientToPlayAudio) 받은 후 `AudioPlayer.Play` 지시 메시지의 `progressReport` 필드에 정의한 설정에 따라 재생 경과 보고를 하게 됩니다. 이 또한 [`EventReqeust`](/CEK/References/CEK_API.md#CustomExtEventRequest) 타입 요청 메시지로 custom extension에 전송됩니다. 클라이언트는 다음과 같은 경과 보고용 이벤트 메시지를 전송합니다.
 
 * [`AudioPlayer.ProgressReportDelayPassed`](/CEK/References/CEK_API.md#ProgressReportDelayPassed) 이벤트 메시지: 재생 시작 후 특정 시간이 지난 후 재새 경과 보고
 * [`AudioPlayer.ProgressReportPositionPassed`](/CEK/References/CEK_API.md#ProgressReportPositionPassed) 이벤트 메시지: 오디오 콘텐츠의 특정 위치(offset)를 재생할 때 경과 보고
@@ -232,7 +232,7 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
 
 Custom extension이 클라이언트에게 [오디오 콘텐츠 재생을 지시](#DirectClientToPlayAudio)할 때 [응답 메시지](/CEK/References/CEK_API.md#CustomExtResponseMessage)에 {{ "[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)" if book.TargetCountryCode == "KR" else "[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)" }} 지시 메시지를 포함시켜야 합니다. 이때, `AudioPlayer.Play` 지시 메시지의 `audioItem.stream.url` 필드에 오디오 콘텐츠를 재생시킬 수 있는 URL을 입력하여 전달하게 됩니다.
 
-다만, 서비스 제공자에 따라 보안 이슈로 영구적으로 유효한 URL을 첨부하기 어려울 수 있습니다. 만약 이 URL이 노출된다면 콘텐츠를 획득하기 위한 공격이 발생할 수도 있을 것입니다. 따라서 비교적 짧은 만료 기간을 가진 인스턴스 URL을 사용하는 경우가 많을 것입니다. 또한, 클라이언트가 `AudioPlayer.Play` 지시 메시지를 받았더라도 그보다 우선 순위가 높거나 먼저 시작된 작업 또는 네트워크 상황에 의해 재생 시작이 지연될 수도 있습니다. 이 경우 URL 유효 기간이 만료되어 오디오 콘텐츠를 제대로 재생할 수 없을 수도 있습니다.
+다만, 서비스 제공자에 따라 보안 이슈로 영구적으로 유효한 URL을 첨부하기 어려울 수 있습니다. 예를 들면, 이 URL이 노출된다면 콘텐츠를 획득하기 위한 공격이 발생할 수도 있을 것입니다. 따라서 비교적 짧은 만료 기간을 가진 인스턴스 URL을 사용하는 경우가 많습니다. 또한, 클라이언트가 `AudioPlayer.Play` 지시 메시지를 받았더라도 그보다 우선 순위가 높거나 먼저 시작된 작업 또는 네트워크 상황에 의해 오디오 콘텐츠의 재생 시작이 지연될 수도 있습니다. 이 경우 URL 유효 기간이 만료되어 오디오 콘텐츠를 제대로 재생할 수 없을 수도 있습니다.
 
 이를 위해 Clova는 클라이언트가 오디오 콘텐츠의 재생 가능한 URL을 재생 직전에 취득할 수 있도록 하는 방법을 제공하고 있습니다. 우선 다음과 같이 `AudioPlayer.Play` 지시 메시지 중 `urlPlayable` 필드를 `false`로 지정하고, `url` 필드에 URL이 아닌 다른 형식의 값을 입력합니다.
 
@@ -299,7 +299,7 @@ Custom extension이 클라이언트에게 [오디오 콘텐츠 재생을 지시]
 }
 ```
 
-Custom extension은 이 시점에 재생 가능한 오디오 콘텐츠의 URL을 [응답 메시지](/CEK/References/CEK_API.md#CustomExtResponseMessage)로 전달하면 됩니다. `AudioPlayer.StreamDeliver` 지시 메시지를 응답 메시지에 포함시켜야 합니다. 클라이언트는 다음과 같은 `AudioPlayer.StreamDeliver` 지시 메시지의 본문을 통해 `AudioPlayer.Play` 지시 메시지에 대한 작업을 마저 수행할 수 있게 됩니다.
+Custom extension은 이 시점에 재생 가능한 오디오 콘텐츠의 URL을 [응답 메시지](/CEK/References/CEK_API.md#CustomExtResponseMessage)로 전달하면 됩니다. 이를 위해 `AudioPlayer.StreamDeliver` 지시 메시지를 응답 메시지에 포함시켜야 합니다. 클라이언트는 다음과 같은 `AudioPlayer.StreamDeliver` 지시 메시지의 본문을 통해 `AudioPlayer.Play` 지시 메시지에 대한 작업을 마저 수행할 수 있게 됩니다.
 
 ```json
 {
@@ -330,7 +330,7 @@ Custom extension은 이 시점에 재생 가능한 오디오 콘텐츠의 URL을
 
 ### 재생 제어의 동작 방식 변경 {#CustomizePlaybackControl}
 
-음원을 제공하는 서비스나 음원 콘텐츠의 특징에 따라서 재생 일시 정지, 재생 재개, 재생 중지와 같은 [재생 제어](ControlAudioPlayback) 동작을 조금 다른 방식으로 구현해야 할 수도 있습니다. 예를 들면, 실시간 스트리밍 콘텐츠의 경우 일시 정지 기능을 적용하는 것은 불가능할 수도 있습니다. 이 경우 사용자의 요청에 의해 `Clova.PauseIntent` built-int intent 요청을 받았더라도 그에 대한 대응을 처리하지 못한다고 응답하거나 또는 `Clova.StopIntent`와 같은 대응을 처리해줄 수도 있습니다. `Clova.StopIntent`와 같은 대응을 처리한다면 [응답 메시지](/CEK/References/CEK_API.md#CustomExtResponseMessage)에 {{ "[`PlaybackController.Pause`](/CIC/References/CICInterface/PlaybackController.md#Pause)" if book.TargetCountryCode == "KR" else "[`PlaybackController.Pause`](/CEK/References/CEK_API.md#Pause)" }} 지시 메시지 대신에 {{ "[`PlaybackController.Stop`](/CIC/References/CICInterface/PlaybackController.md#Stop)" if book.TargetCountryCode == "KR" else "[`PlaybackController.Stop`](/CEK/References/CEK_API.md#Stop)" }} 지시 메시지를 포함시킬 수 있을 것입니다.
+음원을 제공하는 서비스나 음원 콘텐츠의 특징에 따라서 재생 일시 정지, 재생 재개, 재생 중지와 같은 [재생 제어](ControlAudioPlayback) 동작을 조금 다른 방식으로 구현해야 할 수도 있습니다. 예를 들면, 실시간 스트리밍 콘텐츠의 경우 일시 정지 기능을 적용하는 것은 불가능할 수도 있습니다. 이 경우 사용자의 요청에 의해 `Clova.PauseIntent` [built-in intent](/Design/Design_Guideline_For_Extension.md#BuiltinIntent) 요청을 받았더라도 그에 대한 대응을 처리하지 못한다고 응답하거나 또는 `Clova.StopIntent`와 같은 대응을 처리해줄 수도 있습니다. `Clova.StopIntent`와 같은 대응을 처리한다면 [응답 메시지](/CEK/References/CEK_API.md#CustomExtResponseMessage)에 {{ "[`PlaybackController.Pause`](/CIC/References/CICInterface/PlaybackController.md#Pause)" if book.TargetCountryCode == "KR" else "[`PlaybackController.Pause`](/CEK/References/CEK_API.md#Pause)" }} 지시 메시지 대신에 {{ "[`PlaybackController.Stop`](/CIC/References/CICInterface/PlaybackController.md#Stop)" if book.TargetCountryCode == "KR" else "[`PlaybackController.Stop`](/CEK/References/CEK_API.md#Stop)" }} 지시 메시지를 응답으로 반환하도록 구현할 수 있습니다.
 
 <div class="note">
   <p><strong>Note!</strong></p>
@@ -383,14 +383,88 @@ Custom extension은 응답 메시지를 통해 클라이언트가 요청한 콘�
     "directives": [
       {
         "header": {
-          "namespace": "AudioPlayer",
-          "name": "StreamDeliver"
+          "namespace": "TeamplteRuntime",
+          "name": "RenderPlayerInfo"
         },
         "payload": {
-          "audioItemId": "5313c879-25bb-461c-93fc-f85d95edf2a0",
-          "stream": {
-            "token": "b767313e-6790-4c28-ac18-5d9f8e432248",
-            "url": "https://sample.musicservice.net/b767313e.mp3"
+          "controls": [
+            {
+              "enabled": true,
+              "name": "PLAY_PAUSE",
+              "selected": false,
+              "type": "BUTTON"
+            },
+            {
+              "enabled": true,
+              "name": "NEXT",
+              "selected": false,
+              "type": "BUTTON"
+            },
+            {
+              "enabled": true,
+              "name": "PREVIOUS",
+              "selected": false,
+              "type": "BUTTON"
+            }
+          ],
+          "displayType": "list",
+          "playableItems": [
+            {
+              "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/662058.jpg",
+              "controls": [
+                {
+                  "enabled": true,
+                  "name": "LIKE_DISLIKE",
+                  "selected": false,
+                  "type": "BUTTON"
+                }
+              ],
+              "headerText": "Classic",
+              "lyrics": [
+                {
+                  "data": null,
+                  "format": "PLAIN",
+                  "url": null
+                }
+              ],
+              "isLive": false,
+              "showAdultIcon": false,
+              "titleSubText1": "Alice Sara Ott, Symphonie Orchester Des Bayerischen Rundfunks, Esa-Pekka Salonen",
+              "titleSubText2": "Wonderland - Edvard Grieg : Piano Concerto, Lyric Pieces",
+              "titleText": "Grieg : Piano Concerto In A Minor, Op.16 - 3. Allegro moderato molto e marcato (Live)",
+              "token": "eJyr5lIqSSyITy4tKs4vUrJSUE"
+            },
+            {
+              "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/202646.jpg",
+              "controls": [
+                {
+                  "enabled": true,
+                  "name": "LIKE_DISLIKE",
+                  "selected": false,
+                  "type": "BUTTON"
+                }
+              ],
+              "headerText": "Classic",
+              "lyrics": [
+                {
+                  "data": null,
+                  "format": "PLAIN",
+                  "url": null
+                }
+              ],
+              "isLive": true,
+              "showAdultIcon": false,
+              "titleSubText1": "Berliner Philharmoniker, Herbert Von Karajan",
+              "titleSubText2": "Mendelssohn : Violin Concerto; A Midsummer Night`s Dream",
+              "titleText": "Symphony No.4 In A Op.90 'Italian' - III. Con Moto Moderato",
+              "token": "eJyr5lIqSSyITy4tKs4vUrJSUEo2"
+            },
+            ...
+          ],
+          "provider": {
+            "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png",
+            "name": "SampleMusicProvider",
+            "smallLogoUrl": "https://img.musicproviderdomain.net/smallLogo_180125.png"
           }
         }
       }
