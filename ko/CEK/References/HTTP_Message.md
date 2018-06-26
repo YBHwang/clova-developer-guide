@@ -24,7 +24,7 @@ SignatureCEKCertChainUrl: {{ SignatureCEKCertChainUrl }}
 
 * HTTP/1.1 버전으로 HTTPS 통신을 수행하며, method로 POST 방식을 사용합니다.
 * Host와 요청 대상 path는 extension 개발자가 미리 정의해 둔 URI로 채워집니다.
-* 본문의 데이터 형식은 JSON 포맷으로 되어 있으며, UTF-8 인코딩을 사용합니다.
+* 본문의 데이터 형식은 JSON 형식으로 UTF-8 인코딩으로 되어 있습니다.
 * `SignatureCEK`와 `SignatureCEKCertChainUrl` 필드를 이용하여 [CEK로부터 전송된 요청인지 검증](#RequestMessageValidation)할 수 있습니다.
 {% elif book.TargetCountryCode == "JP" %}
 {% raw %}
@@ -41,8 +41,8 @@ SignatureCEK: {{ SignatureCEK }}
 
 * HTTP/1.1 버전으로 HTTPS 통신을 수행하며, method로 POST 방식을 사용합니다.
 * Host와 요청 대상 path는 extension 개발자가 미리 정의해 둔 URI로 채워집니다.
-* 본문의 데이터 형식은 JSON 포맷으로 되어 있으며, UTF-8 인코딩을 사용합니다.
-* `SignatureCEK`와 공개 키를 이용하여 [CEK로부터 전송된 요청인지 검증](#RequestMessageValidation)할 수 있습니다.
+* 본문의 데이터 형식은 JSON 형식으로 UTF-8 인코딩으로 되어 있습니다.
+* `SignatureCEK` 필드와 공개 키를 이용하여 [CEK로부터 전송된 요청인지 검증](#RequestMessageValidation)할 수 있습니다.
 {% endif %}
 
 이와 반대로 extension이 CEK로 처리 결과를 보낼 때 HTTP 응답을 사용합니다. 이때 HTTP 응답 헤더는 다음과 같이 기본적인 것만 구성하면 됩니다.
