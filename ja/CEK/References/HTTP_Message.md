@@ -18,8 +18,8 @@ SignatureCEKCertChainUrl: SIGNATURE_CEK_CERT_CHAIN_URL
 
 * HTTP/1.1バージョンでHTTPS通信し、POSTメソッドを使用します。
 * Hostとリクエストパスは、Extensionの開発者があらかじめ定義したURIに設定されます。
-* ボディのデータはJSON形式で、UTF-8エンコーディングを使用します。
-* Clovaからのリクエストであることを検証してください。
+* リクエストボディのデータはJSON形式で、UTF-8エンコーディングを使用します。
+* `SignatureCEK`フィールドと公開鍵を使用して、[CEKから送信されたリクエストかどうかを検証](#RequestMessageValidation)することができます。
 
 逆に、ExtensionがCEKに処理結果を返す際、HTTPSレスポンスを使用します。その際、HTTPSレスポンスのヘッダーは、次のように基本的なものだけで構成されます。
 {% raw %}
@@ -32,24 +32,18 @@ Content-Type: application/json;charset-UTF-8
 * ボディのデータはJSON形式で、UTF-8エンコーディングを使用します。
 
 ### HTTPボディ {#HTTPBody}
-HTTPSリクエストメッセージとレスポンスメッセージのボディはJSON形式で、解析されたユーザーの発話情報や、Extensionの処理結果が含まれています。それぞれのメッセージの構成は、使用するExtensionの種類によって異なります。メッセージ構成の詳細については、[Custom Extensionメッセージ](#CustomExtMessage)を参照してください。
+HTTPSリクエストメッセージとレスポンスメッセージのボディはJSON形式で、解析されたユーザーの発話情報や、Extensionの処理結果が含まれています。それぞれのメッセージの構成は、使用するExtensionの種類によって異なります。メッセージ構成の詳細については、[Custom Extensionメッセージ](#CustomExtMessage)と[Clova Home Extensionメッセージ](#ClovaHomeExtMessage)を参照してください。
 
+### リクエストメッセージを検証する {#RequestMessageValidation}
+ExtensionがCEKからHTTPSリクエストを受信するとき、そのリクエストが第三者ではなく、Clovaから送信された信頼できるリクエストかどうかを検証する必要があります。[HTTPヘッダー](#HTTPHeader)にある`SignatureCEK`フィールドと公開鍵を使用して、以下のようにリクエストメッセージを検証できます。
 
-## 署名を確認する {#Signature}
-リクエストを受け付けたとき、そのリクエストが不正な第三者から発信されたものではなく、Clovaからのリクエストであることを確認する必要があります。もし、Clova以外からのリクエストを受信した場合には必ず拒否をして下さい。
+**ハッシュ値を生成してメッセージを検証する**
+1. 公開鍵(`https://clova-cek-requests.line.me/.well-known/signature-public-key.pem`)をダウンロードします
+2. `SignatureCEK`の値をBase64でデコードします。
+3. リクエストボディをSHA-256でハッシュ値を生成します。
+4. ステップ1でダウンロードした公開鍵、ステップ2で`SignatureCEK`をデコードした値、3で生成したハッシュ値を使用して<a href="https://en.wikipedia.org/wiki/Digital_Signature_Algorithm#Verifying" target="_blank">検証(verify)</a>します。
 
-### リクエストの署名を確認する
-[HTTPヘッダー](#HTTPHeader)には、リクエストの署名を確認するための2つのパラメータが含まれています。
-
-<ol>
-    <li><code>SignatureCEKCertChainUrl</code>のホスト名が<code>clova-cek-requests.line.me</code>であり、httpsから始まるURLであることを確認してください。もし、正しくないURLである場合、リクエストを拒否して下さい。
-        <p>例) https://clova-cek-requests.line.me/cek/request-cert.crt</p>
-    </li>
-    <li>ClovaのPEMエンコード済みのX.509証明書チェーンを<code>SignatureCEKCertChainUrl</code>に指定されたURLからダウンロードしてください。</li>
-    <li>ダウンロードした証明書のSubject Alternaive Names(SAN)セクションに<code>clova-cek-requests.line.me</code>ドメインが有ることを確認して下さい。</li>
-    <li>信頼できるルート証明書によって全てのチェーンが作られていることを確認してください。</li>
-    <li>ダウンロードした証明書の期限が有効期限内であることを確認してください。</li>
-    <li>ここまでの確認に問題が無ければ、公開鍵を証明書から取得して下さい</li>
-    <li><code>SignatureCEK</code>をBase64でデコードしてください。</li>
-    <li>証明書から取得した公開鍵を使って<code>SignatureCEK</code>を復号化し、HTTPSリクエストボディのSHA-1値と一致することを確認して下さい。</li>
-</ol>
+<div class="note">
+  <p><strong>メモ</strong></p>
+  <p><strong>ハッシュ値を生成してメッセージを検証する</strong>で比較した2つの値が一致しない場合、そのリクエストを破棄することを推奨します。</p>
+</div>
