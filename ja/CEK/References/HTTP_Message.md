@@ -42,13 +42,12 @@ HTTPSリクエストメッセージとレスポンスメッセージのボディ
 ExtensionがCEKからHTTPSリクエストを受信するとき、そのリクエストが第三者ではなく、Clovaから送信された信頼できるリクエストかどうかを検証する必要があります。[HTTPヘッダー](#HTTPHeader)にある`SignatureCEK`フィールドとpublic keyを使用して、以下のようにリクエストメッセージを検証できます。
 
 **ハッシュ値を生成してメッセージを検証する**
-1. `SignatureCEK`の値をBase64デコードします。
-2. Public key(`https://clova-cek-requests.line.me/.well-known/signature-public-key.pem`)をダウンロードします
-3. 先ほどダウンロードした証明書の公開鍵を使用して、`SignatureCEK`をデコードした値を復号します。
+1. Public key(`https://clova-cek-requests.line.me/.well-known/signature-public-key.pem`)をダウンロードします
+2. `SignatureCEK`の値をBase64デコードします。
 3. HTTPSリクエストのボディを使用して、SHA-256ハッシュ値を生成します。
-4. ステップ2で復号した値と、ステップ3で生成したハッシュ値を比較して、2つの値が一致していることを確認します。
+4. 1でダウンロードしたpublic key、2で`SignatureCEK`をデコードした値、3で生成したハッシュ値を使用して<a href="https://en.wikipedia.org/wiki/Digital_Signature_Algorithm#Verifying" target="_blank">検証(verify)</a>します。
 
 <div class="note">
   <p><strong>メモ</strong></p>
-  <p>信頼できない証明書、または<strong>ハッシュ値を生成してメッセージを検証する</strong>で比較した2つの値が一致しない場合、そのリクエストを破棄することを推奨します。</p>
+  <p><strong>ハッシュ値を生成してメッセージを検証する</strong>で比較した2つの値が一致しない場合、そのリクエストを破棄することを推奨します。</p>
 </div>
