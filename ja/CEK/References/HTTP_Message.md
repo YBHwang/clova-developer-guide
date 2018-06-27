@@ -48,19 +48,19 @@ ExtensionがCEKからHTTPSリクエストを受信するとき、そのリクエ
 
 ```java
 String signatureStr = req.getHeader("SignatureCEK");
+byte[] body = getBody(req);
 String publicKeyStr = downloadPublicKey();
-// needs to strip PEM headers
-publicKeyStr = publicKeyStr.replaceAll("-----BEGIN PUBLIC KEY-----", "")
+publicKeyStr = publicKeyStr.replaceAll("\\n", "")
+    .replaceAll("-----BEGIN PUBLIC KEY-----", "")
     .replaceAll("-----END PUBLIC KEY-----", "");
-
-X509EncodedKeySpec pubKeySpec = new X509EncodedKeySpec(Base64.getDecoder().decodeBase64(publicKey));
+X509EncodedKeySpec pubKeySpec = new X509EncodedKeySpec(Base64.getDecoder().decode(publicKeyStr));
 KeyFactory keyFactory = KeyFactory.getInstance("RSA");
 PublicKey pubKey = keyFactory.generatePublic(pubKeySpec);
-
 Signature sig = Signature.getInstance("SHA256withRSA");
 sig.initVerify(pubKey);
-sig.update(req.getBody());
-booleand valid = sig.verify(Base64.getDecoder().decode(signatureStr));
+sig.update(body);
+byte[] signature = Base64.getDecoder().decode(signatureStr);
+boolean valid = sig.verify(signature);
 ```
 
 <div class="note">
