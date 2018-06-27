@@ -19,9 +19,9 @@ SignatureCEKCertChainUrl: SIGNATURE_CEK_CERT_CHAIN_URL
 * HTTP/1.1バージョンでHTTPS通信し、POSTメソッドを使用します。
 * Hostとリクエストパスは、Extensionの開発者があらかじめ定義したURIに設定されます。
 * リクエストボディのデータはJSON形式で、UTF-8エンコーディングを使用します。
-* `SignatureCEK`フィールドと公開鍵を使用して、[CEKから送信されたリクエストかどうかを検証](#RequestMessageValidation)することができます。
+* `SignatureCEK`フィールドとRSA公開鍵を使用して、[Clovaから送信されたリクエストかどうかを検証](#RequestMessageValidation)することができます。
 
-逆に、ExtensionがCEKに処理結果を返す際、HTTPSレスポンスを使用します。その際、HTTPSレスポンスのヘッダーは、次のように基本的なものだけで構成されます。
+逆に、ExtensionがClovaに処理結果を返す際、HTTPSレスポンスを使用します。その際のHTTPSレスポンスヘッダーは、以下のように設定をしてください。
 {% raw %}
 ```
 HTTP/1.1 200 OK
@@ -35,15 +35,35 @@ Content-Type: application/json;charset-UTF-8
 HTTPSリクエストメッセージとレスポンスメッセージのボディはJSON形式で、解析されたユーザーの発話情報や、Extensionの処理結果が含まれています。それぞれのメッセージの構成は、使用するExtensionの種類によって異なります。メッセージ構成の詳細については、[Custom Extensionメッセージ](#CustomExtMessage)と[Clova Home Extensionメッセージ](#ClovaHomeExtMessage)を参照してください。
 
 ### リクエストメッセージを検証する {#RequestMessageValidation}
-ExtensionがCEKからHTTPSリクエストを受信するとき、そのリクエストが第三者ではなく、Clovaから送信された信頼できるリクエストかどうかを検証する必要があります。[HTTPヘッダー](#HTTPHeader)にある`SignatureCEK`フィールドと公開鍵を使用して、以下のようにリクエストメッセージを検証できます。
+ExtensionがCEKからHTTPSリクエストを受信するとき、そのリクエストが第三者ではなく、Clovaから送信された信頼できるリクエストかどうかを検証する必要があります。[HTTPヘッダー](#HTTPHeader)にある`SignatureCEK`フィールドとRSA公開鍵を使用して、以下のようにリクエストメッセージを検証してください。
 
-**ハッシュ値を生成してメッセージを検証する**
-1. 公開鍵(`https://clova-cek-requests.line.me/.well-known/signature-public-key.pem`)をダウンロードします
-2. `SignatureCEK`の値をBase64でデコードします。
-3. リクエストボディをSHA-256でハッシュ値を生成します。
-4. ステップ1でダウンロードした公開鍵、ステップ2で`SignatureCEK`をデコードした値、3で生成したハッシュ値を使用して<a href="https://en.wikipedia.org/wiki/Digital_Signature_Algorithm#Verifying" target="_blank">検証(verify)</a>します。
+**RSA公開鍵を用いてリクエストメッセージを検証する**
+<ol>
+<li><p>Clovaの署名用RSA公開鍵を以下のURLからダウンロードしてください</p>
+<p>https://clova-cek-requests.line.me/.well-known/signature-public-key.pem</p></li>
+<li><p>`SignatureCEK`ヘッダーの値を取得してください</p>
+<p>`SignatureCEK`ヘッダーの値は、Base64エンコードされた、HTTP bodyの<a href="https://tools.ietf.org/html/rfc3447" target="_blank">RSA PKCS# v1.5[1]</a>署名値です。</p></li>
+<li>ステップ1でダウンロードしたRSA公開鍵を用いてステップ2で取得した`SignatureCEK` ヘッダーを以下のように検証してください</li>
+</ol>
+
+```java
+String signatureStr = req.getHeader("SignatureCEK");
+String publicKeyStr = downloadPublicKey();
+// needs to strip PEM headers
+publicKeyStr = publicKeyStr.replaceAll("-----BEGIN PUBLIC KEY-----", "")
+    .replaceAll("-----END PUBLIC KEY-----", "");
+
+X509EncodedKeySpec pubKeySpec = new X509EncodedKeySpec(Base64.getDecoder().decodeBase64(publicKey));
+KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+PublicKey pubKey = keyFactory.generatePublic(pubKeySpec);
+
+Signature sig = Signature.getInstance("SHA256withRSA");
+sig.initVerify(pubKey);
+sig.update(req.getBody());
+booleand valid = sig.verify(Base64.getDecoder().decode(signatureStr));
+```
 
 <div class="note">
   <p><strong>メモ</strong></p>
-  <p><strong>ハッシュ値を生成してメッセージを検証する</strong>で比較した2つの値が一致しない場合、そのリクエストを破棄することを推奨します。</p>
+  <p><strong>検証に失敗した場合にはそのリクエストは破棄してください。</p>
 </div>
