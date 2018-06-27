@@ -65,5 +65,5 @@ booleand valid = sig.verify(Base64.getDecoder().decode(signatureStr));
 
 <div class="note">
   <p><strong>メモ</strong></p>
-  <p><strong>検証に失敗した場合にはそのリクエストは破棄してください。</p>
+  <p>検証に失敗した場合にはそのリクエストは破棄してください。</p>
 </div>
