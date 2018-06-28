@@ -42,10 +42,10 @@ SignatureCEK: {{ SignatureCEK }}
 * HTTP/1.1 버전으로 HTTPS 통신을 수행하며, method로 POST 방식을 사용합니다.
 * Host와 요청 대상 path는 extension 개발자가 미리 정의해 둔 URI로 채워집니다.
 * 본문의 데이터 형식은 JSON 형식으로 UTF-8 인코딩으로 되어 있습니다.
-* `SignatureCEK` 필드와 공개 키를 이용하여 [CEK로부터 전송된 요청인지 검증](#RequestMessageValidation)할 수 있습니다.
+* `SignatureCEK` 필드와 RSA 공개 키를 이용하여 [CEK로부터 전송된 요청인지 검증](#RequestMessageValidation)할 수 있습니다.
 {% endif %}
 
-이와 반대로 extension이 CEK로 처리 결과를 보낼 때 HTTP 응답을 사용합니다. 이때 HTTP 응답 헤더는 다음과 같이 기본적인 것만 구성하면 됩니다.
+이와 반대로 extension이 Clova로 처리 결과를 보낼 때 HTTP 응답을 사용합니다. 이때 HTTP 응답 헤더는 다음과 같이 설정하면 됩니다.
 {% raw %}
 ```
 HTTP/1.1 200 OK
@@ -79,16 +79,35 @@ Extension이 CEK로부터 HTTP 요청을 받을 때, 해당 요청이 제 3자�
   <p>신뢰할 수 없는 인증서이거나 <strong>해쉬 값 생성 및 메시지 검증</strong>에서 비교한 두 값이 다르면 해당 요청 폐기를 권장합니다.</p>
 </div>
 {% elif book.TargetCountryCode == "JP" %}
-Extension이 CEK로부터 HTTP 요청을 받을 때, 해당 요청이 제 3자가 아닌 Clova로부터 전송된 신뢰할 수 있는 요청인지 검증할 필요가 있습니다. [HTTP 헤더](#HTTPHeader)에 있는 `SignatureCEK`와 공개 키를 사용하여 다음과 같이 요청 메시지를 검증할 수 있습니다.
+Extension이 CEK로부터 HTTP 요청을 받을 때, 해당 요청이 제 3자가 아닌 Clova로부터 전송된 신뢰할 수 있는 요청인지 검증할 필요가 있습니다. [HTTP 헤더](#HTTPHeader)에 있는 `SignatureCEK`와 RSA 공개 키를 사용하여 다음과 같이 요청 메시지를 검증할 수 있습니다.
 
 **해쉬 값 생성 및 메시지 검증**
-1. 공개 키(`https://clova-cek-requests.line.me/.well-known/signature-public-key.pem`)를 다운로드합니다.
-2. `SignatureCEK`의 값을 Base64 디코딩합니다.
-3. HTTP 요청 메시지 본문을 이용하여 SHA-256 해쉬 값을 생성합니다.
-4. 1번 항목에서 다운로드한 공개키와 2번 항목에서 `SignatureCEK`를 디코딩한 값 그리고 3번 항목에서 생성한 해쉬 값을 이용하여 <a href="https://en.wikipedia.org/wiki/Digital_Signature_Algorithm#Verifying" target="_blank">검증(verify)</a>합니다.
+<ol>
+  <li><p>Clova의 서명용 RSA 공개 키를 아래 URL에서 다운로드 합니다.</p>
+<p>https://clova-cek-requests.line.me/.well-known/signature-public-key.pem</p></li>
+  <li><p>`SignatureCEK` 헤더 값을 확보합니다.</p><p>`SignatureCEK` 헤더의 값은 HTTP 요청 메시지의 본문을 Base64로 인코딩한 <a href="https://tools.ietf.org/html/rfc3447" target="_blank">서명(signature)</a> 값입니다.</p></li>
+  <li>1번 항목에서 다운로드한 RSA 공개 키와 2번 항목에서 획득한 `SignatureCEK` 헤더 값을 이용하여 다음과 같이 <a href="https://tools.ietf.org/html/rfc3447#section-5.2" target="_blank">검증(verify)</a>합니다.</li>
+</ol>
+
+```java
+String signatureStr = req.getHeader("SignatureCEK");
+byte[] body = getBody(req);
+String publicKeyStr = downloadPublicKey();
+publicKeyStr = publicKeyStr.replaceAll("\\n", "")
+    .replaceAll("-----BEGIN PUBLIC KEY-----", "")
+    .replaceAll("-----END PUBLIC KEY-----", "");
+X509EncodedKeySpec pubKeySpec = new X509EncodedKeySpec(Base64.getDecoder().decode(publicKeyStr));
+KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+PublicKey pubKey = keyFactory.generatePublic(pubKeySpec);
+Signature sig = Signature.getInstance("SHA256withRSA");
+sig.initVerify(pubKey);
+sig.update(body);
+byte[] signature = Base64.getDecoder().decode(signatureStr);
+boolean valid = sig.verify(signature);
+```
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p><strong>해쉬 값 생성 및 메시지 검증</strong>에서 비교한 두 값이 다르면 해당 요청 폐기를 권장합니다.</p>
+  <p>메시지 검증에 실패한 경우 해당 요청 폐기합니다.</p>
 </div>
 {% endif %}
