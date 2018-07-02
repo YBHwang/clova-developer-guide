@@ -4,7 +4,9 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 
 | メッセージ         | タイプ  | 説明                                   |
 |------------------|-----------|---------------------------------------------|
-| [`ChargeConfirmation`](#ChargeConfirmation)                                   | Response | [`ChargeRequest`](#ChargeRequest)メッセージに対するレスポンスです。デバイスの充電を開始するようにリクエストした後、その処理結果をCEKに返します。 |
+| [`ChangeInputSourceConfirmation`](#ChangeInputSourceConfirmation)             | Response | [`ChangeInputSourceRequest`](#ChangeInputSourceRequest)メッセージに対するレスポンスです。入力ソースを変更するように設定した後、その処理結果をCEKに返します。 |
+| [`ChangeInputSourceRequest`](#ChangeInputSourceRequest)                       | Request  | 入力ソースを変更するようClova Home Extensionにリクエストします。 |
+| [`ChargeConfirmation`](#ChargeConfirmation)                                   | Response | [`ChargeRequest`](#ChargeRequest)メッセージに対するレスポンスです。デバイスの充電を開始するように設定した結果をCEKに返します。 |
 | [`ChargeRequest`](#ChargeRequest)                                             | Request  | デバイスの充電を開始するようClova Home Extensionにリクエストします。 |
 | [`CloseConfirmation`](#CloseConfirmation)                                     | Response | [`CloseRequest`](#CloseRequest)メッセージに対するレスポンスです。スマートカーテンや温水洗浄便座の蓋を閉めるようにリクエストした後、その処理結果をCEKに返します。 |
 | [`CloseRequest`](#CloseRequest)                                               | Request  | スマートカーテンや温水洗浄便座などのデバイスを制御する際に使用します。スマートカーテンや温水洗浄便座の蓋を閉めるようClova Home Extensionにリクエストします。  |
@@ -130,6 +132,76 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 | [`TurnOnRequest`](#TurnOnRequest)                                             | Request  | デバイスの電源をオンにするようClova Home extensionにリクエストします。                        |
 | [`UnmuteConfirmation`](#UnmuteConfirmation)                                   | Response | [`UnmuteRequest`](#UnmuteRequest)メッセージに対するレスポンスです。デバイスのミュートを解除するように設定した結果をCEKに返します。 |
 | [`UnmuteRequest`](#UnmuteRequest)                                             | Request  | デバイスのミュートを解除するようClova Home extensionにリクエストします。 |
+
+## ChangeInputSourceConfirmation {#ChangeInputSourceConfirmation}
+[`ChangeInputSourceRequest`](#ChangeInputSourceRequest)メッセージに対するレスポンスです。デバイスの充電を開始するように設定した結果をCEKに返します。
+
+### Payload fields
+
+なし
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
+    "name": "ChangeInputSourceConfirmation",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {}
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`ChangeInputSourceRequest`](#ChangeInputSourceRequest)
+
+## ChangeInputSourceRequest {#ChangeInputSourceRequest}
+主にテレビのセットトップボックスなどのデバイスを制御する際に使用します。入力ソースの切り替え(HDMI1, HDMI2など)を行うよう、Clova Home Extensionにリクエストします。このリクエストに対するレスポンスとして、[`ChangeInputSourceConfirmation`](#ChargeConfirmation)メッセージを使用する必要があります。
+
+### Payload fields
+
+| フィールド名       | データ型    | フィールドの説明                     | 任意 |
+|---------------|---------|-----------------------------|:---------:|
+| `accessToken`      | string                                  | IoTサービスのユーザーアカウントのアクセストークン。CEKは、外部サービスの認可サーバーから取得したユーザーアカウントのアクセストークンを渡します。詳細については、[ユーザーアカウントをリンクする](/CEK/Guides/Link_User_Account.md)を参照してください。                          | 常時    |
+| `appliance`        | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject)     | エンドポイントの情報を持つオブジェクト。`applianceId`フィールドは必須です。     | 常時    |
+| `count`        | [TVChannelInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TVChannelInfoObject)  | 入力の切り替え命令を複数回おこしたい場合など、ユーザ発話を元にした回数の情報を持つオブジェクト。主にIRでの操作を想定しています。 | Optional    |
+
+
+### Message example
+
+{% raw %}
+
+```json
+// "テレビの入力を3回変えて"という発話の場合
+{
+  "header": {
+    "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
+    "name": "ChargeRequest",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "accessToken": "92ebcb67fe33",
+    "appliance": {
+      "applianceId": "device-009"
+    },
+    "count": {
+      "value": "3"
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`ChangeInputSourceRequest`](#ChangeInputSourceRequest)
 
 ## ChargeConfirmation {#ChargeConfirmation}
 [`ChargeRequest`](#ChargeRequest)メッセージに対するレスポンスです。デバイスの充電を開始するようにリクエストした後、その処理結果をCEKに返します。
