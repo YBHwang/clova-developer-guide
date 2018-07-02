@@ -118,7 +118,9 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 | [`SetFreezerTargetTemperatureRequest`](#SetFreezerTargetTemperatureRequest)   | Request  | 冷蔵庫などのデバイスを制御する際に使用します。冷凍庫の設定温度を指定された値に変更するようClova Home extensionにリクエストします。  |
 | [`SetFridgeTargetTemperatureConfirmation`](#SetFridgeTargetTemperatureConfirmation) | Response | [`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest)メッセージに対するレスポンスです。冷蔵室の設定温度を変更するようにリクエストした後、その処理結果をCEKに返します。  |
 | [`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest)     | Request  | 冷蔵庫などのデバイスを制御する際に使用します。冷蔵室の設定温度を指定された値に変更するようClova Home extensionにリクエストします。  |
-| [`SetLockStateConfirmation`](#SetLockStateConfirmation)                       | Response | [`SetLockStateRequest`](#SetLockStateRequest)メッセージに対するレスポンスです。デバイスの開閉をリクエストした後、その処理結果をCEKに返します。  |
+| [`SetInputSourceByNameConfirmation`](#SetInputSourceByNameConfirmation)       | Response | [`SetInputSourceByNameRequest`](#SetInputSourceByNameRequest)メッセージに対するレスポンスです。指定された入力ソース名にテレビの入力ソースを変更するように設定した結果をCEKに返します。  |
+| [`SetInputSourceByNameRequest`](#SetInputSourceByNameRequest)                　| Request  | 指定された入力ソース名にテレビの入力ソースを変更するようClova Home extensionにリクエストします。  |
+| [`SetLockStateConfirmation`](#SetLockStateConfirmation)                       | Response | [`SetLockStateRequest`](#SetLockStateRequest)メッセージに対するレスポンスです。デバイスの開閉を設定した結果をCEKに返します。  |
 | [`SetLockStateRequest`](#SetLockStateRequest)                                 | Request  | デバイスの開閉をClova Home extensionにリクエストします。  |
 | [`SetModeConfirmation`](#SetModeConfirmation)                                 | Response | [`SetModeRequest`](#SetModeRequest)メッセージに対するレスポンスです。運転モード(operation mode)を変更するようにリクエストした後、その処理結果をCEKに返します。 |
 | [`SetModeRequest`](#SetModeRequest)                                           | Request  | デバイスの運転モードを指定されたモードに変更するようClova Home extensionにリクエストします。 |
@@ -182,7 +184,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 {
   "header": {
     "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
-    "name": "ChargeRequest",
+    "name": "ChangeInputSourceRequest",
     "namespace": "ClovaHome",
     "payloadVersion": "1.0"
   },
@@ -201,7 +203,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 {% endraw %}
 
 ### 次の項目も参照してください。
-* [`ChangeInputSourceRequest`](#ChangeInputSourceRequest)
+* [`ChangeInputSourceConfirmation`](#ChangeInputSourceConfirmation)
 
 ## ChargeConfirmation {#ChargeConfirmation}
 [`ChargeRequest`](#ChargeRequest)メッセージに対するレスポンスです。デバイスの充電を開始するようにリクエストした後、その処理結果をCEKに返します。
@@ -4453,6 +4455,84 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 
 ### 次の項目も参照してください。
 * [`SetFridgeTargetTemperatureConfirmation`](#SetFridgeTargetTemperatureConfirmation)
+
+## SetInputSourceByNameConfirmation {#SetInputSourceByNameConfirmation}
+[`SetInputSourceByNameRequest`](#SetInputSourceByNameRequest)メッセージに対するレスポンスです。指定された入力ソース名にテレビの入力ソースを変更するように設定した結果をCEKに返します。
+
+### Payload fields
+
+| フィールド名       | データ型    | フィールドの説明                     | 必須/選択 |
+|---------------|---------|-----------------------------|:---------:|
+| `sourceName`               | [TVInputSourceNameInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TVInputSourceNameInfoObject) | デバイスに設定されたか、またはExtensionからリクエストされた入力ソース名の情報を持つオブジェクト     | 選択    |
+
+### 備考
+
+エンドポイントからペイロードに入力する情報を取得できない場合、値を省略できます。その場合、ユーザーには具体的な情報なしに、リクエストが正常に処理されたことを通知します。
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
+    "name": "SetInputSourceByNameConfirmation",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "sourceName": {
+      "value": "HDMI1"
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`SetInputSourceByNameRequest`](#SetInputSourceByNameRequest)
+
+## SetInputSourceByNameRequest {#SetInputSourceByNameRequest}
+主にテレビのセットトップボックスなどのデバイスを制御する際に使用します。指定された入力ソース名に入力ソースを変更するようClova Home Extensionにリクエストします。このリクエストに対するレスポンスとして、[`SetInputSourceByNameConfirmation`](#SetInputSourceByNameConfirmation)メッセージを使用する必要があります。
+
+### Payload fields
+
+| フィールド名       | データ型    | フィールドの説明                     | 任意 |
+|---------------|---------|-----------------------------|:---------:|
+| `accessToken`   | string | IoTサービスのユーザーアカウントのアクセストークン。CEKは、外部サービスの認可サーバーから取得したユーザーアカウントのアクセストークンを渡します。詳細については、[ユーザーアカウントをリンクする](/CEK/Guides/Link_User_Account.md)を参照してください。                          | 常時    |
+| `appliance`     | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) | エンドポイントの情報を持つオブジェクト。`applianceId`フィールドは必須です。        | 常時    |
+| `sourceName`       | [TVInputSourceNameInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TVInputSourceNameInfoObject) | 設定する入力ソース名の情報を持つオブジェクト     | 常時    |
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
+    "name": "SetInputSourceByNameRequest",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "accessToken": "92ebcb67fe33",
+    "appliance": {
+      "applianceId": "device-021"
+    },
+    "sourceName": {
+      "value": "HDMI1"
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`SetInputSourceByNameConfirmation`](#SetInputSourceByNameConfirmation)
 
 ## SetLockStateConfirmation {#SetLockStateConfirmation}
 [`SetLockStateRequest`](#SetLockStateRequest)メッセージに対するレスポンスです。デバイスの開閉をリクエストした後、その処理結果をCEKに返します。
