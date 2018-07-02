@@ -126,9 +126,13 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 | [`SetModeRequest`](#SetModeRequest)                                           | Request  | デバイスの運転モードを指定されたモードに変更するようClova Home extensionにリクエストします。 |
 | [`SetTargetTemperatureConfirmation`](#SetTargetTemperatureConfirmation)       | Response | [`SetTargetTemperatureRequest`](#SetTargetTemperatureRequest)メッセージに対するレスポンスです。設定温度を変更するようにリクエストした後、その処理結果をCEKに返します。 |
 | [`SetTargetTemperatureRequest`](#SetTargetTemperatureRequest)                 | Request  | 設定温度を指定された値に変更するようClova Home extensionにリクエストします。 |
+| [`StartRecordingConfirmation`](#StartRecordingConfirmation)                   | Response | [`StartRecordingRequest`](#StartRecordingRequest)メッセージに対するレスポンスです。現在見ているチャンネルに対する録画を開始するリクエストを処理した結果をCEKに返します。  |
+| [`StartRecordingRequest`](#StartRecordingRequest)                             | Request  | 現在見ているチャンネルに対する録画を開始するようClova Home extensionにリクエストします。  |
 | [`StopConfirmation`](#StopConfirmation)                                       | Response | [`StopRequest`](#StopRequest)メッセージに対するレスポンスです。動作中止のリクエストを処理した結果をCEKに返します。  |
 | [`StopRequest`](#StopRequest)                                                 | Request  | デバイスの現在の動作を中止するようClova Home extensionにリクエストします。  |
-| [`TurnOffConfirmation`](#TurnOffConfirmation)                                 | Response | [`TurnOffRequest`](#TurnOffRequest)メッセージに対するレスポンスです。デバイスの電源をオフにするようにリクエストした後、その処理結果をCEKに返します。 |
+| [`StopRecordingConfirmation`](#StopRecordingConfirmation)                     | Response | [`StopRequest`](#StopRequest)メッセージに対するレスポンスです。現在見ているチャンネルに対する録画を停止するリクエストを処理した結果をCEKに返します。  |
+| [`StopRecordingRequest`](#StopRecordingRequest)                               | Request  | 現在見ているチャンネルに対する録画を停止するようClova Home extensionにリクエストします。  |
+| [`TurnOffConfirmation`](#TurnOffConfirmation)                                 | Response | [`TurnOffRequest`](#TurnOffRequest)メッセージに対するレスポンスです。デバイスの電源をオフにするように設定した結果をCEKに返します。 |
 | [`TurnOffRequest`](#TurnOffRequest)                                           | Request  | デバイスの電源をオフにするようClova Home extensionにリクエストします。                        |
 | [`TurnOnConfirmation`](#TurnOnConfirmation)                                   | Response | [`TurnOnRequest`](#TurnOnRequest)メッセージに対するレスポンスです。デバイスの電源をオンにするようにリクエストした後、その処理結果をCEKに返します。 |
 | [`TurnOnRequest`](#TurnOnRequest)                                             | Request  | デバイスの電源をオンにするようClova Home extensionにリクエストします。                        |
@@ -4761,6 +4765,70 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 ### 次の項目も参照してください。
 * [`SetTargetTemperatureConfirmation`](#SetTargetTemperatureConfirmation)
 
+## StartRecordingConfirmation {#StartRecordingConfirmation}
+[`StartRecordingRequest`](#StartRecordingRequest)メッセージに対するレスポンスです。現在見ているチャンネルに対する録画を開始するよう設定した結果をCEKに返します。
+
+### Payload fields
+
+なし
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "a4349fd5-7c1c-4fae-9bbd-291749bdd63a",
+    "name": "StartRecordingConfirmation",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": { }
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`StartRecordingRequest`](#StartRecordingRequest)
+
+## StartRecordingRequest {#StartRecordingRequest}
+主にテレビのセットトップボックスなどのデバイスを制御する際に使用します。現在見ているチャンネルの録画を開始するようClova Home Extensionにリクエストします。このリクエストに対するレスポンスとして、[`StartRecordingConfirmation`](#StartRecordingConfirmation)メッセージを使用する必要があります。
+
+### Payload fields
+
+| フィールド名       | データ型    | フィールドの説明                     | 任意 |
+|---------------|---------|-----------------------------|:---------:|
+| `accessToken`      | string                                  | IoTサービスのユーザーアカウントのアクセストークン。CEKは、外部サービスの認可サーバーから取得したユーザーアカウントのアクセストークンを渡します。詳細については、[ユーザーアカウントをリンクする](/CEK/Guides/Link_User_Account.md)を参照してください。                          | 常時    |
+| `appliance`        | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject)     | エンドポイントの情報を持つオブジェクト。`applianceId`フィールドは必須です。     | 常時    |
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "8030275d-0e71-463d-b1d8-3e761e5389ad",
+    "name": "StartRecordingRequest",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "accessToken": "92ebcb67fe33",
+    "appliance": {
+      "applianceId": "device-016"
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`StartRecordingConfirmation`](#StartRecordingConfirmation)
+
 ## StopConfirmation {#StopConfirmation}
 [`StopRequest`](#StopRequest)メッセージに対するレスポンスです。動作中止のリクエストを処理した結果をCEKに返します。
 
@@ -4830,6 +4898,70 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 
 ### 次の項目も参照してください。
 * [`StopConfirmation`](#StopConfirmation)
+
+## StopRecordingConfirmation {#StopRecordingConfirmation}
+[`StopRecordingRequest`](#StopRecordingRequest)メッセージに対するレスポンスです。現在行っている録画を停止するよう設定した結果をCEKに返します。
+
+### Payload fields
+
+なし
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "a4349fd5-7c1c-4fae-9bbd-291749bdd63a",
+    "name": "StopRecordingConfirmation",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": { }
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`StopRecordingRequest`](#StopRecordingRequest)
+
+## StopRecordingRequest {#StopRecordingRequest}
+主にテレビのセットトップボックスなどのデバイスを制御する際に使用します。現在行っている録画を停止するようClova Home Extensionにリクエストします。このリクエストに対するレスポンスとして、[`StopRecordingConfirmation`](#StopRecordingConfirmation)メッセージを使用する必要があります。
+
+### Payload fields
+
+| フィールド名       | データ型    | フィールドの説明                     | 任意 |
+|---------------|---------|-----------------------------|:---------:|
+| `accessToken`      | string                                  | IoTサービスのユーザーアカウントのアクセストークン。CEKは、外部サービスの認可サーバーから取得したユーザーアカウントのアクセストークンを渡します。詳細については、[ユーザーアカウントをリンクする](/CEK/Guides/Link_User_Account.md)を参照してください。                          | 常時    |
+| `appliance`        | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject)     | エンドポイントの情報を持つオブジェクト。`applianceId`フィールドは必須です。     | 常時    |
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "8030275d-0e71-463d-b1d8-3e761e5389ad",
+    "name": "StopRecordingRequest",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "accessToken": "92ebcb67fe33",
+    "appliance": {
+      "applianceId": "device-016"
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`StopRecordingConfirmation`](#StopRecordingConfirmation)
 
 ## TurnOffConfirmation {#TurnOffConfirmation}
 [`TurnOffRequest`](#TurnOffRequest)メッセージに対するレスポンスです。デバイスの電源をオフにするようにリクエストした後、その処理結果をCEKに返します。
