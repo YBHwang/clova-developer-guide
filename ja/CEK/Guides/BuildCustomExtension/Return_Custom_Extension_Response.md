@@ -1,5 +1,5 @@
 ## Custom Extensionレスポンスを返す {#ReturnCustomExtensionResponse}
-[リクエストメッセージを処理](#HandleCustomExtensionRequest)すると、CEKに[レスポンスメッセージ](/CEK/References/CEK_API.md#CustomExtResponseMessage)を返す必要があります(HTTPSレスポンス)。リクエストメッセージのタイプによって異なる内容を返すこともありますが、レスポンスメッセージの構造に大差はありません。次は、LaunchRequestタイプのリクエスト(「英会話を始めよう」というユーザーリクエスト)を処理して返したレスポンスメッセージの例です。
+[リクエストメッセージを処理](#HandleCustomExtensionRequest)したら、CEKに[レスポンスメッセージ](/CEK/References/CEK_API.md#CustomExtResponseMessage)を返す必要があります(HTTPレスポンス)。リクエストメッセージのタイプによって異なる内容を返すこともありますが、レスポンスメッセージの構造に大差はありません。以下は、LaunchRequestタイプのリクエスト(「ピザボットを起動して」というユーザーリクエスト)を処理した後、返したレスポンスメッセージです。
 
 {% raw %}
 ```json
@@ -11,8 +11,8 @@
       "type": "SimpleSpeech",
       "values": {
           "type": "PlainText",
-          "lang": "en",
-          "value": "Hi, nice to meet you"
+          "lang": "ja",
+          "value": "こんにちは。ピザボットです。どういったご用件ですか"
       }
     },
     "card": {},
@@ -28,7 +28,7 @@
 * `version`：使用しているCustom Extensionメッセージフォーマットのバージョンです。現在のバージョンはv0.1.0です。
 * `response.outputSpeech`：ユーザーが英語で「Hi, nice to meet you」の文章を話すように設定します。
 * `response.card`：クライアントの画面に表示するデータがありません。[コンテンツテンプレート](/CIC/References/Content_Templates.md)形式のデータで、クライアントの画面に表示するコンテンツをこのフィールドで渡すことができます。
-* `response.shouldEndSession`：セッションを終了せず、引き続きユーザーの入力を受け付けるかを管理します。このフィールドの値がtrueの場合、[`SessionEndedRequest`](#HandleSessionEndedRequest)リクエストを受け取る前に、Extensionからセッションを終了できます。
+* `response.shouldEndSession`：セッションを終了せず、引き続きユーザーの入力を受け付けます。このフィールドの値がtrueの場合、[`SessionEndedRequest`](#HandleSessionEndedRequest)リクエストを受け取る前に、Extensionからセッションを終了できます。
 
 <div class="note">
   <p><strong>メモ</strong></p>
@@ -90,111 +90,41 @@
       "values": {
           "type": "PlainText",
           "lang": "ja",
-          "value": "ホラー映画をお勧めします。"
+          "value": "リオネル・メッシの写真です"
       }
     },
     "card": {
-      "subType": "",
-      "type": "CardList",
-      "cardList": [
+      "type": "ImageText",
+      "imageUrl": {
+        "type": "url",
+        "value": ""
+      },
+      "mainText": {
+        "type": "string",
+        "value": "リオネル・メッシ"
+      },
+      "referenceText": {
+        "type": "string",
+        "value": "NAVER検索結果"
+      },
+      "referenceUrl": {
+        "type": "url",
+        "value": "https://m.search.naver.com/search.naver?where=m&sm=mob_lic&query=%eb%a6%ac%ec%98%a4%eb%84%ac+%eb%a9%94%ec%8b%9c+%ec%86%8c%ec%86%8d%ed%8c%80"
+      },
+      "subTextList": [
         {
-          "description": [
-            {
-              "type": "string",
-              "value": "ホラー, スリラー"
-            },
-            {
-              "type": "string",
-              "value": "アーロン・エッカート, デヴィッド・マズーズ, カリス・ファン・ハウテン, カタリーナ・サンディーノ・モレーノ, キーア・オドネル, マット・ネイブル, ジョン・プルッチェロ, エムジェイ・アンソニー, カロリーナ・ヴィドラ, マーク・スティガー, トーマス・アラナ, ペトラ・シュプレッヒャー, マーク・ヘンリー, アシュリー・グリーン・エリザベス"
-            },
-            {
-              "type": "string",
-              "value": ""
-            }
-          ],
-          "imageUrl": {
-            "type": "url",
-            "value": "http://movie.phinf.naver.net/20170410_12/1491786049305s4W0n_JPEG/movie_image.jpg?type=w640_2"
-          },
-          "linkUrl": {
-            "type": "url",
-            "value": "http://movie.naver.com/movie/bi/mi/basic.nhn?code=118965"
-          },
-          "press": {
-            "type": "string",
-            "value": ""
-          },
-          "publishDate": {
-            "type": "date",
-            "value": ""
-          },
-          "referenceText": {
-            "type": "string",
-            "value": "NAVER検索結果"
-          },
-          "referenceUrl": {
-            "type": "url",
-            "value": "https://m.search.naver.com/search.naver?where=m&sm=mob_lic&query=+%ec%98%81%ed%99%94"
-          },
-          "title": {
-            "type": "string",
-            "value": "ドクター・エクソシスト"
-          },
-          "videoUrl": {
-            "type": "url",
-            "value": ""
-          }
-        },
-        {
-          "description": [
-            {
-              "type": "string",
-              "value": "ホラー"
-            },
-            {
-              "type": "string",
-              "value": "マチルダ・アンナ・イングリッド・ルッツ, アレックス・ロー, ジョニー・ガレッキ, ヴィンセント・ドノフリオ, エイミー・ティーガーデン, ボニー・モーガン, ローラ・スレイド・ウィッジンズ, ザック・ローリグ, リジー・ブロシュレ"
-            },
-            {
-              "type": "string",
-              "value": ""
-            }
-          ],
-          "imageUrl": {
-            "type": "url",
-            "value": "http://movie.phinf.naver.net/20170317_53/1489741954272MquSW_JPEG/movie_image.jpg?type=w640_2"
-          },
-          "linkUrl": {
-            "type": "url",
-            "value": "http://movie.naver.com/movie/bi/mi/basic.nhn?code=137909"
-          },
-          "press": {
-            "type": "string",
-            "value": ""
-          },
-          "publishDate": {
-            "type": "date",
-            "value": ""
-          },
-          "referenceText": {
-            "type": "string",
-            "value": "NAVER検索結果"
-          },
-          "referenceUrl": {
-            "type": "url",
-            "value": "https://m.search.naver.com/search.naver?where=m&sm=mob_lic&query=+%ec%98%81%ed%99%94"
-          },
-          "title": {
-            "type": "string",
-            "value": "ザ・リング／リバース"
-          },
-          "videoUrl": {
-            "type": "url",
-            "value": ""
-          }
-        },
-        ...
-      ]
+          "type": "string",
+          "value": "FCバルセロナ"
+        }
+      ],
+      "thumbImageType": {
+        "type": "string",
+        "value": "人物"
+      },
+      "thumbImageUrl": {
+        "type": "url",
+        "value": "http://sstatic.naver.net/people/3/201607071816066361.jpg"
+      }
     },
     "directives": [],
     "shouldEndSession": true

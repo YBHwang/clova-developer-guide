@@ -1,12 +1,13 @@
 # 共通フィールド
 すべてのコンテンツテンプレートは、次の共通フィールドを持つことができます。共通フィールドは、コンテンツテンプレートオブジェクトの最上位に位置します。
 
-| フィールド名        | データ型    | 説明                     | 常時/条件付き |
+| フィールド名        | データ型    | 説明                     | 任意 |
 |----------------|---------|-----------------------------|:---------:|
 | `actionList[]`     | [ActionObject](/CIC/References/ContentTemplates/Shared_Objects.md#ActionObject) array | UI操作などのユーザーインタラクションに応じて、ユーザーに提供するアクションを定義したオブジェクト配列です。ユーザーに提供するアクションは、[アクションURLスキーム](#ActionURLScheme)形式で送信されます。[CardList](/CIC/References/ContentTemplates/CardList.md)タイプのコンテンツテンプレートは、`cardList[]`フィールドの下位に定義されます。 | 条件付き |
 | `failureMessage` | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | UIにコンテンツテンプレートを表示できないときに表示するメッセージが含まれます。例えば、クライアントが`meta.version`に記されたコンテンツテンプレートのバージョンをサポートしていなかったり、テンプレートの情報を表示するときに問題が発生する場合に表示するメッセージです。 | 常時 |
 | `meta`             | object | コンテンツテンプレートに関するメタデータが含まれます。 | 常時 |
 | `meta.version`     | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | コンテンツテンプレートのバージョンが含まれます。 | 常時 |
+| `subtitle`         | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | サブタイトルや補助情報を表示するためのテキストを含みます。 | 条件付き |
 
 ## 共通フィールドのサンプル
 
@@ -23,6 +24,10 @@
     "type": "string",
     "value": "京畿道城南市盆唐区亭子1洞の今日のPM10指数は、良好です"
   },
+  "subtitle": {
+  "type": "string",
+  "value": "亭子1洞の今日のPM10指数は、良好です"
+  },​
   "meta": {
     "version": {
       "type": "string",
@@ -100,7 +105,7 @@ clova://app-launch/default-gallery
 
 クライアントは、このスキームに応じて、オーディオを再生する必要があります。
 
-| パラメーター    | 説明                         | 常時/条件付き |
+| パラメーター    | 説明                         | 任意 |
 |---------------|-----------------------------|:--------:|
 | url           | オーディオのURL                | 常時 |
 
@@ -114,7 +119,7 @@ clova://audio-repeat?url=http://target.audioFile.url
 
 クライアントは、このスキームに応じて、特定の機能をコントロールする必要があります。
 
-| パラメーター    | 説明                         | 常時/条件付き |
+| パラメーター    | 説明                         | 任意 |
 |---------------|-----------------------------|:--------:|
 | command       | コントロールのコマンド。<ul><li>BtConnect</li><li>BtDisconnect</li><li>BtStartPairing</li><li>BtStopPairing</li><li>Decrease</li><li>Increase</li><li>LaunchApp</li><li>OpenScreen</li><li>SetValue</li><li>TurnOn</li><li>TurnOff</li></ul>                      | 常時 |
 | target        | コントロールする対象。<ul><li><code>"airplane"</code>：機内モード</li><li><code>"app"</code>：アプリ</li><li><code>"bluetooth"</code>：Bluetooth</li><li><code>"cellular"</code>：セルラーネットワーク</li><li><code>"channel"</code>：テレビチャンネル</li><li><code>"flashlight"</code>：フラッシュライト</li><li><code>"gps"</code>：GPS</li><li><code>"powersave"</code>：省電力モード</li><li><code>"screenbrightness"</code>：画面の明るさ</li><li><code>"soundmode"</code>：サウンドモード</li><li><code>"volume"</code>：スピーカーの音量</li><li><code>"wifi"</code>：WiFi</li></ul> | 常時 |
@@ -154,7 +159,7 @@ clova://{{ book.OrientedServiceWithLowerCase }}Search?url=http://target.page.url
 
 クライアントは、このスキームに応じて、{{ book.OrientedService }}マップアプリを実行し、ルート検索を開始する必要があります。
 
-| パラメーター    | 説明                         | 常時/条件付き |
+| パラメーター    | 説明                         | 任意 |
 |---------------|-----------------------------|:---------:|
 | url           | {{ book.OrientedService }}マップアプリで開くURL   | 常時 |
 
@@ -168,7 +173,7 @@ clova://{{ book.OrientedServiceWithLowerCase }}-maps?url=http://target.map.url
 
 クライアントは、このスキームに応じて、特定のテキストを音声で出力する必要があります。
 
-| パラメーター    | 説明                         | 常時/条件付き |
+| パラメーター    | 説明                         | 任意 |
 |---------------|-----------------------------|:---------:|
 | lang          | TTS(Text to Speech)の対象言語。<ul><li><code>"en"</code>：英語</li><li><code>"ja"</code>：日本語</li><li><code>"ko"</code>：韓国語</li></ul> | 常時 |
 | text          | 発話するテキスト                   | 条件付き |
@@ -182,7 +187,7 @@ clova://ttsRepeat?lang=en&text=hello
 ### clova://webview {#WebView}
 クライアントは、このスキームに応じて、WebViewで特定のページを開く必要があります。
 
-| パラメーター    | 説明                         | 常時/条件付き |
+| パラメーター    | 説明                         | 任意 |
 |---------------|-----------------------------|:---------:|
 | url           | 対象ページのURL              | 常時 |
 | auth_required | 認証が必要かどうかを示します。このパラメーターが`true`の場合、対象ページを開くときに認証APIを使用する必要があります。`false`か、または設定されていない場合、認証は必要ありません。 | 条件付き |
