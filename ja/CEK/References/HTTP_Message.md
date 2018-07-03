@@ -7,7 +7,7 @@ CEKがExtensionに解析されたユーザーの発話情報を渡す際、HTTPS
 {% raw %}
 ```
 POST /APIpath HTTP/1.1
-Host: your.extension.endpoint
+Host: YOUR_EXTENSION_ENDPOINT
 Content-Type: application/json;charset-UTF-8
 Accept: application/json
 Accept-Charset: utf-8
