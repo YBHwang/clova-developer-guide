@@ -20,7 +20,7 @@
       * [ビルトインスロットタイプ](/Design/Design_Guideline_For_Extension.md#BuiltinSlotType)
       * [カスタムスロットタイプ](/Design/Design_Guideline_For_Extension.md#CustomSlotType)
     * [サンプル発話](/Design/Design_Guideline_For_Extension.md#UtteranceExample)
-  * [注意事項](/Design/Design_Guideline_For_Extension.md#Precautions)
+  * [Clovaコンテンツガイドライン](/Design/Design_Guideline_For_Extension.md#ClovaSkillContentGuideline)
   * [プラットフォームでサポートされるオーディオ圧縮形式](/Design/Design_Guideline_For_Extension.md#SupportedAudioCompressionFormat)
   * [随時更新](/Design/Design_Guideline_For_Extension.md#ContinuousUpdate)
 
