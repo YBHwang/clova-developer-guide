@@ -28,6 +28,7 @@
 * [Extension 디자인 가이드라인](/Design/Design_Guideline_For_Extension.md)
   * [목표 수립](/Design/Design_Guideline_For_Extension.md#SettingGoal)
   * [사용 시나리오 스크립트 작성](/Design/Design_Guideline_For_Extension.md#MakeUseCaseScenarioScript)
+  * [Extension 이름 정의](/Design/Design_Guideline_For_Extension.md#DefineExtensionName)
   * [Interaction 모델 정의](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel)
     * [Intent](/Design/Design_Guideline_For_Extension.md#Intent)
       * [Custom intent](/Design/Design_Guideline_For_Extension.md#CustomIntent)
