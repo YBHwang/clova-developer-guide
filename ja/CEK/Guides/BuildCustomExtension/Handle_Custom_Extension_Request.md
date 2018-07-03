@@ -7,18 +7,18 @@ Custom ExtensionはCEKから[Custom Extensionメッセージ](/CEK/References/CE
 
 ![](/CEK/Resources/Images/CEK_Custom_Extension_Multi-turn_Sequence_Diagram.png)
 
-そのため、ユーザーのリクエストを3つのタイプに区分しています。Custom Extensionの開発者は、リクエストのタイプに応じて適切に処理する必要があります。
+そのため、ユーザーのリクエストを3つのタイプに分類しています。Custom Extensionの開発者は、リクエストのタイプに応じて適切に処理する必要があります。
 3つのリクエストタイプと、各リクエストタイプのユーザーの発話パターンは次のとおりです。
 
 | リクエストタイプ | ユーザーの発話パターン | サンプル発話 |
 |---------|--------------|---------|
 |[LaunchRequest](#HandleLaunchRequest) | _[Extensionの呼び出し名]_ + 「起動して/開いて/実行して」 | 「ピザボットを起動して」 |
-| [IntentRequest](#HandleIntentRequest)| _[Extensionの呼び出し名]_ + 「へ/から/に/で」 + _[Extensionごとに登録した実行コマンド]_、あるいは<br/>(`LaunchRequest`タイプのリクエストを受け取った状態で) _[Extensionごとに登録したコマンド]_ | 「ピザボットでピザを頼んで」<br/>(ピザボット起動状態で)「注文を確認して」 |
+| [IntentRequest](#HandleIntentRequest)| {% if book.language !== "ja" %} _[Extensionの呼び出し名]_ + 「に/から/まで/で」 + _[Extensionごとに登録した実行コマンド]_、あるいは<br/>{% endif %}(`LaunchRequest`タイプのリクエストを受け付けた状態で) _[Extensionごとに登録したコマンド]_ | {% if book.language !== "ja" %} 「ピザボットでピザを頼んで」<br/>{% endif %}(ピザボット起動状態で)「注文を確認して」 |
 | [SessionEndedRequest](#HandleSessionEndedRequest) | (`LaunchRequest`タイプのリクエストを受け付けた状態で)「終了して/終了/もういい」 | 「(ピザボットを)終了して」 |
 
 <div class="note">
 <p><strong>メモ</strong></p>
-<p><a href="/CEK/References/CEK_API.html#CustomExtEventRequest"><code>EventRequest</code></a>のリクエストタイプは、ユーザーの発話よりは、主にクライアントの状態の変化などによってExtensionに送信されるメッセージです。クライアントの状態に関する情報収集およびクライアントの状態の変化に対するExtensionの対応のために使用されます。また、Extensionが<a href="/CEK/Guides/Build_Custom_Extension.html#ProvideAudioContent">オーディオコンテンツを提供する</a>際にも使用されます。ここでは、<code>EventRequest</code>については説明しません。</p>
+<p><a href="/CEK/References/CEK_API.html#CustomExtEventRequest"><code>EventRequest</code></a>は、ユーザの発話の有無に関わらず、デバイスの状態が変化したときにExtensionに送信されるメッセージです。これらのイベントは、デバイスの状態を取得したり、状態変化したことを検知することに利用できます。また、Extensionが<a href="/CEK/Guides/Build_Custom_Extension.html#ProvideAudioContent">オーディオコンテンツを提供する</a>際にも使用されます。ここでは、オーディオコンテンツ再生時の<code>EventRequest</code>については説明しません。</p>
 </div>
 
 ### LaunchRequestの処理 {#HandleLaunchRequest}
@@ -82,7 +82,7 @@ LaunchRequestタイプのメッセージは、`request.type`フィールドに`"
 
 ### IntentRequestの処理 {#HandleIntentRequest}
 
-[`IntentRequest`タイプのリクエスト](/CEK/References/CEK_API.md#CustomExtIntentRequest)は、あらかじめ定義した[対話モデル](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel)に従って、CEKがExtensionにユーザーのリクエストを送信する際に使用されます。`IntentRequest`は、ユーザーがExtensionの呼び出し名を指定して指示するか、`LaunchRequest`が発生してから呼び出し名なしに指示する際にExtensionに送信されます。例えば、ユーザーが「ピザボットでピザを頼んで」や別の指示でサービスを開始した後、「ピザを頼んで」のように指示した場合、CEKはピザの宅配サービスを提供するExtensionに`IntentRequest`タイプのリクエストを渡します。`IntentRequest`タイプのリクエストは、一回性のリクエストだけでなく、連続するユーザーのリクエスト(Multi-turn request)を処理する際にも使用されます。
+[`IntentRequest`タイプのリクエスト](/CEK/References/CEK_API.md#CustomExtIntentRequest)は、あらかじめ定義した[対話モデル](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel)に従って、CEKがExtensionにユーザー発話のリクエストを送信する際に使用されます。{% if book.language !== "ja" %}`IntentRequest`は、ユーザーがExtensionの呼び出し名を指定して指示するか、`LaunchRequest`が発生してから呼び出し名なしに指示する際にExtensionに送信されます。例えば、ユーザーが「ピザボットでピザを頼んで」や別の指示でサービスを開始した後、「ピザを頼んで」のように指示した場合、CEKはピザの宅配サービスを提供するExtensionに`IntentRequest`タイプのリクエストを渡します。{% endif %}例えば、ユーザーが「ピザボットを起動して」と発話してサービスを開始した後に、「ピザを頼んで」と指示した時に、CEKはピザの宅配サービスを提供するExtensionに`IntentRequest`タイプのリクエストを渡します。{% if book.language !== "ja" %}`IntentRequest`タイプのリクエストは、一回性のリクエストだけでなく、連続するユーザーのリクエスト(Multi-turn request)を処理する際にも使用されます。{% endif %}
 
 IntentRequestタイプのリクエストは、`request.type`フィールドに`"IntentRequest"`の値を持ちます。呼び出されたインテントの名前と、解析されたユーザーの発話情報は、`request.intent`フィールドから確認できます。このフィールドを分析してユーザーのリクエストを処理してから、[レスポンスメッセージ](#ReturnCustomExtensionResponse)を返します。
 
@@ -156,7 +156,7 @@ IntentRequestタイプのリクエストは、`request.type`フィールドに`"
 
 [`SessionEndedRequest`タイプのリクエスト](/CEK/References/CEK_API.md#CustomExtSessionEndedRequest)は、ユーザーが特定のモードやCustom Extensionの使用を中断すると宣言したことを示す際に使用されます。ユーザーが「終了して」「もういい」などのように指示した場合、クライアントはExtensionの使用を中断し、CEKは対話サービスを提供するExtensionに`SessionEndedRequest`タイプのリクエストを渡します。
 
-`SessionEndedRequest`タイプのメッセージは`request.type`フィールドに`"SessionEndedRequest"`の値を持ち、`LaunchRequest`タイプと同じく`request`フィールドにユーザーの発話の解析情報を含めていません。Extensionの開発者は、サービスを終了します。
+`SessionEndedRequest`タイプのメッセージは`request.type`フィールドに`"SessionEndedRequest"`の値を持ち、`LaunchRequest`タイプと同じく`request`フィールドにユーザーの発話の解析情報は含まれません。Extensionの開発者は、サービス終了時の後処理を実施してください。
 
 次は`SessionEndedRequest`タイプのリクエストメッセージのサンプルです。
 
