@@ -29,7 +29,7 @@ Extension을 사용자에게 설명하기 위한 정보로서 Clova 앱의 **{{ 
 * **{{ book.DevConsole.cek_small_icon }}**: 작은 크기(108px X 108px)의 extension 아이콘 파일입니다. **{{ book.DevConsole.ManageExtensions }}**이나 **{{ book.DevConsole.ExtensionPage }}**에 표시됩니다.
 * **{{ book.DevConsole.cek_large_icon }}**: 큰 크기(512px X 512px)의 extension 아이콘 파일로서 추후 사용될 예정입니다.
 
-이렇게 입력된 정보는 Clova 앱 **{{ book.DevConsole.ManageExtensions }}** 메뉴(Extension 스토어)에서 다음과 같이 표시됩니다.
+이렇게 입력된 정보는 Clova 앱 **{{ book.DevConsole.ManageExtensions }}** 메뉴에서 다음과 같이 표시됩니다.
 
 | {{ book.DevConsole.StoreHome }} | {{ book.DevConsole.ExtensionPage }}   |
 |-------------------|-------------------|
@@ -90,14 +90,14 @@ Extension의 [배포 정보](#InputDeploymentInfo)와 [개인 정보 보호 및 
 
 Extension을 심사할 때 살펴보는 기본 평가 항목은 다음과 같습니다.
 
-* Extension 빌드 검증
-  * Extension 서비스에 적합한 용어를 사용하고 있는지 확인합니다.
-  * Intent, slot 등 interaction 모델을 검증합니다.
-  * Extension [세부 목표](/Design/Design_Guideline_For_Extension.md#SettingGoal)에 부합되는 서비스를 제공하고 있는지 확인합니다.
 * [사용 시나리오](/Design/Design_Guideline_For_Extension.md#MakeUseCaseScenarioScript) 검증
   * 대화 문맥 상 어색한 부분이 있는지 확인합니다.
   * 시나리오 상 사용되는 발화 데이터에 금칙어, 민감어 등이 있는지 확인합니다.
   * Extension이 [사용자 계정을 연결](/CEK/Guides/Link_User_Account.md)하는 경우 서비스에 특화된 부분을 더 검토할 수 있습니다.
+* Extension의 동작 검증
+  * Extension이 서비스에 적합한 용어를 사용하고 있는지 확인합니다.
+  * Intent, slot 등 interaction 모델을 검증합니다.
+  * Extension [세부 목표](/Design/Design_Guideline_For_Extension.md#SettingGoal)에 부합되는 서비스를 제공하고 있는지 확인합니다.
 * 배포 정보 검증
   * Extension의 설명, 카테고리, 검색 키워드와 같이 입력된 배포 정보가 extension에 맞게 입력되었는지 확인합니다.
   * Extension이 개인 정보 관리 규정 등 입력된 정책에 맞게 동작하는지 확인합니다.
