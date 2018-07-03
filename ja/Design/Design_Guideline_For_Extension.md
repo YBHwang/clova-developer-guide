@@ -8,7 +8,7 @@ Clovaを通じて、Webサービスの情報検索、ショッピングおよび
 * [ユーザーシナリオスクリプトを作成する](#MakeUseCaseScenarioScript)
 * [スキル名/呼び出し名を定義する](#DefineInvocationName)
 * [対話モデルを定義する](#DefineInteractionModel)
-* [注意事項](#Precautions)
+* [Clovaスキルのコンテンツガイドライン](#ClovaSkillContentGuideline)
 * [プラットフォームでサポートされる音声圧縮形式](#SupportedAudioCompressionFormat)
 * [随時更新](#ContinuousUpdate)
 
