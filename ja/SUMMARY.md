@@ -91,4 +91,4 @@
     * [プライバシーポリシーおよびコンプライアンス情報を入力する](/DevConsole/Guides/CEK/Deploy_Extension.md#InputComplianceInfo)
     * [審査をリクエストする](/DevConsole/Guides/CEK/Deploy_Extension.md#RequestExtensionSubmission)
   * [Extensionをアップデートする](/DevConsole/Guides/CEK/Update_Extension.md)
-  * [Extensionを中止および削除する](/DevConsole/Guides/CEK/Remove_Extension.md)
+  * [Extensionを削除および中止する](/DevConsole/Guides/CEK/Remove_Extension.md)
