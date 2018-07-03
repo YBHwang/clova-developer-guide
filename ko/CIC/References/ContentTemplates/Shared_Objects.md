@@ -213,7 +213,7 @@ Content template은 일부 반복되는 데이터 타입을 표현하기 위해 
 // 예제 2
 {
   "type": "string",
-  "value": "네이버 검색결과"
+  "value": "검색결과"
 }
 ```
 

@@ -40,7 +40,7 @@
   },
   "referenceText": {
     "type": "string",
-    "value": "네이버 검색결과"
+    "value": "검색결과"
   },
   "referenceUrl": {
     "type": "url",
@@ -89,7 +89,7 @@
   },
   "referenceText": {
     "type": "string",
-    "value": "네이버 검색결과"
+    "value": "검색결과"
   },
   "referenceUrl": {
     "type": "url",
