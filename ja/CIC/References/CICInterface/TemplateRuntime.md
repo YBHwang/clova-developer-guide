@@ -3,7 +3,7 @@
 TemplateRuntimeインターフェースは、クライアントまたはCICがメディアプレーヤーに表示するメタデータをリクエストしたり、送信したりする際に使用します。実際にオーディオストリームの再生に必要なデータに関連する作業を処理する際には[`AudioPlayer`](/CIC/References/CICInterface/AudioPlayer.md)インターフェースを、再生リストやアルバムの画像、歌詞のようなメタデータに関連する作業を処理する際には、`TemplateRuntime`インターフェースを使用します。該当するクライアントのみでなく、他のクライアントデバイスの再生メタデータを照会し、ユーザーに提供することもできます。
 
 | メッセージ         | タイプ  | 説明                                   |
-|------------------|-----------|---------------------------------------------|
+|------------------|---------|---------------------------------------------|
 | [`ExpectRequestPlayerInfo`](#ExpectRequestPlayerInfo)  | ディレクティブ | クライアントに、再生メタデータをリクエストするように指示します。クライアントはこのディレクティブを受信すると、[`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo)イベントをCICに送信する必要があります。 |
 | [`LikeCommandIssued`](#LikeCommandIssued)              | イベント     | ユーザーがクライアントのメディアプレーヤーで、特定のメディアに対して「いいね」ボタンを押した場合、クライアントはこのイベントをCICに送信する必要があります。 |
 | [`RenderPlayerInfo`](#RenderPlayerInfo)                | ディレクティブ | CICから、メディアプレーヤーに表示する再生リスト、アルバムの画像、歌詞のような再生メタデータをクライアントに送信し、表示するように指示します。 |
@@ -93,10 +93,10 @@ TemplateRuntimeインターフェースは、クライアントまたはCICが�
 
 ## RenderPlayerInfoディレクティブ {#RenderPlayerInfo}
 
-CICから、メディアプレーヤーに表示する再生リスト、アルバムの画像、歌詞のような再生メタデータをクライアントに送信し、表示するように指示します。ユーザーからオーディオの再生をリクエストされたとき、クライアントは[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)を受信してメディアを再生します。ディスプレイを持つクライアントは、メディアプレーヤー再生に関連する情報を表現する必要がある場合があります。その際、[`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo)イベントで再生メタデータをCICにリクエストし、`TemplateRuntime.RenderPlayerInfo`ディレクティブを受信します。`TemplateRuntime.RenderPlayerInfo`ディレクティブには、現在再生するメディアコンテンツと、後で再生するメディアコンテンツの再生メタデータが含まれます。クライアントは、`TemplateRuntime.RenderPlayerInfo`ディレクティブの再生メタデータをユーザーに提供して、現在再生しているメディアのメタデータおよび再生リストを表示することができます。ユーザーからリスト内の特定のメディアを再生するようにリクエストされたり、「いいね」([`TemplateRuntime.LikeCommandIssued`](#LikeCommandIssued))、「いいね」の取り消し([`TemplateRuntime.UnlikeCommandIssued`](#UnlikeCommandIssued))のような動作を処理する際、ベースとなるデータ(`token`)を提供します。
+CICから、メディアプレーヤーに表示する再生リスト、アルバムの画像、歌詞のような再生メタデータをクライアントに送信し、表示するように指示します。ユーザーからオーディオの再生をリクエストされたとき、クライアントは[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)ディレクティブを受信してメディアを再生します。ディスプレイを持つクライアントは、必要に応じてメディアプレーヤーに再生関連情報を表示する必要があります。その際、[`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo)イベントで再生メタデータをCICにリクエストし、`TemplateRuntime.RenderPlayerInfo`ディレクティブを受信します。`TemplateRuntime.RenderPlayerInfo`ディレクティブには、現在再生するメディアコンテンツと、後で再生するメディアコンテンツの再生メタデータが含まれます。クライアントは、`TemplateRuntime.RenderPlayerInfo`ディレクティブの再生メタデータをユーザーに提供して、現在再生しているメディアのメタデータおよび再生リストを表示することができます。ユーザーからリスト内の特定のメディアを再生するようにリクエストされたり、「いいね」([`TemplateRuntime.LikeCommandIssued`](#LikeCommandIssued))、「いいね」の取り消し([`TemplateRuntime.UnlikeCommandIssued`](#UnlikeCommandIssued))のような動作を処理する際、ベースとなるデータ(`token`)を提供します。
 
 ### Payload fields
-| フィールド名       | データ型    | 説明                     | 常時/条件付き |
+| フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `displayType`               | string | メディアコンテンツを表示する形式。<ul><li><code>"list"</code>：リストで表示する</li><li><code>"single"</code>：1つのアイテムを表示する</li></ul>       | 常時 |
 | `controls[]`                | object array | クライアントがメディアプレーヤーで表示すべきボタンの情報を持つオブジェクト配列です。             | 常時 |
@@ -112,6 +112,7 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
 | `playableItems[].controls[].selected`       | boolean      | メディアコンテンツが選択されているかを示します。この値は、ユーザーの「好き」という概念を表す際に使用することができます。この値が`true`に設定されていたら、ユーザーが好きなアイテムとして登録したコンテンツであることを示します。メディアプレーヤーの関連するUIで、そのことを表す必要があります。<ul><li><code>true</code>：選択済み</li><li><code>false</code>：未選択</li></ul> | 常時  |
 | `playableItems[].controls[].type`           | string       | ボタンのタイプ。現在、`"BUTTON"`のみ使用します。  | 常時 |
 | `playableItems[].headerText`       | string        | 主に、現在の再生リストのタイトルを表すテキストフィールド                                                | 条件付き  |
+| `playableItems[].isLive`           | boolean       | リアルタイムのコンテンツかどうかを示す値。<ul><li><code>true</code>：リアルタイムのコンテンツ</li><li><code>false</code>：リアルタイムのコンテンツではない</li></ul><div class="note"><p><strong>メモ</strong></p><p>リアルタイムのコンテンツの場合、リアルタイムのコンテンツであることを表すアイコン(例：liveアイコン)を表示する必要があります。</p></div>  | 条件付き  |
 | `playableItems[].lyrics[]`         | object array  | 歌詞のデータを持つオブジェクト配列。                                                            | 条件付き  |
 | `playableItems[].lyrics[].data`    | string        | 歌詞のデータ。このフィールドと`playableItems[].lyrics[].url`フィールドのうち、1つは存在します。              | 条件付き  |
 | `playableItems[].lyrics[].format`  | string        | 歌詞データの形式。<ul><li><code>"LRC"</code>：<a href="https://en.wikipedia.org/wiki/LRC_(file_format)" target="_blank">LRC形式</a></li><li><code>"PLAIN"</code>：テキスト形式</li></ul>  | 常時  |
@@ -124,18 +125,17 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
 | `provider`                         | object        | メディアコンテンツ提供元の情報を持つオブジェクト                                                         | 条件付き |
 | `provider.logoUrl`                 | string        | メディアコンテンツ提供元のロゴ画像のURL                                                         | 条件付き |
 | `provider.name`                    | string        | メディアコンテンツ提供元の名前                                                                   | 常時  |
-| `provider.smallLogoUrl`            | string        | メディアコンテンツ提供元のロゴ画像のURL                                                | 条件付き |
+| `provider.smallLogoUrl`            | string        | メディアコンテンツ提供元の小さなロゴ画像のURL                                                | 条件付き |
 
 ### Message example
 {% raw %}
 
 ```json
-// すぐに再生できるオーディオストリームのURL情報が含まれたサンプル
 {
   "directive": {
     "header": {
-      "namespace": "AudioPlayer",
-      "name": "Play",
+      "namespace": "TemplateRuntime",
+      "name": "RenderPlayerInfo",
       "dialogRequestId": "34abac3-cb46-611c-5111-47eab87b7",
       "messageId": "ad13f0d6-bb11-ca23-99aa-312a0b213805"
     },
@@ -180,6 +180,7 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
               "url": null
             }
           ],
+          "isLive": false,
           "showAdultIcon": false,
           "titleSubText1": "Alice Sara Ott, Symphonie Orchester Des Bayerischen Rundfunks, Esa-Pekka Salonen",
           "titleSubText2": "Wonderland - Edvard Grieg : Piano Concerto, Lyric Pieces",
@@ -204,10 +205,11 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
               "url": null
             }
           ],
+          "isLive": true,
           "showAdultIcon": false,
           "titleSubText1": "Berliner Philharmoniker, Herbert Von Karajan",
           "titleSubText2": "Mendelssohn : Violin Concerto; A Midsummer Night`s Dream",
-          "titleText": "Symphony No.4 In A Op.90 'Italian' - III. Con Moto Moderato",
+          "titleText": "Symphony No.4 In A Op.90 'Italian' - III.Con Moto Moderato",
           "token": "eJyr5lIqSSyITy4tKs4vUrJSUEo2"
         },
         ...
@@ -230,9 +232,8 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
 * [`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo)
 * [`TemplateRuntime.UnlikeCommandIssued`](#UnlikeCommandIssued)
 
-## RequestPlayerInfoIssuedイベント {#RequestPlayerInfoIssued}
+## RequestPlayerInfo event {#RequestPlayerInfo}
 クライアントから、メディアプレーヤーに表示する再生リスト、アルバムの画像、歌詞のような再生メタデータをCICにリクエストします。CICはこのイベントを受信すると、[`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo)ディレクティブをクライアントに送信します。
-
 
 ### Context fields
 
@@ -244,11 +245,8 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
 |---------------|---------|-----------------------------|:---------:|
 | `token`        | string  | 再生メタデータを読み取るとき、基準となるメディアコンテンツのトークン。[`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo)ディレクティブの`playableItems[].token`フィールドで提供されたトークンが入力される必要があります。 | 必須 |
 | `range`        | object  | 再生メタデータの範囲を指定するオブジェクト。このフィールドが使用されていない場合、クライアントは任意の数のメタデータを受信します。   | 任意  |
-| `range.before` | number  | 基準となるメディアコンテンツからn個前以前の再生リストに含まれた再生メタデータをリクエストします。  | 任意  |
-| `range.after`  | number  | 基準となるメディアコンテンツからn個以降の再生リストに含まれた再生メタデータをリクエストします。例えば、`range.before`フィールドの値を指定しないで、`range.after`を`5`に設定すると、基準のメディアコンテンツを含めて、合計6つのメディアコンテンツに該当する再生メタデータを受信します。 | 任意  |
-
-### 備考
-* クライアントデバイスのボタンは、ハードウェア方式の物理ボタンの場合もあり、オーディオプレーヤーウィジェットのボタンのようなソフトウェア方式のボタンの場合もあります。
+| `range.before` | number  | 基準となるメディアコンテンツから、n個前以前の再生リストに含まれた再生メタデータをリクエストします。  | 任意  |
+| `range.after`  | number  | 基準となるメディアコンテンツから、n個以降の再生リストに含まれた再生メタデータをリクエストします。例えば、`range.before`フィールドの値を指定しないで、`range.after`を`5`に設定すると、基準のメディアコンテンツを含めて、合計6つのメディアコンテンツに該当する再生メタデータを受信します。 | 任意  |
 
 ### Message example
 
@@ -269,7 +267,7 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
   "event": {
     "header": {
       "namespace": "TemplateRuntime",
-      "name": "RequestPlayerInfoIssued",
+      "name": "RequestPlayerInfo",
       "messageId": "2fcb6a62-393d-46ad-a5c4-b3db9b640045"
     },
     "payload": {

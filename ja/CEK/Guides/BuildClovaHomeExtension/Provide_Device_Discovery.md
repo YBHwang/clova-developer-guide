@@ -1,6 +1,6 @@
 ## Discovery機能を提供する {#ProvideDeviceDiscovery}
 
-ユーザーがIoTサービスを有効にすると、クライアントアプリ、またはクライアントデバイスとペアリングするアプリで、ユーザーアカウントに登録されているIoTデバイスのリストを提供する必要があります。Clova Home Extensionは、CEKから[`DiscoverAppliancesRequest`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesRequest)メッセージを渡されます(HTTPSリクエスト)。Clova Home Extensionは受け取ったユーザーアカウントのアクセストークンを使用して、IoTサービスからユーザーアカウントに登録されているデバイスのリストを得て、それを[`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesResponse)メッセージで応答する必要があります(HTTPSレスポンス)。CEKとClova Home Extensionの間でやり取りするメッセージについての詳細は、[Clova Home Extensionメッセージ](/CEK/References/CEK_API.md#ClovaHomeExtMessage)を参照してください。
+ユーザーがIoTサービスを有効にすると、クライアントアプリ、またはクライアントデバイスとペアリングするアプリで、ユーザーアカウントに登録されているIoTデバイスのリストを提供する必要があります。Clova Home Extensionは、CEKから[`DiscoverAppliancesRequest`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesRequest)メッセージを受け取ります(HTTPリクエスト)。Clova Home Extensionは、受け取ったユーザーアカウントのアクセストークンを使用して、IoTサービスからユーザーアカウントに登録されているデバイスのリストを取得し、そのリストを[`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesResponse)メッセージで応答する必要があります(HTTPレスポンス)。CEKとClova Home Extensionの間でやり取りするメッセージについての詳細は、[Clova Home Extensionメッセージ](/CEK/References/CEK_API.md#ClovaHomeExtMessage)を参照してください。
 
 ![](/CEK/Resources/Images/CEK_Clova_Home_Extension_Sequence_Diagram.png)
 
@@ -43,6 +43,7 @@
         "version": "v1.0",
         "friendlyName": "リビングの照明",
         "friendlyDescription": "スマートフォンで制御できる照明",
+        "isIr": false,
         "isReachable": true,
           "actions": [
             "DecrementBrightness",
@@ -63,6 +64,7 @@
         "version": "v1.0",
         "friendlyName": "キッチンのコンセント",
         "friendlyDescription": "節電コンセント",
+        "isIr": false,
         "isReachable": true,
         "actions": [
           "HealthCheck",

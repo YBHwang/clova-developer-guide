@@ -15,15 +15,16 @@ DeviceControlでは、次のイベントとディレクティブを提供して�
 | [`BtConnect`](#BtConnect)                 | ディレクティブ | クライアントに、特定のBluetoothデバイスと接続するように指示します。                               |
 | [`BtConnectByPINCode`](#BtConnectByPINCode) | ディレクティブ | クライアントに、PINコードを要求したBluetoothデバイスと接続するように指示します。                        |
 | [`BtDisconnect`](#BtDisconnect)           | ディレクティブ | クライアントに、特定のBluetoothデバイスとの接続を解除するように指示します。                               |
-| [`BtRequestForPINCode`](#BtRequestForPINCode) | イベント | クライアントは、BluetoothデバイスからPINコードを要求される場合、このイベントでCICにリクエストを送信する必要があります。               |
+| [`BtRequestForPINCode`](#BtRequestForPINCode) | イベント | クライアントは、BluetoothデバイスからPINコードを要求される場合、このイベントでCICにリクエストを送信する必要があります。     |
 | [`BtRequestToCancelPinCodeInput`](#BtRequestToCancelPinCodeInput) | イベント | クライアントは、CICに対してPINコード入力の要求をキャンセルする場合、このイベントを送信する必要があります。 |
-| [`BtStartPairing`](#BtStartPairing)       | ディレクティブ | クライアントに、Bluetoothペアリングを開始するように指示します。                                   |
-| [`BtStopPairing`](#BtStopPairing)         | ディレクティブ | クライアントに、Bluetoothペアリングを解除するように指示します。                                   |
+| [`BtStartPairing`](#BtStartPairing)       | ディレクティブ | クライアントに、Bluetoothペアリングを開始するように指示します。                                       |
+| [`BtStopPairing`](#BtStopPairing)         | ディレクティブ | クライアントに、Bluetoothペアリングを解除するように指示します。                                       |
 | [`Decrease`](#Decrease)                   | ディレクティブ | クライアントに、スピーカーの音量または画面の明るさを、基本値だけ下げるように指示します。                     |
 | [`ExpectReportState`](#ExpectReportState) | ディレクティブ | クライアントに、デバイスの現在の状態をCICにレポートするように指示します。                                 |
 | [`Increase`](#Increase)                   | ディレクティブ | クライアントに、スピーカーの音量または画面の明るさを、基本値だけ上げるように指示します。                     |
-| [`LaunchApp`](#LaunchApp)                 | ディレクティブ | クライアントに、特定のアプリを起動するように指示します。                                             |
-| [`OpenScreen`](#OpenScreen)               | ディレクティブ | クライアントに、設定画面を開くように指示します。                                              |
+| [`LaunchApp`](#LaunchApp)                 | ディレクティブ | **(Deprecated)** クライアントに、特定のアプリを起動するように指示します。                           |
+| [`Open`](#Open)                           | ディレクティブ | クライアントに、特定の画面を表示するように指示します。                                               |
+| [`OpenScreen`](#OpenScreen)               | ディレクティブ | **(Deprecated)** クライアントに、設定画面を開くように指示します。                              |
 | [`ReportState`](#ReportState)             | イベント     | クライアントは、デバイスの現在の状態をレポートするとき、このメッセージを使用する必要があります。                     |
 | [`RequestStateSynchronization`](#RequestStateSynchronization) | イベント   | ユーザーのアカウントに登録されている他のクライアントデバイスの現在の状態を確認しようとするとき、このイベントをCICに送信します。  |
 | [`SetValue`](#SetValue)                   | ディレクティブ | クライアントに、スピーカーの音量または画面の明るさを、指定された値に設定するように指示します。                    |
@@ -70,7 +71,7 @@ DeviceControlでは、次のイベントとディレクティブを提供して�
 | フィールド名       | データ型    | 説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `target`      | string  | コントロールする対象。<ul><li><code>"airplane"</code>：機内モード</li><li><code>"app"</code>：アプリ</li><li><code>"bluetooth"</code>：Bluetooth</li><li><code>"cellular"</code>：セルラーネットワーク</li><li><code>"channel"</code>：テレビチャンネル</li><li><code>"flashlight"</code>：フラッシュライト</li><li><code>"gps"</code>：GPS</li><li><code>"powersave"</code>：省電力モード</li><li><code>"screenbrightness"</code>：画面の明るさ</li><li><code>"soundmode"</code>：サウンドモード</li><li><code>"volume"</code>：スピーカーの音量</li><li><code>"wifi"</code>：WiFi</li></ul> | 必須     |
-| `command`     | string  | 正常に実行されたアクション。<ul><li><code>"BtConnect"</code></li><li><code>"BtConnectByPINCode"</code></li><li><code>"BtDisconnect"</code></li><li><code>"BtStartPairing"</code></li><li><code>"BtStopPairing"</code></li><li><code>"Decrease"</code></li><li><code>"Increase"</code></li><li><code>"OpenScreen"</code></li><li><code>"SetValue"</code></li><li><code>"TurnOn"</code></li><li><code>"TurnOff"</code></li></ul> | 必須   |
+| `command`     | string  | 正常に実行されたアクション。<ul><li><code>"BtConnect"</code></li><li><code>"BtConnectByPINCode"</code></li><li><code>"BtDisconnect"</code></li><li><code>"BtStartPairing"</code></li><li><code>"BtStopPairing"</code></li><li><code>"Decrease"</code></li><li><code>"Increase"</code></li><li><code>"Open"</code></li><li><code>"SetValue"</code></li><li><code>"TurnOn"</code></li><li><code>"TurnOff"</code></li></ul> | 必須   |
 
 ### 備考
 
@@ -115,9 +116,10 @@ CICは、このイベントを受信すると、ユーザーのアカウント�
 * [`DeviceControl.BtDisconnect`](#BtDisconnect)
 * [`DeviceControl.BtStartPairing`](#BtStartPairing)
 * [`DeviceControl.BtStopPairing`](#BtStopPairing)
+
 * [`DeviceControl.Decrease`](#Decrease)
 * [`DeviceControl.Increase`](#Increase)
-* [`DeviceControl.OpenScreen`](#OpenScreen)
+* [`DeviceControl.Open`](#Open)
 * [`DeviceControl.SetValue`](#SetValue)
 * [`DeviceControl.TurnOff`](#TurnOff)
 * [`DeviceControl.TurnOn`](#TurnOn)
@@ -135,7 +137,7 @@ CICは、このイベントを受信すると、ユーザーのアカウント�
 | フィールド名       | データ型    | 説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `target`      | string  | コントロールする対象。<ul><li><code>"airplane"</code>：機内モード</li><li><code>"app"</code>：アプリ</li><li><code>"bluetooth"</code>：Bluetooth</li><li><code>"cellular"</code>：セルラーネットワーク</li><li><code>"channel"</code>：テレビチャンネル</li><li><code>"flashlight"</code>：フラッシュライト</li><li><code>"gps"</code>：GPS</li><li><code>"powersave"</code>：省電力モード</li><li><code>"screenbrightness"</code>：画面の明るさ</li><li><code>"soundmode"</code>：サウンドモード</li><li><code>"volume"</code>：スピーカーの音量</li><li><code>"wifi"</code>：WiFi</li></ul> | 必須     |
-| `command`     | string  | 失敗したアクション。<ul><li><code>"BtConnect"</code></li><li><code>"BtConnectByPINCode"</code></li><li><code>"BtDisconnect"</code></li><li><code>"BtStartPairing"</code></li><li><code>"BtStopPairing"</code></li><li><code>"Decrease"</code></li><li><code>"Increase"</code></li><li><code>"OpenScreen"</code></li><li><code>"SetValue"</code></li><li><code>"TurnOn"</code></li><li><code>"TurnOff"</code></li></ul> | 必須   |
+| `command`     | string  | 失敗したアクション。<ul><li><code>"BtConnect"</code></li><li><code>"BtConnectByPINCode"</code></li><li><code>"BtDisconnect"</code></li><li><code>"BtStartPairing"</code></li><li><code>"BtStopPairing"</code></li><li><code>"Decrease"</code></li><li><code>"Increase"</code></li><li><code>"Open"</code></li><li><code>"SetValue"</code></li><li><code>"TurnOn"</code></li><li><code>"TurnOff"</code></li></ul> | 必須   |
 
 ### 備考
 
@@ -183,8 +185,7 @@ CICは、このイベントを受信すると、ユーザーのアカウント�
 * [`DeviceControl.BtStopPairing`](#BtStopPairing)
 * [`DeviceControl.Decrease`](#Decrease)
 * [`DeviceControl.Increase`](#Increase)
-* [`DeviceControl.LaunchApp`](#LaunchApp)
-* [`DeviceControl.OpenScreen`](#OpenScreen)
+* [`DeviceControl.Open`](#Open)
 * [`DeviceControl.SetValue`](#SetValue)
 * [`DeviceControl.TurnOff`](#TurnOff)
 * [`DeviceControl.TurnOn`](#TurnOn)
@@ -203,7 +204,7 @@ CICは、このイベントを受信すると、ユーザーのアカウント�
 
 * 接続するデバイスが指定されている場合
 
-| フィールド名       | データ型    | 説明                     | 常時/条件付き |
+| フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `name`       | string  | 接続するBluetoothデバイスの名前         | 常時     |
 | `address`    | string  | 接続するBluetoothデバイスのMACアドレス     | 常時     |
@@ -252,7 +253,7 @@ CICは、このイベントを受信すると、ユーザーのアカウント�
 
 ### Payload fields
 
-| フィールド名       | データ型    | 説明                     | 常時/条件付き |
+| フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `pinCode`     | string  | BluetoothのPINコード。このフィールドが空の文字列(`""`)の場合、クライアントはペアリングを中止する必要があります。 | 常時     |
 
@@ -525,7 +526,7 @@ CICは、このイベントを受信すると、ユーザーのアカウント�
 
 ### Payload fields
 
-| フィールド名       | データ型    | 説明                     | 常時/条件付き |
+| フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `target`      | string  | コントロールする対象。<ul><li><code>"channel"</code>：テレビのチャンネル</li><li><code>"screenbrightness"</code>：画面の明るさ</li><li><code>"volume"</code>：スピーカーの音量</li></ul> | 常時     |
 
@@ -570,7 +571,7 @@ CICは、このイベントを受信すると、ユーザーのアカウント�
 
 ### Payload fields
 
-| フィールド名       | データ型    | 説明                     | 常時/条件付き |
+| フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `durationInSeconds` | number  | レポートする期間。指定された時間の間、デバイスの現在の状態をレポートします。秒単位です。このフィールドがない場合、最初1回のみレポートします。 | 条件付き     |
 | `intervalInSeconds` | number  | レポートするインターバル。指定されたインターバルごとに、デバイスの現在の状態をレポートします。秒単位です。このフィールドは`durationInSeconds`フィールドがある場合にのみ有効で、そのフィールドがない場合には省略されます。 | 条件付き     |
@@ -613,7 +614,7 @@ CICは、このイベントを受信すると、ユーザーのアカウント�
 
 ### Payload fields
 
-| フィールド名       | データ型    | 説明                     | 常時/条件付き |
+| フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `target`      | string  | コントロールする対象。<ul><li><code>"channel"</code>：テレビのチャンネル</li><li><code>"screenbrightness"</code>：画面の明るさ</li><li><code>"volume"</code>：スピーカーの音量</li></ul> | 常時     |
 
@@ -654,11 +655,11 @@ CICは、このイベントを受信すると、ユーザーのアカウント�
 
 ## LaunchAppディレクティブ {#LaunchApp}
 
-クライアントに、特定のアプリを起動するように指示します。アプリを指定する値として、アプリのカスタムURLスキーム、リレーURL、アプリ名のうち1つが含まれます。
+**(Deprecated)** クライアントに、特定のアプリを起動するように指示します。アプリを指定する値として、アプリのカスタムURLスキーム、リレーURL、アプリ名のうち1つが含まれます。
 
 ### Payload fields
 
-| フィールド名       | データ型    | 説明                     | 常時/条件付き |
+| フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `target`      | string  | 対象となりアプリの情報。次のような情報を持ちます。<ul><li>カスタムURLスキーム：対象アプリのカスタムURLスキーム(例：<code>"{{ book.OrientedServiceWithLowerCase }}searchapp://..."</code>)</li><li>リレーURL：インストールされている対象アプリがある場合、そのアプリを起動するリレーページのURL(例、<code>"http://{{ book.OrientedServiceWithLowerCase }}app.{{ book.OrientedServiceWithLowerCase }}.com/..."</code>)</li><li>アプリ名：ユーザーの発話から認識されたアプリの名前。(例、<code>"{{ book.OrientedService }}アプリ"</code>)</li></ul> | 常時     |
 
@@ -687,13 +688,54 @@ CICは、このイベントを受信すると、ユーザーのアカウント�
 ### 次の項目も参照してください。
 * [`DeviceControl.ActionFailed`](#ActionFailed)
 
-## OpenScreenディレクティブ {#OpenScreen}
+## Openディレクティブ {#Open}
 
-クライアントに、設定画面を開くように指示します。
+クライアントに、特定の画面を表示するように指示します。
 
 ### Payload fields
 
-| フィールド名       | データ型    | 説明                     | 常時/条件付き |
+| フィールド名       | データ型    | 説明                     | 任意 |
+|---------------|---------|-----------------------------|:---------:|
+| `target`      | string  | 表示する画面。現在、以下の値を入力できます。<ul><li><code>"home"</code>：ホーム画面</li><li><code>"settings"</code>：設定画面</li></ul> | 常時   |
+
+### 備考
+
+* クライアントは、このディレクティブを処理して、その結果を[`DeviceControl.ActionExecuted`](#ActionExecuted)または[`DeviceControl.ActionFailed`](#ActionFailed)イベントでCICに送信する必要があります。
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "directive": {
+    "header": {
+      "namespace": "DeviceControl",
+      "name": "Open",
+      "messageId": "23bdfff7-b655-46d4-8655-8bb473bf2bf5",
+      "dialogRequestId": "15ecb9a6-e727-4d58-8ba1-42cc8b63d5c0"
+    },
+    "payload": {
+      "target": "settings"
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`DeviceControl.ActionExecuted`](#ActionExecuted)
+* [`DeviceControl.ActionFailed`](#ActionFailed)
+
+
+## OpenScreenディレクティブ {#OpenScreen}
+
+**(Deprecated)** クライアントに、設定画面を開くように指示します。
+
+### Payload fields
+
+| フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `target`      | string  | 表示する画面。現在の設定画面を開く値である`"settings"`のみ入力されます。 | 常時     |
 
@@ -834,7 +876,7 @@ CICは、このイベントを受信すると、ユーザーのアカウント�
 
 ### Payload fields
 
-| フィールド名       | データ型    | 説明                     | 常時/条件付き |
+| フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `target`      | string  | コントロールする対象。<ul><li><code>"channel"</code>：テレビのチャンネル</li><li><code>"screenbrightness"</code>：画面の明るさ</li><li><code>"volume"</code>：スピーカーの音量</li></ul> | 常時     |
 | `value`       | string  | 変更する値、またはテレビのチャンネル番号かチャンネル名        | 常時     |
@@ -887,7 +929,7 @@ CICは、このイベントを受信すると、ユーザーのアカウント�
 
 ### Payload fields
 
-| フィールド名       | データ型    | 説明                     | 常時/条件付き |
+| フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `deviceId`    | string  | 状態が更新されたクライアントデバイスのID。 | 常時     |
 | `deviceState` | [Device.DeviceState](/CIC/References/Context_Objects.md#DeviceState)オブジェクト | デバイスの状態更新情報を持つオブジェクト         | 常時     |
@@ -929,7 +971,7 @@ CICは、このイベントを受信すると、ユーザーのアカウント�
 
 ### Payload fields
 
-| フィールド名       | データ型    | 説明                     | 常時/条件付き |
+| フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `target`      | string  | コントロールする対象。<ul><li><code>"airplane"</code>：機内モード</li><li><code>"bluetooth"</code>：Bluetooth</li><li><code>"cellular"</code>：セルラーネットワーク</li><li><code>"energysave"</code>：省エネモード</li><li><code>"flashlight"</code>：フラッシュライト</li><li><code>"gps"</code>：GPS</li><li><code>"power"</code>：電源の状態</li><li><code>"ring"</code>：着信モード</li><li><code>"silent"</code>：サイレントモード</li><li><code>"vibrate"</code>：バイブモード</li><li><code>"wifi"</code>：WiFi</li></ul> | 常時     |
 
@@ -977,7 +1019,7 @@ CICは、このイベントを受信すると、ユーザーのアカウント�
 
 ### Payload fields
 
-| フィールド名       | データ型    | 説明                     | 常時/条件付き |
+| フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `target`      | string  | コントロールする対象。<ul><li><code>"airplane"</code>：機内モード</li><li><code>"bluetooth"</code>：Bluetooth</li><li><code>"cellular"</code>：セルラーネットワーク</li><li><code>"energysave"</code>：省エネモード</li><li><code>"flashlight"</code>：フラッシュライト</li><li><code>"gps"</code>：GPS</li><li><code>"power"</code>：電源の状態</li><li><code>"ring"</code>：着信モード</li><li><code>"silent"</code>：サイレントモード</li><li><code>"vibrate"</code>：バイブモード</li><li><code>"wifi"</code>：WiFi</li></ul> | 常時     |
 

@@ -1,5 +1,5 @@
-# Shared objects {#SharedObjects}
-[Clova Home Extensionメッセージ](/CEK/References/CEK_API.md#ClovaHomeExtMessage)を送信する際、ペイロードには次の共有オブジェクトが含まれます。
+# 共有オブジェクト {#SharedObjects}
+[Clova Home Extensionメッセージ](/CEK/References/CEK_API.md#ClovaHomeExtMessage)を送信する際、`payload`には以下のような共有オブジェクトが含まれます。
 
 | オブジェクト            | 説明                                            |
 |--------------------|---------------------------------------------------|
@@ -13,7 +13,7 @@
 | [ColorTemperatureInfoObject](#ColorTemperatureInfoObject) | エンドポイントの照明や画面、電球の色温度の情報を持っています。  |
 | [ConsumptionInfoObject](#ConsumptionInfoObject)           | 電力の使用量情報を持っています。       |
 | [CustomCommandInfoObject](#CustomCommandInfoObject)       | カスタムコマンドの情報を持っています。   |
-| [CustomInfoObject](#CustomInfoObject)                     | 任意の名前、必要な単位・数値情報を直接入力する際に使用できます。 |   |   |
+| [CustomInfoObject](#CustomInfoObject)                     | 任意の名前、必要な単位・数値情報を直接入力する際に使用できます。 |
 | [ExpendableInfoObject](#ExpendableInfoObject)             | エンドポイントの消耗品の使用量や残り寿命に関する情報を持っています。  |
 | [FineDustInfoObject](#FineDustInfoObject)                 | PM10の情報を持っています。          |
 | [IntensityLevelInfoObject](#IntensityLevelInfoObject)     | 圧力や水圧の強度情報を持っています。   |
@@ -97,6 +97,7 @@
         "version": "v1.0",
         "friendlyName": "リビングの照明",
         "friendlyDescription": "スマートフォンで制御できる照明",
+        "isIr": false,
         "isReachable": true,
           "actions": [
             "DecrementBrightness",
@@ -116,6 +117,7 @@
         "version": "v1.0",
         "friendlyName": "キッチンのコンセント",
         "friendlyDescription": "節電コンセント",
+        "isIr": false,
         "isReachable": true,
         "actions": [
           "HealthCheck",
@@ -125,7 +127,7 @@
         "applianceTypes": ["SMARTPLUG"],
         "additionalApplianceDetails": {},
         "location": "LIVING_ROOM",
-        "tags": ["勉強", "ブラウンの部屋", "おでかけの際に電源をオフにするデバイス"]
+        "tags": ["勉強", "チョルスの部屋", "おでかけの際に電源をオフにするデバイス"]
       }
     ]
   }
@@ -134,7 +136,7 @@
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [CustomCommandInfoObject](#CustomCommandInfoObject)
 * [`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DiscoverAppliancesResponse)
 
@@ -168,7 +170,7 @@
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetAirQualityRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetAirQualityRequest)
 * [`GetAirQualityResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetAirQualityResponse)
 
@@ -184,14 +186,15 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 | `applianceTypes[]`           | string array  | エンドポイントのタイプ。`applicationType`によって、そのエンドポイントでサポートされている動作を示す`actions`フィールドの値が異なります。IoTサービスでユーザーアカウントに登録されているエンドポイントのタイプを、次のいずれかに指定する必要があります。備考を参考にして、エンドポイントのタイプを入力します。                                                                              | 必須/常時    |
 | `friendlyName`               | string        | ユーザーがつけたエンドポイントの名前                                                           | 任意/常時    |
 | `friendlyDescription`        | string        | エンドポイントの説明                                                                  | 任意/常時    |
-| `isReachable`                | boolean       | 現在、エンドポイントが遠隔操作できる状態にあるかどうかを示します。<ul><li>true：遠隔操作できる</li><li>false：遠隔操作できない</li></ul> | 任意/常時    |
+| `isIr`                       | boolean       | エンドポイントのコントロールに、赤外線通信を利用するかどうかを示すフィールド<ul><li>true：赤外線通信を利用する</li><li>false：赤外線通信を利用しない</li></ul><div class="note"><p><strong>メモ</strong></p><p>エンドポイントを赤外線通信でコントロールする場合、Clovaはユーザーにエンドポイントのコントロール結果を伝えません。</p></div>  | 任意/条件付き  |
+| `isReachable`                | boolean       | エンドポイントが遠隔操作できる状態にあるかどうかを示す値<ul><li>true：遠隔操作できる</li><li>false：遠隔操作できない</li></ul>  | 任意/常時    |
 | `manufacturerName`           | string        | デバイスメーカーの名前                                                                  | 任意/常時    |
 | `modelName`                  | string        | デバイスのモデル名                                                                   | 任意/常時    |
 | `version`                    | string        | メーカーのソフトウェアバージョン                                                            | 任意/常時    |
 | `location`                   | string        | エンドポイントが設置されている場所。[Locations](#Locations)項目内のコードを入力します。入力したコードに対応する位置情報のテキストが`tags`フィールドに追加されます。            | 任意/常時    |
 | `tags`                       | string array  | ユーザーがデバイスに追加したタグのリスト。ユーザーはClovaアプリまたはIoTサービスで、デバイスの設置場所、使用目的、メーカーなど、さまざまな属性をタグとしてデバイスに追加することができます。同じ属性(タグ)を持つデバイスは、同じグループになります。同じグループ内に、同じ動作がサポートされているデバイスがある場合、同時に制御することができます。  | 任意/常時  |
 
-### Remarks
+### 備考
 [`DiscoverAppliancesRequest`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesRequest)メッセージでユーザーのデバイスリストをリクエストすると、Clova Home Extensionは`additionalApplianceDetails`を除くすべてのフィールドを設定して返す必要があります。その際、 `actions` の値は通常`applianceTypes`によって決定され、`applianceTypes`フィールドの値により次の値を持ちます。
 
 | applianceTypes | 説明         | サポートされる動作                                  |
@@ -212,18 +215,18 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 | `"HEATER"`          | ヒーター            | DecrementTargetTemperature、GetCurrentTemperature、HealthCheck、IncrementTargetTemperature、TurnOff、TurnOn                      |
 | `"HUMIDIFIER"`      | 加湿器           | GetCurrentTemperature、GetHumidity、HealthCheck、SetFanSpeed、TurnOff、TurnOn                                                    |
 | `"KIMCHIREFRIGERATOR"` | キムチ冷蔵庫    | GetDeviceState、HealthCheck                                                                                                            |
-| `"LIGHT"`           | スマート照明   | DecrementBrightness、DecrementVolume HealthCheck、IncrementBrightness、IncrementVolume SetBrightness、TurnOff、TurnOn            |
+| `"LIGHT"`           | スマート照明   | DecrementBrightness、DecrementVolume HealthCheck、IncrementBrightness、IncrementVolume SetBrightness、SetColor、SetColorTemperature、SetMode、TurnOff、TurnOn            |
 | `"MASSAGECHAIR"`    | マッサージチェア        | DecrementIntensityLevel、HealthCheck、IncrementIntensityLevel、TurnOff、TurnOn                                                     |
 | `"MICROWAVE"`       | 電子レンジ      | GetRemainingTime、HealthCheck、TurnOff、TurnOn                                                                                      |
 | `"MOTIONSENSOR"`    | モーションセンサー    | GetDeviceState、HealthCheck                                                                                                             |
-| `"OPENCLOSESENSOR"` | 開閉センサー    | GetCloseTime、GetLockState、GetOpenTime、HealthCheck                                                                                   |
+| `"OPENCLOSESENSOR"` | 開閉センサー    | GetCloseTime、GetDeviceState、GetOpenState、GetOpenTime、HealthCheck                                                                                   |
 | `"OVEN"`            | オーブン            | GetDeviceState、HealthCheck                                                                                                             |
 | `"POWERSTRIP"`      | テーブルタップ         | GetConsumption、GetEstimateBill、GetProgressiveTaxBracket、HealthCheck、TurnOff、TurnOn                                                                     |
-| `"PURIFIER"`        | 浄水器          | GetDeviceState、GetExpendableState、HealthCheck、SetMode、SetTargetTemperature                                                     |
+| `"PURIFIER"`        | 浄水器          | GetDeviceState、GetExpendableState、HealthCheck、ReleaseMode、SetMode、SetTargetTemperature                                                     |
 | `"RANGE"`           | クッキングヒーター・コンロ          | GetDeviceState、HealthCheck                                                                                                             |
 | `"RANGEHOOD"`       | レンジフード      | HealthCheck、TurnOff、TurnOn                                                                                                      |
 | `"REFRIGERATOR"`    | 冷蔵庫          | GetDeviceState、HealthCheck、SetFreezerTargetTemperature、SetFridgeTargetTemperature、SetMode                                           |
-| `"RICECOOKER"`      | 炊飯器        | GetExpendableState、GetKeepWarmTime、GetPhase、GetRemainingTime、HealthCheck、SetMode、Stop、TurnOff、TurnOn                |
+| `"RICECOOKER"`      | 炊飯器        | GetCleaningCycle、GetDeviceState、GetExpendableState、GetKeepWarmTime、GetPhase、GetRemainingTime、HealthCheck、ReleaseMode、SetMode、Stop、TurnOff、TurnOn          |
 | `"ROBOTVACUUM"`     | ロボット掃除機       | Charge、GetBatteryInfo、HealthCheck、TurnOff、TurnOn                                                                             |
 | `"SETTOPBOX"`       | セットトップボックス     | DecrementChannel、DecrementVolume、HealthCheck、IncrementChannel、IncrementVolume、Mute、SetChannel、SetChannelByName、TurnOff、TurnOn、Unmute |
 | `"SLEEPINGMONITOR"` | 睡眠センサー        | GetAsleepDuration、GetAwakeDuration、GetDeviceState、GetSleepScore、GetSleepStartTime、HealthCheck、TurnOff、TurnOn              |
@@ -232,7 +235,7 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 | `"SMARTCURTAIN"`    | スマートカーテン      | Close、HealthCheck、Open、Stop                                                                                                    |
 | `"SMARTHUB"`        | スマートハブ      | GetCurrentTemperature、GetHumidity、GetTargetTemperature、HealthCheck、SetMode                                                    |
 | `"SMARTMETER"`      | 電力量計      | GetConsumption、GetCurrentBill、GetEstimateBill、GetProgressiveTaxBracket、HealthCheck                                            |
-| `"SMARTPLUG"`       | スマートプラグ     | GetProgressiveTaxBracket、HealthCheck、TurnOff、TurnOn                                                                                                     |
+| `"SMARTPLUG"`       | スマートプラグ     | GetConsumption、GetEstimateBill、HealthCheck、TurnOff、TurnOn                                                                                                     |
 | `"SMARTTV"`         | スマートテレビ       | DecrementChannel、DecrementVolume、HealthCheck、IncrementChannel、IncrementVolume、Mute、SetChannel、SetChannelByName、TurnOff、TurnOn、Unmute |
 | `"SMARTVALVE"`      | スマートバルブ      | GetLockState、SetLockState                                                                                                        |
 | `"SMOKESENSOR"`     | 煙センサー       | GetDeviceState、HealthCheck                                                                                                             |
@@ -242,7 +245,7 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 | `"WATERBOILER"`     | 温水器          | HealthCheck、SetMode、TurnOff、TurnOn                                                                                             |
 
 <div class="note">
-<p><strong>Note!</strong></p>
+<p><strong>メモ</strong></p>
 <p>エンドポイントデバイスの機能上の制約によって、そのエンドポイントのapplianceTypesでサポートされているactionsのうち、いずれかを選択して使用することもできます。例えば、ユーザーが登録した空気清浄機(<code>AIRPURIFIER</code>タイプ)にファンの回転速度を調節する機能がない場合、そのエンドポイントのタイプでサポートされているactionsのうち、IncrementFanSpeedとDecrementFanSpeedを除いてDiscoverAppliancesResponseメッセージを返す必要があります。ちなみに、ユーザーがエンドポイントでサポートされていない動作(action)をリクエストした場合、CEKはすぐユーザーに有効な範囲外のリクエストであることを伝えます。</p>
 </div>
 
@@ -313,7 +316,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 | Unmute                     | [`UnmuteConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#UnmuteConfirmation), [`UnmuteRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#UnmuteRequest) |
 
 <div class="note">
-<p><strong>Note!</strong></p>
+<p><strong>メモ</strong></p>
 <p><a href="/CEK/References/ClovaHomeInterface/Discovery_Interfaces.html#DiscoverAppliancesResponse"><code>DiscoverAppliancesResponse</code></a>メッセージでユーザーが登録したIoTデバイスのリストをCEKに返す際、各デバイスの位置を`location`フィールドに追加しておくと、そのIoTデバイスの位置が自動的に設定されます。</p>
 </div>
 
@@ -344,6 +347,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
         "version": "v1.0",
         "friendlyName": "リビングの照明",
         "friendlyDescription": "スマートフォンで制御できる照明",
+        "isIr": false,
         "isReachable": true,
           "actions": [
             "HealthCheck",
@@ -361,6 +365,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
         "version": "v1.0",
         "friendlyName": "キッチンのコンセント",
         "friendlyDescription": "節電コンセント",
+        "isIr": false,
         "isReachable": true,
         "actions": [
           "HealthCheck",
@@ -394,7 +399,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesResponse)
 * [`DiscoverAppliancesRequest`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesRequest)
 
@@ -444,7 +449,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetBatteryInfoRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetBatteryInfoRequest)
 * [`GetBatteryInfoResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetBatteryInfoResponse)
 
@@ -481,7 +486,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetCurrentBillRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentBillRequest)
 * [`GetCurrentBillResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentBillResponse)
 * [`GetEstimateBillRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateBillRequest)
@@ -541,7 +546,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`DecrementBrightnessConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementBrightnessConfirmation)
 * [`DecrementBrightnessRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementBrightnessRequest)
 * [`IncrementBrightnessConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#IncrementBrightnessConfirmation)
@@ -555,7 +560,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 ### Object fields
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `brightness`  | number  | 明度(0~100)。                  | エンドポイントの明るさの設定に[BrightnessInfoObject](#BrightnessInfoObject)が使用されている場合、このフィールドは省略できます。  | 任意/条件付き |
+| `brightness`  | number  | 明度(0~100)。特定のデバイスの明度の設定に[BrightnessInfoObject](#BrightnessInfoObject)が使用されている場合、このフィールドは省略されることがあります。  | 任意/条件付き |
 | `hue`         | number  | 色相(0~360)                  | 必須/常時 |
 | `saturation`  | number  | 彩度(0~100)                  | 必須/常時 |
 
@@ -587,7 +592,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`SetColorConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetColorConfirmation)
 * [`SetColorRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetColorRequest)
 
@@ -625,36 +630,40 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`SetColorTemperatureConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetColorTemperatureConfirmation)
 * [`SetColorTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetColorTemperatureRequest)
 
 ## ConsumptionInfoObject {#ConsumptionInfoObject}
-エンドポイントが測定したエネルギーの使用量情報を持っているオブジェクトです。エネルギー使用量の数値と単位が別のフィールドで表されます。
+エンドポイントで測定されたエネルギーまたはリソースの使用量情報を持っているオブジェクトです。エネルギー使用量の数値と単位が別のフィールドで表されます。
 
 ### Object fields
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `unit`        | string  | エネルギーの単位(電力の場合、kW)            | 必須/常時  |
-| `value`       | number  | エネルギー使用量の数値                    | 必須/常時   |
+| `name`        | string  | エネルギーまたはリソースを使用する項目                   | 必須/常時  |
+| `unit`        | string  | エネルギーまたはリソースの使用単位(例、電気：kW)        | 必須/常時  |
+| `value`       | number  | エネルギーまたはリソースの使用値                    | 必須/常時   |
 
 ### Object Example
 {% raw %}
 
 ```json
-// サンプル：GetCurrentBillResponseメッセージで使用されたサンプル
+// サンプル：GetConsumptionResponseメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "33da6561-0149-4532-a30b-e0de8f75c4cf",
-    "name": "GetCurrentBillResponse",
+    "name": "GetConsumptionResponse",
     "namespace": "ClovaHome",
     "payloadVersion": "1.0"
   },
   "payload": {
-    "consumption": {
+    "consumption": [
+      {
+        "name": "電気使用量",
         "value": 79.7,
         "unit": "kW"
-    },
+      }
+    ],
     "applianceResponseTimestamp": "2017-11-23T20:30:54+09:00"
   }
 }
@@ -662,7 +671,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetCurrentBillRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentBillRequest)
 * [`GetCurrentBillResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentBillResponse)
 * [`GetEstimateBillRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateBillRequest)
@@ -736,6 +745,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
         "version": "v1.0",
         "friendlyName": "リビングの照明",
         "friendlyDescription": "スマートフォンで制御できる照明",
+        "isIr": false,
         "isReachable": true,
           "actions": [
             "DecrementBrightness",
@@ -755,6 +765,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
         "version": "v1.0",
         "friendlyName": "キッチンのコンセント",
         "friendlyDescription": "節電コンセント",
+        "isIr": false,
         "isReachable": true,
         "actions": [
           "HealthCheck",
@@ -764,7 +775,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
         "applianceTypes": ["SMARTPLUG"],
         "additionalApplianceDetails": {},
         "location": "LIVING_ROOM",
-        "tags": ["勉強", "ブラウンの部屋", "おでかけの際に電源をオフにするデバイス"]
+        "tags": ["勉強", "チョルスの部屋", "おでかけの際に電源をオフにするデバイス"]
       }
     ]
   }
@@ -773,7 +784,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [ActionInforObject](#ActionInforObject)
 * [`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DiscoverAppliancesResponse)
 
@@ -825,7 +836,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetDeviceStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateRequest)
 * [`GetDeviceStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateResponse)
 
@@ -872,7 +883,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetExpendableStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetExpendableStateRequest)
 * [`GetExpendableStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetExpendableStateResponse)
 
@@ -908,7 +919,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetFineDustRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetFineDustRequest)
 * [`GetFineDustResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetFineDustResponse)
 
@@ -947,7 +958,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 
 * [`DecrementIntensityLevelConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementIntensityLevelConfirmation)
 * [`DecrementIntensityLevelRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementIntensityLevelRequest)
@@ -978,7 +989,9 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
           <li><code>"auto"</code>：自動モード。主にエアコンで使用されるモードです。</li>
           <li><code>"cool"</code>：冷房モード。主にエアコンで使用されるモードです。</li>
           <li><code>"dehumidify"</code>：除湿モード。主にエアコンや除湿器のようなエンドポイントで使用されるモードです。</li>
+          {% if book.TargetCountryCode == "JP" %}
           <li><code>"heat"</code>：暖房モード。主にエアコンで使用されるモードです。</li>
+          {% endif %}
           <li><code>"sleep"</code>：スリープモード。主にスマートハブのようなエンドポイントで使用されるモードです。</li>
         </ul>
       </td>
@@ -1131,7 +1144,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`SetModeConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetModeConfirmation)
 * [`SetModeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetModeRequest)
 
@@ -1165,7 +1178,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetHumidityRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetHumidityRequest)
 * [`GetHumidityResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetHumidityResponse)
 
@@ -1207,7 +1220,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetUsageTimeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetUsageTimeRequest)
 
 ## PhaseInfoObject {#PhaseInfoObject}
@@ -1258,7 +1271,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetPhaseRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetPhaseRequest)
 * [`GetPhaseResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetPhaseResponse)
 * [`StopConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#StopConfirmation)
@@ -1295,7 +1308,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetProgressiveTaxBracketRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetProgressiveTaxBracketRequest)
 * [`GetProgressiveTaxBracketResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetProgressiveTaxBracketResponse)
 
@@ -1334,7 +1347,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetCurrentSittingStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentSittingStateRequest)
 * [`GetCurrentSittingStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentSittingStateResponse)
 
@@ -1360,7 +1373,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
   },
   "payload": {
     "sleepScore": {
-      "value": 80,
+      "value": 80
     },
     "applianceResponseTimestamp": "2018-03-29T14:32:13+09:00"
   }
@@ -1369,7 +1382,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetSleepScoreRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetSleepScoreRequest)
 * [`GetSleepScoreResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetSleepScoreResponse)
 
@@ -1427,7 +1440,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`DecrementFanSpeedConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementFanSpeedConfirmation)
 * [`DecrementFanSpeedRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementFanSpeedRequest)
 * [`IncrementFanSpeedConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#IncrementFanSpeedConfirmation)
@@ -1489,7 +1502,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`DecrementTargetTemperatureConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementTargetTemperatureConfirmation)
 * [`DecrementTargetTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementTargetTemperatureRequest)
 * [`GetCurrentTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentTemperatureRequest)
@@ -1554,7 +1567,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`SetChannelByNameConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetChannelByNameConfirmation)
 * [`SetChannelByNameRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetChannelByNameRequest)
 
@@ -1564,7 +1577,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 ### Object fields
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | テレビのチャンネル番号                  | 必須/常時     |
+| `value`             | number  | テレビのチャンネル番号                      | 必須/常時     |
 
 ### Object Example
 {% raw %}
@@ -1584,7 +1597,10 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
         "applianceId": "device-007"
     },
     "channel": {
-        "value": 13
+      "value": 15
+    },
+    "subChannel": {
+      "value": 1
     }
   }
 }
@@ -1599,7 +1615,10 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
   },
   "payload": {
     "channel": {
-      "value": 13
+      "value": 15
+    },
+    "subChannel": {
+      "value": 1
     }
   }
 }
@@ -1607,7 +1626,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`DecrementChannelConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementChannelConfirmation)
 * [`DecrementChannelRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementChannelRequest)
 * [`IncrementChannelConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#IncrementChannelConfirmation)
@@ -1647,7 +1666,7 @@ PM2.5の情報を持っているオブジェクトです。エンドポイント
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetUltraFineDustRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetUltraFineDustRequest)
 * [`GetUltraFineDustResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetUltraFineDustResponse)
 
@@ -1705,7 +1724,7 @@ PM2.5の情報を持っているオブジェクトです。エンドポイント
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`DecrementVolumeConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementVolumeConfirmation)
 * [`DecrementVolumeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementVolumeRequest)
 * [`IncrementVolumeConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#IncrementVolumeConfirmation)

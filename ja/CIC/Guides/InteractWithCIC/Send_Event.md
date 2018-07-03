@@ -57,7 +57,7 @@ Content-Type: application/json; charset=UTF-8<br/>
       "dialogRequestId": "4e4080d6-c440-498a-bb73-ae86c6312806"
     },
     "payload": {
-      "lang": "ko",
+      "lang": "ja",
       "profile": "CLOSE_TALK",
       "format": "AUDIO_L16_RATE_16000_CHANNELS_1",
       "initiator": {
@@ -90,10 +90,15 @@ Content-Type: application/octet-stream<br/>
 --Boundary-Text--
 </code></pre>
   </li>
-  <li>ユーザーが音声入力を終えるか、またはCICから<a href="/CIC/References/CICInterface/SpeechRecognizer.html#StopCapture"><code>SpeechRecognizer.StopCapture</code></a>ディレクティブを受信するまで、音声データを送り続けます。送信が完了すると、CICからHTTPレスポンスメッセージを受信します。</li>
+  <li>CICから<a href="/CIC/References/CICInterface/SpeechRecognizer.html#StopCapture"><code>SpeechRecognizer.StopCapture</code></a>ディレクティブを受信するまで、音声データを送り続けます。送信が完了すると、CICからHTTPレスポンスメッセージを受信します。</li>
 </ol>
 
 <div class="note">
   <p><strong>メモ</strong></p>
   <p><a href="/CIC/References/CICInterface/TextRecognizer.html#Recognize"><code>TextRecognizer.Recognize</code></a>を使用して、ユーザーのテキスト入力を処理することもできます。</p>
+</div>
+
+<div class="danger">
+  <p><strong>注意</strong></p>
+  <p>CICイベントは、必ず<a href="#CreateConnection">ダウンチャネルを確立するときに構成した接続</a>で送信する必要があります。</p>
 </div>

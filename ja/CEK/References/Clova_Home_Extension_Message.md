@@ -3,11 +3,11 @@ Clova Home Extensionメッセージは、IoTデバイスを制御するExtension
 
 ### メッセージフォーマット {#ClovaHomeExtMessageFormat}
 
-Clova Home Extensionメッセージは、`header`フィールドと`payload`フィールドで構成されます。リクエストメッセージとレスポンスメッセージの両方に共通します。そのうち`payload`フィールドは、使用される[インターフェース](#ClovaHomeExtInterface)によって構成が異なることがあります。ここでは、Clova Home Extensionメッセージの共通フォーマットについて説明します。
+Clova Home Extensionメッセージは、`header`フィールドと`payload`で構成されます。リクエストメッセージとレスポンスメッセージの両方に共通します。そのうち、`payload`は、使用された[インターフェース](#ClovaHomeExtInterface)によって構成が異なることがあります。ここでは、Clova Home Extensionメッセージの共通フォーマットについて説明します。
 
 <div class="note">
   <p><strong>メモ</strong></p>
-  <p>Clova Home Extensionメッセージは、リクエストメッセージとレスポンスメッセージの2種類があります。CEKがExtensionに渡すリクエストメッセージは、`XxxxRequest`のような名前を持ちます。ExtensionからCEKに返すレスポンスメッセージは、`XxxxConfirmation`または`XxxxResponse`のような名前を持ちます。また、エラーが発生しても正常にHTTPSレスポンス(200 OK)を返す必要があり、その際、レスポンスメッセージは`XxxxError`のようなの名前で返される必要があります。</p>
+  <p>Clova Home Extensionメッセージは、リクエストメッセージとレスポンスメッセージの2種類があります。CEKがExtensionに渡すリクエストメッセージは、`XxxxRequest`のような名前を持ちます。ExtensionからCEKに返すレスポンスメッセージは、`XxxxConfirmation`または`XxxxResponse`のような名前を持ちます。また、エラーが発生しても正常にHTTPレスポンス(200 OK)を返す必要があり、その際、レスポンスメッセージは`XxxxError`のような名前で返される必要があります。</p>
 </div>
 
 #### Message structure
@@ -69,6 +69,7 @@ Clova Home Extensionメッセージは、`header`フィールドと`payload`フ�
         "version": "v1.0",
         "friendlyName": "リビングの照明",
         "friendlyDescription": "スマートフォンで制御できる照明",
+        "isIr": false,
         "isReachable": true,
           "actions": [
             "DecrementBrightness",
@@ -89,6 +90,7 @@ Clova Home Extensionメッセージは、`header`フィールドと`payload`フ�
         "version": "v1.0",
         "friendlyName": "キッチンのコンセント",
         "friendlyDescription": "節電コンセント",
+        "isIr": false,
         "isReachable": true,
         "actions": [
           "HealthCheck",

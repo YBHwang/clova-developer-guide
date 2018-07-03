@@ -3,17 +3,19 @@
 Clovaインターフェースは、CICからユーザーリクエストの認識結果をクライアントに送信する際に使用する名前欄です。ユーザーのリクエストを[`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)イベントで受信すると、Clovaはその意味を解析します。CICは認識された結果に応じて、以下のディレクティブをクライアントに送信します。クライアントは、以下のディレクティブを処理して、Clovaの機能をユーザーに提供する必要があります。
 
 | メッセージ         | タイプ  | 説明                                   |
-|------------------|-----------|---------------------------------------------|
-| [`ExpectLogin`](#ExpectLogin)                    | ディレクティブ | クライアントに対して、ユーザーの{{ book.OrientedService }}アカウント認証(ログイン)を行うように指示します。 |
+{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}|------------------|-----------|---------------------------------------------|
+| [`ExpectLogin`](#ExpectLogin)                    | ディレクティブ | クライアントに対して、ユーザーの{{ book.OrientedService }}アカウント認証(ログイン)を行うように指示します。|{% else %}|------------------|-----------|---------------------------------------------|{% endif %}
 | [`FinishExtension`](#FinishExtension)            | ディレクティブ | クライアントに対して、特定のExtensionを終了するように指示します。             |
 | [`HandleDelegatedEvent`](#HandleDelegatedEvent)  | ディレクティブ | クライアントに対して、Clovaアプリから[委任されたユーザーのリクエストを処理する](/CIC/Guides/Interact_with_CIC.md#HandleDelegation)ように指示します。   |
 | [`Hello`](#Hello)                                | ディレクティブ | クライアントに対して、ダウンチャネルが確立したことを通知します。       |
 | [`Help`](#Help)                                  | ディレクティブ | クライアントに対して、あらかじめ用意されたヘルプを提供するように指示します。       |
+| [`LaunchURI`](#LaunchURI)                        | ディレクティブ | クライアントに、URIで表現されるウェブサイトまたはアプリを開いたり、起動するように指示します。                         |
 | [`ProcessDelegatedEvent`](#ProcessDelegatedEvent) | イベント    | クライアントが、[委任されたユーザーのリクエスト](/CIC/Guides/Interact_with_CIC.md#HandleDelegation)に対する結果をCICから受信するために使用します。  |
 | [`RenderTemplate`](#RenderTemplate)              | ディレクティブ | クライアントに対して、テンプレートを表示するように指示します。                     |
 | [`RenderText`](#RenderText)                      | ディレクティブ | クライアントに対して、テキストを表示するように指示します。                     |
 | [`StartExtension`](#StartExtension)              | ディレクティブ | クライアントに対して、特定のExtensionを起動するように指示します。            |
 
+{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}
 ## ExpectLoginディレクティブ {#ExpectLogin}
 
 クライアントに対して、ユーザーの{{ book.OrientedService }}アカウント認証(ログイン)を行うように指示します。クライアントが[ゲストモード](/CIC/References/Clova_Auth_API.md#GuestMode)で動作している際、{{ book.OrientedService }}アカウント認証を必要とするサービスをユーザーに提供しようとする場合、CICはクライアントにこのディレクティブを送信します。
@@ -48,13 +50,15 @@ Clovaインターフェースは、CICからユーザーリクエストの認識
 * [Clovaアクセストークンを作成する](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken)
 * [ゲストモード](/CIC/References/Clova_Auth_API.md#GuestMode)
 
+{% endif %}
+
 ## FinishExtensionディレクティブ {#FinishExtension}
 
 クライアントに対して、特定のExtensionを終了するように指示します。クライアントはFinishExtensionディレクティブを受信すると、それに対応するExtensionを終了する必要があります。
 
 ### Payload fields
 
-| フィールド名       | データ型    | 説明                     | 包含 |
+| フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `extension`   | string  | 終了するExtensionの名前          | 常時     |
 
@@ -89,7 +93,7 @@ Clovaインターフェースは、CICからユーザーリクエストの認識
 
 ### Payload fields
 
-| フィールド名       | データ型    | 説明                     | 包含 |
+| フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `delegationId` | string  | 委任されたリクエストのID。後で[`ProcessDelegatedEvent`](#ProcessDelegatedEvent)イベントを送信する際、`payload`に含まれる必要があります。         | 常時     |
 
@@ -185,6 +189,87 @@ Clovaインターフェースは、CICからユーザーリクエストの認識
 ### 次の項目も参照してください。
 なし
 
+## LaunchURIディレクティブ {#LaunchURI}
+
+クライアントに、URIで表現されるウェブサイトまたはアプリを開いたり、起動するように指示します。このディレクティブを受信したクライアントは、`targets[].uri`フィールドを使用してウェブサイトまたはアプリを起動する必要があります。
+
+### Payload fields
+
+| フィールド名       | データ型    | 説明                     | 任意 |
+|---------------|---------|-----------------------------|:---------:|
+| `targets[]`              | object array | URIの情報を持つオブジェクト配列                       | 常時     |
+| `targets[].description`  | string       | URIで表現される対象(アプリまたはウェブサイト)の説明           | 選択     |
+| `targets[].iconImageUrl` | string       | URIで表現される対象のアイコン画像                 | 選択     |
+| `targets[].marketUrl`    | string       | **URIで表現される対象がアプリの場合**、アプリストアのアドレス  | 選択     |
+| `targets[].packageName`  | string       | **URIで表現される対象がアプリの場合**、アプリのパッケージ名  | 選択     |
+| `targets[].title`        | string       | URIで表現される対象のタイトル                        | 必須     |
+| `targets[].uri`          | string       | 対象URIの情報                                  | 必須     |
+
+### 備考
+
+* クライアントは、`targets[].uri`のURIから<a href="http://ogp.me/" target="_blank">Open Graph Protocol</a>のデータを利用してプレビューを表示できますが、一部のデータをすぐに表示するために、`targets[].iconImageUrl`、`targets[].title`、`targets[].description`などのフィールドを使用できます。
+* **URIで表現される対象がアプリの場合**、`targets[].marketUrl`、`targets[].packageName`フィールドを使用できます。`targets[].marketUrl`は、アプリがインストールされていなく、対象のアプリを起動できない場合に使用されます。また、`targets[].packageName`は、`targets[].uri`でアプリを起動できない場合に参考できる付加情報です。
+* クライアントは、`targets[]`フィールドの配列内のすべての対象を開いたり起動したりする必要があるわけではありません。配列の先頭の要素のURIで対象を開いたり起動したりするようにし、失敗した場合には次の要素情報で同じ動作を試す必要があります。配列構造は、対象を起動できない場合に備えて、候補群を一緒に渡すためのものです。
+
+### Message example
+
+```json
+// App type example
+{
+  "directive": {
+    "header": {
+      "namespace": "Clova",
+      "name": "LaunchURI",
+      "messageId": "086ccadf-cd88-4cff-9706-cc4f0801c929",
+      "dialogRequestId": "de20ea1a-ea39-4c2a-a033-73fa014b2fd5"
+    },
+    "payload": {
+      "targets": [
+        {
+          "uri": "sampleapp2://main",
+          "title": "Sample app2",
+          "iconImageUrl": "https://yourdomain.com/sampleappicon.png",
+          "marketUrl": "https://play.google.com/store/apps/details?id=com.yourdomain.sampleapp",
+          "packageName": "com.yourdomain.sampleapp",
+          "description": "Sample app2"
+        },
+        {
+          "uri": "sampleapp://main",
+          "title": "Sample app",
+          "iconImageUrl": "https://yourdomain.com/sampleappicon.png",
+          "marketUrl": "https://play.google.com/store/apps/details?id=com.yourdomain.sampleapp",
+          "packageName": "com.yourdomain.sampleapp",
+          "description": "Sample app"
+        }
+      ]
+    }
+  }
+}
+
+// Site type example
+{
+  "directive": {
+    "header": {
+      "namespace": "Clova",
+      "name": "LaunchURI",
+      "messageId": "fcb0919e-9847-46ec-90bc-ab0fe8216771",
+      "dialogRequestId": "9ab7256a-6add-4b4a-a0b8-481f41d36a9d"
+    },
+    "payload": {
+      "targets": [
+        {
+          "uri": "http://example.org",
+          "title": "Example Domain"
+        }
+      ]
+    }
+  }
+}
+```
+
+### 次の項目も参照してください。
+なし
+
 ## ProcessDelegatedEventイベント {#ProcessDelegatedEvent}
 
 クライアントが、[委任されたユーザーのリクエスト](/CIC/Guides/Interact_with_CIC.md#HandleDelegation)に対する結果をCICから受信するために使用します。このイベントをCICに送信する際、[`HandleDelegatedEvent`](#HandleDelegatedEvent)ディレクティブで受信した`delegationId`をこのメッセージの`payload`に含める必要があります。クライアントは、そのディレクティブに対する応答として、ユーザーがClovaアプリにリクエストしたことの処理結果を受信します。
@@ -268,6 +353,10 @@ Clovaインターフェースは、CICからユーザーリクエストの認識
   * [WeeklyWeather](/CIC/References/ContentTemplates/WeeklyWeather.md)
   * [WindSpeed](/CIC/References/ContentTemplates/WindSpeed.md)
 
+* 共通のフィールドおよび共有オブジェクト
+  * [共通フィールド](/CIC/References/ContentTemplates/Common_Fields.md)
+  * [共有オブジェクト](/CIC/References/ContentTemplates/Shared_Objects.md)
+
 ### Message example
 
 {% raw %}
@@ -300,7 +389,7 @@ Clovaインターフェースは、CICからユーザーリクエストの認識
 
 ### Payload fields
 
-| フィールド名       | データ型    | 説明                     | 包含 |
+| フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `text`          | string  | ユーザーに表示するテキスト        | 常時     |
 
@@ -335,7 +424,7 @@ Clovaインターフェースは、CICからユーザーリクエストの認識
 
 ### Payload fields
 
-| フィールド名       | データ型    | 説明                     | 包含 |
+| フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `extension`   | string  | 開始するExtensionの名前          | 常時     |
 
