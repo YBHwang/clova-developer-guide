@@ -107,9 +107,9 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
 * [`PlaybackController.Resume`](/CIC/References/CICInterface/PlaybackController.md#Resume)ディレクティブ：クライアントに、オーディオストリームの再生を再開するように指示する
 * [`PlaybackController.Stop`](/CIC/References/CICInterface/PlaybackController.md#Stop)ディレクティブ：クライアントに、オーディオストリームの再生を停止するように指示する
 {% elif book.TargetCountryCode == "JP" %}
-* [`PlaybackController.Pause`](/CIC/References/CICInterface/PlaybackController.md#Pause)ディレクティブ：クライアントに、再生中のオーディオストリームを一時停止するように指示する
-* [`PlaybackController.Resume`](/CIC/References/CICInterface/PlaybackController.md#Resume)ディレクティブ：クライアントに、オーディオストリームの再生を再開するように指示する
-* [`PlaybackController.Stop`](/CIC/References/CICInterface/PlaybackController.md#Stop)ディレクティブ：クライアントに、オーディオストリームの再生を停止するように指示する
+* [`PlaybackController.Pause`](/CEK/References/CEK_API.md#Pause)ディレクティブ：クライアントに、再生中のオーディオストリームを一時停止するように指示する
+* [`PlaybackController.Resume`](/CEK/References/CEK_API.md#Resume)ディレクティブ：クライアントに、オーディオストリームの再生を再開するように指示する
+* [`PlaybackController.Stop`](/CEK/References/CEK_API.md#Stop)ディレクティブ：クライアントに、オーディオストリームの再生を停止するように指示する
 {% endif %}
 
 以下は、`PlaybackController.Pause`ディレクティブをCustom Extensionのレスポンスメッセージに含めたサンプルです。

@@ -1,4 +1,4 @@
-# ユーザーアカウントをリンクする
+# ユーザーアカウントを連携する
 Clovaは、[Custom Extension](/CEK/Guides/Build_Custom_Extension.md)、または[Clova Home Extension](/CEK/Guides/Build_Clova_Home_Extension.md)を介して、ユーザーアカウント権限を必要とする外部サービスを提供することができます。例えば、有料コンテンツサービスの音楽ストリーミングサービスや、ショッピング、金融、ホームIoTなどのサービスをClovaと連携することができます。そのために、Clovaは外部サービスのユーザーアカウントとClovaのユーザーアカウントを連携するアカウントリンク(account linking)をサポートしています。アカウントリンクは[OAuth 2.0](https://tools.ietf.org/html/rfc6749)を使用して行われます。
 
 アカウントリンクは、Custom Extensionがユーザーのアカウント認証を必要とする外部サービスを提供する際に使用されます。アカウント認証を必要としない外部サービスはアカウントリンクなしに提供できます。ユーザーを識別できる程度の情報を必要とするサービスは、通常、[Custom Extensionメッセージ](/CEK/References/CEK_API.md#CustomExtMessage)が提供する端末識別子(`context.System.device.deviceId`)とユーザーアカウント識別子(`context.System.user.userId`または`session.user.userId`)を組み合わせた値を使用します。
