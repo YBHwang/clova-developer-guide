@@ -123,7 +123,7 @@ Authorization: Bearer {{ClovaAccessToken}}
 
 <div class="danger">
   <p><strong>注意</strong></p>
-  <p>ダウンチャネルを構成しないと、CICに<a href="#SendEvent">イベントを送信する</a>ことができません。</p>
+  <p>CICイベントは、必ず<a href="#CreateConnection">ダウンチャネルを確立するときに構成した接続</a>で送信する必要があります。</p>
 </div>
 
 ### 認証する {#Authorization}
