@@ -3,8 +3,8 @@
 Clovaインターフェースは、CICからユーザーリクエストの認識結果をクライアントに送信する際に使用する名前欄です。ユーザーのリクエストを[`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)イベントで受信すると、Clovaはその意味を解析します。CICは認識された結果に応じて、以下のディレクティブをクライアントに送信します。クライアントは、以下のディレクティブを処理して、Clovaの機能をユーザーに提供する必要があります。
 
 | メッセージ         | タイプ  | 説明                                   |
-|------------------|-----------|---------------------------------------------|
-| [`ExpectLogin`](#ExpectLogin)                    | ディレクティブ | クライアントに対して、ユーザーの{{ book.OrientedService }}アカウント認証(ログイン)を行うように指示します。 |
+{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}|------------------|-----------|---------------------------------------------|
+| [`ExpectLogin`](#ExpectLogin)                    | ディレクティブ | クライアントに対して、ユーザーの{{ book.OrientedService }}アカウント認証(ログイン)を行うように指示します。|{% else %}|------------------|-----------|---------------------------------------------|{% endif %}
 | [`FinishExtension`](#FinishExtension)            | ディレクティブ | クライアントに対して、特定のExtensionを終了するように指示します。             |
 | [`HandleDelegatedEvent`](#HandleDelegatedEvent)  | ディレクティブ | クライアントに対して、Clovaアプリから[委任されたユーザーのリクエストを処理する](/CIC/Guides/Interact_with_CIC.md#HandleDelegation)ように指示します。   |
 | [`Hello`](#Hello)                                | ディレクティブ | クライアントに対して、ダウンチャネルが確立したことを通知します。       |
@@ -15,6 +15,7 @@ Clovaインターフェースは、CICからユーザーリクエストの認識
 | [`RenderText`](#RenderText)                      | ディレクティブ | クライアントに対して、テキストを表示するように指示します。                     |
 | [`StartExtension`](#StartExtension)              | ディレクティブ | クライアントに対して、特定のExtensionを起動するように指示します。            |
 
+{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}
 ## ExpectLoginディレクティブ {#ExpectLogin}
 
 クライアントに対して、ユーザーの{{ book.OrientedService }}アカウント認証(ログイン)を行うように指示します。クライアントが[ゲストモード](/CIC/References/Clova_Auth_API.md#GuestMode)で動作している際、{{ book.OrientedService }}アカウント認証を必要とするサービスをユーザーに提供しようとする場合、CICはクライアントにこのディレクティブを送信します。
@@ -48,6 +49,8 @@ Clovaインターフェースは、CICからユーザーリクエストの認識
 ### 次の項目も参照してください。
 * [Clovaアクセストークンを作成する](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken)
 * [ゲストモード](/CIC/References/Clova_Auth_API.md#GuestMode)
+
+{% endif %}
 
 ## FinishExtensionディレクティブ {#FinishExtension}
 
@@ -349,6 +352,10 @@ Clovaインターフェースは、CICからユーザーリクエストの認識
   * [TomorrowWeather](/CIC/References/ContentTemplates/TomorrowWeather.md)
   * [WeeklyWeather](/CIC/References/ContentTemplates/WeeklyWeather.md)
   * [WindSpeed](/CIC/References/ContentTemplates/WindSpeed.md)
+
+* 共通のフィールドおよび共有オブジェクト
+  * [共通フィールド](/CIC/References/ContentTemplates/Common_Fields.md)
+  * [共有オブジェクト](/CIC/References/ContentTemplates/Shared_Objects.md)
 
 ### Message example
 

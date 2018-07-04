@@ -3,7 +3,7 @@
 AudioPlayerインターフェースは、クライアントからオーディオストリームの再生をリクエストするか、またはオーディオストリームの再生中に発生するイベントをCICにレポートする際に使用される名前欄です。AudioPlayerが提供するイベントとディレクティブは、次の通りです。
 
 | メッセージ         | タイプ  | 説明                                   |
-|------------------|-----------|---------------------------------------------|
+|------------------|---------|---------------------------------------------|
 | [`ClearQueue`](#ClearQueue)           | ディレクティブ | クライアントに対して、オーディオストリームの再生キューをクリアするように指示します。                              |
 | [`ExpectReportPlaybackState`](#ExpectReportPlaybackState) | ディレクティブ | クライアントに対して、現在の再生状態をレポートするように指示します。クライアントはこのディレクティブを受信すると、[`AudioPlayer.ReportPlaybackState`](#ReportPlaybackState)イベントをCICに送信する必要があります。 |
 | [`Play`](#Play)                       | ディレクティブ | クライアントに対して、特定のオーディオストリームを再生するか、または再生キューに追加するように指示します。                         |
@@ -12,7 +12,7 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 | [`PlayResumed`](#PlayResumed)         | イベント     | クライアントがオーディオストリームの再生を再開するとき、そのオーディオストリームの情報をCICにレポートするために使用します。         |
 | [`PlayStarted`](#PlayStarted)         | イベント     | クライアントがオーディオストリームの再生を開始するとき、そのオーディオストリームの情報をCICにレポートするために使用します。    |
 | [`PlayStopped`](#PlayStopped)         | イベント     | クライアントがオーディオストリームの再生を停止するとき、そのオーディオストリームの情報をCICにレポートするために使用します。    |
-| [`ProgressReportDelayPassed`](#ProgressReportPositionPassed) | イベント | オーディオストリームの再生が開始してから、指定された遅延期間が経過したときの再生状態([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState))をCICにレポートします。オーディオストリームの遅延期間は、[`AudioPlayer.Play`](#Play)ディレクティブがクライアントに送信されるときに確認できます。 |
+| [`ProgressReportDelayPassed`](#ProgressReportPositionPassed) | イベント | オーディオストリームの再生が開始してから、指定された遅延期間が経過したタイミングの再生状態([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState))をCICにレポートします。オーディオストリームの遅延期間は、[`AudioPlayer.Play`](#Play)ディレクティブがクライアントに送信されるときに確認できます。 |
 | [`ProgressReportIntervalPassed`](#ProgressReportPositionPassed)| イベント | オーディオストリームの再生が開始してから、指定された間隔ごとの再生状態([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState))を、CICにレポートします。レポートする間隔は、[`AudioPlayer.Play`](#Play)ディレクティブがクライアントに送信されるときに確認できます。|
 | [`ProgressReportPositionPassed`](#ProgressReportPositionPassed) | イベント | オーディオストリームの再生が開始してから、指定されたタイミングに、そのときの再生状態([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState))をCICにレポートします。レポートするタイミングは、[`AudioPlayer.Play`](#Play)ディレクティブがクライアントに送信されるときに確認できます。|
 | [`ReportPlaybackState`](#ReportPlaybackState)           | イベント  | クライアントから、現在のストリーム再生状態をCICにレポートします。クライアントがCICから[`ExpectReportPlaybackState`](#ExpectReportPlaybackState)ディレクティブを受信した場合、`AudioPlayer.ReportPlaybackState`イベントをCICに送信する必要があります。  |
@@ -38,7 +38,7 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 
 ### Payload fields
 
-| フィールド名       | データ型    | 説明                     | 包含 |
+| フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `clearBehavior`           | string | クリアする動作を指定するフィールド<ul><li><code>"CLEAR_ALL"</code>：再生キューをすべてクリアして、現在再生中のオーディオストリームを中止します。</li><li><code>"CLEAR_ENQUEUED"</code>：再生キューをクリアして、現在のオーディオストリームの再生を続けます。</li></ul> | 常時 |
 
@@ -103,9 +103,9 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 クライアントに対して、特定のオーディオストリームを再生するか、または再生キューに追加するように指示します。
 
 ### Payload fields
-| フィールド名       | データ型    | 説明                     | 包含 |
+| フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
-| `audioItem`               | object | 再生するオーディオストリームのメタ情報と、再生に必要なオーディオストリームの情報を持つオブジェクト                     | 常時 |
+| `audioItem`               | object | 再生するオーディオストリームのメタデータと、再生に必要なオーディオストリームの情報を持つオブジェクト                     | 常時 |
 | `audioItem.artImageUrl`   | string | オーディオコンテンツに関連する画像(アルバムの画像)のURL                                                  | 条件付き  |
 | `audioItem.audioItemId`   | string | オーディオストリームを区別するID。クライアントはこの値に基づいて、重複するPlayディレクティブを削除できます。 | 常時 |
 | `audioItem.headerText`    | string | 主に、現在の再生リストのタイトルを表すテキストフィールド                                                | 条件付き  |
@@ -197,7 +197,7 @@ AudioPlayerインターフェースは、クライアントからオーディオ
           "url": "clova:TR-NM-17716562",
           "urlPlayable": false
         },
-        "title": "Symphony No.4 In A Op.90 'Italian' - III. Con Moto Moderato",
+        "title": "Symphony No.4 In A Op.90 'Italian' - III.Con Moto Moderato",
         "type": "SampleMusicProvider"
       },
       "source": {
@@ -233,8 +233,8 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 
 | フィールド名       | データ型    | 説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:---------:|
-| `token`                | string | ['AudioPlayer.Play'](#Play)ディレクティブの`audioItem.stream.token`フィールド値 | 必須 |
-| `offsetInMilliseconds` | number | ストリームの現在のオフセット。ミリ秒単位です。                         | 必須  |
+| `token`                | string | [`AudioPlayer.Play`](#Play)ディレクティブの`audioItem.stream.token`フィールドの値 | 必須 |
+| `offsetInMilliseconds` | number | 再生しているストリームの現在のオフセット。ミリ秒単位です。                         | 必須  |
 
 ### Message example
 {% raw %}
@@ -285,8 +285,8 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 
 | フィールド名       | データ型    | 説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:---------:|
-| `token`                | string | ['AudioPlayer.Play'](#Play)ディレクティブの`audioItem.stream.token`フィールド値 | 必須 |
-| `offsetInMilliseconds` | number | ストリームの現在のオフセット。ミリ秒単位です。                         | 必須  |
+| `token`                | string | [`AudioPlayer.Play`](#Play)ディレクティブの`audioItem.stream.token`フィールドの値 | 必須 |
+| `offsetInMilliseconds` | number | 再生しているストリームの現在のオフセット。ミリ秒単位です。                         | 必須  |
 
 ### Message example
 {% raw %}
@@ -340,8 +340,8 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 
 | フィールド名       | データ型    | 説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:---------:|
-| `token`                | string | ['AudioPlayer.Play'](#Play)ディレクティブの`audioItem.stream.token`フィールド値 | 必須 |
-| `offsetInMilliseconds` | number | ストリームの現在のオフセット。ミリ秒単位です。                         | 必須  |
+| `token`                | string | [`AudioPlayer.Play`](#Play)ディレクティブの`audioItem.stream.token`フィールドの値 | 必須 |
+| `offsetInMilliseconds` | number | 再生しているストリームの現在のオフセット。ミリ秒単位です。                         | 必須  |
 
 ### Message example
 {% raw %}
@@ -390,8 +390,8 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 
 | フィールド名       | データ型    | 説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:---------:|
-| `token`                | string | ['AudioPlayer.Play'](#Play)ディレクティブの`audioItem.stream.token`フィールド値 | 必須 |
-| `offsetInMilliseconds` | number | ストリームの現在のオフセット。ミリ秒単位です。                         | 必須  |
+| `token`                | string | [`AudioPlayer.Play`](#Play)ディレクティブの`audioItem.stream.token`フィールドの値 | 必須 |
+| `offsetInMilliseconds` | number | 再生しているストリームの現在のオフセット。ミリ秒単位です。                         | 必須  |
 
 ### Message example
 {% raw %}
@@ -443,8 +443,8 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 
 | フィールド名       | データ型    | 説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:---------:|
-| `token`                | string | ['AudioPlayer.Play'](#Play)ディレクティブの`audioItem.stream.token`フィールド値 | 必須 |
-| `offsetInMilliseconds` | number | ストリームの現在のオフセット。ミリ秒単位です。                         | 必須  |
+| `token`                | string | [`AudioPlayer.Play`](#Play)ディレクティブの`audioItem.stream.token`フィールドの値 | 必須 |
+| `offsetInMilliseconds` | number | 再生しているストリームの現在のオフセット。ミリ秒単位です。                         | 必須  |
 
 ### Message example
 {% raw %}
@@ -483,7 +483,7 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 * [`PlaybackController.Stop`](/CIC/References/CICInterface/PlaybackController.md#Stop)
 
 ## ProgressReportDelayPassedイベント {#ProgressReportDelayPassed}
-オーディオストリームの再生が開始してから、指定された遅延期間が経過したときの再生状態([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState))をCICにレポートします。オーディオストリームの遅延期間は、[`AudioPlayer.Play`](#Play)ディレクティブがクライアントに送信されるときに確認できます。
+オーディオストリームの再生が開始してから、指定された遅延期間が経過したタイミングの再生状態([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState))をCICにレポートします。オーディオストリームの遅延期間は、[`AudioPlayer.Play`](#Play)ディレクティブがクライアントに送信されるときに確認できます。
 
 ### Context fields
 
@@ -493,8 +493,8 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 
 | フィールド名       | データ型    | 説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:---------:|
-| `token`                | string | ['AudioPlayer.Play'](#Play)ディレクティブの`audioItem.stream.token`フィールド値 | 必須 |
-| `offsetInMilliseconds` | number | ストリームの現在のオフセット。ミリ秒単位です。                         | 必須  |
+| `token`                | string | [`AudioPlayer.Play`](#Play)ディレクティブの`audioItem.stream.token`フィールドの値 | 必須 |
+| `offsetInMilliseconds` | number | 再生しているストリームの現在のオフセット。ミリ秒単位です。                         | 必須  |
 
 ### Message example
 {% raw %}
@@ -543,8 +543,8 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 
 | フィールド名       | データ型    | 説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:---------:|
-| `token`                | string | ['AudioPlayer.Play'](#Play)ディレクティブの`audioItem.stream.token`フィールド値 | 必須 |
-| `offsetInMilliseconds` | number | ストリームの現在のオフセット。ミリ秒単位です。                         | 必須  |
+| `token`                | string | [`AudioPlayer.Play`](#Play)ディレクティブの`audioItem.stream.token`フィールドの値 | 必須 |
+| `offsetInMilliseconds` | number | 再生しているストリームの現在のオフセット。ミリ秒単位です。                         | 必須  |
 
 ### Message example
 {% raw %}
@@ -593,8 +593,8 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 
 | フィールド名       | データ型    | 説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:---------:|
-| `token`                | string | ['AudioPlayer.Play'](#Play)ディレクティブの`audioItem.stream.token`フィールド値 | 必須 |
-| `offsetInMilliseconds` | number | ストリームの現在のオフセット。ミリ秒単位です。                         | 必須  |
+| `token`                | string | [`AudioPlayer.Play`](#Play)ディレクティブの`audioItem.stream.token`フィールドの値 | 必須 |
+| `offsetInMilliseconds` | number | 再生しているストリームの現在のオフセット。ミリ秒単位です。                         | 必須  |
 
 ### Message example
 {% raw %}
@@ -643,12 +643,12 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 ### Payload fields
 | フィールド名       | データ型    | 説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:---------:|
-| `offsetInMilliseconds`   | number  | ストリームの現在のオフセット。ミリ秒単位です。  | 選択  |
+| `offsetInMilliseconds`   | number  | 再生しているストリームの現在のオフセット。ミリ秒単位です。  | 任意  |
 | `playerActivity`         | string  | AudioPlayerの現在の状態。<ul><li><code>"IDLE"</code>：アイドル状態</li><li><code>"PLAYING"</code>：再生中</li><li><code>"PAUSED"</code>：一時停止</li><li><code>"STOPPED"</code>：停止状態</li></ul>  | 必須  |
-| `repeatMode`             | string  | リピート再生モード<ul><li><code>"NONE"</code>：リピート再生しない</li><li><code>"REPEAT_ONE"</code>：1つのコンテンツをリピート再生する</li></ul>  | 必須  |
-| `stream`                 | [AudioStreamInfoObject](#AudioStreamInfoObject) | Playディレクティブの`audioItem.stream`                                     | 選択 |
-| `token`                  | string  | ['AudioPlayer.Play'](#Play)ディレクティブの`audioItem.stream.token`フィールド値                                          | 選択 |
-| `totalInMilliseconds`    | number | 最近再生したオーディオの全長。[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)ディレクティブで送信された([AudioStreamInfoObject](/CIC/References/CICInterface/AudioPlayer.md#AudioStreamInfoObject))に`durationInMilliseconds`フィールドの値がある場合、このフィールドに入力します。ミリ秒単位で、`playerActivity`の値が`"IDLE"`の場合、このフィールドの値を入力する必要はありません。 | 選択 |
+| `repeatMode`             | string  | リピート再生モード<ul><li><code>"NONE"</code>：リピート再生しない</li><li><code>"REPEAT_ONE"</code>：一曲リピート再生</li></ul>  | 必須  |
+| `stream`                 | [AudioStreamInfoObject](#AudioStreamInfoObject) | Playディレクティブの`audioItem.stream`                                     | 任意 |
+| `token`                  | string  | [`AudioPlayer.Play`](#Play)ディレクティブの`audioItem.stream.token`フィールドの値                                          | 任意 |
+| `totalInMilliseconds`    | number | 最近再生したメディアの全長[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)ディレクティブで送信された([AudioStreamInfoObject](/CIC/References/CICInterface/AudioPlayer.md#AudioStreamInfoObject))に`durationInMilliseconds`フィールドの値がある場合、このフィールドに入力します。ミリ秒単位で、`playerActivity`の値が`"IDLE"`の場合、このフィールドの値を入力する必要はありません。 | 任意 |
 
 ### Message example
 {% raw %}
@@ -698,7 +698,7 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 ### Payload fields
 | フィールド名       | データ型    | 説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:---------:|
-| `deviceId`    | string  | 対象クライアントのID。任意の形式の識別子(不透明なID)です。このフィールドが省略されると、ユーザーアカウントに登録されているすべてのクライアントにリクエストが送信されます。 | 選択 |
+| `deviceId`    | string  | 対象クライアントのID。任意の形式の識別子(不透明なID)です。このフィールドが省略されると、ユーザーアカウントに登録されているすべてのクライアントにリクエストが送信されます。 | 任意 |
 
 ### Message example
 {% raw %}
@@ -740,7 +740,7 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 [`AudioPlayer.StreamRequested`](#StreamRequested)イベントに対する応答です。実際に再生できるオーディオストリームの情報を受信するために使用します。クライアントがコンテンツを再生できるように、オーディオストリームの情報にストリーミングURLが必ず含まれます。
 
 ### Payload fields
-| フィールド名 | データ型 | 説明 | 包含 |
+| フィールド名 | データ型 | 説明 | 任意 |
 |---------|------|--------|:---------:|
 | `audioItemId` | string | オーディオストリームの情報を区別するための値。クライアントはこの値に基づいて、重複するPlayディレクティブを削除できます。 | 常時 |
 | `audioStream` | [AudioStreamInfoObject](#AudioStreamInfoObject) | 再生に必要なオーディオストリームの情報を持つオブジェクト       | 常時 |
@@ -764,7 +764,7 @@ AudioPlayerインターフェースは、クライアントからオーディオ
         "audioItemId": "5313c879-25bb-461c-93fc-f85d95edf2a0",
         "stream": {
             "token": "b767313e-6790-4c28-ac18-5d9f8e432248",
-            "url": "https://aod.musicservice.net/b767313e.mp3"
+            "url": "https://sample.musicservice.net/b767313e.mp3"
         }
     }
   }
@@ -787,7 +787,7 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 ### Payload fields
 | フィールド名       | データ型    | 説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:---------:|
-| `audioItemId`   | string  | ['AudioPlayer.Play'](#Play)ディレクティブの`audioItem.audioItemId`フィールド値       | 必須 |
+| `audioItemId`   | string  | [`AudioPlayer.Play`](#Play)ディレクティブの`audioItem.audioItemId`フィールドの値       | 必須 |
 | `audioStream`   | [AudioStreamInfoObject](#AudioStreamInfoObject) | Playディレクティブの`audioItem.stream` | 必須 |
 
 ### 備考
@@ -845,17 +845,17 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 
 ### Payload fields
 
-| フィールド名       | データ型    | 説明                     | 包含 |
+| フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `deviceId`    | string  | 対象クライアントのID。任意の形式の識別子(不透明なID)です。  | 常時  |
 | `event`       | string  | クライアントで発生したイベント。<ul><li><code>PlayFinished</code></li><li><code>PlayPaused</code></li><li><code>PlayResumed</code></li><li><code>PlayStarted</code></li><li><code>PlayStopped</code></li></ul>  | 条件付き  |
 | `playbackState`          | object  | クライアントの再生状態の情報を持つオブジェクト             | 条件付き  |
-| `playbackState.offsetInMilliseconds`   | number  | ストリームの現在のオフセット。ミリ秒単位で、このフィールドの値はnullの場合があります。  | 条件付き  |
+| `playbackState.offsetInMilliseconds`   | number  | 再生しているストリームの現在のオフセット。ミリ秒単位で、このフィールドの値はnullの場合があります。  | 条件付き  |
 | `playbackState.playerActivity`         | string  | AudioPlayerの現在の状態。<ul><li><code>"IDLE"</code>：アイドル状態</li><li><code>"PLAYING"</code>：再生中</li><li><code>"PAUSED"</code>：一時停止</li><li><code>"STOPPED"</code>：停止状態</li></ul>  | 常時  |
-| `playbackState.repeatMode`             | string  | 設定されているリピート再生モード。<ul><li><code>"NONE"</code>：リピート再生しない</li><li><code>"REPEAT_ONE"</code>：1つのコンテンツをリピート再生する</li></ul>  | 常時  |
+| `playbackState.repeatMode`             | string  | 設定されているリピート再生モード。<ul><li><code>"NONE"</code>：リピート再生しない</li><li><code>"REPEAT_ONE"</code>：一曲リピート再生</li></ul>  | 常時  |
 | `playbackState.stream`                 | [AudioStreamInfoObject](#AudioStreamInfoObject) | オーディオストリームに関連する情報を持つオブジェクト                                         | 常時 |
 | `playbackState.token`                  | string  | ストリームの再生を識別するトークン。このフィールドは、空の文字列(`""`)を持つ場合があります。                                                    | 常時 |
-| `playbackState.totalInMilliseconds`    | number | 最近再生したオーディオの全長。ミリ秒単位で、このフィールドの値はnullの場合があります。                  | 常時 |
+| `playbackState.totalInMilliseconds`    | number | 最近再生したメディアの全長ミリ秒単位で、このフィールドの値はnullの場合があります。                  | 常時 |
 
 ### Message example
 {% raw %}
@@ -898,14 +898,14 @@ AudioPlayer APIを使ってイベントまたはディレクティブを送信�
 再生するオーディオストリームのストリーミング情報を持つオブジェクトです。クライアントに対して再生するストリーミングの情報を送信したり、クライアントがCICに対して、現在再生しているコンテンツのストリーミング情報を送信するとき使用します。
 
 #### Object fields
-| フィールド名       | データ型    | 説明                     | 必須/包含 |
+| フィールド名       | データ型    | 説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
 | `beginAtInMilliseconds`  | number | 再生を開始するオフセット。ミリ秒単位で、この値が指定されている場合、クライアントは、そのオーディオストリームを指定されたオフセットから再生する必要があります。この値が0に設定されている場合、ストリームを最初から再生します。          | 必須/常時 |
-| `customData`             | string | 現在のストリームに関連して、任意の形式を持つメタデータ情報。特定のカテゴリに分類されたり、定義されないストリーミング情報は、このフィールドに含まれるか、または入力される必要があります。オーディオストリーム再生のコンテキストに必要な追加の値を、サービスプロバイダーがカスタムで追加できます。<div class="danger"><p><strong>注意</strong></p><p>クライアントは、このフィールドの値を任意に使用してはなりません。問題が発生する恐れがあります。また、このフィールドの値はストリームの再生状態を送信する際、<a href="/CIC/References/Context_Objects.html#PlaybackState">PlaybackStateコンテキスト</a>の`stream`フィールドにそのまま添付される必要があります。</p></div> | 任意/条件付き  |
+| `customData`             | string | 現在のストリームに関連して、任意の形式を持つメタデータ情報。特定のカテゴリに分類されたり、定義されないストリーミング情報は、このフィールドに含まれるか、または入力される必要があります。オーディオストリーム再生のコンテキストに必要な追加の値を、サービスプロバイダーがカスタムで追加できます。<div class="danger"><p><strong>注意</strong></p><p>クライアントは、このフィールドの値を任意に使用してはなりません。問題が発生する恐れがあります。また、このフィールドの値はストリームの再生状態を送信する際、<a href="/CIC/References/Context_Objects.html#PlaybackState">PlaybackStateコンテキスト</a>の`stream`フィールドにそのまま含まれる必要があります。</p></div> | 任意/条件付き  |
 | `durationInMilliseconds` | number | オーディオストリームの再生時間。クライアントは、`beginAtInMilliseconds`フィールドに指定されている再生のオフセットから、このフィールドに指定されている再生時間だけ、そのオーディオストリームをシークおよび再生できます。例えば、`beginAtInMilliseconds`フィールドの値が`10000`で、このフィールドの値が`60000`の場合、そのオーディオストリームの10秒から70秒までの区間を再生およびシークすることができます。ミリ秒単位です。   | 任意/条件付き  |
 | `progressReport`         | object  | 再生が開始してから、再生状態をレポートするタイミングを指定するオブジェクト                                                  | 任意/条件付き |
 | `progressReport.progressReportDelayInMilliseconds`    | number | 再生が開始してから、指定された時間が経過した後に、再生状態をレポートするように指定する値です。ミリ秒単位で、このフィールドの値はnullの場合があります。  | 任意/条件付き |
-| `progressReport.progressReportIntervalInMilliseconds` | number | 再生中に、指定されたインターバルで再生状態をレポートするように指定する値です。ミリ秒単位で、このフィールドの値はnullの場合があります。        | 任意/条件付き |
+| `progressReport.progressReportIntervalInMilliseconds` | number | 再生中に、指定された間隔ごとに再生状態をレポートするように指定する値です。ミリ秒単位で、このフィールドの値はnullの場合があります。        | 任意/条件付き |
 | `progressReport.progressReportPositionInMilliseconds` | number | 再生中に、指定された再生位置を経過する度に、再生状態をレポートするように指定する値です。ミリ秒単位で、このフィールドの値はnullの場合があります。    | 任意/条件付き |
 | `token`                  | string  | オーディオストリームのトークン                                                                                   | 必須/常時 |
 | `url`                    | string  | オーディオストリームのURL                                                                                     | 必須/常時 |

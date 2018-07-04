@@ -21,10 +21,48 @@
   </thead>
   <tbody>
   <tr>
+    <td>v4.6</td><td>2018/06/25</td>
+    <td>
+      <ul>
+        <li>[Design] Extensionの<a href="/Design/Design_Guideline_For_Extension.html#DecideSoundOutputType">応答タイプ</a>のガイドラインを追加</li>
+        <li>[CEK] Custom Extensionを作成するドキュメントに<a href="/CEK/Guides/Build_Custom_Extension.html#ProvideAudioContent">オーディオコンテンツを提供する</a>セクションを追加</li>
+        <li>[CEK] Custom Extensionメッセージの<a href="/CEK/References/CEK_API.html#CustomExtRequestType">リクエストタイプ</a>に<a href="/CEK/References/CEK_API.html#CustomExtEventRequest">EventRequestタイプ</a>を追加</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>v4.5</td><td>2018/06/17</td>
+    <td>
+      <ul>
+        <li>[CIC] リアルタイム配信コンテンツを区別するために、<a href="/CIC/References/CICInterface/TemplateRuntime.html#RenderPlayerInfo">TemplateRuntime.RenderPlayerInfo</a>にisLiveフィールドを追加</li>
+        <li>[CEK] <a href="/CIC/References/Content_Templates.html">Content template</a>の<a href="/CIC/References/ContentTemplates/Common_Fields.html">共通フィールド</a>にsubtitleフィールドを追加</li>
+        <li>[CEK] 赤外線通信でコントロールするデバイスのために、Clova Home Extension APIの<a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a>にisIrフィールドを追加</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>v4.4</td><td>2018/05/28</td>
+    <td>
+      <ul>
+        <li>[CEK] Clova Home Extension APIの<a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ConditionsNotMetError">ConditionsNotMetError</a>にstateフィールドを追加</li>
+        <li>[CEK] Clova Home Extension APIの<a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#TVChannelInfoObject">TVChannelInfoObject</a>にサブチャンネルの情報を追加</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>v4.3</td><td>2018/05/21</td>
+    <td>
+      <ul>
+        <li>[CIC] <a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a>コンテキストオブジェクトの<a href="/CIC/References/Context_Objects.html#BluetoothInfoObject">BluetoothInfoObject</a>に抜け落ちの(btlist[].role)を追加</li>
+        <li>[CEK] Clova Home Extension APIに<a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ValueNotFoundError">ValueNotFoundError</a>を追加</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
     <td>v4.2</td><td>2018-05-14</td>
     <td>
       <ul>
-        <li>[CIC] <a href="/CIC/References/CICInterface/Clova.html#LaunchURI">LaunchURI</a>ディレクティブをDeviceControl名前空間から<a href="/CIC/References/CICInterface/Clova.html">Clova</a>名前欄に移動</li>
+        <li>[CIC] <a href="/CIC/References/CICInterface/Clova.html#LaunchURI">LaunchURI</a>ディレクティブをDeviceControl名前欄から<a href="/CIC/References/CICInterface/Clova.html">Clova</a>名前欄に移動</li>
         <li>[CEK] HTTPリクエストメッセージにヘッダー(SignatureCEK、SignatureCEKCertChainUrl)を追加および<a href="/CEK/References/CEK_API.html#RequestMessageValidation">リクエストメッセージを検証する</a>セクションを追加</li>
       </ul>
     </td>
@@ -33,7 +71,7 @@
     <td>v4.1</td><td>2018-05-07</td>
     <td>
       <ul>
-        <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a>名前欄に<a href="/CIC/References/CICInterface/DeviceControl.html#LaunchURI">LaunchURI</a>ディレクティブを追加</li>
+        <li>[CIC] DeviceControl名前欄にLaunchURIディレクティブを追加</li>
         <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a>名前欄の<a href="/CIC/References/CICInterface/DeviceControl.html#LaunchApp">LaunchApp</a>ディレクティブと<a href="/CIC/References/CICInterface/DeviceControl.html#OpenScreen">OpenScreen</a>ディレクティブのサポートを中断(Deprecated)</li>
       </ul>
     </td>
@@ -180,7 +218,7 @@
       <td>v2.9</td><td>2018/01/22</td>
       <td>
         <ul>
-          <li>[Design] プラットフォームでサポートされる音声圧縮形式を<a href="/Design/Design_Guideline_For_Client_Hardware.html#SupportedAudioCompressionFormat">クライアントデバイスのデザインガイドライン</a>および<a href="/Design/Design_Guideline_For_Extension.html#SupportedAudioCompressionFormat">Extensionのデザインガイドライン</a>に追加</li>
+          <li>[Design] プラットフォームでサポートされている音声圧縮形式を<a href="/Design/Design_Guideline_For_Client_Hardware.html#SupportedAudioCompressionFormat">クライアントデバイスのデザインガイドライン</a>および<a href="/Design/Design_Guideline_For_Extension.html#SupportedAudioCompressionFormat">Extensionのデザインガイドライン</a>に追加</li>
           <li>[CEK] <a href="/CEK/Tutorials/Introduction.html">チュートリアル</a>ページと<a href="/CEK/Tutorials/Build_Simple_Extension.html">簡単なExtensionを作成する</a>ページを追加</li>
           <li>[Dev.Console] <a href="/DevConsole/Guides/CEK/Register_Interaction_Model.html#AddCustomSlotType">ビルトインインテントリストの表示</a>、<a href="/DevConsole/Guides/CEK/Deploy_Extension.html#InputComplianceInfo">審査をリクエストする</a>際に、審査リクエストのメッセージを作成するUIを追加</li>
           <li>[Common] UMLダイアグラムの画像フォーマットを変更</li>
