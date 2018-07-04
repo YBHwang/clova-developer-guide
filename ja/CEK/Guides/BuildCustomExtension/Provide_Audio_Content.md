@@ -147,7 +147,7 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
 
 [オーディオコンテンツの再生を指示する](#DirectClientToPlayAudio){{ "[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)" if book.TargetCountryCode == "KR" else "[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)" }}ディレクティブには、タイトル、アルバム、歌詞などの情報は含まれていません。Custom Extensionは、クライアントからリクエストされると、そのようなメタデータを提供する必要があります。
 
-クライアントは、コンテンツの再生メタデータを取得するために、{{ "[`TeamplteRuntime.ReqeusetPlayerInfo`](/CIC/References/CICInterface/TeamplteRuntime.md#ReqeusetPlayerInfo)" if book.TargetCountryCode == "KR" else "[`TeamplteRuntime.ReqeusetPlayerInfo`](/CEK/References/CEK_API.md#ReqeusetPlayerInfo)" }}イベントをClovaに送信します。そのとき、イベントの内容は[`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージで、以下のように送信されます。ちなみに、以下のサンプルは`eJyr5lIqSSyITy4tKs4vUrJSUE`トークンを持つコンテンツを基準に、次の10曲のメタデータをリクエストしたことを表しています。
+クライアントは、コンテンツの再生メタデータを取得するために、{{ "[`TemplateRuntime.ReqeusetPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#ReqeusetPlayerInfo)" if book.TargetCountryCode == "KR" else "[`TemplateRuntime.ReqeusetPlayerInfo`](/CEK/References/CEK_API.md#ReqeusetPlayerInfo)" }}イベントをClovaに送信します。そのとき、イベントの内容は[`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージで、以下のように送信されます。ちなみに、以下のサンプルは`eJyr5lIqSSyITy4tKs4vUrJSUE`トークンを持つコンテンツを基準に、次の10曲のメタデータをリクエストしたことを表しています。
 
 ```json
 {
@@ -178,7 +178,7 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
 }
 ```
 
-Custom Extensionは、レスポンスメッセージを使って、クライアントからリクエストされたコンテンツのメタデータを返す必要があります。{{ "[`TeamplteRuntime.RenderPlayerInfo`](/CIC/References/CICInterface/TeamplteRuntime.md#RenderPlayerInfo)" if book.TargetCountryCode == "KR" else "[`TeamplteRuntime.RenderPlayerInfo`](/CEK/References/CEK_API.md#RenderPlayerInfo)" }}ディレクティブをレスポンスメッセージに含める必要があります。
+Custom Extensionは、レスポンスメッセージを使って、クライアントからリクエストされたコンテンツのメタデータを返す必要があります。{{ "[`TemplateRuntime.RenderPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#RenderPlayerInfo)" if book.TargetCountryCode == "KR" else "[`TemplateRuntime.RenderPlayerInfo`](/CEK/References/CEK_API.md#RenderPlayerInfo)" }}ディレクティブをレスポンスメッセージに含める必要があります。
 
 ```json
 {
@@ -189,7 +189,7 @@ Custom Extensionは、レスポンスメッセージを使って、クライア�
     "directives": [
       {
         "header": {
-          "namespace": "TeamplteRuntime",
+          "namespace": "TemplateRuntime",
           "name": "RenderPlayerInfo"
         },
         "payload": {
