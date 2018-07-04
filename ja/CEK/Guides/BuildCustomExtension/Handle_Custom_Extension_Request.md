@@ -1,5 +1,5 @@
 ## Custom Extensionリクエストを処理する {#HandleCustomExtensionRequest}
-Custom ExtensionはCEKから[Custom Extensionメッセージ](/CEK/References/CEK_API.md#CustomExtMessage)形式のユーザーリクエストを受信します(HTTPリクエスト)。Custom Extensionは通常、次のようにリクエストを処理し、レスポンスする必要があります。
+Custom ExtensionはCEKから[Custom Extensionメッセージ](/CEK/References/CEK_API.md#CustomExtMessage)形式のユーザーリクエストを受信します(HTTPSリクエスト)。Custom Extensionは通常、次のようにリクエストを処理し、レスポンスする必要があります。
 
 ![](/CEK/Resources/Images/CEK_Custom_Extension_Sequence_Diagram.png)
 
