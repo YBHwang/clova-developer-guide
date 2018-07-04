@@ -27,8 +27,8 @@
 
 * `version`：使用しているCustom Extensionメッセージフォーマットのバージョンです。現在のバージョンはv0.1.0です。
 * `response.outputSpeech`：ユーザーが英語で「Hi, nice to meet you」の文章を話すように設定します。
-* `response.card`：クライアントの画面に表示するデータがありません。[コンテンツテンプレート](/CIC/References/Content_Templates.md)形式のデータで、クライアントの画面に表示するコンテンツをこのフィールドで渡すことができます。
-* `response.shouldEndSession`：セッションを終了せず、引き続きユーザーの入力を受け付けます。このフィールドの値がtrueの場合、[`SessionEndedRequest`](#HandleSessionEndedRequest)リクエストを受け取る前に、Extensionからセッションを終了できます。
+* `response.card`：クライアントの画面に表示するデータがありません。コンテンツテンプレート形式のデータで、クライアントの画面に表示するコンテンツをこのフィールドで渡すことができます。
+* `response.shouldEndSession`：セッションを終了せず、引き続きユーザーの入力を受け付けるかを管理します。このフィールドの値がtrueの場合、[`SessionEndedRequest`](#HandleSessionEndedRequest)リクエストを受け取る前に、Extensionからセッションを終了できます。
 
 <div class="note">
   <p><strong>メモ</strong></p>
@@ -77,7 +77,7 @@
   <p>単文や複文タイプの音声情報の他にも、画面を持たないデバイスのように、詳しい内容をGUIで表現できないクライアントのために、複合タイプ(SpeechSet)の音声情報もサポートしています。詳細については、Custom Extensionメッセージフォーマットの<a href="/CEK/References/CEK_API.md#CustomExtResponseMessage">レスポンスメッセージ</a>を参照してください。</p>
 </div>
 
-音声出力だけでなく、クライアントデバイスの画面やクライアントアプリの画面にデータを出力する必要がある場合、次のように`response.card`フィールドに[コンテンツテンプレート](/CIC/References/Content_Templates.md)に合わせて表示するコンテンツを設定します。
+音声出力だけでなく、クライアントデバイスの画面やクライアントアプリの画面にデータを出力する必要がある場合、次のように`response.card`フィールドにコンテンツテンプレートに合わせて表示するコンテンツを設定します。
 
 {% raw %}
 ```json
@@ -90,7 +90,7 @@
       "values": {
           "type": "PlainText",
           "lang": "ja",
-          "value": "リオネル・メッシの写真です"
+          "value": "ブラウンの画像です"
       }
     },
     "card": {
@@ -101,29 +101,29 @@
       },
       "mainText": {
         "type": "string",
-        "value": "リオネル・メッシ"
+        "value": "LINE Friendsのブラウンです"
       },
       "referenceText": {
         "type": "string",
-        "value": "NAVER検索結果"
+        "value": "Clova検索結果"
       },
       "referenceUrl": {
         "type": "url",
-        "value": "https://m.search.naver.com/search.naver?where=m&sm=mob_lic&query=%eb%a6%ac%ec%98%a4%eb%84%ac+%eb%a9%94%ec%8b%9c+%ec%86%8c%ec%86%8d%ed%8c%80"
+        "value": "DUMMY_REFERENCE_URL"
       },
       "subTextList": [
         {
           "type": "string",
-          "value": "FCバルセロナ"
+          "value": "LINE Friends"
         }
       ],
       "thumbImageType": {
         "type": "string",
-        "value": "人物"
+        "value": "キャラクター"
       },
       "thumbImageUrl": {
         "type": "url",
-        "value": "http://sstatic.naver.net/people/3/201607071816066361.jpg"
+        "value": "DUMMY_IMAGE_URL"
       }
     },
     "directives": [],
