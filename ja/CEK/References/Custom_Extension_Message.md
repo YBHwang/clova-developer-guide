@@ -332,9 +332,9 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
 | フィールド名       | データ型    | フィールドの説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `event`           | object  | クライアントがClovaに渡した情報が保存されているオブジェクト                                       | 常時   |
-| `event.name`      | string  | {{ "클라이언트가 Clova로 전달한 이벤트 메시지의 이름" if book.TargetCountryCode == "KR" else "클라이언트가 Clova로 전달한 이벤트 메시지의 이름이나 skill 활성/비활성 동작을 구분하는 이름. Skill 활성/비활성 동작을 구분하는 이름은 `SkillEnabled` 또는 `SkillDisabled`를 가집니다." }} | 常時   |
-| `event.namespace` | string  | {{ "클라이언트가 Clova로 전달한 이벤트 메시지의 네임스페이스" if book.TargetCountryCode == "KR" else "클라이언트가 Clova로 전달한 이벤트 메시지의 네임스페이스나 skill 활성/비활성 동작을 구분하는 네임스페이스. Skill 활성/비활성 동작을 구분하는 네임스페이스는 `ClovaSkill`로 고정됩니다." }}   | 常時  |
-| `event.payload`   | object  | {{ "클라이언트가 Clova로 전달한 이벤트 메시지의 `payload`나 `payload`의 일부 정보. 일부 이벤트 메시지의 `EventRequest` 요청 타입은 `payload`가 빈 객체일 수 있습니다." if book.TargetCountryCode == "KR" else "클라이언트가 Clova로 전달한 이벤트 메시지의 `payload`나 `payload`의 일부 정보. 일부 이벤트 메시지나 skill 활성/비활성 동작을 구분하기 위한 `EventRequest` 요청 타입은 `payload`가 빈 객체일 수 있습니다." }}  | 常時  |
+| `event.name`      | string  | {{ "クライアントがClovaに送信したメッセージの名前" if book.TargetCountryCode == "KR" else "クライアントがClovaに送信したイベントの名前、または、スキルが有効か無効かを示す名前。スキルが有効か無効かを示す名前は、`SkillEnabled`か`SkillDisabled`になります。" }} | 常時   |
+| `event.namespace` | string  | {{ "クライアントがClovaに送信したイベントの名前空間" if book.TargetCountryCode == "KR" else "クライアントがClovaに送信したイベントの名前空間、または、スキルが有効か無効かを示す名前空間。スキルが有効か無効かを示す名前空間は、`ClovaSkill`に固定されます。" }}   | 常時  |
+| `event.payload`   | object  | {{ "クライアントがClovaに送信した`payload`、または、`payload`の一部の情報。一部のイベントの`EventRequest`リクエストタイプは、`payload`が空の場合があります。" if book.TargetCountryCode == "KR" else "クライアントがClovaに送信した`payload`または`payload`の一部の情報。一部のイベント、または、スキルが有効か無効かを示すための`EventRequest`リクエストは、`payload`が空のオブジェクトの場合があります。" }}  | 常時  |
 | `requestId`       | string  | クライアントがClovaに情報を渡すときに作成されたダイアログID(`event.header.dialogRequestId`)    | 常時   |
 | `timestamp`       | string  | クライアントがClovaに情報を渡した日時(タイムスタンプ、<a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)<div class="note"><p><strong>メモ</strong></p><p>CEKは<code>EventRequest</code>タイプのリクエストの順序を保証しません。クライアントからのリクエストの順序は、このフィールドの値から把握することができます。</p></div>                    |   |
 | `type`            | string  | リクエストメッセージのタイプ。`"EventRequest"`の値に固定されます。         | 常時 |
