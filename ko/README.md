@@ -21,6 +21,26 @@
   </thead>
   <tbody>
   <tr>
+    <td>v4.6</td><td>2018-06-25</td>
+    <td>
+      <ul>
+        <li>[Design] Extension의 <a href="/Design/Design_Guideline_For_Extension.html#DecideSoundOutputType">응답 유형</a>에 대한 가이드라인 추가</li>
+        <li>[CEK] Custom extension 만들기 문서에 <a href="/CEK/Guides/Build_Custom_Extension.html#ProvideAudioContent">오디오 콘텐츠 제공하기</a> 절 추가</li>
+        <li>[CEK] Custom extension 메시지의 <a href="/CEK/References/CEK_API.html#CustomExtRequestType">요청 타입</a>에 <a href="/CEK/References/CEK_API.html#CustomExtEventRequest">EventRequest 타입</a> 추가</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>v4.5</td><td>2018-06-17</td>
+    <td>
+      <ul>
+        <li>[CIC] 실시간 방송 콘텐츠를 구분하기 위해 <a href="/CIC/References/CICInterface/TemplateRuntime.html#RenderPlayerInfo">TemplateRuntime.RenderPlayerInfo</a>에 isLive 필드 추가</li>
+        <li>[CEK] <a href="/CIC/References/Content_Templates.html">Content template</a>의 <a href="/CIC/References/ContentTemplates/Common_Fields.html">공통 필드</a>에 subtitle 필드 추가</li>
+        <li>[CEK] 적외선 방식으로 제어되는 기기를 위해 Clova Home extension API <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a>에 isIr 필드 추가</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
     <td>v4.4</td><td>2018-05-28</td>
     <td>
       <ul>

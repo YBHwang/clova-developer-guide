@@ -41,7 +41,7 @@ IoT 기기 제어 서비스를 제공하기 위한 extension입니다. 자세한
 ### Clova Home extension 메시지 {#ClovaHomeExtMessage}
 IoT 기기를 제어하는 [Clova Home extension](#ClovaHomeExtension)이 [Clova Extensions Kit](#CEK)와 정보를 주고 받을 때 전용으로 사용하는 메시지입니다. 자세한 내용은 [Clova Home extension 메시지](/CEK/References/CEK_API.md#ClovaHomeExtMessage) 문서를 참조합니다.
 
-### Clova Interface Connection (CIC) {#CIC}
+### Clova Interface Connect (CIC) {#CIC}
 인공 지능 비서 서비스를 제공하려는 PC/모바일용 앱, 모바일 또는 가전 기기 등의 클라이언트에게 Clova와 연동할 수 있는 인터페이스를 제공하는 플랫폼입니다. 자세한 내용은 [CIC 개요](/CIC/CIC_Overview.md) 문서를 참조합니다.
 
 ### Clova 앱 {#ClovaApp}
@@ -106,13 +106,9 @@ Intent는 Clova extension이 처리할 사용자의 요청을 구별한 범주�
 ### SessionEndedRequest {#SessionEndedRequest}
 사용자가 특정 모드나 특정 [custom extension](#CustomExtension)의 사용을 중지하기로 선언한 것을 알리기 위해 사용되며 요청 메시지에 포함됩니다. 자세한 내용은 [Custom extension 요청 처리하기](/CEK/Guides/Build_Custom_Extension.md#HandleCustomExtensionRequest) 문서를 참조합니다.
 
-{% if book.language == "ja" or book.language == "en" %}
-
 ### Skill {#Skill}
 
 Clova가 제공하는 확장 기능을 의미합니다. Skill을 사용자에게 제공하려면 [Clova extension](#ClovaExtension)을 개발해야 합니다.
-
-{% endif %}
 
 ### Slot {#Slot}
 [Intent](#Intent)에 선언된 요청을 처리할 때 필요한 정보이며, intent를 정의할 때 함께 정의해야 합니다. Clova는 사용자 요청을 분석한 후 slot에 해당하는 정보를 추출하게 됩니다. 자세한 내용은 [interaction 모델 정의](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel)를 참조합니다.
@@ -145,10 +141,6 @@ Clova가 제공하는 확장 기능을 의미합니다. Skill을 사용자에게
 ### 클라이언트 인증 정보 {#ClientCredentialInfo}
 [Clova developer console](#ClovaDeveloperConsole)를 통해 클라이언트를 등록하고 획득한 인증 정보이며, [Clova access token](#ClovaAccessToken)을 획득하는데 사용됩니다. 자세한 내용은 [Clova access token 생성하기](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken) 문서를 참조합니다.
 
-{% if book.language == "ko" or book.language == "en" %}
-
 ### 확장 서비스 {#Skill}
 
 Clova가 제공하는 확장 기능을 의미합니다. 확장 서비스를 사용자에게 제공하려면 [Clova extension](#ClovaExtension)을 개발해야 합니다.
-
-{% endif %}

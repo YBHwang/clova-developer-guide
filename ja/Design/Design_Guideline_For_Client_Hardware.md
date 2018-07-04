@@ -9,7 +9,7 @@ Clovaが搭載されたクライアントデバイスを使用するユーザー
 * [画面](#Screen)
 
 <div class="note">
-  <p><strong>Note!</strong></p>
+  <p><strong>メモ</strong></p>
   <p>ここで言及されていないガイドラインや仕様は、メーカーの判断またはポリシーに基づいて実装してください。判断が難しい場合には、提携担当者までお問合せください。</p>
 </div>
 
@@ -58,10 +58,10 @@ Clovaが搭載されたクライアントデバイスを使用するユーザー
 | ボリュームアップボタン(Volume up)       | スピーカーの音量を上げます。                                         | 必須      |
 | ボリュームダウンボタン(Volume down)   | スピーカーの音量を下げます。                                          | 必須      |
 | 再生/一時停止ボタン(Play/Pause) | オーディオを一時停止/再生します。または、処理中の作業を中止します。         | 必須      |
-| 音声入力の聞き取りボタン(Wake up)   | ユーザーの音声入力を聞き取るモード(attending状態)に切り替わります。ユーザーが「クローバー」と話しかけるのと同じ動作です。 | 任意      |
-| Wi-Fiボタン(Wi-Fi)          | Wi-Fiネットワークに接続したり、接続を解除します。                                 | 任意      |
-| Bluetoothボタン(Bluetooth)     | Bluetoothデバイスとペアリング/接続/解除します。                              | 任意      |
-| リセットボタン(Reset)          | デバイスをリセットします。                                              | 任意      |
+| 音声入力の聞き取りボタン(Wake up)   | ユーザーの音声入力を聞き取るモード(attending状態)に切り替わります。ユーザーが「クローバー」と話しかけるのと同じ動作です。 | 選択      |
+| Wi-Fiボタン(Wi-Fi)          | Wi-Fiネットワークに接続したり、接続を解除します。                                 | 選択      |
+| Bluetoothボタン(Bluetooth)     | Bluetoothデバイスとペアリング/接続/解除します。                              | 選択      |
+| リセットボタン(Reset)          | デバイスをリセットします。                                              | 選択      |
 
 ### ボタンのガイドライン {#ButtonGuideline}
 
@@ -93,10 +93,10 @@ Clovaが搭載されたクライアントデバイスを使用するユーザー
 
 | ライトの色     | RGB値                | 説明                                   | 必須/任意 |
 |-------------|----------------------|---------------------------------------|:--------:|
-| Green       | <span style="color:#32C864; font-size:150%; vertical-align:middle;">&#9724;</span> 50、200、100(#32C864)   | ユーザーの音声入力を聞き取っている                                  | 必須  |
-| Yellow Green | <span style="color:#B4FF00; font-size:150%; vertical-align:middle;">&#9724;</span> 180、255、0(#B4FF00)    | Clova通知(Notification)                             | 必須  |
-| Red         | <span style="color:#FF0000; font-size:150%; vertical-align:middle;">&#9724;</span> 255、0、0(#FF0000)      | マイクのミュート、ネットワーク接続エラー、バッテリー不足などのエラー状況     | 必須  |
-| Warm White   | <span style="color:#EDE9E5; font-size:150%; vertical-align:middle;">&#9724;</span> 237、233、229(#EDE9E5)  | スピーカーによるClovaの音声出力、アラーム/リマインダー/タイマーイベントの受信                             | 必須  |
+| Green       | <span style="color:#32C864; font-size:150%; vertical-align:middle;">&#9724;</span> 50, 200, 100(#32C864)   | ユーザーの音声入力を聞き取っている                                  | 必須  |
+| Yellow Green | <span style="color:#B4FF00; font-size:150%; vertical-align:middle;">&#9724;</span> 180, 255, 0(#B4FF00)    | Clova通知(Notification)                             | 必須  |
+| Red         | <span style="color:#FF0000; font-size:150%; vertical-align:middle;">&#9724;</span> 255, 0, 0(#FF0000)      | マイクのミュート、ネットワーク接続エラー、バッテリー不足などのエラー状況     | 必須  |
+| Warm White   | <span style="color:#EDE9E5; font-size:150%; vertical-align:middle;">&#9724;</span> 237, 233, 229(#EDE9E5)  | スピーカーによるClovaの音声出力、アラーム/リマインダー/タイマーイベントの受信                             | 必須  |
 
 以下は、Waveのライトの事例です。
 
@@ -128,7 +128,7 @@ Clovaが搭載されたクライアントデバイスを使用するユーザー
 | Processing & reporting状態 | Warm Whiteのライトの点滅をゆっくりと繰り返す | 必須     |
 | Mute on状態の解除            | Redのライトをゆっくりと消灯する           | 必須     |
 | 待機時間が超過した直後           | Greenのライトをゆっくりと消灯する         | 必須     |
-| アラーム、リマインダー、タイマーの開始      | Warm Whiteのライトが波の表現を繰り返す  | 任意     |
+| アラーム、リマインダー、タイマーの開始      | Warm Whiteのライトが波の表現を繰り返す  | 選択     |
 
 ### ライトのガイドライン {#LightGuideline}
 
@@ -163,7 +163,7 @@ Clovaが搭載されたクライアントデバイスを使用するユーザー
 | Notification  | 発信音、システム状態の発話(バッテリー不足の通知、Bluetooth接続解除の通知など)、通知音、通知発話         |
 
 <div class="note">
-  <p><strong>Note!</strong></p>
+  <p><strong>メモ</strong></p>
   <p>Alertとnotificationタイプは、効果音と発話をまとめて1つのオーディオコンテンツとして認識します。例えば、リマインダーの場合、リマインダー音とリマインダー発話が1つのalertオーディオコンテンツとして認識されます。バッテリー不足の通知の場合、発信音と「バッテリーが不足しています」のようなシステム状態の発話が1つのnotificationオーディオコンテンツになります。</p>
 </div>
 
@@ -378,7 +378,7 @@ Voice agentは、ユーザーの音声入力の聞き取り、Clovaの音声出�
 | Error                  | Redのバーとエラーアイコンが現れ、2秒後にアイコンが消えます。                  | <img style="width:600px" src="/Design/Resources/Images/Clova-Client-Voice_Agent-Bar_Type-Error.gif" />  |
 
 <div class="note">
-  <p><strong>Note!</strong></p>
+  <p><strong>メモ</strong></p>
   <p>バータイプのUIは、今後内容が更新される予定です。</p>
 </div>
 
@@ -400,7 +400,7 @@ Voice agentは、ユーザーの音声入力の聞き取り、Clovaの音声出�
 | Error                  | Redのエラーアイコンが現れ、エラーを説明する簡単なテキストが表示されます。            | <img style="width:600px" src="/Design/Resources/Images/Clova-Client-Voice_Agent-Icon_A_Type-Error.gif" /> |
 
 <div class="note">
-  <p><strong>Note!</strong></p>
+  <p><strong>メモ</strong></p>
   <p>Loading状態は、ユーザーの入力を聞き取るために<a href="#VoiceAgent">voice agent</a>を準備する状態です。画面を持つデバイスにのみ適用される状態で、voice agentのグラフィックを表現するために準備する状況を表現する必要があります。</p>
 </div>
 
@@ -423,6 +423,6 @@ Voice agentは、ユーザーの音声入力の聞き取り、Clovaの音声出�
 | Error                    | Redのエラーアイコンが表示されます。                                                                | ![](/Design/Resources/Images/Clova-Client-Voice_Agent-Icon_B_Type-Error.gif) |
 
 <div class="note">
-  <p><strong>Note!</strong></p>
+  <p><strong>メモ</strong></p>
   <p>Loading状態は、ユーザーの入力を聞き取るために<a href="#VoiceAgent">voice agent</a>を準備する状態です。画面を持つデバイスにのみ適用される状態で、voice agentのグラフィックを表現するために準備する状況を表現する必要があります。</p>
 </div>
