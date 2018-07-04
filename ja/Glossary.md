@@ -140,7 +140,3 @@ Clovaが提供する拡張機能のことをいいます。スキルをユーザ
 
 ### クライアントの認証情報 {#ClientCredentialInfo}
 [Clova Developer Center](#ClovaDeveloperConsole)でクライアントを登録し、取得した認証情報です。[Clovaアクセストークン](#ClovaAccessToken)の取得に使用されます。詳細については、[Clovaアクセストークンを生成する](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken)ドキュメントを参照してください。
-
-### 拡張サービス {#Skill}
-
-Clovaが提供する拡張機能のことをいいます。ユーザーに拡張サービスを提供するには、[Clova Extension](#ClovaExtension)を開発する必要があります。
