@@ -1,5 +1,5 @@
 ## Custom Extensionレスポンスを返す {#ReturnCustomExtensionResponse}
-[リクエストメッセージを処理](#HandleCustomExtensionRequest)したら、CEKに[レスポンスメッセージ](/CEK/References/CEK_API.md#CustomExtResponseMessage)を返す必要があります(HTTPレスポンス)。リクエストメッセージのタイプによって異なる内容を返すこともありますが、レスポンスメッセージの構造に大差はありません。以下は、LaunchRequestタイプのリクエスト(「ピザボットを起動して」というユーザーリクエスト)を処理した後、返したレスポンスメッセージです。
+[リクエストメッセージを処理](#HandleCustomExtensionRequest)すると、CEKに[レスポンスメッセージ](/CEK/References/CEK_API.md#CustomExtResponseMessage)を返す必要があります(HTTPレスポンス)。リクエストメッセージのタイプによって異なる内容を返すこともありますが、レスポンスメッセージの構造に大差はありません。以下は、LaunchRequestタイプのリクエスト(「ピザボットを起動して」というユーザーリクエスト)を処理した後に返したレスポンスメッセージです。
 
 {% raw %}
 ```json

@@ -32,7 +32,7 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
 
 <div class="danger">
   <p><strong>注意</strong></p>
-  <p>再生指示に関連する内容は、オーディオコンテンツを提供するCustom Extensionの主要な機能で、必須の実装項目です。</p>
+  <p>オーディオコンテンツを提供するCustom Extensionでは、コンテンツをコントロールする処理は必須の実装項目です。</p>
 </div>
 
 以下は、`AudioPlayer.Play`ディレクティブをCustom Extensionのレスポンスメッセージに含めたサンプルです。
@@ -83,7 +83,7 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
 
 <div class="note">
   <p><strong>メモ</strong></p>
-  <p><a href="/CEK/Guides/Build_Custom_Extension.html#ReturnCustomExtensionResponse">レスポンスメッセージで返す</a>とき、<code>response.outputSpeech</code>フィールドを指定することもできます。例えば、ユーザーに対して、「リクエストしたオーディオコンテンツを再生します」という音声出力(TTS)を先に再生してから、オーディオコンテンツの再生を開始することができます。</p>
+  <p>音楽を再生する<a href="/CEK/Guides/Build_Custom_Extension.html#ReturnCustomExtensionResponse">レスポンスメッセージ</a>には、<code>response.outputSpeech</code>フィールドを追加することもできます。例えば、ユーザーに対して、「リクエストしたオーディオコンテンツを再生します」という音声出力(TTS)を再生し、その後にオーディオコンテンツの再生を開始することができます。</p>
 </div>
 
 ### オーディオコンテンツの再生をコントロールする {#ControlAudioPlayback}
@@ -97,10 +97,10 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
 
 <div class="danger">
   <p><strong>注意</strong></p>
-  <p>再生のコントロールに関連する内容は、必須の実装項目です。特に、<code>Clova.PauseIntent</code>と<code>Clova.StopIntent</code>ビルトインインテントに対応するアクションが実装されていないと、ユーザーにとって、サービスを「使いにくい」と感じる原因となります。</p>
+  <p>オーディオコンテンツのコントロールに関連するイベントは、必須の実装項目です。特に、<code>Clova.PauseIntent</code>と<code>Clova.StopIntent</code>ビルトインインテントに対応するアクションが実装されていないと、ユーザーにとってサービスの利便性を損ないますので審査時にリジェクト対象になります。</p>
 </div>
 
-ユーザーが「ちょっと止めて」「再生を再開して」「停止して」などのように発話した場合、Custom Extensionは再生の一時停止、再生再開、再生停止のリクエストに対応する必要があります。その際、クライアントはそれぞれのリクエストに対し、`Clova.PauseIntent`、`Clova.ResumeIntent`、`Clova.StopIntent`ビルトインインテントを`IntentRequest`タイプのリクエストメッセージで受け取ります。Custom Extensionは、それに対応して、それぞれ以下のディレクティブを[レスポンスメッセージ](/CEK/References/CEK_API.md#CustomExtResponseMessage)でCEKに送信する必要があります。
+ユーザーが「一時停止」「再生を再開して」「ストップ」などのように発話した場合、Custom Extensionは再生の一時停止、再生再開、再生停止のリクエストに対応する必要があります。その際、クライアントはそれぞれのリクエストに対し、`Clova.PauseIntent`、`Clova.ResumeIntent`、`Clova.StopIntent`ビルトインインテントを`IntentRequest`タイプのリクエストメッセージで受け取ります。Custom Extensionは、それに対応して、それぞれ以下のディレクティブを[レスポンスメッセージ](/CEK/References/CEK_API.md#CustomExtResponseMessage)でCEKに送信する必要があります。
 
 {% if book.TargetCountryCode == "KR" %}
 * [`PlaybackController.Pause`](/CIC/References/CICInterface/PlaybackController.md#Pause)ディレクティブ：クライアントに、再生中のオーディオストリームを一時停止するように指示する
@@ -189,7 +189,7 @@ Custom Extensionは、レスポンスメッセージを使って、クライア�
     "directives": [
       {
         "header": {
-          "namespace": "TeamplteRuntime",
+          "namespace": "TemplateRuntime",
           "name": "RenderPlayerInfo"
         },
         "payload": {
@@ -235,9 +235,9 @@ Custom Extensionは、レスポンスメッセージを使って、クライア�
               ],
               "isLive": false,
               "showAdultIcon": false,
-              "titleSubText1": "Alice Sara Ott, Symphonie Orchester Des Bayerischen Rundfunks, Esa-Pekka Salonen",
-              "titleSubText2": "Wonderland - Edvard Grieg : Piano Concerto, Lyric Pieces",
-              "titleText": "Grieg : Piano Concerto In A Minor, Op.16 - 3. Allegro moderato molto e marcato (Live)",
+              "titleSubText1": "Happy Birthday - Brown Ver.",
+              "titleSubText2": "A song for Brown",
+              "titleText": "The theme song for LINE Friend - Brown",
               "token": "eJyr5lIqSSyITy4tKs4vUrJSUE"
             },
             {
@@ -260,9 +260,9 @@ Custom Extensionは、レスポンスメッセージを使って、クライア�
               ],
               "isLive": true,
               "showAdultIcon": false,
-              "titleSubText1": "Berliner Philharmoniker, Herbert Von Karajan",
-              "titleSubText2": "Mendelssohn : Violin Concerto; A Midsummer Night`s Dream",
-              "titleText": "Symphony No.4 In A Op.90 'Italian' - III.Con Moto Moderato",
+              "titleSubText1": "Happy Birthday - Sally Ver.",
+              "titleSubText2": "A song for Sally",
+              "titleText": "The theme song for LINE Friend - Sally",
               "token": "eJyr5lIqSSyITy4tKs4vUrJSUEo2"
             },
             ...
@@ -339,7 +339,7 @@ Custom Extensionは、レスポンスメッセージを使って、クライア�
 
 上記の`EventRequest`タイプのリクエストメッセージは、クライアントが全部で5分のオーディオコンテンツで、1分になるタイミングで再生を中断したことをレポートしています。Custom Extensionは、このようにして、クライアントの再生状態の変化を追跡することができます。例えば、`AudioPlayer.PlayStopped`と`AudioPlayer.PlayFinished`イベントが含まれた`EventRequest`タイプのリクエストメッセージを収集して、オーディオを最後まで聞いたり、または最後まで聞かないユーザーを区別し、それを統計データにすることができます。
 
-また、`AudioPlayer.ProgressReportIntervalPassed`イベントが含まれた`EventRequest`タイプのリクエストメッセージを使って、完全に正確なわけではないけれど、ユーザーがオーディオコンテンツをどの位置まで聞いたかを把握することができます。ユーザーが次に同じオーディオコンテンツの再生をリクエストする場合、そのデータに基づいて、最後に聞いた位置から再生することができます。
+また、`AudioPlayer.ProgressReportIntervalPassed`イベントが含まれた`EventRequest`タイプのリクエストメッセージを使って、おおよそユーザーがオーディオコンテンツをどの位置まで聞いたかを把握することができます。ユーザーが次に同じオーディオコンテンツの再生をリクエストする場合、そのデータに基づいて、最後に聞いた位置から再生することができます。
 
 <div class="danger">
   <p><strong>注意</strong></p>
@@ -378,7 +378,7 @@ Custom Extensionがクライアントに[オーディオコンテンツの再生
 {
   "audioItem": {
     "audioItemId": "9CPWU-c82302b2-ea29-4f6c-ba6e-20fd268d8c3b-c1570067",
-    "title": "Symphony No.4 In A Op.90 'Italian' - III.Con Moto Moderato",
+    "title": "The theme song for LINE Friends",
     "artist": "Unknown",
     "stream": {
       "beginAtInMilliseconds": 0,
@@ -412,7 +412,7 @@ Custom Extensionがクライアントに[オーディオコンテンツの再生
       "name": "StreamRequested",
       "payload": {
         "audioItemId": "9CPWU-c82302b2-ea29-4f6c-ba6e-20fd268d8c3b-c1570067",
-        "title": "Symphony No.4 In A Op.90 'Italian' - III.Con Moto Moderato",
+        "title": "The theme song for LINE Friends",
         "artist": "Unknown",
         "stream": {
           "beginAtInMilliseconds": 0,
@@ -468,9 +468,9 @@ Custom Extensionは、そのタイミングで、再生できるオーディオ�
 
 ### 再生コントロールの動作方法を変更する {#CustomizePlaybackControl}
 
-オーディオコンテンツを提供するサービスやコンテンツの特性によって、再生の一時停止、再生再開、再生停止などの[再生コントロール](ControlAudioPlayback)の動作を少し違った形で実装する必要があることがあります。例えば、リアルタイムのストリーミングコンテンツの場合、一時停止機能を適用できない可能性があります。その場合、ユーザーから`Clova.PauseIntent`[ビルトインインテント](/Design/Design_Guideline_For_Extension.md#BuiltinIntent)のリクエストがあっても、そのリクエストを処理できないと応答したり、または`Clova.StopIntent`のような対応を処理したりすることができます。`Clova.StopIntent`のような対応を処理する場合、[レスポンスメッセージ](/CEK/References/CEK_API.md#CustomExtResponseMessage)に{{ "[`PlaybackController.Pause`](/CIC/References/CICInterface/PlaybackController.md#Pause)" if book.TargetCountryCode == "KR" else "[`PlaybackController.Pause`](/CEK/References/CEK_API.md#Pause)" }}ディレクティブの代わりに{{ "[`PlaybackController.Stop`](/CIC/References/CICInterface/PlaybackController.md#Stop)" if book.TargetCountryCode == "KR" else "[`PlaybackController.Stop`](/CEK/References/CEK_API.md#Stop)" }}ディレクティブを応答として返すように実装することができます。
+オーディオコンテンツを提供するサービスやコンテンツの特性によって、再生の一時停止、再生再開、再生停止などの[再生コントロール](ControlAudioPlayback)の動作を少し違った形で実装する必要がある場合があります。例えば、リアルタイムのストリーミングコンテンツの場合、一時停止機能を適用できない可能性があります。その場合、ユーザーから`Clova.PauseIntent`[ビルトインインテント](/Design/Design_Guideline_For_Extension.md#BuiltinIntent)のリクエストがあっても、そのリクエストを処理できないと応答したり、または`Clova.StopIntent`のような対応を処理したりすることができます。`Clova.StopIntent`のような対応を処理する場合、[レスポンスメッセージ](/CEK/References/CEK_API.md#CustomExtResponseMessage)に{{ "[`PlaybackController.Pause`](/CIC/References/CICInterface/PlaybackController.md#Pause)" if book.TargetCountryCode == "KR" else "[`PlaybackController.Pause`](/CEK/References/CEK_API.md#Pause)" }}ディレクティブの代わりに{{ "[`PlaybackController.Stop`](/CIC/References/CICInterface/PlaybackController.md#Stop)" if book.TargetCountryCode == "KR" else "[`PlaybackController.Stop`](/CEK/References/CEK_API.md#Stop)" }}ディレクティブを応答として返すように実装することができます。
 
 <div class="note">
   <p><strong>メモ</strong></p>
-  <p>ユーザーの混乱を防ぐために、リアルタイムのストリーミングコンテンツなどの特殊な場合に限って再生コントロールの動作方法を変更し、なるべくデフォルト実装をすることを推奨します。</p>
+  <p>可能な限り仕様に沿った実装をすることを推奨しますが、リアルタイムのストリーミングコンテンツなど実装のユースケースによっては、ユーザの混乱を避けるために再生コントロールの動作を変更してください。</p>
 </div>
