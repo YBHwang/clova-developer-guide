@@ -3,6 +3,11 @@ Clovaは、[Custom Extension](/CEK/Guides/Build_Custom_Extension.md)、または
 
 アカウントリンクは、Custom Extensionがユーザーのアカウント認証を必要とする外部サービスを提供する際に使用されます。アカウント認証を必要としない外部サービスはアカウントリンクなしに提供できます。ユーザーを識別できる程度の情報を必要とするサービスは、通常、[Custom Extensionメッセージ](/CEK/References/CEK_API.md#CustomExtMessage)が提供する端末識別子(`context.System.device.deviceId`)とユーザーアカウント識別子(`context.System.user.userId`または`session.user.userId`)を組み合わせた値を使用します。
 
+<div class="danger">
+ <p><strong>注意</strong></p>
+ <p>プレオープンでアカウント連携をご利用になる場合、お手数ですが営業担当にご連絡ください。テスト方法を別途ご案内させて頂きます。</p>
+</div>
+
 <div class="note">
 <p><strong>メモ</strong></p>
 <p>Clova Home Extensionは、必ずアカウントリンクを使用する必要があります。</p>
@@ -100,7 +105,7 @@ Extensionにアカウントリンクを適用するには、ユーザーがア�
 
 <div class="note">
 <p><strong>メモ</strong></p>
-<p><code>redirect_uri</code>は、Clova Developer Centerの<a href="/DevConsole/Guides/CEK/Register_Extension.html#RedirectURI">アカウントリンクを設定する</a>画面で確認できます。</p>
+<p><code>redirect_uri</code>は、Clova Developer Centerの<a href="/DevConsole/Guides/CEK/Register_Extension.md#RedirectURI">アカウント連携を設定</a>する画面で確認できます。</p>
 </div>
 
 

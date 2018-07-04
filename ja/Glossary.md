@@ -107,8 +107,10 @@ Clova Extensionが処理するユーザーの意図を区分したカテゴリ�
 ユーザーが特定のモードまたは特定の[Custom Extension](#CustomExtension)の使用を中止すると宣言したことを知らせるために送るリクエストメッセージです。詳細については、[Custom Extensionリクエストを処理する](/CEK/Guides/Build_Custom_Extension.md#HandleCustomExtensionRequest)ドキュメントを参照してください。
 
 ### スキル {#Skill}
-
 Clovaが提供する拡張機能のことをいいます。スキルをユーザーに提供するには、[Clova Extension](#ClovaExtension)を開発する必要があります。
+
+## ビルトインスキル {#BuiltinSkill}
+Clovaデバイスに標準で搭載されているスキルで、ミュージック、LINE送受信、LINE無料通話、天気、ニュース、アラーム・タイマーなどがあります。詳細については、[Clova > Clovaのスキル](https://clova.line.me/clova-ai/) をご参照ください。
 
 ### スロット {#Slot}
 [インテント(Intent)](#Intent)に宣言されたリクエストを処理する際に必要な情報です。インテントを定義するとき、共に定義する必要があります。Clovaはユーザーのリクエストを解析して、スロットに該当する情報を抽出します。詳細については、[対話モデルを定義する](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel)ドキュメントを参照してください。
@@ -140,3 +142,4 @@ Clovaが提供する拡張機能のことをいいます。スキルをユーザ
 
 ### クライアントの認証情報 {#ClientCredentialInfo}
 [Clova Developer Center](#ClovaDeveloperConsole)でクライアントを登録し、取得した認証情報です。[Clovaアクセストークン](#ClovaAccessToken)の取得に使用されます。詳細については、[Clovaアクセストークンを生成する](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken)ドキュメントを参照してください。
+

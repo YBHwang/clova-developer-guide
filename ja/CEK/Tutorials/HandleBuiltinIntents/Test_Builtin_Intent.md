@@ -1,6 +1,6 @@
 ﻿サンプルサイコロExtensionで、ヘルプをリクエストするビルトインインテントが正しく処理するかテストする必要があります。
 
-[1番目のチュートリアル](/CEK/Tutorials/Build_Simple_Extension.md)のように、2つのテスト方法があります。1つは、Clova Developer Centerで対話モデルの動作を確認する方法です。もう1つは、テスターIDを登録して、Clovaアプリで実際の動作を確認する方法です。
+[1番目のチュートリアル](/CEK/Tutorials/Build_Simple_Extension.md)のように、2つのテスト方法があります。1つは、Clova Developer Centerで対話モデルの動作を確認する方法です。もう1つは、テスターIDを登録して、Clovaデバイスで実際の動作を確認する方法です。
 このチュートリアルでは、対話モデルの動作のみ確認します。
 
 <div class="note">
