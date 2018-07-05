@@ -72,13 +72,13 @@ Downchannel은 클라이언트가 [Clova Interface Connect](#CIC)로부터 지�
 ### Extension {#Extension}
 [Clova extension](#ClovaExtension)의 다른 표현
 
-### Extension 스토어 {#ExtensionStore}
+### Skill 스토어 {#SkillStore}
 
-Extension이 사용자에게 제공될 수 있도록 만든 플랫폼입니다.
+Skill이 사용자에게 제공될 수 있도록 만든 플랫폼입니다.
 
-### Extension 스토어 홈 {#ExtensionStoreHome}
+### Skill 스토어 홈 {#SkillStoreHome}
 
-Extension 스토어에 등록된 extension이 표시되는 페이지입니다. Clova 앱의 **확장 서비스 관리** 메뉴를 지칭하는 용어입니다.
+Skill 스토어에 등록된 skill이 표시되는 페이지입니다. Clova 앱의 **확장 서비스 관리** 메뉴를 지칭하는 용어입니다.
 
 ### Extension 페이지 {#ExtensionPage}
 

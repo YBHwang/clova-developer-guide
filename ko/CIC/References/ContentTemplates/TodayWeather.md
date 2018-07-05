@@ -287,7 +287,7 @@
   },
   "referenceText" : {
     "type" : "string",
-    "value" : "네이버 날씨"
+    "value" : "날씨"
   },
   "referenceUrl" : {
     "type" : "url",

@@ -661,7 +661,7 @@ CIC는 이 이벤트 메시지를 수신하면 사용자 계정에 등록된 모
 
 | 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
 |---------------|---------|-----------------------------|:---------:|
-| `target`      | string  | 대상 앱에 대한 정보. 다음과 같은 타입의 앱 정보를 가질 수 있습니다.<ul><li>custom URL scheme: 대상 앱의 custom URL scheme (예, <code>"{{ book.OrientedServiceWithLowerCase }}searchapp://..."</code>)</li><li>중계 페이지 URL: 설치된 대상 앱이 있을 경우 해당 앱을 실행하는 중계 페이지 URL(예, <code>"http://{{ book.OrientedServiceWithLowerCase }}app.{{ book.OrientedServiceWithLowerCase }}.com/..."</code>)</li><li>앱 이름: 사용자의 발화를 인식한 앱의 이름 (예, <code>"{{ book.OrientedService }}앱"</code>)</li></ul> | 항상     |
+| `target`      | string  | 대상 앱에 대한 정보. 다음과 같은 타입의 앱 정보를 가질 수 있습니다.<ul><li>custom URL scheme: 대상 앱의 custom URL scheme(예: <code>"{{ book.OrientedServiceWithLowerCase }}searchapp://..."</code>)</li><li>중계 페이지 URL: 설치된 대상 앱이 있을 경우 해당 앱을 실행하는 중계 페이지 URL(예: <code>"http://{{ book.OrientedServiceWithLowerCase }}app.{{ book.OrientedServiceWithLowerCase }}.com/..."</code>)</li><li>앱 이름: 사용자의 발화를 인식한 앱의 이름(예: <code>"{{ book.OrientedService }}앱"</code>)</li></ul> | 항상     |
 
 ### Remarks
 

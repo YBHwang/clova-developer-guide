@@ -40,7 +40,7 @@ Toast, alert, popup으로 표시해야 할 텍스트나 버튼에 대한 정보�
   "displayType": "TOAST",
   "toastText": {
     "type": "string",
-    "value": "1분 미리듣기 중입니다. 음악 취향 길들이기에 참여하고 네이버 뮤직 100곡 이용권 받으세요!"
+    "value": "1분 미리듣기 중입니다. 음악 취향 길들이기에 참여하고 뮤직 100곡 이용권 받으세요!"
   },
   "toastLinkText": {
     "type": "string",
@@ -152,7 +152,7 @@ Toast, alert, popup으로 표시해야 할 텍스트나 버튼에 대한 정보�
   },
   "mainText": {
     "type": "string",
-    "value": "이제 네이버 뮤직 100곡 무료 이용권으로 클로바의 추천 음악을 즐기세요!"
+    "value": "이제 뮤직 100곡 무료 이용권으로 클로바의 추천 음악을 즐기세요!"
   },
   "negativeButtonText": {
     "type": "string",
