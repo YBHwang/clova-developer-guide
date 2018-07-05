@@ -140,7 +140,3 @@ Clova가 제공하는 확장 기능을 의미합니다. Skill을 사용자에게
 
 ### 클라이언트 인증 정보 {#ClientCredentialInfo}
 [Clova developer console](#ClovaDeveloperConsole)를 통해 클라이언트를 등록하고 획득한 인증 정보이며, [Clova access token](#ClovaAccessToken)을 획득하는데 사용됩니다. 자세한 내용은 [Clova access token 생성하기](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken) 문서를 참조합니다.
-
-### 확장 서비스 {#Skill}
-
-Clova가 제공하는 확장 기능을 의미합니다. 확장 서비스를 사용자에게 제공하려면 [Clova extension](#ClovaExtension)을 개발해야 합니다.
