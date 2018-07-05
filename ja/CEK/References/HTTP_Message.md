@@ -12,7 +12,7 @@ CEKがExtensionに解析されたユーザーの発話情報を渡す際、HTTPS
 
 ```
 POST /APIpath HTTP/1.1
-Host: your.extension.endpoint
+Host: YOUR_EXTENSION_ENDPOINT
 Content-Type: application/json;charset-UTF-8
 Accept: application/json
 Accept-Charset: utf-8
@@ -43,6 +43,7 @@ ExtensionがCEKからHTTPSリクエストを受信するとき、そのリクエ
 
 **RSA公開鍵を用いてリクエストメッセージを検証する**
 <ol>
+<li><p>`context.System.application.applicationId`が設定済みの`ExtensionId`と同一であることを確認してください</p></li>
 <li><p>Clovaの署名用RSA公開鍵を以下のURLからダウンロードしてください</p>
 <p>https://clova-cek-requests.line.me/.well-known/signature-public-key.pem</p></li>
 <li><p>`SignatureCEK`ヘッダーの値を取得してください</p>
