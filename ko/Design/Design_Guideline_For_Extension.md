@@ -448,7 +448,7 @@ Skill(extension)을 통해 콘텐츠를 사용자에게 제공할 때 지켜야�
 
 * 서버 점검 등 특수한 경우를 제외하고 skill은 사용자의 요청에 언제든지 응답할 수 있어야 합니다.
 * Skill에 대한 정보인 [기본 정보](/DevConsole/Guides/CEK/Register_Extension.md#InputExtensionInfo), [서버 설정 정보](/DevConsole/Guides/CEK/Register_Extension.md#SetServerConnection), [배포 정보](/DevConsole/Guides/CEK/Deploy_Extension.md#InputDeploymentInfo) 등이 부족하거나 잘못된 정보 없이 항상 최신의 정보로 업데이트되어야 합니다.
-* [사용 시나리오](/Design/Design_Guideline_For_Extension.md#MakeUseCaseScenarioScript)에 불가능하거나 말이 안되는 부분이 없어야 하며, 사용자의 요청이 잘 인식될 수 있도록 [interaction 모델](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel) 잘 정의하여 구현해야 합니다.
+* [사용 시나리오](/Design/Design_Guideline_For_Extension.md#MakeUseCaseScenarioScript)에 불가능하거나 자연스럽지 않은 부분이 없어야 하며, 사용자의 요청이 잘 인식될 수 있도록 [interaction 모델](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel) 잘 정의하여 구현해야 합니다.
 * 콘텐츠 제공을 위해 서버를 연동하거나 계정을 연결하는 경우 필요한 [보안 조건](/CEK/Guides/Link_User_Account.md#ApplyAccountLinking)을 갖춰야 합니다.
 
 ### Skill의 안전성 {#SkillSecurity}
@@ -460,17 +460,17 @@ Skill(extension)을 통해 콘텐츠를 사용자에게 제공할 때 지켜야�
 * 청소년의 가출이나 탈선을 유도하거나 조장하지 않아야 합니다.
 * {{ book.DocOwner }} 또는 제 3자의 기기, 설비, 시스템 등의 이용을 방해하거나 운용에 지장을 주지 않아야 합니다.
 * {{ book.DocOwner }} 또는 제 3자의 설비에 축적된 정보를 불법적으로 바꾸거나 제거하지 않아야 합니다.
-* 바이러스 등 유해 프로그램을 포함 송신하는 기능을 포함하지 않아야 합니다.
+* 바이러스 등 유해 프로그램을 포함하거나 송신하지 않아야 합니다.
 
 ### 권리 보호 및 법 준수 {#RightAndLegal}
 
 Skill은 다음과 같은 사항을 준수하여 권리 보호 및 법 준수의 의무를 지켜야 합니다.
 
 * {{ book.DocOwner }} 또는 제 3자의 권리(저작권, 지적재산권, 초상권, 성명권, 인격권, 명예 등)을 침해하지 않아야 합니다.
-* 권리의 소재가 명확하지 않은 콘텐츠를 제공하지 않아야 합니다. (예:2차 창작 등)
+* 권리의 소재가 명확하지 않은 콘텐츠를 제공하지 않아야 합니다. (예: 2차 창작 등)
 * 권리자로부터 허락받지 않았거나 허락받았음을 증명할 수 없는 콘텐츠를 제공하지 않아야 합니다.
-* 도박 등 기타 불법적인 행위를 유도하거나 조장하는 콘텐츠를 제공하지 않아야 합니다. (예: 도박 참여를 권유하는 것)
-* 성 범죄, 노골적인 성 행위 묘사, 아동 포르노, 아동 학대와 관련된 콘텐츠 뿐만 아니라 기타 잔혹하거나 외석적인 표현 또는 이를 연상시키는 콘텐츠를 제공하지 않아야 합니다.
+* 도박 등 기타 불법적인 행위를 유도하거나 조장하는 콘텐츠를 제공하지 않아야 합니다.
+* 성범죄, 노골적인 성행위 묘사, 아동 포르노, 아동 학대와 관련된 콘텐츠 뿐만 아니라 기타 잔혹하거나 외설적인 표현 또는 이를 연상시키는 콘텐츠를 제공하지 않아야 합니다.
 * 기타 범죄를 구상 또는 조장하거나 미풍양속 또는 법규를 위반하거나 위반할 우려가 있는 콘텐츠를 제공하지 않아야 합니다.
 
 <div class="note">
@@ -496,9 +496,9 @@ Skill은 개인 정보 보호의 의무를 지켜야 합니다.
 
 * Clova 이용 데이터 등 기타 개인 정보를 수집하지 않아야 합니다.
 * 다음과 같은 민감한 정보를 수집하지 않아야 합니다.
-  * 인종, 신조, 사회적 신분, 병력, 전과, 범죄 피해 정보
+  * 인종, 종교, 사회적 신분, 병력, 전과, 범죄 피해 정보
   * 장애, 지적 장애·정신 장애에 대한 정보
-  * 건강 진단 그외 다른 검사의 결과
+  * 건강 진단 그 외의 다른 검사의 결과
   * 의료 기록, 진료 및 투약 정보
   * 피의자 또는 피고인으로서 구속, 수색 등의 민사 또는 형사 사건에 관련된 정보
 
