@@ -90,9 +90,10 @@ Extension의 [배포 정보](#InputDeploymentInfo)와 [개인 정보 보호 및 
 
 Extension을 심사할 때 살펴보는 기본 평가 항목은 다음과 같습니다.
 
-* [사용 시나리오](/Design/Design_Guideline_For_Extension.md#MakeUseCaseScenarioScript) 검증
+* [사용 시나리오](/Design/Design_Guideline_For_Extension.md#MakeUseCaseScenarioScript) 및 콘텐츠 검증
   * 대화 문맥 상 어색한 부분이 있는지 확인합니다.
   * 시나리오 상 사용되는 발화 데이터에 금칙어, 민감어 등이 있는지 확인합니다.
+  * [콘텐츠 제공 시 준수 사항](/Design/Design_Guideline_For_Extension.md#ContentGuideline)을 지켰는지 확인합니다.
   * Extension이 [사용자 계정을 연결](/CEK/Guides/Link_User_Account.md)하는 경우 서비스에 특화된 부분을 더 검토할 수 있습니다.
 * Extension의 동작 검증
   * Extension이 서비스에 적합한 용어를 사용하고 있는지 확인합니다.

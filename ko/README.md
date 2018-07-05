@@ -25,6 +25,7 @@
     <td>
       <ul>
         <li>[Design] Extension의 <a href="/Design/Design_Guideline_For_Extension.html#DefineExtensionName">이름 정의</a>에 대한 가이드라인 추가</li>
+        <li>[Design] Extension의 <a href="/Design/Design_Guideline_For_Extension.html#ContentGuideline">콘텐츠 제공 시 준수 사항</a>에 대한 가이드라인 추가</li>
       </ul>
     </td>
   </tr>
