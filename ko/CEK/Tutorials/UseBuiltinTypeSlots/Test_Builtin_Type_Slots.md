@@ -3,7 +3,7 @@
 [첫 번째 튜토리얼](/CEK/Tutorials/Build_Simple_Extension.md)에서처럼 두 가지 테스트 방법이 있습니다. 하나는 Clova developer console에서 interaction 모델 동작을 확인하는 것이고, 다른 하나는 테스터 아이디를 등록하여 Clova 앱에서 실제 동작을 확인하는 것입니다.
 이 튜토리얼에서는 interaction 모델 동작만 확인합니다.
 
-<a href="https://developers.naver.com/console/clova/cek/#/list" target="_blank">Clova developer console</a>에 접속하여 다음과 같이 샘플 주사위 extension이 주사위 개수를 잘 인식하는지 확인합니다.
+<a href="{{ book.DeveloperConsoleURL }}/cek/#/list" target="_blank">Clova developer console</a>에 접속하여 다음과 같이 샘플 주사위 extension이 주사위 개수를 잘 인식하는지 확인합니다.
 1. 샘플 주사위의 **{{ book.DevConsole.cek_interaction_model }}** 항목 내 **{{ book.DevConsole.cek_edit}}** 버튼을 누릅니다.
 2. 화면 좌측 상단의 **{{ book.DevConsole.cek_builder_menu_build }}** 버튼을 눌러 interaction 모델을 빌드합니다.
 3. 빌드가 끝난 후, 왼쪽의 메뉴 목록에서 **{{ book.DevConsole.cek_test }}** 메뉴를 선택합니다.

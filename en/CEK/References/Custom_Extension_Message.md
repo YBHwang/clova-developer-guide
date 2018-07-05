@@ -342,7 +342,7 @@ The extension must deliver a response message after handling a request message (
     },
     "shouldEndSession": {{boolean}},
   },
-  "sessionAttibutes": {{object}},
+  "sessionAttributes": {{object}},
   "version": {{string}}
 }
 ```

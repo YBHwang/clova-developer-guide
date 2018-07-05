@@ -12,7 +12,7 @@ Clova는 모든 extension이 범용적으로 사용할 수 있도록 일반적�
   <p>Built-in slot 타입으로 정의되지 않은 extension 고유의 정보 유형은 <a href="/Design/Design_Guideline_For_Extension.md#CustomSlotType">custom slot 타입</a>을 정의하여 처리할 수 있습니다.</p>
 </div>
 
-<a href="https://developers.naver.com/console/clova/cek/#/list" target="_blank">Clova developer console</a>에 접속하여 다음과 같이 샘플 주사위 extension에서 사용할 slot 타입을 선언합니다.
+<a href="{{ book.DeveloperConsoleURL }}/cek/#/list" target="_blank">Clova developer console</a>에 접속하여 다음과 같이 샘플 주사위 extension에서 사용할 slot 타입을 선언합니다.
 
 1. 샘플 주사위의 **{{ book.DevConsole.cek_interaction_model }}** 항목 내 **{{ book.DevConsole.cek_edit }}** 버튼을 누릅니다.
 2. **{{ book.DevConsole.cek_builder_list_title_slottype }}** 오른쪽에 있는 <img class="inlineImage" src="/CEK/Resources/Images/DevConsole_Plus_Button.png" /> 버튼을 누릅니다.

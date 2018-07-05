@@ -107,9 +107,9 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
 * [`PlaybackController.Resume`](/CIC/References/CICInterface/PlaybackController.md#Resume) 지시 메시지: 클라이언트에게 오디오 스트림 재생을 재개하도록 지시
 * [`PlaybackController.Stop`](/CIC/References/CICInterface/PlaybackController.md#Stop) 지시 메시지: 클라이언트에게 오디오 스트림 재생을 중지하도록 지시
 {% elif book.TargetCountryCode == "JP" %}
-* [`PlaybackController.Pause`](/CIC/References/CICInterface/PlaybackController.md#Pause) 지시 메시지: 클라이언트에게 재생 중인 오디오 스트림을 일시 정지하도록 지시
-* [`PlaybackController.Resume`](/CIC/References/CICInterface/PlaybackController.md#Resume) 지시 메시지: 클라이언트에게 오디오 스트림 재생을 재개하도록 지시
-* [`PlaybackController.Stop`](/CIC/References/CICInterface/PlaybackController.md#Stop) 지시 메시지: 클라이언트에게 오디오 스트림 재생을 중지하도록 지시
+* [`PlaybackController.Pause`](/CEK/References/CEK_API.md#Pause) 지시 메시지: 클라이언트에게 재생 중인 오디오 스트림을 일시 정지하도록 지시
+* [`PlaybackController.Resume`](/CEK/References/CEK_API.md##Resume) 지시 메시지: 클라이언트에게 오디오 스트림 재생을 재개하도록 지시
+* [`PlaybackController.Stop`](/CEK/References/CEK_API.md##Stop) 지시 메시지: 클라이언트에게 오디오 스트림 재생을 중지하도록 지시
 {% endif %}
 
 다음은 `PlaybackController.Pause` 지시 메시지를 custom extension의 응답 메시지에 포함한 예입니다.

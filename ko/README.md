@@ -21,6 +21,14 @@
   </thead>
   <tbody>
   <tr>
+    <td>v4.7</td><td>2018-07-09</td>
+    <td>
+      <ul>
+        <li>[Design] Extension의 <a href="/Design/Design_Guideline_For_Extension.html#DefineExtensionName">이름 정의</a>에 대한 가이드라인 추가</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
     <td>v4.6</td><td>2018-06-25</td>
     <td>
       <ul>

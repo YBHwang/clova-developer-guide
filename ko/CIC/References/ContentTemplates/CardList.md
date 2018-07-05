@@ -49,7 +49,7 @@
     {
       "contentProviderText" : {
         "type" : "string",
-        "value" : "네이버 영화"
+        "value" : "영화"
       },
       "description": [
         {
@@ -83,7 +83,7 @@
       },
       "referenceText": {
         "type": "string",
-        "value": "네이버 검색결과"
+        "value": "검색결과"
       },
       "referenceUrl": {
         "type": "url",
@@ -101,7 +101,7 @@
     {
       "contentProviderText" : {
         "type" : "string",
-        "value" : "네이버 영화"
+        "value" : "영화"
       },
       "description": [
         {
@@ -135,7 +135,7 @@
       },
       "referenceText": {
         "type": "string",
-        "value": "네이버 검색결과"
+        "value": "검색결과"
       },
       "referenceUrl": {
         "type": "url",
@@ -163,7 +163,7 @@
     {
       "contentProviderText" : {
         "type" : "string",
-        "value" : "네이버 TV"
+        "value" : "TV"
       },
       "description": [
         {
@@ -197,7 +197,7 @@
       },
       "referenceText": {
         "type": "string",
-        "value": "네이버 검색결과"
+        "value": "검색결과"
       },
       "referenceUrl": {
         "type": "url",
@@ -215,7 +215,7 @@
     {
       "contentProviderText" : {
         "type" : "string",
-        "value" : "네이버 TV"
+        "value" : "TV"
       },
       "description": [
         {
@@ -249,7 +249,7 @@
       },
       "referenceText": {
         "type": "string",
-        "value": "네이버 검색결과"
+        "value": "검색결과"
       },
       "referenceUrl": {
         "type": "url",
@@ -278,7 +278,7 @@
     {
       "contentProviderText" : {
         "type" : "string",
-        "value" : "네이버 뉴스"
+        "value" : "뉴스"
       },
       "description": [
         {
@@ -330,7 +330,7 @@
     {
       "contentProviderText" : {
         "type" : "string",
-        "value" : "네이버 뉴스"
+        "value" : "뉴스"
       },
       "description": [
         {
@@ -390,7 +390,7 @@
     {
       "contentProviderText" : {
         "type" : "string",
-        "value" : "네이버 뮤직"
+        "value" : "뮤직"
       },
       "description": [
         {
@@ -424,7 +424,7 @@
       },
       "referenceText": {
         "type": "string",
-        "value": "네이버 검색결과"
+        "value": "검색결과"
       },
       "referenceUrl": {
         "type": "url",
@@ -442,7 +442,7 @@
     {
       "contentProviderText" : {
         "type" : "string",
-        "value" : "네이버 뮤직"
+        "value" : "뮤직"
       },
       "description": [
         {
@@ -476,7 +476,7 @@
       },
       "referenceText": {
         "type": "string",
-        "value": "네이버 검색결과"
+        "value": "검색결과"
       },
       "referenceUrl": {
         "type": "url",
