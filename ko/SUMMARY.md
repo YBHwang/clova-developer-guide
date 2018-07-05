@@ -41,6 +41,12 @@
     * [음성 출력 유형](/Design/Design_Guideline_For_Extension.md#OutpuSpeech)
     * [오디오 콘텐츠 재생 유형](/Design/Design_Guideline_For_Extension.md#AudioPlayer)
   * [콘텐츠 제공 시 준수 사항](/Design/Design_Guideline_For_Extension.md#ContentGuideline)
+    * [Skill의 완전성](/Design/Design_Guideline_For_Extension.md#SkillCompleteness)
+    * [Skill의 안전성](/Design/Design_Guideline_For_Extension.md#SkillSecurity)
+    * [권리 보호 및 법 준수](/Design/Design_Guideline_For_Extension.md#RightAndLegal)
+    * [윤리 이행](/Design/Design_Guideline_For_Extension.md#Morals)
+    * [개인 정보 보호](/Design/Design_Guideline_For_Extension.md#Privacy)
+    * [기타 유의 사항](/Design/Design_Guideline_For_Extension.md#OtherPrecautions)
   * [플랫폼 지원 오디오 압축 포맷](/Design/Design_Guideline_For_Extension.md#SupportedAudioCompressionFormat)
   * [지속적인 업데이트](/Design/Design_Guideline_For_Extension.md#ContinuousUpdate)
 
