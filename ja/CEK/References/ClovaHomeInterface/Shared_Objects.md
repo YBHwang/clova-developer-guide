@@ -13,7 +13,7 @@
 | [ColorTemperatureInfoObject](#ColorTemperatureInfoObject) | エンドポイントの照明や画面、電球の色温度の情報を持っています。  |
 | [ConsumptionInfoObject](#ConsumptionInfoObject)           | 電力の使用量情報を持っています。       |
 | [CustomCommandInfoObject](#CustomCommandInfoObject)       | カスタムコマンドの情報を持っています。   |
-| [CustomInfoObject](#CustomInfoObject)                     | 任意の名前、必要な単位・数値情報を直接入力する際に使用できます。 |   |   |
+| [CustomInfoObject](#CustomInfoObject)                     | 任意の名前、必要な単位・数値情報を直接入力する際に使用できます。 |
 | [ExpendableInfoObject](#ExpendableInfoObject)             | エンドポイントの消耗品の使用量や残り寿命に関する情報を持っています。  |
 | [FineDustInfoObject](#FineDustInfoObject)                 | PM10の情報を持っています。          |
 | [IntensityLevelInfoObject](#IntensityLevelInfoObject)     | 圧力や水圧の強度情報を持っています。   |
@@ -97,6 +97,7 @@
         "version": "v1.0",
         "friendlyName": "リビングの照明",
         "friendlyDescription": "スマートフォンで制御できる照明",
+        "isIr": false,
         "isReachable": true,
           "actions": [
             "DecrementBrightness",
@@ -116,6 +117,7 @@
         "version": "v1.0",
         "friendlyName": "キッチンのコンセント",
         "friendlyDescription": "節電コンセント",
+        "isIr": false,
         "isReachable": true,
         "actions": [
           "HealthCheck",
@@ -184,7 +186,8 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 | `applianceTypes[]`           | string array  | エンドポイントのタイプ。`applicationType`によって、そのエンドポイントでサポートされている動作を示す`actions`フィールドの値が異なります。IoTサービスでユーザーアカウントに登録されているエンドポイントのタイプを、次のいずれかに指定する必要があります。備考を参考にして、エンドポイントのタイプを入力します。                                                                              | 必須/常時    |
 | `friendlyName`               | string        | ユーザーがつけたエンドポイントの名前                                                           | 任意/常時    |
 | `friendlyDescription`        | string        | エンドポイントの説明                                                                  | 任意/常時    |
-| `isReachable`                | boolean       | 現在、エンドポイントが遠隔操作できる状態にあるかどうかを示します。<ul><li>true：遠隔操作できる</li><li>false：遠隔操作できない</li></ul> | 任意/常時    |
+| `isIr`                       | boolean       | エンドポイントのコントロールに、赤外線通信を利用するかどうかを示すフィールド<ul><li>true：赤外線通信を利用する</li><li>false：赤外線通信を利用しない</li></ul><div class="note"><p><strong>メモ</strong></p><p>エンドポイントを赤外線通信でコントロールする場合、Clovaはユーザーにエンドポイントのコントロール結果を伝えません。</p></div>  | 任意/条件付き  |
+| `isReachable`                | boolean       | エンドポイントが遠隔操作できる状態にあるかどうかを示す値<ul><li>true：遠隔操作できる</li><li>false：遠隔操作できない</li></ul>  | 任意/常時    |
 | `manufacturerName`           | string        | デバイスメーカーの名前                                                                  | 任意/常時    |
 | `modelName`                  | string        | デバイスのモデル名                                                                   | 任意/常時    |
 | `version`                    | string        | メーカーのソフトウェアバージョン                                                            | 任意/常時    |
@@ -344,6 +347,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
         "version": "v1.0",
         "friendlyName": "リビングの照明",
         "friendlyDescription": "スマートフォンで制御できる照明",
+        "isIr": false,
         "isReachable": true,
           "actions": [
             "HealthCheck",
@@ -361,6 +365,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
         "version": "v1.0",
         "friendlyName": "キッチンのコンセント",
         "friendlyDescription": "節電コンセント",
+        "isIr": false,
         "isReachable": true,
         "actions": [
           "HealthCheck",
@@ -740,6 +745,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
         "version": "v1.0",
         "friendlyName": "リビングの照明",
         "friendlyDescription": "スマートフォンで制御できる照明",
+        "isIr": false,
         "isReachable": true,
           "actions": [
             "DecrementBrightness",
@@ -759,6 +765,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
         "version": "v1.0",
         "friendlyName": "キッチンのコンセント",
         "friendlyDescription": "節電コンセント",
+        "isIr": false,
         "isReachable": true,
         "actions": [
           "HealthCheck",
@@ -981,6 +988,9 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
         <ul>
           <li><code>"cool"</code>：冷房モード。主にエアコンで使用されるモードです。</li>
           <li><code>"dehumidify"</code>：除湿モード。主にエアコンや除湿器のようなエンドポイントで使用されるモードです。</li>
+          {% if book.TargetCountryCode == "JP" %}
+          <li><code>"heat"</code>：暖房モード。主にエアコンで使用されるモードです。</li>
+          {% endif %}
           <li><code>"sleep"</code>：スリープモード。主にスマートハブのようなエンドポイントで使用されるモードです。</li>
         </ul>
       </td>
@@ -1566,7 +1576,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 ### Object fields
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | テレビのチャンネル番号                  | 必須/常時     |
+| `value`             | number  | テレビのチャンネル番号                      | 必須/常時     |
 
 ### Object Example
 {% raw %}
@@ -1586,7 +1596,10 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
         "applianceId": "device-007"
     },
     "channel": {
-        "value": 13
+      "value": 15
+    },
+    "subChannel": {
+      "value": 1
     }
   }
 }
@@ -1601,7 +1614,10 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
   },
   "payload": {
     "channel": {
-      "value": 13
+      "value": 15
+    },
+    "subChannel": {
+      "value": 1
     }
   }
 }

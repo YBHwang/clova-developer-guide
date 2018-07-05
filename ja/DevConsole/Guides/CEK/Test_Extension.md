@@ -1,14 +1,13 @@
-# Extensionをテストする
+# 対話モデルをテストする
 
 登録したExtensionと対話モデルは、配布する前にテストすることができます。次の項目を確認して、Extensionと対話モデルをテストします。
 
 * (Custom Extension専用)[対話モデルをビルドする](#BuildInteractionModel)
 * (Custom Extension専用)[対話モデルをテストする](#TestInteractionModel)
-* [ClovaアプリでExtensionをテストする](#TestOnClovaApp)
 
 ## 対話モデルをビルドする {#BuildInteractionModel}
 
-Custom Extensionを配布する場合、先に[対話モデルを登録](/DevConsole/Guides/CEK/Register_Interaction_Model.md)しておく必要があります。また、対話モデルの[テスト](#TestInteractionModel)や実行には、ビルドが必要です。作成した対話モデルは次のようにビルドする事ができます。
+Custom Extensionを配布する場合、先に[対話モデルを登録](/DevConsole/Guides/CEK/Register_Interaction_Model.md)しておく必要があります。また、対話モデルの[テスト](#TestInteractionModel)や実行には、ビルドが必要です。作成した対話モデルは次のようにビルドすることができます。
 
 <ol>
   <li>登録したExtensionのリストから、ビルドする対話モデルの<strong>{{ book.DevConsole.cek_edit }}</strong>メニューをクリックします。</li>
@@ -42,6 +41,7 @@ Custom Extensionを配布する場合、先に[対話モデルを登録](/DevCon
 
 ![](/DevConsole/Resources/Images/DevConsole-Test_Result.png)
 
+{% if book.language !== "ja" %}
 ## ClovaアプリでExtensionをテストする {#TestOnClovaApp}
 
 実際のクライアントであるClovaアプリで、Extensionをテストすることができます。そのためには、Extensionの基本情報を登録するページの**{{ book.DevConsole.cek_tester }}**フィールドに、開発者またはExtensionをテストする人の<strong>{{ book.OrientedService }}アカウント</strong>を入力する必要があります。アカウントを追加して**{{ book.DevConsole.cek_save }}**ボタンをクリックすると、そのアカウントで認証されたClovaアプリで、開発中のExtensionをテストできます。Clovaアプリでテストを中止するには、入力したアカウント情報を削除します。
@@ -52,3 +52,4 @@ Custom Extensionを配布する場合、先に[対話モデルを登録](/DevCon
   <p><strong>メモ</strong></p>
   <p>テスターIDを登録してしばらく待つと、Extensionをテストできます。もし1時間以上経ってもExtensionをテストできない場合には、フォーラムまたは提携担当者までお問い合わせください。</p>
 </div>
+{% endif %}

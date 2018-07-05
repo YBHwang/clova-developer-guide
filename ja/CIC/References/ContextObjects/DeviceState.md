@@ -200,10 +200,11 @@
 | フィールド名       | データ型    | 説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `actions[]`          | string array | Bluetooth接続に関連して実行できる[`DeviceControl`](/CIC/References/CICInterface/DeviceControl.md)APIのリスト。次のリストのうち、クライアントデバイスが実際に実行できるアクションを入力します。<ul><li><code>"TurnOff"</code></li><li><code>"TurnOn"</code></li><li><code>"BtConnect"</code></li><li><code>"BtConnectByPINCode"</code></li><li><code>"BtDisconnect"</code></li><li><code>"BtStartPairing"</code></li><li><code>"BtStopPairing"</code></li></ul> | 必須 |
-| `btlist[]`           | object array | ペアリングされたBluetoothデバイスの情報を持つオブジェクト配列         | 必須 |
+| `btlist[]`           | object array | ペアリングされたことがあるBluetoothデバイスの情報を持つオブジェクト配列         | 必須 |
 | `btlist[].name`      | string       | Bluetoothデバイスの名前                      | 必須 |
 | `btlist[].address`   | string       | BluetoothデバイスのMACアドレス                  | 必須 |
 | `btlist[].connected` | boolean      | Bluetoothデバイスとの接続状態。<ul><li><code>true</code>：接続している</li><li><code>false</code>：接続していない</li></ul> | 必須 |
+| `btlist[].role`      | string       | Bluetoothデバイスのロール<ul><li><code>"sink"</code></li><li><code>"source"</code></li></ul>  | 必須 |   |   |   |   |
 | `scanlist[]`         | object array | スキャンされたBluetoothデバイスの情報を持つオブジェクト配列   | 必須 |
 | `scanlist[].name`    | string       | Bluetoothデバイスの名前                      | 必須 |
 | `scanlist[].address` | string       | BluetoothデバイスのMACアドレス                  | 必須 |
@@ -235,12 +236,14 @@
             {
                 "name": "My Phone",
                 "address": "44:00:10:f1:1f:f5",
-                "connected": false
+                "connected": false,
+                "role": "source"
             },
             {
                 "name": "My Speaker",
                 "address": "29:01:11:1f:12:89",
-                "connected": true
+                "connected": true,
+                "role": "sink"
             }
         ],
         "scanlist": [

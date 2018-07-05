@@ -1,5 +1,5 @@
 # Error
-Clova Home ExtensionがCEKにエラーを返す際に使用されるインターフェースです。
+Clova Home ExtensionがCEKにエラーを返す際に使用されるインターフェースです。以下のエラーメッセージを使用できます。
 
 
 | メッセージ         | タイプ  | 説明                                   |
@@ -10,9 +10,10 @@ Clova Home ExtensionがCEKにエラーを返す際に使用されるインター
 | [`ExpiredAccessTokenError`](#ExpiredAccessTokenError)      | Error Response | [アカウントリンク](/CEK/Guides/Link_User_Account.md)の際、[認可サーバー](/CEK/Guides/Link_User_Account.md#BuildAuthServer)から発行されたアクセストークンが期限切れである場合、CEKにこのメッセージをレスポンスとして返します。  |
 | [`InvalidAccessTokenError`](#InvalidAccessTokenError)      | Error Response | ユーザーが使用中のアクセストークンに対する権限を解除した場合、CEKにこのメッセージをレスポンスとして返します。         |
 | [`NoSuchTargetError`](#NoSuchTargetError)                  | Error Response | エンドポイントが存在しない場合、このメッセージをレスポンスとして返します。                            |
-| [`NotSupportedInCurrentModeError`](#NotSupportedInCurrentModeError) | Error Response | エンドポイントの現在のモードではサポートされないディレクティブを示します。  |
+| [`NotSupportedInCurrentModeError`](#NotSupportedInCurrentModeError) | Error Response | エンドポイントの現在のモードでサポートされていないディレクティブを受信した場合、CEKにこのメッセージをレスポンスとして返します。  |
 | [`TargetOfflineError`](#TargetOfflineError)                | Error Response | エンドポイントがオフラインになっているため、アクセスできなかったことを示します。 |
 | [`UnsupportedOperationError`](#UnsupportedOperationError)  | Error Response | エンドポイントでサポートされないリクエストを示します。   |
+| [`ValueNotFoundError`](#ValueNotFoundError)                | Error Response | エンドポイントが測定値や状態値を測定したりまたは保存したりすることができず、リクエストされた値を提供できない場合、CEKにこのメッセージをレスポンスとして返します。  |
 | [`ValueOutOfRangeError`](#ValueOutOfRangeError)            | Error Response | エンドポイントが処理できる範囲外の値を設定しようとするリクエストを示します。 |
 
 <div class="note">
@@ -25,11 +26,12 @@ Clova Home ExtensionがCEKにエラーを返す際に使用されるインター
 
 ### Payload fields
 
-なし
+| フィールド名       | データ型    | フィールドの説明                     | 必須/選択 |
+|---------------|---------|-----------------------------|:---------:|
+| `state`       | string  | 満たされていない条件や状態を表す値。このフィールドはユーザーにTTSとして再生されるので、ユーザーにとってわかりやすい言葉で作成される必要があります。以下のように、ユーザーに現在の状況をレポートします。<pre><code>{デバイス}の{state}状態ではサポートしていない機能です。確認してから、再度試してください。</code></pre>  | 必須    |
 
 ### 備考
-* エラーが発生した場合にも、エラーメッセージはリクエスト成功のレスポンス(200 OK)でCEKに返す必要があります。
-* エラーメッセージの名前で状況を判断するため、`payload`は必要ありません。
+* エラーが発生した場合にも、エラーメッセージはリクエスト成功のHTTPレスポンス(200 OK)でCEKに返す必要があります。
 
 ### Message example
 
@@ -42,7 +44,9 @@ Clova Home ExtensionがCEKにエラーを返す際に使用されるインター
     "name": "ConditionsNotMetError",
     "payloadVersion": "1.0"
   },
-  "payload": {}
+  "payload": {
+    "state": "省電力モード"
+  }
 }
 ```
 {% endraw %}
@@ -58,7 +62,7 @@ Clova Home ExtensionがCEKにエラーを返す際に使用されるインター
 なし
 
 ### 備考
-* エラーが発生した場合にも、エラーメッセージはリクエスト成功のレスポンス(200 OK)でCEKに返す必要があります。
+* エラーが発生した場合にも、エラーメッセージはリクエスト成功のHTTPレスポンス(200 OK)でCEKに返す必要があります。
 * エラーメッセージの名前で状況を判断するため、`payload`は必要ありません。
 
 ### Message example
@@ -89,7 +93,7 @@ Clova Home ExtensionがCEKにエラーを返す際に使用されるインター
 なし
 
 ### 備考
-* エラーが発生した場合にも、エラーメッセージはリクエスト成功のレスポンス(200 OK)でCEKに返す必要があります。
+* エラーが発生した場合にも、エラーメッセージはリクエスト成功のHTTPレスポンス(200 OK)でCEKに返す必要があります。
 * エラーメッセージの名前で状況を判断するため、`payload`は必要ありません。
 
 ### Message example
@@ -120,7 +124,7 @@ Clova Home ExtensionがCEKにエラーを返す際に使用されるインター
 なし
 
 ### 備考
-* エラーが発生した場合にも、エラーメッセージはリクエスト成功のレスポンス(200 OK)でCEKに返す必要があります。
+* エラーが発生した場合にも、エラーメッセージはリクエスト成功のHTTPレスポンス(200 OK)でCEKに返す必要があります。
 * エラーメッセージの名前で状況を判断するため、`payload`は必要ありません。
 
 ### Message example
@@ -150,7 +154,7 @@ Clova Home ExtensionがCEKにエラーを返す際に使用されるインター
 なし
 
 ### 備考
-* エラーが発生した場合にも、エラーメッセージはリクエスト成功のレスポンス(200 OK)でCEKに返す必要があります。
+* エラーが発生した場合にも、エラーメッセージはリクエスト成功のHTTPレスポンス(200 OK)でCEKに返す必要があります。
 * エラーメッセージの名前で状況を判断するため、`payload`は必要ありません。
 
 ### Message example
@@ -180,7 +184,7 @@ Clova Home ExtensionがCEKにエラーを返す際に使用されるインター
 なし
 
 ### 備考
-* エラーが発生した場合にも、エラーメッセージはリクエスト成功のレスポンス(200 OK)でCEKに返す必要があります。
+* エラーが発生した場合にも、エラーメッセージはリクエスト成功のHTTPレスポンス(200 OK)でCEKに返す必要があります。
 * エラーメッセージの名前で状況を判断するため、`payload`は必要ありません。
 
 ### Message example
@@ -204,14 +208,14 @@ Clova Home ExtensionがCEKにエラーを返す際に使用されるインター
 * [`TargetOfflineError`](#TargetOfflineError)
 
 ## NotSupportedInCurrentModeError {#NotSupportedInCurrentModeError}
-エンドポイントの現在のモードではサポートされないディレクティブを示します。例えば、エアコンの場合、除湿モードで動作している間は温度を調節できない製品があります。そのタイプのエアコンを使用しているユーザーが除湿モードで温度調節をリクエストした場合、このメッセージを返します。CEKはこのメッセージを受け取ると、あらかじめ用意されたエラーメッセージをクライアントに送信します。
+エンドポイントの現在のモードでサポートされていないディレクティブを受信した場合、CEKにこのメッセージをレスポンスとして返します。例えば、エアコンの場合、除湿モードで動作している間は温度を調節できない製品があります。そのタイプのエアコンを使用しているユーザーが除湿モードで温度調節をリクエストした場合、このメッセージを返します。CEKはこのメッセージを受け取ると、あらかじめ用意されたエラーメッセージをクライアントに送信します。
 
 ### Payload fields
 
 なし
 
 ### 備考
-* エラーが発生した場合にも、エラーメッセージはリクエスト成功のレスポンス(200 OK)でCEKに返す必要があります。
+* エラーが発生した場合にも、エラーメッセージはリクエスト成功のHTTPレスポンス(200 OK)でCEKに返す必要があります。
 * エラーメッセージの名前で状況を判断するため、`payload`は必要ありません。
 
 ### Message example
@@ -232,7 +236,6 @@ Clova Home ExtensionがCEKにエラーを返す際に使用されるインター
 
 ### 次の項目も参照してください。
 * [`UnsupportedOperationError`](#UnsupportedOperationError)
-* [`ValueOutOfRangeError`](#ValueOutOfRangeError)
 
 ## TargetOfflineError {#TargetOfflineError}
 エンドポイントがオフラインになっているため、アクセスできなかったことを示します。CEKはこのメッセージを受け取ると、あらかじめ用意されたエラーメッセージをクライアントに送信します。
@@ -242,7 +245,7 @@ Clova Home ExtensionがCEKにエラーを返す際に使用されるインター
 なし
 
 ### 備考
-* エラーが発生した場合にも、エラーメッセージはリクエスト成功のレスポンス(200 OK)でCEKに返す必要があります。
+* エラーが発生した場合にも、エラーメッセージはリクエスト成功のHTTPレスポンス(200 OK)でCEKに返す必要があります。
 * エラーメッセージの名前で状況を判断するため、`payload`は必要ありません。
 
 ### Message example
@@ -276,7 +279,7 @@ Clova Home ExtensionがCEKにエラーを返す際に使用されるインター
 なし
 
 ### 備考
-* エラーが発生した場合にも、エラーメッセージはリクエスト成功のレスポンス(200 OK)でCEKに返す必要があります。
+* エラーが発生した場合にも、エラーメッセージはリクエスト成功のHTTPレスポンス(200 OK)でCEKに返す必要があります。
 * エラーメッセージの名前で状況を判断するため、`payload`は必要ありません。
 
 ### Message example
@@ -297,6 +300,34 @@ Clova Home ExtensionがCEKにエラーを返す際に使用されるインター
 
 ### 次の項目も参照してください。
 * [`NotSupportedInCurrentModeError`](#NotSupportedInCurrentModeError)
+
+## ValueNotFoundError {#ValueNotFoundError}
+エンドポイントが測定値や状態値を測定したりまたは保存したりすることができず、リクエストされた値を提供できない場合、CEKにこのメッセージをレスポンスとして返します。例えば、エアコンは、現在の温度などの値をデフォルトで提供する必要がありますが、欠陥や一時的な故障によって温度を測定できず、値を提供できないことがあります。このメッセージは、そのような状況で使用できます。
+
+### Payload fields
+なし
+
+### 備考
+* エラーが発生した場合にも、エラーメッセージはリクエスト成功のHTTPレスポンス(200 OK)でCEKに返す必要があります。
+* エラーメッセージの名前で状況を判断するため、`payload`は必要ありません。
+
+### Message example
+
+{% raw %}
+```json
+{
+  "header": {
+    "messageId": "57109b11-ee04-45df-9dd2-c979bc8608ea",
+    "namespace": "ClovaHome",
+    "name": "ValueNotFoundError",
+    "payloadVersion": "1.0"
+  },
+  "payload": {}
+}
+```
+{% endraw %}
+
+### 次の項目も参照してください。
 * [`ValueOutOfRangeError`](#ValueOutOfRangeError)
 
 ## ValueOutOfRangeError {#ValueOutOfRangeError}
@@ -310,8 +341,7 @@ Clova Home ExtensionがCEKにエラーを返す際に使用されるインター
 | `minimumValue` | number | エンドポイントでサポートされる最小値 | 必須    |
 
 ### 備考
-* エラーが発生した場合にも、エラーメッセージはリクエスト成功のレスポンス(200 OK)でCEKに返す必要があります。
-* エラーメッセージの名前で状況を判断するため、`payload`は必要ありません。
+* エラーが発生した場合にも、エラーメッセージはリクエスト成功のHTTPレスポンス(200 OK)でCEKに返す必要があります。
 * `payload`に入力された値は、ユーザーに設定値の有効範囲を案内する際に使用できます。
 
 ### Message example
@@ -334,5 +364,4 @@ Clova Home ExtensionがCEKにエラーを返す際に使用されるインター
 {% endraw %}
 
 ### 次の項目も参照してください。
-* [`UnsupportedOperationError`](#UnsupportedOperationError)
-* [`NotSupportedInCurrentModeError`](#NotSupportedInCurrentModeError)
+* [`ValueNotFoundError`](#ValueNotFoundError)

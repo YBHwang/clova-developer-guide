@@ -1,9 +1,9 @@
 ## Clova Home Extensionレスポンスを返す {#ReturnClovaHomeExtensionResponse}
 
-Clova Home Extensionは、処理結果をCEKに返す必要があります(HTTPSレスポンス)。Clova Home Extensionレスポンスには、次のような特徴があります。
+Clova Home Extensionは、処理結果をCEKに返す必要があります(HTTPレスポンス)。Clova Home Extensionレスポンスには、次のような特徴があります。
 
 * デバイス状態のリクエストを受信した場合、IoTサービスからデバイスの状態を取得するため、デバイスの現在の状態とは異なることがあります。
-* デバイス操作のリクエストを受信した場合、結果としてデバイスの最終状態変更を返すのではなく、IoTサービスにユーザーのリクエストがちゃんと届いたか確認する程度の応答を返します。
+* デバイスのコントロールに関するリクエストを受信した場合、デバイスの最終的な状態の変化を確認してから応答を返す必要があります。
 * リクエストが正常に処理された場合、以下のように[Clova Home Extensionリクエスト](#HandleClovaHomeExtensionRequest)に対応する[インターフェース](/CEK/References/CEK_API.md#ClovaHomeExtInterface)を使用して応答する必要があります。
 
 「照明をつけて」のような操作のリクエスト([`TurnOnRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#TurnOnRequest))をIoTサービスに送信し、IoTサービスから正常に処理されたとの応答を受け取った場合、以下のように[`TurnOnConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#TurnOnConfirmation)メッセージで結果をCEKに返す必要があります。
