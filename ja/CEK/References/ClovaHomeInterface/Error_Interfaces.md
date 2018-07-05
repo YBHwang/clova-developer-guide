@@ -7,7 +7,7 @@ Clova Home ExtensionがCEKにエラーを返す際に使用されるインター
 | [`ConditionsNotMetError`](#ConditionsNotMetError)          | Error Response | エンドポイントが動作するための特定の条件(ステータス)が満たされていない場合、CEKにこのメッセージをレスポンスとして返します。 |
 | [`DeviceFailureError`](#DeviceFailureError)                | Error Response | エンドポイントに障害が発生した場合、CEKにこのメッセージをレスポンスとして返します。              |
 | [`DriverInternalError`](#DriverInternalError)              | Error Response | 内部エラーが発生した場合、CEKにこのメッセージをレスポンスとして返します。                |
-| [`ExpiredAccessTokenError`](#ExpiredAccessTokenError)      | Error Response | [アカウントリンク](/CEK/Guides/Link_User_Account.md)の際、[認可サーバー](/CEK/Guides/Link_User_Account.md#BuildAuthServer)から発行されたアクセストークンが期限切れである場合、CEKにこのメッセージをレスポンスとして返します。  |
+| [`ExpiredAccessTokenError`](#ExpiredAccessTokenError)      | Error Response | [アカウント連携](/CEK/Guides/Link_User_Account.md)の際、[認可サーバー](/CEK/Guides/Link_User_Account.md#BuildAuthServer)から発行されたアクセストークンが期限切れである場合、CEKにこのメッセージをレスポンスとして返します。  |
 | [`InvalidAccessTokenError`](#InvalidAccessTokenError)      | Error Response | ユーザーが使用中のアクセストークンに対する権限を解除した場合、CEKにこのメッセージをレスポンスとして返します。         |
 | [`NoSuchTargetError`](#NoSuchTargetError)                  | Error Response | エンドポイントが存在しない場合、このメッセージをレスポンスとして返します。                            |
 | [`NotSupportedInCurrentModeError`](#NotSupportedInCurrentModeError) | Error Response | エンドポイントの現在のモードでサポートされていないディレクティブを受信した場合、CEKにこのメッセージをレスポンスとして返します。  |
@@ -117,7 +117,7 @@ Clova Home ExtensionがCEKにエラーを返す際に使用されるインター
 * [`TargetOfflineError`](#TargetOfflineError)
 
 ## ExpiredAccessTokenError {#ExpiredAccessTokenError}
-[アカウントリンク](/CEK/Guides/Link_User_Account.md)の際、[認可サーバー](/CEK/Guides/Link_User_Account.md#BuildAuthServer)から発行されたアクセストークンが期限切れである場合、CEKにこのメッセージをレスポンスとして返します。CEKはこのメッセージを受け取ると、あらかじめ用意されたエラーメッセージをクライアントに送信します。
+[アカウント連携](/CEK/Guides/Link_User_Account.md)の際、[認可サーバー](/CEK/Guides/Link_User_Account.md#BuildAuthServer)から発行されたアクセストークンが期限切れである場合、CEKにこのメッセージをレスポンスとして返します。CEKはこのメッセージを受け取ると、あらかじめ用意されたエラーメッセージをクライアントに送信します。
 
 ### Payload fields
 
