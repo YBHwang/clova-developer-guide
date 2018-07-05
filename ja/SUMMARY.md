@@ -212,7 +212,7 @@
     * [利用規約および個人情報の取得に同意する](/DevConsole/Guides/CEK/Register_Extension.md#AgreeTermsOfUse)
     * [Extensionの基本情報を入力する](/DevConsole/Guides/CEK/Register_Extension.md#InputExtensionInfo)
     * [サーバーとの連携を設定する](/DevConsole/Guides/CEK/Register_Extension.md#SetServerConnection)
-      * [アカウントリンクを設定する](/DevConsole/Guides/CEK/Register_Extension.md#SetAccountLinking)
+      * [アカウント連携を設定する](/DevConsole/Guides/CEK/Register_Extension.md#SetAccountLinking)
   * [対話モデルを登録する](/DevConsole/Guides/CEK/Register_Interaction_Model.md)
     * [ビルトインスロットタイプを追加する](/DevConsole/Guides/CEK/Register_Interaction_Model.md#AddBuiltinSlotType)
     * [カスタムスロットタイプを追加する](/DevConsole/Guides/CEK/Register_Interaction_Model.md#AddCustomSlotType)

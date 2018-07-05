@@ -101,7 +101,7 @@ Clova Extensionが処理するユーザーの意図を区分したカテゴリ�
 ユーザーが特定のモードまたは特定の[Custom Extension](#CustomExtension)を使用すると宣言したことを知らせるために送るリクエストメッセージです。詳細については、[Custom Extensionリクエストを処理する](/CEK/Guides/Build_Custom_Extension.md#HandleCustomExtensionRequest)ドキュメントを参照してください。
 
 ### OAuth 2.0
-アクセス権限を委任するためのオープン標準です。インターネットのユーザーが他のウェブサービスやアプリケーションのユーザーアカウントにアクセスできる権限を付与する規約です。Clovaプラットフォームでは、クライアントが[Clovaアクセストークン](#ClovaAccessToken)を取得したり、ユーザーが特定のExtensionを使用する際、自身の[アカウントをリンク](/CEK/Guides/Link_User_Account.md)するために使用されます。詳細については、[https://tools.ietf.org/html/rfc6749](https://tools.ietf.org/html/rfc6749)を参照してください。
+アクセス権限を委任するためのオープン標準です。インターネットのユーザーが他のウェブサービスやアプリケーションのユーザーアカウントにアクセスできる権限を付与する規約です。Clovaプラットフォームでは、クライアントが[Clovaアクセストークン](#ClovaAccessToken)を取得したり、ユーザーが特定のExtensionを使用する際、自身の[アカウントを連携](/CEK/Guides/Link_User_Account.md)するために使用されます。詳細については、[https://tools.ietf.org/html/rfc6749](https://tools.ietf.org/html/rfc6749)を参照してください。
 
 ### SessionEndedRequest {#SessionEndedRequest}
 ユーザーが特定のモードまたは特定の[Custom Extension](#CustomExtension)の使用を中止すると宣言したことを知らせるために送るリクエストメッセージです。詳細については、[Custom Extensionリクエストを処理する](/CEK/Guides/Build_Custom_Extension.md#HandleCustomExtensionRequest)ドキュメントを参照してください。
@@ -124,8 +124,8 @@ Clovaデバイスに標準で搭載されているスキルで、ミュージッ
 ### メッセージID {#MessageID}
 メッセージIDは個々のメッセージを区別するための識別子です。[イベント](#Event)と[ディレクティブ](#Directive)は、それぞれのメッセージIDを持ちます。
 
-### アカウントリンク {#AccountLinking}
-[Extension](#ClovaExtension)がユーザーのアカウント認証を必要とする外部サービスを提供する際に使用されます。詳細については、[ユーザーアカウントをリンクする](/CEK/Guides/Link_User_Account.md)ドキュメントを参照してください。
+### アカウント連携 {#AccountLinking}
+[Extension](#ClovaExtension)がユーザーのアカウント認証を必要とする外部サービスを提供する際に使用されます。詳細については、[ユーザーアカウントを連携する](/CEK/Guides/Link_User_Account.md)ドキュメントを参照してください。
 
 ### ユーザーのサンプル発話 {#UserUtteranceExample}
 
@@ -142,4 +142,3 @@ Clovaデバイスに標準で搭載されているスキルで、ミュージッ
 
 ### クライアントの認証情報 {#ClientCredentialInfo}
 [Clova Developer Center](#ClovaDeveloperConsole)でクライアントを登録し、取得した認証情報です。[Clovaアクセストークン](#ClovaAccessToken)の取得に使用されます。詳細については、[Clovaアクセストークンを生成する](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken)ドキュメントを参照してください。
-
