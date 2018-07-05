@@ -1,5 +1,5 @@
 ## Custom Extensionレスポンスを返す {#ReturnCustomExtensionResponse}
-[リクエストメッセージを処理](#HandleCustomExtensionRequest)すると、CEKに[レスポンスメッセージ](/CEK/References/CEK_API.md#CustomExtResponseMessage)を返す必要があります(HTTPSレスポンス)。リクエストメッセージのタイプによって異なる内容を返すこともありますが、レスポンスメッセージの構造に大差はありません。次は、LaunchRequestタイプのリクエスト(「英会話を始めよう」というユーザーリクエスト)を処理して返したレスポンスメッセージの例です。
+[リクエストメッセージを処理](#HandleCustomExtensionRequest)すると、CEKに[レスポンスメッセージ](/CEK/References/CEK_API.md#CustomExtResponseMessage)を返す必要があります(HTTPレスポンス)。リクエストメッセージのタイプによって異なる内容を返すこともありますが、レスポンスメッセージの構造に大差はありません。以下は、LaunchRequestタイプのリクエスト(「ピザボットを起動して」というユーザーリクエスト)を処理した後に返したレスポンスメッセージです。
 
 {% raw %}
 ```json
@@ -11,8 +11,8 @@
       "type": "SimpleSpeech",
       "values": {
           "type": "PlainText",
-          "lang": "en",
-          "value": "Hi, nice to meet you"
+          "lang": "ja",
+          "value": "こんにちは。ピザボットです。どういったご用件ですか"
       }
     },
     "card": {},
@@ -27,7 +27,7 @@
 
 * `version`：使用しているCustom Extensionメッセージフォーマットのバージョンです。現在のバージョンはv0.1.0です。
 * `response.outputSpeech`：ユーザーが英語で「Hi, nice to meet you」の文章を話すように設定します。
-* `response.card`：クライアントの画面に表示するデータがありません。[コンテンツテンプレート](/CIC/References/Content_Templates.md)形式のデータで、クライアントの画面に表示するコンテンツをこのフィールドで渡すことができます。
+* `response.card`：クライアントの画面に表示するデータがありません。コンテンツテンプレート形式のデータで、クライアントの画面に表示するコンテンツをこのフィールドで渡すことができます。
 * `response.shouldEndSession`：セッションを終了せず、引き続きユーザーの入力を受け付けるかを管理します。このフィールドの値がtrueの場合、[`SessionEndedRequest`](#HandleSessionEndedRequest)リクエストを受け取る前に、Extensionからセッションを終了できます。
 
 <div class="note">
@@ -77,7 +77,7 @@
   <p>単文や複文タイプの音声情報の他にも、画面を持たないデバイスのように、詳しい内容をGUIで表現できないクライアントのために、複合タイプ(SpeechSet)の音声情報もサポートしています。詳細については、Custom Extensionメッセージフォーマットの<a href="/CEK/References/CEK_API.md#CustomExtResponseMessage">レスポンスメッセージ</a>を参照してください。</p>
 </div>
 
-音声出力だけでなく、クライアントデバイスの画面やクライアントアプリの画面にデータを出力する必要がある場合、次のように`response.card`フィールドに[コンテンツテンプレート](/CIC/References/Content_Templates.md)に合わせて表示するコンテンツを設定します。
+音声出力だけでなく、クライアントデバイスの画面やクライアントアプリの画面にデータを出力する必要がある場合、次のように`response.card`フィールドにコンテンツテンプレートに合わせて表示するコンテンツを設定します。
 
 {% raw %}
 ```json
@@ -90,111 +90,41 @@
       "values": {
           "type": "PlainText",
           "lang": "ja",
-          "value": "ホラー映画をお勧めします。"
+          "value": "ブラウンの画像です"
       }
     },
     "card": {
-      "subType": "",
-      "type": "CardList",
-      "cardList": [
+      "type": "ImageText",
+      "imageUrl": {
+        "type": "url",
+        "value": ""
+      },
+      "mainText": {
+        "type": "string",
+        "value": "LINE Friendsのブラウンです"
+      },
+      "referenceText": {
+        "type": "string",
+        "value": "Clova検索結果"
+      },
+      "referenceUrl": {
+        "type": "url",
+        "value": "DUMMY_REFERENCE_URL"
+      },
+      "subTextList": [
         {
-          "description": [
-            {
-              "type": "string",
-              "value": "ホラー, スリラー"
-            },
-            {
-              "type": "string",
-              "value": "アーロン・エッカート, デヴィッド・マズーズ, カリス・ファン・ハウテン, カタリーナ・サンディーノ・モレーノ, キーア・オドネル, マット・ネイブル, ジョン・プルッチェロ, エムジェイ・アンソニー, カロリーナ・ヴィドラ, マーク・スティガー, トーマス・アラナ, ペトラ・シュプレッヒャー, マーク・ヘンリー, アシュリー・グリーン・エリザベス"
-            },
-            {
-              "type": "string",
-              "value": ""
-            }
-          ],
-          "imageUrl": {
-            "type": "url",
-            "value": "http://movie.phinf.naver.net/20170410_12/1491786049305s4W0n_JPEG/movie_image.jpg?type=w640_2"
-          },
-          "linkUrl": {
-            "type": "url",
-            "value": "http://movie.naver.com/movie/bi/mi/basic.nhn?code=118965"
-          },
-          "press": {
-            "type": "string",
-            "value": ""
-          },
-          "publishDate": {
-            "type": "date",
-            "value": ""
-          },
-          "referenceText": {
-            "type": "string",
-            "value": "NAVER検索結果"
-          },
-          "referenceUrl": {
-            "type": "url",
-            "value": "https://m.search.naver.com/search.naver?where=m&sm=mob_lic&query=+%ec%98%81%ed%99%94"
-          },
-          "title": {
-            "type": "string",
-            "value": "ドクター・エクソシスト"
-          },
-          "videoUrl": {
-            "type": "url",
-            "value": ""
-          }
-        },
-        {
-          "description": [
-            {
-              "type": "string",
-              "value": "ホラー"
-            },
-            {
-              "type": "string",
-              "value": "マチルダ・アンナ・イングリッド・ルッツ, アレックス・ロー, ジョニー・ガレッキ, ヴィンセント・ドノフリオ, エイミー・ティーガーデン, ボニー・モーガン, ローラ・スレイド・ウィッジンズ, ザック・ローリグ, リジー・ブロシュレ"
-            },
-            {
-              "type": "string",
-              "value": ""
-            }
-          ],
-          "imageUrl": {
-            "type": "url",
-            "value": "http://movie.phinf.naver.net/20170317_53/1489741954272MquSW_JPEG/movie_image.jpg?type=w640_2"
-          },
-          "linkUrl": {
-            "type": "url",
-            "value": "http://movie.naver.com/movie/bi/mi/basic.nhn?code=137909"
-          },
-          "press": {
-            "type": "string",
-            "value": ""
-          },
-          "publishDate": {
-            "type": "date",
-            "value": ""
-          },
-          "referenceText": {
-            "type": "string",
-            "value": "NAVER検索結果"
-          },
-          "referenceUrl": {
-            "type": "url",
-            "value": "https://m.search.naver.com/search.naver?where=m&sm=mob_lic&query=+%ec%98%81%ed%99%94"
-          },
-          "title": {
-            "type": "string",
-            "value": "ザ・リング／リバース"
-          },
-          "videoUrl": {
-            "type": "url",
-            "value": ""
-          }
-        },
-        ...
-      ]
+          "type": "string",
+          "value": "LINE Friends"
+        }
+      ],
+      "thumbImageType": {
+        "type": "string",
+        "value": "キャラクター"
+      },
+      "thumbImageUrl": {
+        "type": "url",
+        "value": "DUMMY_IMAGE_URL"
+      }
     },
     "directives": [],
     "shouldEndSession": true

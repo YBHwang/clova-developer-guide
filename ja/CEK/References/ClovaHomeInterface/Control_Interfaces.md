@@ -4,21 +4,21 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 
 | メッセージ         | タイプ  | 説明                                   |
 |------------------|-----------|---------------------------------------------|
-| [`ChargeConfirmation`](#ChargeConfirmation)                                   | Response | [`ChargeRequest`](#ChargeRequest)メッセージに対するレスポンスです。デバイスの充電を開始するように設定した結果をCEKに返します。 |
+| [`ChargeConfirmation`](#ChargeConfirmation)                                   | Response | [`ChargeRequest`](#ChargeRequest)メッセージに対するレスポンスです。デバイスの充電を開始するようにリクエストした後、その処理結果をCEKに返します。 |
 | [`ChargeRequest`](#ChargeRequest)                                             | Request  | デバイスの充電を開始するようClova Home Extensionにリクエストします。 |
-| [`CloseConfirmation`](#CloseConfirmation)                                     | Response | [`CloseRequest`](#CloseRequest)メッセージに対するレスポンスです。スマートカーテンや温水洗浄便座の蓋を閉めるように設定した結果をCEKに返します。 |
+| [`CloseConfirmation`](#CloseConfirmation)                                     | Response | [`CloseRequest`](#CloseRequest)メッセージに対するレスポンスです。スマートカーテンや温水洗浄便座の蓋を閉めるようにリクエストした後、その処理結果をCEKに返します。 |
 | [`CloseRequest`](#CloseRequest)                                               | Request  | スマートカーテンや温水洗浄便座などのデバイスを制御する際に使用します。スマートカーテンや温水洗浄便座の蓋を閉めるようClova Home Extensionにリクエストします。  |
-| [`DecrementBrightnessConfirmation`](#DecrementBrightnessConfirmation)         | Response | [`DecrementBrightnessRequest`](#DecrementBrightnessRequest)メッセージに対するレスポンスです。照明の輝度を下げるように設定した結果をCEKに返します。 |
+| [`DecrementBrightnessConfirmation`](#DecrementBrightnessConfirmation)         | Response | [`DecrementBrightnessRequest`](#DecrementBrightnessRequest)メッセージに対するレスポンスです。照明の輝度を下げるようにリクエストした後、その処理結果をCEKに返します。 |
 | [`DecrementBrightnessRequest`](#DecrementBrightnessRequest)                   | Request  | 照明の輝度を指定された値に下げるようClova Home Extensionにリクエストします。 |
-| [`DecrementChannelConfirmation`](#DecrementChannelConfirmation)               | Response | [`DecrementChannelRequest`](#DecrementChannelRequest)メッセージに対するレスポンスです。テレビのチャンネルを下げるように設定した結果をCEKに返します。 |
+| [`DecrementChannelConfirmation`](#DecrementChannelConfirmation)               | Response | [`DecrementChannelRequest`](#DecrementChannelRequest)メッセージに対するレスポンスです。テレビのチャンネルを下げるようにリクエストした後、その処理結果をCEKに返します。 |
 | [`DecrementChannelRequest`](#DecrementChannelRequest)                         | Request  | テレビのチャンネルを指定された値に下げるようClova Home Extensionにリクエストします。 |
-| [`DecrementFanSpeedConfirmation`](#DecrementFanSpeedConfirmation)             | Response | [`DecrementFanSpeedRequest`](#DecrementFanSpeedRequest)メッセージに対するレスポンスです。ファンの速度を下げるように設定した結果をCEKに返します。 |
+| [`DecrementFanSpeedConfirmation`](#DecrementFanSpeedConfirmation)             | Response | [`DecrementFanSpeedRequest`](#DecrementFanSpeedRequest)メッセージに対するレスポンスです。ファンの速度を下げるようにリクエストした後、その処理結果をCEKに返します。 |
 | [`DecrementFanSpeedRequest`](#DecrementFanSpeedRequest)                       | Request  | ファンの速度を指定された値に下げるようClova Home Extensionにリクエストします。 |
-| [`DecrementIntensityLevelConfirmation`](#DecrementIntensityLevelConfirmation) | Response | [`DecrementIntensityLevelRequest`](#DecrementIntensityLevelRequest)メッセージに対するレスポンスです。圧力や水圧などの強度を下げるように設定した結果をCEKに返します。  |
+| [`DecrementIntensityLevelConfirmation`](#DecrementIntensityLevelConfirmation) | Response | [`DecrementIntensityLevelRequest`](#DecrementIntensityLevelRequest)メッセージに対するレスポンスです。圧力や水圧などの強度を下げるようにリクエストした後、その処理結果をCEKに返します。  |
 | [`DecrementIntensityLevelRequest`](#DecrementIntensityLevelRequest)           | Request  | 主にエアコンやサーモスタットのようなデバイスの制御に使用します。圧力や水圧の強度を指定された値に下げるようClova Home Extensionにリクエストします。  |
-| [`DecrementTargetTemperatureConfirmation`](#DecrementTargetTemperatureConfirmation) | Response | [`DecrementTargetTemperatureRequest`](#DecrementTargetTemperatureRequest)メッセージに対するレスポンスです。温度を下げるように設定した結果をCEKに返します。 |
+| [`DecrementTargetTemperatureConfirmation`](#DecrementTargetTemperatureConfirmation) | Response | [`DecrementTargetTemperatureRequest`](#DecrementTargetTemperatureRequest)メッセージに対するレスポンスです。温度を下げるようにリクエストした後、その処理結果をCEKに返します。 |
 | [`DecrementTargetTemperatureRequest`](#DecrementTargetTemperatureRequest)     | Request  | 設定温度を指定された値に下げるようClova Home Extensionにリクエストします。      |
-| [`DecrementVolumeConfirmation`](#DecrementVolumeConfirmation)                 | Response | [`DecrementVolumeRequest`](#DecrementVolumeRequest)メッセージに対するレスポンスです。スピーカーの音量を下げるように設定した結果をCEKに返します。 |
+| [`DecrementVolumeConfirmation`](#DecrementVolumeConfirmation)                 | Response | [`DecrementVolumeRequest`](#DecrementVolumeRequest)メッセージに対するレスポンスです。スピーカーの音量を下げるようにリクエストした後、その処理結果をCEKに返します。 |
 | [`DecrementVolumeRequest`](#DecrementVolumeRequest)                           | Request  | スピーカーの音量を下げるようClova Home Extensionにリクエストします。 |
 | [`GetAirQualityRequest`](#GetAirQualityRequest)                               | Request  | デバイスで測定された空気質情報をClova Home Extensionにリクエストします。 |
 | [`GetAirQualityResponse`](#GetAirQualityResponse)                             | Response | [`GetAirQualityRequest`](#GetAirQualityRequest)メッセージに対するレスポンスです。デバイスで測定された空気質情報をCEKに返します。 |
@@ -78,61 +78,61 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 | [`GetUsageTimeResponse`](#GetUsageTimeResponse)                               | Response | [`GetUsageTimeRequest`](#GetUsageTimeRequest)メッセージに対するレスポンスです。デバイスの累積使用時間をCEKに返します。  |
 | [`HealthCheckRequest`](#HealthCheckRequest)                                   | Request  | デバイスのステータスを把握する際に使用します。デバイスのステータス情報をClova Home Extensionにリクエストします。 |
 | [`HealthCheckResponse`](#HealthCheckResponse)                                 | Response | [`HealthCheckRequest`](#HealthCheckRequest)メッセージに対するレスポンスです。デバイスのステータス情報をCEKに返します。 |
-| [`IncrementBrightnessConfirmation`](#IncrementBrightnessConfirmation)         | Response | [`IncrementBrightnessRequest`](#IncrementBrightnessRequest)メッセージに対するレスポンスです。照明の輝度を上げるように設定した結果をCEKに返します。 |
+| [`IncrementBrightnessConfirmation`](#IncrementBrightnessConfirmation)         | Response | [`IncrementBrightnessRequest`](#IncrementBrightnessRequest)メッセージに対するレスポンスです。照明の輝度を上げるようにリクエストした後、その処理結果をCEKに返します。 |
 | [`IncrementBrightnessRequest`](#IncrementBrightnessRequest)                   | Request  | 照明の輝度を指定された値に上げるようClova Home Extensionにリクエストします。 |
-| [`IncrementChannelConfirmation`](#IncrementChannelConfirmation)               | Response | [`IncrementChannelRequest`](#IncrementChannelRequest)メッセージに対するレスポンスです。テレビのチャンネルを上げるように設定した結果をCEKに返します。 |
+| [`IncrementChannelConfirmation`](#IncrementChannelConfirmation)               | Response | [`IncrementChannelRequest`](#IncrementChannelRequest)メッセージに対するレスポンスです。テレビのチャンネルを上げるようにリクエストした後、その処理結果をCEKに返します。 |
 | [`IncrementChannelRequest`](#IncrementChannelRequest)                         | Request  | テレビのチャンネルを指定された値に上げるようClova Home Extensionにリクエストします。 |
-| [`IncrementFanSpeedConfirmation`](#IncrementFanSpeedConfirmation)             | Response | [`IncrementFanSpeedRequest`](#IncrementFanSpeedRequest)メッセージに対するレスポンスです。ファンの速度を上げるように設定した結果をCEKに返します。 |
+| [`IncrementFanSpeedConfirmation`](#IncrementFanSpeedConfirmation)             | Response | [`IncrementFanSpeedRequest`](#IncrementFanSpeedRequest)メッセージに対するレスポンスです。ファンの速度を上げるようにリクエストした後、その処理結果をCEKに返します。 |
 | [`IncrementFanSpeedRequest`](#IncrementFanSpeedRequest)                       | Request | ファンの速度を指定された値に上げるようClova Home Extensionにリクエストします。 |
-| [`IncrementIntensityLevelConfirmation`](#IncrementIntensityLevelConfirmation) | Response | [`DecrementIntensityLevelRequest`](#DecrementIntensityLevelRequest)メッセージに対するレスポンスです。圧力や水圧などの強度を上げるように設定した結果をCEKに返します。  |
+| [`IncrementIntensityLevelConfirmation`](#IncrementIntensityLevelConfirmation) | Response | [`DecrementIntensityLevelRequest`](#DecrementIntensityLevelRequest)メッセージに対するレスポンスです。圧力や水圧などの強度を上げるようにリクエストした後、その処理結果をCEKに返します。  |
 | [`IncrementIntensityLevelRequest`](#IncrementIntensityLevelRequest)           | Request  | 圧力や水圧などの強度を指定された値に上げるようClova Home Extensionにリクエストします。 |
-| [`IncrementTargetTemperatureConfirmation`](#IncrementTargetTemperatureConfirmation) | Response | [`IncrementTargetTemperatureRequest`](#IncrementTargetTemperatureRequest)メッセージに対するレスポンスです。温度を上げるように設定した結果をCEKに返します。 |
+| [`IncrementTargetTemperatureConfirmation`](#IncrementTargetTemperatureConfirmation) | Response | [`IncrementTargetTemperatureRequest`](#IncrementTargetTemperatureRequest)メッセージに対するレスポンスです。温度を上げるようにリクエストした後、その処理結果をCEKに返します。 |
 | [`IncrementTargetTemperatureRequest`](#IncrementTargetTemperatureRequest)     | Request  | 温度を指定された値に上げるようClova Home Extensionにリクエストします。     |
-| [`IncrementVolumeConfirmation`](#IncrementVolumeConfirmation)                 | Response | [`IncrementVolumeRequest`](#IncrementVolumeRequest)メッセージに対するレスポンスです。スピーカーの音量を上げるように設定した結果をCEKに返します。 |
+| [`IncrementVolumeConfirmation`](#IncrementVolumeConfirmation)                 | Response | [`IncrementVolumeRequest`](#IncrementVolumeRequest)メッセージに対するレスポンスです。スピーカーの音量を上げるようにリクエストした後、その処理結果をCEKに返します。 |
 | [`IncrementVolumeRequest`](#IncrementVolumeRequest)                           | Request | スピーカーの音量を指定された値に上げるようClova Home Extensionにリクエストします。 |
-| [`LowerConfirmation`](#LowerConfirmation)                                     | Response | [`LowerRequest`](#LowerRequest)メッセージに対するレスポンスです。デバイスの高さを下げるように設定した結果をCEKに返します。  |
+| [`LowerConfirmation`](#LowerConfirmation)                                     | Response | [`LowerRequest`](#LowerRequest)メッセージに対するレスポンスです。デバイスの高さを下げるようにリクエストした後、その処理結果をCEKに返します。  |
 | [`LowerRequest`](#LowerRequest)                                               | Request  | 主にカーテンやブラインド、ベッドなどのデバイスを制御する際に使用します。デバイスの高さを下げるようClova Home Extensionにリクエストします。  |
 | [`MuteConfirmation`](#MuteConfirmation)                                       | Response | [`MuteRequest`](#MuteRequest)メッセージに対するレスポンスです。デバイスの音をミュートにするように設定した結果をCEKに返します。 |
 | [`MuteRequest`](#MuteRequest)                                                 | Request  | デバイスの音をミュートにするようClova Home Extensionにリクエストします。 |
-| [`OpenConfirmation`](#OpenConfirmation)                                       | Response | [`OpenRequest`](#OpenRequest)メッセージに対するレスポンスです。スマートカーテンや温水洗浄便座の蓋を開けるように設定した結果をCEKに返します。 |
+| [`OpenConfirmation`](#OpenConfirmation)                                       | Response | [`OpenRequest`](#OpenRequest)メッセージに対するレスポンスです。スマートカーテンや温水洗浄便座の蓋を開けるようにリクエストした後、その処理結果をCEKに返します。 |
 | [`OpenRequest`](#OpenRequest)                                                 | Request  | スマートカーテンや温水洗浄便座などのデバイスを制御する際に使用します。スマートカーテンや温水洗浄便座の蓋を開けるようClova Home Extensionにリクエストします。  |
-| [`RaiseConfirmation`](#RaiseConfirmation)                                     | Response | [`RaiseRequest`](#RaiseRequest)メッセージに対するレスポンスです。デバイスの高さを上げるように設定した結果をCEKに返します。  |
+| [`RaiseConfirmation`](#RaiseConfirmation)                                     | Response | [`RaiseRequest`](#RaiseRequest)メッセージに対するレスポンスです。デバイスの高さを上げるようにリクエストした後、その処理結果をCEKに返します。  |
 | [`RaiseRequest`](#RaiseRequest)                                               | Request  | 主にカーテンやブラインド、ベッドなどのデバイスを制御する際に使用します。デバイスの高さを上げるようClova Home Extensionにリクエストします。  |
-| [`ReleaseModeConfirmation`](#ReleaseModeConfirmation)                         | Response | [`ReleaseModeRequest`](#ReleaseModeRequest)メッセージに対するレスポンスです。デバイスの現在の運転モード(operation mode)を解除するように設定した結果をCEKに返します。  |
+| [`ReleaseModeConfirmation`](#ReleaseModeConfirmation)                         | Response | [`ReleaseModeRequest`](#ReleaseModeRequest)メッセージに対するレスポンスです。デバイスの現在の運転モード(operation mode)を解除するようにリクエストした後、その処理結果をCEKに返します。  |
 | [`ReleaseModeRequest`](#ReleaseModeRequest)                                   | Request  | 現在、デバイスに設定されている運転モード(operation mode)を解除する際に使用します。デバイスの運転モードを解除し、前の運転モードまたはデフォルトの運転モードに戻るようにClova Home Extensionにリクエストします。  |
-| [`SetBrightnessConfirmation`](#SetBrightnessConfirmation)                     | Response | [`SetBrightnessRequest`](#SetBrightnessRequest)メッセージに対するレスポンスです。照明の輝度を変更するように設定した結果をCEKに返します。 |
+| [`SetBrightnessConfirmation`](#SetBrightnessConfirmation)                     | Response | [`SetBrightnessRequest`](#SetBrightnessRequest)メッセージに対するレスポンスです。照明の輝度を変更するようにリクエストした後、その処理結果をCEKに返します。 |
 | [`SetBrightnessRequest`](#SetBrightnessRequest)                               | Request  | 照明の輝度を指定された値に変更するようClova Home Extensionにリクエストします。 |
-| [`SetChannelByNameConfirmation`](#SetChannelByNameConfirmation)               | Response | [`SetChannelByNameRequest`](#SetChannelByNameRequest)メッセージに対するレスポンスです。指定されたチャンネル名にテレビのチャンネルを変更するように設定した結果をCEKに返します。 |
+| [`SetChannelByNameConfirmation`](#SetChannelByNameConfirmation)               | Response | [`SetChannelByNameRequest`](#SetChannelByNameRequest)メッセージに対するレスポンスです。指定されたチャンネル名にテレビのチャンネルを変更するようにリクエストした後、その処理結果をCEKに返します。 |
 | [`SetChannelByNameRequest`](#SetChannelByNameRequest)                         | Request  | 指定されたチャンネル名にチャンネルを変更するようClova Home Extensionにリクエストします。 |
-| [`SetChannelConfirmation`](#SetChannelConfirmation)                           | Response | [`SetChannelRequest`](#SetChannelRequest)メッセージに対するレスポンスです。指定されたチャンネル番号にテレビのチャンネルを変更するように設定した結果をCEKに返します。 |
+| [`SetChannelConfirmation`](#SetChannelConfirmation)                           | Response | [`SetChannelRequest`](#SetChannelRequest)メッセージに対するレスポンスです。指定されたチャンネル番号にテレビのチャンネルを変更するようにリクエストした後、その処理結果をCEKに返します。 |
 | [`SetChannelRequest`](#SetChannelRequest)                                     | Request  | 指定されたチャンネル番号にテレビのチャンネルを変更するようClova Home Extensionにリクエストします。 |
-| [`SetColorConfirmation`](#SetColorConfirmation)                               | Response | [`SetColorRequest`](#SetColorRequest)メッセージに対するレスポンスです。照明や画面、電球の色を変更するように設定した結果をCEKに返します。 |
+| [`SetColorConfirmation`](#SetColorConfirmation)                               | Response | [`SetColorRequest`](#SetColorRequest)メッセージに対するレスポンスです。照明や画面、電球の色を変更するようにリクエストした後、その処理結果をCEKに返します。 |
 | [`SetColorRequest`](#SetColorRequest)                                         | Request  | 主にスマート照明などのデバイスを制御する際に使用します。照明や画面、電球の色を変更するようClova Home Extensionにリクエストします。  |
-| [`SetColorTemperatureConfirmation`](#SetColorTemperatureConfirmation)         | Response | [`SetColorTemperatureRequest`](#SetColorTemperatureRequest)メッセージに対するレスポンスです。照明や画面、電球の色温度を変更するように設定した結果をCEKに返します。  |
+| [`SetColorTemperatureConfirmation`](#SetColorTemperatureConfirmation)         | Response | [`SetColorTemperatureRequest`](#SetColorTemperatureRequest)メッセージに対するレスポンスです。照明や画面、電球の色温度を変更するようにリクエストした後、その処理結果をCEKに返します。  |
 | [`SetColorTemperatureRequest`](#SetColorTemperatureRequest)                   | Request  | 主にスマート照明などのデバイスを制御する際に使用します。照明や画面、電球の色温度を変更するようClova Home extensionにリクエストします。  |
-| [`SetFanSpeedConfirmation`](#SetFanSpeedConfirmation)                         | Response | [`SetFanSpeedRequest`](#SetFanSpeedRequest)メッセージに対するレスポンスです。ファンの速度を変更するように設定した結果をCEKに返します。 |
+| [`SetFanSpeedConfirmation`](#SetFanSpeedConfirmation)                         | Response | [`SetFanSpeedRequest`](#SetFanSpeedRequest)メッセージに対するレスポンスです。ファンの速度を変更するようにリクエストした後、その処理結果をCEKに返します。 |
 | [`SetFanSpeedRequest`](#SetFanSpeedRequest)                                   | Request  | ファンの速度を指定された値に変更するようClova Home extensionにリクエストします。 |
-| [`SetFreezerTargetTemperatureConfirmation`](#SetFreezerTargetTemperatureConfirmation)  | Response  |  [`SetFreezerTargetTemperatureRequest`](#SetFreezerTargetTemperatureRequest)メッセージに対するレスポンスです。冷凍室の設定温度を変更するように設定した結果をCEKに返します。 |
+| [`SetFreezerTargetTemperatureConfirmation`](#SetFreezerTargetTemperatureConfirmation)  | Response  |  [`SetFreezerTargetTemperatureRequest`](#SetFreezerTargetTemperatureRequest)メッセージに対するレスポンスです。冷凍室の設定温度を変更するようにリクエストした後、その処理結果をCEKに返します。 |
 | [`SetFreezerTargetTemperatureRequest`](#SetFreezerTargetTemperatureRequest)   | Request  | 冷蔵庫などのデバイスを制御する際に使用します。冷凍庫の設定温度を指定された値に変更するようClova Home extensionにリクエストします。  |
-| [`SetFridgeTargetTemperatureConfirmation`](#SetFridgeTargetTemperatureConfirmation) | Response | [`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest)メッセージに対するレスポンスです。冷蔵室の設定温度を変更するように設定した結果をCEKに返します。  |
+| [`SetFridgeTargetTemperatureConfirmation`](#SetFridgeTargetTemperatureConfirmation) | Response | [`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest)メッセージに対するレスポンスです。冷蔵室の設定温度を変更するようにリクエストした後、その処理結果をCEKに返します。  |
 | [`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest)     | Request  | 冷蔵庫などのデバイスを制御する際に使用します。冷蔵室の設定温度を指定された値に変更するようClova Home extensionにリクエストします。  |
-| [`SetLockStateConfirmation`](#SetLockStateConfirmation)                       | Response | [`SetLockStateRequest`](#SetLockStateRequest)メッセージに対するレスポンスです。デバイスの開閉を設定した結果をCEKに返します。  |
+| [`SetLockStateConfirmation`](#SetLockStateConfirmation)                       | Response | [`SetLockStateRequest`](#SetLockStateRequest)メッセージに対するレスポンスです。デバイスの開閉をリクエストした後、その処理結果をCEKに返します。  |
 | [`SetLockStateRequest`](#SetLockStateRequest)                                 | Request  | デバイスの開閉をClova Home extensionにリクエストします。  |
-| [`SetModeConfirmation`](#SetModeConfirmation)                                 | Response | [`SetModeRequest`](#SetModeRequest)メッセージに対するレスポンスです。運転モード(operation mode)を変更するように設定した結果をCEKに返します。 |
+| [`SetModeConfirmation`](#SetModeConfirmation)                                 | Response | [`SetModeRequest`](#SetModeRequest)メッセージに対するレスポンスです。運転モード(operation mode)を変更するようにリクエストした後、その処理結果をCEKに返します。 |
 | [`SetModeRequest`](#SetModeRequest)                                           | Request  | デバイスの運転モードを指定されたモードに変更するようClova Home extensionにリクエストします。 |
-| [`SetTargetTemperatureConfirmation`](#SetTargetTemperatureConfirmation)       | Response | [`SetTargetTemperatureRequest`](#SetTargetTemperatureRequest)メッセージに対するレスポンスです。設定温度変更のリクエストを処理した結果をCEKに返します。 |
+| [`SetTargetTemperatureConfirmation`](#SetTargetTemperatureConfirmation)       | Response | [`SetTargetTemperatureRequest`](#SetTargetTemperatureRequest)メッセージに対するレスポンスです。設定温度を変更するようにリクエストした後、その処理結果をCEKに返します。 |
 | [`SetTargetTemperatureRequest`](#SetTargetTemperatureRequest)                 | Request  | 設定温度を指定された値に変更するようClova Home extensionにリクエストします。 |
 | [`StopConfirmation`](#StopConfirmation)                                       | Response | [`StopRequest`](#StopRequest)メッセージに対するレスポンスです。動作中止のリクエストを処理した結果をCEKに返します。  |
 | [`StopRequest`](#StopRequest)                                                 | Request  | デバイスの現在の動作を中止するようClova Home extensionにリクエストします。  |
-| [`TurnOffConfirmation`](#TurnOffConfirmation)                                 | Response | [`TurnOffRequest`](#TurnOffRequest)メッセージに対するレスポンスです。デバイスの電源をオフにするように設定した結果をCEKに返します。 |
+| [`TurnOffConfirmation`](#TurnOffConfirmation)                                 | Response | [`TurnOffRequest`](#TurnOffRequest)メッセージに対するレスポンスです。デバイスの電源をオフにするようにリクエストした後、その処理結果をCEKに返します。 |
 | [`TurnOffRequest`](#TurnOffRequest)                                           | Request  | デバイスの電源をオフにするようClova Home extensionにリクエストします。                        |
-| [`TurnOnConfirmation`](#TurnOnConfirmation)                                   | Response | [`TurnOnRequest`](#TurnOnRequest)メッセージに対するレスポンスです。デバイスの電源をオンにするように設定した結果をCEKに返します。 |
+| [`TurnOnConfirmation`](#TurnOnConfirmation)                                   | Response | [`TurnOnRequest`](#TurnOnRequest)メッセージに対するレスポンスです。デバイスの電源をオンにするようにリクエストした後、その処理結果をCEKに返します。 |
 | [`TurnOnRequest`](#TurnOnRequest)                                             | Request  | デバイスの電源をオンにするようClova Home extensionにリクエストします。                        |
 | [`UnmuteConfirmation`](#UnmuteConfirmation)                                   | Response | [`UnmuteRequest`](#UnmuteRequest)メッセージに対するレスポンスです。デバイスのミュートを解除するように設定した結果をCEKに返します。 |
 | [`UnmuteRequest`](#UnmuteRequest)                                             | Request  | デバイスのミュートを解除するようClova Home extensionにリクエストします。 |
 
 ## ChargeConfirmation {#ChargeConfirmation}
-[`ChargeRequest`](#ChargeRequest)メッセージに対するレスポンスです。デバイスの充電を開始するように設定した結果をCEKに返します。
+[`ChargeRequest`](#ChargeRequest)メッセージに対するレスポンスです。デバイスの充電を開始するようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -196,7 +196,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`ChargeConfirmation`](#ChargeConfirmation)
 
 ## CloseConfirmation {#CloseConfirmation}
-[`CloseRequest`](#CloseRequest)メッセージに対するレスポンスです。スマートカーテンや温水洗浄便座の蓋を閉めるように設定した結果をCEKに返します。
+[`CloseRequest`](#CloseRequest)メッセージに対するレスポンスです。スマートカーテンや温水洗浄便座の蓋を閉めるようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -260,7 +260,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`CloseConfirmation`](#CloseConfirmation)
 
 ## DecrementBrightnessConfirmation {#DecrementBrightnessConfirmation}
-[`DecrementBrightnessRequest`](#DecrementBrightnessRequest)メッセージに対するレスポンスです。照明の輝度を下げるように設定した結果をCEKに返します。
+[`DecrementBrightnessRequest`](#DecrementBrightnessRequest)メッセージに対するレスポンスです。照明の輝度を下げるようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -345,15 +345,17 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`DecrementBrightnessConfirmation`](#DecrementBrightnessConfirmation)
 
 ## DecrementChannelConfirmation {#DecrementChannelConfirmation}
-[`DecrementChannelRequest`](#DecrementChannelRequest)メッセージに対するレスポンスです。テレビのチャンネルを下げるように設定した結果をCEKに返します。
+[`DecrementChannelRequest`](#DecrementChannelRequest)メッセージに対するレスポンスです。テレビのチャンネルを下げるようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
 | フィールド名       | データ型    | フィールドの説明                     | 必須/選択 |
 |---------------|---------|-----------------------------|:---------:|
 | `channel`               | [TVChannelInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TVChannelInfoObject) | 現在のテレビチャンネルの情報を持つオブジェクト                                | 選択    |
+| `subChannel`            | [TVChannelInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TVChannelInfoObject) | 現在のテレビチャンネルのサブチャンネルの情報を持つオブジェクト                         | 任意    |
 | `previousState`            | object | エンドポイントの前の状況情報を持つオブジェクト                           | 選択    |
-| `previousState.channel` | [TVChannelInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TVChannelInfoObject) | 前のテレビチャンネル情報を持つオブジェクト                                | 選択    |
+| `previousState.channel`    | [TVChannelInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TVChannelInfoObject) | 前のテレビチャンネル情報を持つオブジェクト                                | 選択    |
+| `previousState.subChannel` | [TVChannelInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TVChannelInfoObject) | 前のテレビチャンネルのサブチャンネルの情報を持つオブジェクト                         | 選択    |
 
 ### 備考
 
@@ -375,9 +377,15 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
     "channel": {
       "value": 12
     },
+    "subChannel": {
+      "value": 1
+    },
     "previousState": {
       "channel": {
         "value": 13
+      },
+      "subChannel": {
+        "value": 1
       }
     }
   }
@@ -429,7 +437,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`DecrementChannelConfirmation`](#DecrementChannelConfirmation)
 
 ## DecrementFanSpeedConfirmation {#DecrementFanSpeedConfirmation}
-[`DecrementFanSpeedRequest`](#DecrementFanSpeedRequest)メッセージに対するレスポンスです。ファンの速度を下げるように設定した結果をCEKに返します。
+[`DecrementFanSpeedRequest`](#DecrementFanSpeedRequest)メッセージに対するレスポンスです。ファンの速度を下げるようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -514,7 +522,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`DecrementFanSpeedConfirmation`](#DecrementFanSpeedConfirmation)
 
 ## DecrementIntensityLevelConfirmation {#DecrementIntensityLevelConfirmation}
-[`DecrementIntensityLevelRequest`](#DecrementIntensityLevelRequest)メッセージに対するレスポンスです。圧力や水圧などの強度を下げるように設定した結果をCEKに返します。
+[`DecrementIntensityLevelRequest`](#DecrementIntensityLevelRequest)メッセージに対するレスポンスです。圧力や水圧などの強度を下げるようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -599,7 +607,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`DecrementIntensityLevelConfirmation`](#DecrementIntensityLevelConfirmation)
 
 ## DecrementTargetTemperatureConfirmation {#DecrementTargetTemperatureConfirmation}
-[`DecrementTargetTemperatureRequest`](#DecrementTargetTemperatureRequest)メッセージに対するレスポンスです。温度を下げるように設定した結果をCEKに返します。
+[`DecrementTargetTemperatureRequest`](#DecrementTargetTemperatureRequest)メッセージに対するレスポンスです。温度を下げるようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -684,7 +692,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`DecrementTargetTemperatureConfirmation`](#DecrementTargetTemperatureConfirmation)
 
 ## DecrementVolumeConfirmation {#DecrementVolumeConfirmation}
-[`DecrementVolumeRequest`](#DecrementVolumeRequest)メッセージに対するレスポンスです。スピーカーの音量を下げるように設定した結果をCEKに返します。
+[`DecrementVolumeRequest`](#DecrementVolumeRequest)メッセージに対するレスポンスです。スピーカーの音量を下げるようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -1237,7 +1245,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
     "payloadVersion": "1.0"
   },
   "payload": {
-    "closeTime": "2018-03-13T23:17:50+09:00",
+    "closeTimestamp": "2018-03-13T23:17:50+09:00",
     "applianceResponseTimestamp": "2017-11-23T20:30:19+09:00"
   }
 }
@@ -2089,7 +2097,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
     "payloadVersion": "1.0"
   },
   "payload": {
-    "closeTime": "2018-03-13T23:20:15+09:00",
+    "openTimestamp": "2018-03-13T23:20:15+09:00",
     "applianceResponseTimestamp": "2017-11-23T20:30:19+09:00"
   }
 }
@@ -2852,7 +2860,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 | フィールド名       | データ型    | フィールドの説明                     | 必須/選択 |
 |---------------|---------|-----------------------------|:---------:|
 | `isReachable` | boolean | ネットワークでデバイスにアクセスできるかを示す値。<ul><li><code>true</code>：アクセス可能(オンライン)</li><li><code>false</code>：アクセス不可(オフライン)</li></ul> | 必須    |
-| `isTurnOn`    | boolean | デバイスの動作状態を示す値。<ul><li><code>true</code>：アイドル状態</li><li><code>false</code>：動作中</li></ul>                  | 必須    |
+| `isTurnOn`    | boolean | デバイスの動作状態を示す値。<ul><li><code>true</code>：動作中(working)</li><li><code>false</code>：アイドル状態(idle)</li></ul>                  | 必須    |
 
 ### Message example
 
@@ -2879,7 +2887,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`HealthCheckRequest`](#HealthCheckRequest)
 
 ## IncrementBrightnessConfirmation {#IncrementBrightnessConfirmation}
-[`IncrementBrightnessRequest`](#IncrementBrightnessRequest)メッセージに対するレスポンスです。照明の輝度を上げるように設定した結果をCEKに返します。
+[`IncrementBrightnessRequest`](#IncrementBrightnessRequest)メッセージに対するレスポンスです。照明の輝度を上げるようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -2964,15 +2972,17 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`IncrementBrightnessConfirmation`](#IncrementBrightnessConfirmation)
 
 ## IncrementChannelConfirmation {#IncrementChannelConfirmation}
-[`IncrementChannelRequest`](#IncrementChannelRequest)メッセージに対するレスポンスです。テレビのチャンネルを上げるように設定した結果をCEKに返します。
+[`IncrementChannelRequest`](#IncrementChannelRequest)メッセージに対するレスポンスです。テレビのチャンネルを上げるようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
 | フィールド名       | データ型    | フィールドの説明                     | 必須/選択 |
 |---------------|---------|-----------------------------|:---------:|
 | `channel`               | [TVChannelInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TVChannelInfoObject) | 現在のテレビチャンネルの情報を持つオブジェクト                                | 選択    |
+| `subChannel`            | [TVChannelInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TVChannelInfoObject) | 現在のテレビチャンネルのサブチャンネルの情報を持つオブジェクト                         | 任意    |
 | `previousState`            | object | エンドポイントの前の状況情報を持つオブジェクト                           | 選択    |
-| `previousState.channel` | [TVChannelInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TVChannelInfoObject) | 前のテレビチャンネル情報を持つオブジェクト                                | 選択    |
+| `previousState.channel`    | [TVChannelInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TVChannelInfoObject) | 前のテレビチャンネル情報を持つオブジェクト                                | 選択    |
+| `previousState.subChannel` | [TVChannelInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TVChannelInfoObject) | 前のテレビチャンネルのサブチャンネルの情報を持つオブジェクト                         | 選択    |
 
 ### 備考
 
@@ -2994,9 +3004,15 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
     "channel": {
       "value": 14
     },
+    "subChannel": {
+      "value": 1
+    }
     "previousState": {
       "channel": {
         "value": 15
+      },
+      "subChannel": {
+        "value": 1
       }
     }
   }
@@ -3049,7 +3065,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`IncrementChannelConfirmation`](#IncrementChannelConfirmation)
 
 ## IncrementFanSpeedConfirmation {#IncrementFanSpeedConfirmation}
-[`IncrementFanSpeedRequest`](#IncrementFanSpeedRequest)メッセージに対するレスポンスです。ファンの速度を上げるように設定した結果をCEKに返します。
+[`IncrementFanSpeedRequest`](#IncrementFanSpeedRequest)メッセージに対するレスポンスです。ファンの速度を上げるようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -3134,7 +3150,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`IncrementFanSpeedConfirmation`](#IncrementFanSpeedConfirmation)
 
 ## IncrementIntensityLevelConfirmation {#IncrementIntensityLevelConfirmation}
-[`DecrementIntensityLevelRequest`](#DecrementIntensityLevelRequest)メッセージに対するレスポンスです。圧力や水圧などの強度を上げるように設定した結果をCEKに返します。
+[`DecrementIntensityLevelRequest`](#DecrementIntensityLevelRequest)メッセージに対するレスポンスです。圧力や水圧などの強度を上げるようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -3219,7 +3235,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`IncrementIntensityLevelConfirmation`](#IncrementIntensityLevelConfirmation)
 
 ## IncrementTargetTemperatureConfirmation {#IncrementTargetTemperatureConfirmation}
-[`IncrementTargetTemperatureRequest`](#IncrementTargetTemperatureRequest)メッセージに対するレスポンスです。温度を上げるように設定した結果をCEKに返します。
+[`IncrementTargetTemperatureRequest`](#IncrementTargetTemperatureRequest)メッセージに対するレスポンスです。温度を上げるようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -3304,7 +3320,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`IncrementTargetTemperatureConfirmation`](#IncrementTargetTemperatureConfirmation)
 
 ## IncrementVolumeConfirmation {#IncrementVolumeConfirmation}
-[`IncrementVolumeRequest`](#IncrementVolumeRequest)メッセージに対するレスポンスです。スピーカーの音量を上げるように設定した結果をCEKに返します。
+[`IncrementVolumeRequest`](#IncrementVolumeRequest)メッセージに対するレスポンスです。スピーカーの音量を上げるようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -3385,7 +3401,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`IncrementVolumeConfirmation`](#IncrementVolumeConfirmation)
 
 ## LowerConfirmation {#LowerConfirmation}
-[`LowerRequest`](#LowerRequest)メッセージに対するレスポンスです。デバイスの高さを下げるように設定した結果をCEKに返します。
+[`LowerRequest`](#LowerRequest)メッセージに対するレスポンスです。デバイスの高さを下げるようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -3516,7 +3532,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`MuteConfirmation`](#MuteConfirmation)
 
 ## OpenConfirmation {#OpenConfirmation}
-[`OpenRequest`](#OpenRequest)メッセージに対するレスポンスです。スマートカーテンや温水洗浄便座の蓋を開けるように設定した結果をCEKに返します。
+[`OpenRequest`](#OpenRequest)メッセージに対するレスポンスです。スマートカーテンや温水洗浄便座の蓋を開けるようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -3580,7 +3596,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`OpenConfirmation`](#OpenConfirmation)
 
 ## RaiseConfirmation {#RaiseConfirmation}
-[`RaiseRequest`](#RaiseRequest)メッセージに対するレスポンスです。デバイスの高さを上げるように設定した結果をCEKに返します。
+[`RaiseRequest`](#RaiseRequest)メッセージに対するレスポンスです。デバイスの高さを上げるようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -3649,7 +3665,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`RaiseConfirmation`](#RaiseConfirmation)
 
 ## ReleaseModeConfirmation {#ReleaseModeConfirmation}
-[`ReleaseModeRequest`](#ReleaseModeRequest)メッセージに対するレスポンスです。デバイスの現在の運転モード(operation mode)を解除するように設定した結果をCEKに返します。
+[`ReleaseModeRequest`](#ReleaseModeRequest)メッセージに対するレスポンスです。デバイスの現在の運転モード(operation mode)を解除するようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -3731,7 +3747,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`ReleaseModeConfirmation`](#ReleaseModeConfirmation)
 
 ## SetBrightnessConfirmation {#SetBrightnessConfirmation}
-[`SetBrightnessRequest`](#SetBrightnessRequest)メッセージに対するレスポンスです。照明の輝度を変更するように設定した結果をCEKに返します。
+[`SetBrightnessRequest`](#SetBrightnessRequest)メッセージに対するレスポンスです。照明の輝度を変更するようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -3809,7 +3825,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`SetBrightnessConfirmation`](#SetBrightnessConfirmation)
 
 ## SetChannelByNameConfirmation {#SetChannelByNameConfirmation}
-[`SetChannelByNameRequest`](#SetChannelByNameRequest)メッセージに対するレスポンスです。指定されたチャンネル名にテレビのチャンネルを変更するように設定した結果をCEKに返します。
+[`SetChannelByNameRequest`](#SetChannelByNameRequest)メッセージに対するレスポンスです。指定されたチャンネル名にテレビのチャンネルを変更するようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -3887,13 +3903,14 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`SetChannelByNameConfirmation`](#SetChannelByNameConfirmation)
 
 ## SetChannelConfirmation {#SetChannelConfirmation}
-[`SetChannelRequest`](#SetChannelRequest)メッセージに対するレスポンスです。指定されたチャンネル番号にテレビのチャンネルを変更するように設定した結果をCEKに返します。
+[`SetChannelRequest`](#SetChannelRequest)メッセージに対するレスポンスです。指定されたチャンネル番号にテレビのチャンネルを変更するようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
 | フィールド名       | データ型    | フィールドの説明                     | 必須/選択 |
 |---------------|---------|-----------------------------|:---------:|
 | `channel`     | [TVChannelInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TVChannelInfoObject)  | デバイスに設定されたか、またはExtensionからリクエストされたチャンネルの情報を持つオブジェクト      | 選択    |
+| `subChannel`  | [TVChannelInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TVChannelInfoObject)  | デバイスに設定されたか、またはExtensionからリクエストされたテレビチャンネルのサブチャンネル情報を持つオブジェクト | 選択    |
 
 ### 備考
 
@@ -3914,6 +3931,9 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
   "payload": {
     "channel": {
       "value":15
+    },
+    "subChannel": {
+      "value": 1
     }
   }
 }
@@ -3934,6 +3954,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 | `accessToken`   | string | IoTサービスのユーザーアカウントのアクセストークン。CEKは、外部サービスの認可サーバーから取得したユーザーアカウントのアクセストークンを渡します。詳細については、[ユーザーアカウントをリンクする](/CEK/Guides/Link_User_Account.md)を参照してください。                          | 常時    |
 | `appliance`     | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) | エンドポイントの情報を持つオブジェクト。`applianceId`フィールドは必須です。 | 常時    |
 | `channel`       | [TVChannelInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TVChannelInfoObject) | 設定するテレビチャンネルの情報を持つオブジェクト                | 常時    |
+| `subChannel`    | [TVChannelInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TVChannelInfoObject) | 設定するテレビチャンネルのサブチャンネル情報を持つオブジェクト         | 条件付き   |
 
 ### Message example
 
@@ -3954,6 +3975,9 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
     },
     "channel": {
       "value": 15
+    },
+    "subChannel": {
+      "value": 1
     }
   }
 }
@@ -3965,7 +3989,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`SetChannelConfirmation`](#SetChannelConfirmation)
 
 ## SetColorConfirmation {#SetColorConfirmation}
-[`SetColorRequest`](#SetColorRequest)メッセージに対するレスポンスです。照明や画面、電球の色を変更するように設定した結果をCEKに返します。
+[`SetColorRequest`](#SetColorRequest)メッセージに対するレスポンスです。照明や画面、電球の色を変更するようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -4047,7 +4071,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`SetColorConfirmation`](#SetColorConfirmation)
 
 ## SetColorTemperatureConfirmation {#SetColorTemperatureConfirmation}
-[`SetColorTemperatureRequest`](#SetColorTemperatureRequest)メッセージに対するレスポンスです。照明や画面、電球の色温度を変更するように設定した結果をCEKに返します。
+[`SetColorTemperatureRequest`](#SetColorTemperatureRequest)メッセージに対するレスポンスです。照明や画面、電球の色温度を変更するようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -4125,7 +4149,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`SetColorTemperatureConfirmation`](#SetColorTemperatureConfirmation)
 
 ## SetFanSpeedConfirmation {#SetFanSpeedConfirmation}
-[`SetFanSpeedRequest`](#SetFanSpeedRequest)メッセージに対するレスポンスです。ファンの速度を変更するように設定した結果をCEKに返します。
+[`SetFanSpeedRequest`](#SetFanSpeedRequest)メッセージに対するレスポンスです。ファンの速度を変更するようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -4203,7 +4227,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`SetFanSpeedConfirmation`](#SetFanSpeedConfirmation)
 
 ## SetFreezerTargetTemperatureConfirmation {#SetFreezerTargetTemperatureConfirmation}
-[`SetFreezerTargetTemperatureRequest`](#SetFreezerTargetTemperatureRequest)メッセージに対するレスポンスです。冷凍室の設定温度を変更するように設定した結果をCEKに返します。
+[`SetFreezerTargetTemperatureRequest`](#SetFreezerTargetTemperatureRequest)メッセージに対するレスポンスです。冷凍室の設定温度を変更するようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -4281,7 +4305,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`SetFreezerTargetTemperatureConfirmation`](#SetFreezerTargetTemperatureConfirmation)
 
 ## SetFridgeTargetTemperatureConfirmation {#SetFridgeTargetTemperatureConfirmation}
-[`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest)メッセージに対するレスポンスです。冷蔵室の設定温度を変更するように設定した結果をCEKに返します。
+[`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest)メッセージに対するレスポンスです。冷蔵室の設定温度を変更するようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -4359,7 +4383,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`SetFridgeTargetTemperatureConfirmation`](#SetFridgeTargetTemperatureConfirmation)
 
 ## SetLockStateConfirmation {#SetLockStateConfirmation}
-[`SetLockStateRequest`](#SetLockStateRequest)メッセージに対するレスポンスです。デバイスの開閉を設定した結果をCEKに返します。
+[`SetLockStateRequest`](#SetLockStateRequest)メッセージに対するレスポンスです。デバイスの開閉をリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -4430,7 +4454,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`SetLockStateConfirmation`](#SetLockStateConfirmation)
 
 ## SetModeConfirmation {#SetModeConfirmation}
-[`SetModeRequest`](#SetModeRequest)メッセージに対するレスポンスです。運転モード(operation mode)を変更するように設定した結果をCEKに返します。
+[`SetModeRequest`](#SetModeRequest)メッセージに対するレスポンスです。運転モード(operation mode)を変更するようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -4508,7 +4532,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`SetModeConfirmation`](#SetModeConfirmation)
 
 ## SetTargetTemperatureConfirmation {#SetTargetTemperatureConfirmation}
-[`SetTargetTemperatureRequest`](#SetTargetTemperatureRequest)メッセージに対するレスポンスです。設定温度変更のリクエストを処理した結果をCEKに返します。
+[`SetTargetTemperatureRequest`](#SetTargetTemperatureRequest)メッセージに対するレスポンスです。設定温度を変更するようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -4656,7 +4680,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`StopConfirmation`](#StopConfirmation)
 
 ## TurnOffConfirmation {#TurnOffConfirmation}
-[`TurnOffRequest`](#TurnOffRequest)メッセージに対するレスポンスです。デバイスの電源をオフにするように設定した結果をCEKに返します。
+[`TurnOffRequest`](#TurnOffRequest)メッセージに対するレスポンスです。デバイスの電源をオフにするようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 なし
@@ -4719,7 +4743,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`TurnOffConfirmation`](#TurnOffConfirmation)
 
 ## TurnOnConfirmation {#TurnOnConfirmation}
-[`TurnOnRequest`](#TurnOnRequest)メッセージに対するレスポンスです。デバイスの電源をオンにするように設定した結果をCEKに返します。
+[`TurnOnRequest`](#TurnOnRequest)メッセージに対するレスポンスです。デバイスの電源をオンにするようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 なし

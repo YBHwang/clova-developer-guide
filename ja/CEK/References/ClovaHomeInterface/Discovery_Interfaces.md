@@ -3,7 +3,7 @@
 ユーザーアカウントに登録されているIoTデバイスのリストを確認する際に使用されるインターフェースです。
 
 | メッセージ         | タイプ  | 説明                                   |
-|------------------|-----------|---------------------------------------------|
+|------------------|---------|---------------------------------------------|
 | [`DiscoverAppliancesRequest`](#DiscoverAppliancesRequest)   | Request  | ユーザーが登録したIoTデバイスのリストをClova Home Extensionにリクエストします。             |
 | [`DiscoverAppliancesResponse`](#DiscoverAppliancesResponse) | Response | [`DiscoverAppliancesRequest`](#DiscoverAppliancesRequest)メッセージに対するレスポンスです。ユーザーが登録したIoTデバイスのリストをCEKに返します。 |
 
@@ -107,6 +107,7 @@ IoTサービスを提供する際、ユーザーアカウントに登録され�
         "version": "v1.0",
         "friendlyName": "リビングの照明",
         "friendlyDescription": "スマートフォンで制御できる照明",
+        "isIr": false,
         "isReachable": true,
           "actions": [
             "DecrementBrightness",
@@ -126,6 +127,7 @@ IoTサービスを提供する際、ユーザーアカウントに登録され�
         "version": "v1.0",
         "friendlyName": "キッチンのコンセント",
         "friendlyDescription": "節電コンセント",
+        "isIr": false,
         "isReachable": true,
         "actions": [
           "HealthCheck",
@@ -135,7 +137,7 @@ IoTサービスを提供する際、ユーザーアカウントに登録され�
         "applianceTypes": ["SMARTPLUG"],
         "additionalApplianceDetails": {},
         "location": "LIVING_ROOM",
-        "tags": ["勉強", "ブラウンの部屋", "おでかけの際に電源をオフにするデバイス"]
+        "tags": ["勉強", "チョルスの部屋", "おでかけの際に電源をオフにするデバイス"]
       }
     ]
   }
