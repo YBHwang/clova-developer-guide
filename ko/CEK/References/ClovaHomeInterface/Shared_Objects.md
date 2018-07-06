@@ -186,13 +186,13 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 | `applianceTypes[]`           | string array  | 기기 타입. `applicationType`에 따라 해당 기기가 수행할 수 있는 동작인 `actions` 필드의 값이 달라집니다. IoT 서비스에서 사용자 계정에 등록된 기기의 타입을 다음 값 중 하나로 지정해야 합니다. Remarks 항목을 참고하여 기기 타입을 입력합니다.                                                                              | 필수/항상    |
 | `friendlyName`               | string        | 사용자가 붙여준 기기의 이름                                                           | 선택/항상    |
 | `friendlyDescription`        | string        | 기기에 대한 설명                                                                  | 선택/항상    |
-| `isIr`                       | boolean       | 기기를 적외선 통신 방식으로 제어하는지 나타내는 필드<ul><li>true: 적외선 통신 방식 사용</li><li>false: 적외선 통신 방식 사용 안함</li></ul> <div class="note"><p><strong>Note!</strong></p><p>기기를 적외선 통신 방식으로 제어할 경우 Clova는 사용자에게 기기 제어 결과를 전달하지 않습니다.</p></div>  | 선택/조건부  |
+| `isIr`                       | boolean       | 기기를 적외선 통신 방식으로 제어하는지 나타내는 필드<ul><li>true: 적외선 통신 방식 사용</li><li>false: 적외선 통신 방식 사용 안함</li></ul> <div class="note"><p><strong>Note!</strong></p><p>기기를 적외선 통신 방식으로 제어하면 Clova는 사용자에게 기기 제어 결과를 전달하지 않습니다.</p></div>  | 선택/조건부  |
 | `isReachable`                | boolean       | 원격 제어 가능 여부<ul><li>true: 원격 제어 가능</li><li>false: 원격 제어 불가</li></ul>  | 선택/항상    |
 | `manufacturerName`           | string        | 기기 제조사 이름                                                                  | 선택/항상    |
 | `modelName`                  | string        | 기기 모델 이름                                                                   | 선택/항상    |
 | `version`                    | string        | 제조사의 소프트웨어 버전                                                            | 선택/항상    |
 | `location`                   | string        | 기기가 설치된 장소. [Locations](#Locations) 항목에 있는 코드 값을 입력합니다. 해당 코드 값에 대응되는 한글 표현의 텍스트가 `tags` 필드에 추가됩니다.            | 선택/항상    |
-| `tags`                       | string array  | 사용자가 기기에 추가한 태그 목록. 사용자는 Clova 앱이나 IoT 서비스에서 기기의 설치 장소, 사용 목적, 제품 브랜드 등 다양한 속성을 태그로 기기에 추가할 수 있습니다. 같은 속성(태그)을 가지는 기기는 같은 그룹이 되며, 같은 그룹에 속한 기기에서 허용 동작이 같을 경우 동시 제어가 가능해 집니다.  | 선택/항상  |
+| `tags`                       | string array  | 사용자가 기기에 추가한 태그 목록. 사용자는 Clova 앱이나 IoT 서비스에서 기기의 설치 장소, 사용 목적, 제품 브랜드 등 다양한 속성을 태그로 기기에 추가할 수 있습니다. 같은 속성(태그)을 가지는 기기는 같은 그룹이 되며, 같은 그룹에 속한 기기 사이에 허용 동작이 같으면 동시 제어가 가능해 집니다.  | 선택/항상  |
 
 ### Remarks
 [`DiscoverAppliancesRequest`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesRequest) 메시지를 통해 사용자 기기 목록을 요청하면 Clova Home extension은 `additionalApplianceDetails` 필드를 제외한 모든 필드의 정보를 채워서 전달해야 합니다. 이때, `actions` 필드의 값은 보통 `applianceTypes` 필드에 의해 결정되며, `applianceTypes` 필드 값에 따라 다음과 같은 값을 가질 수 있습니다.
@@ -246,7 +246,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 
 <div class="note">
 <p><strong>Note!</strong></p>
-<p>실제 기기의 기능 제약에 따라 기기의 applianceTypes가 허용하는 actions보다 적은 actions을 사용하도록 제한할 수 있다. 예를 들면, 사용자가 등록한 공기청정기(<code>AIRPURIFIER</code> 타입)에 팬 속도를 조절할 수 있는 기능이 없을 경우 해당 기기에 허용되는 actions에서 IncrementFanSpeed와 DecrementFanSpeed를 제외하고 DiscoverAppliancesResponse 메시지를 보내야 합니다. 참고로 사용자가 대상 기기가 지원하지 않는 동작(action)을 요청한 경우 CEK가 바로 사용자에게 허용되지 않는 범위의 요청임을 알려줍니다.</p>
+<p>실제 기기의 기능 제약에 따라 기기의 applianceTypes가 허용하는 actions보다 적은 actions을 사용하도록 제한할 수 있다. 예를 들면, 사용자가 등록한 공기청정기(<code>AIRPURIFIER</code> 타입)에 팬 속도를 조절할 수 있는 기능이 없으면 해당 기기에 허용되는 actions에서 IncrementFanSpeed와 DecrementFanSpeed를 제외하고 DiscoverAppliancesResponse 메시지를 보내야 합니다. 참고로 사용자가 대상 기기가 지원하지 않는 동작(action)을 요청하면 CEK가 바로 사용자에게 허용되지 않는 범위의 요청임을 알려줍니다.</p>
 </div>
 
 ### Actions {#Actions}
@@ -641,7 +641,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 | 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |
 |---------------|---------|-----------------------------|:-------------:|
 | `name`        | string  | 에너지 또는 자원 사용 항목명                   | 필수/항상  |
-| `unit`        | string  | 에너지 또는 자원 사용 단위(예: 전기일 경우 kW)        | 필수/항상  |
+| `unit`        | string  | 에너지 또는 자원 사용 단위(예: 전기일 때 kW)        | 필수/항상  |
 | `value`       | number  | 에너지 또는 자원 사용 수치                    | 필수/항상   |
 
 ### Object Example
@@ -790,7 +790,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 
 ## CustomInfoObject {#CustomInfoObject}
 
-정보를 임의의 이름, 필요한 단위나 수치로 직접 입력할 때 사용되는 객체입니다. [공유 객체](#SharedObjects)가 기본으로 제공하는 객체로 정보를 표현할 수 없을 경우 이 객체를 사용하거나 [`GetDeviceStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateResponse) 메시지를 통해 대상 기기가 가진 전체 정보를 제공할 때 사용됩니다.
+정보를 임의의 이름, 필요한 단위나 수치로 직접 입력할 때 사용되는 객체입니다. [공유 객체](#SharedObjects)가 기본으로 제공하는 객체로 정보를 표현할 수 없을 때 이 객체를 사용하거나 [`GetDeviceStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateResponse) 메시지를 통해 대상 기기가 가진 전체 정보를 제공할 때 사용됩니다.
 
 ### Object fields
 | 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |
@@ -1352,7 +1352,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 * [`GetCurrentSittingStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentSittingStateResponse)
 
 ## SleepScoreInfoObject {#SleepScoreInfoObject}
-수면 점수에 대한 정보를 담고 있는 객체입니다. 기간에 대한 결과일 경우 평균 값입니다.
+수면 점수에 대한 정보를 담고 있는 객체입니다. 기간에 대한 결과를 나타낼 때는 평균값을 의미합니다.
 
 ### Object fields
 | 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |

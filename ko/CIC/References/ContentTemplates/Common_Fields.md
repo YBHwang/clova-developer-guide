@@ -4,7 +4,7 @@
 | 필드 이름        | 자료형    | 필드 설명                     | 포함 여부 |
 |----------------|---------|-----------------------------|:---------:|
 | `actionList[]`     | [ActionObject](/CIC/References/ContentTemplates/Shared_Objects.md#ActionObject) array | UI 터치와 같은 사용자 인터랙션에 대응하여 사용자에게 제공해야 할 동작이 무엇인지 정의한 객체 배열입니다. 사용자에게 제공해야 할 동작은 [Action URL scheme](#ActionURLScheme) 형태로 전달됩니다. [CardList](/CIC/References/ContentTemplates/CardList.md) 타입의 content template은 `cardList[]` 필드 하위에 정의될 수 있습니다. | 조건부 |
-| `failureMessage` | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | UI에 content template를 표시하지 못할 경우 보여줄 메시지 정보를 포함합니다. 예를 들면, 클라이언트가 `meta.version`에 명시된 content template의 버전을 지원하지 않거나 템플릿 정보를 표시하는데 문제가 생길 경우 보여줄 메시지 입니다. | 항상 |
+| `failureMessage` | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | UI에 content template를 표시하지 못할 때 보여줄 메시지 정보를 포함합니다. 예를 들면, 클라이언트가 `meta.version`에 명시된 content template의 버전을 지원하지 않거나 템플릿 정보를 표시하는데 문제가 있을 때 보여줄 메시지 입니다. | 항상 |
 | `meta`             | object | Content template과 관련된 메타 정보를 포함합니다. | 항상 |
 | `meta.version`     | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | Content template의 버전 정보를 포함합니다. | 항상 |
 | `subtitle`         | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | 부제나 보조 정보를 표시하기 위한 텍스트를 포함합니다. | 조건부 |
@@ -58,7 +58,7 @@
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>Action URL scheme이 지시 메시지와 다른 점은 지시 메시지는 클라이언트가 지시 메시지를 받을 경우 관련 동작을 바로 수행해야 하지만 action URL scheme은 화면이나 기타 수단으로 제공된 UI에서 사용자의 인터랙션이 발생했을 때 클라이언트가 관련 동작을 제공해야 합니다. 클라이언트는 action URL scheme에 관련된 동작을 제공할 때 위 표에서 정의한대로 용도에 맞는 동작을 제공해야 하며, 임의의 동작을 수행해서는 안됩니다.</p>
+  <p>Action URL scheme이 지시 메시지와 다른 점은 지시 메시지는 클라이언트가 지시 메시지를 받을 때 관련 동작을 바로 수행해야 하지만 action URL scheme은 화면이나 기타 수단으로 제공된 UI에서 사용자의 인터랙션이 발생했을 때 클라이언트가 관련 동작을 제공해야 합니다. 클라이언트는 action URL scheme에 관련된 동작을 제공할 때 위 표에서 정의한대로 용도에 맞는 동작을 제공해야 하며, 임의의 동작을 수행해서는 안됩니다.</p>
 </div>
 
 ### clova://app-launch/default-addressbook {#AppLaunchDefaultAddrBook}
@@ -190,7 +190,7 @@ clova://ttsRepeat?lang=en&text=hello
 | 파라미터 이름    | 설명                         | 포함 여부 |
 |---------------|-----------------------------|:---------:|
 | url           | 대상 페이지의 URL              | 항상 |
-| auth_required | 인증 필요 여부. 이 파라미터가 `true`이면, 대상 페이지를 열 때 인증 API를 사용해야 하며, `false`이거나 명시가 안된 경우 인증이 필요하지 않습니다. | 조건부 |
+| auth_required | 인증 필요 여부. 이 파라미터가 `true`이면, 대상 페이지를 열 때 인증 API를 사용해야 하며, `false`이거나 명시가 안되었다면 인증이 필요하지 않습니다. | 조건부 |
 
 이 action URL scheme의 예는 다음과 같습니다.
 

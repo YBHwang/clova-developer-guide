@@ -38,6 +38,6 @@ intentRequest(cekResponse) {
 ```
 {% endraw %}
 
-위 코드에서 보는 것처럼, Clova로부터 받은 요청 메시지에서 slot 정보를 추출(`this.request.intent.slots`)한 뒤 , 앞서 interaction 모델에 등록한 "diceCount"라는 slot(`slots.diceCount`)이 있으면 그 값을 정수 형태로 읽어옵니다. 이렇게 읽은 값이 던질 주사위의 개수이며, slot이 없거나 정수 형태의 값인 아닌 경우에는 기본값인 1로 판단합니다.
+위 코드에서 보는 것처럼, Clova로부터 받은 요청 메시지에서 slot 정보를 추출(`this.request.intent.slots`)한 뒤 , 앞서 interaction 모델에 등록한 "diceCount"라는 slot(`slots.diceCount`)이 있으면 그 값을 정수 형태로 읽어옵니다. 이렇게 읽은 값이 던질 주사위의 개수이며, slot이 없거나 정수 형태의 값인 아니면 기본값인 1로 판단합니다.
 
 변경된 코드를 extension 서버에서 실행합니다.

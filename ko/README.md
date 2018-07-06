@@ -512,7 +512,7 @@
       <td>
         <ul>
           <li>[CEK] CEK 문서 파트 작성</li>
-          <li>[CIC] <a href="/CIC/Guides/Interact_with_CIC.html#ManageConnection">연결 관리하기</a> 업데이트 (HTTP Ping 프레임을 사용할 수 없을 경우)</li>
+          <li>[CIC] <a href="/CIC/Guides/Interact_with_CIC.html#ManageConnection">연결 관리하기</a> 업데이트 (HTTP Ping 프레임을 사용할 수 없을 때)</li>
         </ul>
       </td>
     </tr>

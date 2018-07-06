@@ -14,7 +14,7 @@
 	    <p>테스트 단계에서는 HTTP도 가능하나 정식 서비스를 위해서는 HTTPS여야 합니다. Extension 서버는 HTTP일 때 80번 포트를 HTTPS일 때 443번 포트를 사용해야 합니다.</p>
 		</div>
 
-	* **{{ book.DevConsole.cek_account_linking }}**: 인증 서버(OAuth 2.0기반)를 사용해 3rd party의 회원정보와 연동할 경우에만 사용합니다.
+	* **{{ book.DevConsole.cek_account_linking }}**: 인증 서버(OAuth 2.0기반)를 사용해 3rd party의 회원정보와 연동할 때만 사용합니다.
 		샘플 주사위 extension은 **{{ book.DevConsole.cek_no }}**로 설정합니다.
 * 배포 정보 및 개인 정보 보호 및 규정 준수
 
