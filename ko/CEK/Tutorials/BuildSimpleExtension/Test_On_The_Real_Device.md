@@ -10,7 +10,7 @@ Interaction 모델이 잘 동작하는 것을 확인했다면, 심사 요청 전
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>테스터 ID를 등록한 후 조금 기다리면 extension을 테스트해 볼 수 있습니다. 만약, 1시간 정도가 지나도 extension을 테스트할 수 없을 경우 포럼이나 제휴 담당자를 통해 문의하시기 바랍니다.</p>
+  <p>테스터 ID를 등록한 후 조금 기다리면 extension을 테스트해 볼 수 있습니다. 만약, 1시간 정도가 지나도 extension을 테스트할 수 없으면 포럼이나 제휴 담당자를 통해 문의하시기 바랍니다.</p>
 </div>
 
 <div class="danger">

@@ -50,10 +50,10 @@ Extension 배포에 필요한 정보를 입력하는 마지막 단계로서 개�
 
 ![](/DevConsole/Resources/Images/DevConsole-Input_Policy.png)
 
-* **{{ book.DevConsole.cek_allow_purchase }}**: Extension을 사용할 때 사용자가 결제하거나 지불해야 하는 부분이 있을 경우 **{{ book.DevConsole.cek_yes }}**를 선택합니다.
-* **{{ book.DevConsole.cek_use_personal_info }}**: Extension이 사용자의 개인 정보를 수집할 경우 **{{ book.DevConsole.cek_yes }}**를 선택합니다.
+* **{{ book.DevConsole.cek_allow_purchase }}**: Extension을 사용할 때 사용자가 결제하거나 지불해야 하는 부분이 있으면 **{{ book.DevConsole.cek_yes }}**를 선택합니다.
+* **{{ book.DevConsole.cek_use_personal_info }}**: Extension이 사용자의 개인 정보를 수집한다면 **{{ book.DevConsole.cek_yes }}**를 선택합니다.
 * **{{ book.DevConsole.cek_child_directed }}**: 미성년자가 extension을 사용해도 되면 **{{ book.DevConsole.cek_yes }}**를 선택합니다.
-* **{{ book.DevConsole.cek_privacy_policy_url }}**: Extension이 개인 정보를 수집하는 경우 이와 관련된 정책 정보 페이지를 입력합니다. 이는 extension 설명 페이지의 맨 아래에 표시됩니다.
+* **{{ book.DevConsole.cek_privacy_policy_url }}**: Extension이 개인 정보를 수집한다면 이와 관련된 정책 정보 페이지를 입력합니다. 이는 extension 설명 페이지의 맨 아래에 표시됩니다.
 * **{{ book.DevConsole.cek_terms_of_use }}**: Extension과 관련한 면책 조항을 보여주는 페이지를 입력합니다. 이는 개인 정보 정책 URL과 같이 extension 설명 페이지의 맨 아래에 표시됩니다.
 
 **{{ book.DevConsole.cek_privacy_policy_url }}**과 **{{ book.DevConsole.cek_terms_of_use }}**에 입력된 내용은 **{{ book.DevConsole.ExtensionPage }}**에서 다음과 같이 표시됩니다.
@@ -86,7 +86,7 @@ Extension의 [배포 정보](#InputDeploymentInfo)와 [개인 정보 보호 및 
   <p>심사 중에는 extension의 정보와 interaction 모델을 수정할 수 없습니다.</p>
 </div>
 
-심사는 개별 심사로 진행되며 심사를 위한 별도 환경에서 진행됩니다. 만약, [사용자 계정 연결](/CEK/Guides/Link_User_Account.md)이 필요한 서비스인 경우에는 [배포 정보를 입력](#InputDeploymentInfo)할 때 테스트를 위한 계정 정보를 **{{ book.DevConsole.cek_test_instructions }}** 항목에 입력해야 합니다.
+심사는 개별 심사로 진행되며 심사를 위한 별도 환경에서 진행됩니다. 만약, [사용자 계정 연결](/CEK/Guides/Link_User_Account.md)이 필요한 서비스이면 [배포 정보를 입력](#InputDeploymentInfo)할 때 테스트를 위한 계정 정보를 **{{ book.DevConsole.cek_test_instructions }}** 항목에 입력해야 합니다.
 
 Extension을 심사할 때 살펴보는 기본 평가 항목은 다음과 같습니다.
 
@@ -94,7 +94,7 @@ Extension을 심사할 때 살펴보는 기본 평가 항목은 다음과 같습
   * 대화 문맥 상 어색한 부분이 있는지 확인합니다.
   * 시나리오 상 사용되는 발화 데이터에 금칙어, 민감어 등이 있는지 확인합니다.
   * [콘텐츠 제공 시 준수 사항](/Design/Design_Guideline_For_Extension.md#ContentGuideline)을 지켰는지 확인합니다.
-  * Extension이 [사용자 계정을 연결](/CEK/Guides/Link_User_Account.md)하는 경우 서비스에 특화된 부분을 더 검토할 수 있습니다.
+  * Extension이 [사용자 계정을 연결](/CEK/Guides/Link_User_Account.md)한다면 서비스에 특화된 부분을 더 검토할 수 있습니다.
 * Extension의 동작 검증
   * Extension이 서비스에 적합한 용어를 사용하고 있는지 확인합니다.
   * Intent, slot 등 interaction 모델을 검증합니다.
