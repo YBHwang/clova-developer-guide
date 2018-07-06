@@ -353,7 +353,7 @@ CIC returns an HTTP response containing the [directive](#Directive) telling a cl
 | 204 No Content            | CIC has successfully received an event from a client and contains no directive for the client.                    |
 | 400 Bad Request           | User request is in the wrong format.                                                                        |
 | 401 Unauthorized          | Failed to authenticate the user. Try [user authentication](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken) again.                        |
-| 412 Precondition Failed   | The pre-condition required to send user request is not satisfied. This usually occurs when the client has not [established a downchannel](#EstablishDownchannel).  |
+| 412 Precondition Failed   | The pre-condition required to send user request is not satisfied. This error occurs when the client has not [established a downchannel](#EstablishDownchannel) or has not sent an event message via the [connection created when establishing a downchannel](/CIC/Guides/Interact_with_CIC.md#CreateConnection).  |
 | 500 Internal Server Error | An internal server error occurred.                                                                                       |
 
 ### Response example

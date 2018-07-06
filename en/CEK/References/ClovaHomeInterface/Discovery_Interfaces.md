@@ -5,10 +5,10 @@ The discovery interfaces are used to check a list of IoT devices registered to a
 | Message name         | Type  | Description                                   |
 |------------------|-----------|---------------------------------------------|
 | [`DiscoverAppliancesRequest`](#DiscoverAppliancesRequest)   | Request  | Requests the list of IoT devices registered by the user to the Clova Home extension.             |
-| [`DiscoverAppliancesResponse`](#DiscoverAppliancesResponse) | Response | Sends the list of IoT devices registered by the user to CEK as a response to the [`DiscoverAppliancesRequest`](#DiscoverAppliancesRequest) message. |
+| [`DiscoverAppliancesResponse`](#DiscoverAppliancesResponse) | Response | Sends the list of IoT devices registered by the user to CEK as response to the [`DiscoverAppliancesRequest`](#DiscoverAppliancesRequest) message. |
 
 ## DiscoverAppliancesRequest {#DiscoverAppliancesRequest}
-Requests the list of IoT devices registered by the user to the Clova Home extension. The extension must use the [`DiscoverAppliancesResponse`](#DiscoverAppliancesResponse) message as a response to this request.
+Request the list of IoT devices registered by the user to the Clova Home extension. The extension must use the [`DiscoverAppliancesResponse`](#DiscoverAppliancesResponse) message as a response to this request.
 
 ### Payload fields
 
@@ -107,6 +107,7 @@ You must provide the list of appliances registered in each user account when you
         "version": "v1.0",
         "friendlyName": "Living room lamp",
         "friendlyDescription": "A lamp that can be controlled using a smartphone",
+        "isIr": false,
         "isReachable": true,
           "actions": [
             "DecrementBrightness",
@@ -126,6 +127,7 @@ You must provide the list of appliances registered in each user account when you
         "version": "v1.0",
         "friendlyName": "Kitchen plug",
         "friendlyDescription": "An energy-saving plug",
+        "isIr": false,
         "isReachable": true,
         "actions": [
           "HealthCheck",

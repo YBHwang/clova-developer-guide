@@ -48,7 +48,7 @@
 | `power`           | [PowerInfoObject](#PowerInfoObject)                     | The power status of a client device.            | Optional |
 | `screenBrightness` | [ScreenBrightnessInfoObject](#ScreenBrightnessInfoObject) | The screen brightness of a client device.         | Optional |
 | `soundMode`       | [SoundModeInfoObject](#SoundModeInfoObject)             | The sound mode of a client device.           | Optional |
-| `soundOutput`     | [SoundOutputInfoObject](#SoundOutputInfoObject)         | The information on the playback device or method used to output the sound of the client device. | Optional |
+| `soundOutput`     | [SoundOutputInfoObject](#SoundOutputInfoObject)         | This object contains the information on the playback device or method used to output the sound of the client device. | Optional |
 | `volume`          | [VolumeInfoObject](#VolumeInfoObject)                   | The speaker volume of a client device.           | Optional |
 | `wifi`            | [WifiInfoObject](#WifiInfoObject)                       | The Wi-Fi settings and connection state of a client device.    | Optional |
 
@@ -200,14 +200,15 @@ This object contains the Bluetooth information including Bluetooth status and pa
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
 | `actions[]`          | string array | A list of the [[`DeviceControl`](/CIC/References/CICInterface/DeviceControl.md) APIs] the client can support for Bluetooth. Enter the actions that can be performed by the client from the action list. <ul><li><code>"TurnOff"</code></li><li><code>"TurnOn"</code></li><li><code>"BtConnect"</code></li><li><code>"BtConnectByPINCode"</code></li><li><code>"BtDisconnect"</code></li><li><code>"BtStartPairing"</code></li><li><code>"BtStopPairing"</code></li></ul> | Required |
-| `btlist[]`           | object array | The object array of information on the Bluetooth device paired with the client.         | Required |
+| `btlist[]`           | object array | The object array of information on the Bluetooth device that has pairing history with the client.         | Required |
 | `btlist[].name`      | string       | The name of the Bluetooth device.                      | Required |
 | `btlist[].address`   | string       | The MAC address of the Bluetooth device.                  | Required |
 | `btlist[].connected` | boolean      | Indicates whether the Bluetooth device is connected to the client device or not. <ul><li><code>true</code>: Connected</li><li><code>false</code>: Not connected</li></ul> | Required |
+| `btlist[].role`      | string       | The role of the Bluetooth device. <ul><li><code>"sink"</code></li><li><code>"source"</code></li></ul>  | Required |   |   |   |   |
 | `scanlist[]`         | object array | The object array of information on scanned Bluetooth devices.   | Required |
 | `scanlist[].name`    | string       | The name of the Bluetooth device.                      | Required |
 | `scanlist[].address` | string       | The MAC address of the Bluetooth device.                  | Required |
-| `scanlist[].role`    | string       | The role of the bluetooth device. <ul><li><code>"sink"</code></li><li><code>"source"</code></li></ul>  | Required |
+| `scanlist[].role`    | string       | The role of the Bluetooth device. <ul><li><code>"sink"</code></li><li><code>"source"</code></li></ul>  | Required |
 | `state`              | string       | Indicates the Bluetooth status. <ul><li><code>"off"</code>: Bluetooth is turned off</li><li><code>"on"</code>: Bluetooth is turned on</li></ul> | Required |
 
 #### Object example
@@ -235,12 +236,14 @@ This object contains the Bluetooth information including Bluetooth status and pa
             {
                 "name": "My Phone",
                 "address": "44:00:10:f1:1f:f5",
-                "connected": false
+                "connected": false,
+                "role": "source"
             },
             {
                 "name": "My Speaker",
                 "address": "29:01:11:1f:12:89",
-                "connected": true
+                "connected": true,
+                "role": "sink"
             }
         ],
         "scanlist": [
@@ -482,7 +485,7 @@ This object contains the power state of a client device.
 {% endraw %}
 
 ### ScreenBrightnessInfoObject {#ScreenBrightnessInfoObject}
-This object contains the screen brightness of a client device.
+The object containing the screen brightness of a client device.
 
 #### Object fields
 

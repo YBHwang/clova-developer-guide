@@ -4,7 +4,7 @@ The SpeechRecognizer namespace provides interfaces for processing recognition of
 
 1. Send CIC the [`SpeechRecognizer.Recognize`](#Recognize) event when the user makes a voice request.
 2. Continue to send the speech input to CIC in every 200ms.
-3. Repeat step 2 until the user finishes speaking or the [`SpeechRecognizer.StopCapture`](#StopCapture) directive from CIC is received.
+3. Repeat step 2 until the [`SpeechRecognizer.StopCapture`](#StopCapture) directive from CIC is received.
 
 The SpeechRecognizer namespace provides the following events and directives.
 
@@ -296,7 +296,7 @@ This directive returns recognition results to the client in real time. The speec
 {% endif %}
 
 ## StopCapture directive {#StopCapture}
-This directive returns the last recognition result and instructs the client to stop recording the user voice when CIC decides no more voice recording (PCM) is required upon receiving the [`SpeechRecognizer.Recognize`](#Recognize) event. Upon receiving the directive, the client must immediately stop recoding the user request. However, a client can choose to continue to receive a user request even after CIC sends this directive, but the voice request taken after receiving this directive will not be processed by Clova. The `SpeechRecognizer.StopCapture` directive includes the result of the last recognized input in the `payload`.
+This directive returns the last recognition result and instructs the client to stop recording the user voice when CIC decides no more voice recording (PCM) is required upon receiving the [`SpeechRecognizer.Recognize`](#Recognize) event. Upon receiving the directive, the client must immediately stop recoding the user request. However, a client can choose to continue to receive a user request even after CIC sends this directive, but the voice request taken after receiving this directive will not be processed by Clova.
 
 ### Payload fields
 
