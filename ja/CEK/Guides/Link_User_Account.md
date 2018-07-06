@@ -29,7 +29,7 @@ Clovaは、[Custom Extension](/CEK/Guides/Build_Custom_Extension.md)、または
 
 1. ユーザーが特定のCustom ExtensionまたはClova Home Extensionを有効にします。
 
-2. クライアントアプリまたはクライアントデバイスとペアリングするアプリで、外部サービスのログインページを表示します。その際、Extensionの開発者があらかじめ登録し認可サーバーの**[認証URL](#BuildAuthServer)** を使用します。
+2. クライアントアプリまたはクライアントデバイスとペアリングするアプリで、外部サービスのログインページを表示します。その際、Extensionの開発者があらかじめ登録し認可サーバーの **[認証URL](#BuildAuthServer)** を使用します。
 
 3. ユーザーがアカウントの認証を完了すると、認可コードが返されます。
 
@@ -78,7 +78,7 @@ Extensionにアカウント連携を適用するには、ユーザーがアカ�
 * `state`パラメータをリダイレクトURL(`redirect_uri`)に引き続き送信します。
 
 
-ユーザーがアカウントを認証できるようにログインUIを提供するページのアドレスを**認証URL**と呼びます。認証URLは、Clova Developer Centerで[Extensionを登録する](/DevConsole/Guides/CEK/Register_Extension.md)ときに入力します。ユーザーがExtensionの[アカウント連携を使用するように設定](/DevConsole/Guides/CEK/Register_Extension.md#SetAccountLinking)する際、その**認証URL**が次のパラメータと一緒に呼び出されます。
+ユーザーがアカウントを認証できるようにログインUIを提供するページのアドレスを **認証URL** と呼びます。認証URLは、Clova Developer Centerで[Extensionを登録する](/DevConsole/Guides/CEK/Register_Extension.md)ときに入力します。ユーザーがExtensionの[アカウント連携を使用するように設定](/DevConsole/Guides/CEK/Register_Extension.md#SetAccountLinking)する際、その **認証URL** が次のパラメータと一緒に呼び出されます。
 
 | パラメータ名   | 説明                                                                                                                                                                                                                                                                                             |
 |:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -114,7 +114,7 @@ Extensionにアカウント連携を適用するには、ユーザーがアカ�
 | パラメータ名  | 説明                                                                                                                                                      |
 |:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `vendorId`     | Extensionの開発者に発行されたID外部サービスまたは会社を区別するために、Clova Developer Centerに登録されているIDです。`redirect_uri`にあらかじめ含まれています。 |
-| `state`        | 認証セッションの期限切れを確認する状態値**認証URL**から渡された`state`パラメータをそのまま入力します。                                |
+| `state`        | 認証セッションの期限切れを確認する状態値 **認証URL** から渡された`state`パラメータをそのまま入力します。                                |
 | `code`         | 認可コード`response_type`の値が`"code"`の場合、このパラメータに認可コードを入力します。                                                     |
 | `token_type`   | アクセストークンのタイプ`access_token`と一緒に渡される必要があります。`"Bearer"`で固定されます。                                                                        |
 
@@ -126,7 +126,7 @@ Extensionにアカウント連携を適用するには、ユーザーがアカ�
 </code></pre>
 
 
-Clovaがユーザーアカウントを連携するために認可コードを取得した場合、Clovaは再びExtensionの開発者がClova Developer Centerにあらかじめ登録した**[アクセストークンURI](#RegisterAccountLinkingInfo)**からアクセストークンをリクエストします。その際、Clovaは取得した認可コードをパラメータに送信します。認可サーバーは外部サービスのアカウント権限が付与されたアクセストークンと、アクセストークンを更新できるリフレッシュトークンを発行する必要があります。
+Clovaがユーザーアカウントを連携するために認可コードを取得した場合、Clovaは再びExtensionの開発者がClova Developer Centerにあらかじめ登録した **[アクセストークンURI](#RegisterAccountLinkingInfo)** からアクセストークンをリクエストします。その際、Clovaは取得した認可コードをパラメータに送信します。認可サーバーは外部サービスのアカウント権限が付与されたアクセストークンと、アクセストークンを更新できるリフレッシュトークンを発行する必要があります。
 
 ### アカウント権限の検証を実装する {#AddValidationLogic}
 アカウント連携を適用するために、Extensionの開発者はアクセストークンの有効性を検証するコードを作成する必要があります。Custom ExtensionとClova Home Extensionに渡されるExtensionメッセージは、それぞれ次のような`accessToken`フィールドを持っています。
@@ -216,6 +216,6 @@ Clovaがユーザーアカウントを連携するために認可コードを取
 | Client ID                    | ユーザー[アカウント認証](#SetupAccountLinking)ページをリクエストする際に、サービスを識別するために付与したクライアントID                                                                          |
 | Authorization Grant Type     | OAuth 2.0の認可グラントタイプ。現在、Authorization code grantタイプのみサポートしています。 |
 | Access Token URI             | 認可コードでアクセストークンを取得するためのアドレス。Authorization code grantタイプに設定した場合、入力します。                                                                  |
-| Client Secret                | 認可コードでアクセストークンを取得する際に、**Client ID**と一緒に渡されるクライアントシークレットのこと。Authorization code grantタイプに設定した場合、入力します。                    |
+| Client Secret                | 認可コードでアクセストークンを取得する際に、 **Client ID** と一緒に渡されるクライアントシークレットのこと。Authorization code grantタイプに設定した場合、入力します。                    |
 | Client Authentication Scheme | アクセストークンURIにアクセストークンをリクエストする際に使用されるスキーム                                                                                                                      |
 | Privacy Policy URL           | サービスのプライバシーポリシーが提供されるページClovaアプリまたはペアリングアプリに表示されます。                                                                      |
