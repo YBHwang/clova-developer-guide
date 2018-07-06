@@ -26,6 +26,7 @@
       <ul>
         <li>[Design] Extension의 <a href="/Design/Design_Guideline_For_Extension.html#DefineExtensionName">이름 정의</a>에 대한 가이드라인 추가</li>
         <li>[Design] Extension의 <a href="/Design/Design_Guideline_For_Extension.html#ContentGuideline">콘텐츠 제공 시 준수 사항</a>에 대한 가이드라인 추가</li>
+        <li>[CIC] 클라이언트 기기 설정 정보를 업데이트 및 동기화하기 위해 <a href="/CIC/References/CICInterface/Settings.html">Settings</a> 네임스페이스 추가</li>
       </ul>
     </td>
   </tr>
