@@ -693,9 +693,11 @@ CIC 메시지는 기능과 용도에 따라 각각의 인터페이스로 정의�
 * [DeviceControl](/CIC/References/CICInterface/DeviceControl.md)
 * [Notifier](/CIC/References/CICInterface/Notifier.md)
 * [PlaybackController](/CIC/References/CICInterface/PlaybackController.md)
+* [Settings](/CIC/References/CICInterface/Settings.md)
 * [SpeechRecognizer](/CIC/References/CICInterface/SpeechRecognizer.md)
 * [SpeechSynthesizer](/CIC/References/CICInterface/SpeechSynthesizer.md)
 * [System](/CIC/References/CICInterface/System.md)
+* [TemplateRuntime](/CIC/References/CICInterface/TemplateRuntime.md)
 * [TextRecognizer](/CIC/References/CICInterface/TextRecognizer.md)
 
 이벤트 메시지와 지시 메시지를 기준으로 나눈 인터페이스 목록을 보려면 다음 색인을 참조합니다.
