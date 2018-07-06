@@ -40,7 +40,6 @@
   * [応答タイプを決める](/Design/Design_Guideline_For_Extension.md#DecideSoundOutputType)
     * [音声出力タイプ](/Design/Design_Guideline_For_Extension.md#OutpuSpeech)
     * [オーディオコンテンツの再生タイプ](/Design/Design_Guideline_For_Extension.md#AudioPlayer)
-  * [注意事項](/Design/Design_Guideline_For_Extension.md#Precautions)
   * [プラットフォームでサポートされるオーディオ圧縮形式](/Design/Design_Guideline_For_Extension.md#SupportedAudioCompressionFormat)
   * [Clovaコンテンツガイドライン](/Design/Design_Guideline_For_Extension.md#ClovaSkillContentGuideline)
   * [随時更新](/Design/Design_Guideline_For_Extension.md#ContinuousUpdate)
