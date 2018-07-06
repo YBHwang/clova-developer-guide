@@ -1,5 +1,5 @@
 ## AudioPlayer.PlaybackState {#PlaybackState}
-`AudioPlayer.PlaybackState` is a format for reporting to CIC the details of media currently playing or the last media played.
+`AudioPlayer.PlaybackState` is a format for reporting to CIC the details of media currently playing or the last played media.
 
 ### Object structure
 {% raw %}
@@ -29,7 +29,7 @@
 | `playerActivity`       | string | Indicates the state of the player. Available values are:<ul><li><code>"IDLE"</code>: Deactivated</li><li><code>"PLAYING"</code>: Playing</li><li><code>"PAUSED"</code>: Paused</li><li><code>"STOPPED"</code>: Stopped</li></ul> | Required |
 | `repeatMode`           | string  | The repeat mode.<ul><li><code>"NONE"</code>: None</li><li><code>"REPEAT_ONE"</code>: Repeat one song</li></ul>                                                   | Required  |
 | `stream`               | [AudioStreamInfoObject](/CIC/References/CICInterface/AudioPlayer.md#AudioStreamInfoObject) | The details of the currently playing media. This field is omissible if the `playerActivity` field is set as `"IDLE"`. Enter the details with the information defined in the `stream` object provided by the [`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play) directive or [`AudioPlayer.StreamDeliver`](/CIC/References/CICInterface/AudioPlayer.md#StreamDeliver) directive. | Optional |
-| `totalInMilliseconds`  | number | The total duration of the recently played media. Enter the value of the `durationInMilliseconds` field of the [AudioStreamInfoObject](/CIC/References/CICInterface/AudioPlayer.md#AudioStreamInfoObject) provided by the [`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play) directive, if the value is available. The unit is in milliseconds. This field is omissible if the `playerActivity` field is set to `"IDLE"`.                                                               | Optional |
+| `totalInMilliseconds`  | number | The total duration of the recently played media. If the value exists in the, `durationInMilliseconds` field of the [AudioStreamInfoObject] (/CIC/References/CICInterface/AudioPlayer.md#AudioStreamInfoObject) provided by the [`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play) directive, enter the field value for this field. The unit is in milliseconds. This field is omissible if the `playerActivity` field is set to `"IDLE"`.                                                               | Optional |
 
 ### Object example
 
@@ -43,8 +43,8 @@
     "name": "PlaybackState"
   },
   "payload": {
-    "offsetInMilliseconds": 1,
-    "totalInMilliseconds": 100,
+    "offsetInMilliseconds": 10000,
+    "totalInMilliseconds": 300000,
     "playerActivity": "STOPPED",
     "repeatMode": "NONE",
     "stream": {

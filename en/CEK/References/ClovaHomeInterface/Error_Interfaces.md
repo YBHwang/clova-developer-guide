@@ -1,5 +1,5 @@
 # Error
-These error interfaces are used when the Clova Home extension returns errors to CEK:
+These error interfaces are used when the Clova Home extension returns errors to CEK: You can use the following error messages:
 
 
 | Message name         | Type  | Description                                   |
@@ -10,9 +10,10 @@ These error interfaces are used when the Clova Home extension returns errors to 
 | [`ExpiredAccessTokenError`](#ExpiredAccessTokenError)      | Error response | Sent to CEK as a response if the access token received from the [authorization server](/CEK/Guides/Link_User_Account.md#BuildAuthServer) during the [account linking](/CEK/Guides/Link_User_Account.md) process is expired.  |
 | [`InvalidAccessTokenError`](#InvalidAccessTokenError)      | Error response | Sent to CEK as a response if the user has disabled permissions on the access token being used.         |
 | [`NoSuchTargetError`](#NoSuchTargetError)                  | Error response | Sent to CEK as a response if the target device is not found.                            |
-| [`NotSupportedInCurrentModeError`](#NotSupportedInCurrentModeError) | Error response | Sent to CEK as a response if the directed action cannot be performed under the current mode of the target device.  |
+| [`NotSupportedInCurrentModeError`](#NotSupportedInCurrentModeError) | Error response | Sent to CEK as a response if the directed action cannot be performed on the current mode of the target device.  |
 | [`TargetOfflineError`](#TargetOfflineError)                | Error response | Sent to CEK as a response if the target device is offline and cannot be connected. |
 | [`UnsupportedOperationError`](#UnsupportedOperationError)  | Error response | Sent to CEK as a response if an action unsupported by the target appliance is requested.   |
+| [`ValueNotFoundError`](#ValueNotFoundError)                | Error response | Sent to CEK as a response if the requested value cannot be provided because the target device has failed to measure or store the measurement value or the state value.  |
 | [`ValueOutOfRangeError`](#ValueOutOfRangeError)            | Error response | Sent to CEK as a response if the requested action is outside of the range that can be processed by the target device. |
 
 <div class="note">
@@ -25,11 +26,12 @@ Sent to CEK as a response if a certain condition (state) required for operating 
 
 ### Payload fields
 
-None
+| Field name       | Data type    | Description                     | Required |
+|---------------|---------|-----------------------------|:---------:|
+| `state`       | string  | The value that explains the unsatisfied condition or state. This field must be written in a language comprehensible to users, as the value is sent to users as TTS. The value in this field is used in the following format to inform the user of the current situation:<pre><code>This feature is not supported when the {target device} is in {state}. Please check and try again.</code></pre>  | Required    |
 
 ### Remarks
-* The extension must send the error messages to CEK as a normal HTTPS response (200 OK).
-* A separate `payload` is not required because the names of the error messages provide information on the situation.
+* The extension must send the error messages to CEK as a normal HTTP response (200 OK).
 
 ### Message example
 
@@ -42,7 +44,9 @@ None
     "name": "ConditionsNotMetError",
     "payloadVersion": "1.0"
   },
-  "payload": {}
+  "payload": {
+    "state": "Power saving mode"
+  }
 }
 ```
 {% endraw %}
@@ -58,7 +62,7 @@ Sent to CEK as a response if a defect occurs in the target appliance. When CEK r
 None
 
 ### Remarks
-* The extension must send the error messages to CEK as a normal HTTPS response (200 OK).
+* The extension must send the error messages to CEK as a normal HTTP response (200 OK).
 * A separate `payload` is not required because the names of the error messages provide information on the situation.
 
 ### Message example
@@ -89,7 +93,7 @@ Sent to CEK as a response if an internal error occurs. When CEK receives this me
 None
 
 ### Remarks
-* The extension must send the error messages to CEK as a normal HTTPS response (200 OK).
+* The extension must send the error messages to CEK as a normal HTTP response (200 OK).
 * A separate `payload` is not required because the names of the error messages provide information on the situation.
 
 ### Message example
@@ -120,7 +124,7 @@ Sent to CEK as a response if the access token received from the [authorization s
 None
 
 ### Remarks
-* The extension must send the error messages to CEK as a normal HTTPS response (200 OK).
+* The extension must send the error messages to CEK as a normal HTTP response (200 OK).
 * A separate `payload` is not required because the names of the error messages provide information on the situation.
 
 ### Message example
@@ -150,7 +154,7 @@ Sent to CEK as a response if the user has disabled permissions on the access tok
 None
 
 ### Remarks
-* The extension must send the error messages to CEK as a normal HTTPS response (200 OK).
+* The extension must send the error messages to CEK as a normal HTTP response (200 OK).
 * A separate `payload` is not required because the names of the error messages provide information on the situation.
 
 ### Message example
@@ -180,7 +184,7 @@ Sent to CEK as a response if the target device is not found. For example, this m
 None
 
 ### Remarks
-* The extension must send the error messages to CEK as a normal HTTPS response (200 OK).
+* The extension must send the error messages to CEK as a normal HTTP response (200 OK).
 * A separate `payload` is not required because the names of the error messages provide information on the situation.
 
 ### Message example
@@ -204,14 +208,14 @@ None
 * [`TargetOfflineError`](#TargetOfflineError)
 
 ## NotSupportedInCurrentModeError {#NotSupportedInCurrentModeError}
-Sent to CEK as a response if the directed action cannot be performed under the current mode of the target device. For example, template-related controls may be restricted for some air conditioners operating in dehumidifier mode. This message must be sent to users of those products if a control request for temperature is made in dehumidifier mode. When CEK receives this message, a predefined error message is sent to the client.
+Sent to CEK as a response if the directed action cannot be performed on the current mode of the target device. For example, template-related controls may be restricted for some air conditioners operating in dehumidifier mode. This message must be sent to users of those products if a control request for temperature is made in dehumidifier mode. When CEK receives this message, a predefined error message is sent to the client.
 
 ### Payload fields
 
 None
 
 ### Remarks
-* The extension must send the error messages to CEK as a normal HTTPS response (200 OK).
+* The extension must send the error messages to CEK as a normal HTTP response (200 OK).
 * A separate `payload` is not required because the names of the error messages provide information on the situation.
 
 ### Message example
@@ -232,7 +236,6 @@ None
 
 ### See also
 * [`UnsupportedOperationError`](#UnsupportedOperationError)
-* [`ValueOutOfRangeError`](#ValueOutOfRangeError)
 
 ## TargetOfflineError {#TargetOfflineError}
 Sent to CEK as a response if the target device is offline and cannot be connected. When CEK receives this message, a predefined error message is sent to the client.
@@ -242,7 +245,7 @@ Sent to CEK as a response if the target device is offline and cannot be connecte
 None
 
 ### Remarks
-* The extension must send the error messages to CEK as a normal HTTPS response (200 OK).
+* The extension must send the error messages to CEK as a normal HTTP response (200 OK).
 * A separate `payload` is not required because the names of the error messages provide information on the situation.
 
 ### Message example
@@ -276,7 +279,7 @@ For example, let us assume that the user’s thermostat (`"THERMOSTAT"` type) ca
 None
 
 ### Remarks
-* The extension must send the error messages to CEK as a normal HTTPS response (200 OK).
+* The extension must send the error messages to CEK as a normal HTTP response (200 OK).
 * A separate `payload` is not required because the names of the error messages provide information on the situation.
 
 ### Message example
@@ -297,6 +300,34 @@ None
 
 ### See also
 * [`NotSupportedInCurrentModeError`](#NotSupportedInCurrentModeError)
+
+## ValueNotFoundError {#ValueNotFoundError}
+Sent to CEK as a response if the requested value cannot be provided because the target device has failed to measure or store the measurement value or the state value. For example, an air conditioner must provide values, such as the current temperature, by default but it may not be able to provide it due to a defect or temporarily failure. This message can be used in such situations.
+
+### Payload fields
+None
+
+### Remarks
+* The extension must send the error messages to CEK as a normal HTTP response (200 OK).
+* A separate `payload` is not required because the names of the error messages provide information on the situation.
+
+### Message example
+
+{% raw %}
+```json
+{
+  "header": {
+    "messageId": "57109b11-ee04-45df-9dd2-c979bc8608ea",
+    "namespace": "ClovaHome",
+    "name": "ValueNotFoundError",
+    "payloadVersion": "1.0"
+  },
+  "payload": {}
+}
+```
+{% endraw %}
+
+### See also
 * [`ValueOutOfRangeError`](#ValueOutOfRangeError)
 
 ## ValueOutOfRangeError {#ValueOutOfRangeError}
@@ -310,8 +341,7 @@ Sent to CEK as a response if the requested action is outside of the range that c
 | `minimumValue` | number | Minimum setting value permitted on the target appliance. | Required    |
 
 ### Remarks
-* The extension must send the error messages to CEK as a normal HTTPS response (200 OK).
-* A separate `payload` is not required because the names of the error messages provide information on the situation.
+* The extension must send the error messages to CEK as a normal HTTP response (200 OK).
 * The values entered in `payload` fields can be used to inform users.
 
 ### Message example
@@ -334,5 +364,4 @@ Sent to CEK as a response if the requested action is outside of the range that c
 {% endraw %}
 
 ### See also
-* [`UnsupportedOperationError`](#UnsupportedOperationError)
-* [`NotSupportedInCurrentModeError`](#NotSupportedInCurrentModeError)
+* [`ValueNotFoundError`](#ValueNotFoundError)

@@ -12,12 +12,12 @@ The AudioPlayer namespace provides interfaces for playing an audio stream or rep
 | [`PlayResumed`](#PlayResumed)         | Event     | Reports to CIC that the client has resumed playback with the information on the audio stream.         |
 | [`PlayStarted`](#PlayStarted)         | Event     | Reports to CIC that the client has started playback with the information on the audio stream.    |
 | [`PlayStopped`](#PlayStopped)         | Event     | Reports to CIC that the client has stopped playback with the information on the audio stream.    |
-| [`ProgressReportDelayPassed`](#ProgressReportPositionPassed) | Event | Reports the current playback state to CIC ([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState)) after a specified length of time has passed. The length of time is specified in the [`AudioPlayer.Play`](#Play) directive. |
-| [`ProgressReportIntervalPassed`](#ProgressReportPositionPassed)| Event | Reports the current playback state to CIC ([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState)), by the specified interval, after playback has started. The interval is specified in the [`AudioPlayer.Play`](#Play) directive.|
-| [`ProgressReportPositionPassed`](#ProgressReportPositionPassed) | Event | Reports the current playback state to CIC ([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState)) at the specified time, which is measured from the start of the audio stream. The reporting time is specified in the [`AudioPlayer.Play`](#Play) directive.|
-| [`ReportPlaybackState`](#ReportPlaybackState)           | Event  | Reports the current playback state of the client to CIC. If the [`ExpectReportPlaybackState`](#ExpectReportPlaybackState) directive is received from CIC, the client must send the `AudioPlayer.ReportPlaybackState` event to CIC.  |
+| [`ProgressReportDelayPassed`](#ProgressReportPositionPassed) | Event | Reports to CIC the current playback state ([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState)) after the delay, specified period of time, has passed. The delay is a period of time specified in the [`AudioPlayer.Play`](#Play) directive. |
+| [`ProgressReportIntervalPassed`](#ProgressReportPositionPassed)| Event | Reports to CIC the current playback state ([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState)), by the specified interval, after playback has started. The interval is specified in the [`AudioPlayer.Play`](#Play) directive.|
+| [`ProgressReportPositionPassed`](#ProgressReportPositionPassed) | Event | Reports to CIC the current playback state ([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState)) at the specified time, which is measured from the start of the audio stream. The reporting time is specified in the [`AudioPlayer.Play`](#Play) directive.|
+| [`ReportPlaybackState`](#ReportPlaybackState)           | Event  | Reports to CIC the current playback state of the client. If the [`ExpectReportPlaybackState`](#ExpectReportPlaybackState) directive is received from CIC, the client must send the `AudioPlayer.ReportPlaybackState` event to CIC.  |
 {% if book.TargetReaderType == "Internal" %}| [`RequestPlaybackState`](#RequestPlaybackState)         | Event  | Requests CIC for the current playback state of the client. Upon receiving the `AudioPlayer.ReqeustPlaybackState` event, CIC will send the [`ExpectReportPlaybackState`](#ExpectReportPlaybackState) directive to all or specific clients registered to the user account.  |
-| [`StreamDeliver`](#StreamDeliver)     | Directive | Response to the [`AudioPlayer.StreamRequested`](#StreamRequested) event used when receiving audio stream information that can be played. |{% else %}| [`StreamDeliver`](#StreamDeliver)     | Directive | Response to the [`AudioPlayer.StreamRequested`](#StreamRequested) event used when receiving audio stream information that can be played. |{% endif %}
+| [`StreamDeliver`](#StreamDeliver)     | Directive | Receives the audio stream information that can be played as a response to the [`AudioPlayer.StreamRequested`](#StreamRequested) event. |{% else %}| [`StreamDeliver`](#StreamDeliver)     | Directive | Receives the audio stream information that can be played as a response to the [`AudioPlayer.StreamRequested`](#StreamRequested) event. |{% endif %}
 | [`StreamRequested`](#StreamRequested) | Event     | Requests CIC for additional information needed for audio stream playback such as a streaming URL.               |
 {% if book.TargetReaderType == "Internal" %}| [`SynchronizePlaybackState`](#SynchronizePlaybackState) | Directive | Instructs the client to synchronize the audio playback state. The client that had sent the `AudioPlayer.RequestPlaybackState` event will receive the `AudioPlayer.SynchronizePlaybackState` directive. |{% endif %}
 
@@ -120,9 +120,9 @@ Instructs the client to either play or add to the playback queue the specified a
 | `source.name`             | string | The text field containing the name of the audio streaming service.                                                        | Always |
 
 ### Remarks
-Based on the policy of music service providers, certain information required for playback (e.g. streaming URL) may not be shared to clients until right before playback. Whether extra information shall be requested is specified in the `audioItem.stream.urlPlayable` field as shown below:
-* `urlPlayable` is `true`: No extra information is required. You can play the audio stream only with the URL specified in the `audioItem.stream.url` field.
-* `urlPlayable` is `false`: Extra information is required for you to play the given audio stream. Make a request for extra information with the [`AudioPlayer.StreamRequested`](#StreamRequested) event.
+Based on the policy of music service providers, certain information required for playback (e.g. streaming URL) may not be shared to clients until right before playback. Whether additional information will be requested is specified in the `audioItem.stream.urlPlayable` field, as shown below:
+* `urlPlayable` is `true`: No additional information is required. You can play the audio stream only with the URL specified in the `audioItem.stream.url` field.
+* `urlPlayable` is `false`: Additional information is required for you to play the given audio stream. Make a request for additional information with the [`AudioPlayer.StreamRequested`](#StreamRequested) event.
 
 ### Message example
 {% raw %}
@@ -233,7 +233,7 @@ Reports to CIC that the client has finished playback with the information on the
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `token`                | string | The `audioItem.stream.token` field value of the ['AudioPlayer.Play'](#Play) directive. | Required |
+| `token`                | string | The `audioItem.stream.token` field value of the [`AudioPlayer.Play`](#Play) directive. | Required |
 | `offsetInMilliseconds` | number | The current-time indicator of the audio playing (in milliseconds).                         | Required  |
 
 ### Message example
@@ -285,7 +285,7 @@ Reports to CIC that the client has paused playback with the information on the a
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `token`                | string | The `audioItem.stream.token` field value of the ['AudioPlayer.Play'](#Play) directive. | Required |
+| `token`                | string | The `audioItem.stream.token` field value of the [`AudioPlayer.Play`](#Play) directive. | Required |
 | `offsetInMilliseconds` | number | The current-time indicator of the audio playing (in milliseconds).                         | Required  |
 
 ### Message example
@@ -340,7 +340,7 @@ Reports to CIC that the client has resumed playback with the information on the 
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `token`                | string | The `audioItem.stream.token` field value of the ['AudioPlayer.Play'](#Play) directive. | Required |
+| `token`                | string | The `audioItem.stream.token` field value of the [`AudioPlayer.Play`](#Play) directive. | Required |
 | `offsetInMilliseconds` | number | The current-time indicator of the audio playing (in milliseconds).                         | Required  |
 
 ### Message example
@@ -390,7 +390,7 @@ Reports to CIC that the client has started playback with the information on the 
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `token`                | string | The `audioItem.stream.token` field value of the ['AudioPlayer.Play'](#Play) directive. | Required |
+| `token`                | string | The `audioItem.stream.token` field value of the [`AudioPlayer.Play`](#Play) directive. | Required |
 | `offsetInMilliseconds` | number | The current-time indicator of the audio playing (in milliseconds).                         | Required  |
 
 ### Message example
@@ -443,7 +443,7 @@ Reports to CIC that the client has stopped playback with the information on the 
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `token`                | string | The `audioItem.stream.token` field value of the ['AudioPlayer.Play'](#Play) directive. | Required |
+| `token`                | string | The `audioItem.stream.token` field value of the [`AudioPlayer.Play`](#Play) directive. | Required |
 | `offsetInMilliseconds` | number | The current-time indicator of the audio playing (in milliseconds).                         | Required  |
 
 ### Message example
@@ -483,7 +483,7 @@ Reports to CIC that the client has stopped playback with the information on the 
 * [`PlaybackController.Stop`](/CIC/References/CICInterface/PlaybackController.md#Stop)
 
 ## ProgressReportDelayPassed event {#ProgressReportDelayPassed}
-Reports the current playback state to CIC ([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState)) after a specified length of time has passed. The length of time is specified in the [`AudioPlayer.Play`](#Play) directive.
+Reports to CIC the current playback state ([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState)) after the delay, specified period of time, has passed. The delay is a period of time specified in the [`AudioPlayer.Play`](#Play) directive.
 
 ### Context fields
 
@@ -493,7 +493,7 @@ Reports the current playback state to CIC ([`AudioPlayer.PlaybackState`](/CIC/Re
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `token`                | string | The `audioItem.stream.token` field value of the ['AudioPlayer.Play'](#Play) directive. | Required |
+| `token`                | string | The `audioItem.stream.token` field value of the [`AudioPlayer.Play`](#Play) directive. | Required |
 | `offsetInMilliseconds` | number | The current-time indicator of the audio playing (in milliseconds).                         | Required  |
 
 ### Message example
@@ -533,7 +533,7 @@ Reports the current playback state to CIC ([`AudioPlayer.PlaybackState`](/CIC/Re
 * [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
 
 ## ProgressReportIntervalPassed event {#ProgressReportIntervalPassed}
-Reports the current playback state to CIC ([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState)), by the specified interval, after playback has started. The interval is specified in the [`AudioPlayer.Play`](#Play) directive.
+Reports to CIC the current playback state ([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState)), by the specified interval, after playback has started. The interval is specified in the [`AudioPlayer.Play`](#Play) directive.
 
 ### Context fields
 
@@ -543,7 +543,7 @@ Reports the current playback state to CIC ([`AudioPlayer.PlaybackState`](/CIC/Re
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `token`                | string | The `audioItem.stream.token` field value of the ['AudioPlayer.Play'](#Play) directive. | Required |
+| `token`                | string | The `audioItem.stream.token` field value of the [`AudioPlayer.Play`](#Play) directive. | Required |
 | `offsetInMilliseconds` | number | The current-time indicator of the audio playing (in milliseconds).                         | Required  |
 
 ### Message example
@@ -583,7 +583,7 @@ Reports the current playback state to CIC ([`AudioPlayer.PlaybackState`](/CIC/Re
 * [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
 
 ## ProgressReportPositionPassed event {#ProgressReportPositionPassed}
-Reports the current playback state to CIC ([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState)) at the specified time, which is measured from the start of the audio stream. The reporting time is specified in the [`AudioPlayer.Play`](#Play) directive.
+Reports to CIC the current playback state ([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState)) at the specified time, which is measured from the start of the audio stream. The reporting time is specified in the [`AudioPlayer.Play`](#Play) directive.
 
 ### Context fields
 
@@ -593,7 +593,7 @@ Reports the current playback state to CIC ([`AudioPlayer.PlaybackState`](/CIC/Re
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `token`                | string | The `audioItem.stream.token` field value of the ['AudioPlayer.Play'](#Play) directive. | Required |
+| `token`                | string | The `audioItem.stream.token` field value of the [`AudioPlayer.Play`](#Play) directive. | Required |
 | `offsetInMilliseconds` | number | The current-time indicator of the audio playing (in milliseconds).                         | Required  |
 
 ### Message example
@@ -634,7 +634,7 @@ Reports the current playback state to CIC ([`AudioPlayer.PlaybackState`](/CIC/Re
 
 ## ReportPlaybackState event {#ReportPlaybackState}
 
-Reports the current playback state of the client to CIC. If the [`AudioPlayer.ExpectReportPlaybackState`](#ExpectReportPlaybackState) directive is received from CIC, the client must send the `AudioPlayer.ReportPlaybackState` event to CIC.
+Reports to CIC the current playback state of the client. If the [`AudioPlayer.ExpectReportPlaybackState`](#ExpectReportPlaybackState) directive is received from CIC, the client must send the `AudioPlayer.ReportPlaybackState` event to CIC.
 
 ### Context fields
 
@@ -647,8 +647,8 @@ Reports the current playback state of the client to CIC. If the [`AudioPlayer.Ex
 | `playerActivity`         | string  | The current state of audio player.<ul><li><code>"IDLE"</code>: Not in use</li><li><code>"PLAYING"</code>: Playing</li><li><code>"PAUSED"</code>: Paused</li><li><code>"STOPPED"</code>: Stopped</li></ul>  | Required  |
 | `repeatMode`             | string  | The repeat mode.<ul><li><code>"NONE"</code>: None</li><li><code>"REPEAT_ONE"</code>: Repeat one song</li></ul>  | Required  |
 | `stream`                 | [AudioStreamInfoObject](#AudioStreamInfoObject) | The `audioItem.stream` of the Play directive.                                     | Optional |
-| `token`                  | string  | The `audioItem.stream.token` field value of the ['AudioPlayer.Play'](#Play) directive.                                          | Optional |
-| `totalInMilliseconds`    | number | The total duration of the recently played media. Enter the value of the `durationInMilliseconds` field of the [AudioStreamInfoObject](/CIC/References/CICInterface/AudioPlayer.md#AudioStreamInfoObject) provided by the [`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play) directive, if the value is available. The unit is in milliseconds. This field is omissible if the `playerActivity` field is set to `"IDLE"`. | Optional |
+| `token`                  | string  | The `audioItem.stream.token` field value of the [`AudioPlayer.Play`](#Play) directive.                                          | Optional |
+| `totalInMilliseconds`    | number | The total duration of the recently played media. If the value exists in the, `durationInMilliseconds` field of the [AudioStreamInfoObject] (/CIC/References/CICInterface/AudioPlayer.md#AudioStreamInfoObject) provided by the [`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play) directive, enter the field value for this field. The unit is in milliseconds. This field is omissible if the `playerActivity` field is set to `"IDLE"`. | Optional |
 
 ### Message example
 {% raw %}
@@ -737,7 +737,7 @@ Requests CIC for the current playback state of the client. Upon receiving the `A
 {% endif %}
 
 ## StreamDeliver directive {#StreamDeliver}
-Response to the [`AudioPlayer.StreamRequested`](#StreamRequested) event used when receiving audio stream information that can be played. The directive contains the URL for audio streaming as mandatory information so the client can play the audio.
+Receives the audio stream information that can be played as a response to the [`AudioPlayer.StreamRequested`](#StreamRequested) event. The directive contains the URL for audio streaming as mandatory information so the client can play the audio.
 
 ### Payload fields
 | Field name | Data type | Description | Included |
@@ -764,7 +764,7 @@ Some contents of the `AudioStreamInfoObject` object provided by the `StreamDeliv
         "audioItemId": "5313c879-25bb-461c-93fc-f85d95edf2a0",
         "stream": {
             "token": "b767313e-6790-4c28-ac18-5d9f8e432248",
-            "url": "https://aod.musicservice.net/b767313e.mp3"
+            "url": "https://sample.musicservice.net/b767313e.mp3"
         }
     }
   }
@@ -787,7 +787,7 @@ Requests CIC for additional information needed for audio stream playback such as
 ### Payload fields
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `audioItemId`   | string  | The `audioItem.audioItemId` field value of the ['AudioPlayer.Play'](#Play) directive.       | Required |
+| `audioItemId`   | string  | The `audioItem.audioItemId` field value of the [`AudioPlayer.Play`](#Play) directive.       | Required |
 | `audioStream`   | [AudioStreamInfoObject](#AudioStreamInfoObject) | The `audioItem.stream` of the Play directive. | Required |
 
 ### Remarks
@@ -895,14 +895,14 @@ Common objects are included in the message body (`payload`) of events or directi
 | [AudioStreamInfoObject](#AudioStreamInfoObject) | The playback details of an audio stream such as a streaming address and credentials. |
 
 ### AudioStreamInfoObject {#AudioStreamInfoObject}
-The streaming details of an audio stream. This object is used when CIC returns streaming details to a client or when the client sends the details of the currently playing audio stream to CIC.
+The object containing streaming details of an audio stream. This object is used when CIC returns streaming details to a client or when the client sends the details of the currently playing audio stream to CIC.
 
 #### Object fields
 | Field name       | Data type    | Description                     | Required/Included |
 |---------------|---------|-----------------------------|:-------------:|
 | `beginAtInMilliseconds`  | number | The playback start point. The unit is in milliseconds. If this field is specified, play the audio stream from the specified point of the stream. If set to 0, play the audio stream from the beginning.          | Required/Always |
 | `customData`             | string | The metadata on the current audio in a random format. Any streaming information that cannot be classified into a specific category or defined must be included or entered in this field. Streaming service providers can add custom values to the context of audio stream playback.<div class="danger"><p><strong>Caution!</strong></p><p>Clients must not use the value of this field, as it can cause problems. Make sure to insert these field values in the `stream` field of the <a href="/CIC/References/Context_Objects.html#PlaybackState">PlaybackState context</a> without any changes, when reporting the playback state to CIC.</p></div> | Optional/Conditional  |
-| `durationInMilliseconds` | number | The length of the audio stream. The client can play and navigate audio from the playback time specified in the `beginAtInMilliseconds` field by the amount of time defined in this field. For example, if the value of `beginAtInMilliseconds` field is `10000` and the value of this field is `60000`, you can play and navigate within 10-70 seconds of the audio track. (in milliseconds).   | Optional/Conditional  |
+| `durationInMilliseconds` | number | The length of the audio stream. The client can play and navigate audio from the playback time specified in the `beginAtInMilliseconds` field by the amount of time defined in this field. For example, if the value of `beginAtInMilliseconds` field is `10000` and the value of this field is `60000`, you can play and navigate within 10-70 seconds of the audio track. The unit is in milliseconds.   | Optional/Conditional  |
 | `progressReport`         | object  | The time specified to receive the playback state after the audio starts.                                                  | Optional/Conditional |
 | `progressReport.progressReportDelayInMilliseconds`    | number | The duration of time specified to receive the playback state after the audio starts. The unit is in milliseconds. This field can have a null value.  | Optional/Conditional |
 | `progressReport.progressReportIntervalInMilliseconds` | number | The interval specified to receive the playback state while audio is playing. The unit is in milliseconds. This field can have a null value.        | Optional/Conditional |

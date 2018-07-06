@@ -7,6 +7,7 @@ All content templates contain the following common fields. The common fields in 
 | `failureMessage` | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The message to display in case the client fails to display the content contained in the content template. For instance, if the client does not support the content template version specified by the `meta.version` field, the client shall display this message instead of displaying the provided content. | Always |
 | `meta`             | object | The metadata for the content template. | Always |
 | `meta.version`     | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The version of the content template. | Always |
+| `subtitle`         | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The text used to display subtitles or secondary information. | Conditional |
 
 ## Common field example
 
@@ -21,8 +22,12 @@ All content templates contain the following common fields. The common fields in 
   ...
   "failureMessage": {
     "type": "string",
-    "value": "The current fine dust level for Shinjuku is good."
+    "value": "Today, the fine dust levels in Shinjuku are good."
   },
+  "subtitle": {
+  "type": "string",
+  "value": "Today, the fine dust levels in Shinjuku are good."
+  },​
   "meta": {
     "version": {
       "type": "string",
@@ -140,7 +145,7 @@ clova://guide/talking
 
 The client must run the {{ book.OrientedService }} app and perform search in response to this scheme.
 
-| Parameter name    | Description                         | Required |
+| Parameter name    | Description                         | Included |
 |---------------|-----------------------------|:---------:|
 | url           | The URL page to open in the {{ book.OrientedService }} app. | Always |
 

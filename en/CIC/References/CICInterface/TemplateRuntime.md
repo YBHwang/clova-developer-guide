@@ -93,7 +93,7 @@ Reports to CIC that the user pressed the Like button on the client device for a 
 
 ## RenderPlayerInfo directive {#RenderPlayerInfo}
 
-Instructs the client to display the sent playback metadata such as a playlist, album image, and lyrics on the media player. If the user has requested to play music, the client plays the media by receiving the [`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play) directive. If necessary, a client with a display may have to express the information related to playback on the media player. For this process, the playback metadata can be requested to CIC using the [`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo) event and the `TemplateRuntime.RenderPlayerInfo` directive is returned. The `TemplateRuntime.RenderPlayerInfo` directive contains playback metadata on the media to play now and media to play later. The client is able to display metadata and play list of the currently playing media by providing the playback metadata of the `TemplateRuntime.RenderPlayerInfo` directive to the user. It also provides the base data (`token`) that can process when the user has request to play specific media in the playlist, or to perform actions such as like ([`TemplateRuntime.LikeCommandIssued`](#LikeCommandIssued)) or unlike ([`TemplateRuntime.UnlikeCommandIssued`](#UnlikeCommandIssued)).
+Instructs the client to display the sent playback metadata such as a playlist, album image, and lyrics on the media player. If the user has requested to play music, the client plays the media by receiving the [`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play) directive. If necessary, a client with a display may have to express information related to playback on the media player. For this process, the playback metadata can be requested to CIC using the [`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo) event and the `TemplateRuntime.RenderPlayerInfo` directive is returned. The `TemplateRuntime.RenderPlayerInfo` directive contains playback metadata on the media to play now and media to play later. The client is able to display metadata and play list of the currently playing media by providing the playback metadata of the `TemplateRuntime.RenderPlayerInfo` directive to the user. It also provides the base data (`token`) that can process when the user has request to play specific media in the playlist, or to perform actions such as like ([`TemplateRuntime.LikeCommandIssued`](#LikeCommandIssued)) or unlike ([`TemplateRuntime.UnlikeCommandIssued`](#UnlikeCommandIssued)).
 
 ### Payload fields
 | Field name       | Data type    | Description                     | Included |
@@ -104,7 +104,7 @@ Instructs the client to display the sent playback metadata such as a playlist, a
 | `controls[].name`           | string       | The button name. Available values are:<ul><li><code>"NEXT"</code>: Next</li><li><code>"PLAY_PAUSE"</code>: Play/Pause</li><li><code>"PREVIOUS"</code>: Previous</li></ul>  | Always  |
 | `controls[].selected`       | boolean      | Indicates whether the media content is selected. This value can be used for displaying user preferences. For example, if this value is set as `true`, the content must be expressed on the relevant UI of the media player since the user has selected it as a preference. <ul><li><code>true</code>: Selected</li><li><code>false</code>: Not selected</li></ul> | Always  |
 | `controls[].type`           | string       | The type of button. Currently, only the `"BUTTON"` value is available.  | Always |
-| `playableItems[]`           | object array | The object array that has the list of media contents that can be played. This field can be an empty array.  | Always |
+| `playableItems[]`           | object array | The object containing the list of media contents that can be played. This field can be an empty array.  | Always |
 | `playableItems[].artImageUrl`  | string    | The URL of the image on the media content. This URL is the location of the album cover image or other relevant icons.      | Conditional |
 | `playableItems[].controls[]`                | object array  | The object array of button information that must be displayed when playing a specific media content. This object array is omissible.  | Conditional |
 | `playableItems[].controls[].enabled`        | boolean      | Indicates whether the buttons specified in the `playableItems[].controls[].name` must be enabled from the media player.<ul><li><code>true</code>: Enable</li><li><code>false</code>: Disable</li></ul>  | Always  |
@@ -112,7 +112,8 @@ Instructs the client to display the sent playback metadata such as a playlist, a
 | `playableItems[].controls[].selected`       | boolean      | Indicates whether the media content is selected. This value can be used for displaying user preferences. For example, if this value is set as `true`, the content must be expressed on the relevant UI of the media player since the user has selected it as a preference. <ul><li><code>true</code>: Selected</li><li><code>false</code>: Not selected</li></ul> | Always  |
 | `playableItems[].controls[].type`           | string       | The type of button. Currently, only the `"BUTTON"` value is available.  | Always |
 | `playableItems[].headerText`       | string        | The text field used mainly to indicate the title of current play list.                                                | Conditional  |
-| `playableItems[].lyrics[]`         | object array  | The object array that has the lyrics information.                                                            | Conditional  |
+| `playableItems[].isLive`           | boolean       | Whether the content is a real-time content or not.<ul><li><code>true</code>: Real-time content</li><li><code>false</code>: Not a real-time content</li></ul><div class="note"><p><strong>Note!</strong></p><p>If the content is a real-time content, an icon must be displayed to represent the real-time content state (e.g. A live icon).</p></div>  | Conditional  |
+| `playableItems[].lyrics[]`         | object array  | The object array containing the lyrics information.                                                            | Conditional  |
 | `playableItems[].lyrics[].data`    | string        | The lyrics data. Either this field or the `playableItems[].lyrics[].url` field exists.              | Conditional  |
 | `playableItems[].lyrics[].format`  | string        | The format of the lyrics data.<ul><li><code>"LRC"</code>: <a href="https://en.wikipedia.org/wiki/LRC_(file_format)" target="_blank">LRC format</a></li><li><code>"PLAIN"</code>: Plain text format</li></ul>  | Always  |
 | `playableItems[].lyrics[].url`     | string        | The URL of the lyrics data. Either this field or the `playableItems[].lyrics[].data` field exists.        | Conditional  |
@@ -130,7 +131,6 @@ Instructs the client to display the sent playback metadata such as a playlist, a
 {% raw %}
 
 ```json
-// Example: The audio stream that can be played only with the stream URL
 {
   "directive": {
     "header": {
@@ -180,6 +180,7 @@ Instructs the client to display the sent playback metadata such as a playlist, a
               "url": null
             }
           ],
+          "isLive": false,
           "showAdultIcon": false,
           "titleSubText1": "Alice Sara Ott, Symphonie Orchester Des Bayerischen Rundfunks, Esa-Pekka Salonen",
           "titleSubText2": "Wonderland - Edvard Grieg : Piano Concerto, Lyric Pieces",
@@ -204,6 +205,7 @@ Instructs the client to display the sent playback metadata such as a playlist, a
               "url": null
             }
           ],
+          "isLive": true,
           "showAdultIcon": false,
           "titleSubText1": "Berliner Philharmoniker, Herbert Von Karajan",
           "titleSubText2": "Mendelssohn : Violin Concerto; A Midsummer Night`s Dream",
@@ -230,9 +232,8 @@ Instructs the client to display the sent playback metadata such as a playlist, a
 * [`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo)
 * [`TemplateRuntime.UnlikeCommandIssued`](#UnlikeCommandIssued)
 
-## RequestPlayerInfoIssued event {#RequestPlayerInfoIssued}
+## RequestPlayerInfo event {#RequestPlayerInfo}
 Requests CIC for playback metadata such as a playlist, album image, and lyrics to display on the media player. Upon receiving the event, the CIC must send the [`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo) directive to the client.
-
 
 ### Context fields
 
@@ -246,9 +247,6 @@ Requests CIC for playback metadata such as a playlist, album image, and lyrics t
 | `range`        | object  | The scope of the playback metadata. If this field is empty, the client will receive a random number of metadata.   | Optional  |
 | `range.before` | number  | Requests n number of playback metadata included in the previous playlist from the base media content.  | Optional  |
 | `range.after`  | number  | Requests n number of playback metadata included in the next playlist from the existing media content. For example, if the value of `range.after` is set as `5` without specifying the value of `range.before` field, the playback metadata equivalent to a total of six media contents, including the base media content, is received. | Optional  |
-
-### Remarks
-* The button on the client device can either be a physical button or a software button like a widget button on a music player.
 
 ### Message example
 
@@ -269,7 +267,7 @@ Requests CIC for playback metadata such as a playlist, album image, and lyrics t
   "event": {
     "header": {
       "namespace": "TemplateRuntime",
-      "name": "RequestPlayerInfoIssued",
+      "name": "RequestPlayerInfo",
       "messageId": "2fcb6a62-393d-46ad-a5c4-b3db9b640045"
     },
     "payload": {

@@ -3,8 +3,8 @@
 The Clova namespace provides interfaces that return the result for a user voice request. When the user request is sent to CIC as a [`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize) event, CIC analyzes the request. The directives below are returned to the client according to the analyzed result. The client needs to handle these directives and provide Clova services to users.
 
 | Message name         | Type  | Description                                   |
-|------------------|-----------|---------------------------------------------|
-| [`ExpectLogin`](#ExpectLogin)                    | Directive | Instructs the client to prompt its user to authenticate their {{ book.OrientedService }} account. |
+{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}|------------------|-----------|---------------------------------------------|
+| [`ExpectLogin`](#ExpectLogin)                    | Directive | Instructs the client to prompt its user to authenticate their {{ book.OrientedService }} account. |{% else %}|------------------|--------------|---------------------------------------------|{% endif %}
 | [`FinishExtension`](#FinishExtension)            | Directive | Instructs the client to end the specified extension.             |
 | [`HandleDelegatedEvent`](#HandleDelegatedEvent)  | Directive | Instructs the client to [handle the user request delegated](/CIC/Guides/Interact_with_CIC.md#HandleDelegation) from the Clova app.   |
 | [`Hello`](#Hello)                                | Directive | Notifies the client that a downchannel has been established between the client and CIC.       |
@@ -15,6 +15,7 @@ The Clova namespace provides interfaces that return the result for a user voice 
 | [`RenderText`](#RenderText)                      | Directive | Instructs the client to display the given text.                     |
 | [`StartExtension`](#StartExtension)              | Directive | Instructs the client to start the specified extension.            |
 
+{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}
 ## ExpectLogin directive {#ExpectLogin}
 
 Instructs the client to prompt its user to authenticate their {{ book.OrientedService }} account. CIC sends this directive to a client to provide a service that requires the {{ book.OrientedService }} account authentication while running in the [guest mode](/CIC/References/Clova_Auth_API.md#GuestMode).
@@ -48,6 +49,8 @@ Once the user gets authenticated successfully, CIC stops handling old requests o
 ### See also
 * [Creating Clova access tokens](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken)
 * [Guest mode](/CIC/References/Clova_Auth_API.md#GuestMode)
+
+{% endif %}
 
 ## FinishExtension directive {#FinishExtension}
 
@@ -86,7 +89,7 @@ Instructs the client to end the specified extension. The client must end the spe
 
 ## HandleDelegatedEvent directive {#HandleDelegatedEvent}
 
-Instructs the client to [handle the user request delegated](/CIC/Guides/Interact_with_CIC.md#HandleDelegation) from the Clova app. A user can delegate another client device, that is not the Clova app, to receive the handling results of requests made while using the Clova app. This directive is sent to the client device that has been delegated to handle the result. That client device must then send the [`ProcessDelegatedEvent`](#ProcessDelegatedEvent) event to CIC to receive the handled result.
+Instructs the client to [handle the user request delegated](/CIC/Guides/Interact_with_CIC.md#HandleDelegation) from the Clova app. A user can delegate another client device of the user, that is not the Clova app, to receive the handling results of requests made while using the Clova app. This directive is sent to the client device that has been delegated to handle the result. That client device must then send the [`ProcessDelegatedEvent`](#ProcessDelegatedEvent) event to CIC to receive the handled result.
 
 ### Payload fields
 
@@ -269,7 +272,7 @@ None
 
 ## ProcessDelegatedEvent event {#ProcessDelegatedEvent}
 
-Requests CIC for the result of handling the [delegated user request](/CIC/Guides/Interact_with_CIC.md#HandleDelegation). When sending this event to CIC, make sure to include the `delegationId` value received through the [`HandleDelegatedEvent`](#HandleDelegatedEvent) directive in the `payload` of this message. The client will receive the result on the request which the user had made through the Clova app as a response to this directive.
+Requests CIC for the result of handling the [delegated user request](/CIC/Guides/Interact_with_CIC.md#HandleDelegation). When sending this event to CIC, make sure to include the `delegationId` value received through the [`HandleDelegatedEvent`](#HandleDelegatedEvent) directive in the `payload` of this message. The client will receive the result on the request which the user had made through Clova app as a response to this directive.
 
 ### Context fields
 
@@ -349,6 +352,10 @@ The format of the `payload` varies depending on the type of [content template](/
   * [TomorrowWeather](/CIC/References/ContentTemplates/TomorrowWeather.md)
   * [WeeklyWeather](/CIC/References/ContentTemplates/WeeklyWeather.md)
   * [WindSpeed](/CIC/References/ContentTemplates/WindSpeed.md)
+
+* Common fields and shared objects
+  * [Common fields](/CIC/References/ContentTemplates/Common_Fields.md)
+  * [Shared objects](/CIC/References/ContentTemplates/Shared_Objects.md)
 
 ### Message example
 
