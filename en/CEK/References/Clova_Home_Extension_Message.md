@@ -7,7 +7,7 @@ Clova Home extension messages are configured with the `header` field and `payloa
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>Clova Home extension messages are classified into request and response messages. Request messages sent from CEK to an extension are in the `XxxxRequest` format and response messages sent from an extension to CEK are in the `XxxxConfirmation` or `XxxxResponse` format. In addition, a normal HTTPS response (200 OK) must be sent even when an error occurs, and this response message must have the same name as `XxxxError`.</p>
+  <p>Clova Home extension messages are classified into request and response messages. Request messages sent from CEK to an extension are in the `XxxxRequest` format and response messages sent from an extension to CEK are in the `XxxxConfirmation` or `XxxxResponse` format. Also, even when an error occurs, you must return a 200 OK HTTP response. Such response messages follow the `XxxxError` name format.</p>
 </div>
 
 #### Message structure
@@ -69,6 +69,7 @@ Example 2: DiscoverAppliancesResponse - response message
         "version": "v1.0",
         "friendlyName": "Living room lamp",
         "friendlyDescription": "A lamp that can be controlled using a smartphone",
+        "isIr": false,
         "isReachable": true,
           "actions": [
             "DecrementBrightness",
@@ -89,6 +90,7 @@ Example 2: DiscoverAppliancesResponse - response message
         "version": "v1.0",
         "friendlyName": "Kitchen plug",
         "friendlyDescription": "An energy-saving plug",
+        "isIr": false,
         "isReachable": true,
         "actions": [
           "HealthCheck",

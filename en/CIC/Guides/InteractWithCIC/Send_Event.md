@@ -90,10 +90,15 @@ Content-Type: application/octet-stream<br/>
 --Boundary-Text--
 </code></pre>
   </li>
-  <li>Continue sending the speech data until the user finishes speaking to Clova or until CIC returns the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#StopCapture"><code>SpeechRecognizer.StopCapture</code></a> directive. Once the sending is complete, CIC returns an HTTP response message to the client.</li>
+  <li>Continue sending the speech data until CIC returns the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#StopCapture"><code>SpeechRecognizer.StopCapture</code></a> directive. Once the sending is complete, CIC returns an HTTP response message to the client.</li>
 </ol>
 
 <div class="note">
   <p><strong>Note!</strong></p>
   <p>To process a text request, use the <a href="/CIC/References/CICInterface/TextRecognizer.html#Recognize"><code>TextRecognizer.Recognize</code></a> event.</p>
+</div>
+
+<div class="danger">
+  <p><strong>Caution!</strong></p>
+  <p>Make sure that event message are sent to CIC using the <a href="#CreateConnection">connection created when establishing the downchannel</a>.</p>
 </div>
