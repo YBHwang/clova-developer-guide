@@ -22,9 +22,9 @@ Custom extension은 CEK로부터 [custom extension 메시지](/CEK/References/CE
 </div>
 
 ### LaunchRequest 요청 처리 {#HandleLaunchRequest}
-[`LaunchRequest` 타입](/CEK/References/CEK_API.md#CustomExtLaunchRequest) 요청은 사용자가 특정 extension을 사용하기로 선언한 것을 알릴 때 사용됩니다. 예를 들면, 사용자가 "피자봇 시작해줘"나 "피자봇 열어줘"와 같은 명령을 내린 경우 CEK는 피자 배달 서비스를 제공하는 extension에게 `LaunchRequest` 타입 요청을 전달합니다. 이 요청 타입을 수신한 extension은 사용자의 다음 요청을 수신할 수 있도록 준비해야 합니다.
+[`LaunchRequest` 타입](/CEK/References/CEK_API.md#CustomExtLaunchRequest) 요청은 사용자가 특정 extension을 사용하기로 선언한 것을 알릴 때 사용됩니다. 예를 들어, 사용자가 "피자봇 시작해줘"나 "피자봇 열어줘"와 같은 명령을 내렸다면 CEK는 피자 배달 서비스를 제공하는 extension에게 `LaunchRequest` 타입 요청을 전달합니다. 이 요청 타입을 수신한 extension은 사용자의 다음 요청을 수신할 수 있도록 준비해야 합니다.
 
-LaunchRequest 타입 메시지는 `request.type` 필드에 `"LaunchRequest"`라는 값을 가지며 `request` 필드에 사용자의 발화가 분석된 정보를 포함하고 있지 않습니다. Extension 개발자는 이 메시지를 받은 경우 사전 준비 사항을 처리하거나 사용자에게 서비스를 제공할 준비가 되었다는 [응답 메시지](#ReturnCustomExtensionResponse)를 보내면 됩니다.
+LaunchRequest 타입 메시지는 `request.type` 필드에 `"LaunchRequest"`라는 값을 가지며 `request` 필드에 사용자의 발화가 분석된 정보를 포함하고 있지 않습니다. Extension 개발자는 이 메시지를 받은 후 사전 준비 사항을 처리하거나 사용자에게 서비스를 제공할 준비가 되었다는 [응답 메시지](#ReturnCustomExtensionResponse)를 보내면 됩니다.
 
 이 메시지를 받은 후부터 [`SessionEndedRequest` 타입](#HandleSessionEndedRequest) 요청 메시지를 받기 전까지 [`IntentRequest` 타입](#HandleIntentRequest)의 요청 메시지를 받게 되며, `session.sessionId` 필드는 이전 메시지와 같은 값을 가지게 됩니다.
 
@@ -82,7 +82,7 @@ LaunchRequest 타입 메시지는 `request.type` 필드에 `"LaunchRequest"`라�
 
 ### IntentRequest 요청 처리 {#HandleIntentRequest}
 
-[`IntentRequest` 타입 요청](/CEK/References/CEK_API.md#CustomExtIntentRequest)은 CEK가 미리 정의해 둔 [interaction 모델](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel)에 따라 사용자의 요청을 extension에 전달할 때 사용됩니다. `IntentRequest`는 사용자가 extension 호출 이름을 지정하여 명령을 내리거나, `LaunchRequest` 발생 이후 호출 이름 없이 명령을 내릴 때 extension으로 전달됩니다. 예를 들면, 사용자가 "피자봇에서 피자 시켜줘"나, 별도의 명령으로 서비스를 시작한 후 "피자 주문해 달라고 해"와 같은 명령을 내린 경우 CEK는 피자 배달 서비스를 제공하는 extension에게 `IntentRequest` 타입 요청을 전달합니다. `IntentRequest` 타입 요청은 일회적인 요청뿐만 아니라 연속되는 사용자 요청(Multi-turn request)을 처리할 때도 사용됩니다.
+[`IntentRequest` 타입 요청](/CEK/References/CEK_API.md#CustomExtIntentRequest)은 CEK가 미리 정의해 둔 [interaction 모델](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel)에 따라 사용자의 요청을 extension에 전달할 때 사용됩니다. `IntentRequest`는 사용자가 extension 호출 이름을 지정하여 명령을 내리거나, `LaunchRequest` 발생 이후 호출 이름 없이 명령을 내릴 때 extension으로 전달됩니다. 예를 들어, 사용자가 "피자봇에서 피자 시켜줘"나, 별도의 명령으로 서비스를 시작한 후 "피자 주문해 달라고 해"와 같은 명령을 내렸다면 CEK는 피자 배달 서비스를 제공하는 extension에게 `IntentRequest` 타입 요청을 전달합니다. `IntentRequest` 타입 요청은 일회적인 요청뿐만 아니라 연속되는 사용자 요청(Multi-turn request)을 처리할 때도 사용됩니다.
 
 IntentRequest 타입 메시지는 `request.type` 필드에 `"IntentRequest"`라는 값을 가집니다. 호출된 intent의 이름과 분석된 사용자의 발화 정보는 `request.intent` 필드를 통해 확인할 수 있습니다. 이 필드를 분석하여 사용자의 요청을 처리한 후 [응답 메시지](#ReturnCustomExtensionResponse)를 보내면 됩니다.
 
@@ -154,7 +154,7 @@ IntentRequest 타입 메시지는 `request.type` 필드에 `"IntentRequest"`라�
 
 ### SessionEndedRequest 요청 처리 {#HandleSessionEndedRequest}
 
-[`SessionEndedRequest` 타입 요청](/CEK/References/CEK_API.md#CustomExtSessionEndedRequest)은 사용자가 특정 모드나 특정 custom extension의 사용을 중지하기로 선언한 것을 알릴 때 사용됩니다. 사용자가 "종료해줘"나 "그만"과 같은 명령을 내린 경우 클라이언트는 extension 사용을 중지하며, CEK는 대화 서비스를 제공하는 extension에게 `SessionEndedRequest` 타입 요청을 전달합니다.
+[`SessionEndedRequest` 타입 요청](/CEK/References/CEK_API.md#CustomExtSessionEndedRequest)은 사용자가 특정 모드나 특정 custom extension의 사용을 중지하기로 선언한 것을 알릴 때 사용됩니다. 사용자가 "종료해줘"나 "그만"과 같은 명령을 내리면 CEK는 대화 서비스를 제공하는 extension에게 `SessionEndedRequest` 타입 요청을 전달합니다.
 
 `SessionEndedRequest` 타입 메시지는 `request.type` 필드에 `"SessionEndedRequest"`라는 값을 가지며 `LaunchRequest` 타입과 마찬가지로 `request` 필드에 사용자의 발화가 분석된 정보를 포함하고 있지 않습니다. Extension 개발자는 서비스를 종료하면 됩니다.
 

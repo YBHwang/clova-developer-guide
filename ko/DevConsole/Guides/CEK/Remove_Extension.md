@@ -6,10 +6,10 @@
 
 다만, 다음과 같은 상태의 extension은 삭제할 수 없습니다.
 
-* Extension이 심사 중인 경우
-* Extension이 서비스 중인 경우
+* 심사 중인 Extension
+* 서비스 중인 Extension
 
-Extension이 심사 중인 경우는 심사를 취소하고 언제든지 extension을 삭제할 수 있습니다.
+심사 중인 Extension은 언제든지 심사를 취소하고 삭제할 수 있습니다.
 
 ![](/DevConsole/Resources/Images/DevConsole-Cancel_Submission.png)
 

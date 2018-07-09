@@ -64,9 +64,9 @@ GET|POST /authorize
 | 상태 코드       | 설명                     |
 |---------------|-------------------------|
 | 200 OK           | 요청 처리 성공 시 받는 응답                      |
-| 400 Bad Request  | `client_id` 필드와 같이 필수 파라미터를 입력하지 않거나 유효하지 않은 데이터를 파라미터로 입력한 경우 받는 응답 |
-| 403 Forbidden    | 헤더에 포함된 {{ book.TargetServiceForClientAuth }} access token이 유효하지 않은 경우 받는 응답 |
-| 451 Unavailable For Legal Reasons | 사용자가 이용 약관을 동의하지 않은 경우 받는 응답. 클라이언트는 이 응답을 받으면 `redirect_uri` 필드에 있는 주소로 이동하여 웹 페이지를 표시해야 합니다. 해당 URI는 사용자에게 서비스 이용 약관에 대해 동의를 받는 페이지입니다.  |
+| 400 Bad Request  | `client_id` 필드와 같이 필수 파라미터를 입력하지 않거나 유효하지 않은 데이터를 파라미터로 입력했을 때 받는 응답 |
+| 403 Forbidden    | 헤더에 포함된 {{ book.TargetServiceForClientAuth }} access token이 유효하지 않을 때 받는 응답 |
+| 451 Unavailable For Legal Reasons | 사용자가 이용 약관을 동의하지 않았을 때 받는 응답. 클라이언트는 이 응답을 받으면 `redirect_uri` 필드에 있는 주소로 이동하여 웹 페이지를 표시해야 합니다. 해당 URI는 사용자에게 서비스 이용 약관에 대해 동의를 받는 페이지입니다.  |
 | 500 Server Internal Error | 서버 내부 오류로 인한 authorization code 발급 실패 시 받는 응답 |
 
 ### Response example
@@ -74,13 +74,13 @@ GET|POST /authorize
 {% raw %}
 
 ```json
-// 예제 1: HTTP 응답 메시지가 200 OK 상태 코드를 가지는 경우
+// 예제 1: HTTP 응답 메시지가 200 OK 상태 코드를 가지는 예
 {
     "code": "cnl__eCSTdsdlkjfweyuxXvnlA",
     "state": "FKjaJfMlakjdfTVbES5ccZ"
 }
 
-// 예제 2: HTTP 응답 메시지가 451 Unavailable For Legal Reasons 상태 코드를 가지는 경우
+// 예제 2: HTTP 응답 메시지가 451 Unavailable For Legal Reasons 상태 코드를 가지는 예
 {
   "code":"4mrklvwoC_KNgDlvmslka",
   "redirect_uri":"https://ssl.pstatic.net/static/clova/service/terms/place/terms_3rd.html?code=4mrklvwoC_KNgDlvmslka&grant_type=code&state=FKjaJfMlakjdfTVbES5ccZ",
@@ -152,7 +152,7 @@ GET|POST /token?grant_type=authorization_code
 | 상태 코드       | 설명                     |
 |---------------|-------------------------|
 | 200 OK        | 요청 처리 성공                                                                                   |
-| 400 Bad Request  | `client_id` 필드와 같이 필수 파라미터를 입력하지 않거나 유효하지 않은 데이터를 파라미터로 입력한 경우 발생하는 실패 |
+| 400 Bad Request  | `client_id` 필드와 같이 필수 파라미터를 입력하지 않거나 유효하지 않은 데이터를 파라미터로 입력했을 때 발생하는 실패 |
 | 500 Internal Server Error | 서버 내부 오류로 인한 access token 발급 실패                                             |
 
 ### Response example
@@ -227,7 +227,7 @@ GET|POST /token?grant_type=refresh_token
 | 상태 코드       | 설명                     |
 |---------------|-------------------------|
 | 200 OK                    | 요청 처리 성공                                                                                |
-| 400 Bad Request           | `client_id` 필드와 같이 필수 파라미터를 입력하지 않거나 유효하지 않은 데이터를 파라미터로 입력한 경우 발생하는 실패 |
+| 400 Bad Request           | `client_id` 필드와 같이 필수 파라미터를 입력하지 않거나 유효하지 않은 데이터를 파라미터로 입력했을 때 발생하는 실패 |
 | 500 Internal Server Error | 서버 내부 오류로 인한 access token 갱신 실패                                                      |
 
 ### Response example
@@ -300,8 +300,8 @@ GET|POST /token?grant_type=delete
 | 상태 코드       | 설명                     |
 |---------------|-------------------------|
 | 200 OK                    | 요청 처리 성공                                                                                                                       |
-| 400 Bad Request           | `client_id` 필드와 같이 필수 파라미터를 입력하지 않거나 유효하지 않은 데이터를 파라미터로 입력한 경우 발생하는 실패                                        |
-| 401 Unauthorized          | 유효하지 않은 클라이언트 인증 정보(`client_id` 또는 `client_secret`) 또는 사용자 정보(`device_id` 또는 `model_id`)를 파라미터로 전달한 경우 발생하는 실패 |
+| 400 Bad Request           | `client_id` 필드와 같이 필수 파라미터를 입력하지 않거나 유효하지 않은 데이터를 파라미터로 입력했을 때 발생하는 실패                                        |
+| 401 Unauthorized          | 유효하지 않은 클라이언트 인증 정보(`client_id` 또는 `client_secret`) 또는 사용자 정보(`device_id` 또는 `model_id`)를 파라미터로 전달했을 때 발생하는 실패 |
 | 500 Internal Server Error | 서버 내부 오류로 인한 access token 삭제 실패                                                                                             |
 
 ### Response example

@@ -36,7 +36,7 @@ Clova는 [custom extension](/CEK/Guides/Build_Custom_Extension.md)이나 [Clova 
 
 <div class="note">
 <p><strong>Note!</strong></p>
-<p>사용자가 특정 custom extension이나 Clova Home extension을 비활성화한 경우 사용자의 Clova 계정에 저장된 access token을 제거합니다. 따라서, 사용자가 해당 extension을 재활성화하면, 계정 연결을 다시 수행해야 합니다.</p>
+<p>사용자가 특정 custom extension이나 Clova Home extension을 비활성화하면 사용자의 Clova 계정에 저장된 access token을 제거합니다. 따라서, 사용자가 해당 extension을 재활성화하면, 계정 연결을 다시 수행해야 합니다.</p>
 </div>
 
 ### 계정 연결 후 extension 호출 {#ExtensionInvokingAfterAccountLinking}
@@ -44,15 +44,15 @@ Clova는 [custom extension](/CEK/Guides/Build_Custom_Extension.md)이나 [Clova 
 
 1. 사용자의 요청을 처리하기 위해 평상시처럼 extension을 호출합니다.
 
-2. **(만약 access token이 만료된 경우)** refresh token을 이용하여 **[Access Token URI](#RegisterAccountLinkingInfo)**에 새로운 access token을 요청합니다.
+2. **(만약 access token이 만료되었다면)** refresh token을 이용하여 **[Access Token URI](#RegisterAccountLinkingInfo)**에 새로운 access token을 요청합니다.
 
 3. Extension에 전달하는 메시지에 access token을 포함시켜 사용자의 요청을 전달합니다.
-   * Custom extension의 경우 `context.System.user.accessToken`와 `session.user.accessToken` 필드에 access token이 전달됩니다.
-   * Clova Home extension의 경우 `payload.accessToken` 필드에 access token이 전달됩니다.
+   * Custom extension이면 `context.System.user.accessToken`와 `session.user.accessToken` 필드에 access token이 전달됩니다.
+   * Clova Home extension이면 `payload.accessToken` 필드에 access token이 전달됩니다.
 
 4. Extension은 상황에 따라 다음과 같이 응답해야 합니다.
-   * Access token이 유효한 경우, 사용자의 요청을 처리하고 그 결과를 반환해야 합니다.
-   * Access token이 유효하지 않은 경우, [계정 연결 설정](#SetupAccountLinking)이 진행될 수 있도록 결과를 반환해야 합니다.
+   * Access token이 유효한 상황이면, 사용자의 요청을 처리하고 그 결과를 반환해야 합니다.
+   * Access token이 유효하지 않은 상황이면, [계정 연결 설정](#SetupAccountLinking)이 진행될 수 있도록 결과를 반환해야 합니다.
 
 ## 계정 연결 적용하기 {#ApplyAccountLinking}
 개발하는 extension에 계정 연결을 적용하려면 다음을 수행해야 합니다.
@@ -121,7 +121,7 @@ Extension에 계정 연결을 적용하려면 우선 사용자가 계정 인증�
 </code></pre>
 
 
-Clova가 사용자 계정 연결을 위해 Authorization code를 획득한 경우, Clova는 다시 extension 개발자가 Clova developer console에 미리 등록해 둔 **[Access Token URI](#RegisterAccountLinkingInfo)**로 access token을 요청하게 됩니다. 이때, Clova는 획득한 authorization code를 파라미터로 전송하게 되며, 인증 서버는 외부 서비스의 계정 권한이 부여된 access token과 access token을 갱신할 수 있는 refresh token을 발급해야 합니다.
+Clova가 사용자 계정 연결을 위해 Authorization code를 획득하면 Clova는 다시 extension 개발자가 Clova developer console에 미리 등록해 둔 **[Access Token URI](#RegisterAccountLinkingInfo)**로 access token을 요청하게 됩니다. 이때, Clova는 획득한 authorization code를 파라미터로 전송하게 되며, 인증 서버는 외부 서비스의 계정 권한이 부여된 access token과 access token을 갱신할 수 있는 refresh token을 발급해야 합니다.
 
 ### 계정 권한 검증 구현 {#AddValidationLogic}
 계정 연결을 적용하려면 extension 개발자는 access token이 유효한지 검증하는 코드를 작성해야 합니다. Custom extension과 Clova Home extension으로 전달되는 extension 메시지는 각각 다음과 같은 `accessToken` 필드를 가지고 있습니다.
@@ -210,7 +210,7 @@ Clova가 사용자 계정 연결을 위해 Authorization code를 획득한 경�
 | Authorization URL            | 사용자가 [계정 인증](#SetupAccountLinking)을 위해 접속할 URL                                                                                                                     |
 | Client ID                    | 사용자 [계정 인증](#SetupAccountLinking) 페이지를 요청할 때 서비스를 식별하기 위해 부여한 클라이언트 ID                                                                          |
 | Authorization Grant Type     | OAuth 2.0의 인가 방식. 현재 Authorization code grant 방식만 지원하고 있습니다. |
-| Access Token URI             | Authorization code로 access token을 획득하기 위한 주소. Authorization code grant 방식을 설정한 경우 입력합니다.                                                                  |
-| Client Secret                | Authorization code로 access token을 획득할 때 **Client ID**와 함께 전달되어야 하는 클라이언트 Secret. Authorization code grant 방식을 설정한 경우 입력합니다.                    |
+| Access Token URI             | Authorization code로 access token을 획득하기 위한 주소.                                         |
+| Client Secret                | Authorization code로 access token을 획득할 때 **Client ID**와 함께 전달되어야 하는 클라이언트 Secret. |
 | Client Authentication Scheme | Access Token URI로 access token을 요청할 때 사용하는 scheme                                                                                                                      |
 | Privacy Policy URL           | 서비스와 관련하여 개인 정보 보호 정책과 관련된 내용이 제공되는 페이지. Clova 앱이나 페어링 앱에 표시됩니다.                                                                      |

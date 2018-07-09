@@ -7,7 +7,7 @@
 
 ## Interaction 모델 빌드하기 {#BuildInteractionModel}
 
-Custom extension을 배포하는 경우 [interaction 모델이 등록](/DevConsole/Guides/CEK/Register_Interaction_Model.md)되어 있어야 합니다. 정의된 interaction 모델은 빌드 과정을 거쳐야 새로 작성했거나 또는 업데이트한 내용을 [테스트](#TestInteractionModel)하거나 사용할 수 있습니다. 다음과 같이 정의된 interaction 모델을 빌드할 수 있습니다.
+Custom extension을 배포하려면 [interaction 모델이 등록](/DevConsole/Guides/CEK/Register_Interaction_Model.md)되어 있어야 합니다. 정의된 interaction 모델은 빌드 과정을 거쳐야 새로 작성했거나 또는 업데이트한 내용을 [테스트](#TestInteractionModel)하거나 사용할 수 있습니다. 다음과 같이 정의된 interaction 모델을 빌드할 수 있습니다.
 
 <ol>
   <li>등록한 extension 목록에서 interaction 모델을 빌드하려는 extension 항목의 <strong>{{ book.DevConsole.cek_edit }}</strong> 메뉴를 클릭합니다.</li>
@@ -49,5 +49,5 @@ Extension을 실제 클라이언트인 Clova 앱에서 테스트해볼 수 있�
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>테스터 ID를 등록한 후 조금 기다리면 extension을 테스트해 볼 수 있습니다. 만약, 1시간 정도가 지나도 extension을 테스트할 수 없을 경우 포럼이나 제휴 담당자를 통해 문의하시기 바랍니다.</p>
+  <p>테스터 ID를 등록한 후 조금 기다리면 extension을 테스트해 볼 수 있습니다. 만약, 1시간 정도가 지나도 extension을 테스트할 수 없으면 포럼이나 제휴 담당자를 통해 문의하시기 바랍니다.</p>
 </div>
