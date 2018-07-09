@@ -4,9 +4,9 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 
 | メッセージ         | タイプ  | 説明                                   |
 |------------------|-----------|---------------------------------------------|
-| [`ChangeInputSourceConfirmation`](#ChangeInputSourceConfirmation)             | Response | [`ChangeInputSourceRequest`](#ChangeInputSourceRequest)メッセージに対するレスポンスです。入力ソースを変更するように設定した後、その処理結果をCEKに返します。 |
+| [`ChangeInputSourceConfirmation`](#ChangeInputSourceConfirmation)             | Response | [`ChangeInputSourceRequest`](#ChangeInputSourceRequest)メッセージに対するレスポンスです。入力ソースを変更するようにリクエストした後、その処理結果をCEKに返します。 |
 | [`ChangeInputSourceRequest`](#ChangeInputSourceRequest)                       | Request  | 入力ソースを変更するようClova Home Extensionにリクエストします。 |
-| [`ChargeConfirmation`](#ChargeConfirmation)                                   | Response | [`ChargeRequest`](#ChargeRequest)メッセージに対するレスポンスです。デバイスの充電を開始するように設定した結果をCEKに返します。 |
+| [`ChargeConfirmation`](#ChargeConfirmation)                                   | Response | [`ChargeRequest`](#ChargeRequest)メッセージに対するレスポンスです。デバイスの充電を開始するようにリクエストした後、その処理結果をCEKに返します。  |
 | [`ChargeRequest`](#ChargeRequest)                                             | Request  | デバイスの充電を開始するようClova Home Extensionにリクエストします。 |
 | [`CloseConfirmation`](#CloseConfirmation)                                     | Response | [`CloseRequest`](#CloseRequest)メッセージに対するレスポンスです。スマートカーテンや温水洗浄便座の蓋を閉めるようにリクエストした後、その処理結果をCEKに返します。 |
 | [`CloseRequest`](#CloseRequest)                                               | Request  | スマートカーテンや温水洗浄便座などのデバイスを制御する際に使用します。スマートカーテンや温水洗浄便座の蓋を閉めるようClova Home Extensionにリクエストします。  |
@@ -118,21 +118,21 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 | [`SetFreezerTargetTemperatureRequest`](#SetFreezerTargetTemperatureRequest)   | Request  | 冷蔵庫などのデバイスを制御する際に使用します。冷凍庫の設定温度を指定された値に変更するようClova Home extensionにリクエストします。  |
 | [`SetFridgeTargetTemperatureConfirmation`](#SetFridgeTargetTemperatureConfirmation) | Response | [`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest)メッセージに対するレスポンスです。冷蔵室の設定温度を変更するようにリクエストした後、その処理結果をCEKに返します。  |
 | [`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest)     | Request  | 冷蔵庫などのデバイスを制御する際に使用します。冷蔵室の設定温度を指定された値に変更するようClova Home extensionにリクエストします。  |
-| [`SetInputSourceByNameConfirmation`](#SetInputSourceByNameConfirmation)       | Response | [`SetInputSourceByNameRequest`](#SetInputSourceByNameRequest)メッセージに対するレスポンスです。指定された入力ソース名にテレビの入力ソースを変更するように設定した結果をCEKに返します。  |
+| [`SetInputSourceByNameConfirmation`](#SetInputSourceByNameConfirmation)       | Response | [`SetInputSourceByNameRequest`](#SetInputSourceByNameRequest)メッセージに対するレスポンスです。指定された入力ソース名にテレビの入力ソースを変更するようにリクエストした後、その処理結果をCEKに返します。  |
 | [`SetInputSourceByNameRequest`](#SetInputSourceByNameRequest)                　| Request  | 指定された入力ソース名にテレビの入力ソースを変更するようClova Home extensionにリクエストします。  |
-| [`SetLockStateConfirmation`](#SetLockStateConfirmation)                       | Response | [`SetLockStateRequest`](#SetLockStateRequest)メッセージに対するレスポンスです。デバイスの開閉を設定した結果をCEKに返します。  |
+| [`SetLockStateConfirmation`](#SetLockStateConfirmation)                       | Response | [`SetLockStateRequest`](#SetLockStateRequest)メッセージに対するレスポンスです。デバイスの開閉をリクエストした後、その処理結果をCEKに返します。 |
 | [`SetLockStateRequest`](#SetLockStateRequest)                                 | Request  | デバイスの開閉をClova Home extensionにリクエストします。  |
 | [`SetModeConfirmation`](#SetModeConfirmation)                                 | Response | [`SetModeRequest`](#SetModeRequest)メッセージに対するレスポンスです。運転モード(operation mode)を変更するようにリクエストした後、その処理結果をCEKに返します。 |
 | [`SetModeRequest`](#SetModeRequest)                                           | Request  | デバイスの運転モードを指定されたモードに変更するようClova Home extensionにリクエストします。 |
 | [`SetTargetTemperatureConfirmation`](#SetTargetTemperatureConfirmation)       | Response | [`SetTargetTemperatureRequest`](#SetTargetTemperatureRequest)メッセージに対するレスポンスです。設定温度を変更するようにリクエストした後、その処理結果をCEKに返します。 |
 | [`SetTargetTemperatureRequest`](#SetTargetTemperatureRequest)                 | Request  | 設定温度を指定された値に変更するようClova Home extensionにリクエストします。 |
-| [`StartRecordingConfirmation`](#StartRecordingConfirmation)                   | Response | [`StartRecordingRequest`](#StartRecordingRequest)メッセージに対するレスポンスです。現在見ているチャンネルに対する録画を開始するリクエストを処理した結果をCEKに返します。  |
+| [`StartRecordingConfirmation`](#StartRecordingConfirmation)                   | Response | [`StartRecordingRequest`](#StartRecordingRequest)メッセージに対するレスポンスです。現在見ているチャンネルに対する録画を開始するリクエストした後、その処理結果をCEKに返します。  |
 | [`StartRecordingRequest`](#StartRecordingRequest)                             | Request  | 現在見ているチャンネルに対する録画を開始するようClova Home extensionにリクエストします。  |
 | [`StopConfirmation`](#StopConfirmation)                                       | Response | [`StopRequest`](#StopRequest)メッセージに対するレスポンスです。動作中止のリクエストを処理した結果をCEKに返します。  |
 | [`StopRequest`](#StopRequest)                                                 | Request  | デバイスの現在の動作を中止するようClova Home extensionにリクエストします。  |
-| [`StopRecordingConfirmation`](#StopRecordingConfirmation)                     | Response | [`StopRequest`](#StopRequest)メッセージに対するレスポンスです。現在見ているチャンネルに対する録画を停止するリクエストを処理した結果をCEKに返します。  |
+| [`StopRecordingConfirmation`](#StopRecordingConfirmation)                     | Response | [`StopRequest`](#StopRequest)メッセージに対するレスポンスです。現在見ているチャンネルに対する録画を停止するリクエストした後、その処理結果をCEKに返します。  |
 | [`StopRecordingRequest`](#StopRecordingRequest)                               | Request  | 現在見ているチャンネルに対する録画を停止するようClova Home extensionにリクエストします。  |
-| [`TurnOffConfirmation`](#TurnOffConfirmation)                                 | Response | [`TurnOffRequest`](#TurnOffRequest)メッセージに対するレスポンスです。デバイスの電源をオフにするように設定した結果をCEKに返します。 |
+| [`TurnOffConfirmation`](#TurnOffConfirmation)                                 | Response | [`TurnOffRequest`](#TurnOffRequest)メッセージに対するレスポンスです。デバイスの電源をオフにするようにリクエストした後、その処理結果をCEKに返します。|
 | [`TurnOffRequest`](#TurnOffRequest)                                           | Request  | デバイスの電源をオフにするようClova Home extensionにリクエストします。                        |
 | [`TurnOnConfirmation`](#TurnOnConfirmation)                                   | Response | [`TurnOnRequest`](#TurnOnRequest)メッセージに対するレスポンスです。デバイスの電源をオンにするようにリクエストした後、その処理結果をCEKに返します。 |
 | [`TurnOnRequest`](#TurnOnRequest)                                             | Request  | デバイスの電源をオンにするようClova Home extensionにリクエストします。                        |
@@ -140,7 +140,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 | [`UnmuteRequest`](#UnmuteRequest)                                             | Request  | デバイスのミュートを解除するようClova Home extensionにリクエストします。 |
 
 ## ChangeInputSourceConfirmation {#ChangeInputSourceConfirmation}
-[`ChangeInputSourceRequest`](#ChangeInputSourceRequest)メッセージに対するレスポンスです。デバイスの充電を開始するように設定した結果をCEKに返します。
+[`ChangeInputSourceRequest`](#ChangeInputSourceRequest)メッセージに対するレスポンスです。デバイスの充電を開始するようにリクエストした後、その処理結果をCEKに返します。。
 
 ### Payload fields
 
@@ -4461,7 +4461,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`SetFridgeTargetTemperatureConfirmation`](#SetFridgeTargetTemperatureConfirmation)
 
 ## SetInputSourceByNameConfirmation {#SetInputSourceByNameConfirmation}
-[`SetInputSourceByNameRequest`](#SetInputSourceByNameRequest)メッセージに対するレスポンスです。指定された入力ソース名にテレビの入力ソースを変更するように設定した結果をCEKに返します。
+[`SetInputSourceByNameRequest`](#SetInputSourceByNameRequest)メッセージに対するレスポンスです。指定された入力ソース名にテレビの入力ソースを変更するようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -4766,7 +4766,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`SetTargetTemperatureConfirmation`](#SetTargetTemperatureConfirmation)
 
 ## StartRecordingConfirmation {#StartRecordingConfirmation}
-[`StartRecordingRequest`](#StartRecordingRequest)メッセージに対するレスポンスです。現在見ているチャンネルに対する録画を開始するよう設定した結果をCEKに返します。
+[`StartRecordingRequest`](#StartRecordingRequest)メッセージに対するレスポンスです。現在見ているチャンネルに対する録画を開始するようリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
@@ -4900,7 +4900,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`StopConfirmation`](#StopConfirmation)
 
 ## StopRecordingConfirmation {#StopRecordingConfirmation}
-[`StopRecordingRequest`](#StopRecordingRequest)メッセージに対するレスポンスです。現在行っている録画を停止するよう設定した結果をCEKに返します。
+[`StopRecordingRequest`](#StopRecordingRequest)メッセージに対するレスポンスです。現在行っている録画を停止するようリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
