@@ -9,6 +9,11 @@
 | `meta.version`     | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | コンテンツテンプレートのバージョンが含まれます。 | 常時 |
 | `subtitle`         | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | サブタイトルや補助情報を表示するためのテキストを含みます。 | 条件付き |
 
+<div class="danger">
+  <p><strong>注意</strong></p>
+  <p>日本では現在、cardをサポートしておりません。</p>
+</div>
+
 ## 共通フィールドのサンプル
 
 {% raw %}

@@ -85,7 +85,7 @@
       "cek_builder_new_extension_create": "新規のExtensionを作成",
       "cek_id": "Extension ID",
       "cek_service_endpoint_url": "ExtensionサーバーのURL",
-      "cek_account_linking": "アカウントリンクの有無",
+      "cek_account_linking": "アカウント連携の有無",
       "cek_authorization_url": "ログインURL",
       "cek_configuration_url": "アカウント設定ページのURL(任意)",
       "cek_domain_list": "ドメインリスト(任意)",

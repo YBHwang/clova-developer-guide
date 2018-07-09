@@ -132,3 +132,8 @@
 }
 ```
 {% endraw %}
+
+<div class="danger">
+  <p><strong>注意</strong></p>
+  <p>日本では現在、cardをサポートしておりません。</p>
+</div>

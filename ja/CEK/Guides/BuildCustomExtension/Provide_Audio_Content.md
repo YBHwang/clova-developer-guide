@@ -86,6 +86,11 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
   <p>音楽を再生する<a href="/CEK/Guides/Build_Custom_Extension.html#ReturnCustomExtensionResponse">レスポンスメッセージ</a>には、<code>response.outputSpeech</code>フィールドを追加することもできます。例えば、ユーザーに対して、「リクエストしたオーディオコンテンツを再生します」という音声出力(TTS)を再生し、その後にオーディオコンテンツの再生を開始することができます。</p>
 </div>
 
+<div class="danger">
+  <p><strong>注意</strong></p>
+  <p>日本では現在、cardをサポートしておりません。</p>
+</div>
+
 ### オーディオコンテンツの再生をコントロールする {#ControlAudioPlayback}
 クライアントがオーディオを再生しているときに、ユーザーが「前」「次」などのように再生のコントロールに関連する発話を発した場合、ユーザーのリクエストは`IntentRequest`タイプのリクエストメッセージでCustom Extensionに渡されます。現在、CEKはCustom Extensionで再生のコントロールに関連するユーザーのインテントを、以下のような[ビルトインインテント](/Design/Design_Guideline_For_Extension.md#BuiltinIntent)として渡すようになっています。
 
@@ -141,6 +146,11 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
 <div class="note">
   <p><strong>メモ</strong></p>
   <p>前または次に該当するオーディオコンテンツがなかったり、有効ではない場合、「再生する前または次の曲がありません」などの音声出力を<a href="/CEK/Guides/Build_Custom_Extension.html#ReturnCustomExtensionResponse">レスポンスメッセージで返す</a>必要があります。</p>
+</div>
+
+<div class="danger">
+ <p><strong>注意</strong></p>
+ <p>日本では現在、cardをサポートしておりません。</p>
 </div>
 
 ### オーディオコンテンツのメタデータを提供する {#ProvidingMetaDataForDisplay}
@@ -280,6 +290,11 @@ Custom Extensionは、レスポンスメッセージを使って、クライア�
   }
 }
 ```
+
+<div class="danger">
+  <p><strong>注意</strong></p>
+  <p>日本では現在、cardをサポートしておりません。</p>
+</div>
 
 ### 再生状態の変更および進行状況のレポートを収集する {#CollectPlaybackStatusAndProgress}
 
@@ -465,6 +480,11 @@ Custom Extensionは、そのタイミングで、再生できるオーディオ�
   }
 }
 ```
+
+<div class="danger">
+  <p><strong>注意</strong></p>
+  <p>日本では現在、cardをサポートしておりません。</p>
+</div>
 
 ### 再生コントロールの動作方法を変更する {#CustomizePlaybackControl}
 
