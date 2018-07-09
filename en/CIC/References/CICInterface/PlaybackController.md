@@ -29,8 +29,8 @@ The PlaybackController namespace provides interfaces for playing audio and contr
 | [`TurnOffRepeatMode`](#TurnOffRepeatMode)      | Directive | **(Deprecated)** Instructs the client to stop the repeat function for one song.                  |
 | [`TurnOnRepeatMode`](#TurnOnRepeatMode)        | Directive | **(Deprecated)** Instructs the client to start the repeat function for one song.                  |
 | [`Unmute`](#Unmute)                            | Directive | Instructs the client to unmute the audio player.              |
-| [`VolumeDown`](#VolumeDown)                    | Directive | Instructs the client to turn down the volume of the audio player.                      |
-| [`VolumeUp`](#VolumeUp)                        | Directive | Instructs the client to turn up the volume of the audio player.                      |
+| [`VolumeDown`](#VolumeDown)                    | Directive | **(Deprecated)** Instructs the client to turn down the audio player volume.                      |
+| [`VolumeUp`](#VolumeUp)                        | Directive | **(Deprecated)** Instructs the client to turn up the audio player volume.                      |
 
 ## CustomCommandIssued event {#CustomCommandIssued}
 Reports to CIC that the user pressed one of the shortcut buttons on the client device. Upon receiving the event, CIC sends the appropriate directive to the client.
@@ -982,7 +982,7 @@ If the control is related to speaker output, Clova does not provide a voice guid
 * [`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)
 
 ## VolumeDown directive {#VolumeDown}
-Instructs the client to turn down the volume of the audio player. Upon receiving this directive, the client must turn down the volume of the audio player. The volume adjustment level depends on the client UX standard.
+**(Deprecated)** Instructs the client to turn down the audio player volume. Upon receiving this directive, the client must turn down the volume of the audio player. The volume adjustment level depends on the client UX standard.
 
 <div class="note">
   <p><strong>Note!</strong></p>
@@ -1014,7 +1014,7 @@ None
 
 ## VolumeUp directive {#VolumeUp}
 
-Instructs the client to turn up the volume of the audio player. Upon receiving this directive, the client must turn up the volume of the audio player. The volume adjustment level depends on the client UX standard.
+**(Deprecated)** Instructs the client to turn up the audio player volume. Upon receiving this directive, the client must turn up the volume of the audio player. The volume adjustment level depends on the client UX standard.
 
 <div class="note">
   <p><strong>Note!</strong></p>
