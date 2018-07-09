@@ -4748,8 +4748,8 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 ### Payload fields
 | フィールド名       | データ型    | フィールドの説明                     | 必須/選択 |
 |---------------|---------|-----------------------------|:---------:|
-| `temperature`               | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | 現在の温度情報を持つオブジェクト | Optional |
-| `speed`            | [SpeedInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SpeedInfoObject)  | 現在のファンの速度情報を持つオブジェクト| Optional |
+| `targetTemperature`               | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | 現在の温度情報を持つオブジェクト | Optional |
+| `fanSpeed`            | [SpeedInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SpeedInfoObject)  | 現在のファンの速度情報を持つオブジェクト| Optional |
 | `mode`            | [ModeInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ModeInfoObject)  | 現在の運転モード情報を持つオブジェクト| Optional |
 
 ### 備考
@@ -4757,11 +4757,11 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 
 | applianceTypes     | 応答に使用できるフィールド     |
 |--------------------|---------------------------------|
-| `"AIRCONDITIONER"` | `mode`、 `speed`、　`temperature` |
-| `"AIRPURIFIER"`    | `speed`   |
-| `"HEATER"`         | `temperature` |
-| `"HUMIDIFIER"`     | `speed` |
-| `"WATERBOILER"`    | `mode`、 `temperature` |
+| `"AIRCONDITIONER"` | `mode`、 `fanSpeed`、　`targetTemperature` |
+| `"AIRPURIFIER"`    | `fanSpeed`   |
+| `"HEATER"`         | `targetTemperature` |
+| `"HUMIDIFIER"`     | `fanSpeed` |
+| `"WATERBOILER"`    | `mode`、 `targetTemperature` |
 
 ### Message example
 
