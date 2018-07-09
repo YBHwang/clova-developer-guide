@@ -2,8 +2,8 @@
 
 ## About This Document
 
-* [문서 정보](/README.md)
-* [저작권](/Copyright.md)
+* [시작하기 전에](/README.md)
+* [문서 정보](/Document_Info.md)
 * [용어 및 약어](/Glossary.md)
 
 ## Design
