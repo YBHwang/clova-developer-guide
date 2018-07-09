@@ -21,6 +21,44 @@ The current version of this document is {{ book.DocVersion }} and the revision h
   </thead>
   <tbody>
   <tr>
+    <td>v4.6</td><td>2018-06-25</td>
+    <td>
+      <ul>
+        <li>[Design] Added a guideline for <a href="/Design/Design_Guideline_For_Extension.html#DecideSoundOutputType">Response types</a> of the extension</li>
+        <li>[CEK] Added a section on <a href="/CEK/Guides/Build_Custom_Extension.html#ProvideAudioContent">Providing audio content</a> in Creating a custom extension</li>
+        <li>[CEK] Added <a href="/CEK/References/CEK_API.html#CustomExtEventRequest">EventRequest type</a> to the <a href="/CEK/References/CEK_API.html#CustomExtRequestType">Request types</a> of Custom extension messages</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>v4.5</td><td>2018-06-17</td>
+    <td>
+      <ul>
+        <li>[CIC] Added the isLive field to <a href="/CIC/References/CICInterface/TemplateRuntime.html#RenderPlayerInfo">TemplateRuntime.RenderPlayerInfo</a> to distinguish real-time broadcasting content</li>
+        <li>[CEK] Added a subtitle field to the <a href="/CIC/References/ContentTemplates/Common_Fields.html">common field</a> of <a href="/CIC/References/Content_Templates.html">Content template</a></li>
+        <li>[CEK] Added isIr field to the <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a> of the Clova Home extension API for appliances controlled by infrared communication</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>v4.4</td><td>2018-05-28</td>
+    <td>
+      <ul>
+        <li>[CEK] Added the state field description to the <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ConditionsNotMetError">ConditionsNotMetError</a> of the Clova Home extension API</li>
+        <li>[CEK] Added the subchannel information to the <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#TVChannelInfoObject">TVChannelInfoObject</a> of the Clova Home extension API</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>v4.3</td><td>2018-05-21</td>
+    <td>
+      <ul>
+        <li>[CIC] Added the field (btlist[].role) missing in the <a href="/CIC/References/Context_Objects.html#BluetoothInfoObject">BluetoothInfoObject</a> of the <a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a> context object</li>
+        <li>[CEK] Added the <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ValueNotFoundError">ValueNotFoundError</a> to the Clova Home extension API</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
     <td>v4.2</td><td>2018-05-14</td>
     <td>
       <ul>
@@ -33,7 +71,7 @@ The current version of this document is {{ book.DocVersion }} and the revision h
     <td>v4.1</td><td>2018-05-07</td>
     <td>
       <ul>
-        <li>[CIC] Added <a href="/CIC/References/CICInterface/DeviceControl.html#LaunchURI">LaunchURI</a> directive to the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace</li>
+        <li>[CIC] Added the LaunchURI directive to the DeviceControl namespace</li>
         <li>[CIC] Deprecated the <a href="/CIC/References/CICInterface/DeviceControl.html#LaunchApp">LaunchApp</a> directive and the <a href="/CIC/References/CICInterface/DeviceControl.html#OpenScreen">OpenScreen</a> directive of the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace</li>
       </ul>
     </td>
@@ -96,7 +134,7 @@ The current version of this document is {{ book.DocVersion }} and the revision h
           </li>
           <li>[CIC] Added the <a href="/CIC/References/CICInterface/TemplateRuntime.html">TemplateRuntime</a> namespace to separate the information for streaming media and metadata for displaying the play list</li>
           <li>[CIC] Added a scanlist field to the <a href="/CIC/References/Context_Objects.html#BluetoothInfoObject">BluetoothInfoObject</a> of <a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a></li>
-          <li>[CIC] Added the <a href="/CIC/References/CICInterface/DeviceControl.html#BtConnectByPINCode">BtConnectByPINCode</a> directive message and <a href="/CIC/References/CICInterface/DeviceControl.html#BtRequestForPINCode">BtRequestForPINCode</a> and <a href="/CIC/References/CICInterface/DeviceControl.html#BtRequestToCancelPinCodeInput">BtRequestToCancelPinCodeInput</a> event messages to the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace to connect with 3rd party Bluetooth devices which use PIN codes</li>
+          <li>[CIC] Added the <a href="/CIC/References/CICInterface/DeviceControl.html#BtConnectByPINCode">BtConnectByPINCode</a> directive message and <a href="/CIC/References/CICInterface/DeviceControl.html#BtRequestForPINCode">BtRequestForPINCode</a> and <a href="/CIC/References/CICInterface/DeviceControl.html#BtRequestToCancelPinCodeInput">BtRequestToCancelPinCodeInput</a> event messages to the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace to connect with third-party Bluetooth devices which use PIN codes</li>
           <li>[CIC] Added a payload to the <a href="/CIC/References/CICInterface/DeviceControl.html#BtConnect">BtConnect</a> directive message of the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace</li>
           <li>[CEK] Added 10 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html">Control APIs</a>, including GetSleepStartTimeRequest and 4 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">shared objects</a> in the Clova Home extension API</li>
           <li>[CEK] Added the <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#CustomCommandInfoObject">CustomCommandInfoObject</a> to the <a href="/CEK/References/ClovaHomeInterface/Discovery_Interfaces.html#DiscoverAppliancesResponse">DiscoverAppliancesResponse</a> of the Clova Home extension API</li>
@@ -169,7 +207,7 @@ The current version of this document is {{ book.DocVersion }} and the revision h
           <li>[Design] Added <a href="/Design/Design_Guideline_For_Client_Hardware.html#SoundEffect">sound effects for reminders</a> in the <a href="/Design/Design_Guideline_For_Client_Hardware.html">Design guidelines for client devices</a></li>
           <li>[CIC] Added a <a href="/CIC/References/CICInterface/Notifier.html#Notify">Notifier.Notify</a> event message to the <a href="/CIC/References/CICInterface/Notifier.html">Notifier</a> namespace and updated the payload field of the namespace</li>
           <li>[CIC] Added <a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechFinished">SpeechFinished</a>, <a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechStarted">SpeechStarted</a>, and <a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechStopped">SpeechStopped</a> event messages to the <a href="/CIC/References/ContextObjects/SpeechState.html">SpeechSynthesizer.SpeechState</a> and <a href="/CIC/References/CICInterface/SpeechSynthesizer.html">SpeechSynthesizer</a> namespaces</li>
-          <li>[CIC] Added speechId and explicit fields to the <a href="/CIC/References/CICInterface/TextRecognizer.html">TextRecognizer.Recognize</a> event message for multi-turn dialogs</li>
+          <li>[CIC] Added speechId and explicit fields to the <a href="/CIC/References/CICInterface/TextRecognizer.html">TextRecognizer.Recognize</a> event message for multi-turn dialogues</li>
           <li>[CEK] Added <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#NoSuchTargetError">NoSuchTargetError</a>, <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#NotSupportedInCurrentModeError">NotSupportedInCurrentModeError</a>, <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#UnsupportedOperationError">UnsupportedOperationError</a>, and <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ValueOutOfRangeError">ValueOutOfRangeError</a> to the <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html">error interface</a> among the Clova Home extension message references</li>
           <li>[Dev. console] Added the method to check the connection before <a href="/DevConsole/Guides/CEK/Register_Extension.html#SetServerConnection">setting an extension server connection</a> and added a guide on the <a href="/DevConsole/Guides/CEK/Test_Extension.html#TestOnClovaApp">automated application of tester IDs</a></li>
           <li>[Dev. console] Updated some UIs on the Clova developer console</li>
@@ -251,7 +289,7 @@ The current version of this document is {{ book.DocVersion }} and the revision h
           <li>[Design] Improved the images in <a href="/Design/Design_Guideline_For_Client_Hardware.html">Design guidelines for client devices</a></li>
           <li>[CIC] Added the section on <a href="/CIC/Guides/Interact_with_CIC.html#UserAgentString">user-agent strings</a> for prerequisites before interacting with CIC</li>
           <li>[CIC] Added the description of the 412 Precondition failed code in the <a href="/CIC/References/CIC_API.html#SendEvent">Sending event messages</a> section of the <a href="/CIC/References/CIC_API.html">CIC API reference</a></li>
-          <li>[CEK] Added a reprompt field in the <a href="/CEK/References/CEK_API.html#CustomExtResponseMessage">response message</a> to encourage multi-turn dialogs with the user</li>
+          <li>[CEK] Added a reprompt field in the <a href="/CEK/References/CEK_API.html#CustomExtResponseMessage">response message</a> to encourage multi-turn dialogues with the user</li>
           <li>[CEK] Emended errors in the document</li>
         </ul>
       </td>
@@ -407,7 +445,7 @@ The current version of this document is {{ book.DocVersion }} and the revision h
           <li>[CIC] Added description on the <a href="/CIC/CIC_Overview.html#DialogModel">dialogue model</a> </li>
           <li>[CIC] Added <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> API</li>
           <li>[CIC] Added payload fields in <a href="/CIC/References/Context_Objects.html">Device.DeviceState</a>: airplane, battery, bluetooth, brightness, flashLight, gps, powerSavingMode, soundMode, volume, and wifi</li>
-          <li>[CEK] Added the section on <a href="/CEK/Guides/Build_Custom_Extension.html#DoMultiturnDialog">Engaging in multi-turn dialogs</a> and updated the description on the sessionAttributes field</li>
+          <li>[CEK] Added the section on <a href="/CEK/Guides/Build_Custom_Extension.html#DoMultiturnDialog">Engaging in multi-turn dialogues</a> and updated the description on the sessionAttributes field</li>
         </ul>
       </td>
     </tr>

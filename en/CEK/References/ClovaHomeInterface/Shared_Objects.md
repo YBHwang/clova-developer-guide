@@ -3,7 +3,7 @@ These shared objects are used in the message `payload` when sending [Clova Home 
 
 | Object name            | Description                                            |
 |--------------------|---------------------------------------------------|
-| [ActionInforObject](#ActionInforObject)                   | Object containing information on an appliance's control actions.  |
+| [ActionInforObject](#ActionInforObject)                   | Object containing information on an appliance control actions.  |
 | [AirQualityInfoObject](#AirQualityInfoObject)             | Object containing information on air quality.            |
 | [ApplianceInfoObject](#ApplianceInfoObject)               | Object containing information on an IoT appliance.        |
 | [BatteryInfoObject](#BatteryInfoObject)                   | Object containing information on battery.            |
@@ -13,7 +13,7 @@ These shared objects are used in the message `payload` when sending [Clova Home 
 | [ColorTemperatureInfoObject](#ColorTemperatureInfoObject) | Object containing information on the color temperature of lights, screens, or lamps of the target appliance.  |
 | [ConsumptionInfoObject](#ConsumptionInfoObject)           | Object containing information on energy consumption.       |
 | [CustomCommandInfoObject](#CustomCommandInfoObject)       | Object containing information on custom commands.   |
-| [CustomInfoObject](#CustomInfoObject)                     | Object containing information directly entered by the user, such as an customized name, required units, or figures. |   |   |
+| [CustomInfoObject](#CustomInfoObject)                     | Object containing information directly entered by the user, such as an customized name, required units, or figures. |
 | [ExpendableInfoObject](#ExpendableInfoObject)             | Object containing information on usage or remaining lifespan of appliance parts.  |
 | [FineDustInfoObject](#FineDustInfoObject)                 | Object containing information on fine dust.          |
 | [IntensityLevelInfoObject](#IntensityLevelInfoObject)     | Object containing information on pressure or water pressure intensity.   |
@@ -32,7 +32,7 @@ These shared objects are used in the message `payload` when sending [Clova Home 
 | [VolumeInfoObject](#VolumeInfoObject)                     | Object containing information on volume.          |
 
 ## ActionInforObject {#ActionInforObject}
-ActionInforObject contains information on an appliance's control actions and expresses a command for an action to be conducted on an appliance.
+ActionInforObject contains information on an appliance control actions and expresses a command for an action to be conducted on an appliance.
 
 ### Object fields
 | Field name       | Data type    | Description                     | Required/Included |
@@ -97,6 +97,7 @@ ActionInforObject contains information on an appliance's control actions and exp
         "version": "v1.0",
         "friendlyName": "Living room lamp",
         "friendlyDescription": "A lamp that can be controlled using a smartphone",
+        "isIr": false,
         "isReachable": true,
           "actions": [
             "DecrementBrightness",
@@ -116,6 +117,7 @@ ActionInforObject contains information on an appliance's control actions and exp
         "version": "v1.0",
         "friendlyName": "Kitchen plug",
         "friendlyDescription": "An energy-saving plug",
+        "isIr": false,
         "isReachable": true,
         "actions": [
           "HealthCheck",
@@ -184,7 +186,8 @@ ApplianceInfoObject contains the information on IoT appliances. This is used to 
 | `applianceTypes[]`           | string array  | The appliance type. The `applicationType` determines the value of the `actions` field, which is the action that can be performed an appliance. You must designate the type of appliance registered to the user account of the IoT service as one of the following values: Select the appliance type by referring to the items in the Remarks section.                                                                              | Required/Always    |
 | `friendlyName`               | string        | The name of the appliance given by the user.                                                           | Optional/Always    |
 | `friendlyDescription`        | string        | The description of the appliance.                                                                  | Optional/Always    |
-| `isReachable`                | boolean       | Whether or not remote control is possible <ul><li>true: Remote control is available</li><li>false: Remote control is not available</li></ul> | Optional/Always    |
+| `isIr`                       | boolean       | The value indicating whether the appliance is controlled by infrared communication.<ul><li>true: Using infrared communication</li><li>false: Not using infrared communication</li></ul> <div class="note"><p><strong>Note!</strong></p><p>When controlling an appliance via infrared communication, Clova does not send the device control results to the user.</p></div>  | Optional/Conditional  |
+| `isReachable`                | boolean       | Whether or not remote control is available.<ul><li>true: Remote control is available</li><li>false: Remote control is not available</li></ul>  | Optional/Always    |
 | `manufacturerName`           | string        | The name of the appliance manufacturer.                                                                  | Optional/Always    |
 | `modelName`                  | string        | The name of the appliance model.                                                                   | Optional/Always    |
 | `version`                    | string        | The software version of the manufacturer.                                                            | Optional/Always    |
@@ -344,6 +347,7 @@ The table below shows the location information supported by `location` field. Th
         "version": "v1.0",
         "friendlyName": "Living room lamp",
         "friendlyDescription": "A lamp that can be controlled using a smartphone",
+        "isIr": false,
         "isReachable": true,
           "actions": [
             "HealthCheck",
@@ -361,6 +365,7 @@ The table below shows the location information supported by `location` field. Th
         "version": "v1.0",
         "friendlyName": "Kitchen plug",
         "friendlyDescription": "An energy-saving plug",
+        "isIr": false,
         "isReachable": true,
         "actions": [
           "HealthCheck",
@@ -740,6 +745,7 @@ CustomCommandInfoObject contains information on custom commands. The object cont
         "version": "v1.0",
         "friendlyName": "Living room lamp",
         "friendlyDescription": "A lamp that can be controlled using a smartphone",
+        "isIr": false,
         "isReachable": true,
           "actions": [
             "DecrementBrightness",
@@ -759,6 +765,7 @@ CustomCommandInfoObject contains information on custom commands. The object cont
         "version": "v1.0",
         "friendlyName": "Kitchen plug",
         "friendlyDescription": "An energy-saving plug",
+        "isIr": false,
         "isReachable": true,
         "actions": [
           "HealthCheck",
@@ -979,8 +986,12 @@ ModeInfoObject contains information on the operation mode. This is used to indic
       <td><code>"AIRCONDITIONER"</code></td>
       <td>
         <ul>
+          <li><code>"auto"</code>: Auto mode. A mode mainly used in air conditioners.</li>
           <li><code>"cool"</code>: Cooling mode. A mode mainly used in air conditioners.</li>
           <li><code>"dehumidify"</code>: Dehumidifier mode. A mode mainly used in appliances such as air conditioners or dehumidifiers.</li>
+          {% if book.TargetCountryCode == "JP" %}
+          <li><code>"heat"</code>: Heating mode. A mode mainly used in air conditioners.</li>
+          {% endif %}
           <li><code>"sleep"</code>: Sleep mode. A mode mainly used in appliances such as smart hubs.</li>
         </ul>
       </td>
@@ -1566,7 +1577,7 @@ TVChannelInfoObject contains information on a TV channel number. This is used to
 ### Object fields
 | Field name       | Data type    | Description                     | Required/Included |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | TV channel number                  | Required/Always     |
+| `value`             | number  | TV channel number                      | Required/Always     |
 
 ### Object Example
 {% raw %}
@@ -1586,7 +1597,10 @@ TVChannelInfoObject contains information on a TV channel number. This is used to
         "applianceId": "device-007"
     },
     "channel": {
-        "value": 13
+      "value": 15
+    },
+    "subChannel": {
+      "value": 1
     }
   }
 }
@@ -1601,7 +1615,10 @@ TVChannelInfoObject contains information on a TV channel number. This is used to
   },
   "payload": {
     "channel": {
-      "value": 13
+      "value": 15
+    },
+    "subChannel": {
+      "value": 1
     }
   }
 }

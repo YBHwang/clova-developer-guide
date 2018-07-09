@@ -1,5 +1,5 @@
-﻿## Returning a custom extension response {#ReturnCustomExtensionResponse}
-After [handling the request message](#HandleCustomExtensionRequest), you must return the HTTPS [response message](/CEK/References/CEK_API.md#CustomExtResponseMessage) to the CEK again. The details of the response may vary depending on the type of request message, but the structure of the response message does not vary much. Below is a response message sent after handling a LaunchRequest type request, where a user says "Let’s talk in English."
+## Returning a custom extension response {#ReturnCustomExtensionResponse}
+After [handling the request message](#HandleCustomExtensionRequest), you must return the HTTP [response message](/CEK/References/CEK_API.md#CustomExtResponseMessage) to the CEK again. The details of the response may vary depending on the type of request message, but the structure of the response message does not vary much. Below is a response message sent after handling a LaunchRequest type request, where a user says "Start Pizzabot."
 
 {% raw %}
 ```json
@@ -11,8 +11,8 @@ After [handling the request message](#HandleCustomExtensionRequest), you must re
       "type": "SimpleSpeech",
       "values": {
           "type": "PlainText",
-          "lang": "en",
-          "value": "Hi, nice to meet you"
+          "lang": "ko",
+          "value": "Hello, I'm Pizzabot. What can I do for you?"
       }
     },
     "card": {},
@@ -74,7 +74,7 @@ The `response.outputSpeech` fields represent the following information:
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>In addition to simple or complex sentence type of audio data, we support a combined format (SpeechSet) for client devices with limitations for expressing detailed GUIs, such as screenless devices. For more information, see <a href="/CEK/References/CEK_API.md#CustomExtResponseMessage">Response message</a> in the custom extension message format.</p>
+  <p>In addition to simple or complex sentence type of audio data, we support a combined format (SpeechSet) for client devices with limitations for expressing detailed GUIs, such as devices without display. For more information, see <a href="/CEK/References/CEK_API.md#CustomExtResponseMessage">Response message</a> in the custom extension message format.</p>
 </div>
 
 To display data on the screen of a client device or client app in addition to outputting audio, fill in the content in the `response.card` field in accordance with the [content template](/CIC/References/Content_Templates.md).
@@ -90,111 +90,41 @@ To display data on the screen of a client device or client app in addition to ou
       "values": {
           "type": "PlainText",
           "lang": "ko",
-          "value": "I will recommend a horror movie."
+          "value": "Here is a picture of Lionel Messi."
       }
     },
     "card": {
-      "subType": "",
-      "type": "CardList",
-      "cardList": [
+      "type": "ImageText",
+      "imageUrl": {
+        "type": "url",
+        "value": ""
+      },
+      "mainText": {
+        "type": "string",
+        "value": "Lionel Messi"
+      },
+      "referenceText": {
+        "type": "string",
+        "value": "NAVER search result"
+      },
+      "referenceUrl": {
+        "type": "url",
+        "value": "https://m.search.naver.com/search.naver?where=m&sm=mob_lic&query=%eb%a6%ac%ec%98%a4%eb%84%ac+%eb%a9%94%ec%8b%9c+%ec%86%8c%ec%86%8d%ed%8c%80"
+      },
+      "subTextList": [
         {
-          "description": [
-            {
-              "type": "string",
-              "value": "Horror, thriller"
-            },
-            {
-              "type": "string",
-              "value": "Aaron Eckhart, David Mazouz, Carice van Houten, Catalina Sandino Moreno, Keir O'Donnell, Matt Nable, John Pirruccello, Emjay Anthony, Karolina Wydra, Mark Steger, Tomas Arana, Petra Sprecher, Mark Henry, Ashley Green Elizabeth"
-            },
-            {
-              "type": "string",
-              "value": ""
-            }
-          ],
-          "imageUrl": {
-            "type": "url",
-            "value": "http://movie.phinf.naver.net/20170410_12/1491786049305s4W0n_JPEG/movie_image.jpg?type=w640_2"
-          },
-          "linkUrl": {
-            "type": "url",
-            "value": "http://movie.naver.com/movie/bi/mi/basic.nhn?code=118965"
-          },
-          "press": {
-            "type": "string",
-            "value": ""
-          },
-          "publishDate": {
-            "type": "date",
-            "value": ""
-          },
-          "referenceText": {
-            "type": "string",
-            "value": "NAVER search result"
-          },
-          "referenceUrl": {
-            "type": "url",
-            "value": "https://m.search.naver.com/search.naver?where=m&sm=mob_lic&query=+%ec%98%81%ed%99%94"
-          },
-          "title": {
-            "type": "string",
-            "value": "Incarnate"
-          },
-          "videoUrl": {
-            "type": "url",
-            "value": ""
-          }
-        },
-        {
-          "description": [
-            {
-              "type": "string",
-              "value": "Horror"
-            },
-            {
-              "type": "string",
-              "value": "Matilda Anna Ingrid Lutz, Alex Roe, Johnny Galecki, Vincent D'Onofrio, Aimee Teegarden, Bonnie Morgan, Laura Wiggins, Zach Roerig, Lizzie Brochere"
-            },
-            {
-              "type": "string",
-              "value": ""
-            }
-          ],
-          "imageUrl": {
-            "type": "url",
-            "value": "http://movie.phinf.naver.net/20170317_53/1489741954272MquSW_JPEG/movie_image.jpg?type=w640_2"
-          },
-          "linkUrl": {
-            "type": "url",
-            "value": "http://movie.naver.com/movie/bi/mi/basic.nhn?code=137909"
-          },
-          "press": {
-            "type": "string",
-            "value": ""
-          },
-          "publishDate": {
-            "type": "date",
-            "value": ""
-          },
-          "referenceText": {
-            "type": "string",
-            "value": "NAVER search result"
-          },
-          "referenceUrl": {
-            "type": "url",
-            "value": "https://m.search.naver.com/search.naver?where=m&sm=mob_lic&query=+%ec%98%81%ed%99%94"
-          },
-          "title": {
-            "type": "string",
-            "value": "Rings"
-          },
-          "videoUrl": {
-            "type": "url",
-            "value": ""
-          }
-        },
-        ...
-      ]
+          "type": "string",
+          "value": "FC Barcelona"
+        }
+      ],
+      "thumbImageType": {
+        "type": "string",
+        "value": "People"
+      },
+      "thumbImageUrl": {
+        "type": "url",
+        "value": "http://sstatic.naver.net/people/3/201607071816066361.jpg"
+      }
     },
     "directives": [],
     "shouldEndSession": true
@@ -202,4 +132,3 @@ To display data on the screen of a client device or client app in addition to ou
 }
 ```
 {% endraw %}
-
