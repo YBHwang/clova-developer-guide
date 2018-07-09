@@ -10,6 +10,8 @@
     "TargetReaderType": "Internal",
     "ExtensionAdminEmail": "dl_extension_admin@navercorp.com",
     "DeveloperConsoleURL": "https://developers.naver.com/console/clova",
+    "DeveloperCenterName": "NAVER 개발자 센터",
+    "DeveloperCenterForumURL": "https://developers.naver.com/forum/list",
     "GitHubBaseURLforExtensionExample": "https://github.com/naver",
     "DocOwner": "NAVER",
     "OrientedService": "NAVER",
