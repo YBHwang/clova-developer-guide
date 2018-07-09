@@ -95,7 +95,7 @@ Extension을 설계할 때 제일 먼저 할 일은 extension의 목표를 정�
 
 새로운 extension을 작성할 때는 우선 extension 이름을 정의해야 합니다. Extension의 이름에는 **skill 이름**과 **호출 이름**이 있습니다. **Skill 이름**은 skill 스토어에 표시되는 이름으로 skill은 extension으로 구현됩니다. **호출 이름**은 사용자가 extension을 사용하기 위해 Clova에게 말하는 이름입니다.
 
-**Skill 이름**과 **호출 이름**이 반드시 같을 필요는 없습니다. 단, **Skill 이름**과 **호출 이름**이 많이 다를 경우 사용자에게 혼란을 줄 수 있으니 되도록이면 같거나 비슷한 이름을 사용하는 것이 좋습니다.
+**Skill 이름**과 **호출 이름**이 반드시 같을 필요는 없습니다. 단, **Skill 이름**과 **호출 이름**이 많이 다르면 사용자에게 혼란을 줄 수 있으니 되도록이면 같거나 비슷한 이름을 사용하는 것이 좋습니다.
 
 **Skill 이름**과 **호출 이름**은 다음 조건을 만족해야 합니다.
 
@@ -105,13 +105,13 @@ Extension을 설계할 때 제일 먼저 할 일은 extension의 목표를 정�
 | 사람 이름이나 지명를 일컫는 말이 아니어야 함         | 인명이나 지명으로만 구성된 이름을 허용하지 않습니다. 다만, 인명이나 지명이 전체 이름의 일부만 사용된 것은 심사를 통해 허용될 수도 있습니다.<ul><li>예: "세종대왕", "이순신", "서울시", "강남구"</li><li>예외: "세종대왕의 한글 교실", "서울시 핫플레이스"</li></ul> |
 | Clova의 기능에 영향을 주는 문구가 포함되지 않아야 함 | Clova 기능에 영향을 주는 문구를 포함할 수 없습니다.<ul><li>Clova 호출어: "클로바", "헤이 클로바", "샐리야", "제시카", "짱구야"</li><li>Clova 기본 skill 호출: "오늘 날씨", "주요 뉴스", 등 Clova 기본 skill을 실행하고 호출하는 표현</li><li><strong>호출 이름</strong>을 실행 종료하는 문구: "시작해줘", "종료해줘"</li><li><strong>호출 이름</strong>과 함께 부르는 조사: "~에게", "~에서"</li></ul><div class="note"><p><strong>Note!</strong></p><p><strong>호출 이름</strong>과 함께 부르는 조사와 잘 어울리는 이름이어야 합니다.</p></div> |
 | 다른 Skill과 같거나 유사한 이름이 아니어야 함      | 다른 skill이 이미 사용하고 있는 이름이거나 유사한 이름을 허용하지 않습니다. |
-| 오해를 사지 않는 이름이어야 함                   | 다음과 같이 오해를 살 수 있는 이름을 허용하지 않습니다.<ul><li>제 3자 또는 {{ book.OrientedService }} 및 관련 회사 서비스로 오인할 수 있는 이름(예: 네이버 낚시 고수)</li><li><strong>Skill 이름</strong>과 <strong>호출 이름</strong>의 의미가 오해를 살 수 있을 정도로 다른 이름(예: Skill 이름은 "고양이 울음 소리" 호출 이름은 "강아지 울음 소리")</li><li>실제 제공하는 콘텐츠가 이름과 달라 오해를 살 수 있는 이름(예: 이름은 "고양이 울음 소리"이나 강아지 울음 소리를 콘텐츠로 제공하는 경우)</li></ul>
+| 오해를 사지 않는 이름이어야 함                   | 다음과 같이 오해를 살 수 있는 이름을 허용하지 않습니다.<ul><li>제 3자 또는 {{ book.OrientedService }} 및 관련 회사 서비스로 오인할 수 있는 이름(예: 네이버 낚시 고수)</li><li><strong>Skill 이름</strong>과 <strong>호출 이름</strong>의 의미가 오해를 살 수 있을 정도로 다른 이름(예: Skill 이름은 "고양이 울음 소리" 호출 이름은 "강아지 울음 소리")</li><li>실제 제공하는 콘텐츠가 이름과 달라 오해를 살 수 있는 이름(예: 이름은 "고양이 울음 소리"이나 강아지 울음 소리를 콘텐츠로 제공할 때)</li></ul>
 | 이용 약관을 위반하지 않는 이름이어야 함            | [Clova Extensions Kit 이용약관](https://developers.naver.com/console/clova/cek/#/terms)을 준수해야 합니다. 제 3자의 권리 침해나 외설적인 표현을 사용한 이름을 허용하지 않습니다. |
 | 기타 유의 사항                               | 다음과 같은 기타 유의 사항이 있습니다.<ul><li>예외로 독자 브랜드 이름과 지적 재산, 이름과 장소 등의 고유 명사 등은 사용 가능합니다.</li><li><strong>호출 이름</strong>은 되도록이면 사용자가 발음 하기 쉽고 유사한 발음이 없는 이름을 사용하도록 권장합니다.</li><li><strong>Skill 이름</strong>에 사용자가 사용 방법을 알 수 있도록 <strong>호출 이름</strong>을 괄호로 기입해주면 좋습니다.</li></ul> |
 
 <div class="note">
 <p><strong>Note!</strong></p>
-<p>Extension 이름에 대한 규칙은 언제든지 변경될 수 있으며, 이미 허가된 이름이 정책에 따라 사용 불가 판정을 받을 수도 있습니다. 이점 미리 양해 부탁드립니다. 이름에 대한 판단이 어려울 경우 <a href="/DevConsole/Guides/CEK/Deploy_Extension.html#RequestExtensionSubmission">심사 시</a>에 의견을 입력해주십시오.</p>
+<p>Extension 이름에 대한 규칙은 언제든지 변경될 수 있으며, 이미 허가된 이름이 정책에 따라 사용 불가 판정을 받을 수도 있습니다. 이점 미리 양해 부탁드립니다. 이에 대한 판단이 어렵다면 <a href="/DevConsole/Guides/CEK/Deploy_Extension.html#RequestExtensionSubmission">심사 시</a>에 의견을 입력해주십시오.</p>
 </div>
 
 ## Interaction 모델 정의 {#DefineInteractionModel}
@@ -201,7 +201,7 @@ Built-in slot 타입은 Clova에서 미리 정의해둔 정보 유형으로서 �
 
 Custom slot 타입은 제공하는 서비스(extension)의 도메인에 특화된 정보 유형을 정의한 것으로 custom slot 타입을 만들 때 주로 고유 명사 또는 명사를 지정합니다. 위 발화를 예를 들면 "OrderPizza" intent는 피자의 종류에 해당하는 정보(slot)를 사용자 발화에서 파악해야 하며 피자 종류를 나타내는 표현은 피자와 관련된 서비스에서만 사용될 가능성이 큽니다. 따라서 "PIZZA_TYPE"과 같은 custom slot 타입을 정의하고 "PIZZA_TYPE"에는 피자 배달 서비스에서 주문 가능한 "페퍼로니 피자", "콤비네이션 피자", "치즈 피자"와 같은 항목들이 표현될 수 있음을 선언할 수 있습니다.
 
-다만, 이런 항목들은 문장에서 같은 의미를 지니지만 비슷하거나 다양하게 표현될 수 있습니다. "바베큐 피자"는 "BBQ 피자"와 같은 동의어를 가질 수 있으며, "쉬림프 골드 크러스트 피자"와 같이 이름이 긴 경우 "쉬림프 골크 피자"처럼 사용자들이 흔히 짧게 부르는 표현이 존재할 수 있습니다. 따라서 custom slot 타입을 정의할 때 개념적으로 구분된 항목을 선언해야 할 뿐만 아니라 각 항목의 대표어와 동의어/유의어를 정의해줘야 합니다. 이는 사용자 발화를 인식하는 과정에서 다양하게 표현된 동의어/유의어를 대표어로 전환해주며, extension이 intent를 처리할 때 같은 개념에 해당하는 정보를 일관된 값으로 받을 수 있도록 해줍니다.
+다만, 이런 항목들은 문장에서 같은 의미를 지니지만 비슷하거나 다양하게 표현될 수 있습니다. "바베큐 피자"는 "BBQ 피자"와 같은 동의어를 가질 수 있으며, "쉬림프 골드 크러스트 피자"와 같이 이름이 길면 "쉬림프 골크 피자"처럼 사용자들이 흔히 짧게 부르는 표현이 존재할 수 있습니다. 따라서 custom slot 타입을 정의할 때 개념적으로 구분된 항목을 선언해야 할 뿐만 아니라 각 항목의 대표어와 동의어/유의어를 정의해줘야 합니다. 이는 사용자 발화를 인식하는 과정에서 다양하게 표현된 동의어/유의어를 대표어로 전환해주며, extension이 intent를 처리할 때 같은 개념에 해당하는 정보를 일관된 값으로 받을 수 있도록 해줍니다.
 
 위와 같이 slot 타입을 정의하고 나면 각 intent에서 사용할 slot의 이름을 정의하고 해당 slot이 어떤 slot 타입을 가지는지 선언해야 합니다. 예를 들면, "OrderPizza" intent는 피자 종류 정보를 위해 "pizzaType", 피자 수량 정보를 위해 "pizzaAmount"라는 slot을 선언하고 각 slot에 미리 정의해둔 "PIZZA_TYPE" custom slot 타입과 이미 제공되고 있는 CLOVA.NUMBER built-in slot 타입을 지정할 수 있습니다.
 
@@ -211,8 +211,8 @@ Intent를 정의할 때 다양한 사용자 발화 예시를 열거할 수 있�
 * 같은 의도를 지녔지만 다른 방식으로 표현이 되는 발화 예시를 많이 입력해야 합니다.
 * 패턴이 서로 겹치지 않게 표현에 다양한 변형을 주어 발화 예시를 작성합니다.
 * 발화 예시 작성 개수는 다음 기준을 따릅니다.
-  * Intent에 사용된 slot이 built-in slot 타입이거나 사람이 전부 인지할 수 있는 양의 사전 크기를 가진 custom slot 타입일 경우 해당 slot이 들어가는 발화 문장을 최소 30개 이상 작성해야 합니다.
-  * Intent에 사용된 slot이 가수명, 곡명, 영화 제목, 업체명 등 사전의 크기가 매우 큰 slot 타입일 경우 해당 slot이 들어가는 발화 문장을 최소 100개 이상은 작성해야 합니다.
+  * Intent에 사용된 slot이 built-in slot 타입이거나 사람이 전부 인지할 수 있는 양의 사전 크기를 가진 custom slot 타입이면 해당 slot이 들어가는 발화 문장을 최소 30개 이상 작성해야 합니다.
+  * Intent에 사용된 slot이 가수명, 곡명, 영화 제목, 업체명 등 사전의 크기가 매우 큰 slot 타입이면 해당 slot이 들어가는 발화 문장을 최소 100개 이상은 작성해야 합니다.
   * 간단한 형태의 표현을 가지는 Intent이면 10개 내외의 발화 예시만 등록해도 됩니다.
 * 위 기준으로 발화 예시를 입력한 후 새로운 표현이 생기거나 인식이 잘 안 되는 표현을 발견할 때마다 발화 예시를 추가하는 것이 좋습니다.
 * Slot 타입의 사전(dictionary)에 등록된 값 중에 slot인지 아닌지 판단하기 모호한 값이 있다면 해당 값을 발화 예시로 사용하여 slot임을 명시하는 것이 좋습니다. 다만, slot 타입에 모호한 값이 들어가도록 정의하지 않는 것을 더 권장합니다.
@@ -230,7 +230,7 @@ Intent를 정의할 때 다양한 사용자 발화 예시를 열거할 수 있�
 페퍼로니 피자 1판 부탁해.
 ```
 
-위 발화 예시로 Clova가 학습한 경우 `"페퍼로니"`나 `"1판"`이라는 값이 사용자 발화에 포함되면 해당 발화가 `OrderPizza` intent로 인식할 가능성이 매우 높아집니다. 예를 들면, "페퍼로니 피자 1판 얼마야?"와 같이 메뉴 조회를 예상한 발화가 피자를 주문을 요청한 발화로 처리되기 쉽습니다.
+위 발화 예시로 Clova가 학습을 하게되면 `"페퍼로니"`나 `"1판"`이라는 값이 사용자 발화에 포함되면 해당 발화가 `OrderPizza` intent로 인식할 가능성이 매우 높아집니다. 예를 들면, "페퍼로니 피자 1판 얼마야?"와 같이 메뉴 조회를 예상한 발화가 피자를 주문을 요청한 발화로 처리되기 쉽습니다.
 
 이를 방지하기 위해 다음과 같은 형태로 발화 예시를 작성할 것을 권장합니다.
 
@@ -375,7 +375,7 @@ Extension은 사용자의 요청을 처리한 후 그 결과를 Clova를 통해 
 문자로 표현된 정보를 음성 합성 기술을 이용해 가공된 목소리로 음성(TTS)을 출력하는 유형입니다. 주로 사용자의 질문이나 요청에 대답하는 용도로 많이 사용됩니다. 응답은 1개 이상의 음성 출력(TTS)으로 구성될 수 있으며, 짧은 효과음(.mp3)도 함께 제공할 수 있습니다.
 
 음성 출력 유형으로 응답을 작성할 때 다음 규칙을 지켜야 합니다.
-* 응답 하나 당 약 500자 또는 90초 이하가 되도록 만들 것을 권장합니다. 응답이 길 경우 사용자가 이해하기 어려울 수 있습니다.
+* 응답 하나 당 약 500자 또는 90초 이하가 되도록 만들 것을 권장합니다. 응답이 길면 사용자가 이해하기 어려울 수 있습니다.
 * 효과음은 비교적 짧은 길이를 가진 오디오 콘텐츠를 사용합니다.
 * 효과음은 반드시 응답의 맨 처음에 한 번만 나오도록 구성해야 합니다.
   * 올바른 예: 효과음(.mp3) > 음성 출력(TTS) > 음성 출력(TTS) > ...
@@ -433,7 +433,7 @@ Extension은 사용자의 요청을 처리한 후 그 결과를 Clova를 통해 
 
 ## 콘텐츠 제공 시 준수 사항 {#ContentGuideline}
 
-Skill(extension)을 통해 콘텐츠를 사용자에게 제공할 때 지켜야하는 준수 사항이 있습니다. Clova 운영자는 skill 스토어에 [skill을 배포](/DevConsole/Guides/CEK/Deploy_Extension.md)하기 전에 이 준수 사항을 위반했는지 심사합니다. Skill이 준수 사항을 위반하거나 명확히 따르지 않은 경우 배포를 거부하거나 이미 배포된 skill 제공을 중단할 수 있습니다. 따라서, [심사를 신청](/DevConsole/Guides/CEK/Deploy_Extension.md#RequestExtensionSubmission)하기 전에 반드시 이하의 준수 사항을 따랐는지 확인해야 합니다.
+Skill(extension)을 통해 콘텐츠를 사용자에게 제공할 때 지켜야하는 준수 사항이 있습니다. Clova 운영자는 skill 스토어에 [skill을 배포](/DevConsole/Guides/CEK/Deploy_Extension.md)하기 전에 이 준수 사항을 위반했는지 심사합니다. Skill이 준수 사항을 위반하거나 명확히 따르지 않으면 배포를 거부하거나 이미 배포된 skill 제공을 중단할 수 있습니다. 따라서, [심사를 신청](/DevConsole/Guides/CEK/Deploy_Extension.md#RequestExtensionSubmission)하기 전에 반드시 이하의 준수 사항을 따랐는지 확인해야 합니다.
 
 * [Skill의 완전성](#SkillCompleteness)
 * [Skill의 안전성](#SkillSecurity)
@@ -446,10 +446,10 @@ Skill(extension)을 통해 콘텐츠를 사용자에게 제공할 때 지켜야�
 
 편의 제공 및 불편 해소와 같이 보다 나은 사용자 경험을 위해 다음을 준수하여 완전성을 추구해야 합니다.
 
-* 서버 점검 등 특수한 경우를 제외하고 skill은 사용자의 요청에 언제든지 응답할 수 있어야 합니다.
+* 서버 점검 등 특수한 상황을 제외하고 skill은 사용자의 요청에 언제든지 응답할 수 있어야 합니다.
 * Skill에 대한 정보인 [기본 정보](/DevConsole/Guides/CEK/Register_Extension.md#InputExtensionInfo), [서버 설정 정보](/DevConsole/Guides/CEK/Register_Extension.md#SetServerConnection), [배포 정보](/DevConsole/Guides/CEK/Deploy_Extension.md#InputDeploymentInfo) 등이 부족하거나 잘못된 정보 없이 항상 최신의 정보로 업데이트되어야 합니다.
 * [사용 시나리오](/Design/Design_Guideline_For_Extension.md#MakeUseCaseScenarioScript)에 불가능하거나 자연스럽지 않은 부분이 없어야 하며, 사용자의 요청이 잘 인식될 수 있도록 [interaction 모델](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel) 잘 정의하여 구현해야 합니다.
-* 콘텐츠 제공을 위해 서버를 연동하거나 계정을 연결하는 경우 필요한 [보안 조건](/CEK/Guides/Link_User_Account.md#ApplyAccountLinking)을 갖춰야 합니다.
+* 콘텐츠 제공을 위해 서버를 연동하거나 계정을 연결한다면 필요한 [보안 조건](/CEK/Guides/Link_User_Account.md#ApplyAccountLinking)을 갖춰야 합니다.
 
 ### Skill의 안전성 {#SkillSecurity}
 
@@ -506,23 +506,23 @@ Skill은 개인 정보 보호의 의무를 지켜야 합니다.
 
 Skill 콘텐츠 제공과 관련하여 다음과 같은 유의 사항이 있습니다.
 
-* Skill이 본인(당사) 또는 제3자의 기기(예: IoT기기)와 연동되는 경우 심사를 위해 관련 기기 제출을 요청할 수도 있습니다.
+* Skill이 본인(당사) 또는 제3자의 기기(예: IoT기기)와 연동된다면 심사를 위해 관련 기기 제출을 요청할 수도 있습니다.
 * 위에서 언급한 내용 뿐만 아니라 Skill은 [Clova Extensions Kit 이용약관](https://developers.naver.com/console/clova/cek/#/terms)을 위반하지 않아야 합니다.
 
 <div class="note">
 <p><strong>메모</strong></p>
-<p>일부 예외가 있을 수 있기 때문에 판단이 어려울 경우 <a href="/DevConsole/Guides/CEK/Deploy_Extension.html#RequestExtensionSubmission">심사 시</a>에 의견을 입력해주십시오.</p>
+<p>일부 예외가 있을 수 있기 때문에 판단이 어려울 수 있으며, 이에 대한 판단이 어렵다면 <a href="/DevConsole/Guides/CEK/Deploy_Extension.html#RequestExtensionSubmission">심사 시</a>에 의견을 입력해주십시오.</p>
 </div>
 
 ## 플랫폼 지원 오디오 압축 포맷 {#SupportedAudioCompressionFormat}
 
-Extension을 통해 오디오 콘텐츠를 제공하는 경우 반드시 Clova가 지원하는 오디오 압축 포맷으로 음원을 제공해야 합니다.
+Extension을 통해 오디오 콘텐츠를 제공한다면 반드시 Clova가 지원하는 오디오 압축 포맷으로 음원을 제공해야 합니다.
 
 {% include "/Design/SupportedMediaFormat/Supported_Audio_Compression_Format.md" %}
 
 <div class="danger">
   <p><strong>Caution!</strong></p>
-  <p>Clova가 지원하지 않는 오디오 압축 포맷으로 음원을 제공할 경우 클라이언트가 정상적으로 음원을 재생하지 못할 수 있습니다.</p>
+  <p>Clova가 지원하지 않는 오디오 압축 포맷으로 음원을 제공하면 클라이언트가 정상적으로 음원을 재생하지 못할 수 있습니다.</p>
 </div>
 
 ## 지속적인 업데이트 {#ContinuousUpdate}

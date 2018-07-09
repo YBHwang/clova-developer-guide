@@ -42,7 +42,7 @@
 | 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:---------:|
 | `allAlerts[]`    | [AlertInfoObject](#AlertInfoObject) array | 클라이언트에 설정된 전체 알람 목록을 가지는 객체 배열. 이 배열에 클라이언트가 설정하고 있는 모든 알람 정보를 입력해야 합니다.    | 필수 |
-| `activeAlerts[]` | [AlertInfoObject](#AlertInfoObject) array | 클라이언트에서 현재 울리고 있는 알람 목록을 가지는 객체 배열. 현재 울리고 있는 알람이 없을 경우 빈 배열을 입력합니다.  | 필수 |
+| `activeAlerts[]` | [AlertInfoObject](#AlertInfoObject) array | 클라이언트에서 현재 울리고 있는 알람 목록을 가지는 객체 배열. 현재 울리고 있는 알람이 없으면 빈 배열을 입력합니다.  | 필수 |
 
 ### Object example
 

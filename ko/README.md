@@ -26,6 +26,7 @@
       <ul>
         <li>[Design] Extension의 <a href="/Design/Design_Guideline_For_Extension.html#DefineExtensionName">이름 정의</a>에 대한 가이드라인 추가</li>
         <li>[Design] Extension의 <a href="/Design/Design_Guideline_For_Extension.html#ContentGuideline">콘텐츠 제공 시 준수 사항</a>에 대한 가이드라인 추가</li>
+        <li>[CIC] 클라이언트 기기 설정 정보를 업데이트 및 동기화하기 위해 <a href="/CIC/References/CICInterface/Settings.html">Settings</a> 네임스페이스 추가</li>
       </ul>
     </td>
   </tr>
@@ -511,7 +512,7 @@
       <td>
         <ul>
           <li>[CEK] CEK 문서 파트 작성</li>
-          <li>[CIC] <a href="/CIC/Guides/Interact_with_CIC.html#ManageConnection">연결 관리하기</a> 업데이트 (HTTP Ping 프레임을 사용할 수 없을 경우)</li>
+          <li>[CIC] <a href="/CIC/Guides/Interact_with_CIC.html#ManageConnection">연결 관리하기</a> 업데이트 (HTTP Ping 프레임을 사용할 수 없을 때)</li>
         </ul>
       </td>
     </tr>

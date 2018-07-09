@@ -57,6 +57,8 @@
 | PlaybackController | [`Unmute`](/CIC/References/CICInterface/PlaybackController.md#Unmute)           | 클라이언트에게 스피커 볼륨의 음소거를 해제하도록 지시합니다.                                           |
 | PlaybackController | [`VolumeDown`](/CIC/References/CICInterface/PlaybackController.md#VolumeDown)   | **(Deprecated)** 클라이언트에게 스피커 볼륨을 낮추도록 지시합니다.                                                   |
 | PlaybackController | [`VolumeUp`](/CIC/References/CICInterface/PlaybackController.md#VolumeUp)       | **(Deprecated)** 클라이언트에게 스피커 볼륨을 높이도록 지시합니다.                                                   |
+| Settings           | [`ExpectReport`](/CIC/References/CICInterface/Settings.md#ExpectReport)                                                 | 클라이언트에게 현재의 설정 정보를 보고하도록 지시합니다. 클라이언트는 이 지시 메시지를 받으면 [`Settings.Report`](/CIC/References/CICInterface/Settings.md#Report) 이벤트 메시지를 CIC로 전송해야 합니다. |
+| Settings           | [`Update`](/CIC/References/CICInterface/Settings.md#Update)                                                             | 클라이언트에게 `payload`에 저장된 값을 설정값으로 적용하도록 지시합니다.  |
 | SpeechRecognizer   | [`ExpectSpeech`](/CIC/References/CICInterface/SpeechRecognizer.md#ExpectSpeech) | 클라이언트에게 사용자의 음성 입력을 대기하도록 지시합니다.                                            |
 | SpeechRecognizer   | [`KeepRecording`](/CIC/References/CICInterface/SpeechRecognizer.md#KeepRecording) | 클라이언트에게 음성 입력을 계속 받도록 지시합니다.                                                |
 {% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}| SpeechRecognizer   | [`ShowRecognizedText`](/CIC/References/CICInterface/SpeechRecognizer.md#ShowRecognizedText) | 클라이언트에게 인식된 사용자 음성을 실시간으로 전달합니다.                                |

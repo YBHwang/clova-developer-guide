@@ -4,7 +4,7 @@ PlaybackController 인터페이스는 클라이언트의 오디오 재생 및 �
 
 | 메시지 이름         | 메시지 타입  | 메시지 설명                                   |
 |------------------|-----------|---------------------------------------------|
-| [`CustomCommandIssued`](#CustomCommandIssued)  | Event     | 사용자가 클라이언트 기기의 단축 버튼 중 하나를 누른 경우 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다.  |
+| [`CustomCommandIssued`](#CustomCommandIssued)  | Event     | 사용자가 클라이언트 기기의 단축 버튼 중 하나를 눌렀을 때 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다.  |
 | [`ExpectNextCommand`](#ExpectNextCommand)      | Directive | 사용자가 클라이언트 기기에서 다음 버튼(Next)을 누른 효과가 발생한 것처럼 클라이언트가 [`PlaybackController.NextCommandIssued`](#NextCommandIssued) 이벤트 메시지를 CIC로 보내도록 지시합니다.  |
 | [`ExpectPauseCommand`](#ExpectPauseCommand)    | Directive | 사용자가 클라이언트 기기에서 일시 정지 버튼(Pause)을 누른 효과가 발생한 것처럼 클라이언트가 [`PlaybackController.PauseCommandIssued`](#PauseCommandIssued) 이벤트 메시지를 CIC로 보내도록 지시합니다.  |
 | [`ExpectPlayCommand`](#ExpectPlayCommand)      | Directive | 사용자가 클라이언트 기기에서 재생 버튼(Play)을 누른 효과가 발생한 것처럼 클라이언트가 [`PlaybackController.PlayCommandIssued`](#PlayCommandIssued) 이벤트 메시지를 CIC로 보내도록 지시합니다.  |
@@ -13,19 +13,19 @@ PlaybackController 인터페이스는 클라이언트의 오디오 재생 및 �
 | [`ExpectStopCommand`](#ExpectStopCommand)      | Directive | 사용자가 클라이언트 기기에서 정지 버튼(Stop)을 누른 효과가 발생한 것처럼 클라이언트가 [`PlaybackController.StopCommandIssued`](#StopCommandIssued) 이벤트 메시지를 CIC로 보내도록 지시합니다.  |
 | [`Mute`](#Mute)                                | Directive | 클라이언트에게 오디오 플레이어의 볼륨을 음소거하도록 지시합니다.            |
 | [`Next`](#Next)                                | Directive | 클라이언트에게 재생 대기열에 있는 다음 오디오 스트림 재생하도록 지시합니다.   |
-| [`NextCommandIssued`](#NextCommandIssued)      | Event     | 사용자가 클라이언트 기기에서 다음 버튼(Next)을 누르거나 CIC로부터 [`PlaybackController.ExpectNextCommand`](#ExpectNextCommand) 지시 메시지를 받은 경우 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. |
+| [`NextCommandIssued`](#NextCommandIssued)      | Event     | 사용자가 클라이언트 기기에서 다음 버튼(Next)을 누르거나 CIC로부터 [`PlaybackController.ExpectNextCommand`](#ExpectNextCommand) 지시 메시지를 받았다면 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. |
 | [`Pause`](#Pause)                              | Directive | 클라이언트에게 재생 중인 오디오 스트림을 일시 정지하도록 지시합니다.        |
-| [`PauseCommandIssued`](#PauseCommandIssued)    | Event     | 사용자가 클라이언트 기기에서 일시 정지 버튼(Pause)을 누르거나 CIC로부터 [`PlaybackController.ExpectPauseCommand`](#ExpectPauseCommand) 지시 메시지를 받은 경우 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다.  |
-| [`PlayCommandIssued`](#PlayCommandIssued)      | Event     | 사용자가 클라이언트 기기에서 재생 버튼(Play)을 누르거나 CIC로부터 [`PlaybackController.ExpectPlayCommand`](#ExpectPlayCommand) 지시 메시지를 받은 경우 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다.  |
+| [`PauseCommandIssued`](#PauseCommandIssued)    | Event     | 사용자가 클라이언트 기기에서 일시 정지 버튼(Pause)을 누르거나 CIC로부터 [`PlaybackController.ExpectPauseCommand`](#ExpectPauseCommand) 지시 메시지를 받았다면 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다.  |
+| [`PlayCommandIssued`](#PlayCommandIssued)      | Event     | 사용자가 클라이언트 기기에서 재생 버튼(Play)을 누르거나 CIC로부터 [`PlaybackController.ExpectPlayCommand`](#ExpectPlayCommand) 지시 메시지를 받았다면 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다.  |
 | [`Previous`](#Previous)                        | Directive | 클라이언트에게 재생 대기열에 있는 이전 오디오 스트림을 재생하도록 지시합니다. |
-| [`PreviousCommandIssued`](#PreviousCommandIssued) | Event | 사용자가 클라이언트 기기에서 이전 버튼(Previous)을 누르거나 CIC로부터 [`PlaybackController.ExpectPreviousCommand`](#ExpectPreviousCommand) 지시 메시지를 받은 경우 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. |
+| [`PreviousCommandIssued`](#PreviousCommandIssued) | Event | 사용자가 클라이언트 기기에서 이전 버튼(Previous)을 누르거나 CIC로부터 [`PlaybackController.ExpectPreviousCommand`](#ExpectPreviousCommand) 지시 메시지를 받았다면 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. |
 | [`Replay`](#Replay)                            | Directive | 클라이언트에게 오디오 스트림을 처음부터 다시 재생하도록 지시합니다.         |
 | [`Resume`](#Resume)                            | Directive | 클라이언트에게 오디오 스트림 재생을 재개하도록 지시합니다.                |
-| [`ResumeCommandIssued`](#ResumeCommandIssued)  | Directive | 사용자가 클라이언트 기기에서 재개 버튼(Resume)을 누르거나 CIC로부터 [`PlaybackController.ExpectResumeCommand`](#ExpectResumeCommand) 지시 메시지를 받은 경우 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다.  |
+| [`ResumeCommandIssued`](#ResumeCommandIssued)  | Directive | 사용자가 클라이언트 기기에서 재개 버튼(Resume)을 누르거나 CIC로부터 [`PlaybackController.ExpectResumeCommand`](#ExpectResumeCommand) 지시 메시지를 받았다면 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다.  |
 | [`SetRepeatMode`](#SetRepeatMode)              | Directive | 클라이언트에게 지정된 반복 모드로 재생 상태를 변경하도록 지시합니다.  |
-| [`SetRepeatModeCommandIssued`](#SetRepeatModeCommandIssued) | Event | 사용자가 클라이언트 기기에서 반복 재생 버튼(Repeat)을 누른 경우 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다.  |
+| [`SetRepeatModeCommandIssued`](#SetRepeatModeCommandIssued) | Event | 사용자가 클라이언트 기기에서 반복 재생 버튼(Repeat)을 눌렀을 때 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다.  |
 | [`Stop`](#Stop)                                | Directive | 클라이언트에게 오디오 스트림 재생을 중지하도록 지시합니다.                |
-| [`StopCommandIssued`](#StopCommandIssued)      | Event     | 사용자가 클라이언트 기기에서 반복 재생 버튼(Repeat)을 누른 경우 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다.  |
+| [`StopCommandIssued`](#StopCommandIssued)      | Event     | 사용자가 클라이언트 기기에서 반복 재생 버튼(Repeat)을 눌렀을 때 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다.  |
 | [`TurnOffRepeatMode`](#TurnOffRepeatMode)      | Directive | **(Deprecated)** 클라이언트에게 한 곡 반복 재생 모드를 끄도록 지시합니다.                  |
 | [`TurnOnRepeatMode`](#TurnOnRepeatMode)        | Directive | **(Deprecated)** 클라이언트에게 한 곡 반복 재생 모드를 켜도록 지시합니다.                  |
 | [`Unmute`](#Unmute)                            | Directive | 클라이언트에게 오디오 플레이어 볼륨의 음소거를 해제하도록 지시합니다.              |
@@ -33,7 +33,7 @@ PlaybackController 인터페이스는 클라이언트의 오디오 재생 및 �
 | [`VolumeUp`](#VolumeUp)                        | Directive | **(Deprecated)** 클라이언트에게 오디오 플레이어 볼륨을 높이도록 지시합니다.                      |
 
 ## CustomCommandIssued event {#CustomCommandIssued}
-사용자가 클라이언트 기기의 단축 버튼 중 하나를 누른 경우 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. 이 이벤트 메시지를 받은 CIC는 상황에 맞는 지시 메시지를 클라이언트에게 전송합니다.
+사용자가 클라이언트 기기의 단축 버튼 중 하나를 눌렀을 때 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. 이 이벤트 메시지를 받은 CIC는 상황에 맞는 지시 메시지를 클라이언트에게 전송합니다.
 
 ### Context fields
 
@@ -42,7 +42,7 @@ PlaybackController 인터페이스는 클라이언트의 오디오 재생 및 �
 ### Payload fields
 | 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:---------:|
-| `button`      | string  | 클라이언트 기기에 있는 단축 버튼을 구분하기 위한 값입니다. (예: <code>"CUSTOM_BUTTON_2"</code>) | 항상 |
+| `button`      | string  | 클라이언트 기기에 있는 단축 버튼을 구분하기 위한 값입니다. (예: <code>"CUSTOM_BUTTON_2"</code>) | 필수 |
 
 ### Remarks
 * 클라이언트 기기의 버튼은 물리적인 하드웨어 방식의 버튼일 수도 있고 음악 플레이어 위젯 버튼과 같은 소프트웨어 방식의 버튼일 수도 있습니다.
@@ -155,10 +155,10 @@ PlaybackController 인터페이스는 클라이언트의 오디오 재생 및 �
 
 | 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
 |---------------|---------|-----------------------------|:---------:|
-| `handover`            | object  | 원격으로 미디어 재생을 넘겨 받을 때 필요한 정보가 담긴 객체. 미디어 재생을 넘겨 받아야 하는 경우 `handover` 객체가 메시지에 포함됩니다. `handover` 객체가 포함되어 있으면 클라이언트는 [`PlaybackController.PlayCommandIssued`](#PlayCommandIssued) 이벤트 메시지 `payload`의 `handover` 객체를 이 객체의 내용으로 채워야 합니다.     | 조건부 |
+| `handover`            | object  | 원격으로 미디어 재생을 넘겨 받을 때 필요한 정보가 담긴 객체. 미디어 재생을 넘겨 받아야 하면 `handover` 객체가 메시지에 포함됩니다. `handover` 객체가 포함되어 있으면 클라이언트는 [`PlaybackController.PlayCommandIssued`](#PlayCommandIssued) 이벤트 메시지 `payload`의 `handover` 객체를 이 객체의 내용으로 채워야 합니다.     | 조건부 |
 | `handover.deviceId`   | string  | 미디어 재생을 넘겨주는 클라이언트 기기의 ID  | 항상 |
 | `handover.customData` | string  | 미디어 재생에 필요한 정보.               | 항상 |
-| `token`               | string  | 재생해야 하는 미디어 콘텐츠의 token. 미디어 재생을 넘겨 받아야 하는 경우 `token` 필드가 메시지에 포함됩니다. `token` 필드가 포함되어 있으면 클라이언트는 [`PlaybackController.PlayCommandIssued`](#PlayCommandIssued) 이벤트 메시지를 전송할 때 `token`에 이 필드의 값을 입력해야 합니다.  | 조건부  |
+| `token`               | string  | 재생해야 하는 미디어 콘텐츠의 token. 미디어 재생을 넘겨 받아야 하면 `token` 필드가 메시지에 포함됩니다. `token` 필드가 포함되어 있으면 클라이언트는 [`PlaybackController.PlayCommandIssued`](#PlayCommandIssued) 이벤트 메시지를 전송할 때 `token`에 이 필드의 값을 입력해야 합니다.  | 조건부  |
 
 ### Message example
 {% raw %}
@@ -286,7 +286,7 @@ PlaybackController 인터페이스는 클라이언트의 오디오 재생 및 �
 
 ### Remarks
 
-Clova는 스피커 출력과 관계된 제어이면 [`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) 지시 메시지를 통해 안내 문구를 내려보내지 않습니다. 이는 사용자의 음악 감상 등과 같은 UX를 고려한 사항이며, 이 경우에는 음성 안내 대신 클라이언트 기기의 조명이나 짧은 효과음 통해 볼륨이 조절되었음을 알리도록 구현해야 합니다.
+Clova는 스피커 출력과 관계된 제어이면 [`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) 지시 메시지를 통해 안내 문구를 내려보내지 않습니다. 이는 사용자의 음악 감상 등과 같은 UX를 고려한 사항이며, 이때는 음성 안내 대신 클라이언트 기기의 조명이나 짧은 효과음 통해 볼륨이 조절되었음을 알리도록 구현해야 합니다.
 
 ### Message example
 {% raw %}
@@ -335,7 +335,7 @@ Clova는 스피커 출력과 관계된 제어이면 [`SpeechSynthesizer.Speak`](
 * [`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)
 
 ## NextCommandIssued event {#NextCommandIssued}
-사용자가 클라이언트 기기에서 다음 버튼(Next)을 누르거나 CIC로부터 [`PlaybackController.ExpectNextCommand`](#ExpectNextCommand) 지시 메시지를 받은 경우 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. 이 이벤트 메시지를 받은 CIC는 상황에 맞는 지시 메시지를 클라이언트에게 전송합니다.
+사용자가 클라이언트 기기에서 다음 버튼(Next)을 누르거나 CIC로부터 [`PlaybackController.ExpectNextCommand`](#ExpectNextCommand) 지시 메시지를 받았다면 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. 이 이벤트 메시지를 받은 CIC는 상황에 맞는 지시 메시지를 클라이언트에게 전송합니다.
 
 
 ### Context fields
@@ -417,7 +417,7 @@ Clova는 스피커 출력과 관계된 제어이면 [`SpeechSynthesizer.Speak`](
 * [`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)
 
 ## PauseCommandIssued event {#PauseCommandIssued}
-사용자가 클라이언트 기기에서 일시 정지 버튼(Pause)을 누르거나 CIC로부터 [`PlaybackController.ExpectPauseCommand`](#ExpectPauseCommand) 지시 메시지를 받은 경우 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. 이 이벤트 메시지를 받은 CIC는 상황에 맞는 지시 메시지를 클라이언트에게 전송합니다.
+사용자가 클라이언트 기기에서 일시 정지 버튼(Pause)을 누르거나 CIC로부터 [`PlaybackController.ExpectPauseCommand`](#ExpectPauseCommand) 지시 메시지를 받았다면 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. 이 이벤트 메시지를 받은 CIC는 상황에 맞는 지시 메시지를 클라이언트에게 전송합니다.
 
 
 ### Context fields
@@ -472,7 +472,7 @@ Clova는 스피커 출력과 관계된 제어이면 [`SpeechSynthesizer.Speak`](
 * [`PlaybackController.StopCommandIssued`](#StopCommandIssued)
 
 ## PlayCommandIssued event {#PlayCommandIssued}
-사용자가 클라이언트 기기에서 재생 버튼(Play)을 누르거나 CIC로부터 [`PlaybackController.ExpectPlayCommand`](#ExpectPlayCommand) 지시 메시지를 받은 경우 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. 이 이벤트 메시지를 받은 CIC는 상황에 맞는 지시 메시지를 클라이언트에게 전송합니다. 만약, CIC로부터 [`PlaybackController.ExpectPlayCommand`](#ExpectPlayCommand) 지시 메시지의 `payload`에 `handover` 필드가 포함되어 있다면 이를 그대로 사용하여 미디어 재생을 이양 받아야 합니다.
+사용자가 클라이언트 기기에서 재생 버튼(Play)을 누르거나 CIC로부터 [`PlaybackController.ExpectPlayCommand`](#ExpectPlayCommand) 지시 메시지를 받았다면 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. 이 이벤트 메시지를 받은 CIC는 상황에 맞는 지시 메시지를 클라이언트에게 전송합니다. 만약, CIC로부터 [`PlaybackController.ExpectPlayCommand`](#ExpectPlayCommand) 지시 메시지의 `payload`에 `handover` 필드가 포함되어 있다면 이를 그대로 사용하여 미디어 재생을 이양 받아야 합니다.
 
 
 ### Context fields
@@ -484,10 +484,10 @@ Clova는 스피커 출력과 관계된 제어이면 [`SpeechSynthesizer.Speak`](
 | 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:---------:|
 | `deviceId`            | string  | 클라이언트 기기 ID. 원격으로 미디어 재생을 다른 기기로 넘기는 상황이 아니라면 `deviceId` 필드를 생략합니다. | 선택 |
-| `handover`            | object  | 원격으로 미디어 재생을 넘겨 받을 때 필요한 정보를 담는 객체. 미디어 재생을 넘겨 받아야 하는 경우 `handover` 객체의 내용을 [`PlaybackController.ExpectPlayCommand`](#ExpectPlayCommand) 지시 메시지 `payload`의 `handover` 객체로 채워야 합니다.     | 선택 |
+| `handover`            | object  | 원격으로 미디어 재생을 넘겨 받을 때 필요한 정보를 담는 객체. 미디어 재생을 넘겨 받아야 하면 `handover` 객체의 내용을 [`PlaybackController.ExpectPlayCommand`](#ExpectPlayCommand) 지시 메시지 `payload`의 `handover` 객체로 채워야 합니다.     | 선택 |
 | `handover.deviceId`   | string  | 미디어 재생을 넘겨주는 클라이언트 기기의 ID  | 필수 |
 | `handover.customData` | string  | 미디어 재생에 필요한 정보.               | 필수 |
-| `token`               | string  | 재생해야 하는 미디어 콘텐츠의 token. 사용자가 목록에서 곡을 골라 재생 버튼을 누른 경우 [`TemplateRuntime.RenderPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#RenderPlayerInfo) 지시 메시지의 `playableItems[].token` 필드 값이 적용되어야 합니다. [`PlaybackController.ExpectPlayCommand`](#ExpectPlayCommand) 지시 메시지를 받은 경우 해당 메시지의 `token` 필드 값을 입력해야 할 수도 있습니다.  | 선택  |
+| `token`               | string  | 재생해야 하는 미디어 콘텐츠의 token. 사용자가 목록에서 곡을 골라 재생 버튼을 눌렀을 때 [`TemplateRuntime.RenderPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#RenderPlayerInfo) 지시 메시지의 `playableItems[].token` 필드 값이 적용되어야 합니다. [`PlaybackController.ExpectPlayCommand`](#ExpectPlayCommand) 지시 메시지를 받았다면 해당 메시지의 `token` 필드 값을 입력해야 할 수도 있습니다.  | 선택  |
 
 ### Remarks
 * 클라이언트 기기의 버튼은 물리적인 하드웨어 방식의 버튼일 수도 있고 음악 플레이어 위젯 버튼과 같은 소프트웨어 방식의 버튼일 수도 있습니다.
@@ -558,7 +558,7 @@ Clova는 스피커 출력과 관계된 제어이면 [`SpeechSynthesizer.Speak`](
 
 
 ## PreviousCommandIssued event {#PreviousCommandIssued}
-사용자가 클라이언트 기기에서 이전 버튼(Previous)을 누르거나 CIC로부터 [`PlaybackController.ExpectPreviousCommand`](#ExpectPreviousCommand) 지시 메시지를 받은 경우 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. 이 이벤트 메시지를 받은 CIC는 상황에 맞는 지시 메시지를 클라이언트에게 전송합니다.
+사용자가 클라이언트 기기에서 이전 버튼(Previous)을 누르거나 CIC로부터 [`PlaybackController.ExpectPreviousCommand`](#ExpectPreviousCommand) 지시 메시지를 받았다면 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. 이 이벤트 메시지를 받은 CIC는 상황에 맞는 지시 메시지를 클라이언트에게 전송합니다.
 
 
 ### Context fields
@@ -668,7 +668,7 @@ Clova는 스피커 출력과 관계된 제어이면 [`SpeechSynthesizer.Speak`](
 * [`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)
 
 ## ResumeCommandIssued event {#ResumeCommandIssued}
-사용자가 클라이언트 기기에서 재개 버튼(Resume)을 누르거나 CIC로부터 [`PlaybackController.ExpectResumeCommand`](#ExpectResumeCommand) 지시 메시지를 받은 경우 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. 이 이벤트 메시지를 받은 CIC는 상황에 맞는 지시 메시지를 클라이언트에게 전송합니다.
+사용자가 클라이언트 기기에서 재개 버튼(Resume)을 누르거나 CIC로부터 [`PlaybackController.ExpectResumeCommand`](#ExpectResumeCommand) 지시 메시지를 받았다면 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. 이 이벤트 메시지를 받은 CIC는 상황에 맞는 지시 메시지를 클라이언트에게 전송합니다.
 
 
 ### Context fields
@@ -760,7 +760,7 @@ Clova는 스피커 출력과 관계된 제어이면 [`SpeechSynthesizer.Speak`](
 * [`PlaybackController.PlayCommandIssued`](#PlayCommandIssued)
 
 ## SetRepeatModeCommandIssued event {#SetRepeatModeCommandIssued}
-사용자가 클라이언트 기기에서 반복 재생 버튼(Repeat)을 누른 경우 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. 이 이벤트 메시지를 받은 CIC는 [`PlaybackController.SetRepeatMode`](#SetRepeatMode) 지시 메시지를 대상 클라이언트에게 전송합니다.
+사용자가 클라이언트 기기에서 반복 재생 버튼(Repeat)을 눌렀을 때 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. 이 이벤트 메시지를 받은 CIC는 [`PlaybackController.SetRepeatMode`](#SetRepeatMode) 지시 메시지를 대상 클라이언트에게 전송합니다.
 
 
 ### Context fields
@@ -845,7 +845,7 @@ Clova는 스피커 출력과 관계된 제어이면 [`SpeechSynthesizer.Speak`](
 * [`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)
 
 ## StopCommandIssued event {#StopCommandIssued}
-사용자가 클라이언트 기기에서 재개 버튼(Resume)을 누르거나 CIC로부터 [`PlaybackController.ExpectStopCommand`](#ExpectStopCommand) 지시 메시지를 받은 경우 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. 이 이벤트 메시지를 받은 CIC는 상황에 맞는 지시 메시지를 클라이언트에게 전송합니다.
+사용자가 클라이언트 기기에서 재개 버튼(Resume)을 누르거나 CIC로부터 [`PlaybackController.ExpectStopCommand`](#ExpectStopCommand) 지시 메시지를 받았다면 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. 이 이벤트 메시지를 받은 CIC는 상황에 맞는 지시 메시지를 클라이언트에게 전송합니다.
 
 
 ### Context fields
@@ -959,7 +959,7 @@ Clova는 스피커 출력과 관계된 제어이면 [`SpeechSynthesizer.Speak`](
 
 ### Remarks
 
-Clova는 스피커 출력과 관계된 제어이면 [`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) 지시 메시지를 통해 안내 문구를 내려보내지 않습니다. 이는 사용자의 음악 감상 등과 같은 UX를 고려한 사항이며, 이 경우에는 음성 안내 대신 클라이언트 기기의 조명이나 짧은 효과음 통해 볼륨이 조절되었음을 알리도록 구현해야 합니다.
+Clova는 스피커 출력과 관계된 제어이면 [`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) 지시 메시지를 통해 안내 문구를 내려보내지 않습니다. 이는 사용자의 음악 감상 등과 같은 UX를 고려한 사항이며, 이때는 음성 안내 대신 클라이언트 기기의 조명이나 짧은 효과음 통해 볼륨이 조절되었음을 알리도록 구현해야 합니다.
 
 ### Message example
 {% raw %}

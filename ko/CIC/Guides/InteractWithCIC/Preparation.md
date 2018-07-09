@@ -26,7 +26,7 @@ HTTP/2 프로토콜 연결을 위해 클라이언트 개발 시 다음과 같은
 
 <div class="danger">
   <p><strong>Caution!</strong></p>
-  <p>HTTP 헤더를 통해 User-Agent string을 보내지 않거나 규칙에 맞지 않는 User-Agent string을 보낼 경우 클라이언트의 연결이나 요청이 거부될 수 있습니다.</p>
+  <p>HTTP 헤더를 통해 User-Agent string을 보내지 않거나 규칙에 맞지 않는 User-Agent string을 보내게 되면 클라이언트의 연결이나 요청이 거부될 수 있습니다.</p>
 </div>
 
 User-Agent string을 작성할 때 지켜야하는 문법([BNF 문법](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form))은 다음과 같습니다.

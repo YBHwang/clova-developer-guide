@@ -87,6 +87,6 @@ boolean valid = sig.verify(signature);
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>메시지 검증에 실패한 경우 해당 요청을 폐기합니다.</p>
+  <p>메시지 검증에 실패하면 해당 요청을 폐기합니다.</p>
 </div>
 {% endif %}
