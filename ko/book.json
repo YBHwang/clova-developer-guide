@@ -11,7 +11,10 @@
     "ExtensionAdminEmail": "dl_extension_admin@navercorp.com",
     "DeveloperConsoleURL": "https://developers.naver.com/console/clova",
     "DeveloperCenterName": "NAVER 개발자 센터",
+<<<<<<< HEAD
     "DeveloperCenterForumURL": "https://developers.naver.com/forum/list",
+=======
+>>>>>>> 6d935d8181b173a377c6825fd411cf2395e729b2
     "GitHubBaseURLforExtensionExample": "https://github.com/naver",
     "DocOwner": "NAVER",
     "OrientedService": "NAVER",
