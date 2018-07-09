@@ -21,6 +21,7 @@
     "CICBaseURL": "https://clova-cic.line-apps.com/",
     "RedirectURLforAccountLinking": "https://prod-ni-cic.clova.ai/v1/al/token/",
     "ReleaseYear": "2018",
+    "EnableClovaHome": false,
     "DevConsole": {
       "ManageExtensions": "スキルストア",
       "ExtensionPage": "Extensionページ",
