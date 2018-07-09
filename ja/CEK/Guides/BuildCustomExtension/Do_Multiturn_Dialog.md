@@ -106,3 +106,8 @@ Custom Extensionがピザの種類だけでなく、注文する数量に関す�
   <p><strong>注意</strong></p>
   <p>Extensionが<a href="#HandleSessionEndedRequest"><code>SessionEndedRequest</code>タイプのリクエスト</a>を受信すると、マルチターンの対話は終了します。<code>SessionEndedRequest</code>タイプのリクエストを受信してからは、Extensionからどんな応答(使用終了のあいさつなど)が返されても、CEKで無視されます。</p>
 </div>
+
+<div class="danger">
+  <p><strong>注意</strong></p>
+  <p>日本では現在、cardをサポートしておりません。</p>
+</div>

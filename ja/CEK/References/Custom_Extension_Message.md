@@ -550,6 +550,11 @@ Extensionは、リクエストメッセージを処理して、レスポンス�
 ```
 {% endraw %}
 
+<div class="danger">
+  <p><strong>注意</strong></p>
+  <p>日本では現在、cardをサポートしておりません。</p>
+</div>
+
 #### Message fields
 | フィールド名       | データ型    | フィールドの説明                     | Optional |
 |---------------|---------|-----------------------------|:---------:|
@@ -583,6 +588,11 @@ Extensionは、リクエストメッセージを処理して、レスポンス�
 <div class="note">
   <p><strong>メモ</strong></p>
   <p><code>response.directives</code>フィールドでExtensionに任意のディレクティブを渡す必要がある場合、事前に協議が必要です。提携担当者と協議してください。</p>
+</div>
+
+<div class="danger">
+  <p><strong>注意</strong></p>
+  <p>日本では現在、cardをサポートしておりません。</p>
 </div>
 
 #### SpeechInfoObject {#CustomExtSpeechInfoObject}
@@ -769,6 +779,11 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 }
 ```
 {% endraw %}
+
+<div class="danger">
+  <p><strong>注意</strong></p>
+  <p>日本では現在、cardをサポートしておりません。</p>
+</div>
 
 #### 次の項目も参照してください。
 * [Custom Extensionレスポンスを返す](/CEK/Guides/Build_Custom_Extension.md#ReturnCustomExtensionResponse)

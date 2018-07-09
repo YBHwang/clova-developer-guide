@@ -22,17 +22,20 @@ Clova Developer Centerで[Extensionを登録](/DevConsole/Guides/CEK/Register_Ex
 
 ![](/DevConsole/Resources/Images/DevConsole-Input_Deployment_Info.png)
 
-Extensionをユーザーに説明するための情報として、Clovaアプリの**{{ book.DevConsole.ManageExtensions }}**メニュー(スキルストア)でユーザーに提供されます。次の情報を入力する必要があります。
+Extensionをユーザーに説明するための情報として、Clovaアプリの **{{ book.DevConsole.ManageExtensions }}** メニュー(スキルストア)でユーザーに提供されます。次の情報を入力する必要があります。
 
 * **{{ book.DevConsole.cek_category }}**：Extensionのカテゴリです。ユーザーがカテゴリごとにExtensionを探したり、検索する際に利用されます。
 * **{{ book.DevConsole.cek_test_instructions }}**：[Extensionの審査](#RequestExtensionSubmission)プロセスでClova事務局がExtensionを確認する際、必要とされる参考情報です。エンドユーザーには表示されません。案内に従って作成します。
-* サービスを提供する国および地域：現在、日本でのみExtensionを配布できます。
+* **サービスを提供する国および地域**：現在、日本でのみExtensionを配布できます。
 * **{{ book.DevConsole.cek_full_skill_desc }}**：**{{ book.DevConsole.ExtensionPage }}** でユーザーに提供するExtensionの説明です。案内に従って作成します。
+{% if book.language !== "ja" %}
 * **{{ book.DevConsole.cek_short_skill_desc }}**：**{{ book.DevConsole.StoreHome }}** でプロモーションなどの案内を表示する際に使用される説明です。
+{% endif %}
 * **{{ book.DevConsole.cek_example_phrases }}**：ユーザーがExtensionをどのように使用できるかを示す例です。**{{ book.DevConsole.ExtensionPage }}** に表示されます。特に、一番目の例は、**{{ book.DevConsole.StoreHome }}** でExtensionのリストを表示する際に使用されます。
-* **{{ book.DevConsole.cek_keywords }}**：ユーザーが特定のキーワードでExtensionを検索する際に、その検索結果にExtensionが含まれるように設定します。
+* **{{ book.DevConsole.cek_keywords }}**：ユーザーが特定のキーワードでExtensionを検索する際に、その検索結果にExtensionが含まれるように設定します（カンマ区切りで5つまで登録可能）。
 * **{{ book.DevConsole.cek_small_icon }}**：小サイズ(108x108ピクセル)のExtensionのアイコンファイルです。**{{ book.DevConsole.ManageExtensions }}** と **{{ book.DevConsole.ExtensionPage }}** に表示されます。
 * **{{ book.DevConsole.cek_large_icon }}**：大サイズ(512x512ピクセル)のExtensionのアイコンファイルです。今後使用される予定です。
+* **対象デバイス** : Extensionが動作するClovaデバイスを選択します。チェックを外したデバイスからはスキルを呼び出すことができません。
 
 このように入力された情報は、Clovaアプリの **{{ book.DevConsole.ManageExtensions }}** で次のように表示されます。
 
@@ -57,7 +60,9 @@ Extensionの配布に必要な情報を入力する最後の段階です。プ�
 
 * **{{ book.DevConsole.cek_allow_purchase }}**：Extensionを使用する際、ユーザーが決済をしたり支払いをする場面がある場合、**{{ book.DevConsole.cek_yes }}** を選択します。
 * **{{ book.DevConsole.cek_use_personal_info }}**：Extensionがユーザーの個人情報を取得する場合、**{{ book.DevConsole.cek_yes }}** を選択します。
+{% if book.language !== "ja" %}
 * **{{ book.DevConsole.cek_child_directed }}**：未成年者のExtension使用を許可する場合、**{{ book.DevConsole.cek_yes }}** を選択します。
+{% endif %}
 * **{{ book.DevConsole.cek_privacy_policy_url }}**：Extensionが個人情報を取得する場合、それに関するプライバシーポリシーを提供するページを入力します。Extension説明ページの一番下に表示されます。
 * **{{ book.DevConsole.cek_terms_of_use }}**：Extensionに関する免責条項を提供するページを入力します。プライバシーポリシーのURLと同じく、Extension説明ページの一番下に表示されます。
 
