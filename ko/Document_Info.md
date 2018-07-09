@@ -16,7 +16,11 @@
 <table>
   <thead>
     <tr>
+<<<<<<< HEAD
       <th style="width:15%">배포 일자</th><th style="width:85%">이력 사항</th>
+=======
+      <th style="width:15%">배포 일자</th><th style="width:75%">이력 사항</th>
+>>>>>>> 91b2271bcc65ed155cd8db8d20a7c714fec6412e
     </tr>
   </thead>
   <tbody>
