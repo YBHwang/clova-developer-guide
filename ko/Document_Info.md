@@ -7,7 +7,7 @@
 </div>
 
 ## 연락처
-문서와 관련하여 궁금한 사항은 지정된 Clova 제휴 담당자나 {{ book.OrientedService }}의 포럼에 문의합니다.
+문서와 관련하여 궁금한 사항은 지정된 Clova 제휴 담당자나 {{ book.DeveloperCenterName }}의 포럼에 문의합니다.
 
 ## 문서 변경 이력
 
