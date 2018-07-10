@@ -30,7 +30,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 | [`GetAwakeDurationResponse`](#GetAwakeDurationResponse)                       | Response | [`GetAwakeDurationRequest`](#GetAwakeDurationRequest)メッセージに対するレスポンスです。デバイスで測定されたユーザーの入眠潜時、つまりユーザーが就寝してから睡眠状態に入るまでの時間をCEKに返します。  |
 | [`GetBatteryInfoRequest`](#GetBatteryInfoRequest)                             | Request  | デバイスの電池の情報をClova Home Extensionにリクエストします。 |
 | [`GetBatteryInfoResponse`](#GetBatteryInfoResponse)                           | Response | [`GetBatteryInfoRequest`](#GetBatteryInfoRequest)メッセージに対するレスポンスです。デバイスの電池の情報をCEKに返します。 |
-| [`GetCleaningCycleRequest`](#GetCleaningCycleRequest)                                                   | Request  | デバイスをクリーニングする周期を確認する際に使用します。デバイスの次のクリーニング周期までの残り時間をClova Home extensionにリクエストします。  |
+| [`GetCleaningCycleRequest`](#GetCleaningCycleRequest)                                                   | Request  | デバイスをクリーニングする周期を確認する際に使用します。デバイスの次のクリーニング周期までの残り時間をClova Home Extensionにリクエストします。  |
 | [`GetCleaningCycleResponse`](#GetCleaningCycleResponse)                                                  | Response | [`GetCleaningCycleRequest`](#GetCleaningCycleRequest)メッセージに対するレスポンスです。デバイスの次のクリーニング周期までの残り時間をCEKに返します。  |
 | [`GetCloseTimeRequest`](#GetCloseTimeRequest)                                 | Request  | 開閉センサーで検知された開閉状況のうち、検知対象が最後に閉まったときの日時情報をClova Home Extensionにリクエストします。 |
 | [`GetCloseTimeResponse`](#GetCloseTimeResponse)                               | Response | [`GetCloseTimeRequest`](#GetCloseTimeRequest)メッセージに対するレスポンスです。開閉センサーの検知対象が最後に閉まったときの日時情報をCEKに返します。  |
@@ -111,33 +111,33 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 | [`SetColorConfirmation`](#SetColorConfirmation)                               | Response | [`SetColorRequest`](#SetColorRequest)メッセージに対するレスポンスです。照明や画面、電球の色を変更するようにリクエストした後、その処理結果をCEKに返します。 |
 | [`SetColorRequest`](#SetColorRequest)                                         | Request  | 主にスマート照明などのデバイスを制御する際に使用します。照明や画面、電球の色を変更するようClova Home Extensionにリクエストします。  |
 | [`SetColorTemperatureConfirmation`](#SetColorTemperatureConfirmation)         | Response | [`SetColorTemperatureRequest`](#SetColorTemperatureRequest)メッセージに対するレスポンスです。照明や画面、電球の色温度を変更するようにリクエストした後、その処理結果をCEKに返します。  |
-| [`SetColorTemperatureRequest`](#SetColorTemperatureRequest)                   | Request  | 主にスマート照明などのデバイスを制御する際に使用します。照明や画面、電球の色温度を変更するようClova Home extensionにリクエストします。  |
+| [`SetColorTemperatureRequest`](#SetColorTemperatureRequest)                   | Request  | 主にスマート照明などのデバイスを制御する際に使用します。照明や画面、電球の色温度を変更するようClova Home Extensionにリクエストします。  |
 | [`SetFanSpeedConfirmation`](#SetFanSpeedConfirmation)                         | Response | [`SetFanSpeedRequest`](#SetFanSpeedRequest)メッセージに対するレスポンスです。ファンの速度を変更するようにリクエストした後、その処理結果をCEKに返します。 |
-| [`SetFanSpeedRequest`](#SetFanSpeedRequest)                                   | Request  | ファンの速度を指定された値に変更するようClova Home extensionにリクエストします。 |
+| [`SetFanSpeedRequest`](#SetFanSpeedRequest)                                   | Request  | ファンの速度を指定された値に変更するようClova Home Extensionにリクエストします。 |
 | [`SetFreezerTargetTemperatureConfirmation`](#SetFreezerTargetTemperatureConfirmation)  | Response  |  [`SetFreezerTargetTemperatureRequest`](#SetFreezerTargetTemperatureRequest)メッセージに対するレスポンスです。冷凍室の設定温度を変更するようにリクエストした後、その処理結果をCEKに返します。 |
-| [`SetFreezerTargetTemperatureRequest`](#SetFreezerTargetTemperatureRequest)   | Request  | 冷蔵庫などのデバイスを制御する際に使用します。冷凍庫の設定温度を指定された値に変更するようClova Home extensionにリクエストします。  |
+| [`SetFreezerTargetTemperatureRequest`](#SetFreezerTargetTemperatureRequest)   | Request  | 冷蔵庫などのデバイスを制御する際に使用します。冷凍庫の設定温度を指定された値に変更するようClova Home Extensionにリクエストします。  |
 | [`SetFridgeTargetTemperatureConfirmation`](#SetFridgeTargetTemperatureConfirmation) | Response | [`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest)メッセージに対するレスポンスです。冷蔵室の設定温度を変更するようにリクエストした後、その処理結果をCEKに返します。  |
-| [`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest)     | Request  | 冷蔵庫などのデバイスを制御する際に使用します。冷蔵室の設定温度を指定された値に変更するようClova Home extensionにリクエストします。  |
+| [`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest)     | Request  | 冷蔵庫などのデバイスを制御する際に使用します。冷蔵室の設定温度を指定された値に変更するようClova Home Extensionにリクエストします。  |
 | [`SetInputSourceByNameConfirmation`](#SetInputSourceByNameConfirmation)       | Response | [`SetInputSourceByNameRequest`](#SetInputSourceByNameRequest)メッセージに対するレスポンスです。指定された入力ソース名にテレビの入力ソースを変更するようにリクエストした後、その処理結果をCEKに返します。  |
-| [`SetInputSourceByNameRequest`](#SetInputSourceByNameRequest)                　| Request  | 指定された入力ソース名にテレビの入力ソースを変更するようClova Home extensionにリクエストします。  |
+| [`SetInputSourceByNameRequest`](#SetInputSourceByNameRequest)                　| Request  | 指定された入力ソース名にテレビの入力ソースを変更するようClova Home Extensionにリクエストします。  |
 | [`SetLockStateConfirmation`](#SetLockStateConfirmation)                       | Response | [`SetLockStateRequest`](#SetLockStateRequest)メッセージに対するレスポンスです。デバイスの開閉をリクエストした後、その処理結果をCEKに返します。 |
-| [`SetLockStateRequest`](#SetLockStateRequest)                                 | Request  | デバイスの開閉をClova Home extensionにリクエストします。  |
+| [`SetLockStateRequest`](#SetLockStateRequest)                                 | Request  | デバイスの開閉をClova Home Extensionにリクエストします。  |
 | [`SetModeConfirmation`](#SetModeConfirmation)                                 | Response | [`SetModeRequest`](#SetModeRequest)メッセージに対するレスポンスです。運転モード(operation mode)を変更するようにリクエストした後、その処理結果をCEKに返します。 |
-| [`SetModeRequest`](#SetModeRequest)                                           | Request  | デバイスの運転モードを指定されたモードに変更するようClova Home extensionにリクエストします。 |
+| [`SetModeRequest`](#SetModeRequest)                                           | Request  | デバイスの運転モードを指定されたモードに変更するようClova Home Extensionにリクエストします。 |
 | [`SetTargetTemperatureConfirmation`](#SetTargetTemperatureConfirmation)       | Response | [`SetTargetTemperatureRequest`](#SetTargetTemperatureRequest)メッセージに対するレスポンスです。設定温度を変更するようにリクエストした後、その処理結果をCEKに返します。 |
-| [`SetTargetTemperatureRequest`](#SetTargetTemperatureRequest)                 | Request  | 設定温度を指定された値に変更するようClova Home extensionにリクエストします。 |
+| [`SetTargetTemperatureRequest`](#SetTargetTemperatureRequest)                 | Request  | 設定温度を指定された値に変更するようClova Home Extensionにリクエストします。 |
 | [`StartRecordingConfirmation`](#StartRecordingConfirmation)                   | Response | [`StartRecordingRequest`](#StartRecordingRequest)メッセージに対するレスポンスです。現在見ているチャンネルに対する録画を開始するリクエストした後、その処理結果をCEKに返します。  |
-| [`StartRecordingRequest`](#StartRecordingRequest)                             | Request  | 現在見ているチャンネルに対する録画を開始するようClova Home extensionにリクエストします。  |
+| [`StartRecordingRequest`](#StartRecordingRequest)                             | Request  | 現在見ているチャンネルに対する録画を開始するようClova Home Extensionにリクエストします。  |
 | [`StopConfirmation`](#StopConfirmation)                                       | Response | [`StopRequest`](#StopRequest)メッセージに対するレスポンスです。動作中止のリクエストを処理した結果をCEKに返します。  |
-| [`StopRequest`](#StopRequest)                                                 | Request  | デバイスの現在の動作を中止するようClova Home extensionにリクエストします。  |
+| [`StopRequest`](#StopRequest)                                                 | Request  | デバイスの現在の動作を中止するようClova Home Extensionにリクエストします。  |
 | [`StopRecordingConfirmation`](#StopRecordingConfirmation)                     | Response | [`StopRequest`](#StopRequest)メッセージに対するレスポンスです。現在見ているチャンネルに対する録画を停止するリクエストした後、その処理結果をCEKに返します。  |
-| [`StopRecordingRequest`](#StopRecordingRequest)                               | Request  | 現在見ているチャンネルに対する録画を停止するようClova Home extensionにリクエストします。  |
+| [`StopRecordingRequest`](#StopRecordingRequest)                               | Request  | 現在見ているチャンネルに対する録画を停止するようClova Home Extensionにリクエストします。  |
 | [`TurnOffConfirmation`](#TurnOffConfirmation)                                 | Response | [`TurnOffRequest`](#TurnOffRequest)メッセージに対するレスポンスです。デバイスの電源をオフにするようにリクエストした後、その処理結果をCEKに返します。|
-| [`TurnOffRequest`](#TurnOffRequest)                                           | Request  | デバイスの電源をオフにするようClova Home extensionにリクエストします。                        |
+| [`TurnOffRequest`](#TurnOffRequest)                                           | Request  | デバイスの電源をオフにするようClova Home Extensionにリクエストします。                        |
 | [`TurnOnConfirmation`](#TurnOnConfirmation)                                   | Response | [`TurnOnRequest`](#TurnOnRequest)メッセージに対するレスポンスです。デバイスの電源をオンにするようにリクエストした後、その処理結果をCEKに返します。 |
-| [`TurnOnRequest`](#TurnOnRequest)                                             | Request  | デバイスの電源をオンにするようClova Home extensionにリクエストします。                        |
+| [`TurnOnRequest`](#TurnOnRequest)                                             | Request  | デバイスの電源をオンにするようClova Home Extensionにリクエストします。                        |
 | [`UnmuteConfirmation`](#UnmuteConfirmation)                                   | Response | [`UnmuteRequest`](#UnmuteRequest)メッセージに対するレスポンスです。デバイスのミュートを解除するように設定した結果をCEKに返します。 |
-| [`UnmuteRequest`](#UnmuteRequest)                                             | Request  | デバイスのミュートを解除するようClova Home extensionにリクエストします。 |
+| [`UnmuteRequest`](#UnmuteRequest)                                             | Request  | デバイスのミュートを解除するようClova Home Extensionにリクエストします。 |
 
 ## ChangeInputSourceConfirmation {#ChangeInputSourceConfirmation}
 [`ChangeInputSourceRequest`](#ChangeInputSourceRequest)メッセージに対するレスポンスです。デバイスの充電を開始するようにリクエストした後、その処理結果をCEKに返します。。
@@ -1201,7 +1201,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`GetBatteryInfoRequest`](#GetBatteryInfoRequest)
 
 ## GetCleaningCycleRequest {#GetCleaningCycleRequest}
-デバイスをクリーニングする周期を確認する際に使用します。デバイスの次のクリーニング周期までの残り時間をClova Home extensionにリクエストします。このリクエストに対するレスポンスとして、[`GetCleaningCycleResponse`](#GetCleaningCycleResponse)メッセージを使用する必要があります。
+デバイスをクリーニングする周期を確認する際に使用します。デバイスの次のクリーニング周期までの残り時間をClova Home Extensionにリクエストします。このリクエストに対するレスポンスとして、[`GetCleaningCycleResponse`](#GetCleaningCycleResponse)メッセージを使用する必要があります。
 
 | フィールド名       | データ型    | フィールドの説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
@@ -4187,7 +4187,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`SetColorTemperatureRequest`](#SetColorTemperatureRequest)
 
 ## SetColorTemperatureRequest {#SetColorTemperatureRequest}
-主にスマート照明などのデバイスを制御する際に使用します。照明や画面、電球の色温度を変更するようClova Home extensionにリクエストします。このリクエストに対するレスポンスとして、[`SetColorTemperatureConfirmation`](#SetColorTemperatureConfirmation)メッセージを使用する必要があります。
+主にスマート照明などのデバイスを制御する際に使用します。照明や画面、電球の色温度を変更するようClova Home Extensionにリクエストします。このリクエストに対するレスポンスとして、[`SetColorTemperatureConfirmation`](#SetColorTemperatureConfirmation)メッセージを使用する必要があります。
 
 ### Payload fields
 
@@ -4343,7 +4343,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`SetFreezerTargetTemperatureRequest`](#SetFreezerTargetTemperatureRequest)
 
 ## SetFreezerTargetTemperatureRequest {#SetFreezerTargetTemperatureRequest}
-冷蔵庫などのデバイスを制御する際に使用します。冷凍庫の設定温度を指定された値に変更するようClova Home extensionにリクエストします。このリクエストに対するレスポンスとして、[`SetFreezerTargetTemperatureConfirmation`](#SetFreezerTargetTemperatureConfirmation)メッセージを使用する必要があります。
+冷蔵庫などのデバイスを制御する際に使用します。冷凍庫の設定温度を指定された値に変更するようClova Home Extensionにリクエストします。このリクエストに対するレスポンスとして、[`SetFreezerTargetTemperatureConfirmation`](#SetFreezerTargetTemperatureConfirmation)メッセージを使用する必要があります。
 
 ### Payload fields
 
@@ -4421,7 +4421,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest)
 
 ## SetFridgeTargetTemperatureRequest {#SetFridgeTargetTemperatureRequest}
-冷蔵庫などのデバイスを制御する際に使用します。冷蔵室の設定温度を指定された値に変更するようClova Home extensionにリクエストします。このリクエストに対するレスポンスとして、[`SetFridgeTargetTemperatureConfirmation`](#SetFridgeTargetTemperatureConfirmation)メッセージを使用する必要があります。
+冷蔵庫などのデバイスを制御する際に使用します。冷蔵室の設定温度を指定された値に変更するようClova Home Extensionにリクエストします。このリクエストに対するレスポンスとして、[`SetFridgeTargetTemperatureConfirmation`](#SetFridgeTargetTemperatureConfirmation)メッセージを使用する必要があります。
 
 ### Payload fields
 
