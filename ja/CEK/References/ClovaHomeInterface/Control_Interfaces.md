@@ -4,7 +4,9 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 
 | メッセージ         | タイプ  | 説明                                   |
 |------------------|-----------|---------------------------------------------|
-| [`ChargeConfirmation`](#ChargeConfirmation)                                   | Response | [`ChargeRequest`](#ChargeRequest)メッセージに対するレスポンスです。デバイスの充電を開始するようにリクエストした後、その処理結果をCEKに返します。 |
+| [`ChangeInputSourceConfirmation`](#ChangeInputSourceConfirmation)             | Response | [`ChangeInputSourceRequest`](#ChangeInputSourceRequest)メッセージに対するレスポンスです。入力ソースを変更するようにリクエストした後、その処理結果をCEKに返します。 |
+| [`ChangeInputSourceRequest`](#ChangeInputSourceRequest)                       | Request  | 入力ソースを変更するようClova Home Extensionにリクエストします。 |
+| [`ChargeConfirmation`](#ChargeConfirmation)                                   | Response | [`ChargeRequest`](#ChargeRequest)メッセージに対するレスポンスです。デバイスの充電を開始するようにリクエストした後、その処理結果をCEKに返します。  |
 | [`ChargeRequest`](#ChargeRequest)                                             | Request  | デバイスの充電を開始するようClova Home Extensionにリクエストします。 |
 | [`CloseConfirmation`](#CloseConfirmation)                                     | Response | [`CloseRequest`](#CloseRequest)メッセージに対するレスポンスです。スマートカーテンや温水洗浄便座の蓋を閉めるようにリクエストした後、その処理結果をCEKに返します。 |
 | [`CloseRequest`](#CloseRequest)                                               | Request  | スマートカーテンや温水洗浄便座などのデバイスを制御する際に使用します。スマートカーテンや温水洗浄便座の蓋を閉めるようClova Home Extensionにリクエストします。  |
@@ -28,7 +30,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 | [`GetAwakeDurationResponse`](#GetAwakeDurationResponse)                       | Response | [`GetAwakeDurationRequest`](#GetAwakeDurationRequest)メッセージに対するレスポンスです。デバイスで測定されたユーザーの入眠潜時、つまりユーザーが就寝してから睡眠状態に入るまでの時間をCEKに返します。  |
 | [`GetBatteryInfoRequest`](#GetBatteryInfoRequest)                             | Request  | デバイスの電池の情報をClova Home Extensionにリクエストします。 |
 | [`GetBatteryInfoResponse`](#GetBatteryInfoResponse)                           | Response | [`GetBatteryInfoRequest`](#GetBatteryInfoRequest)メッセージに対するレスポンスです。デバイスの電池の情報をCEKに返します。 |
-| [`GetCleaningCycleRequest`](#GetCleaningCycleRequest)                                                   | Request  | デバイスをクリーニングする周期を確認する際に使用します。デバイスの次のクリーニング周期までの残り時間をClova Home extensionにリクエストします。  |
+| [`GetCleaningCycleRequest`](#GetCleaningCycleRequest)                                                   | Request  | デバイスをクリーニングする周期を確認する際に使用します。デバイスの次のクリーニング周期までの残り時間をClova Home Extensionにリクエストします。  |
 | [`GetCleaningCycleResponse`](#GetCleaningCycleResponse)                                                  | Response | [`GetCleaningCycleRequest`](#GetCleaningCycleRequest)メッセージに対するレスポンスです。デバイスの次のクリーニング周期までの残り時間をCEKに返します。  |
 | [`GetCloseTimeRequest`](#GetCloseTimeRequest)                                 | Request  | 開閉センサーで検知された開閉状況のうち、検知対象が最後に閉まったときの日時情報をClova Home Extensionにリクエストします。 |
 | [`GetCloseTimeResponse`](#GetCloseTimeResponse)                               | Response | [`GetCloseTimeRequest`](#GetCloseTimeRequest)メッセージに対するレスポンスです。開閉センサーの検知対象が最後に閉まったときの日時情報をCEKに返します。  |
@@ -109,27 +111,103 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 | [`SetColorConfirmation`](#SetColorConfirmation)                               | Response | [`SetColorRequest`](#SetColorRequest)メッセージに対するレスポンスです。照明や画面、電球の色を変更するようにリクエストした後、その処理結果をCEKに返します。 |
 | [`SetColorRequest`](#SetColorRequest)                                         | Request  | 主にスマート照明などのデバイスを制御する際に使用します。照明や画面、電球の色を変更するようClova Home Extensionにリクエストします。  |
 | [`SetColorTemperatureConfirmation`](#SetColorTemperatureConfirmation)         | Response | [`SetColorTemperatureRequest`](#SetColorTemperatureRequest)メッセージに対するレスポンスです。照明や画面、電球の色温度を変更するようにリクエストした後、その処理結果をCEKに返します。  |
-| [`SetColorTemperatureRequest`](#SetColorTemperatureRequest)                   | Request  | 主にスマート照明などのデバイスを制御する際に使用します。照明や画面、電球の色温度を変更するようClova Home extensionにリクエストします。  |
+| [`SetColorTemperatureRequest`](#SetColorTemperatureRequest)                   | Request  | 主にスマート照明などのデバイスを制御する際に使用します。照明や画面、電球の色温度を変更するようClova Home Extensionにリクエストします。  |
 | [`SetFanSpeedConfirmation`](#SetFanSpeedConfirmation)                         | Response | [`SetFanSpeedRequest`](#SetFanSpeedRequest)メッセージに対するレスポンスです。ファンの速度を変更するようにリクエストした後、その処理結果をCEKに返します。 |
-| [`SetFanSpeedRequest`](#SetFanSpeedRequest)                                   | Request  | ファンの速度を指定された値に変更するようClova Home extensionにリクエストします。 |
+| [`SetFanSpeedRequest`](#SetFanSpeedRequest)                                   | Request  | ファンの速度を指定された値に変更するようClova Home Extensionにリクエストします。 |
 | [`SetFreezerTargetTemperatureConfirmation`](#SetFreezerTargetTemperatureConfirmation)  | Response  |  [`SetFreezerTargetTemperatureRequest`](#SetFreezerTargetTemperatureRequest)メッセージに対するレスポンスです。冷凍室の設定温度を変更するようにリクエストした後、その処理結果をCEKに返します。 |
-| [`SetFreezerTargetTemperatureRequest`](#SetFreezerTargetTemperatureRequest)   | Request  | 冷蔵庫などのデバイスを制御する際に使用します。冷凍庫の設定温度を指定された値に変更するようClova Home extensionにリクエストします。  |
+| [`SetFreezerTargetTemperatureRequest`](#SetFreezerTargetTemperatureRequest)   | Request  | 冷蔵庫などのデバイスを制御する際に使用します。冷凍庫の設定温度を指定された値に変更するようClova Home Extensionにリクエストします。  |
 | [`SetFridgeTargetTemperatureConfirmation`](#SetFridgeTargetTemperatureConfirmation) | Response | [`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest)メッセージに対するレスポンスです。冷蔵室の設定温度を変更するようにリクエストした後、その処理結果をCEKに返します。  |
-| [`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest)     | Request  | 冷蔵庫などのデバイスを制御する際に使用します。冷蔵室の設定温度を指定された値に変更するようClova Home extensionにリクエストします。  |
-| [`SetLockStateConfirmation`](#SetLockStateConfirmation)                       | Response | [`SetLockStateRequest`](#SetLockStateRequest)メッセージに対するレスポンスです。デバイスの開閉をリクエストした後、その処理結果をCEKに返します。  |
-| [`SetLockStateRequest`](#SetLockStateRequest)                                 | Request  | デバイスの開閉をClova Home extensionにリクエストします。  |
+| [`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest)     | Request  | 冷蔵庫などのデバイスを制御する際に使用します。冷蔵室の設定温度を指定された値に変更するようClova Home Extensionにリクエストします。  |
+| [`SetInputSourceByNameConfirmation`](#SetInputSourceByNameConfirmation)       | Response | [`SetInputSourceByNameRequest`](#SetInputSourceByNameRequest)メッセージに対するレスポンスです。指定された入力ソース名にテレビの入力ソースを変更するようにリクエストした後、その処理結果をCEKに返します。  |
+| [`SetInputSourceByNameRequest`](#SetInputSourceByNameRequest)                　| Request  | 指定された入力ソース名にテレビの入力ソースを変更するようClova Home Extensionにリクエストします。  |
+| [`SetLockStateConfirmation`](#SetLockStateConfirmation)                       | Response | [`SetLockStateRequest`](#SetLockStateRequest)メッセージに対するレスポンスです。デバイスの開閉をリクエストした後、その処理結果をCEKに返します。 |
+| [`SetLockStateRequest`](#SetLockStateRequest)                                 | Request  | デバイスの開閉をClova Home Extensionにリクエストします。  |
 | [`SetModeConfirmation`](#SetModeConfirmation)                                 | Response | [`SetModeRequest`](#SetModeRequest)メッセージに対するレスポンスです。運転モード(operation mode)を変更するようにリクエストした後、その処理結果をCEKに返します。 |
-| [`SetModeRequest`](#SetModeRequest)                                           | Request  | デバイスの運転モードを指定されたモードに変更するようClova Home extensionにリクエストします。 |
+| [`SetModeRequest`](#SetModeRequest)                                           | Request  | デバイスの運転モードを指定されたモードに変更するようClova Home Extensionにリクエストします。 |
 | [`SetTargetTemperatureConfirmation`](#SetTargetTemperatureConfirmation)       | Response | [`SetTargetTemperatureRequest`](#SetTargetTemperatureRequest)メッセージに対するレスポンスです。設定温度を変更するようにリクエストした後、その処理結果をCEKに返します。 |
-| [`SetTargetTemperatureRequest`](#SetTargetTemperatureRequest)                 | Request  | 設定温度を指定された値に変更するようClova Home extensionにリクエストします。 |
+| [`SetTargetTemperatureRequest`](#SetTargetTemperatureRequest)                 | Request  | 設定温度を指定された値に変更するようClova Home Extensionにリクエストします。 |
+| [`StartRecordingConfirmation`](#StartRecordingConfirmation)                   | Response | [`StartRecordingRequest`](#StartRecordingRequest)メッセージに対するレスポンスです。現在見ているチャンネルに対する録画を開始するリクエストした後、その処理結果をCEKに返します。  |
+| [`StartRecordingRequest`](#StartRecordingRequest)                             | Request  | 現在見ているチャンネルに対する録画を開始するようClova Home Extensionにリクエストします。  |
 | [`StopConfirmation`](#StopConfirmation)                                       | Response | [`StopRequest`](#StopRequest)メッセージに対するレスポンスです。動作中止のリクエストを処理した結果をCEKに返します。  |
-| [`StopRequest`](#StopRequest)                                                 | Request  | デバイスの現在の動作を中止するようClova Home extensionにリクエストします。  |
-| [`TurnOffConfirmation`](#TurnOffConfirmation)                                 | Response | [`TurnOffRequest`](#TurnOffRequest)メッセージに対するレスポンスです。デバイスの電源をオフにするようにリクエストした後、その処理結果をCEKに返します。 |
-| [`TurnOffRequest`](#TurnOffRequest)                                           | Request  | デバイスの電源をオフにするようClova Home extensionにリクエストします。                        |
+| [`StopRequest`](#StopRequest)                                                 | Request  | デバイスの現在の動作を中止するようClova Home Extensionにリクエストします。  |
+| [`StopRecordingConfirmation`](#StopRecordingConfirmation)                     | Response | [`StopRequest`](#StopRequest)メッセージに対するレスポンスです。現在見ているチャンネルに対する録画を停止するリクエストした後、その処理結果をCEKに返します。  |
+| [`StopRecordingRequest`](#StopRecordingRequest)                               | Request  | 現在見ているチャンネルに対する録画を停止するようClova Home Extensionにリクエストします。  |
+| [`TurnOffConfirmation`](#TurnOffConfirmation)                                 | Response | [`TurnOffRequest`](#TurnOffRequest)メッセージに対するレスポンスです。デバイスの電源をオフにするようにリクエストした後、その処理結果をCEKに返します。|
+| [`TurnOffRequest`](#TurnOffRequest)                                           | Request  | デバイスの電源をオフにするようClova Home Extensionにリクエストします。                        |
 | [`TurnOnConfirmation`](#TurnOnConfirmation)                                   | Response | [`TurnOnRequest`](#TurnOnRequest)メッセージに対するレスポンスです。デバイスの電源をオンにするようにリクエストした後、その処理結果をCEKに返します。 |
-| [`TurnOnRequest`](#TurnOnRequest)                                             | Request  | デバイスの電源をオンにするようClova Home extensionにリクエストします。                        |
+| [`TurnOnRequest`](#TurnOnRequest)                                             | Request  | デバイスの電源をオンにするようClova Home Extensionにリクエストします。                        |
 | [`UnmuteConfirmation`](#UnmuteConfirmation)                                   | Response | [`UnmuteRequest`](#UnmuteRequest)メッセージに対するレスポンスです。デバイスのミュートを解除するように設定した結果をCEKに返します。 |
-| [`UnmuteRequest`](#UnmuteRequest)                                             | Request  | デバイスのミュートを解除するようClova Home extensionにリクエストします。 |
+| [`UnmuteRequest`](#UnmuteRequest)                                             | Request  | デバイスのミュートを解除するようClova Home Extensionにリクエストします。 |
+
+## ChangeInputSourceConfirmation {#ChangeInputSourceConfirmation}
+[`ChangeInputSourceRequest`](#ChangeInputSourceRequest)メッセージに対するレスポンスです。デバイスの充電を開始するようにリクエストした後、その処理結果をCEKに返します。
+
+### Payload fields
+
+なし
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
+    "name": "ChangeInputSourceConfirmation",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {}
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`ChangeInputSourceRequest`](#ChangeInputSourceRequest)
+
+## ChangeInputSourceRequest {#ChangeInputSourceRequest}
+主にテレビのセットトップボックスなどのデバイスを制御する際に使用します。入力ソースの切り替え(HDMI1, HDMI2など)を行うよう、Clova Home Extensionにリクエストします。このリクエストに対するレスポンスとして、[`ChangeInputSourceConfirmation`](#ChargeConfirmation)メッセージを使用する必要があります。
+
+### Payload fields
+
+| フィールド名       | データ型    | フィールドの説明                     | 任意 |
+|---------------|---------|-----------------------------|:---------:|
+| `accessToken`      | string                                  | IoTサービスのユーザーアカウントのアクセストークン。CEKは、外部サービスの認可サーバーから取得したユーザーアカウントのアクセストークンを渡します。詳細については、[ユーザーアカウントを連携する](/CEK/Guides/Link_User_Account.md)を参照してください。                          | 常時    |
+| `appliance`        | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject)     | エンドポイントの情報を持つオブジェクト。`applianceId`フィールドは必須です。     | 常時    |
+| `count`        | [TVChannelInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TVChannelInfoObject)  | 入力の切り替え命令を複数回おこしたい場合など、ユーザ発話を元にした回数の情報を持つオブジェクト。主にIRでの操作を想定しています。 | Optional    |
+
+
+### Message example
+
+{% raw %}
+
+```json
+// "テレビの入力を3回変えて"という発話の場合
+{
+  "header": {
+    "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
+    "name": "ChangeInputSourceRequest",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "accessToken": "92ebcb67fe33",
+    "appliance": {
+      "applianceId": "device-009"
+    },
+    "count": {
+      "value": "3"
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`ChangeInputSourceConfirmation`](#ChangeInputSourceConfirmation)
 
 ## ChargeConfirmation {#ChargeConfirmation}
 [`ChargeRequest`](#ChargeRequest)メッセージに対するレスポンスです。デバイスの充電を開始するようにリクエストした後、その処理結果をCEKに返します。
@@ -1123,7 +1201,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`GetBatteryInfoRequest`](#GetBatteryInfoRequest)
 
 ## GetCleaningCycleRequest {#GetCleaningCycleRequest}
-デバイスをクリーニングする周期を確認する際に使用します。デバイスの次のクリーニング周期までの残り時間をClova Home extensionにリクエストします。このリクエストに対するレスポンスとして、[`GetCleaningCycleResponse`](#GetCleaningCycleResponse)メッセージを使用する必要があります。
+デバイスをクリーニングする周期を確認する際に使用します。デバイスの次のクリーニング周期までの残り時間をClova Home Extensionにリクエストします。このリクエストに対するレスポンスとして、[`GetCleaningCycleResponse`](#GetCleaningCycleResponse)メッセージを使用する必要があります。
 
 | フィールド名       | データ型    | フィールドの説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
@@ -4109,7 +4187,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`SetColorTemperatureRequest`](#SetColorTemperatureRequest)
 
 ## SetColorTemperatureRequest {#SetColorTemperatureRequest}
-主にスマート照明などのデバイスを制御する際に使用します。照明や画面、電球の色温度を変更するようClova Home extensionにリクエストします。このリクエストに対するレスポンスとして、[`SetColorTemperatureConfirmation`](#SetColorTemperatureConfirmation)メッセージを使用する必要があります。
+主にスマート照明などのデバイスを制御する際に使用します。照明や画面、電球の色温度を変更するようClova Home Extensionにリクエストします。このリクエストに対するレスポンスとして、[`SetColorTemperatureConfirmation`](#SetColorTemperatureConfirmation)メッセージを使用する必要があります。
 
 ### Payload fields
 
@@ -4265,7 +4343,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`SetFreezerTargetTemperatureRequest`](#SetFreezerTargetTemperatureRequest)
 
 ## SetFreezerTargetTemperatureRequest {#SetFreezerTargetTemperatureRequest}
-冷蔵庫などのデバイスを制御する際に使用します。冷凍庫の設定温度を指定された値に変更するようClova Home extensionにリクエストします。このリクエストに対するレスポンスとして、[`SetFreezerTargetTemperatureConfirmation`](#SetFreezerTargetTemperatureConfirmation)メッセージを使用する必要があります。
+冷蔵庫などのデバイスを制御する際に使用します。冷凍庫の設定温度を指定された値に変更するようClova Home Extensionにリクエストします。このリクエストに対するレスポンスとして、[`SetFreezerTargetTemperatureConfirmation`](#SetFreezerTargetTemperatureConfirmation)メッセージを使用する必要があります。
 
 ### Payload fields
 
@@ -4343,7 +4421,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest)
 
 ## SetFridgeTargetTemperatureRequest {#SetFridgeTargetTemperatureRequest}
-冷蔵庫などのデバイスを制御する際に使用します。冷蔵室の設定温度を指定された値に変更するようClova Home extensionにリクエストします。このリクエストに対するレスポンスとして、[`SetFridgeTargetTemperatureConfirmation`](#SetFridgeTargetTemperatureConfirmation)メッセージを使用する必要があります。
+冷蔵庫などのデバイスを制御する際に使用します。冷蔵室の設定温度を指定された値に変更するようClova Home Extensionにリクエストします。このリクエストに対するレスポンスとして、[`SetFridgeTargetTemperatureConfirmation`](#SetFridgeTargetTemperatureConfirmation)メッセージを使用する必要があります。
 
 ### Payload fields
 
@@ -4381,6 +4459,84 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 
 ### 次の項目も参照してください。
 * [`SetFridgeTargetTemperatureConfirmation`](#SetFridgeTargetTemperatureConfirmation)
+
+## SetInputSourceByNameConfirmation {#SetInputSourceByNameConfirmation}
+[`SetInputSourceByNameRequest`](#SetInputSourceByNameRequest)メッセージに対するレスポンスです。指定された入力ソース名にテレビの入力ソースを変更するようにリクエストした後、その処理結果をCEKに返します。
+
+### Payload fields
+
+| フィールド名       | データ型    | フィールドの説明                     | 必須/選択 |
+|---------------|---------|-----------------------------|:---------:|
+| `sourceName`               | [TVInputSourceNameInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TVInputSourceNameInfoObject) | デバイスに設定されたか、またはExtensionからリクエストされた入力ソース名の情報を持つオブジェクト     | 選択    |
+
+### 備考
+
+エンドポイントからペイロードに入力する情報を取得できない場合、値を省略できます。その場合、ユーザーには具体的な情報なしに、リクエストが正常に処理されたことを通知します。
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
+    "name": "SetInputSourceByNameConfirmation",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "sourceName": {
+      "value": "HDMI1"
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`SetInputSourceByNameRequest`](#SetInputSourceByNameRequest)
+
+## SetInputSourceByNameRequest {#SetInputSourceByNameRequest}
+主にテレビのセットトップボックスなどのデバイスを制御する際に使用します。指定された入力ソース名に入力ソースを変更するようClova Home Extensionにリクエストします。このリクエストに対するレスポンスとして、[`SetInputSourceByNameConfirmation`](#SetInputSourceByNameConfirmation)メッセージを使用する必要があります。
+
+### Payload fields
+
+| フィールド名       | データ型    | フィールドの説明                     | 任意 |
+|---------------|---------|-----------------------------|:---------:|
+| `accessToken`   | string | IoTサービスのユーザーアカウントのアクセストークン。CEKは、外部サービスの認可サーバーから取得したユーザーアカウントのアクセストークンを渡します。詳細については、[ユーザーアカウントを連携する](/CEK/Guides/Link_User_Account.md)を参照してください。                          | 常時    |
+| `appliance`     | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) | エンドポイントの情報を持つオブジェクト。`applianceId`フィールドは必須です。        | 常時    |
+| `sourceName`       | [TVInputSourceNameInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TVInputSourceNameInfoObject) | 設定する入力ソース名の情報を持つオブジェクト     | 常時    |
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
+    "name": "SetInputSourceByNameRequest",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "accessToken": "92ebcb67fe33",
+    "appliance": {
+      "applianceId": "device-021"
+    },
+    "sourceName": {
+      "value": "HDMI1"
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`SetInputSourceByNameConfirmation`](#SetInputSourceByNameConfirmation)
 
 ## SetLockStateConfirmation {#SetLockStateConfirmation}
 [`SetLockStateRequest`](#SetLockStateRequest)メッセージに対するレスポンスです。デバイスの開閉をリクエストした後、その処理結果をCEKに返します。
@@ -4609,6 +4765,70 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 ### 次の項目も参照してください。
 * [`SetTargetTemperatureConfirmation`](#SetTargetTemperatureConfirmation)
 
+## StartRecordingConfirmation {#StartRecordingConfirmation}
+[`StartRecordingRequest`](#StartRecordingRequest)メッセージに対するレスポンスです。現在見ているチャンネルに対する録画を開始するようリクエストした後、その処理結果をCEKに返します。
+
+### Payload fields
+
+なし
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "a4349fd5-7c1c-4fae-9bbd-291749bdd63a",
+    "name": "StartRecordingConfirmation",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": { }
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`StartRecordingRequest`](#StartRecordingRequest)
+
+## StartRecordingRequest {#StartRecordingRequest}
+主にテレビのセットトップボックスなどのデバイスを制御する際に使用します。現在見ているチャンネルの録画を開始するようClova Home Extensionにリクエストします。このリクエストに対するレスポンスとして、[`StartRecordingConfirmation`](#StartRecordingConfirmation)メッセージを使用する必要があります。
+
+### Payload fields
+
+| フィールド名       | データ型    | フィールドの説明                     | 任意 |
+|---------------|---------|-----------------------------|:---------:|
+| `accessToken`      | string                                  | IoTサービスのユーザーアカウントのアクセストークン。CEKは、外部サービスの認可サーバーから取得したユーザーアカウントのアクセストークンを渡します。詳細については、[ユーザーアカウントを連携する](/CEK/Guides/Link_User_Account.md)を参照してください。                          | 常時    |
+| `appliance`        | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject)     | エンドポイントの情報を持つオブジェクト。`applianceId`フィールドは必須です。     | 常時    |
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "8030275d-0e71-463d-b1d8-3e761e5389ad",
+    "name": "StartRecordingRequest",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "accessToken": "92ebcb67fe33",
+    "appliance": {
+      "applianceId": "device-016"
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`StartRecordingConfirmation`](#StartRecordingConfirmation)
+
 ## StopConfirmation {#StopConfirmation}
 [`StopRequest`](#StopRequest)メッセージに対するレスポンスです。動作中止のリクエストを処理した結果をCEKに返します。
 
@@ -4678,6 +4898,70 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 
 ### 次の項目も参照してください。
 * [`StopConfirmation`](#StopConfirmation)
+
+## StopRecordingConfirmation {#StopRecordingConfirmation}
+[`StopRecordingRequest`](#StopRecordingRequest)メッセージに対するレスポンスです。現在行っている録画を停止するようリクエストした後、その処理結果をCEKに返します。
+
+### Payload fields
+
+なし
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "a4349fd5-7c1c-4fae-9bbd-291749bdd63a",
+    "name": "StopRecordingConfirmation",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": { }
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`StopRecordingRequest`](#StopRecordingRequest)
+
+## StopRecordingRequest {#StopRecordingRequest}
+主にテレビのセットトップボックスなどのデバイスを制御する際に使用します。現在行っている録画を停止するようClova Home Extensionにリクエストします。このリクエストに対するレスポンスとして、[`StopRecordingConfirmation`](#StopRecordingConfirmation)メッセージを使用する必要があります。
+
+### Payload fields
+
+| フィールド名       | データ型    | フィールドの説明                     | 任意 |
+|---------------|---------|-----------------------------|:---------:|
+| `accessToken`      | string                                  | IoTサービスのユーザーアカウントのアクセストークン。CEKは、外部サービスの認可サーバーから取得したユーザーアカウントのアクセストークンを渡します。詳細については、[ユーザーアカウントを連携する](/CEK/Guides/Link_User_Account.md)を参照してください。                          | 常時    |
+| `appliance`        | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject)     | エンドポイントの情報を持つオブジェクト。`applianceId`フィールドは必須です。     | 常時    |
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "8030275d-0e71-463d-b1d8-3e761e5389ad",
+    "name": "StopRecordingRequest",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "accessToken": "92ebcb67fe33",
+    "appliance": {
+      "applianceId": "device-016"
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`StopRecordingConfirmation`](#StopRecordingConfirmation)
 
 ## TurnOffConfirmation {#TurnOffConfirmation}
 [`TurnOffRequest`](#TurnOffRequest)メッセージに対するレスポンスです。デバイスの電源をオフにするようにリクエストした後、その処理結果をCEKに返します。
