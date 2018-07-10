@@ -33,7 +33,7 @@ LINE Developersコンソールでチャネルを作成します。
 <div class="danger">
   <p><strong>注意</strong></p>
   <p>すでにLINE公式アカウントをお持ちの場合は、チャネル発行のフローが異なります。
-  お手数ですが、営業担当までご連絡いただきますようお願いいたします。</p>
+  お手数ですが、<a href="https://partner.line.me/ja/partner/join" target="_blank"> LINE Partner </a> よりお問い合わせください。</p>
 </div>
 
 1. **プロバイダーリスト** をクリックします。  
