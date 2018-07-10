@@ -140,7 +140,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 | [`UnmuteRequest`](#UnmuteRequest)                                             | Request  | デバイスのミュートを解除するようClova Home Extensionにリクエストします。 |
 
 ## ChangeInputSourceConfirmation {#ChangeInputSourceConfirmation}
-[`ChangeInputSourceRequest`](#ChangeInputSourceRequest)メッセージに対するレスポンスです。デバイスの充電を開始するようにリクエストした後、その処理結果をCEKに返します。。
+[`ChangeInputSourceRequest`](#ChangeInputSourceRequest)メッセージに対するレスポンスです。デバイスの充電を開始するようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
 
