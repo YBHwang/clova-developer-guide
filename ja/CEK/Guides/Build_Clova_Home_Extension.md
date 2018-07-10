@@ -8,7 +8,7 @@ Clova Home Extensionは、外部のIoTサービスを利用して、家庭内の
 
 <div class="note">
 <p><strong>メモ</strong></p>
-<p>Clova Developer Centerでは Clova Home Extension の情報登録を受け付けておりません。Clova Home Extension を利用した連携に興味のある企業様は、<a href="https://partner.line.me/ja"> LINE Partner </a> よりお問い合わせください。　
+<p>Clova Developer Centerでは Clova Home Extension の情報登録を受け付けておりません。Clova Home Extension を利用した連携に興味のある企業様は、<a href="https://partner.line.me/ja" target="_blank"> LINE Partner </a> よりお問い合わせください。　
 </p>
 </div>
 

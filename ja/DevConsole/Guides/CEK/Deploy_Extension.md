@@ -3,11 +3,6 @@
 
 Extensionの配布は、通常、次の順で行われます。
 
-<div class="danger">
- <p><strong>注意</strong></p>
- <p>プレオープン時には配布することはできません。</p>
-</div>
-
 * [配布情報を入力する](#InputDeploymentInfo)
 * [プライバシーポリシーおよびコンプライアンス情報を入力する](#InputComplianceInfo)
 * [審査をリクエストする](#RequestExtensionSubmission)
@@ -33,8 +28,10 @@ Extensionをユーザーに説明するための情報として、Clovaアプリ
 {% endif %}
 * **{{ book.DevConsole.cek_example_phrases }}**：ユーザーがExtensionをどのように使用できるかを示す例です。**{{ book.DevConsole.ExtensionPage }}** に表示されます。特に、一番目の例は、**{{ book.DevConsole.StoreHome }}** でExtensionのリストを表示する際に使用されます。
 * **{{ book.DevConsole.cek_keywords }}**：ユーザーが特定のキーワードでExtensionを検索する際に、その検索結果にExtensionが含まれるように設定します（カンマ区切りで5つまで登録可能）。
+{% if book.language !== "ja" %}
 * **{{ book.DevConsole.cek_small_icon }}**：小サイズ(108x108ピクセル)のExtensionのアイコンファイルです。**{{ book.DevConsole.ManageExtensions }}** と **{{ book.DevConsole.ExtensionPage }}** に表示されます。
-* **{{ book.DevConsole.cek_large_icon }}**：大サイズ(512x512ピクセル)のExtensionのアイコンファイルです。今後使用される予定です。
+{% endif %}
+* **{{ book.DevConsole.cek_large_icon }}**：スキルストアおよびClovaアプリで表示されるExtensionのアイコンファイルです。512x512ピクセルの円形もしくは正方形で作成してください。
 * **対象デバイス** : Extensionが動作するClovaデバイスを選択します。チェックを外したデバイスからはスキルを呼び出すことができません。
 
 このように入力された情報は、Clovaアプリの **{{ book.DevConsole.ManageExtensions }}** で次のように表示されます。

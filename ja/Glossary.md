@@ -82,7 +82,7 @@ Extensionをユーザーに提供するために構築されたプラットフ�
 
 ### Extensionページ {#ExtensionPage}
 
-スキルストアホーム(**スキルの管理**メニュー)で特定のExtensionを選択すると表示されるページです。Extensionに関する詳しい説明が提供されます。
+スキルストアホーム(**スキルの管理** メニュー)で特定のExtensionを選択すると表示されるページです。Extensionに関する詳しい説明が提供されます。
 
 ### HTTP/2 {#HTTP2}
 HTTPプロトコルの2番目のバージョンです。[SPDY](https://en.wikipedia.org/wiki/SPDY)に基づき、インターネット技術タスクフォース(IETF)において開発されています。1997年にRFC 2068として規定されたHTTP/1.1をバージョンアップしたものであり、2014年12月にProposed Standard(標準への提唱)として制定され、2015年2月17日にIESGで正式な仕様として承認されました。2015年5月に<a href="https://tools.ietf.org/html/rfc7540" target="_blank">RFC 7540</a>として公開されました。
@@ -109,7 +109,7 @@ Clova Extensionが処理するユーザーの意図を区分したカテゴリ�
 ### スキル {#Skill}
 Clovaが提供する拡張機能のことをいいます。スキルをユーザーに提供するには、[Clova Extension](#ClovaExtension)を開発する必要があります。
 
-## ビルトインスキル {#BuiltinSkill}
+### ビルトインスキル {#BuiltinSkill}
 Clovaデバイスに標準で搭載されているスキルで、ミュージック、LINE送受信、LINE無料通話、天気、ニュース、アラーム・タイマーなどがあります。詳細については、[Clova > Clovaのスキル](https://clova.line.me/clova-ai/) をご参照ください。
 
 ### スロット {#Slot}
