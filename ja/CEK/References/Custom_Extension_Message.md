@@ -92,7 +92,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
 ```json
 //例1：EventRequestタイプ
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "session": {
     "new": false,
     "sessionAttributes": {},
@@ -139,7 +139,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
 
 //例2：IntentRequestタイプ
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "session": {
     "new": false,
     "sessionAttributes": {},
@@ -188,7 +188,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
 
 //例3：LaunchRequestタイプ
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "session": {
     "new": true,
     "sessionAttributes": {},
@@ -228,7 +228,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
 
 //例4：SessionEndedRequestタイプ
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "session": {
     "new": false,
     "sessionAttributes": {},
@@ -609,7 +609,7 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 ```json
 //例1：単文タイプ(SimpleSpeech)の音声情報を返す-テキスト
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {},
   "response": {
     "outputSpeech": {
@@ -628,7 +628,7 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 
 //例2：単文タイプ(SimpleSpeech)の音声情報を返す-テキスト、URLを使用
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {},
   "response": {
     "outputSpeech": {
@@ -654,7 +654,7 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 
 //例3：複合タイプ(SpeechSet)の音声情報を返す-要約・詳細音声情報
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {},
   "response": {
     "outputSpeech": {
@@ -689,7 +689,7 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 
 //例4：マルチターン対話で、対話の中間情報を保存する-sessionAttributesを使用
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {
     "RequestedIntent": "OrderPizza",
     "pizzaType": "ペパロニピザ"
@@ -711,7 +711,7 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 
 //例5：マルチターン対話でユーザーの追加の発話を促す-repromptを使用
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {
     "RequestedIntent": "OrderPizza",
     "pizzaType": "ペパロニピザ"
@@ -742,7 +742,7 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 
 //例6：クライアントにオーディオコンテンツを再生するように指示するレスポンス(response.directives[]フィールドを使用)
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {},
   "response": {
     "card": {},

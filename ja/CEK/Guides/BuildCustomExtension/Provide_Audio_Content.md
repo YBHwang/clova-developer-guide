@@ -38,7 +38,7 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
 以下は、`AudioPlayer.Play`ディレクティブをCustom Extensionのレスポンスメッセージに含めたサンプルです。
 ```json
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {},
   "response": {
     "card": {},
@@ -120,7 +120,7 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
 以下は、`PlaybackController.Pause`ディレクティブをCustom Extensionのレスポンスメッセージに含めたサンプルです。
 ```json
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {},
   "response": {
     "card": {},
@@ -192,7 +192,7 @@ Custom Extensionは、レスポンスメッセージを使って、クライア�
 
 ```json
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {},
   "response": {
     "card": {},
@@ -456,7 +456,7 @@ Custom Extensionは、そのタイミングで、再生できるオーディオ�
 
 ```json
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {},
   "response": {
     "card": {},
