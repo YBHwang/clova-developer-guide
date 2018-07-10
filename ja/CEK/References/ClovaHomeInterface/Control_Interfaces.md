@@ -176,7 +176,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 |---------------|---------|-----------------------------|:---------:|
 | `accessToken`      | string                                  | IoTサービスのユーザーアカウントのアクセストークン。CEKは、外部サービスの認可サーバーから取得したユーザーアカウントのアクセストークンを渡します。詳細については、[ユーザーアカウントを連携する](/CEK/Guides/Link_User_Account.md)を参照してください。                          | 常時    |
 | `appliance`        | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject)     | エンドポイントの情報を持つオブジェクト。`applianceId`フィールドは必須です。     | 常時    |
-| `count`        | [TVChannelInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TVChannelInfoObject)  | 入力の切り替え命令を複数回おこしたい場合など、ユーザ発話を元にした回数の情報を持つオブジェクト。主にIRでの操作を想定しています。 | Optional    |
+| `count`        | [CountInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#CountInfoObject)  | 入力の切り替え命令を複数回おこしたい場合など、ユーザ発話を元にした回数の情報を持つオブジェクト。主にIRでの操作を想定しています。 | Optional    |
 
 
 ### Message example
