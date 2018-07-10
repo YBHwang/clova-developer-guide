@@ -177,6 +177,7 @@
     * [アカウント権限の検証を実装する](/CEK/Guides/Link_User_Account.md#AddValidationLogic)
     * [アカウント連携情報を登録する](/CEK/Guides/Link_User_Account.md#RegisterAccountLinkingInfo)
 * [Custom ExtensionとLINEを連携する](/CEK/Guides/Link_Messaging_API.md)
+* [Clova Extensions Kitソフトウェア開発キット](/CEK/Guides/Clova_CEK_SDK.md)
 * [サンプルのExtension](/CEK/Examples/Extension_Examples.md)
 * [CEK APIのリファレンス](/CEK/References/CEK_API.md)
   * [HTTPメッセージ](/CEK/References/CEK_API.md#HTTPMessage)
