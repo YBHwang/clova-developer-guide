@@ -207,7 +207,7 @@ CIC는 이 이벤트 메시지를 수신하면 사용자 계정에 등록된 모
 | 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
 |---------------|---------|-----------------------------|:---------:|
 | `name`       | string  | 연결할 블루투스 기기의 이름         | 항상     |
-| `address`    | string  | 연결할 블루투스 기기의 MAC 주소     | 항상     |
+| `address`    | string  | 연결할 블루투스 기기의 장치 주소     | 항상     |
 | `connected`  | boolean | 연결할 블루투스 기기와의 연결 여부. <ul><li><code>true</code>: 연결된 상태</li><li><code>false</code>: 연결되어 있지 않은 상태</li></ul>      | 항상     |
 | `role`       | string  | 연결할 블루투스 기기의 역할.<ul><li><code>"sink"</code></li><li><code>"source"</code></li></ul> | 항상     |
 
