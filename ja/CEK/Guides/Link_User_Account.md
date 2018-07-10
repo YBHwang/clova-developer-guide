@@ -135,7 +135,7 @@ Clovaがユーザーアカウントを連携するために認可コードを取
 ```json
 //例1：Custom Extensionメッセージの例
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "session": {
     "new": false,
     "sessionAttributes": {},

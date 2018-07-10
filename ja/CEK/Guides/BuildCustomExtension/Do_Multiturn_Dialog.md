@@ -7,7 +7,7 @@ CEKから渡されたユーザーのリクエスト([`IntentRequest`](/CEK/Guide
 {% raw %}
 ```json
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "session": {
     "new": true,
     "sessionAttributes": {},
@@ -43,7 +43,7 @@ Custom Extensionがピザの種類だけでなく、注文する数量に関す�
 {% raw %}
 ```json
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {
     "intent": "OrderPizza",
     "pizzaType": "ペパロニ"
@@ -70,7 +70,7 @@ Custom Extensionがピザの種類だけでなく、注文する数量に関す�
 {% raw %}
 ```json
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "session": {
     "new": false,
     "sessionAttributes": {
