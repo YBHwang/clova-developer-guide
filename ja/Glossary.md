@@ -70,7 +70,7 @@ CICから渡されるコンテンツ情報をスケジュールカテゴリに�
 クライアントが[Clova Interface Connect](#CIC)からディレクティブを渡される際に使用される[HTTP/2](#HTTP2)ストリームです。詳細については、[CICに接続する](/CIC/Guides/Interact_with_CIC.md#ConnectToCIC)ドキュメントを参照してください。
 
 ### Extension {#Extension}
-[Clova Extension](#ClovaExtension)の別の言い方
+[Clova Extension](#ClovaExtension)の別名
 
 ### スキルストア {#ExtensionStore}
 
