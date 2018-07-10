@@ -26,7 +26,7 @@
 各フィールドは、次のような意味を持ちます。
 
 * `version`：使用しているCustom Extensionメッセージフォーマットのバージョンです。現在のバージョンはv1.0です。
-* `response.outputSpeech`：ユーザーが英語で「Hi, nice to meet you」の文章を話すように設定します。
+* `response.outputSpeech`：ユーザーが日本語で「こんにちは。ピザボットです。どういったご用件ですか」の文章を話すように設定します。
 * `response.card`：クライアントの画面に表示するデータがありません。コンテンツテンプレート形式のデータで、クライアントの画面に表示するコンテンツをこのフィールドで渡すことができます。
 * `response.shouldEndSession`：セッションを終了せず、引き続きユーザーの入力を受け付けるかを管理します。このフィールドの値がtrueの場合、[`SessionEndedRequest`](#HandleSessionEndedRequest)リクエストを受け取る前に、Extensionからセッションを終了できます。
 
@@ -54,7 +54,7 @@
         {
           "type": "URL",
           "lang": "" ,
-          "value": "https://tts.com/song.mp3"
+          "value": "https://DUMMY_DOMAIN/song.mp3"
         }
       ]
     },
