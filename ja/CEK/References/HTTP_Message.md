@@ -47,7 +47,7 @@ ExtensionがCEKからHTTPSリクエストを受信するとき、そのリクエ
 <li><p>Clovaの署名用RSA公開鍵を以下のURLからダウンロードしてください</p>
 <p>https://clova-cek-requests.line.me/.well-known/signature-public-key.pem</p></li>
 <li><p>`SignatureCEK`ヘッダーの値を取得してください</p>
-<p>`SignatureCEK`ヘッダーの値は、Base64エンコードされた、HTTP bodyの<a href="https://tools.ietf.org/html/rfc3447" target="_blank">RSA PKCS# v1.5[1]</a>署名値です。</p></li>
+<p>`SignatureCEK`ヘッダーの値は、Base64エンコードされた、HTTP bodyの<a href="https://tools.ietf.org/html/rfc3447" target="_blank">RSA PKCS# v1.5</a>署名値です。</p></li>
 <li>ステップ1でダウンロードしたRSA公開鍵を用いてステップ2で取得した`SignatureCEK` ヘッダーを以下のように<a href="https://tools.ietf.org/html/rfc3447#section-5.2" target="_blank">検証(verify)</a>してください</li>
 </ol>
 
