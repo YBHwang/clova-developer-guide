@@ -98,7 +98,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
     "sessionAttributes": {},
     "sessionId": "a29cfead-c5ba-474d-8745-6c1a6625f0c5",
     "user": {
-      "userId": "V0qe",
+      "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
       "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
     }
   },
@@ -108,7 +108,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
         "applicationId": "com.yourdomain.extension.pizzabot"
       },
       "user": {
-        "userId": "V0qe",
+        "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
         "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
       },
       "device": {
@@ -145,7 +145,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
     "sessionAttributes": {},
     "sessionId": "a29cfead-c5ba-474d-8745-6c1a6625f0c5",
     "user": {
-      "userId": "V0qe",
+      "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
       "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
     }
   },
@@ -155,7 +155,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
         "applicationId": "com.yourdomain.extension.pizzabot"
       },
       "user": {
-        "userId": "V0qe",
+        "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
         "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
       },
       "device": {
@@ -194,7 +194,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
     "sessionAttributes": {},
     "sessionId": "a29cfead-c5ba-474d-8745-6c1a6625f0c5",
     "user": {
-      "userId": "V0qe",
+      "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
       "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
     }
   },
@@ -204,7 +204,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
         "applicationId": "com.yourdomain.extension.pizzabot"
       },
       "user": {
-        "userId": "V0qe",
+        "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
         "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
       },
       "device": {
@@ -234,7 +234,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
     "sessionAttributes": {},
     "sessionId": "a29cfead-c5ba-474d-8745-6c1a6625f0c5",
     "user": {
-      "userId": "V0qe",
+      "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
       "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
     }
   },
@@ -244,7 +244,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
         "applicationId": "com.yourdomain.extension.pizzabot"
       },
       "user": {
-        "userId": "V0qe",
+        "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
         "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
       },
       "device": {

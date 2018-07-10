@@ -39,7 +39,7 @@ LaunchRequestタイプのメッセージは、`request.type`フィールドに`"
     "sessionAttributes": {},
     "sessionId": "a29cfead-c5ba-474d-8745-6c1a6625f0c5",
     "user": {
-      "userId": "V0qe",
+      "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
       "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
     }
   },
@@ -49,7 +49,7 @@ LaunchRequestタイプのメッセージは、`request.type`フィールドに`"
         "applicationId": "com.yourdomain.extension.pizzabot"
       },
       "user": {
-        "userId": "V0qe",
+        "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
         "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
       },
       "device": {
@@ -97,7 +97,7 @@ IntentRequestタイプのリクエストは、`request.type`フィールドに`"
     "sessionAttributes": {},
     "sessionId": "a29cfead-c5ba-474d-8745-6c1a6625f0c5",
     "user": {
-      "userId": "V0qe",
+      "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
       "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
     }
   },
@@ -107,7 +107,7 @@ IntentRequestタイプのリクエストは、`request.type`フィールドに`"
         "applicationId": "com.yourdomain.extension.pizzabot"
       },
       "user": {
-        "userId": "V0qe",
+        "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
         "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
       },
       "device": {
@@ -170,7 +170,7 @@ IntentRequestタイプのリクエストは、`request.type`フィールドに`"
     "sessionAttributes": {},
     "sessionId": "a29cfead-c5ba-474d-8745-6c1a6625f0c5",
     "user": {
-      "userId": "V0qe",
+      "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
       "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
     }
   },
@@ -180,7 +180,7 @@ IntentRequestタイプのリクエストは、`request.type`フィールドに`"
         "applicationId": "com.yourdomain.extension.pizzabot"
       },
       "user": {
-        "userId": "V0qe",
+        "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
         "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
       },
       "device": {
