@@ -4,7 +4,15 @@ Clova Home Extensionは、外部のIoTサービスを利用して、家庭内の
 
 ![](/CEK/Resources/Images/CEK_Clova_Home_Extension_Operation_Structure.png)
 
-{% if book.EnableClovaHome %}
+{% if book.EnableClovaHome == false %}
+
+<div class="note">
+<p><strong>メモ</strong></p>
+<p>Clova Developer Centerでは Clova Home Extension の情報登録を受け付けておりません。Clova Home Extension を利用した連携に興味のある企業様は、<a href="https://partner.line.me/ja"> LINE Partner </a> よりお問い合わせください。　
+</p>
+</div>
+
+{% else %}
 
 Clova Home Extensionを作成する際の事前準備と、Custom ExtensionがCEKとどのようなメッセージをやり取りし、どのように動作するかについて説明します。
 
@@ -15,20 +23,16 @@ Clova Home Extensionの開発者は、次の内容を知っておく必要があ
 3. [Clova Home Extensionリクエストを処理する](#HandleClovaHomeExtensionRequest)
 4. [Clova Home Extensionレスポンスを返す](#ReturnClovaHomeExtensionResponse)
 
-{% include "/CEK/Guides/BuildClovaHomeExtension/Preparation.md" %}
-
-{% include "/CEK/Guides/BuildClovaHomeExtension/Provide_Device_Discovery.md" %}
-
-{% include "/CEK/Guides/BuildClovaHomeExtension/Handle_Clova_Home_Extension_Request.md" %}
-
-{% include "/CEK/Guides/BuildClovaHomeExtension/Return_Clova_Home_Extension_Response.md" %}
-
-{% else %}
-
-<div class="note">
-<p><strong>メモ</strong></p>
-<p>Clova Developer Centerでは Clova Home Extension の情報登録を受け付けておりません。Clova Home Extension を利用した連携に興味のある企業様は、<a href="https://partner.line.me/ja"> LINE Partner </a> よりお問い合わせください。　
-</p>
-</div>
-
 {% endif %}
+
+{% set targetFile = 'Preparation.md' if book.EnableClovaHome else 'Dummy.md' %}
+{% include "/CEK/Guides/BuildClovaHomeExtension/" + targetFile %}
+
+{% set targetFile = 'Provide_Device_Discovery.md' if book.EnableClovaHome else 'Dummy.md' %}
+{% include "/CEK/Guides/BuildClovaHomeExtension/" + targetFile  %}
+
+{% set targetFile = 'Handle_Clova_Home_Extension_Request.md' if book.EnableClovaHome else 'Dummy.md' %}
+{% include "/CEK/Guides/BuildClovaHomeExtension/" + targetFile  %}
+
+{% set targetFile = 'Return_Clova_Home_Extension_Response.md' if book.EnableClovaHome else 'Dummy.md' %}
+{% include "/CEK/Guides/BuildClovaHomeExtension/" + targetFile  %}
