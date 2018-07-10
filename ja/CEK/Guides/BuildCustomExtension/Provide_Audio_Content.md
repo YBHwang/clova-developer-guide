@@ -24,6 +24,12 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
   * [セキュリティのためにオーディオコンテンツのURLを更新する](#UpdateAudioURLForSecurity)
   * [再生コントロールの動作方法を変更する](#CustomizePlaybackControl)
   * [オーディオコンテンツのメタデータを提供する](#ProvidingMetaDataForDisplay)
+
+<div class="danger">
+  <p><strong>注意</strong></p>
+  <p>オーディオコンテンツの再生に対応していないClovaデバイスがあります。現時点ではXperia Ear Duoではオーディオコンテンツに対応していません。</p>
+</div>
+
 {% endif %}
 
 ### オーディオコンテンツの再生を指示する {#DirectClientToPlayAudio}
@@ -69,7 +75,7 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
           },
           "source": {
             "name": "Potbbang",
-            "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png"
+            "logoUrl": "https://DUMMY_DOMAIN/logo_180125.png"
           },
           "playBehavior": "REPLACE_ALL"
         }
@@ -226,7 +232,7 @@ Custom Extensionは、レスポンスメッセージを使って、クライア�
           "displayType": "list",
           "playableItems": [
             {
-              "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/662058.jpg",
+              "artImageUrl": "http://DUMMY_DOMAIN/example/album/662058.jpg",
               "controls": [
                 {
                   "enabled": true,
@@ -251,7 +257,7 @@ Custom Extensionは、レスポンスメッセージを使って、クライア�
               "token": "eJyr5lIqSSyITy4tKs4vUrJSUE"
             },
             {
-              "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/202646.jpg",
+              "artImageUrl": "http://DUMMY_DOMAIN/example/album/202646.jpg",
               "controls": [
                 {
                   "enabled": true,
@@ -278,9 +284,9 @@ Custom Extensionは、レスポンスメッセージを使って、クライア�
             ...
           ],
           "provider": {
-            "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png",
+            "logoUrl": "https://DUMMY_DOMAIN/logo_180125.png",
             "name": "SampleMusicProvider",
-            "smallLogoUrl": "https://img.musicproviderdomain.net/smallLogo_180125.png"
+            "smallLogoUrl": "https://DUMMY_DOMAIN/smallLogo_180125.png"
           }
         }
       }
