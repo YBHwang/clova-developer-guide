@@ -42,7 +42,7 @@
     * [オーディオコンテンツの再生タイプ](/Design/Design_Guideline_For_Extension.md#AudioPlayer)
   * [プラットフォームでサポートされるオーディオ圧縮形式](/Design/Design_Guideline_For_Extension.md#SupportedAudioCompressionFormat)
   * [Clovaコンテンツガイドライン](/Design/Design_Guideline_For_Extension.md#ClovaSkillContentGuideline)
-  * [随時更新](/Design/Design_Guideline_For_Extension.md#ContinuousUpdate)
+  * [継続的にアップデートする](/Design/Design_Guideline_For_Extension.md#ContinuousUpdate)
 
 ## Clova Interface Connect
 
