@@ -12,6 +12,7 @@
 | [ColorInfoObject](#ColorInfoObject)                       | エンドポイントの照明や画面、電球の色の情報を持っています。  |
 | [ColorTemperatureInfoObject](#ColorTemperatureInfoObject) | エンドポイントの照明や画面、電球の色温度の情報を持っています。  |
 | [ConsumptionInfoObject](#ConsumptionInfoObject)           | 電力の使用量情報を持っています。       |
+| [CountInfoObject](#CountInfoObject)                       | 任意の回数に関する情報を持っています。           |
 | [CustomCommandInfoObject](#CustomCommandInfoObject)       | カスタムコマンドの情報を持っています。   |
 | [CustomInfoObject](#CustomInfoObject)                     | 任意の名前、必要な単位・数値情報を直接入力する際に使用できます。 |
 | [ExpendableInfoObject](#ExpendableInfoObject)             | エンドポイントの消耗品の使用量や残り寿命に関する情報を持っています。  |
@@ -681,6 +682,44 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 * [`GetCurrentBillResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentBillResponse)
 * [`GetEstimateBillRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateBillRequest)
 * [`GetEstimateBillResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateBillResponse)
+
+
+## CountInfoObject {#CountInfoObject}
+任意の回数に関する情報を持っているオブジェクトです。任意の回数、所定のリクエストを発行したいことを示します。
+
+### Object fields
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
+|---------------|---------|-----------------------------|:-------------:|
+| `value`             | number  | テレビのチャンネル番号                      | 必須/常時     |
+
+### Object Example
+{% raw %}
+
+```json
+//例：ChangeInputSourceRequestメッセージで使用されたサンプル
+// 「テレビの入力を３回変えて」と発話した場合
+{
+  "header": {
+    "messageId": "33da6561-0149-4532-a30b-e0de8f75c4cf",
+    "name": "ChangeInputSourceRequest",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "accessToken": "92ebcb67fe33",
+    "appliance": {
+        "applianceId": "device-007"
+    },
+    "count": {
+      "value": 3
+    }
+  }
+}
+```
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`ChangeInputSourceRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#ChangeInputSourceRequest)
 
 ## CustomCommandInfoObject {#CustomCommandInfoObject}
 

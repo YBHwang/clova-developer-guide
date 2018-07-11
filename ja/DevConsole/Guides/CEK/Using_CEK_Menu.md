@@ -13,7 +13,7 @@ CEKメニューでは、次の作業を行うことができます。
 * [Clovaデバイスでテストする](/DevConsole/Guides/CEK/Device_Test_Extension.md)
 * [Extensionを配布する](/DevConsole/Guides/CEK/Deploy_Extension.md)
 * [Extensionをアップデートする](/DevConsole/Guides/CEK/Update_Extension.md)
-* [Extensionを中止および削除する](/DevConsole/Guides/CEK/Remove_Extension.md)
+* [Extensionを削除および中止する](/DevConsole/Guides/CEK/Remove_Extension.md)
 
 このうち、登録、配布、アップデート、中止および削除はExtensionの管理に属する概念です。
 {% if book.language !== "ja" %}
