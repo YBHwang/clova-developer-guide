@@ -92,13 +92,13 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
 ```json
 //例1：EventRequestタイプ
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "session": {
     "new": false,
     "sessionAttributes": {},
     "sessionId": "a29cfead-c5ba-474d-8745-6c1a6625f0c5",
     "user": {
-      "userId": "V0qe",
+      "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
       "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
     }
   },
@@ -108,7 +108,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
         "applicationId": "com.yourdomain.extension.pizzabot"
       },
       "user": {
-        "userId": "V0qe",
+        "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
         "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
       },
       "device": {
@@ -139,13 +139,13 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
 
 //例2：IntentRequestタイプ
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "session": {
     "new": false,
     "sessionAttributes": {},
     "sessionId": "a29cfead-c5ba-474d-8745-6c1a6625f0c5",
     "user": {
-      "userId": "V0qe",
+      "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
       "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
     }
   },
@@ -155,7 +155,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
         "applicationId": "com.yourdomain.extension.pizzabot"
       },
       "user": {
-        "userId": "V0qe",
+        "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
         "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
       },
       "device": {
@@ -188,13 +188,13 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
 
 //例3：LaunchRequestタイプ
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "session": {
     "new": true,
     "sessionAttributes": {},
     "sessionId": "a29cfead-c5ba-474d-8745-6c1a6625f0c5",
     "user": {
-      "userId": "V0qe",
+      "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
       "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
     }
   },
@@ -204,7 +204,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
         "applicationId": "com.yourdomain.extension.pizzabot"
       },
       "user": {
-        "userId": "V0qe",
+        "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
         "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
       },
       "device": {
@@ -228,13 +228,13 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
 
 //例4：SessionEndedRequestタイプ
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "session": {
     "new": false,
     "sessionAttributes": {},
     "sessionId": "a29cfead-c5ba-474d-8745-6c1a6625f0c5",
     "user": {
-      "userId": "V0qe",
+      "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
       "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
     }
   },
@@ -244,7 +244,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
         "applicationId": "com.yourdomain.extension.pizzabot"
       },
       "user": {
-        "userId": "V0qe",
+        "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
         "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
       },
       "device": {
@@ -609,7 +609,7 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 ```json
 //例1：単文タイプ(SimpleSpeech)の音声情報を返す-テキスト
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {},
   "response": {
     "outputSpeech": {
@@ -628,7 +628,7 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 
 //例2：単文タイプ(SimpleSpeech)の音声情報を返す-テキスト、URLを使用
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {},
   "response": {
     "outputSpeech": {
@@ -642,7 +642,7 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
         {
           "type": "URL",
           "lang": "" ,
-          "value": "https://tts.com/song.mp3"
+          "value": "https://DUMMY_DOMAIN/song.mp3"
         }
       ]
     },
@@ -654,7 +654,7 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 
 //例3：複合タイプ(SpeechSet)の音声情報を返す-要約・詳細音声情報
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {},
   "response": {
     "outputSpeech": {
@@ -689,7 +689,7 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 
 //例4：マルチターン対話で、対話の中間情報を保存する-sessionAttributesを使用
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {
     "RequestedIntent": "OrderPizza",
     "pizzaType": "ペパロニピザ"
@@ -711,7 +711,7 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 
 //例5：マルチターン対話でユーザーの追加の発話を促す-repromptを使用
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {
     "RequestedIntent": "OrderPizza",
     "pizzaType": "ペパロニピザ"
@@ -742,7 +742,7 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 
 //例6：クライアントにオーディオコンテンツを再生するように指示するレスポンス(response.directives[]フィールドを使用)
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {},
   "response": {
     "card": {},
@@ -873,7 +873,7 @@ CIC APIは、ユーザーのクライアントデバイスがClovaと通信を�
       },
       "source": {
         "name": "Potbbang",
-        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png"
+        "logoUrl": "https://DUMMY_DOMAIN/logo_180125.png"
       },
       "playBehavior": "REPLACE_ALL"
     }
@@ -917,7 +917,7 @@ CIC APIは、ユーザーのクライアントデバイスがClovaと通信を�
       },
       "source": {
         "name": "Sample Music Provider",
-        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png"
+        "logoUrl": "https://DUMMY_DOMAIN/logo_180125.png"
       },
       "playBehavior": "REPLACE_ALL"
     }
@@ -1486,7 +1486,7 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
       "displayType": "list",
       "playableItems": [
         {
-          "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/662058.jpg",
+          "artImageUrl": "http://DUMMY_DOMAIN/example/album/662058.jpg",
           "controls": [
             {
               "enabled": true,
@@ -1511,7 +1511,7 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
           "token": "eJyr5lIqSSyITy4tKs4vUrJSUE="
         },
         {
-          "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/202646.jpg",
+          "artImageUrl": "http://DUMMY_DOMAIN/example/album/202646.jpg",
           "controls": [
             {
               "enabled": true,
@@ -1538,9 +1538,9 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
         ...
       ],
       "provider": {
-        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png",
+        "logoUrl": "https://DUMMY_DOMAIN/logo_180125.png",
         "name": "SampleMusicProvider",
-        "smallLogoUrl": "https://img.musicproviderdomain.net/smallLogo_180125.png"
+        "smallLogoUrl": "https://DUMMY_DOMAIN/smallLogo_180125.png"
       }
     }
   }
@@ -1736,4 +1736,10 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.StreamDeliver`](#StreamDeliver)
 * [`AudioPlayer.StreamRequested`](#StreamRequested)
+
+<div class="danger">
+  <p><strong>注意</strong></p>
+  <p>オーディオコンテンツの再生に対応していないClovaデバイスがあります。現時点ではXperia Ear Duoではオーディオコンテンツに対応していません。</p>
+</div>
+
 {% endif %}

@@ -3,7 +3,7 @@ Custom ExtensionはCEKから[Custom Extensionメッセージ](/CEK/References/CE
 
 ![](/CEK/Resources/Images/CEK_Custom_Extension_Sequence_Diagram.png)
 
-このようなユーザーのリクエストは一度で終わるリクエストの場合もありますが、次のように脈絡が維持される必要のあるマルチターン対話の場合もあります。
+このようなユーザーのリクエストは一度で終わるリクエストの場合もありますが、次のように文脈が維持される必要のあるマルチターン対話の場合もあります。
 
 ![](/CEK/Resources/Images/CEK_Custom_Extension_Multi-turn_Sequence_Diagram.png)
 
@@ -33,13 +33,13 @@ LaunchRequestタイプのメッセージは、`request.type`フィールドに`"
 {% raw %}
 ```json
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "session": {
     "new": true,
     "sessionAttributes": {},
     "sessionId": "a29cfead-c5ba-474d-8745-6c1a6625f0c5",
     "user": {
-      "userId": "V0qe",
+      "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
       "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
     }
   },
@@ -49,7 +49,7 @@ LaunchRequestタイプのメッセージは、`request.type`フィールドに`"
         "applicationId": "com.yourdomain.extension.pizzabot"
       },
       "user": {
-        "userId": "V0qe",
+        "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
         "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
       },
       "device": {
@@ -75,7 +75,7 @@ LaunchRequestタイプのメッセージは、`request.type`フィールドに`"
 
 上記のサンプルで、各フィールドの意味は次のとおりです。
 
-* `version`：使用しているCustom Extensionメッセージフォーマットのバージョンです。現在のバージョンはv0.1.0です。
+* `version`：使用しているCustom Extensionメッセージフォーマットのバージョンです。現在のバージョンはv1.0です。
 * `session`：**新しいセッションです**。新しいセッションで使用されるセッションのIDとユーザーの情報(ID、アクセストークン)が含まれています。
 * `context`：クライアントデバイスの情報です。デバイスのIDとデフォルトユーザーの情報が含まれています。
 * `request`：`LaunchRequest`タイプのリクエストです。対象Extensionの使用を開始することを示します。ユーザーの発話の解析情報はありません。
@@ -91,13 +91,13 @@ IntentRequestタイプのリクエストは、`request.type`フィールドに`"
 {% raw %}
 ```json
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "session": {
     "new": false,
     "sessionAttributes": {},
     "sessionId": "a29cfead-c5ba-474d-8745-6c1a6625f0c5",
     "user": {
-      "userId": "V0qe",
+      "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
       "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
     }
   },
@@ -107,7 +107,7 @@ IntentRequestタイプのリクエストは、`request.type`フィールドに`"
         "applicationId": "com.yourdomain.extension.pizzabot"
       },
       "user": {
-        "userId": "V0qe",
+        "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
         "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
       },
       "device": {
@@ -142,7 +142,7 @@ IntentRequestタイプのリクエストは、`request.type`フィールドに`"
 
 上記のサンプルで、各フィールドの意味は次のとおりです。
 
-* `version`：使用しているCustom Extensionメッセージフォーマットのバージョンです。現在のバージョンはv0.1.0です。
+* `version`：使用しているCustom Extensionメッセージフォーマットのバージョンです。現在のバージョンはv1.0です。
 * `session`: **既存のセッションに続くユーザーのリクエストです**。既存セッションのIDとユーザーの情報(ID、アクセストークン)が含まれています。
 * `context`：クライアントデバイスの情報です。デバイスのIDとデフォルトユーザーの情報が含まれています。
 * `request`: `IntentRequest`タイプのリクエストです。`"OrderPizza"`という名前で登録された[インテント](/Design/Design_Guideline_For_Extension.md#Intent)を呼び出しています。該当するインテントが必要とする情報として`"pizzaType"`という[スロット](/Design/Design_Guideline_For_Extension.md#Slot)が一緒に渡されます。そのスロットは`"ペパロニ"`という値を持っています。
@@ -164,13 +164,13 @@ IntentRequestタイプのリクエストは、`request.type`フィールドに`"
 {% raw %}
 ```json
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "session": {
     "new": false,
     "sessionAttributes": {},
     "sessionId": "a29cfead-c5ba-474d-8745-6c1a6625f0c5",
     "user": {
-      "userId": "V0qe",
+      "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
       "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
     }
   },
@@ -180,7 +180,7 @@ IntentRequestタイプのリクエストは、`request.type`フィールドに`"
         "applicationId": "com.yourdomain.extension.pizzabot"
       },
       "user": {
-        "userId": "V0qe",
+        "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
         "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
       },
       "device": {
@@ -206,7 +206,7 @@ IntentRequestタイプのリクエストは、`request.type`フィールドに`"
 
 上記のサンプルで、各フィールドの意味は次のとおりです。
 
-* `version`：使用しているCustom Extensionメッセージフォーマットのバージョンです。現在のバージョンはv0.1.0です。
+* `version`：使用しているCustom Extensionメッセージフォーマットのバージョンです。現在のバージョンはv1.0です。
 * `session`: **既存のセッションに続くユーザーのリクエストです**。既存セッションのIDとユーザーの情報(ID、アクセストークン)が含まれています。
 * `context`：クライアントデバイスの情報です。デバイスのIDとデフォルトユーザーの情報が含まれています。
 * `request`: `SessionEndedRequest`タイプのリクエストです。対象Extensionの使用を中断することを示します。ユーザーの発話の解析情報はありません。
