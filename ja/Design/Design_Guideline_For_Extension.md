@@ -12,7 +12,7 @@
 * [注意事項](#Precautions)
 * [プラットフォームでサポートされている音声圧縮形式](#SupportedAudioCompressionFormat)
 * [Clovaスキルのコンテンツガイドライン](#ClovaSkillContentGuideline)
-* [随時更新](#ContinuousUpdate)
+* [継続的にアップデートする](#ContinuousUpdate)
 
 <div class="danger">
  <p><strong>注意</strong></p>
@@ -622,7 +622,7 @@ Extensionでオーディオコンテンツを提供する場合、必ずClovaで
   <p>一部例外がある場合がありますので、判断が難しい場合は、審査時にコメントを記載いただきますようお願いいたします。</p>
 </div>
 
-## 随時更新 {#ContinuousUpdate}
+## 継続的にアップデートする {#ContinuousUpdate}
 
 新規にExtensionを開発する際には、ユーザーがどんなフレーズを発話するか予測してシナリオを作成し、Extensionに適用します。Extensionの公開後は、実際のユーザーの使い方が予想と必ず一致するとは限らず、またユーザーのすべての使用パターンを網羅できていない可能性もあります。ユーザーは想定していない方法でExtensionを使用する可能性があるのです。UXを向上させるためには、Extensionを公開してからも、Extensionの機能や対話の流れを継続的に改善する必要があります。
 
