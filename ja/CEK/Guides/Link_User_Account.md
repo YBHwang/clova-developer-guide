@@ -206,12 +206,12 @@ Clovaがユーザーアカウントを連携するために認可コードを取
 ### アカウント連携情報を登録する {#RegisterAccountLinkingInfo}
 認可サーバーの構築とExtensionのアカウント連携が完了すると、[Clova Developer Center](/DevConsole/ClovaDevConsole_Overview.md)に、[認可サーバーを構築する](#BuildAuthServer)で説明されている情報を登録する必要があります。Clova Developer Centerに登録されているExtensionで、以下のような[アカウント連携情報を入力](/DevConsole/Guides/CEK/Register_Extension.md#SetAccountLinking)します。
 
-| フィールド名                    | 説明                                                                                                                                                                             |
+| フィールド名                 | 説明                                                                                                                                                                             |
 |:-----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 認証URL            | ユーザーが[アカウント認証](#SetupAccountLinking)のためにアクセスするURL                                                                                                                     |
-| Client ID                    | ユーザー[アカウント認証](#SetupAccountLinking)ページをリクエストする際に、サービスを識別するために付与したクライアントID                                                                          |
-| Authorization Grant Type     | OAuth 2.0の認可グラントタイプ。現在、Authorization code grantタイプのみサポートしています。 |
-| Access Token URI             | 認可コードでアクセストークンを取得するためのアドレス。Authorization code grantタイプに設定した場合、入力します。                                                                  |
-| Client Secret                | 認可コードでアクセストークンを取得する際に、 **Client ID** と一緒に渡されるクライアントシークレットのこと。Authorization code grantタイプに設定した場合、入力します。                    |
-| Client Authentication Scheme | アクセストークンURIにアクセストークンをリクエストする際に使用されるスキーム                                                                                                                      |
-| Privacy Policy URL           | サービスのプライバシーポリシーが提供されるページClovaアプリまたはペアリングアプリに表示されます。                                                                      |
+| `認証URL`                    | ユーザーが[アカウント認証](#SetupAccountLinking)のためにアクセスするURL                                                                                                          |
+| `Client ID`                    | ユーザー[アカウント認証](#SetupAccountLinking)ページをリクエストする際に、サービスを識別するために付与したクライアントID                                                       |
+| `Authorization Grant Type`     | OAuth 2.0の認可グラントタイプ。現在、Authorization code grantタイプのみサポートしています。                                                                                    |
+| `Access Token URI`             | 認可コードでアクセストークンを取得するためのアドレス。Authorization code grantタイプに設定した場合、入力します。                                                               |
+| `Client Secret`                | 認可コードでアクセストークンを取得する際に、 **Client ID** と一緒に渡されるクライアントシークレットのこと。Authorization code grantタイプに設定した場合、入力します。          |
+| `Client Authentication Scheme` | アクセストークンURIにアクセストークンをリクエストする際に使用されるスキーム                                                                                                    |
+| `Privacy Policy URL`           | サービスのプライバシーポリシーが提供されるページClovaアプリまたはペアリングアプリに表示されます。                                                                              |
