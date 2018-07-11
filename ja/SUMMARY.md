@@ -209,7 +209,7 @@
     * [LINE Developersコンソールにログインする](/DevConsole/Guides/CEK/Create_Channel.md#LoginClovaDevCenter)
     * [Clova Developer Center βにログインする](/DevConsole/Guides/CEK/Create_Channel.md#CreateSkillChannel)
   * [Extensionを登録する](/DevConsole/Guides/CEK/Register_Extension.md)
-    * [利用規約および個人情報の取得に同意する](/DevConsole/Guides/CEK/Register_Extension.md#AgreeTermsOfUse)
+    * [利用規約およびLINE User Data Policyに同意する](/DevConsole/Guides/CEK/Register_Extension.md#AgreeTermsOfUse)
     * [Extensionの基本情報を入力する](/DevConsole/Guides/CEK/Register_Extension.md#InputExtensionInfo)
     * [サーバーとの連携を設定する](/DevConsole/Guides/CEK/Register_Extension.md#SetServerConnection)
       * [アカウント連携を設定する](/DevConsole/Guides/CEK/Register_Extension.md#SetAccountLinking)

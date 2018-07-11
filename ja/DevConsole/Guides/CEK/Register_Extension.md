@@ -6,7 +6,7 @@ LINE Developersコンソールで[チャネルを作成](/CEK/Guides/Create_Chan
 Extensionの登録は、通常、次の順で行われます。
 
 <ol>
-  <li><a href="#AgreeTermsOfUse">利用規約および個人情報の取得に同意する</a></li>
+  <li><a href="#AgreeTermsOfUse">利用規約およびLINE User Data Policyに同意する</a></li>
   <li><a href="#InputExtensionInfo">Extensionの基本情報を入力する</a></li>
   <li><a href="#SetServerConnection">サーバーとの連携を設定する</a>
     <ul>
@@ -15,9 +15,9 @@ Extensionの登録は、通常、次の順で行われます。
   </li>
 </ol>
 
-## 利用規約および個人情報の取得に同意する {#AgreeTermsOfUse}
+## 利用規約およびLINE User Data Policyに同意する {#AgreeTermsOfUse}
 
-Extensionを登録するには、先にCEKのAPIサービスの利用規約と個人情報の取得に同意する必要があります。
+Extensionを登録するには、先にClova Extensions Kit利用規約とLINE User Data Policyに同意する必要があります。
 
 ![](/DevConsole/Resources/Images/DevConsole-Agree_Terms_of_Use_and_Collecting_Personal_Info.png)
 
@@ -79,14 +79,14 @@ $ curl "https://yourdomain.com/pizzabot" -X POST
     <p>Extensionのサーバーは、HTTPSのみ許可されます。HTTPSで443ポートに設定してください。</p>
   </div>
   </li>
-  <li>Extensionが提供するサービスのアカウントが、Clovaのユーザーアカウントとのリンクを必要とする場合、<strong>{{ book.DevConsole.cek_account_linking }}</strong>項目で<strong>{{ book.DevConsole.cek_yes }}</strong>を選択します。アカウント連携の詳細については、<a href="#SetAccountLinking">アカウント連携を設定する</a>を参照してください。</li>
+  <li>Extensionが提供するサービスのアカウントが、Clovaのユーザーアカウントとの連携を必要とする場合、<strong>{{ book.DevConsole.cek_account_linking }}</strong>項目で<strong>{{ book.DevConsole.cek_yes }}</strong>を選択します。アカウント連携の詳細については、<a href="#SetAccountLinking">アカウント連携を設定する</a>を参照してください。</li>
   <li><strong>{{ book.DevConsole.cek_ssl_certificate }}</strong>項目のボタンをクリックします。Extensionを提供するサーバーは、必ず信頼された認証局から発行された証明書を使用しなければなりません。(自己署名証明書は使用できません)</li>
   <li>サーバーとの連携に関する内容を入力して、<strong>{{ book.DevConsole.cek_save }}</strong>ボタンをクリックします。</li>
 </ol>
 
 ### アカウント連携を設定する {#SetAccountLinking}
 
-Extensionが提供するサービスのアカウントが、Clovaのユーザーアカウントとのリンクを必要とする場合、[サーバーとの連携を設定する](#SetServerConnection)の内、[アカウント連携](/CEK/Guides/Link_User_Account.md)に関連情報を入力します。
+Extensionが提供するサービスのアカウントが、Clovaのユーザーアカウントとの連携を必要とする場合、[サーバーとの連携を設定する](#SetServerConnection)の内、[アカウント連携](/CEK/Guides/Link_User_Account.md)に関連情報を入力します。
 
 次の順で、アカウント連携の設定に[必要な情報](/CEK/Guides/Link_User_Account.md#RegisterAccountLinkingInfo)を入力します。
 
