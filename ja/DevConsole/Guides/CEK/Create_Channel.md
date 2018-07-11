@@ -33,36 +33,23 @@ LINE Developersコンソールでチャネルを作成します。
 <div class="danger">
   <p><strong>注意</strong></p>
   <p>すでにLINE公式アカウントをお持ちの場合は、チャネル発行のフローが異なります。
-  お手数ですが、<a href="https://partner.line.me/ja/partner/join" target="_blank"> LINE Partner </a> よりお問い合わせください。</p>
+  お手数ですが、<a href="https://partner.line.me/ja/partner/join" target="_blank"> LINE Partner </a> よりお問い合わせください。</p>_
 </div>
 
-1. **プロバイダーリスト** をクリックします。  
-![](/DevConsole/Resources/Images/DevConsole-Provider_List_1.png)
-
-2. プロバイダーを選択します。  
-![](/DevConsole/Resources/Images/DevConsole-Provider_List_2.png)
-
-  あらかじめ作成したプロバイダーを使用する場合は、当該のプロバイダーをクリックし、**新規チャネル作成** をクリックします。  
+1. 新規チャネル作成画面で、プロバイダーを選択します。あらかじめ作成したプロバイダーを使用する場合は、当該のプロバイダーをラジオボタンで選択し、**次のページ** をクリックします。  
 ![](/DevConsole/Resources/Images/DevConsole-Create_Channel_1.png)
 
-  新規にプロバイダーを作成する場合は、**新規プロバイダー作成** をクリックします。新しく追加するプロバイダー名を入力して **確認する** ボタンをクリックします。  
+  新規にプロバイダーを作成する場合は、ラジオボタンで **新規プロバイダー作成** を選択すると入力フォームが表示されます。新しく追加するプロバイダー名を入力して **次のページ**  をクリックします。  
 ![](/DevConsole/Resources/Images/DevConsole-Create_Channel_2.png)
 
-  入力したプロバイダー名を確認して、**作成する** をクリックします。  
+    <div class="note">
+      <p><strong>メモ</strong></p>
+      <p>プロバイダーとは、アプリを提供する組織のことです。
+      ご自分の名前、あるいは企業名などを入力してください。</p>
+    </div>  
+
+2. **チャネル名** を入力し、**入力内容を確認する** をクリックします。  
 ![](/DevConsole/Resources/Images/DevConsole-Create_Channel_3.png)
-
-  <div class="note">
-    <p><strong>メモ</strong></p>
-    <p>プロバイダーとは、アプリを提供する組織のことです。
-    ご自分の名前、あるいは企業名などを入力してください。</p>
-  </div>  
-
-3. **新規チャネル作成** で **Clova** を選択します。  
-  ![](/DevConsole/Resources/Images/DevConsole-Select_Channel_Type.png)
-
-
-4. **チャネル名** を入力し、**入力内容を確認する** をクリックします。  
-![](/DevConsole/Resources/Images/DevConsole-Create_Channel_4.png)
 
     <div class="note">
       <p><strong>メモ</strong></p>
@@ -70,7 +57,7 @@ LINE Developersコンソールでチャネルを作成します。
       Clovaで提供するサービスの名前などを入力してください。</p>
     </div>
 
-5. 内容を確認し、**作成してClova Developer Centerに移動** をクリックします。  
-![](/DevConsole/Resources/Images/DevConsole-Create_Channel_5.png)
+3. 内容を確認し、**作成してClova Developer Centerに移動** をクリックします。  
+![](/DevConsole/Resources/Images/DevConsole-Create_Channel_4.png)
 
-6. チャネルの作成が完了すると、Clova Developer Center β に遷移します。
+4. チャネルの作成が完了すると、Clova Developer Center β に遷移します。
