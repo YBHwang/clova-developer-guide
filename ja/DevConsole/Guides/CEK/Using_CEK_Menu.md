@@ -21,3 +21,8 @@ Clova Developer CenterでのExtensionのライフサイクルは、以下の図�
 
 ![](/DevConsole/Resources/Images/DevConsole-Extension_LifeCycle.png)
 {% endif %}
+
+<div class="danger">
+ <p><strong>注意</strong></p>
+ <p>Custom Extensionは、現時点ではClova WAVEでは動作確認することができません。</p>
+</div>
