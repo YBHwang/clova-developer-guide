@@ -14,6 +14,11 @@
 * [Clovaスキルのコンテンツガイドライン](#ClovaSkillContentGuideline)
 * [随時更新](#ContinuousUpdate)
 
+<div class="danger">
+ <p><strong>注意</strong></p>
+ <p>Custom Extensionは、現時点ではClova WAVEでは動作確認することができません。</p>
+</div>
+
 ## 目標を設定する {#SettingGoal}
 
 Extensionの設計は、まず最初にExtensionの目標を設定することから始まります。Extensionの目標とは、具体的にユーザーに何をどうやって届けるかを決めることです。Extensionの目標を設定すると、これからユーザーにどんな機能を提供して、ユーザーがその機能をどんなシナリオで使用するか予測する根拠となります。Extensionの目標として、次のような根本的で抽象的な目標が一例として挙げられます。
