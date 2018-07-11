@@ -78,7 +78,7 @@ $ curl "https://yourdomain.com/pizzabot" -X POST
   <li>ExtensionサーバーのURL(エンドポイント)を<strong>{{ book.DevConsole.cek_service_endpoint_url }}</strong>項目に入力します。
     <div class="note">
     <p><strong>メモ</strong></p>
-    <p>テスト段階ではHTTPも使用できますが、正式なサービスのためにはHTTPSを使用する必要があります。Extensionのサーバーは、HTTPで80ポート、HTTPSで443ポートに設定してください。</p>
+    <p>Extensionのサーバーは、HTTPSのみ許可されます。HTTPSで443ポートに設定してください。</p>
   </div>
   </li>
   <li>Extensionが提供するサービスのアカウントが、Clovaのユーザーアカウントとのリンクを必要とする場合、<strong>{{ book.DevConsole.cek_account_linking }}</strong>項目で<strong>{{ book.DevConsole.cek_yes }}</strong>を選択します。アカウント連携の詳細については、<a href="#SetAccountLinking">アカウント連携を設定する</a>を参照してください。</li>
