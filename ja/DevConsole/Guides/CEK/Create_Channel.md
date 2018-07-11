@@ -33,7 +33,7 @@ LINE Developersコンソールでチャネルを作成します。
 <div class="danger">
   <p><strong>注意</strong></p>
   <p>すでにLINE公式アカウントをお持ちの場合は、チャネル発行のフローが異なります。
-  お手数ですが、<a href="https://partner.line.me/ja/partner/join" target="_blank"> LINE Partner </a> よりお問い合わせください。</p>_
+  お手数ですが、<a href="https://partner.line.me/ja/partner/join" target="_blank"> LINE Partner </a> よりお問い合わせください。</p>
 </div>
 
 1. 新規チャネル作成画面で、プロバイダーを選択します。あらかじめ作成したプロバイダーを使用する場合は、当該のプロバイダーをラジオボタンで選択し、**次のページ** をクリックします。  
@@ -44,7 +44,7 @@ LINE Developersコンソールでチャネルを作成します。
 
     <div class="note">
       <p><strong>メモ</strong></p>
-      <p>プロバイダーとは、アプリを提供する組織のことです。
+      <p>プロバイダーとは、スキルを提供する組織のことです。
       ご自分の名前、あるいは企業名などを入力してください。</p>
     </div>  
 
