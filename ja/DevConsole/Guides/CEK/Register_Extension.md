@@ -37,7 +37,7 @@ Extensionの基本情報は、Clova Developer CenterでExtensionを作成する�
 {% endif %}
   <li>Extension ID、スキル名、呼び出し名を次の項目に入力します。
     <ol>
-      <li><strong>{{ book.DevConsole.cek_id }}</strong>Extensionの一意のIDです。リバースドメインネームの形式で入力します。(例：com.yourdomain.extension.pizzabot)</li>
+      <li><strong>{{ book.DevConsole.cek_id }}</strong>：Extensionの一意のIDです。リバースドメインネームの形式で入力します。(例：com.yourdomain.extension.pizzabot)</li>
       <li><strong>{{ book.DevConsole.cek_name }}</strong>：Extensionの名前です。今後スキルストアで表示されます。</li>
       <li><strong>{{ book.DevConsole.cek_invocation_name }}</strong>：ユーザーがExtensionを呼び出す際に呼ぶ名前です。保有しているサービス、会社および組織の名前を使用できますが、ユーザーにとって呼びやすい、シンプルな言葉を指定することをお勧めします。他社の名前やサービスに該当する言葉は使用できません。<strong>{{ book.DevConsole.cek_invocation_name }}</strong>は、Extensionを審査する際にチェックされます。なお、<strong>{{ book.DevConsole.cek_invocation_name }}</strong>は音声認識結果によって表記が揺らぐ可能性があります。Extensionを正しく呼び出すために、必須項目の「呼び出し名（メイン）」のほか、追加で4つの「呼び出し名（サブ）」を設定することができます。</li>
     </ol>
@@ -46,10 +46,8 @@ Extensionの基本情報は、Clova Developer CenterでExtensionを作成する�
     <ol>
       <li><strong>{{ book.DevConsole.cek_provider }}</strong>：Extensionを作成した主体(企業や個人)の名前、またはニックネームを入力します。後ほどスキルストアに表示され、Extensionを審査する際にチェックされます。</li>
       <li><strong>{{ book.DevConsole.cek_email }}</strong>項目に、連絡可能なメールアドレスを入力します。</li>
+      <li>提供者区分で<strong>企業</strong>を選んだ場合は、<strong>本社所在地</strong>、<strong>代表電話番号</strong>、<strong>代表者名</strong>、<strong>企業サイト</strong>項目も入力してください。</li>
     </ol>
-{% if book.language !== "ja" %}
-      <li><strong>{{ book.DevConsole.cek_tester }}</strong>項目に、Extensionのテストに使用する{{ book.OrientedService }}アカウントを入力します。必須ではなく、後ほど<a href="/DevConsole/Guides/CEK/Test_Extension.md">Extensionをテスト</a>する際に入力することもできます。</li>
-{% endif %}
   <li>Extensionの基本情報をすべて入力したら、<strong>{{ book.DevConsole.cek_create }}</strong>ボタンをクリックします。</li>
 </ol>
 
@@ -78,7 +76,7 @@ $ curl "https://yourdomain.com/pizzabot" -X POST
   <li>ExtensionサーバーのURL(エンドポイント)を<strong>{{ book.DevConsole.cek_service_endpoint_url }}</strong>項目に入力します。
     <div class="note">
     <p><strong>メモ</strong></p>
-    <p>テスト段階ではHTTPも使用できますが、正式なサービスのためにはHTTPSを使用する必要があります。Extensionのサーバーは、HTTPで80ポート、HTTPSで443ポートに設定してください。</p>
+    <p>Extensionのサーバーは、HTTPSのみ許可されます。HTTPSで443ポートに設定してください。</p>
   </div>
   </li>
   <li>Extensionが提供するサービスのアカウントが、Clovaのユーザーアカウントとのリンクを必要とする場合、<strong>{{ book.DevConsole.cek_account_linking }}</strong>項目で<strong>{{ book.DevConsole.cek_yes }}</strong>を選択します。アカウント連携の詳細については、<a href="#SetAccountLinking">アカウント連携を設定する</a>を参照してください。</li>
@@ -97,7 +95,7 @@ Extensionが提供するサービスのアカウントが、Clovaのユーザー
   <li><strong>{{ book.DevConsole.cek_account_linking }}</strong>項目で<strong>{{ book.DevConsole.cek_yes }}</strong>を選択します。</li>
   <li>ユーザーにアカウント認証UIを提供する認証URLを、<strong>{{ book.DevConsole.cek_authorization_url }}</strong>項目に入力します。ユーザーがExtensionをアクティブにすると、このページに移動します。</li>
   <li>ユーザーが自身のアカウントを即座に設定できるようにする場合には、<strong>{{ book.DevConsole.cek_configuration_url }}</strong>項目にアカウント設定ページのURLを入力します。</li>
-  <li>ユーザーアカウント認証を行う際、HTTPSリクエストに必要な<strong>{{ book.DevConsole.cek_client_id }}</strong>を入力します。クライアントIDは、<a href="/CEK/Guides/Link_User_Account.md#BuildAuthServer">認証サーバーを構築</a>する際に生成した値です。</li>
+  <li>ユーザーアカウント認証を行う際、HTTPリクエストに必要な<strong>{{ book.DevConsole.cek_client_id }}</strong>を入力します。クライアントIDは、<a href="/CEK/Guides/Link_User_Account.md#BuildAuthServer">認証サーバーを構築</a>する際に生成した値です。</li>
   <li><strong>{{ book.DevConsole.cek_privacy_policy_url }}</strong>項目に、Extensionが提供するサービスのプライバシーポリシーが提供されるURLを入力します。このページの内容は、後ほどストアで表示されます。</li>
   <li><strong>{{ book.DevConsole.cek_authorization_url }}</strong>または<strong>{{ book.DevConsole.cek_privacy_policy_url }}</strong>で提供するページが別のドメインから必要なリソースを読み込む場合、<strong>{{ book.DevConsole.cek_domain_list }}</strong>項目に必要なドメインを追加します。</li>
   <li>アカウント連携の際に発行されるアクセストークンのスコープをあらかじめ定義している場合、<strong>{{ book.DevConsole.cek_scope }}</strong>項目に定義したスコープを追加します。</li>
