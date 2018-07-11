@@ -102,7 +102,6 @@ Clova Extensionが処理するユーザーの意図を区分したカテゴリ�
 
 ### OAuth 2.0
 アクセス権限を委任するためのオープンスタンダードです。インターネットのユーザーが他のウェブサービスやアプリケーションのユーザーアカウントにアクセスできる権限を付与する規約です。Clovaプラットフォームでは、クライアントが[Clovaアクセストークン](#ClovaAccessToken)を取得したり、ユーザーが特定のExtensionを使用する際、自身の[アカウントを連携](/CEK/Guides/Link_User_Account.md)するために使用されます。詳細については、[https://tools.ietf.org/html/rfc6749](https://tools.ietf.org/html/rfc6749)を参照してください。
-アクセス権限を委任するためのオープン標準です。インターネット上のユーザーが他のウェブサービスやアプリケーションのユーザーアカウントのリソースにアクセスできる権限を付与する規格です。Clovaプラットフォームでは、クライアントが[Clovaアクセストークン](#ClovaAccessToken)を取得したり、ユーザーが特定のExtensionを使用する際、自身の[アカウントを連携](/CEK/Guides/Link_User_Account.md)するために使用されます。詳細については、[https://tools.ietf.org/html/rfc6749](https://tools.ietf.org/html/rfc6749)を参照してください。
 
 ### SessionEndedRequest {#SessionEndedRequest}
 ユーザーが特定のモードまたは特定の[Custom Extension](#CustomExtension)の使用を中止すると宣言した際に送られるリクエストメッセージです。詳細については、[Custom Extensionリクエストを処理する](/CEK/Guides/Build_Custom_Extension.md#HandleCustomExtensionRequest)ドキュメントを参照してください。
