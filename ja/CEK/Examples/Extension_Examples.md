@@ -64,9 +64,4 @@ https://github.com/naver/clova-extension-sample-rainsound
 https://github.com/naver/clova-extension-sample-coinhelper
 
 
-
-### 準備中
-日本向けのsample codeは準備中です。
-もう少々お待ち下さい。
-
 {% endif %}
