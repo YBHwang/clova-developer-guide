@@ -35,6 +35,11 @@
 | `subType`                   | string  | カードのタイプを示します。次の4つのタイプが指定されます。<ul><li><code>Type1</code></li><li><code>Type2</code></li><li><code>Type3</code></li><li><code>Type4</code></li></ul><div class="note"><p><strong>メモ</strong></p><p>現在、<code>Type1</code>、<code>Type2</code>、<code>Type3</code>、<code>Type5</code>、<code>Type6</code>は、<strong>空文字列で表現されます</strong>。タイプを判断するとき、<code>card</code>オブジェクトのフィールド構成を確認する必要があります。</p></div>                                                    |
 | `type`                      | string  | コンテンツテンプレートのタイプを示す値。`"CardList"`を持ちます。                                                                       |
 
+<div class="danger">
+  <p><strong>注意</strong></p>
+  <p>日本では現在、cardをサポートしておりません。</p>
+</div>
+
 ## Template example
 
 {% raw %}
@@ -520,6 +525,11 @@
 <div class="note">
 <p><strong>メモ</strong></p>
 <p><code>Type5</code>、<code>Type6</code>が使用された画面のサンプルは、現在準備中です。</p>
+</div>
+
+<div class="danger">
+  <p><strong>注意</strong></p>
+  <p>日本では現在、cardをサポートしておりません。</p>
 </div>
 
 ## 次の項目も参照してください。

@@ -15,7 +15,7 @@
 CICがクライアントに提供するREST APIです。クライアントは、CIC APIを使用してClovaと情報を交換します。
 
 ### Clova {#Clova}
-[Clova](http://clova.ai)は、{{ book.TargetServiceForClientAuth }}が開発およびサービスを提供しているAIプラットフォームです。ユーザーの音声やイメージを認識し、それを解析して、ユーザーの希望する情報やサービスを提供します。サードパーティの開発者は、Clovaの持つ技術を活用して、AIサービスを提供するデバイスまたは家電製品を制作できます。また、Clovaを利用して、保有しているコンテンツやサービスを提供することもできます。
+[Clova](https://clova.line.me/)は、{{ book.TargetServiceForClientAuth }}が開発およびサービスを提供しているAIプラットフォームです。ユーザーの音声を認識し、それを解析して、ユーザーの希望する情報やサービスを提供します。サードパーティの開発者は、Clovaの持つ技術を活用して、AIサービスを提供するデバイスまたは家電製品を制作できます。また、Clovaを利用して、保有しているコンテンツやサービスを提供することもできます。
 
 ### Clovaアクセストークン {#ClovaAccessToken}
 クライアントが[Clova Interface Connect](#CIC)で[イベント](#Event)を送る際、Clovaがクライアントを認証する手段です。詳細については、[Clovaアクセストークンを生成する](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken)ドキュメントを参照してください。
@@ -70,7 +70,7 @@ CICから渡されるコンテンツ情報をスケジュールカテゴリに�
 クライアントが[Clova Interface Connect](#CIC)からディレクティブを渡される際に使用される[HTTP/2](#HTTP2)ストリームです。詳細については、[CICに接続する](/CIC/Guides/Interact_with_CIC.md#ConnectToCIC)ドキュメントを参照してください。
 
 ### Extension {#Extension}
-[Clova Extension](#ClovaExtension)の別の言い方
+[Clova Extension](#ClovaExtension)の別名
 
 ### スキルストア {#ExtensionStore}
 
@@ -82,7 +82,7 @@ Extensionをユーザーに提供するために構築されたプラットフ�
 
 ### Extensionページ {#ExtensionPage}
 
-スキルストアホーム(**スキルの管理**メニュー)で特定のExtensionを選択すると表示されるページです。Extensionに関する詳しい説明が提供されます。
+スキルストアホーム(**スキルの管理** メニュー)で特定のExtensionを選択すると表示されるページです。Extensionに関する詳しい説明が提供されます。
 
 ### HTTP/2 {#HTTP2}
 HTTPプロトコルの2番目のバージョンです。[SPDY](https://en.wikipedia.org/wiki/SPDY)に基づき、インターネット技術タスクフォース(IETF)において開発されています。1997年にRFC 2068として規定されたHTTP/1.1をバージョンアップしたものであり、2014年12月にProposed Standard(標準への提唱)として制定され、2015年2月17日にIESGで正式な仕様として承認されました。2015年5月に<a href="https://tools.ietf.org/html/rfc7540" target="_blank">RFC 7540</a>として公開されました。
@@ -101,15 +101,15 @@ Clova Extensionが処理するユーザーの意図を区分したカテゴリ�
 ユーザーが特定のモードまたは特定の[Custom Extension](#CustomExtension)を使用すると宣言したことを知らせるために送るリクエストメッセージです。詳細については、[Custom Extensionリクエストを処理する](/CEK/Guides/Build_Custom_Extension.md#HandleCustomExtensionRequest)ドキュメントを参照してください。
 
 ### OAuth 2.0
-アクセス権限を委任するためのオープン標準です。インターネットのユーザーが他のウェブサービスやアプリケーションのユーザーアカウントにアクセスできる権限を付与する規約です。Clovaプラットフォームでは、クライアントが[Clovaアクセストークン](#ClovaAccessToken)を取得したり、ユーザーが特定のExtensionを使用する際、自身の[アカウントをリンク](/CEK/Guides/Link_User_Account.md)するために使用されます。詳細については、[https://tools.ietf.org/html/rfc6749](https://tools.ietf.org/html/rfc6749)を参照してください。
+アクセス権限を委任するためのオープンスタンダードです。インターネットのユーザーが他のウェブサービスやアプリケーションのユーザーアカウントにアクセスできる権限を付与する規約です。Clovaプラットフォームでは、クライアントが[Clovaアクセストークン](#ClovaAccessToken)を取得したり、ユーザーが特定のExtensionを使用する際、自身の[アカウントを連携](/CEK/Guides/Link_User_Account.md)するために使用されます。詳細については、[https://tools.ietf.org/html/rfc6749](https://tools.ietf.org/html/rfc6749)を参照してください。
 
 ### SessionEndedRequest {#SessionEndedRequest}
-ユーザーが特定のモードまたは特定の[Custom Extension](#CustomExtension)の使用を中止すると宣言したことを知らせるために送るリクエストメッセージです。詳細については、[Custom Extensionリクエストを処理する](/CEK/Guides/Build_Custom_Extension.md#HandleCustomExtensionRequest)ドキュメントを参照してください。
+ユーザーが特定のモードまたは特定の[Custom Extension](#CustomExtension)の使用を中止すると宣言した際に送られるリクエストメッセージです。詳細については、[Custom Extensionリクエストを処理する](/CEK/Guides/Build_Custom_Extension.md#HandleCustomExtensionRequest)ドキュメントを参照してください。
 
 ### スキル {#Skill}
 Clovaが提供する拡張機能のことをいいます。スキルをユーザーに提供するには、[Clova Extension](#ClovaExtension)を開発する必要があります。
 
-## ビルトインスキル {#BuiltinSkill}
+### ビルトインスキル {#BuiltinSkill}
 Clovaデバイスに標準で搭載されているスキルで、ミュージック、LINE送受信、LINE無料通話、天気、ニュース、アラーム・タイマーなどがあります。詳細については、[Clova > Clovaのスキル](https://clova.line.me/clova-ai/) をご参照ください。
 
 ### スロット {#Slot}
@@ -124,15 +124,15 @@ Clovaデバイスに標準で搭載されているスキルで、ミュージッ
 ### メッセージID {#MessageID}
 メッセージIDは個々のメッセージを区別するための識別子です。[イベント](#Event)と[ディレクティブ](#Directive)は、それぞれのメッセージIDを持ちます。
 
-### アカウントリンク {#AccountLinking}
-[Extension](#ClovaExtension)がユーザーのアカウント認証を必要とする外部サービスを提供する際に使用されます。詳細については、[ユーザーアカウントをリンクする](/CEK/Guides/Link_User_Account.md)ドキュメントを参照してください。
+### アカウント連携 {#AccountLinking}
+[Extension](#ClovaExtension)がユーザーのアカウント認証を必要とする外部サービスを提供する際に使用されます。詳細については、[ユーザーアカウントを連携する](/CEK/Guides/Link_User_Account.md)ドキュメントを参照してください。
 
 ### ユーザーのサンプル発話 {#UserUtteranceExample}
 
 ユーザーのリクエスト発話がどのように入力されるかを例で表現したリストです。[インテント(Intent)](#Intent)ごとに複数の例を定義できます。また、例には[スロット(Slot)](#Slot)が表示されます。詳細については、[対話モデルを定義する](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel)ドキュメントを参照してください。
 
 ### セッションID {#SessionID}
-[Extension](#ClovaExtension)がユーザーリクエストのコンテクストを区分するためのセッション識別子です。通常、一回性のユーザーリクエストはそのたびにセッションIDが変わりますが、特定のモードや連続的な(マルチターン)ユーザーリクエストの場合、同じセッションIDを持ちます。このセッションIDは、[Clova Extensions Kit](#CEK)がExtensionにユーザーのリクエストを渡すとき生成されます。セッションIDが維持されるのは、[LaunchRequest](#LaunchRequest)のようなリクエストを受け取ったか、またはExtensionが必要に応じて`response.shouldEndSession`フィールドを`false`に設定した場合です。詳細については、[Custom Extensionを作成する](/CEK/Guides/Build_Custom_Extension.md)ドキュメントを参照してください。
+[Extension](#ClovaExtension)がユーザーリクエストのコンテクストを区分するためのセッション識別子です。通常、一回で終わるユーザーリクエストはそのたびにセッションIDが変わりますが、特定のモードや連続的な(マルチターン)ユーザーリクエストの場合、同じセッションIDを持ちます。このセッションIDは、[Clova Extensions Kit](#CEK)がExtensionにユーザーのリクエストを渡すとき生成されます。セッションIDが維持されるのは、[LaunchRequest](#LaunchRequest)のようなリクエストを受け取ったか、またはExtensionが必要に応じて`response.shouldEndSession`フィールドを`false`に設定した場合です。詳細については、[Custom Extensionを作成する](/CEK/Guides/Build_Custom_Extension.md)ドキュメントを参照してください。
 
 ### イベント(Event) {#Event}
 クライアントから[Clova Interface Connect](#CIC)に渡すメッセージです。ユーザーのリクエストを渡したり、またはクライアントの状態が変更されたことを知らせるためにこのメッセージを送信します。
@@ -142,4 +142,3 @@ Clovaデバイスに標準で搭載されているスキルで、ミュージッ
 
 ### クライアントの認証情報 {#ClientCredentialInfo}
 [Clova Developer Center](#ClovaDeveloperConsole)でクライアントを登録し、取得した認証情報です。[Clovaアクセストークン](#ClovaAccessToken)の取得に使用されます。詳細については、[Clovaアクセストークンを生成する](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken)ドキュメントを参照してください。
-

@@ -12,6 +12,7 @@
 | [ColorInfoObject](#ColorInfoObject)                       | エンドポイントの照明や画面、電球の色の情報を持っています。  |
 | [ColorTemperatureInfoObject](#ColorTemperatureInfoObject) | エンドポイントの照明や画面、電球の色温度の情報を持っています。  |
 | [ConsumptionInfoObject](#ConsumptionInfoObject)           | 電力の使用量情報を持っています。       |
+| [CountInfoObject](#CountInfoObject)                       | 任意の回数に関する情報を持っています。           |
 | [CustomCommandInfoObject](#CustomCommandInfoObject)       | カスタムコマンドの情報を持っています。   |
 | [CustomInfoObject](#CustomInfoObject)                     | 任意の名前、必要な単位・数値情報を直接入力する際に使用できます。 |
 | [ExpendableInfoObject](#ExpendableInfoObject)             | エンドポイントの消耗品の使用量や残り寿命に関する情報を持っています。  |
@@ -28,6 +29,7 @@
 | [TemperatureInfoObject](#TemperatureInfoObject)           | 温度情報を持っています。          |
 | [TVChannelNameInfoObject](#TVChannelNameInfoObject)       | テレビのチャンネル名を持っています。      |
 | [TVChannelInfoObject](#TVChannelInfoObject)               | テレビチャンネルの情報を持っています。           |
+| [TVInputSourceNameInfoObject](#TVInputSourceNameInfoObject) | テレビの入力ソースの情報を持っています。           |
 | [UltraFineDustInfoObject](#UltraFineDustInfoObject)       | PM2.5の情報を持っています。         |
 | [VolumeInfoObject](#VolumeInfoObject)                     | 音量情報を持っています。          |
 
@@ -228,7 +230,7 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 | `"REFRIGERATOR"`    | 冷蔵庫          | GetDeviceState、HealthCheck、SetFreezerTargetTemperature、SetFridgeTargetTemperature、SetMode                                           |
 | `"RICECOOKER"`      | 炊飯器        | GetCleaningCycle、GetDeviceState、GetExpendableState、GetKeepWarmTime、GetPhase、GetRemainingTime、HealthCheck、ReleaseMode、SetMode、Stop、TurnOff、TurnOn          |
 | `"ROBOTVACUUM"`     | ロボット掃除機       | Charge、GetBatteryInfo、HealthCheck、TurnOff、TurnOn                                                                             |
-| `"SETTOPBOX"`       | セットトップボックス     | DecrementChannel、DecrementVolume、HealthCheck、IncrementChannel、IncrementVolume、Mute、SetChannel、SetChannelByName、TurnOff、TurnOn、Unmute |
+| `"SETTOPBOX"`       | セットトップボックス     | ChangeInputSource、DecrementChannel、DecrementVolume、HealthCheck、IncrementChannel、IncrementVolume、Mute、SetChannel、SetChannelByName、SetInputSourceByName、StartRecording、StopRecording、TurnOff、TurnOn、Unmute |
 | `"SLEEPINGMONITOR"` | 睡眠センサー        | GetAsleepDuration、GetAwakeDuration、GetDeviceState、GetSleepScore、GetSleepStartTime、HealthCheck、TurnOff、TurnOn              |
 | `"SMARTBED"`        | スマートベッド      | HealthCheck、Lower、Raise、Stop                                                                                                   |
 | `"SMARTCHAIR"`      | スマートチェア      | GetCurrentSittingState、GetRightPostureRatio、GetUsageTime、HealthCheck                                                                                       |
@@ -236,7 +238,7 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 | `"SMARTHUB"`        | スマートハブ      | GetCurrentTemperature、GetHumidity、GetTargetTemperature、HealthCheck、SetMode                                                    |
 | `"SMARTMETER"`      | 電力量計      | GetConsumption、GetCurrentBill、GetEstimateBill、GetProgressiveTaxBracket、HealthCheck                                            |
 | `"SMARTPLUG"`       | スマートプラグ     | GetConsumption、GetEstimateBill、HealthCheck、TurnOff、TurnOn                                                                                                     |
-| `"SMARTTV"`         | スマートテレビ       | DecrementChannel、DecrementVolume、HealthCheck、IncrementChannel、IncrementVolume、Mute、SetChannel、SetChannelByName、TurnOff、TurnOn、Unmute |
+| `"SMARTTV"`         | スマートテレビ       | ChangeInputSource、DecrementChannel、DecrementVolume、HealthCheck、IncrementChannel、IncrementVolume、Mute、SetChannel、SetChannelByName、SetInputSourceByName、StartRecording、StopRecording、TurnOff、TurnOn、Unmute |
 | `"SMARTVALVE"`      | スマートバルブ      | GetLockState、SetLockState                                                                                                        |
 | `"SMOKESENSOR"`     | 煙センサー       | GetDeviceState、HealthCheck                                                                                                             |
 | `"SWITCH"`          | 家庭内のコンセントの電源を制御するスイッチ | HealthCheck、TurnOff、TurnOn                                                                                       |
@@ -254,6 +256,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 
 | actions                    | 関連インターフェース                            |
 |----------------------------|------------------------------------------|
+| ChangeInputSource          | [`ChangeInputSourceConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#ChangeInputSourceConfirmation), [`ChangeInputSourceRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#ChangeInputSourceRequest)  |
 | Charge                     | [`ChargeConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#ChargeConfirmation), [`ChargeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#ChargeRequest) |
 | Close                      | [`CloseConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#CloseConfirmation), [`CloseRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#CloseRequest)  |
 | DecrementBrightness        | [`DecrementBrightnessConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementBrightnessConfirmation), [`DecrementBrightnessRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementBrightnessRequest) |
@@ -307,10 +310,13 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 | SetFanSpeed                | [`SetFanSpeedConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetFanSpeedConfirmation), [`SetFanSpeedRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetFanSpeedRequest)  |
 | SetFreezerTargetTemperature | [`SetFreezerTargetTemperatureConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetFreezerTargetTemperatureConfirmation), [`SetFreezerTargetTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetFreezerTargetTemperatureRequest)  |
 | SetFridgeTargetTemperature | [`SetFridgeTargetTemperatureConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetFridgeTargetTemperatureConfirmation), [`SetFridgeTargetTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetFridgeTargetTemperatureRequest)  |
+| SetInputSourceByName       | [`SetInputSourceByNameConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetInputSourceByNameConfirmation), [`SetInputSourceByNameRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetInputSourceByNameRequest)  |
 | SetLockState               | [`SetLockStateConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetLockStateConfirmation), [`SetLockStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetLockStateRequest)  |
 | SetMode                    | [`SetModeConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetModeConfirmation), [`SetModeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetModeRequest) |
 | SetTargetTemperature       | [`SetTargetTemperatureConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetTargetTemperatureConfirmation), [`SetTargetTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetTargetTemperatureConfirmation)  |
+| StartRecording             | [`StartRecordingConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#StartRecordingConfirmation), [`StartRecordingRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#StartRecordingRequest)  |
 | Stop                       | [`StopConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#StopConfirmation), [`StopRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#StopRequest)  |
+| StopRecording             | [`StopRecordingConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#StopRecordingConfirmation), [`StopRecordingRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#StopRecordingRequest)  |
 | TurnOff                    | [`TurnOffConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#TurnOffConfirmation), [`TurnOffRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#TurnOffRequest) |
 | TurnOn                     | [`TurnOnConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#TurnOnConfirmation), [`TurnOnRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#TurnOnRequest) |
 | Unmute                     | [`UnmuteConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#UnmuteConfirmation), [`UnmuteRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#UnmuteRequest) |
@@ -677,6 +683,44 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 * [`GetEstimateBillRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateBillRequest)
 * [`GetEstimateBillResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateBillResponse)
 
+
+## CountInfoObject {#CountInfoObject}
+任意の回数に関する情報を持っているオブジェクトです。任意の回数、所定のリクエストを発行したいことを示します。
+
+### Object fields
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
+|---------------|---------|-----------------------------|:-------------:|
+| `value`             | number  | テレビのチャンネル番号                      | 必須/常時     |
+
+### Object Example
+{% raw %}
+
+```json
+//例：ChangeInputSourceRequestメッセージで使用されたサンプル
+// 「テレビの入力を３回変えて」と発話した場合
+{
+  "header": {
+    "messageId": "33da6561-0149-4532-a30b-e0de8f75c4cf",
+    "name": "ChangeInputSourceRequest",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "accessToken": "92ebcb67fe33",
+    "appliance": {
+        "applianceId": "device-007"
+    },
+    "count": {
+      "value": 3
+    }
+  }
+}
+```
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`ChangeInputSourceRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#ChangeInputSourceRequest)
+
 ## CustomCommandInfoObject {#CustomCommandInfoObject}
 
 カスタムコマンドの情報を持っているオブジェクトです。ユーザーがClovaアプリで登録したカスタムコマンドの情報を持っています。[`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DiscoverAppliancesResponse)メッセージ内のデバイス照会結果に、ユーザーのアカウントに登録されているコマンドが追加されます。このオブジェクトには、カスタムコマンドを呼び出すと処理されるエンドポイント制御動作が含まれます。
@@ -986,6 +1030,9 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
       <td><code>"AIRCONDITIONER"</code></td>
       <td>
         <ul>
+          {% if book.TargetCountryCode == "JP" %}
+          <li><code>"auto"</code>：自動モード。主にエアコンで使用されるモードです。</li>
+          {% endif %}
           <li><code>"cool"</code>：冷房モード。主にエアコンで使用されるモードです。</li>
           <li><code>"dehumidify"</code>：除湿モード。主にエアコンや除湿器のようなエンドポイントで使用されるモードです。</li>
           {% if book.TargetCountryCode == "JP" %}
@@ -1632,6 +1679,59 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 * [`IncrementChannelRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#IncrementChannelRequest)
 * [`SetChannelConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetChannelConfirmation)
 * [`SetChannelRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetChannelRequest)
+
+## TVInputSourceNameInfoObject {#TVInputSourceNameInfoObject}
+テレビの入力ソース名の情報を持っているオブジェクトです。変更する入力ソースや変更前後の入力ソース名を示します。文字列で表されます。
+
+### Object fields
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
+|---------------|---------|-----------------------------|:-------------:|
+| `value`       | string  | テレビの入力ソース名	                  | 必須/常時     |
+
+### Object Example
+{% raw %}
+
+```json
+//例1：SetInputSourceByNameRequestメッセージで使用されたサンプル
+{
+  "header": {
+    "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
+    "name": "SetInputSourceByNameRequest",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "accessToken": "92ebcb67fe33",
+    "appliance": {
+      "applianceId": "device-006"
+    },
+    "sourceName": {
+      "value": "HDMI1"
+    }
+  }
+}
+
+//例2：SetInputSourceByNameConfirmationメッセージで使用されたサンプル
+{
+  "header": {
+    "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
+    "name": "SetInputSourceByNameConfirmation",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+      "sourceName": {
+          "value": "HDMI1"
+      }
+  }
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`SetInputSourceByNameConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetInputSourceByNameConfirmation)
+* [`SetInputSourceByNameRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetInputSourceByNameRequest)
 
 ## UltraFineDustInfoObject {#UltraFineDustInfoObject}
 PM2.5の情報を持っているオブジェクトです。エンドポイントで測定されたPM2.5の指数を示します。数字で表されます。

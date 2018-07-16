@@ -24,6 +24,12 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
   * [セキュリティのためにオーディオコンテンツのURLを更新する](#UpdateAudioURLForSecurity)
   * [再生コントロールの動作方法を変更する](#CustomizePlaybackControl)
   * [オーディオコンテンツのメタデータを提供する](#ProvidingMetaDataForDisplay)
+
+<div class="danger">
+  <p><strong>注意</strong></p>
+  <p>オーディオコンテンツの再生に対応していないClovaデバイスがあります。現時点ではXperia Ear Duoではオーディオコンテンツに対応していません。</p>
+</div>
+
 {% endif %}
 
 ### オーディオコンテンツの再生を指示する {#DirectClientToPlayAudio}
@@ -38,7 +44,7 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
 以下は、`AudioPlayer.Play`ディレクティブをCustom Extensionのレスポンスメッセージに含めたサンプルです。
 ```json
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {},
   "response": {
     "card": {},
@@ -69,7 +75,7 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
           },
           "source": {
             "name": "Potbbang",
-            "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png"
+            "logoUrl": "https://DUMMY_DOMAIN/logo_180125.png"
           },
           "playBehavior": "REPLACE_ALL"
         }
@@ -84,6 +90,11 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
 <div class="note">
   <p><strong>メモ</strong></p>
   <p>音楽を再生する<a href="/CEK/Guides/Build_Custom_Extension.html#ReturnCustomExtensionResponse">レスポンスメッセージ</a>には、<code>response.outputSpeech</code>フィールドを追加することもできます。例えば、ユーザーに対して、「リクエストしたオーディオコンテンツを再生します」という音声出力(TTS)を再生し、その後にオーディオコンテンツの再生を開始することができます。</p>
+</div>
+
+<div class="danger">
+  <p><strong>注意</strong></p>
+  <p>日本では現在、cardをサポートしておりません。</p>
 </div>
 
 ### オーディオコンテンツの再生をコントロールする {#ControlAudioPlayback}
@@ -115,7 +126,7 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
 以下は、`PlaybackController.Pause`ディレクティブをCustom Extensionのレスポンスメッセージに含めたサンプルです。
 ```json
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {},
   "response": {
     "card": {},
@@ -141,6 +152,11 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
 <div class="note">
   <p><strong>メモ</strong></p>
   <p>前または次に該当するオーディオコンテンツがなかったり、有効ではない場合、「再生する前または次の曲がありません」などの音声出力を<a href="/CEK/Guides/Build_Custom_Extension.html#ReturnCustomExtensionResponse">レスポンスメッセージで返す</a>必要があります。</p>
+</div>
+
+<div class="danger">
+ <p><strong>注意</strong></p>
+ <p>日本では現在、cardをサポートしておりません。</p>
 </div>
 
 ### オーディオコンテンツのメタデータを提供する {#ProvidingMetaDataForDisplay}
@@ -182,7 +198,7 @@ Custom Extensionは、レスポンスメッセージを使って、クライア�
 
 ```json
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {},
   "response": {
     "card": {},
@@ -216,7 +232,7 @@ Custom Extensionは、レスポンスメッセージを使って、クライア�
           "displayType": "list",
           "playableItems": [
             {
-              "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/662058.jpg",
+              "artImageUrl": "http://DUMMY_DOMAIN/example/album/662058.jpg",
               "controls": [
                 {
                   "enabled": true,
@@ -241,7 +257,7 @@ Custom Extensionは、レスポンスメッセージを使って、クライア�
               "token": "eJyr5lIqSSyITy4tKs4vUrJSUE"
             },
             {
-              "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/202646.jpg",
+              "artImageUrl": "http://DUMMY_DOMAIN/example/album/202646.jpg",
               "controls": [
                 {
                   "enabled": true,
@@ -268,9 +284,9 @@ Custom Extensionは、レスポンスメッセージを使って、クライア�
             ...
           ],
           "provider": {
-            "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png",
+            "logoUrl": "https://DUMMY_DOMAIN/logo_180125.png",
             "name": "SampleMusicProvider",
-            "smallLogoUrl": "https://img.musicproviderdomain.net/smallLogo_180125.png"
+            "smallLogoUrl": "https://DUMMY_DOMAIN/smallLogo_180125.png"
           }
         }
       }
@@ -281,20 +297,25 @@ Custom Extensionは、レスポンスメッセージを使って、クライア�
 }
 ```
 
+<div class="danger">
+  <p><strong>注意</strong></p>
+  <p>日本では現在、cardをサポートしておりません。</p>
+</div>
+
 ### 再生状態の変更および進行状況のレポートを収集する {#CollectPlaybackStatusAndProgress}
 
 {% if book.TargetCountryCode == "KR" %}
-[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)ディレクティブでオーディオを再生するクライアントは、再生が開始、一時停止、再開、終了するタイミングで、[`AudioPlayer.PlayStarted`](/CIC/References/CICInterface/AudioPlayer.md#PlayStarted)、[`AudioPlayer.PlayPaused`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)、[`AudioPlayer.PlayResumed`](/CIC/References/CICInterface/AudioPlayer.md#PlayResumed)、[`AudioPlayer.PlayStopped`](/CIC/References/CICInterface/AudioPlayer.md#PlayStopped)、[`AudioPlayer.PlayFinished`](/CIC/References/CICInterface/AudioPlayer.md#PlayFinished)のようなイベントをClovaに送信します。そのとき、Clovaはそのイベントの内容を[`EventReqeust`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージでCustom Extensionに送信します。
+[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)ディレクティブでオーディオを再生するクライアントは、再生が開始、一時停止、再開、終了するタイミングで、[`AudioPlayer.PlayStarted`](/CIC/References/CICInterface/AudioPlayer.md#PlayStarted)、[`AudioPlayer.PlayPaused`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)、[`AudioPlayer.PlayResumed`](/CIC/References/CICInterface/AudioPlayer.md#PlayResumed)、[`AudioPlayer.PlayStopped`](/CIC/References/CICInterface/AudioPlayer.md#PlayStopped)、[`AudioPlayer.PlayFinished`](/CIC/References/CICInterface/AudioPlayer.md#PlayFinished)のようなイベントをClovaに送信します。そのとき、Clovaはそのイベントの内容を[`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージでCustom Extensionに送信します。
 
-また、クライアントは[オーディオコンテンツを再生するように指示(`AudioPlayer.Play`)](#DirectClientToPlayAudio)を受けた後、`AudioPlayer.Play`ディレクティブの`progressReport`フィールドに定義されている設定に従って再生の進行状況をレポートします。その内容もまた、[`EventReqeust`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージでCustom Extensionに送信されます。クライアントは、進行状況をレポートするために、以下のイベントを送信します。
+また、クライアントは[オーディオコンテンツを再生するように指示(`AudioPlayer.Play`)](#DirectClientToPlayAudio)を受けた後、`AudioPlayer.Play`ディレクティブの`progressReport`フィールドに定義されている設定に従って再生の進行状況をレポートします。その内容もまた、[`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージでCustom Extensionに送信されます。クライアントは、進行状況をレポートするために、以下のイベントを送信します。
 
 * [`AudioPlayer.ProgressReportDelayPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportDelayPassed)イベント：再生が開始してから特定の時間が経過した後、再生の進行状況をレポートする
 * [`AudioPlayer.ProgressReportPositionPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportPositionPassed)イベント：オーディオコンテンツの特定の位置(オフセット)を再生するときに、進行状況をレポートする
 * [`AudioPlayer.ProgressReportIntervalPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportIntervalPassed)イベント：再生中の場合、特定の間隔で繰り返し進行状況をレポートする
 {% elif book.TargetCountryCode == "JP" %}
-[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)ディレクティブでオーディオを再生するクライアントは、再生が開始、一時停止、再開、終了するタイミングで、[`AudioPlayer.PlayStarted`](/CEK/References/CEK_API.md#PlayStarted)、[`AudioPlayer.PlayPaused`](/CEK/References/CEK_API.md#PlayPaused)、[`AudioPlayer.PlayResumed`](/CEK/References/CEK_API.md#PlayResumed)、[`AudioPlayer.PlayStopped`](/CEK/References/CEK_API.md#PlayStopped)、[`AudioPlayer.PlayFinished`](/CEK/References/CEK_API.md#PlayFinished)のようなイベントをClovaに送信します。そのとき、Clovaはそのイベントの内容を[`EventReqeust`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージでCustom Extensionに送信します。
+[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)ディレクティブでオーディオを再生するクライアントは、再生が開始、一時停止、再開、終了するタイミングで、[`AudioPlayer.PlayStarted`](/CEK/References/CEK_API.md#PlayStarted)、[`AudioPlayer.PlayPaused`](/CEK/References/CEK_API.md#PlayPaused)、[`AudioPlayer.PlayResumed`](/CEK/References/CEK_API.md#PlayResumed)、[`AudioPlayer.PlayStopped`](/CEK/References/CEK_API.md#PlayStopped)、[`AudioPlayer.PlayFinished`](/CEK/References/CEK_API.md#PlayFinished)のようなイベントをClovaに送信します。そのとき、Clovaはそのイベントの内容を[`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージでCustom Extensionに送信します。
 
-また、クライアントは[オーディオコンテンツを再生するように指示(`AudioPlayer.Play`)](#DirectClientToPlayAudio)を受けた後、`AudioPlayer.Play`ディレクティブの`progressReport`フィールドに定義されている設定に従って再生の進行状況をレポートします。その内容もまた、[`EventReqeust`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージでCustom Extensionに送信されます。クライアントは、進行状況をレポートするために、以下のイベントを送信します。
+また、クライアントは[オーディオコンテンツを再生するように指示(`AudioPlayer.Play`)](#DirectClientToPlayAudio)を受けた後、`AudioPlayer.Play`ディレクティブの`progressReport`フィールドに定義されている設定に従って再生の進行状況をレポートします。その内容もまた、[`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージでCustom Extensionに送信されます。クライアントは、進行状況をレポートするために、以下のイベントを送信します。
 
 * [`AudioPlayer.ProgressReportDelayPassed`](/CEK/References/CEK_API.md#ProgressReportDelayPassed)イベント：再生が開始してから特定の時間が経過した後、再生の進行状況をレポートする
 * [`AudioPlayer.ProgressReportPositionPassed`](/CEK/References/CEK_API.md#ProgressReportPositionPassed)イベント：オーディオコンテンツの特定の位置(オフセット)を再生するときに、進行状況をレポートする
@@ -441,7 +462,7 @@ Custom Extensionは、そのタイミングで、再生できるオーディオ�
 
 ```json
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {},
   "response": {
     "card": {},
@@ -465,6 +486,11 @@ Custom Extensionは、そのタイミングで、再生できるオーディオ�
   }
 }
 ```
+
+<div class="danger">
+  <p><strong>注意</strong></p>
+  <p>日本では現在、cardをサポートしておりません。</p>
+</div>
 
 ### 再生コントロールの動作方法を変更する {#CustomizePlaybackControl}
 
