@@ -20,7 +20,7 @@
       <th width="44%">Extension 개발자</th>
     </tr>
   </thead>
-  <tbody style="vertical-align: top;">
+  <tbody>
     <tr>
       <td style="text-align: center;">개념 이해</td>
       <td>

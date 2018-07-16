@@ -347,7 +347,7 @@ Custom extension은 응답 메시지를 통해 클라이언트가 요청한 콘�
 </div>
 
 {% if book.TargetCountryCode == "KR" %}
-참고로 이 절에서 언급한 `AudioPlayer` 네임스페이스 이벤트 메시지에는 `AudioPlayer.PlaybackState` 문맥 정보(context)가 첨부됩니다. 이 정보 역시 `EventRequest` 타입 요청 메시지가 전송될 때 함께 첨부되므로, custom extension은 첨부된 [`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.html#PlaybackState) 문맥 정보로부터 오디오 콘텐츠의 ID, 재생 상태, 오디오 콘텐츠의 재생 위치 등을 파악할 수 있습니다.
+참고로 이 절에서 언급한 `AudioPlayer` 네임스페이스 이벤트 메시지에는 `AudioPlayer.PlaybackState` 문맥 정보(context)가 첨부됩니다. 이 정보 역시 `EventRequest` 타입 요청 메시지가 전송될 때 함께 첨부되므로, custom extension은 첨부된 [`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState) 문맥 정보로부터 오디오 콘텐츠의 ID, 재생 상태, 오디오 콘텐츠의 재생 위치 등을 파악할 수 있습니다.
 {% elif book.TargetCountryCode == "JP" %}
 참고로 이 절에서 언급한 `AudioPlayer` 네임스페이스 이벤트 메시지에는 `AudioPlayer.PlaybackState` 문맥 정보(context)가 첨부됩니다. 이 정보 역시 `EventRequest` 타입 요청 메시지가 전송될 때 함께 첨부되므로, custom extension은 첨부된 `AudioPlayer.PlaybackState` 문맥 정보로부터 오디오 콘텐츠의 ID, 재생 상태, 오디오 콘텐츠의 재생 위치 등을 파악할 수 있습니다.
 {% endif %}
