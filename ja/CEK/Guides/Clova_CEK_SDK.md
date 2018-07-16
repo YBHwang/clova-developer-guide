@@ -5,13 +5,10 @@ GitHubにてClova Extensions Kitソフトウェア開発キットを提供して
 現在は、以下の環境向けのSDKを提供しています。
 
 ## CEK SDK for Node.js {#SDK_For_Nodejs}
-{{ book.GitHubBaseURLforExtensionExample }}/clova-cek-sdk-nodejs
+<a href="{{ book.GitHubBaseURLforExtensionExample }}/clova-cek-sdk-nodejs">{{ book.GitHubBaseURLforExtensionExample }}/clova-cek-sdk-nodejs</a>
 
 ## CEK SDK for Swift {#SDK_For_Swift}
-{{ book.GitHubBaseURLforExtensionExample }}/clova-cek-sdk-swift
-
-## CEK SDK for Python {#SDK_For_Python}
-{{ book.GitHubBaseURLforExtensionExample }}/clova-cek-sdk-python
+<a href="{{ book.GitHubBaseURLforExtensionExample }}/clova-cek-sdk-swift">{{ book.GitHubBaseURLforExtensionExample }}/clova-cek-sdk-swift</a>
 
 <div class="note">
   <p><strong>メモ</strong></p>

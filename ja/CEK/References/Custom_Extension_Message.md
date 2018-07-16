@@ -334,7 +334,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
 | `event`           | object  | クライアントがClovaに渡した情報が保存されているオブジェクト                                       |    |
 | `event.name`      | string  | {{ "クライアントがClovaに送信したメッセージの名前" if book.TargetCountryCode == "KR" else "クライアントがClovaに送信したイベントの名前です。例えばスキルが有効、もしくは無効への切り替えを示すイベントの名前は、`SkillEnabled`や`SkillDisabled`になります。スキルの有効/無効の切り替えを示すリクエストを受け取った際には、[リクエストメッセージ](#CustomExtRequestMessage)の`context.System.application.applicationId`フィールドと`context.System.user.userId`フィールドを利用してユーザー情報を初期登録したり、利用終了したユーザーのデータを廃棄する実装をしてください。" }} |    |
 | `event.namespace` | string  | {{ "クライアントがClovaに送信したイベントの名前空間" if book.TargetCountryCode == "KR" else "クライアントがClovaに送信したイベントの名前空間、または、スキルが有効か無効かを示す名前空間。スキルが有効か無効かを示す名前空間は、`ClovaSkill`に固定されます。" }}   |   |
-| `event.payload`   | object  | {{ "クライアントがClovaに送信した`payload`、または、`payload`の一部の情報。一部のイベントの`EventRequest`リクエストタイプは、`payload`が空の場合があります。" if book.TargetCountryCode == "KR" else "クライアントがClovaに送信した`payload`または`payload`の一部の情報。一部のイベント、または、スキルが有効か無効かを示すための`EventRequest`リクエストは、`payload`が空のオブジェクトの場合があります。" }}  | 常時  |
+| `event.payload`   | object  | {{ "クライアントがClovaに送信した`payload`、または、`payload`の一部の情報。一部のイベントの`EventRequest`リクエストタイプは、`payload`が空の場合があります。" if book.TargetCountryCode == "KR" else "クライアントがClovaに送信した`payload`または`payload`の一部の情報。一部のイベント、または、スキルが有効か無効かを示すための`EventRequest`リクエストは、`payload`が空のオブジェクトの場合があります。" }}  |    |
 | `requestId`       | string  | クライアントがClovaに情報を渡すときに作成されたダイアログID(`event.header.dialogRequestId`)    |   |
 | `timestamp`       | string  | クライアントがClovaに情報を渡した日時(タイムスタンプ、<a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)<div class="note"><p><strong>メモ</strong></p><p>CEKは<code>EventRequest</code>タイプのリクエストの順序を保証しません。クライアントからのリクエストの順序は、このフィールドの値から把握することができます。</p></div>                    |   |
 | `type`            | string  | リクエストメッセージのタイプ。`"EventRequest"`の値に固定されます。         |  |
@@ -473,7 +473,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
 ```
 {% endraw %}
 
-| フィールド名       | データ型    | フィールドの説明                     | 任意 |
+| フィールド名       | データ型    | フィールドの説明                     | Optional |
 |---------------|---------|-----------------------------|:---------:|
 | `type`          | string  | リクエストメッセージのタイプ。`"LaunchRequest"`の値に固定されます。 | 常時 |
 
