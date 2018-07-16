@@ -7,13 +7,13 @@ CEKから渡されたユーザーのリクエスト([`IntentRequest`](/CEK/Guide
 {% raw %}
 ```json
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "session": {
     "new": true,
     "sessionAttributes": {},
     "sessionId": "a29cfead-c5ba-474d-8745-6c1a6625f0c5",
     "user": {
-      "userId": "V0qe",
+      "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
       "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
     }
   },
@@ -43,7 +43,7 @@ Custom Extensionがピザの種類だけでなく、注文する数量に関す�
 {% raw %}
 ```json
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {
     "intent": "OrderPizza",
     "pizzaType": "ペパロニ"
@@ -70,7 +70,7 @@ Custom Extensionがピザの種類だけでなく、注文する数量に関す�
 {% raw %}
 ```json
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "session": {
     "new": false,
     "sessionAttributes": {
@@ -79,7 +79,7 @@ Custom Extensionがピザの種類だけでなく、注文する数量に関す�
     },
     "sessionId": "a29cfead-c5ba-474d-8745-6c1a6625f0c5",
     "user": {
-      "userId": "V0qe",
+      "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
       "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
     }
   },
@@ -105,4 +105,9 @@ Custom Extensionがピザの種類だけでなく、注文する数量に関す�
 <div class="danger">
   <p><strong>注意</strong></p>
   <p>Extensionが<a href="#HandleSessionEndedRequest"><code>SessionEndedRequest</code>タイプのリクエスト</a>を受信すると、マルチターンの対話は終了します。<code>SessionEndedRequest</code>タイプのリクエストを受信してからは、Extensionからどんな応答(使用終了のあいさつなど)が返されても、CEKで無視されます。</p>
+</div>
+
+<div class="danger">
+  <p><strong>注意</strong></p>
+  <p>日本では現在、cardをサポートしておりません。</p>
 </div>

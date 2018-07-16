@@ -40,10 +40,9 @@
   * [応答タイプを決める](/Design/Design_Guideline_For_Extension.md#DecideSoundOutputType)
     * [音声出力タイプ](/Design/Design_Guideline_For_Extension.md#OutpuSpeech)
     * [オーディオコンテンツの再生タイプ](/Design/Design_Guideline_For_Extension.md#AudioPlayer)
-  * [注意事項](/Design/Design_Guideline_For_Extension.md#Precautions)
   * [プラットフォームでサポートされるオーディオ圧縮形式](/Design/Design_Guideline_For_Extension.md#SupportedAudioCompressionFormat)
   * [Clovaコンテンツガイドライン](/Design/Design_Guideline_For_Extension.md#ClovaSkillContentGuideline)
-  * [随時更新](/Design/Design_Guideline_For_Extension.md#ContinuousUpdate)
+  * [継続的にアップデートする](/Design/Design_Guideline_For_Extension.md#ContinuousUpdate)
 
 ## Clova Interface Connect
 
@@ -178,6 +177,7 @@
     * [アカウント権限の検証を実装する](/CEK/Guides/Link_User_Account.md#AddValidationLogic)
     * [アカウント連携情報を登録する](/CEK/Guides/Link_User_Account.md#RegisterAccountLinkingInfo)
 * [Custom ExtensionとLINEを連携する](/CEK/Guides/Link_Messaging_API.md)
+* [Clova Extensions Kitソフトウェア開発キット](/CEK/Guides/Clova_CEK_SDK.md)
 * [サンプルのExtension](/CEK/Examples/Extension_Examples.md)
 * [CEK APIのリファレンス](/CEK/References/CEK_API.md)
   * [HTTPメッセージ](/CEK/References/CEK_API.md#HTTPMessage)
@@ -209,10 +209,10 @@
     * [LINE Developersコンソールにログインする](/DevConsole/Guides/CEK/Create_Channel.md#LoginClovaDevCenter)
     * [Clova Developer Center βにログインする](/DevConsole/Guides/CEK/Create_Channel.md#CreateSkillChannel)
   * [Extensionを登録する](/DevConsole/Guides/CEK/Register_Extension.md)
-    * [利用規約および個人情報の取得に同意する](/DevConsole/Guides/CEK/Register_Extension.md#AgreeTermsOfUse)
+    * [利用規約およびLINE User Data Policyに同意する](/DevConsole/Guides/CEK/Register_Extension.md#AgreeTermsOfUse)
     * [Extensionの基本情報を入力する](/DevConsole/Guides/CEK/Register_Extension.md#InputExtensionInfo)
     * [サーバーとの連携を設定する](/DevConsole/Guides/CEK/Register_Extension.md#SetServerConnection)
-      * [アカウントリンクを設定する](/DevConsole/Guides/CEK/Register_Extension.md#SetAccountLinking)
+      * [アカウント連携を設定する](/DevConsole/Guides/CEK/Register_Extension.md#SetAccountLinking)
   * [対話モデルを登録する](/DevConsole/Guides/CEK/Register_Interaction_Model.md)
     * [ビルトインスロットタイプを追加する](/DevConsole/Guides/CEK/Register_Interaction_Model.md#AddBuiltinSlotType)
     * [カスタムスロットタイプを追加する](/DevConsole/Guides/CEK/Register_Interaction_Model.md#AddCustomSlotType)

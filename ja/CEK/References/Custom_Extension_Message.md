@@ -92,13 +92,13 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
 ```json
 //例1：EventRequestタイプ
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "session": {
     "new": false,
     "sessionAttributes": {},
     "sessionId": "a29cfead-c5ba-474d-8745-6c1a6625f0c5",
     "user": {
-      "userId": "V0qe",
+      "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
       "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
     }
   },
@@ -108,7 +108,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
         "applicationId": "com.yourdomain.extension.pizzabot"
       },
       "user": {
-        "userId": "V0qe",
+        "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
         "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
       },
       "device": {
@@ -139,13 +139,13 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
 
 //例2：IntentRequestタイプ
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "session": {
     "new": false,
     "sessionAttributes": {},
     "sessionId": "a29cfead-c5ba-474d-8745-6c1a6625f0c5",
     "user": {
-      "userId": "V0qe",
+      "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
       "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
     }
   },
@@ -155,7 +155,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
         "applicationId": "com.yourdomain.extension.pizzabot"
       },
       "user": {
-        "userId": "V0qe",
+        "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
         "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
       },
       "device": {
@@ -188,13 +188,13 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
 
 //例3：LaunchRequestタイプ
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "session": {
     "new": true,
     "sessionAttributes": {},
     "sessionId": "a29cfead-c5ba-474d-8745-6c1a6625f0c5",
     "user": {
-      "userId": "V0qe",
+      "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
       "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
     }
   },
@@ -204,7 +204,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
         "applicationId": "com.yourdomain.extension.pizzabot"
       },
       "user": {
-        "userId": "V0qe",
+        "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
         "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
       },
       "device": {
@@ -228,13 +228,13 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
 
 //例4：SessionEndedRequestタイプ
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "session": {
     "new": false,
     "sessionAttributes": {},
     "sessionId": "a29cfead-c5ba-474d-8745-6c1a6625f0c5",
     "user": {
-      "userId": "V0qe",
+      "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
       "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
     }
   },
@@ -244,7 +244,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
         "applicationId": "com.yourdomain.extension.pizzabot"
       },
       "user": {
-        "userId": "V0qe",
+        "userId": "U399a1e08a8d474521fc4bbd8c7b4148f",
         "accessToken": "XHapQasdfsdfFsdfasdflQQ7"
       },
       "device": {
@@ -332,7 +332,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
 | フィールド名       | データ型    | フィールドの説明                     | Optional |
 |---------------|---------|-----------------------------|:---------:|
 | `event`           | object  | クライアントがClovaに渡した情報が保存されているオブジェクト                                       |    |
-| `event.name`      | string  | {{ "クライアントがClovaに送信したメッセージの名前" if book.TargetCountryCode == "KR" else "クライアントがClovaに送信したイベントの名前、または、スキルが有効か無効かを示す名前。スキルが有効か無効かを示す名前は、`SkillEnabled`か`SkillDisabled`になります。" }} |    |
+| `event.name`      | string  | {{ "クライアントがClovaに送信したメッセージの名前" if book.TargetCountryCode == "KR" else "クライアントがClovaに送信したイベントの名前です。例えばスキルが有効、もしくは無効への切り替えを示すイベントの名前は、`SkillEnabled`や`SkillDisabled`になります。スキルの有効/無効の切り替えを示すリクエストを受け取った際には、[リクエストメッセージ](#CustomExtRequestMessage)の`context.System.application.applicationId`フィールドと`context.System.user.userId`フィールドを利用してユーザー情報を初期登録したり、利用終了したユーザーのデータを廃棄する実装をしてください。" }} |    |
 | `event.namespace` | string  | {{ "クライアントがClovaに送信したイベントの名前空間" if book.TargetCountryCode == "KR" else "クライアントがClovaに送信したイベントの名前空間、または、スキルが有効か無効かを示す名前空間。スキルが有効か無効かを示す名前空間は、`ClovaSkill`に固定されます。" }}   |   |
 | `event.payload`   | object  | {{ "クライアントがClovaに送信した`payload`、または、`payload`の一部の情報。一部のイベントの`EventRequest`リクエストタイプは、`payload`が空の場合があります。" if book.TargetCountryCode == "KR" else "クライアントがClovaに送信した`payload`または`payload`の一部の情報。一部のイベント、または、スキルが有効か無効かを示すための`EventRequest`リクエストは、`payload`が空のオブジェクトの場合があります。" }}  | 常時  |
 | `requestId`       | string  | クライアントがClovaに情報を渡すときに作成されたダイアログID(`event.header.dialogRequestId`)    |   |
@@ -550,6 +550,11 @@ Extensionは、リクエストメッセージを処理して、レスポンス�
 ```
 {% endraw %}
 
+<div class="danger">
+  <p><strong>注意</strong></p>
+  <p>日本では現在、cardをサポートしておりません。</p>
+</div>
+
 #### Message fields
 | フィールド名       | データ型    | フィールドの説明                     | Optional |
 |---------------|---------|-----------------------------|:---------:|
@@ -585,6 +590,11 @@ Extensionは、リクエストメッセージを処理して、レスポンス�
   <p><code>response.directives</code>フィールドでExtensionに任意のディレクティブを渡す必要がある場合、事前に協議が必要です。提携担当者と協議してください。</p>
 </div>
 
+<div class="danger">
+  <p><strong>注意</strong></p>
+  <p>日本では現在、cardをサポートしておりません。</p>
+</div>
+
 #### SpeechInfoObject {#CustomExtSpeechInfoObject}
 SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.outputSpeech`で再使用されるオブジェクトです。ユーザーに出力する音声情報の最も小さな単位である単文レベルの発話情報です。このオブジェクトは、次のフィールドを持ちます。
 
@@ -599,7 +609,7 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 ```json
 //例1：単文タイプ(SimpleSpeech)の音声情報を返す-テキスト
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {},
   "response": {
     "outputSpeech": {
@@ -618,7 +628,7 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 
 //例2：単文タイプ(SimpleSpeech)の音声情報を返す-テキスト、URLを使用
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {},
   "response": {
     "outputSpeech": {
@@ -632,7 +642,7 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
         {
           "type": "URL",
           "lang": "" ,
-          "value": "https://tts.com/song.mp3"
+          "value": "https://DUMMY_DOMAIN/song.mp3"
         }
       ]
     },
@@ -644,7 +654,7 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 
 //例3：複合タイプ(SpeechSet)の音声情報を返す-要約・詳細音声情報
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {},
   "response": {
     "outputSpeech": {
@@ -679,7 +689,7 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 
 //例4：マルチターン対話で、対話の中間情報を保存する-sessionAttributesを使用
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {
     "RequestedIntent": "OrderPizza",
     "pizzaType": "ペパロニピザ"
@@ -701,7 +711,7 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 
 //例5：マルチターン対話でユーザーの追加の発話を促す-repromptを使用
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {
     "RequestedIntent": "OrderPizza",
     "pizzaType": "ペパロニピザ"
@@ -732,7 +742,7 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 
 //例6：クライアントにオーディオコンテンツを再生するように指示するレスポンス(response.directives[]フィールドを使用)
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {},
   "response": {
     "card": {},
@@ -769,6 +779,11 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 }
 ```
 {% endraw %}
+
+<div class="danger">
+  <p><strong>注意</strong></p>
+  <p>日本では現在、cardをサポートしておりません。</p>
+</div>
 
 #### 次の項目も参照してください。
 * [Custom Extensionレスポンスを返す](/CEK/Guides/Build_Custom_Extension.md#ReturnCustomExtensionResponse)
@@ -858,7 +873,7 @@ CIC APIは、ユーザーのクライアントデバイスがClovaと通信を�
       },
       "source": {
         "name": "Potbbang",
-        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png"
+        "logoUrl": "https://DUMMY_DOMAIN/logo_180125.png"
       },
       "playBehavior": "REPLACE_ALL"
     }
@@ -902,7 +917,7 @@ CIC APIは、ユーザーのクライアントデバイスがClovaと通信を�
       },
       "source": {
         "name": "Sample Music Provider",
-        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png"
+        "logoUrl": "https://DUMMY_DOMAIN/logo_180125.png"
       },
       "playBehavior": "REPLACE_ALL"
     }
@@ -1471,7 +1486,7 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
       "displayType": "list",
       "playableItems": [
         {
-          "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/662058.jpg",
+          "artImageUrl": "http://DUMMY_DOMAIN/example/album/662058.jpg",
           "controls": [
             {
               "enabled": true,
@@ -1496,7 +1511,7 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
           "token": "eJyr5lIqSSyITy4tKs4vUrJSUE="
         },
         {
-          "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/202646.jpg",
+          "artImageUrl": "http://DUMMY_DOMAIN/example/album/202646.jpg",
           "controls": [
             {
               "enabled": true,
@@ -1523,9 +1538,9 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
         ...
       ],
       "provider": {
-        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png",
+        "logoUrl": "https://DUMMY_DOMAIN/logo_180125.png",
         "name": "SampleMusicProvider",
-        "smallLogoUrl": "https://img.musicproviderdomain.net/smallLogo_180125.png"
+        "smallLogoUrl": "https://DUMMY_DOMAIN/smallLogo_180125.png"
       }
     }
   }
@@ -1721,4 +1736,10 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.StreamDeliver`](#StreamDeliver)
 * [`AudioPlayer.StreamRequested`](#StreamRequested)
+
+<div class="danger">
+  <p><strong>注意</strong></p>
+  <p>オーディオコンテンツの再生に対応していないClovaデバイスがあります。現時点ではXperia Ear Duoではオーディオコンテンツに対応していません。</p>
+</div>
+
 {% endif %}

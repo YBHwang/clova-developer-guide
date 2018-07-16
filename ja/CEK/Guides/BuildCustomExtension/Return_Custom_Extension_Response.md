@@ -4,7 +4,7 @@
 {% raw %}
 ```json
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {},
   "response": {
     "outputSpeech": {
@@ -25,8 +25,8 @@
 
 各フィールドは、次のような意味を持ちます。
 
-* `version`：使用しているCustom Extensionメッセージフォーマットのバージョンです。現在のバージョンはv0.1.0です。
-* `response.outputSpeech`：ユーザーが英語で「Hi, nice to meet you」の文章を話すように設定します。
+* `version`：使用しているCustom Extensionメッセージフォーマットのバージョンです。現在のバージョンはv1.0です。
+* `response.outputSpeech`：ユーザーが日本語で「こんにちは。ピザボットです。どういったご用件ですか」の文章を話すように設定します。
 * `response.card`：クライアントの画面に表示するデータがありません。コンテンツテンプレート形式のデータで、クライアントの画面に表示するコンテンツをこのフィールドで渡すことができます。
 * `response.shouldEndSession`：セッションを終了せず、引き続きユーザーの入力を受け付けるかを管理します。このフィールドの値がtrueの場合、[`SessionEndedRequest`](#HandleSessionEndedRequest)リクエストを受け取る前に、Extensionからセッションを終了できます。
 
@@ -40,7 +40,7 @@
 {% raw %}
 ```json
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {},
   "response": {
     "outputSpeech": {
@@ -54,7 +54,7 @@
         {
           "type": "URL",
           "lang": "" ,
-          "value": "https://tts.com/song.mp3"
+          "value": "https://DUMMY_DOMAIN/song.mp3"
         }
       ]
     },
@@ -82,7 +82,7 @@
 {% raw %}
 ```json
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "sessionAttributes": {},
   "response": {
     "outputSpeech": {
@@ -132,3 +132,8 @@
 }
 ```
 {% endraw %}
+
+<div class="danger">
+  <p><strong>注意</strong></p>
+  <p>日本では現在、cardをサポートしておりません。</p>
+</div>
