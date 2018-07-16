@@ -241,7 +241,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 | `"SMOKESENSOR"`     | 연기 센서 타입       | GetDeviceState, HealthCheck                                                                                                             |
 | `"SWITCH"`          | 가정 내 콘센트 전원을 제어하는 스위치 타입 | HealthCheck, TurnOff, TurnOn                                                                                       |
 | `"THERMOSTAT"`      | 온도 조절 기기 타입   | DecrementTargetTemperature, GetCurrentTemperature, HealthCheck, IncrementTargetTemperature, SetMode, SetTargetTemperature TurnOff, TurnOn       |
-| `"VENTILATOR"`      | 환풍기 타입          | GetDeviceState, HealthCheck, TurnOff, TurnOn                                                                                            |
+| `"VENTILATOR"`      | 환풍기 타입          | GetDeviceState, HealthCheck, SetFanSpeed, TurnOff, TurnOn                                                                         |
 | `"WATERBOILER"`     | 온수기 타입          | HealthCheck, SetMode, TurnOff, TurnOn                                                                                             |
 
 <div class="note">
