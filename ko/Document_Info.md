@@ -21,6 +21,15 @@
   </thead>
   <tbody>
   <tr>
+    <td>2018-07-24</td>
+    <td>
+      <ul>
+        <li>[CIC] <a href="/CIC/References/Clova_Auth_API.html">CIC 인증 API</a>의 <a href="/CIC/References/Clova_Auth_API.html#RequestAuthorizationCode">Authorization code 요청</a> 설명에 423 Locked 상태 코드 추가</li>
+        <li>[CEK] Clova Home <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">지원 기기</a> 중 환풍기(VENTILATOR) 타입에 SetFanSpeed 동작 추가</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
     <td>2018-07-09</td>
     <td>
       <ul>
