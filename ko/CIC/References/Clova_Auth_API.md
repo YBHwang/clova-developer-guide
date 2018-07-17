@@ -66,6 +66,7 @@ GET|POST /authorize
 | 200 OK           | 요청 처리 성공 시 받는 응답                      |
 | 400 Bad Request  | `client_id` 필드와 같이 필수 파라미터를 입력하지 않거나 유효하지 않은 데이터를 파라미터로 입력했을 때 받는 응답 |
 | 403 Forbidden    | 헤더에 포함된 {{ book.TargetServiceForClientAuth }} access token이 유효하지 않을 때 받는 응답 |
+| 423 Locked       | Clova를 탈퇴한지 1개월이 안된 사용자의 {{ book.TargetServiceForClientAuth }} 계정으로 인증을 시도했을 때 받는 응답. 사용자가 Clova 앱에서 Clova 서비스를 탈퇴하면 사용자는 1개월 동안 해당 계정으로 Clova 서비스를 사용할 수 없습니다. <div class="note"><p><strong>Note!</strong></p><p>클라이언트가 423 Locked 상태 코드를 받게 되면 '탈퇴한 계정으로는 Clova를 사용하실 수 없으며, 탈퇴한 후 한 달 뒤에 재가입이 가능합니다.'와 같은 안내 문구를 제공해야 합니다.</p></div>  |
 | 451 Unavailable For Legal Reasons | 사용자가 이용 약관을 동의하지 않았을 때 받는 응답. 클라이언트는 이 응답을 받으면 `redirect_uri` 필드에 있는 주소로 이동하여 웹 페이지를 표시해야 합니다. 해당 URI는 사용자에게 서비스 이용 약관에 대해 동의를 받는 페이지입니다.  |
 | 500 Server Internal Error | 서버 내부 오류로 인한 authorization code 발급 실패 시 받는 응답 |
 
