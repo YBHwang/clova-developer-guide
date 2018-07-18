@@ -1,6 +1,6 @@
-# 複数のユーザーでExtensionを開発する
+# 複数のユーザーでExtensionの編集・テストを行う
 
-複数のユーザーが共同でExtensionを開発するには、Extensionを作成したオーナーが、他のユーザーに権限を付与する必要があります。具体的には、[LINE Developers](https://developers.line.me/)に開発者として登録が完了しているユーザーに対して権限を付与することが可能です。
+複数のユーザーが共同でExtensionの編集・テストを行うには、Extensionを作成したオーナーが、他のユーザーに権限を付与する必要があります。具体的には、[LINE Developers](https://developers.line.me/)に開発者として登録が完了しているユーザーに対して権限を付与することが可能です。
 
 <div class="note">
   <p><strong>メモ</strong></p>
@@ -13,7 +13,7 @@
 * Admin権限
 * テスター権限
 
-ユーザーを **Admin権限者** として登録すると、以下を実行できます。
+ユーザーを **Admin** として登録すると、以下を実行できます。
 * [LINE Developersコンソール](https://developers.line.me/console/)でチャネルを管理する（基本設定、権限管理、テスター管理）
 * [Clova Developer Center β](https://clova-developers.line.me/)でスキルを開発する（基本情報の修正、配布情報の修正、対話モデルの修正）
 * Clovaデバイスでの動作検証
@@ -23,19 +23,19 @@
 
 <div class="note">
   <p><strong>メモ</strong></p>
-  <p>Admin権限者およびテスターを登録した後、Extensionをテストできるようになるまでに少し時間がかかる場合があります。追加されない場合、時間をあけてから、再度確認してください。</p>
+  <p>Adminおよびテスターを登録した後、Extensionをテストできるようになるまでに少し時間がかかる場合があります。追加されない場合、時間をあけてから、再度確認してください。</p>
 </div>
 
 ## 権限を管理する {#ManageRole}
 
-ユーザーに権限を追加・削除は、以下の手順で実施します。
+ユーザーへの権限の追加・削除は、以下の手順で実施します。
 
-1. [Admin権限者を追加する](#AssignAdminRight)
-3. [Admin権限者を削除する](#RemoveAdminRight)
+1. [Admin権限を追加する](#AssignAdminRight)
+3. [Admin権限を削除する](#RemoveAdminRight)
 2. [テスターを追加する](#RegisterTester)（※ 現在はご利用いただけません）
-4. [テスターを削除する](RemoveTester)
+4. [テスターを削除する](#RemoveTester)
 
-### 1. Admin権限者を追加する {#AssignAdminRight}
+### 1. Admin権限を追加する {#AssignAdminRight}
 
 Admin権限は、次の手順で付与します。
 
@@ -55,14 +55,14 @@ Admin権限は、次の手順で付与します。
 5. **登録** ボタンをクリックすると、当該のメールアドレス宛に招待メールが送信されます。  
 ![](/CEK/Resources/Images/CEK_Admin_LineDev_Add_Confirm.png)
 
-6. 招待されたユーザーがメールに含まれる **招待を承諾する** リンクをクリックし、LINE Developersにログインすると、Admin権限者としての登録が完了します。  
+6. 招待されたユーザーがメールに含まれる **招待を承諾する** リンクをクリックし、LINE Developersにログインすると、Admin権限の付与が完了します。  
 ![](/CEK/Resources/Images/CEK_Admin_Invitation_Email.png)
 
 7. **権限管理** タブを再度クリックすると、テスターが追加されたことを確認できます。  
 ![](/CEK/Resources/Images/CEK_Admin_LineDev_Admin_List.png)
 
 
-### 2. Admin権限者を削除する {#RemoveAdminRight}
+### 2. Admin権限を削除する {#RemoveAdminRight}
 
 ※ 現在、この機能はご利用いただけません。
 
@@ -72,7 +72,7 @@ Admin権限は、次の手順で付与します。
 
 テスターは、次の手順で登録します。
 
-1. Admin権限者が[LINE Developersコンソール](https://developers.line.me/console/)に接続し、**プロバイダーリスト** を表示します。  
+1. Admin権限を持つユーザーが[LINE Developersコンソール](https://developers.line.me/console/)に接続し、**プロバイダーリスト** を表示します。  
 ![](/CEK/Resources/Images/CEK_Test_LineDev_Provider_List.png)
 
 2. テストするスキルが含まれるプロバイダーを選択し、当該の **Clovaスキル** をクリックします。  
@@ -96,19 +96,19 @@ Admin権限は、次の手順で付与します。
 
 <div class="note">
   <p><strong>メモ</strong></p>
-  <p>Admin権限を持っているユーザーは、自動的にテスターとなりますので、あらためてテスターとして追加する必要はありません。</p>
+  <p>Admin権限を持つユーザーは、自動的にテスターとなりますので、あらためてテスターとして追加する必要はありません。</p>
 </div>
 
 ### 4. テスターを削除する {#RemoveTester}
 
-テスターを削除する手順は、以下の2種類があります。
+テスターを削除する方法は、以下の2通りです。
 
-* [Admin権限者がテスターを削除する](#RemoveByAdmin)
-* [テスター権限者がテスターをやめる](#RemoveByTester)
+* [Admin権限を持つユーザーがテスターを削除する](#RemoveByAdmin)
+* [テスターをやめる](#QuitTester)
 
-#### Admin権限者がテスターを削除する  {#RemoveByAdmin}
+#### Admin権限を持つユーザーがテスターを削除する  {#RemoveByAdmin}
 
-1. [LINE Developersコンソール](https://developers.line.me/console/)に接続し、**プロバイダーリスト** を表示します。  
+1. Admin権限を持つユーザーが[LINE Developersコンソール](https://developers.line.me/console/)に接続し、**プロバイダーリスト** を表示します。  
 ![](/CEK/Resources/Images/CEK_Test_LineDev_Provider_List.png)
 
 2. プロバイダーを選択し、当該の **Clovaスキル** をクリックします。  
@@ -124,7 +124,7 @@ Admin権限は、次の手順で付与します。
 ![](/CEK/Resources/Images/CEK_Remove_Tester_LineDev_Confirm.png)
 
 
-#### テスター権限者がテスターをやめる {#RemoveByTester}
+#### テスターをやめる {#QuitTester}
 
 1. テスターが[LINE Developersコンソール](https://developers.line.me/console/)に接続し、**プロバイダーリスト** を表示します。  
 ![](/CEK/Resources/Images/CEK_Remove_Tester_LineDev_Provider_List.png)
