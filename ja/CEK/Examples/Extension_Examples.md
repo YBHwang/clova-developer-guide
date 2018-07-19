@@ -46,7 +46,7 @@ https://github.com/naver/clova-extension-sample-rainsound
 * Node.jsで実装されています。
 
 ### GitHubリポジトリ
-{{ book.GitHubBaseURLforExtensionExample }}/clova-extension-sample-dice
+[{{ book.GitHubBaseURLforExtensionExample }}/clova-extension-sample-dice]({{ book.GitHubBaseURLforExtensionExample }}/clova-extension-sample-dice)
 
 {% if book.language !== "ja" %}
 ## コインヘルパー(Coin helper) {#CoinHelper}
