@@ -14,7 +14,7 @@
 | [ConsumptionInfoObject](#ConsumptionInfoObject)           | 에너지 사용량 정보가 담긴 객체       |
 | [CustomCommandInfoObject](#CustomCommandInfoObject)       | 사용자 정의 명령어 정보가 담긴 객체   |
 | [CustomInfoObject](#CustomInfoObject)                     | 정보를 임의의 이름, 필요한 단위나 수치로 직접 입력할 때 사용되는 객체 |
-| [EndpointInfoObject](#EndpointInfoObject)                 | 기기의 최종 대상 정보가 담긴 객체                |
+| [EndpointInfoObject](#EndpointInfoObject)                 | 대상 기기가 최종적으로 제어해야 하는 대상 정보가 담긴 객체  |
 | [ExpendableInfoObject](#ExpendableInfoObject)             | 기기 소모품의 사용량이나 남은 수명 정보가 담긴 객체  |
 | [FineDustInfoObject](#FineDustInfoObject)                 | 미세 먼지 정보가 담긴 객체          |
 | [IntensityLevelInfoObject](#IntensityLevelInfoObject)     | 압력이나 수압 세기 정보가 담긴 객체   |
@@ -840,7 +840,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 * [`GetDeviceStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateResponse)
 
 ## EndpointInfoObject {#EndpointInfoObject}
-기기의 최종 대상 정보가 담긴 객체입니다. 대상 기기가 온도나 특정 설정 값을 적용할 최종 대상은 기기의 특정 부분이나 구동 방식이나 이를 적용할 영역 등을 의미합니다. 희망 온도를 조정하는 예를 들면, 냉장고는 냉동실 또는 냉장실인지 지정하여 특정 부분만 온도를 조절할 수 있고, 난방 기능이 있는 에어컨은 냉방인지 난방인지 지정하여 특정 모드의 온도를 조절할 수 있습니다.
+대상 기기가 최종적으로 제어해야 하는 대상 정보가 담긴 객체입니다. 대상 기기가 온도나 특정 설정 값을 적용할 최종 대상(endpoint)을 지정할 수 있으며, 최종 대상은 기기의 특정 부분, 구동 방식이나 이를 적용할 영역 등을 의미합니다. 희망 온도를 조정하는 것을 예로 들면 사용자는 냉장고 온도를 조절할 때 냉동실의 온도를 변경할지 냉장실의 온도를 변경할지 추가로 지정할 수 있습니다. {{ "또, 난방 기능이 있는 에어컨을 조절할 때는 냉방 모드로 동작할 때의 온도와 난방 모드로 동작할 때의 온도를 구분하여 제어할 수 있습니다." if book.TargetCountryCode == "JP" }}
 
 ### Object fields
 | 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |
@@ -855,6 +855,12 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 | freezer        | 냉장고의 냉동실                           |
 | fridge         | 냉장고의 냉장실                           |
 | hotwater       | 정수기나 온도 조절기의 온수 온도              |
+
+<div class="note">
+  <p><strong>Note!</strong></p>
+  <p>최종 대상의 목록은 계속 추가될 수 있습니다.</p>
+</div>
+
 
 ### Object Example
 {% raw %}
