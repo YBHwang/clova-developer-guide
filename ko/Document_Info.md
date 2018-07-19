@@ -446,7 +446,11 @@
     </tr>
     <tr>
       <td>2017-08-21</td>
-      <td>[CIC] <a href="/CIC/Guides/Interact_with_CIC.html#ManageConnection">Access token 갱신</a>절 추가 및 /token API 내용 업데이트</td>
+      <td>
+        <ul>
+          <li>[CIC] <a href="/CIC/Guides/Interact_with_CIC.html#ManageConnection">Access token 갱신</a>절 추가 및 /token API 내용 업데이트</li>
+        </ul>
+      </td>
     </tr>
     <tr>
       <td>2017-08-14</td>
@@ -486,7 +490,11 @@
     </tr>
     <tr>
       <td>2017-07-14</td>
-      <td>[CIC] <a href="/CIC/References/CICInterface/AudioPlayer.html#AudioStreamInfoObject">AudioStreamInfoObject</a> 객체 beginAtInMilliseconds 필드 내용 추가</td>
+      <td>
+        <ul>
+          <li>[CIC] <a href="/CIC/References/CICInterface/AudioPlayer.html#AudioStreamInfoObject">AudioStreamInfoObject</a> 객체 beginAtInMilliseconds 필드 내용 추가</li>
+        </ul>
+      </td>
     </tr>
     <tr>
       <td>2017-07-07</td>
@@ -518,11 +526,19 @@
     </tr>
     <tr>
       <td>2017-06-08</td>
-      <td>[CIC] <a href="/CIC/Guides/Interact_with_CIC.html">CIC 연동하기</a>에 <a href="/CIC/Guides/Interact_with_CIC.md#ManageConnection">연결 관리하기</a> 추가 (HTTP Ping)</td>
+      <td>
+        <ul>
+          <li>[CIC] <a href="/CIC/Guides/Interact_with_CIC.html">CIC 연동하기</a>에 <a href="/CIC/Guides/Interact_with_CIC.md#ManageConnection">연결 관리하기</a> 추가 (HTTP Ping)</li>
+        </ul>
+      </td>
     </tr>
     <tr>
       <td>2017-05-29</td>
-      <td>[CIC] CIC 문서 파트 작성</td>
+      <td>
+        <ul>
+          <li>[CIC] CIC 문서 파트 작성</li>
+        </ul>
+      </td>
     </tr>
   </tbody>
 </table>
