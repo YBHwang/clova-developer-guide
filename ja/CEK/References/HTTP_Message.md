@@ -1,12 +1,12 @@
 ## HTTPメッセージ {#HTTPMessage}
-CEKとExtensionが通信する際、HTTP/1.1プロトコルを使用して基本的なHTTPSリクエストとHTTPSレスポンスをやり取りします。CEKとExtensionが通信する際、HTTPメッセージのボディには、JSON形式のメッセージが含まれます。ここでは、CEKとExtensionがやり取りするHTTPメッセージの構成について説明します。
+CEKとExtensionが通信する際、HTTP/1.1を使用して基本的なHTTPSリクエストとHTTPSレスポンスをやり取りします。CEKとExtensionが通信する際、HTTPメッセージのボディには、JSON形式のメッセージが含まれます。ここでは、CEKとExtensionがやり取りするHTTPメッセージの構成について説明します。
 
 * [HTTPヘッダー](#HTTPHeader)
 * [HTTPボディ](#HTTPBody)
 * [リクエストメッセージを検証する](#RequestMessageValidation)
 
 ### HTTPヘッダー {#HTTPHeader}
-CEKがExtensionに解析されたユーザーの発話情報を渡す際、HTTPSリクエストを使用します。その際、HTTPSリクエストのヘッダーは、次のように構成されます。
+CEKがExtensionに解析されたユーザーの発話情報を渡す際、HTTPリクエストを使用します。その際、HTTPリクエストのヘッダーは、次のように構成されます。
 
 {% raw %}
 
@@ -20,35 +20,35 @@ SignatureCEK：{{ SignatureCEK }}
 ```
 {% endraw %}
 
-* HTTP/1.1バージョンでHTTPS通信し、POSTメソッドを使用します。
+* HTTP/1.1バージョンでHTTP通信し、POSTメソッドを使用します。
 * Hostとリクエストパスは、Extensionの開発者があらかじめ定義したURIに設定されます。
 * リクエストボディのデータはJSON形式で、UTF-8エンコーディングを使用します。
 * `SignatureCEK`フィールドとRSA公開鍵を使用して、[Clovaから送信されたリクエストかどうかを検証](#RequestMessageValidation)することができます。
 
-逆に、ExtensionがClovaに処理結果を返す際、HTTPSレスポンスを使用します。その際のHTTPSレスポンスヘッダーは、以下のように設定をしてください。
+逆に、ExtensionがClovaに処理結果を返す際、HTTPレスポンスを使用します。その際のHTTPレスポンスヘッダーは、以下のように設定をしてください。
 {% raw %}
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json;charset-UTF-8
 ```
 {% endraw %}
-* CEKから渡されたHTTPSリクエストに対するレスポンスとして、処理結果を返します。
+* CEKから渡されたHTTPリクエストに対するレスポンスとして、処理結果を返します。
 * ボディのデータはJSON形式で、UTF-8エンコーディングを使用します。
 
 ### HTTPボディ {#HTTPBody}
-HTTPSリクエストメッセージとレスポンスメッセージのボディはJSON形式で、解析されたユーザーの発話情報や、Extensionの処理結果が含まれています。それぞれのメッセージの構成は、使用するExtensionの種類によって異なります。メッセージ構成の詳細については、[Custom Extensionメッセージ](#CustomExtMessage)と[Clova Home Extensionメッセージ](#ClovaHomeExtMessage)を参照してください。
+リクエストメッセージとレスポンスメッセージのボディはJSON形式で、解析されたユーザーの発話情報や、Extensionの処理結果が含まれています。それぞれのメッセージの構成は、使用するExtensionの種類によって異なります。メッセージ構成の詳細については、[Custom Extensionメッセージ](#CustomExtMessage)と[Clova Home Extensionメッセージ](#ClovaHomeExtMessage)を参照してください。
 
 ### リクエストメッセージを検証する {#RequestMessageValidation}
-ExtensionがCEKからHTTPSリクエストを受信するとき、そのリクエストが第三者ではなく、Clovaから送信された信頼できるリクエストかどうかを検証する必要があります。[HTTPヘッダー](#HTTPHeader)にある`SignatureCEK`フィールドとRSA公開鍵を使用して、以下のようにリクエストメッセージを検証してください。
+ExtensionがCEKからHTTPリクエストを受信するとき、そのリクエストが第三者ではなく、Clovaから送信された信頼できるリクエストかどうかを検証する必要があります。[HTTPヘッダー](#HTTPHeader)にある`SignatureCEK`フィールドとRSA公開鍵を使用して、以下のようにリクエストメッセージを検証してください。
 
 **RSA公開鍵を用いてリクエストメッセージを検証する**
 <ol>
 <li><p>`context.System.application.applicationId`が設定済みの`ExtensionId`と同一であることを確認してください</p></li>
 <li><p>Clovaの署名用RSA公開鍵を以下のURLからダウンロードしてください</p>
 <p>https://clova-cek-requests.line.me/.well-known/signature-public-key.pem</p></li>
-<li><p>`SignatureCEK`ヘッダーの値を取得してください</p>
-<p>`SignatureCEK`ヘッダーの値は、Base64エンコードされた、HTTP bodyの<a href="https://tools.ietf.org/html/rfc3447" target="_blank">RSA PKCS #1 v1.5</a>署名値です。</p></li>
-<li>ステップ1でダウンロードしたRSA公開鍵を用いてステップ2で取得した`SignatureCEK` ヘッダーを以下のように<a href="https://tools.ietf.org/html/rfc3447#section-5.2" target="_blank">検証(verify)</a>してください</li>
+<li><p><code>SignatureCEK</code>ヘッダーの値を取得してください</p>
+<p><code>SignatureCEK</code>ヘッダーの値は、Base64エンコードされた、HTTP bodyの<a href="https://tools.ietf.org/html/rfc3447" target="_blank">RSA PKCS #1 v1.5</a>署名値です。</p></li>
+<li>ステップ1でダウンロードしたRSA公開鍵を用いてステップ2で取得した<code>SignatureCEK</code> ヘッダーを以下のように<a href="https://tools.ietf.org/html/rfc3447#section-5.2" target="_blank">検証(verify)</a>してください</li>
 </ol>
 
 ```java
