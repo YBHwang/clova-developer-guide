@@ -112,10 +112,6 @@ IoT 기기 정보 확인 및 기기 제어와 관련된 요청 및 응답을 수
 | [`SetColorTemperatureRequest`](#SetColorTemperatureRequest)                   | Request  | 주로 스마트 전등과 같은 기기를 제어할 때 사용되며, 대상 기기의 조명이나 화면, 전등의 색온도를 변경하도록 Clova Home extension에게 요청합니다.  |
 | [`SetFanSpeedConfirmation`](#SetFanSpeedConfirmation)                         | Response | [`SetFanSpeedRequest`](#SetFanSpeedRequest) 메시지에 대한 응답으로 팬 속도를 변경하도록 요청한 후 처리된 결과를 CEK에게 전달합니다. |
 | [`SetFanSpeedRequest`](#SetFanSpeedRequest)                                   | Request  | 대상 기기가 지정한 값으로 팬 속도를 변경하도록 Clova Home extension에게 요청합니다. |
-| [`SetFreezerTargetTemperatureConfirmation`](#SetFreezerTargetTemperatureConfirmation)  | Response  |  [`SetFreezerTargetTemperatureRequest`](#SetFreezerTargetTemperatureRequest) 메시지에 대한 응답으로 냉동실의 희망 온도를 변경하도록 요청한 후 처리된 결과를 CEK에게 전달합니다. |
-| [`SetFreezerTargetTemperatureRequest`](#SetFreezerTargetTemperatureRequest)   | Request  | 냉장고 같은 기기를 제어할 때 사용되며, 냉장고의 냉동고 희망 온도를 지정한 값으로 변경하도록 Clova Home extension에게 요청합니다.  |
-| [`SetFridgeTargetTemperatureConfirmation`](#SetFridgeTargetTemperatureConfirmation) | Response | [`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest) 메시지에 대한 응답으로 냉장실의 희망 온도를 변경하도록 요청한 후 처리된 결과를 CEK에게 전달합니다.  |
-| [`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest)     | Request  | 냉장고 같은 기기를 제어할 때 사용되며, 냉장고의 냉장실 희망 온도를 지정한 값으로 변경하도록 Clova Home extension에게 요청합니다.  |
 | [`SetLockStateConfirmation`](#SetLockStateConfirmation)                       | Response | [`SetLockStateRequest`](#SetLockStateRequest) 메시지에 대한 응답으로 대상 기기가 잠기거나 열리도록 요청한 후 처리된 결과를 CEK에게 전달합니다.  |
 | [`SetLockStateRequest`](#SetLockStateRequest)                                 | Request  | 대상 기기를 잠그거나 열도록 Clova Home extension에게 요청합니다.  |
 | [`SetModeConfirmation`](#SetModeConfirmation)                                 | Response | [`SetModeRequest`](#SetModeRequest) 메시지에 대한 응답으로 운전 모드(operation mode)를 변경하도록 요청한 후 처리된 결과를 CEK에게 전달합니다. |
@@ -4226,162 +4222,6 @@ IoT 기기 정보 확인 및 기기 제어와 관련된 요청 및 응답을 수
 ### See also
 * [`SetFanSpeedConfirmation`](#SetFanSpeedConfirmation)
 
-## SetFreezerTargetTemperatureConfirmation {#SetFreezerTargetTemperatureConfirmation}
-[`SetFreezerTargetTemperatureRequest`](#SetFreezerTargetTemperatureRequest) 메시지에 대한 응답으로 냉동실의 희망 온도를 변경하도록 요청한 후 처리된 결과를 CEK에게 전달합니다.
-
-### Payload fields
-
-| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
-|---------------|---------|-----------------------------|:---------:|
-| `targetTemperature`               | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | 대상 기기에 설정되었거나 extension이 대상 기기에게 설정하도록 요청한 희망 온도 정보를 담고 있는 객체                                | 선택    |
-
-### Remarks
-
-대상 기기에서 payload에 입력할 정보를 얻어올 수 없으면 값을 입력하지 않아도 됩니다. 이때 사용자에게 구체적인 정보 없이 기기 제어 요청이 정상 처리되었음을 알려줍니다.
-
-### Message example
-
-{% raw %}
-
-```json
-{
-  "header": {
-    "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
-    "name": "SetFreezerTargetTemperatureConfirmation",
-    "namespace": "ClovaHome",
-    "payloadVersion": "1.0"
-  },
-  "payload": {
-    "targetTemperature": {
-      "value": 22
-    }
-  }
-}
-```
-
-{% endraw %}
-
-### See also
-* [`SetFreezerTargetTemperatureRequest`](#SetFreezerTargetTemperatureRequest)
-
-## SetFreezerTargetTemperatureRequest {#SetFreezerTargetTemperatureRequest}
-냉장고 같은 기기를 제어할 때 사용되며, 냉장고의 냉동고 희망 온도를 지정한 값으로 변경하도록 Clova Home extension에게 요청합니다. 이 요청에 대한 응답으로 [`SetFreezerTargetTemperatureConfirmation`](#SetFreezerTargetTemperatureConfirmation) 메시지를 사용해야 합니다.
-
-### Payload fields
-
-| 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
-|---------------|---------|-----------------------------|:---------:|
-| `accessToken`   | string | IoT 서비스의 사용자 계정의 access token. CEK는 외부 서비스의 인증 서버로부터 획득한 사용자 계정의 access token을 전달합니다. 자세한 설명은 [사용자 계정 연결하기](/CEK/Guides/Link_User_Account.md)를 참조합니다.                          | 항상    |
-| `appliance`     | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) | 대상 기기 정보를 담고 있는 객체. `applianceId` 필드는 필수입니다.        | 항상    |
-| `targetTemperature`       | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | 대상 기기에 설정해야 할 희망 온도 정보를 담고 있는 객체     | 항상    |
-
-### Message example
-
-{% raw %}
-
-```json
-{
-  "header": {
-    "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
-    "name": "SetFreezerTargetTemperatureRequest",
-    "namespace": "ClovaHome",
-    "payloadVersion": "1.0"
-  },
-  "payload": {
-    "accessToken": "92ebcb67fe33",
-    "appliance": {
-      "applianceId": "device-021"
-    },
-    "targetTemperature": {
-      "value": 22
-    }
-  }
-}
-```
-
-{% endraw %}
-
-### See also
-* [`SetFreezerTargetTemperatureConfirmation`](#SetFreezerTargetTemperatureConfirmation)
-
-## SetFridgeTargetTemperatureConfirmation {#SetFridgeTargetTemperatureConfirmation}
-[`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest) 메시지에 대한 응답으로 냉장실의 희망 온도를 변경하도록 요청한 후 처리된 결과를 CEK에게 전달합니다.
-
-### Payload fields
-
-| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
-|---------------|---------|-----------------------------|:---------:|
-| `targetTemperature`               | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | 대상 기기에 설정되었거나 extension이 대상 기기에게 설정하도록 요청한 희망 온도 정보를 담고 있는 객체                                | 선택    |
-
-### Remarks
-
-대상 기기에서 payload에 입력할 정보를 얻어올 수 없으면 값을 입력하지 않아도 됩니다. 이때 사용자에게 구체적인 정보 없이 기기 제어 요청이 정상 처리되었음을 알려줍니다.
-
-### Message example
-
-{% raw %}
-
-```json
-{
-  "header": {
-    "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
-    "name": "SetFridgeTargetTemperatureConfirmation",
-    "namespace": "ClovaHome",
-    "payloadVersion": "1.0"
-  },
-  "payload": {
-    "targetTemperature": {
-      "value": 22
-    }
-  }
-}
-```
-
-{% endraw %}
-
-### See also
-* [`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest)
-
-## SetFridgeTargetTemperatureRequest {#SetFridgeTargetTemperatureRequest}
-냉장고 같은 기기를 제어할 때 사용되며, 냉장고의 냉장실 희망 온도를 지정한 값으로 변경하도록 Clova Home extension에게 요청합니다. 이 요청에 대한 응답으로 [`SetFridgeTargetTemperatureConfirmation`](#SetFridgeTargetTemperatureConfirmation) 메시지를 사용해야 합니다.
-
-### Payload fields
-
-| 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
-|---------------|---------|-----------------------------|:---------:|
-| `accessToken`   | string | IoT 서비스의 사용자 계정의 access token. CEK는 외부 서비스의 인증 서버로부터 획득한 사용자 계정의 access token을 전달합니다. 자세한 설명은 [사용자 계정 연결하기](/CEK/Guides/Link_User_Account.md)를 참조합니다.                          | 항상    |
-| `appliance`     | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) | 대상 기기 정보를 담고 있는 객체. `applianceId` 필드는 필수입니다.        | 항상    |
-| `targetTemperature`       | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | 대상 기기에 설정해야 할 희망 온도 정보를 담고 있는 객체     | 항상    |
-
-### Message example
-
-{% raw %}
-
-```json
-{
-  "header": {
-    "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
-    "name": "SetFridgeTargetTemperatureRequest",
-    "namespace": "ClovaHome",
-    "payloadVersion": "1.0"
-  },
-  "payload": {
-    "accessToken": "92ebcb67fe33",
-    "appliance": {
-      "applianceId": "device-021"
-    },
-    "targetTemperature": {
-      "value": 22
-    }
-  }
-}
-```
-
-{% endraw %}
-
-### See also
-* [`SetFridgeTargetTemperatureConfirmation`](#SetFridgeTargetTemperatureConfirmation)
-
 ## SetLockStateConfirmation {#SetLockStateConfirmation}
 [`SetLockStateRequest`](#SetLockStateRequest) 메시지에 대한 응답으로 대상 기기가 잠기거나 열리도록 요청한 후 처리된 결과를 CEK에게 전달합니다.
 
@@ -4578,6 +4418,7 @@ IoT 기기 정보 확인 및 기기 제어와 관련된 요청 및 응답을 수
 |---------------|---------|-----------------------------|:---------:|
 | `accessToken`   | string | IoT 서비스의 사용자 계정의 access token. CEK는 외부 서비스의 인증 서버로부터 획득한 사용자 계정의 access token을 전달합니다. 자세한 설명은 [사용자 계정 연결하기](/CEK/Guides/Link_User_Account.md)를 참조합니다.                          | 항상    |
 | `appliance`     | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) | 대상 기기 정보를 담고 있는 객체. `applianceId` 필드는 필수입니다. | 항상    |
+| `endpoint`     | [EndpointInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#EndpointInfoObject)    | 희망 온도를 적용할 최종 대상. 대상 기기가 희망 온도를 적용할 최종 대상은 기기의 특정 부분이나 구동 방식이나 온도를 적용할 영역 등을 의미합니다. 예를 들면, 냉장고는 냉동실 또는 냉장실인지 지정하여 특정 부분만 온도를 조절할 수 있고, 난방 기능이 있는 에어컨은 냉방인지 난방인지 지정하여 특정 모드의 온도를 조절할 수 있습니다.  | 조건부  |
 | `targetTemperature`       | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | 대상 기기에 설정해야 할 희망 온도 정보를 담고 있는 객체                | 항상    |
 
 ### Message example
@@ -4599,6 +4440,9 @@ IoT 기기 정보 확인 및 기기 제어와 관련된 요청 및 응답을 수
     },
     "targetTemperature": {
       "value": 22
+    }
+    "endpoint"{
+      "value": "freezer"
     }
   }
 }
