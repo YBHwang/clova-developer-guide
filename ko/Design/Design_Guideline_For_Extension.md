@@ -507,7 +507,7 @@ Skill 콘텐츠 제공과 관련하여 다음과 같은 유의 사항이 있습�
 * 위에서 언급한 내용 뿐만 아니라 Skill은 [Clova Extensions Kit 이용약관](https://developers.naver.com/console/clova/cek/#/terms)을 위반하지 않아야 합니다.
 
 <div class="note">
-<p><strong>메모</strong></p>
+<p><strong>Note!</strong></p>
 <p>일부 예외가 있을 수 있기 때문에 판단이 어려울 수 있으며, 이에 대한 판단이 어렵다면 <a href="/DevConsole/Guides/CEK/Deploy_Extension.html#RequestExtensionSubmission">심사 시</a>에 의견을 입력해주십시오.</p>
 </div>
 
