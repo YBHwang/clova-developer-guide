@@ -582,7 +582,7 @@ The extension must deliver a response message after handling a request message (
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>A prior arrangement is necessary in case of having to send an customized directive message of the extension through the <code>response.directives</code> field. Contact the partnership team for more information.</p>
+  <p>A prior arrangement is necessary in case of having to send an customized directive message of the extension through the <code>response.directives</code> field. Contact your Clova representative for more information.</p>
 </div>
 
 #### SpeechInfoObject {#CustomExtSpeechInfoObject}

@@ -7,7 +7,7 @@ This document is a developer guide and API reference for the CIC and CEK platfor
 </div>
 
 ## Contacts
-Contact the Clova partnership team for any inquiries about this document.
+Contact your Clova representative for any inquiries about this document.
 
 ## Document version and revision history
 

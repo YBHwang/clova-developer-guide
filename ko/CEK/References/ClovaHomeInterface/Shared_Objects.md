@@ -14,6 +14,7 @@
 | [ConsumptionInfoObject](#ConsumptionInfoObject)           | 에너지 사용량 정보가 담긴 객체       |
 | [CustomCommandInfoObject](#CustomCommandInfoObject)       | 사용자 정의 명령어 정보가 담긴 객체   |
 | [CustomInfoObject](#CustomInfoObject)                     | 정보를 임의의 이름, 필요한 단위나 수치로 직접 입력할 때 사용되는 객체 |
+| [EndpointInfoObject](#EndpointInfoObject)                 | 대상 기기가 최종적으로 제어해야 하는 대상 정보가 담긴 객체  |
 | [ExpendableInfoObject](#ExpendableInfoObject)             | 기기 소모품의 사용량이나 남은 수명 정보가 담긴 객체  |
 | [FineDustInfoObject](#FineDustInfoObject)                 | 미세 먼지 정보가 담긴 객체          |
 | [IntensityLevelInfoObject](#IntensityLevelInfoObject)     | 압력이나 수압 세기 정보가 담긴 객체   |
@@ -225,7 +226,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 | `"PURIFIER"`        | 정수기 타입          | GetDeviceState, GetExpendableState, HealthCheck, ReleaseMode, SetMode, SetTargetTemperature                                                     |
 | `"RANGE"`           | 레인지 타입          | GetDeviceState, HealthCheck                                                                                                             |
 | `"RANGEHOOD"`       | 레인지 후드 타입      | HealthCheck, TurnOff, TurnOn                                                                                                      |
-| `"REFRIGERATOR"`    | 냉장고 타입          | GetDeviceState, HealthCheck, SetFreezerTargetTemperature, SetFridgeTargetTemperature, SetMode                                           |
+| `"REFRIGERATOR"`    | 냉장고 타입          | GetDeviceState, HealthCheck, SetTargetTemperature, SetMode                |
 | `"RICECOOKER"`      | 전기 밥솥 타입        | GetCleaningCycle, GetDeviceState, GetExpendableState, GetKeepWarmTime, GetPhase, GetRemainingTime, HealthCheck, ReleaseMode, SetMode, Stop, TurnOff, TurnOn          |
 | `"ROBOTVACUUM"`     | 로봇 청소기 타입       | Charge, GetBatteryInfo, HealthCheck, TurnOff, TurnOn                                                                             |
 | `"SETTOPBOX"`       | TV 셋톱 박스 타입     | DecrementChannel, DecrementVolume, HealthCheck, IncrementChannel, IncrementVolume, Mute, SetChannel, SetChannelByName, TurnOff, TurnOn, Unmute |
@@ -305,8 +306,6 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 | SetColor                   | [`SetColorConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetColorConfirmation), [`SetColorRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetColorRequest)  |
 | SetColorTemperature        | [`SetColorTemperatureConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetColorTemperatureConfirmation), [`SetColorTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetColorTemperatureRequest)  |
 | SetFanSpeed                | [`SetFanSpeedConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetFanSpeedConfirmation), [`SetFanSpeedRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetFanSpeedRequest)  |
-| SetFreezerTargetTemperature | [`SetFreezerTargetTemperatureConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetFreezerTargetTemperatureConfirmation), [`SetFreezerTargetTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetFreezerTargetTemperatureRequest)  |
-| SetFridgeTargetTemperature | [`SetFridgeTargetTemperatureConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetFridgeTargetTemperatureConfirmation), [`SetFridgeTargetTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetFridgeTargetTemperatureRequest)  |
 | SetLockState               | [`SetLockStateConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetLockStateConfirmation), [`SetLockStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetLockStateRequest)  |
 | SetMode                    | [`SetModeConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetModeConfirmation), [`SetModeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetModeRequest) |
 | SetTargetTemperature       | [`SetTargetTemperatureConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetTargetTemperatureConfirmation), [`SetTargetTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetTargetTemperatureConfirmation)  |
@@ -839,6 +838,61 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 ### See also
 * [`GetDeviceStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateRequest)
 * [`GetDeviceStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateResponse)
+
+## EndpointInfoObject {#EndpointInfoObject}
+대상 기기가 최종적으로 제어해야 하는 대상 정보가 담긴 객체입니다. 대상 기기가 온도나 특정 설정 값을 적용할 최종 대상(endpoint)이 사용자에 의해 지정될 수 있으며, 최종 대상은 기기의 특정 부분, 구동 방식이나 이를 적용할 영역 등을 의미합니다. 희망 온도를 조정하는 것을 예로 들면 사용자는 냉장고 온도를 조절할 때 냉동실의 온도를 변경할지 냉장실의 온도를 변경할지 추가로 지정할 수 있습니다. {{ "또, 난방 기능이 있는 에어컨을 조절할 때는 냉방 모드로 동작할 때의 온도와 난방 모드로 동작할 때의 온도를 구분하여 제어할 수 있습니다." if book.TargetCountryCode == "JP" }}
+
+### Object fields
+| 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |
+|---------------|---------|-----------------------------|:-------------:|
+| `value`       | string  | 최종 대상을 나타내는 문자열. 자세한 내용은 [Endpoint references](#EndpointReferences)를 참조합니다.    | 필수/항상 |
+
+### Endpoint references {#EndpointReferences}
+
+| Endpoint 코드   | 설명                                   |
+|----------------|---------------------------------------|
+| coldwater      | 정수기나 온도 조절기의 냉수 온도              |
+| freezer        | 냉장고의 냉동실                           |
+| fridge         | 냉장고의 냉장실                           |
+| hotwater       | 정수기나 온도 조절기의 온수 온도              |
+
+<div class="note">
+  <p><strong>Note!</strong></p>
+  <p>최종 대상의 목록은 계속 추가될 수 있습니다.</p>
+</div>
+
+
+### Object Example
+{% raw %}
+
+```json
+// 예제: SetTargetTemperatureRequest 메시지에서 사용된 예
+{
+  "header": {
+    "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
+    "name": "SetTargetTemperatureRequest",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "accessToken": "92ebcb67fe33",
+    "appliance": {
+      "applianceId": "device-001"
+    },
+    "targetTemperature": {
+      "value": 22
+    },
+    "endpoint": {
+      "value": "freezer"
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### See also
+* [`SetTargetTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetTargetTemperatureRequest)
 
 ## ExpendableInfoObject {#ExpendableInfoObject}
 기기 소모품의 사용량이나 남은 수명 정보를 담고 있는 객체입니다. 대상 기기의 소모품 사용량이나 남은 수명을 나타낼 때 사용됩니다.
@@ -1511,10 +1565,6 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 * [`GetTargetTemperatureResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetTargetTemperatureResponse)
 * [`IncrementTargetTemperatureConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#IncrementTargetTemperatureConfirmation)
 * [`IncrementTargetTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#IncrementTargetTemperatureRequest)
-* [`SetFreezerTargetTemperatureConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetFreezerTargetTemperatureConfirmation)
-* [`SetFreezerTargetTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetFreezerTargetTemperatureRequest)
-* [`SetFridgeTargetTemperatureConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetFridgeTargetTemperatureConfirmation)
-* [`SetFridgeTargetTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetFridgeTargetTemperatureRequest)
 * [`SetTargetTemperatureConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetTargetTemperatureConfirmation)
 * [`SetTargetTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetTargetTemperatureRequest)
 

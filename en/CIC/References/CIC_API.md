@@ -693,9 +693,11 @@ The available namespaces are shown below. Click each link to find out more about
 * [DeviceControl](/CIC/References/CICInterface/DeviceControl.md)
 * [Notifier](/CIC/References/CICInterface/Notifier.md)
 * [PlaybackController](/CIC/References/CICInterface/PlaybackController.md)
+* [Settings](/CIC/References/CICInterface/Settings.md)
 * [SpeechRecognizer](/CIC/References/CICInterface/SpeechRecognizer.md)
 * [SpeechSynthesizer](/CIC/References/CICInterface/SpeechSynthesizer.md)
 * [System](/CIC/References/CICInterface/System.md)
+* [TemplateRuntime](/CIC/References/CICInterface/TemplateRuntime.md)
 * [TextRecognizer](/CIC/References/CICInterface/TextRecognizer.md)
 
 See the following indexes for a full list of interfaces grouped into events and directives.
