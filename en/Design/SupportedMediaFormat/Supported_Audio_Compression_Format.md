@@ -22,7 +22,7 @@ Audio compression formats supported by Clova are as follows:
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>There may be further support in the future for audio compression formats and transmission protocols by Clova. Also, a license cost may be incurred for playing music that is in the audio compression format of a paid service. Please contact the Partnership Manager for details on license fees.</p>
+  <p>There may be further support in the future for audio compression formats and transmission protocols by Clova. Also, a license cost may be incurred for playing music that is in the audio compression format of a paid service. Please contact your Clova representative for details on license fees.</p>
 </div>
 
 {% endif %}
