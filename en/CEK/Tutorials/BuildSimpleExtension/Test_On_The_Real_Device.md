@@ -10,7 +10,7 @@ Register a tester ID to specify an account to execute the extension.
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>Wait a short while after registering the tester ID to test the extension. If you are unable to test the extension even after an hour, post your issue on the forum or contact the partnership team.</p>
+  <p>Wait a short while after registering the tester ID to test the extension. If you are unable to test the extension even after an hour, post your issue on the forum or contact your Clova representative.</p>
 </div>
 
 <div class="danger">
