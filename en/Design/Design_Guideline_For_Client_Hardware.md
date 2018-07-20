@@ -10,7 +10,7 @@ A consistent UI and UX must be provided to users of Clova client devices for a f
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>Any guidelines or specifications not mentioned in this document can be implemented according to the manufacturer needs or policies. However, if you are uncertain and need help to decide, contact the partnership team.</p>
+  <p>Any guidelines or specifications not mentioned in this document can be implemented according to the manufacturer needs or policies. However, if you are uncertain and need help to decide, contact your Clova representative.</p>
 </div>
 
 ## Client states and events {#ClientStateAndEvent}
