@@ -204,7 +204,7 @@
 | `btlist[].name`      | string       | 블루투스 기기의 이름                      | 필수 |
 | `btlist[].address`   | string       | 블루투스 기기의 장치 주소                  | 필수 |
 | `btlist[].connected` | boolean      | 블루투스 기기와의 연결 여부. <ul><li><code>true</code>: 연결된 상태</li><li><code>false</code>: 연결되어 있지 않은 상태</li></ul> | 필수 |
-| `btlist[].role`      | string       | 블루투스 기기의 역할 <ul><li><code>"sink"</code></li><li><code>"source"</code></li></ul>  | 필수 |   |   |   |   |
+| `btlist[].role`      | string       | 블루투스 기기의 역할 <ul><li><code>"sink"</code></li><li><code>"source"</code></li></ul>  | 필수 |
 | `scanlist[]`         | object array | 스캔된 블루투스 기기 정보를 가지는 객체 배열   | 필수 |
 | `scanlist[].name`    | string       | 블루투스 기기의 이름                      | 필수 |
 | `scanlist[].address` | string       | 블루투스 기기의 장치 주소                  | 필수 |
