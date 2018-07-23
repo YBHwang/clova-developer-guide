@@ -489,9 +489,9 @@ Extensionは、ユーザーのリクエストを処理し、その結果をClova
 > <p class="ldiag">「ヴィヴァルディの四季を再生して」</p>
 > <p class="rdiag">「はい。ヴィヴァルディの四季を再生します」(TTS)</p>
 > <p class="rdiag">AudioPlayer.Play: ヴィヴァルディの四季第1楽章</p>
-> <p class="ldiag">「クローバー、ちょっと止めて」</p>
+> <p class="ldiag">「Clova、ちょっと止めて」</p>
 > <p class="rdiag">AudioPlayer.Pause: 再生を停止する</p>
-> <p class="ldiag">「クローバー、再生を再開して」</p>
+> <p class="ldiag">「Clova、再生を再開して」</p>
 > <p class="rdiag">AudioPlayer.Resume: 再生を再開する</p>
 > <p class="ldiag">「次」</p>
 > <p class="rdiag">AudioPlayer.Play: ヴィヴァルディの四季第2楽章</p>
