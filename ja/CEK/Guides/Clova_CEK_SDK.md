@@ -10,6 +10,12 @@ GitHubにてClova Extensions Kitソフトウェア開発キットを提供して
 ## CEK SDK for Swift {#SDK_For_Swift}
 <a href="{{ book.GitHubBaseURLforExtensionExample }}/clova-cek-sdk-swift">{{ book.GitHubBaseURLforExtensionExample }}/clova-cek-sdk-swift</a>
 
+## CEK SDK for Kotlin{#SDK_For_Kotlin}
+<a href="{{ book.GitHubBaseURLforExtensionExample }}/clova-cek-sdk-kotlin">{{ book.GitHubBaseURLforExtensionExample }}/clova-cek-sdk-kotlin</a>
+
+## CEK SDK for Elixir{#SDK_For_Elixir}
+<a href="{{ book.GitHubBaseURLforExtensionExample }}/clova-cek-sdk-elixir">{{ book.GitHubBaseURLforExtensionExample }}/clova-cek-sdk-elixir</a>
+
 <div class="note">
   <p><strong>メモ</strong></p>
   <p>SDKは随時追加、更新されます。</p>
