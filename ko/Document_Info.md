@@ -21,9 +21,10 @@
   </thead>
   <tbody>
   <tr>
-    <td>2018-07-24</td>
+    <td>2018-07-23</td>
     <td>
       <ul>
+        <li>[Design] <a href="/Design/Design_Guideline_For_Client_Hardware.html">클라이언트 기기 디자인 가이드라인</a>의 <a href="/Design/Design_Guideline_For_Client_Hardware.html#SoundEffect">효과음</a> 중 Attending 상태 진입에 대한 효과음 업데이트</li>
         <li>[CIC] <a href="/CIC/References/Clova_Auth_API.html">CIC 인증 API</a>의 <a href="/CIC/References/Clova_Auth_API.html#RequestAuthorizationCode">Authorization code 요청</a> 설명에 423 Locked 상태 코드 추가</li>
         <li>[CEK] Clova Home extension API에서 SetFreezerTargetTemperature, SetFridgeTargetTemperature 동작을 제거하고 이와 관련된 인터페이스를 제거</li>
         <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetTargetTemperatureRequest">SetTargetTemperatureRequest</a>에 endpoint 필드를 추가하고 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.md#EndpointInfoObject">EndpointInfoObject</a> 객체를 추가</li>
