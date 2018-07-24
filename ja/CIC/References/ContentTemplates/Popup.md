@@ -152,7 +152,7 @@ Toast、alert、popupで表示するテキストやボタンの情報を提供�
   },
   "mainText": {
     "type": "string",
-    "value": "NAVERミュージック100曲利用クーポンで、クローバーがおすすめする音楽を楽しんでくださいね!"
+    "value": "NAVERミュージック100曲利用クーポンで、Clovaがおすすめする音楽を楽しんでくださいね!"
   },
   "negativeButtonText": {
     "type": "string",
