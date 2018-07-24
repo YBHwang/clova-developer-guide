@@ -25,7 +25,7 @@ PlaybackController 인터페이스는 클라이언트의 오디오 재생 및 �
 | [`SetRepeatMode`](#SetRepeatMode)              | Directive | 클라이언트에게 지정된 반복 모드로 재생 상태를 변경하도록 지시합니다.  |
 | [`SetRepeatModeCommandIssued`](#SetRepeatModeCommandIssued) | Event | 사용자가 클라이언트 기기에서 반복 재생 버튼(Repeat)을 눌렀을 때 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다.  |
 | [`Stop`](#Stop)                                | Directive | 클라이언트에게 오디오 스트림 재생을 중지하도록 지시합니다.                |
-| [`StopCommandIssued`](#StopCommandIssued)      | Event     | 사용자가 클라이언트 기기에서 반복 재생 버튼(Repeat)을 눌렀을 때 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다.  |
+| [`StopCommandIssued`](#StopCommandIssued)      | Event     | 사용자가 클라이언트 기기에서 재개 버튼(Resume)을 누르거나 CIC로부터 [`PlaybackController.ExpectStopCommand`](#ExpectStopCommand) 지시 메시지를 받았다면 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다.  |
 | [`TurnOffRepeatMode`](#TurnOffRepeatMode)      | Directive | **(Deprecated)** 클라이언트에게 한 곡 반복 재생 모드를 끄도록 지시합니다.                  |
 | [`TurnOnRepeatMode`](#TurnOnRepeatMode)        | Directive | **(Deprecated)** 클라이언트에게 한 곡 반복 재생 모드를 켜도록 지시합니다.                  |
 | [`Unmute`](#Unmute)                            | Directive | 클라이언트에게 오디오 플레이어 볼륨의 음소거를 해제하도록 지시합니다.              |
