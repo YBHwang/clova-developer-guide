@@ -27,14 +27,14 @@ Clova Home Extensionメッセージは、`header`フィールドと`payload`で�
 
 
 #### Message fields
-| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
+| フィールド名       | データ型    | フィールドの説明                     | Optional |
 |---------------|---------|-----------------------------|:-------------:|
-| `header`                 | object | メッセージのヘッダー                                                                                            | 必須/常時     |
-| `header.messageId`       | string | メッセージID(UUID)。個別メッセージを区別するために、Clovaで作成された識別子です。                                         | 必須/常時     |
-| `header.name`            | string | メッセージのAPI名                                                                                        | 必須/常時     |
-| `header.namespace`       | string | このフィールドは`"ClovaHome"`に固定されます。                                                                     | 必須/常時     |
-| `header.payloadVersion`  | string | `header.name`に明示されたClova Home Extensionメッセージのバージョン。このバージョンによって、`payload`フィールドの構成が異なることがあります。  | 必須/常時     |
-| `payload`                | object | `header.name`に指定された[インターフェース](#ClovaHomeExtInterface)によって、payloadオブジェクトの構成とフィールド値が異なります。       | 必須/常時     |
+| `header`                 | object | メッセージのヘッダー                                                                                            |      |
+| `header.messageId`       | string | メッセージID(UUID)。個別メッセージを区別するために、Clovaで作成された識別子です。                                         |      |
+| `header.name`            | string | メッセージのAPI名                                                                                        |      |
+| `header.namespace`       | string | このフィールドは`"ClovaHome"`に固定されます。                                                                     |      |
+| `header.payloadVersion`  | string | `header.name`に明示されたClova Home Extensionメッセージのバージョン。このバージョンによって、`payload`フィールドの構成が異なることがあります。  |      |
+| `payload`                | object | `header.name`に指定された[インターフェース](#ClovaHomeExtInterface)によって、payloadオブジェクトの構成とフィールド値が異なります。       |      |
 
 #### Message example
 {% raw %}
