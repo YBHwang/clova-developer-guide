@@ -395,7 +395,7 @@
     {
       "contentProviderText" : {
         "type" : "string",
-        "value" : "NAVERミュージック"
+        "value" : "LINE MUSIC"
       },
       "description": [
         {
@@ -447,7 +447,7 @@
     {
       "contentProviderText" : {
         "type" : "string",
-        "value" : "NAVERミュージック"
+        "value" : "LINE MUSIC"
       },
       "description": [
         {
