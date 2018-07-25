@@ -23,12 +23,12 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
 * 필수 구현
   * [오디오 콘텐츠 재생 지시](#DirectClientToPlayAudio)
   * [오디오 콘텐츠 재생 제어](#ControlAudioPlayback)
+  * [오디오 콘텐츠의 메타 정보 제공](#ProvidingMetaDataForDisplay)
 
 * 선택 구현
   * [재생 상태 변경 및 경과 보고 수집](#CollectPlaybackStatusAndProgress)
   * [보안을 위한 오디오 콘텐츠 URL 갱신](#UpdateAudioURLForSecurity)
   * [재생 제어의 동작 방식 변경](#CustomizePlaybackControl)
-  * [오디오 콘텐츠의 메타 정보 제공](#ProvidingMetaDataForDisplay)
 
 <div class="note">
   <p><strong>Note!</strong></p>
