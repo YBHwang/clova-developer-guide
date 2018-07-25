@@ -40,7 +40,7 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
 
 사용자가 음악이나 음악과 같은 방식으로 음원을 재생하도록 요청하면 해당 오디오 콘텐츠를 클라이언트에게 전달해야 합니다. 사용자의 음원 재생 요청이  [`IntentRequest`](/CEK/References/CEK_API.md#CustomExtIntentRequest) 타입의 요청 메시지로 custom extension에게 전달될 것이며, custom extension은 해당 `IntentRequest` 타입의 요청 메시지에 대한 [응답 메시지](/CEK/References/CEK_API.md#CustomExtResponseMessage)를 보내야 합니다. 이때, 이 메시지에 클라이언트가 오디오 콘텐츠를 재생하도록 지시하는 {{ "[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)" if book.TargetCountryCode == "KR" else "[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)" }} 지시 메시지를 포함시키면 됩니다.
 
-<div class="Note">
+<div class="note">
   <p><strong>Note!</strong></p>
   <p>제공하려는 오디오 콘텐츠는 <a href="/Design/Design_Guideline_For_Client_Hardware.html#SupportedAudioCompressionFormat">플랫폼이 지원하는 오디오 압축 포맷</a>이어야 합니다.</p>
 </div>
