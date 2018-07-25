@@ -40,7 +40,7 @@ Toast、alert、popupで表示するテキストやボタンの情報を提供�
   "displayType": "TOAST",
   "toastText": {
     "type": "string",
-    "value": "1分のプレビュー再生中です。あなたの音楽の好みに合わせるイベントに参加して、NAVERミュージック100曲利用クーポンをGETしよう!"
+    "value": "1分のプレビュー再生中です。あなたの音楽の好みに合わせるイベントに参加して、LINE MUSIC100曲利用クーポンをGETしよう!"
   },
   "toastLinkText": {
     "type": "string",
@@ -152,7 +152,7 @@ Toast、alert、popupで表示するテキストやボタンの情報を提供�
   },
   "mainText": {
     "type": "string",
-    "value": "NAVERミュージック100曲利用クーポンで、クローバーがおすすめする音楽を楽しんでくださいね!"
+    "value": "LINE MUSIC100曲利用クーポンで、クローバーがおすすめする音楽を楽しんでくださいね!"
   },
   "negativeButtonText": {
     "type": "string",
