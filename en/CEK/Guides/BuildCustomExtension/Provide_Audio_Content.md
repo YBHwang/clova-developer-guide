@@ -301,7 +301,7 @@ Also, the client gets [directed to play the audio content (`AudioPlayer.Play`)](
 * [`AudioPlayer.ProgressReportIntervalPassed`](/CEK/References/CEK_API.md#ProgressReportIntervalPassed) event: Reports progress at every set interval during play.
 {% endif %}
 
-Here is an example of a report sent through a `RequestEvent` type request message.
+Here is an example of a report sent through a `EventRequest` type request message.
 ```json
 
 {

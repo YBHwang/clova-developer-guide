@@ -301,7 +301,7 @@ Custom extension은 응답 메시지를 통해 클라이언트가 요청한 콘�
 * [`AudioPlayer.ProgressReportIntervalPassed`](/CEK/References/CEK_API.md#ProgressReportIntervalPassed) 이벤트 메시지: 재생 중인 상황에서 특정 주기로 반복하여 경과 보고
 {% endif %}
 
-다음은 `RequestEvent` 타입 요청 메시지를 통해 전달된 보고의 예입니다.
+다음은 `EventRequest` 타입 요청 메시지를 통해 전달된 보고의 예입니다.
 ```json
 
 {
