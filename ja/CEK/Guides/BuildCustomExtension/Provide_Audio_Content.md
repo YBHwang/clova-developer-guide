@@ -322,7 +322,7 @@ Custom Extensionは、レスポンスメッセージを使って、クライア�
 * [`AudioPlayer.ProgressReportIntervalPassed`](/CEK/References/CEK_API.md#ProgressReportIntervalPassed)イベント：再生中の場合、特定の間隔で繰り返し進行状況をレポートする
 {% endif %}
 
-以下は、`RequestEvent`タイプのリクエストメッセージで送信されたレポートのサンプルです。
+以下は、`EventRequest`タイプのリクエストメッセージで送信されたレポートのサンプルです。
 ```json
 
 {
