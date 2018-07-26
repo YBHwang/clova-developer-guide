@@ -4,10 +4,6 @@
 
 * [テスターを登録する](/CEK/Guides/Register_Collaborator.md#RegisterTester)
 
-<div class="danger">
- <p><strong>注意</strong></p>
- <p>Custom Extensionは、現時点ではClova WAVEでは動作確認することができません。</p>
-</div>
 
 <div class="danger">
 <p><strong>注意</strong></p>
