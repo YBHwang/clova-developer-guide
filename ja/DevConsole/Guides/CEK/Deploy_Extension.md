@@ -26,7 +26,7 @@ Extensionをユーザーに説明するための情報として、Clovaアプリ
 {% if book.language !== "ja" %}
 * **{{ book.DevConsole.cek_short_skill_desc }}**：**{{ book.DevConsole.StoreHome }}** でプロモーションなどの案内を表示する際に使用される説明です。
 {% endif %}
-* **{{ book.DevConsole.cek_example_phrases }}**：ユーザーがExtensionをどのように使用できるかを示す例です。**{{ book.DevConsole.ExtensionPage }}** に表示されます。特に、一番目の例は、**{{ book.DevConsole.StoreHome }}** でExtensionのリストを表示する際に使用されます。
+* **{{ book.DevConsole.cek_example_phrases }}**：ユーザーがExtensionをどのように使用できるかを示す例です。**{{ book.DevConsole.ExtensionPage }}** に表示されます。なお、1つめの例は **{{ book.DevConsole.StoreHome }}** にも表示されるため、「〜を起動して」「〜を開いて」など、スキルを起動するフレーズを含めて登録してください。（例：ピザボットを起動して）
 * **{{ book.DevConsole.cek_keywords }}**：ユーザーが特定のキーワードでExtensionを検索する際に、その検索結果にExtensionが含まれるように設定します（カンマ区切りで5つまで登録可能）。
 {% if book.language !== "ja" %}
 * **{{ book.DevConsole.cek_small_icon }}**：小サイズ(108x108ピクセル)のExtensionのアイコンファイルです。**{{ book.DevConsole.ManageExtensions }}** と **{{ book.DevConsole.ExtensionPage }}** に表示されます。
@@ -107,10 +107,6 @@ Extensionを審査する際に確認する評価項目は次のとおりです�
   * Extensionがサービスに適切な用語を使用しているか確認します。
   * インテント、スロットなどの対話モデルを検証します。
   * Extensionの[詳細な目標](/Design/Design_Guideline_For_Extension.md#SettingGoal)に合ったサービスを提供しているか確認します。
-* [ユーザーシナリオ](/Design/Design_Guideline_For_Extension.md#MakeUseCaseScenarioScript)の検証
-  * 会話のコンテクストに不自然なところがないか確認します。
-  * シナリオで使用される発話データに、禁止用語や差別用語などが含まれていないか確認します。
-  * Extensionが[ユーザーアカウントと連携](/CEK/Guides/Link_User_Account.md)する場合、サービスに特化した部分をさらに検討することがあります。
 * 配布情報の検証
   * Extensionの説明、カテゴリ、検索キーワードなどの配布情報が正しく入力されているか確認します。
   * スキルが、配布情報に入力された利用規約やプライバシーポリシーに違反していないことを確認します。
