@@ -768,8 +768,8 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
               "url": "clova:TR-NM-17413540",
               "urlPlayable": false
             },
-            "playBehavior": "REPLACE_ALL"
-          }
+          },
+          "playBehavior": "REPLACE_ALL"
         }
       }
     ],
