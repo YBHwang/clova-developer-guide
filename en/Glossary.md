@@ -52,7 +52,7 @@ A Clova app developed by {{ book.OrientedService }} and deployed to the iOS or A
 An API used by clients to obtain [Clova access tokens](#ClovaAccessToken). For more information, see [Clova auth API](/CIC/References/Clova_Auth_API.md).
 
 ### Content template {#ContentTemplate}
-Standardized formats for displaying content returned from the CIC. For more information, see [Content template](/CIC/References/Content_Templates.md).
+Standardized formats for displaying content returned from CIC. For more information, see [Content template](/CIC/References/Content_Templates.md).
 
 ### Context objects {#ContextObjects}
 Objects that express current [context information] of a client(#Context). For more information, see [Context](/CIC/References/Context_Objects.md).
@@ -95,7 +95,7 @@ An intent is a segment that distinguishes the user requests for a Clova extensio
 A type of request message that sends the analysis details of a user request ([Intent](#Intent)) to a [custom extension](#CustomExtension). For more information, see [Handling a custom extension request](/CEK/Guides/Build_Custom_Extension.md#HandleCustomExtensionRequest).
 
 ### Interaction model {#InteractionModel}
-A model that defines a rule to convert to the standardized format (JSON) for [Custom extension](#CustomExtension) to pass user voice requests to extension. For more information, see [Defining an interaction model](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel).
+A model that defines a rule to convert to the standardized format (JSON) for [Custom extension](#CustomExtension) to pass user voice requests to an extension. For more information, see [Defining an interaction model](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel).
 
 ### LaunchRequest {#LaunchRequest}
 A type of request message that notifies that a user has requested to start a certain mode or [custom extension](#CustomExtension). For more information, see [Handling a custom extension request](/CEK/Guides/Build_Custom_Extension.md#HandleCustomExtensionRequest).

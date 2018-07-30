@@ -18,7 +18,7 @@ The three types of requests and the user utterance patterns for each request typ
 
 <div class="note">
 <p><strong>Note!</strong></p>
-<p><a href="/CEK/References/CEK_API.html#CustomExtEventRequest"><code>EventRequest</code></a> request type is a message sent to the extension mainly due to a change in client state rather than user utterance. This request type is used to collect information on client state and in the response of the extension regarding the change in client state. It is also used when the extension <a href="/CEK/Guides/Build_Custom_Extension.html#ProvideAudioContent">provides audio content</a>. Therefore, <code>EventRequest</code> is not covered in this section.</p>
+<p>The <a href="/CEK/References/CEK_API.html#CustomExtEventRequest"><code>EventRequest</code></a> request type is a message sent to the extension mainly due to a change in client state rather than user utterance. This request type is used to collect information on client state and in the response of the extension regarding the change in client state. It is also used when the extension <a href="/CEK/Guides/Build_Custom_Extension.html#ProvideAudioContent">provides audio content</a>. Therefore, <code>EventRequest</code> is not covered in this section.</p>
 </div>
 
 ### Handling a LaunchRequest {#HandleLaunchRequest}
