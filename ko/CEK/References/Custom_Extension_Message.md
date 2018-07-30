@@ -759,8 +759,8 @@ SpeechInfoObject 객체는 응답 메시지의 `response.outputSpeech`에서 재
               "url": "clova:TR-NM-17413540",
               "urlPlayable": false
             },
-            "playBehavior": "REPLACE_ALL"
-          }
+          },
+          "playBehavior": "REPLACE_ALL"
         }
       }
     ],

@@ -12,23 +12,38 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
   * [재생 상태 변경 및 경과 보고 수집](#CollectPlaybackStatusAndProgress)
   * [보안을 위한 오디오 콘텐츠 URL 갱신](#UpdateAudioURLForSecurity)
   * [재생 제어의 동작 방식 변경](#CustomizePlaybackControl)
+
+<div class="note">
+  <p><strong>Note!</strong></p>
+  <p>오디오 콘텐츠를 재생하는 custom extension을 구현하려면 <a href="/DevConsole/Guides/CEK/Register_Extension.html">Clova developer console에 extension을 등록</a>할 때 <a href="/DevConsole/Guides/CEK/Register_Extension.html#InputExtensionInfo">기본 정보</a>로 {{ book.DevConsole.cek_audioplayer }} 항목을 <strong>네</strong>로 선택해야 합니다.</p>
+</div>
 {% elif book.TargetCountryCode == "JP" %}
 Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디오 콘텐츠를 제공할 수 있습니다. 이를 위해 [Custom extension 메시지](/CEK/References/CEK_API.md#CustomExtMessage)의 [`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest) 타입의 요청 메시지와 [응답 메시지](/CEK/References/CEK_API.md#CustomExtResponseMessage) 명세에서 [오디오 콘텐츠 재생 관련 CIC API](/CEK/References/CEK_API.md#CICAPIforAudioPlayback)를 활용해야 합니다. 오디오 콘텐츠를 사용자에게 제공하려면 다음에 해당 하는 내용을 extension에 구현해야 합니다.
 
 * 필수 구현
   * [오디오 콘텐츠 재생 지시](#DirectClientToPlayAudio)
   * [오디오 콘텐츠 재생 제어](#ControlAudioPlayback)
+  * [오디오 콘텐츠의 메타 정보 제공](#ProvidingMetaDataForDisplay)
 
 * 선택 구현
   * [재생 상태 변경 및 경과 보고 수집](#CollectPlaybackStatusAndProgress)
   * [보안을 위한 오디오 콘텐츠 URL 갱신](#UpdateAudioURLForSecurity)
   * [재생 제어의 동작 방식 변경](#CustomizePlaybackControl)
-  * [오디오 콘텐츠의 메타 정보 제공](#ProvidingMetaDataForDisplay)
+
+<div class="note">
+  <p><strong>Note!</strong></p>
+  <p>오디오 콘텐츠를 재생하는 custom extension을 구현하려면 <a href="/DevConsole/Guides/CEK/Register_Extension.html">Clova developer console에 extension을 등록</a>할 때 <a href="/DevConsole/Guides/CEK/Register_Extension.html#InputExtensionInfo">기본 정보</a>로 {{ book.DevConsole.cek_audioplayer }} 항목을 <strong>네</strong>로 선택해야 합니다.</p>
+</div>
 {% endif %}
 
 ### 오디오 콘텐츠 재생 지시 {#DirectClientToPlayAudio}
 
 사용자가 음악이나 음악과 같은 방식으로 음원을 재생하도록 요청하면 해당 오디오 콘텐츠를 클라이언트에게 전달해야 합니다. 사용자의 음원 재생 요청이  [`IntentRequest`](/CEK/References/CEK_API.md#CustomExtIntentRequest) 타입의 요청 메시지로 custom extension에게 전달될 것이며, custom extension은 해당 `IntentRequest` 타입의 요청 메시지에 대한 [응답 메시지](/CEK/References/CEK_API.md#CustomExtResponseMessage)를 보내야 합니다. 이때, 이 메시지에 클라이언트가 오디오 콘텐츠를 재생하도록 지시하는 {{ "[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)" if book.TargetCountryCode == "KR" else "[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)" }} 지시 메시지를 포함시키면 됩니다.
+
+<div class="note">
+  <p><strong>Note!</strong></p>
+  <p>제공하려는 오디오 콘텐츠는 <a href="/Design/Design_Guideline_For_Client_Hardware.html#SupportedAudioCompressionFormat">플랫폼이 지원하는 오디오 압축 포맷</a>이어야 합니다.</p>
+</div>
 
 <div class="danger">
   <p><strong>Caution!</strong></p>
