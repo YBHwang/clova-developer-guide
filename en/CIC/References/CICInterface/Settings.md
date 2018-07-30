@@ -17,7 +17,7 @@ The Settings namespace provides interfaces for updating or synchronizing the cli
 
 You must update or synchronize the settings information using Settings in the following situations:
 
-* When the user is looks up the client device settings information from the Clova app, **the settins information needs to be synchronized**.
+* When the user is looking up the client device settings information from the Clova app, **the settings information needs to be synchronized**.
 * When the user has **changed the device settings information from the Clova app**, you need to update the changes in the device settings information.
 * When the user has **changed the settings information directly** from the client device, you need to update the changes in the Clova app.
 
@@ -34,12 +34,12 @@ Once CIC receives the request for **synchronizing the settings information** of 
 When the user has **changed the settings information of the client device** from the Clova app, CIC receives a request to update the device settings. Here, CIC and the client device operates in the following order:
 
 1. CIC sends the `Settings.Update` directive to the client device.
-2. Client device must send the changed settings information to CIC using the `Settings.Report` event.
+2. The client device must send the changed settings information to CIC using the `Settings.Report` event.
 3. CIC sends the reported settings information to the Clova app.
 
 When the user has **changed the settings information directly** on the client device, the action of updating the settings information of the Clova app is performed as follows:
 
-1. Client device must send the settings information with changed settings to CIC using the `Settings.Report` event.
+1. The client device must send the settings information with changed settings to CIC using the `Settings.Report` event.
 2. CIC sends the reported settings information to the Clova app.
 
 ## ExpectReport directive {#ExpectReport}

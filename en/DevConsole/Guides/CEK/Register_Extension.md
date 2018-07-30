@@ -10,7 +10,7 @@ To register an extension, you must typically complete the following steps in ord
   <li><a href="#InputExtensionInfo">Enter basic extension information</a></li>
   <li><a href="#SetServerConnection">Set a server connection</a>
     <ul>
-      <li><a href="#SetAccountLinking">Setting account linking</a></li>
+      <li><a href="#SetAccountLinking">Setting up account linking</a></li>
     </ul>
   </li>
 </ol>
@@ -23,7 +23,7 @@ In order to register an extension, you must first agree to the terms and conditi
 
 ## Entering basic extension information {#InputExtensionInfo}
 
-The first thing to do when registering an extension is to enter the basic extension information. The basic information of the extension is the first and essential information required for creating the extension in the Clova developer console. After you enter the basic extension information, you can access or edit the created extension on the CEK menu at any time.
+The first thing to do when registering an extension is to enter the basic extension information. The basic information of the extension is the first and essential information required for creating the extension on the Clova developer console. After you enter the basic extension information, you can access or edit the created extension on the CEK menu at any time.
 
 Follow the steps below to register the extension:
 
@@ -43,16 +43,16 @@ Follow the steps below to register the extension:
   <li>If the extension uses the directive messages of the <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a>, select <strong>{{ book.DevConsole.cek_yes }}</strong> from the <strong>{{ book.DevConsole.cek_audioplayer }}</strong> item. The extension uses the directive messages when it provides a music streaming service.</li>
   <li>Enter an email address for contact in the <strong>{{ book.DevConsole.cek_email }}</strong> item.</li>
   <li>Enter the {{ book.OrientedService }} account for testing the extension under development in the <strong>{{ book.DevConsole.cek_tester }}</strong> item. You do not need to enter the account information when registering the extension, but can enter it in this field when <a href="/DevConsole/Guides/CEK/Test_Extension.html">testing the extension</a> later on.</li>
-  <li>After filling out the basic extension information, click the<strong>{{ book.DevConsole.cek_create }}</strong> button.</li>
+  <li>After filling out the basic extension information, click the <strong>{{ book.DevConsole.cek_create }}</strong> button.</li>
 </ol>
 
 Once you complete entering the basic extension information, you will be directed to the screen to edit this information. From this point, you can click the **{{ book.DevConsole.cek_save }}** button at the bottom of the page anytime to save the changed details. You can also find the list of registered extensions in the CEK menu as shown below.
 
 ![](/DevConsole/Resources/Images/DevConsole-Extension_List_After_Creation.png)
 
-## Setting a server connection {#SetServerConnection}
+## Setting up a server connection {#SetServerConnection}
 
-The extension will make an HTTPS connection to the CEK. Here, the CEK sends an HTTP request to the extension and the extension sends an HTTP response to the CEK. In order for the CEK to send an HTTP request to the extension, you must set up a server connection from the Clova developer console. You can set up a server connection after you [enter the basic extension information](#InputExtensionInfo) for the created extension.
+The extension will make an HTTPS connection to CEK. Here, CEK sends an HTTP request to the extension and the extension sends an HTTP response to CEK. In order for CEK to send an HTTP request to the extension, you must set up a server connection from the Clova developer console. You can set up a server connection after you [enter the basic extension information](#InputExtensionInfo) for the created extension.
 
 Make sure to check whether a connection with the extension server is available before registering the extension server. You can check the connection state using a simple curl command as shown in the example below.
 
