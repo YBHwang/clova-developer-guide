@@ -14,11 +14,11 @@ This documentation includes the following topics:
 
 ## Understanding account linking {#UnderstandAccountLinking}
 Before applying account linking to the extension, you must first understand how account linking works. This section covers the following topics:
-* [Setting account linking](#SetupAccountLinking)
+* [Setting up account linking](#SetupAccountLinking)
 * [Invoking an extension after account linking](#ExtensionInvokingAfterAccountLinking)
 
-### Setting account linking {#SetupAccountLinking}
-When a user enables a custom extension or Clova Home extension that requires authentication, the account linking setup is conducted as follows:
+### Setting up account linking {#SetupAccountLinking}
+When a user enables a custom extension or Clova Home extension that requires authentication, the account linking setup is performed as follows:
 
 ![](/CEK/Resources/Images/CEK_Account_Linking_Setup_Sequence_Diagram.png)
 
@@ -52,7 +52,7 @@ Once an account is linked, CEK invokes the extension as follows:
 
 4. The extension should respond as follows for the following conditions:
    * If the access token is valid, the extension must handle the user request and return the result.
-   * If the access token is invalid, the extension must return the result to allow [setting account linking](#SetupAccountLinking).
+   * If the access token is invalid, the extension must return the result to allow [setting up account linking](#SetupAccountLinking).
 
 ## Applying account linking {#ApplyAccountLinking}
 To apply account linking to the extension under development, complete the following steps:
@@ -81,7 +81,7 @@ The URL of the page providing the login UI for user account authentication is re
 | `client_id`     | The ID used by Clova to get the access token for the third-party service. You must register `cliend_id` in advance on the Clova developer console.                                                                                                                                                     |
 | `response_type` | Parameter that has a defined OAuth 2.0 authorization type. Use the `"code"` type. You can specify the type on the Clova developer console. Currently, only `"code"` type is supported.              |
 | `scope`         | `scope` field of OAuth. You can define the access level. You must register the `scope` in advance on the Clova developer console.                                                                                                                                                                           |
-| `redirect_uri`  | A URL the user is directed to after authentication (redirect URL). The value of `redirect_uri` can be verified when [setting account linking](/DevConsole/Guides/CEK/Register_Extension.md#SetAccountLinking) to register the extension on the Clova developer console. Currently, `{{ book.RedirectURLforAccountLinking }}` is used. |
+| `redirect_uri`  | The URL the user is directed to after authentication (redirect URL). The value of `redirect_uri` can be verified when [setting up account linking](/DevConsole/Guides/CEK/Register_Extension.md#SetAccountLinking) to register the extension on the Clova developer console. Currently, `{{ book.RedirectURLforAccountLinking }}` is used. |
 
 <div class="note">
   <p><strong>Note!</strong></p>
@@ -100,7 +100,7 @@ Here is an example of a URL when a client app or app paired with a client device
 
 <div class="note">
 <p><strong>Note!</strong></p>
-The <p><code>redirect_uri</code> can be found on the <a href="/DevConsole/Guides/CEK/Register_Extension.html#RedirectURI">Setting account linking</a> page of the Clova developer console.</p>
+The <p><code>redirect_uri</code> can be found on the <a href="/DevConsole/Guides/CEK/Register_Extension.html#RedirectURI">Setting up account linking</a> page of the Clova developer console.</p>
 </div>
 
 

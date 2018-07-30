@@ -74,7 +74,7 @@ The `response.outputSpeech` fields represent the following information:
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>In addition to simple or complex sentence type of audio data, we support a combined format (SpeechSet) for client devices with limitations for expressing detailed GUIs, such as devices without display. For more information, see <a href="/CEK/References/CEK_API.md#CustomExtResponseMessage">Response message</a> in the custom extension message format.</p>
+  <p>In addition to simple or complex sentence type of audio data, we support a combined format (SpeechSet) for client devices with limitations for expressing detailed GUIs, such as devices without a display. For more information, see <a href="/CEK/References/CEK_API.md#CustomExtResponseMessage">Response message</a> in the custom extension message format.</p>
 </div>
 
 To display data on the screen of a client device or client app in addition to outputting audio, fill in the content in the `response.card` field in accordance with the [content template](/CIC/References/Content_Templates.md).

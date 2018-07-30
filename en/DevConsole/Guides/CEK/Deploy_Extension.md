@@ -54,7 +54,7 @@ Enter the information following the example below.
 * **{{ book.DevConsole.cek_use_personal_info }}**: Select **{{ book.DevConsole.cek_yes }}** if the extension collects personal information from users.
 * **{{ book.DevConsole.cek_child_directed }}**: Select **{{ book.DevConsole.cek_yes }}** if the extension can be used by minors.
 * **{{ book.DevConsole.cek_privacy_policy_url }}**: Enter information on privacy policy, if the extension collects personal information. This will be displayed at the bottom of the extension description page.
-* **{{ book.DevConsole.cek_terms_of_use }}**: Enter the URL of the disclaimer for the extension. This will be displayed at the bottom of the extension description page with the URL of privacy policy.
+* **{{ book.DevConsole.cek_terms_of_use }}**: Enter the URL of the disclaimer for the extension. This will be displayed at the bottom of the extension description page with the privacy policy URL.
 
 The URLs entered in **{{ book.DevConsole.cek_privacy_policy_url }}** and **{{ book.DevConsole.cek_terms_of_use }}** will be displayed on the **{{ book.DevConsole.ExtensionPage }}** as follows:
 
@@ -62,14 +62,14 @@ The URLs entered in **{{ book.DevConsole.cek_privacy_policy_url }}** and **{{ bo
 
 ## Requesting a review {#RequestExtensionSubmission}
 
-Once you have filled out the [deployment information](#InputDeploymentInfo) and the [privacy and compliance information](#InputComplianceInfo), you can request a review of your registerd extension as the last step. Then a Clova administrator reviews the extension, such as its registered information, actual execution, and suitability.
+Once you have filled out the [deployment information](#InputDeploymentInfo) and the [privacy and compliance information](#InputComplianceInfo), you can request a review of your registered extension as the last step. Then a Clova administrator reviews the extension, such as its registered information, actual execution, and suitability.
 
 * If the extension is functioning properly and no issues are found during the review, it will pass the review and you will be able to deploy the extension immediately.
-* If an execution error is found during the review or a critical issue is found within the user scenario, the request for deployment will be rejected by the administrator. Then the extension will go back to the previous status.
+* If an execution error is found during the review or a critical issue is found within user scenarios, the request for deployment will be rejected by the administrator. Then the extension will go back to the previous status.
 
 ![](/DevConsole/Resources/Images/DevConsole-Extension_Submission_Process.png)
 
-You can request for a review by clicking the **{{ book.DevConsole.cek_request_submit }}** menu on the registered extensions list.
+You can request a review by clicking the **{{ book.DevConsole.cek_request_submit }}** menu on the registered extensions list.
 
 ![](/DevConsole/Resources/Images/DevConsole-Submit_Extension_1.png)
 
@@ -97,7 +97,7 @@ The assessment tasks performed during the extension review are as follows:
 * [Usage scenario](/Design/Design_Guideline_For_Extension.md#MakeUseCaseScenarioScript) verification
   * Check whether there are unnatural sentences in the dialogue.
   * Check whether there are sensitive or prohibited words in the utterance data used in scenarios.
-  * If the extension [links to a user account](/CEK/Guides/Link_User_Account.md), you can examine specific parts of the service.
+  * Check specific parts of the extension if the extension [links to a user account](/CEK/Guides/Link_User_Account.md).
 * Deployment information verification
   * Check whether deployment information, such as the description, category, or search keyword of the extension, is correctly entered for the extension.
   * Check whether the extension is operating properly according to the entered policies, such as the privacy policy.
