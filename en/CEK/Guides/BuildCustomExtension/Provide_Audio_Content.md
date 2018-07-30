@@ -100,7 +100,7 @@ If the user makes an utterance that is related to playback controls, such as "Pr
   <p>Items related to playback controls are subject to mandatory implementation. Particularly, not implementing the actions that respond to the <code>Clova.PauseIntent</code> and the <code>Clova.StopIntent</code> built-in intents may result in serious inconvenience to users.</p>
 </div>
 
-If the user makes an utterance such as "Pause," "Play again," or "Stop," the custom extension must respond appropriately to each pause, resume play, or cancel play request. In this process, the client receives `Clova.PauseIntent`, `Clova.ResumeIntent`, and `Clova.StopIntent` built-in intents as `IntentRequest` type request message on each request. The custom extension must send the following directive messages to CEK as a [response message](/CEK/References/CEK_API.md#CustomExtResponseMessage).
+If the user makes an utterance such as "Pause," "Play again," or "Stop," the custom extension must respond appropriately to each pause, resume play, or cancel play request. In this process, the client receives `Clova.PauseIntent`, `Clova.ResumeIntent`, and `Clova.StopIntent` built-in intents as an `IntentRequest` type request message on each request. The custom extension must send the following directive messages to CEK as a [response message](/CEK/References/CEK_API.md#CustomExtResponseMessage).
 
 {% if book.TargetCountryCode == "KR" %}
 * [`PlaybackController.Pause`](/CIC/References/CICInterface/PlaybackController.md#Pause) directive: Directs the client to pause the playing audio stream.
@@ -136,7 +136,7 @@ Here is an example of including the `PlaybackController.Pause` directive message
 }
 ```
 
-When the client receives `Clova.NextIntent` or `Clova.PreviousIntent` built-in intent as `IntentReqeust` type request message after the user makes utterance on "Previous" or "Next", [direct the client to play the audio content(`AudioPlayer.Play`)](#DirectClientToPlayAudio) before of after the current audio using a [response message](/CEK/References/CEK_API.md#CustomExtResponseMessage).
+When the client receives `Clova.NextIntent` or `Clova.PreviousIntent` built-in intent as an `IntentReqeust` type request message after the user makes an utterance corresponding to "Previous" or "Next", [direct the client to play the audio content(`AudioPlayer.Play`)](#DirectClientToPlayAudio) before of after the current audio using a [response message](/CEK/References/CEK_API.md#CustomExtResponseMessage).
 
 <div class="note">
   <p><strong>Note!</strong></p>
@@ -147,7 +147,7 @@ When the client receives `Clova.NextIntent` or `Clova.PreviousIntent` built-in i
 
 In the {{ "[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)" if book.TargetCountryCode == "KR" else "[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)" }} directive message which [directs the client to play audio content](#DirectClientToPlayAudio), information such as title, album, singer or lyrics are not included. The custom extension must provide such metadata if requested by the client.
 
-In order to obtain such metadata on playback content, the client sends the {{ "[`TeamplteRuntime.ReqeusetPlayerInfo`](/CIC/References/CICInterface/TeamplteRuntime.md#ReqeusetPlayerInfo)" if book.TargetCountryCode == "KR" else "[`TeamplteRuntime.ReqeusetPlayerInfo`](/CEK/References/CEK_API.md#ReqeusetPlayerInfo)" }} event message to Clova. For this process, details of event message are sent as a request message of [`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest) type as shown below. Note that the example below refers to a request of metadata on the next 10 songs, based on the content that has the `eJyr5lIqSSyITy4tKs4vUrJSUE` token.
+In order to obtain such metadata on playback content, the client sends the {{ "[`TeamplteRuntime.ReqeusetPlayerInfo`](/CIC/References/CICInterface/TeamplteRuntime.md#ReqeusetPlayerInfo)" if book.TargetCountryCode == "KR" else "[`TeamplteRuntime.ReqeusetPlayerInfo`](/CEK/References/CEK_API.md#ReqeusetPlayerInfo)" }} event message to Clova. For this process, details of the event message are sent as a request message of the [`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest) type as shown below. Note that the example below refers to a request of metadata on the next 10 songs, based on the content that has the `eJyr5lIqSSyITy4tKs4vUrJSUE` token.
 
 ```json
 {
@@ -284,24 +284,24 @@ The custom extension must send the metadata of the content which the client has 
 ### Collecting change in playback state and progress report {#CollectPlaybackStatusAndProgress}
 
 {% if book.TargetCountryCode == "KR" %}
-The client playing audio content by the [`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play) directive message sends event messages such as [`AudioPlayer.PlayStarted`](/CIC/References/CICInterface/AudioPlayer.md#PlayStarted), [`AudioPlayer.PlayPaused`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused), [`AudioPlayer.PlayResumed`](/CIC/References/CICInterface/AudioPlayer.md#PlayResumed), [`AudioPlayer.PlayStopped`](/CIC/References/CICInterface/AudioPlayer.md#PlayStopped), or [`AudioPlayer.PlayFinished`](/CIC/References/CICInterface/AudioPlayer.md#PlayFinished) when playing has started, paused, resumed, stopped or finished. In this process, Clova sends the details of this event message to the custom extension as a [`EventReqeust`](/CEK/References/CEK_API.md#CustomExtEventRequest) type request message.
+The client playing audio content by the [`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play) directive message sends event messages such as [`AudioPlayer.PlayStarted`](/CIC/References/CICInterface/AudioPlayer.md#PlayStarted), [`AudioPlayer.PlayPaused`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused), [`AudioPlayer.PlayResumed`](/CIC/References/CICInterface/AudioPlayer.md#PlayResumed), [`AudioPlayer.PlayStopped`](/CIC/References/CICInterface/AudioPlayer.md#PlayStopped), or [`AudioPlayer.PlayFinished`](/CIC/References/CICInterface/AudioPlayer.md#PlayFinished) when playing has started, paused, resumed, stopped or finished. In this process, Clova sends the details of this event message to the custom extension as an [`EventReqeust`](/CEK/References/CEK_API.md#CustomExtEventRequest) type request message.
 
-Also, the client gets [directed to play the audio content (`AudioPlayer.Play`)](#DirectClientToPlayAudio) and reports on the playback progress according to the settings defined in the `progressReport` field of the `AudioPlayer.Play` directive message. This information also gets sent to the custom extension as a [`EventReqeust`](/CEK/References/CEK_API.md#CustomExtEventRequest) type request message. The client sends the following event messages for progress reporting:
+Also, the client gets [directed to play the audio content (`AudioPlayer.Play`)](#DirectClientToPlayAudio) and reports on the playback progress according to the settings defined in the `progressReport` field of the `AudioPlayer.Play` directive message. This information also gets sent to the custom extension as an [`EventReqeust`](/CEK/References/CEK_API.md#CustomExtEventRequest) type request message. The client sends the following event messages for progress reporting:
 
 * [`AudioPlayer.ProgressReportDelayPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportDelayPassed) event: Reports playback progress after a set time elapses once playing starts.
 * [`AudioPlayer.ProgressReportPositionPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportPositionPassed) event: Reports progress when playing a specific offset of the audio content.
 * [`AudioPlayer.ProgressReportIntervalPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportIntervalPassed) event: Reports progress at every set interval during play.
 {% elif book.TargetCountryCode == "JP" %}
-The client playing audio content by the [`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play) directive message sends event messages such as [`AudioPlayer.PlayStarted`](/CEK/References/CEK_API.md#PlayStarted), [`AudioPlayer.PlayPaused`](/CEK/References/CEK_API.md#PlayPaused), [`AudioPlayer.PlayResumed`](/CEK/References/CEK_API.md#PlayResumed), [`AudioPlayer.PlayStopped`](/CEK/References/CEK_API.md#PlayStopped), or [`AudioPlayer.PlayFinished`](/CEK/References/CEK_API.md#PlayFinished) when playing has started, paused, resumed, stopped or finished. In this process, Clova sends the details of this event message to the custom extension as a [`EventReqeust`](/CEK/References/CEK_API.md#CustomExtEventRequest) type request message.
+The client playing audio content by the [`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play) directive message sends event messages such as [`AudioPlayer.PlayStarted`](/CEK/References/CEK_API.md#PlayStarted), [`AudioPlayer.PlayPaused`](/CEK/References/CEK_API.md#PlayPaused), [`AudioPlayer.PlayResumed`](/CEK/References/CEK_API.md#PlayResumed), [`AudioPlayer.PlayStopped`](/CEK/References/CEK_API.md#PlayStopped), or [`AudioPlayer.PlayFinished`](/CEK/References/CEK_API.md#PlayFinished) when playing has started, paused, resumed, stopped or finished. In this process, Clova sends the details of this event message to the custom extension as an [`EventReqeust`](/CEK/References/CEK_API.md#CustomExtEventRequest) type request message.
 
-Also, the client gets [directed to play the audio content (`AudioPlayer.Play`)](#DirectClientToPlayAudio) and reports on the playback progress according to the settings defined in the `progressReport` field of the `AudioPlayer.Play` directive message. This information also gets sent to the custom extension as a [`EventReqeust`](/CEK/References/CEK_API.md#CustomExtEventRequest) type request message. The client sends the following event messages for progress reporting:
+Also, the client gets [directed to play the audio content (`AudioPlayer.Play`)](#DirectClientToPlayAudio) and reports on the playback progress according to the settings defined in the `progressReport` field of the `AudioPlayer.Play` directive message. This information also gets sent to the custom extension as an [`EventReqeust`](/CEK/References/CEK_API.md#CustomExtEventRequest) type request message. The client sends the following event messages for progress reporting:
 
 * [`AudioPlayer.ProgressReportDelayPassed`](/CEK/References/CEK_API.md#ProgressReportDelayPassed) event: Reports playback progress after a set time elapses once playing starts.
 * [`AudioPlayer.ProgressReportPositionPassed`](/CEK/References/CEK_API.md#ProgressReportPositionPassed) event: Reports progress when playing a specific offset of the audio content.
 * [`AudioPlayer.ProgressReportIntervalPassed`](/CEK/References/CEK_API.md#ProgressReportIntervalPassed) event: Reports progress at every set interval during play.
 {% endif %}
 
-Here is an example of a report sent through a `EventRequest` type request message.
+Here is an example of a report sent through an `EventRequest` type request message.
 ```json
 
 {
@@ -337,7 +337,7 @@ Here is an example of a report sent through a `EventRequest` type request messag
 }
 ```
 
-The above `EventRequest` type request message reports that the client has stopped playing after one minute has elapsed in a five minute audio content. Like this, the custom extension can track the change of playback state on the client. For example, the custom extension can collect the `EventRequest` type request message containing `AudioPlayer.PlayStopped` and `AudioPlayer.PlayFinished` event message information to identify users who finish or do not finish listening to the audio content, and use this information to create statistics.
+The above `EventRequest` type request message reports that the client has stopped playing after one minute has elapsed in a five-minute piece of audio content. Like this, the custom extension can track the change of playback state on the client. For example, the custom extension can collect the `EventRequest` type request message containing `AudioPlayer.PlayStopped` and `AudioPlayer.PlayFinished` event message information to identify users who finish or do not finish listening to the audio content, and use this information to create statistics.
 
 Also, you can use the `EventRequest` type request message which includes the `AudioPlayer.ProgressReportIntervalPassed` event message to understand approximately where the user has stopped listening to the audio content. If the user requests to play the same audio content next time, this data can be used to continue playing the content from where the playback last left off.
 
@@ -347,9 +347,9 @@ Also, you can use the `EventRequest` type request message which includes the `Au
 </div>
 
 {% if book.TargetCountryCode == "KR" %}
-Note that `AudioPlayer.PlaybackState` context is attached to the `AudioPlayer` namespace event message mentioned in this section. Since this information is also attached when sending a `EventRequest` type request message, the custom extension can identify information, such as audio content ID, playback state, or the offset of audio content from the attached [`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.html#PlaybackState) context information.
+Note that `AudioPlayer.PlaybackState` context is attached to the `AudioPlayer` namespace event message mentioned in this section. Since this information is also attached when sending an `EventRequest` type request message, the custom extension can identify information, such as audio content ID, playback state, or the offset of audio content from the attached [`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.html#PlaybackState) context information.
 {% elif book.TargetCountryCode == "JP" %}
-Note that `AudioPlayer.PlaybackState` context is attached to the `AudioPlayer` namespace event message mentioned in this section. Since this information is also attached when sending a `EventRequest` type request message, the custom extension can identify information, such as audio content ID, playback state, or the offset of audio content from the attached `AudioPlayer.PlaybackState` context information.
+Note that `AudioPlayer.PlaybackState` context is attached to the `AudioPlayer` namespace event message mentioned in this section. Since this information is also attached when sending an `EventRequest` type request message, the custom extension can identify information, such as audio content ID, playback state, or the offset of audio content from the attached `AudioPlayer.PlaybackState` context information.
 {% endif %}
 
 Here is an example of sending the `AudioPlayer.PlaybackState` context information.
@@ -368,9 +368,9 @@ Here is an example of sending the `AudioPlayer.PlaybackState` context informatio
 
 ### Updating audio content URL for security {#UpdateAudioURLForSecurity}
 
-When the custom extension [directs the client to play audio content](#DirectClientToPlayAudio), {{ "[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)" if book.TargetCountryCode == "KR" else "[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)" }} a directive message must be included in the [response message](/CEK/References/CEK_API.md#CustomExtResponseMessage). In this process, the URL to play the audio content is sent in the `audioItem.stream.url` field of the `AudioPlayer.Play` directive message.
+When the custom extension [directs the client to play audio content](#DirectClientToPlayAudio), the {{ "[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)" if book.TargetCountryCode == "KR" else "[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)" }} directive message must be included in the [response message](/CEK/References/CEK_API.md#CustomExtResponseMessage). In this process, the URL to play the audio content is sent in the `audioItem.stream.url` field of the `AudioPlayer.Play` directive message.
 
-However, it may not be possible to attach a permanently valid URL depending on the service provider because of the security issue. One of the reasons is that if this URL is exposed, a hacking attempt may occur to steal the content. Therefore, it is common to use an instance URL that has a relatively short expiration date. Also, playing audio content may be delayed due to a task with higher priority, that has started earlier, or due to the network state even if the client has received the `AudioPlayer.Play` directive message. In this case, the URL may expire and the audio content may not be played.
+However, it may not be possible to attach a permanently valid URL depending on the service provider due to security issues. One of the reasons is that if this URL is exposed, a hacking attempt may occur to steal the content. Therefore, it is common to use an instance URL that has a relatively short expiration date. Also, playing audio content may be delayed due to a task with higher priority, that has started earlier, or due to the network state even if the client has received the `AudioPlayer.Play` directive message. In this case, the URL may expire and the audio content may not be played.
 
 Due to this reason, Clova provides a method for the client to acquire the URL for audio content playback right before playing. To do so, first, specify the `urlPlayable` field as `false` in the `AudioPlayer.Play` directive message and enter a value that is not in a URL format in the `url` field.
 
@@ -396,7 +396,7 @@ Due to this reason, Clova provides a method for the client to acquire the URL fo
 }
 ```
 
-If the `urlPlayable` field is `false` when the client executes the `AudioPlayer.Play` directive message, the {{ "[`AudioPlayer.StreamRequested`](/CIC/References/CICInterface/AudioPlayer.md#StreamRequested)" if book.TargetCountryCode == "KR" else "[`AudioPlayer.StreamRequested`](/CEK/References/CEK_API.md#StreamRequested)" }} event message is sent to Clova to obtain a valid URL for the audio content. For this process, details of event message are sent as a request message of [`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest) type as shown below.
+If the `urlPlayable` field is `false` when the client executes the `AudioPlayer.Play` directive message, the {{ "[`AudioPlayer.StreamRequested`](/CIC/References/CICInterface/AudioPlayer.md#StreamRequested)" if book.TargetCountryCode == "KR" else "[`AudioPlayer.StreamRequested`](/CEK/References/CEK_API.md#StreamRequested)" }} event message is sent to Clova to obtain a valid URL for the audio content. For this process, details of the event message are sent as a request message of the [`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest) type as shown below.
 
 ```json
 {
@@ -468,7 +468,7 @@ The custom extension can then send the URL of the audio content that can be play
 
 ### Customizing playback controls {#CustomizePlaybackControl}
 
-You may need to implement the [control audio playback] actions, such as pause, resume play, or cancel play, using different methods, depending on the service that provides audio content or the characteristics of audio content. For example, it may not be possible to apply the pause function to real-time streaming contents. In this case, upon receiving the `Clova.PauseIntent` [built-in intent](/Design/Design_Guideline_For_Extension.md#BuiltinIntent) request from the user, you can make a response that it cannot be handled or processed `Clova.StopIntent`. To handle a response like `Clova.StopIntent`, you can make the extension to return the {{ "[`PlaybackController.Stop`](/CIC/References/CICInterface/PlaybackController.md#Stop)" if book.TargetCountryCode == "KR" else "[`PlaybackController.Stop`](/CEK/References/CEK_API.md#Stop)" }} directive message as a response instead of the {{ "[`PlaybackController.Pause`](/CIC/References/CICInterface/PlaybackController.md#Pause)" if book.TargetCountryCode == "KR" else "[`PlaybackController.Pause`](/CEK/References/CEK_API.md#Pause)" }} directive message in the [response message](/CEK/References/CEK_API.md#CustomExtResponseMessage).
+You may need to implement the [control audio playback] actions, such as pause, resume play, or cancel play, using different methods, depending on the service that provides audio content or the characteristics of audio content. For example, it may not be possible to apply the pause function to real-time streaming content. In this case, upon receiving the `Clova.PauseIntent` [built-in intent](/Design/Design_Guideline_For_Extension.md#BuiltinIntent) request from the user, you can indicate that it cannot be handled, or use intents such as `Clova.StopIntent` as a response. To handle a response like `Clova.StopIntent`, you can make the extension to return the {{ "[`PlaybackController.Stop`](/CIC/References/CICInterface/PlaybackController.md#Stop)" if book.TargetCountryCode == "KR" else "[`PlaybackController.Stop`](/CEK/References/CEK_API.md#Stop)" }} directive message as a response instead of the {{ "[`PlaybackController.Pause`](/CIC/References/CICInterface/PlaybackController.md#Pause)" if book.TargetCountryCode == "KR" else "[`PlaybackController.Pause`](/CEK/References/CEK_API.md#Pause)" }} directive message in the [response message](/CEK/References/CEK_API.md#CustomExtResponseMessage).
 
 <div class="note">
   <p><strong>Note!</strong></p>

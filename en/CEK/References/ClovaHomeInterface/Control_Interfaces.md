@@ -104,7 +104,7 @@ These control interfaces are used to check IoT device information and carry out 
 | [`SetBrightnessRequest`](#SetBrightnessRequest)                               | Request  | Requests the Clova Home extension to set the target appliance to change the brightness of lights to the designated value. |
 | [`SetChannelByNameConfirmation`](#SetChannelByNameConfirmation)               | Response | Sends the result of requesting the target appliance to change the TV channel using the name of channel to CEK as a response to the [`SetChannelByNameRequest`](#SetChannelByNameRequest) message. |
 | [`SetChannelByNameRequest`](#SetChannelByNameRequest)                         | Request  | Requests the Clova Home extension to set the target appliance to change the TV channel to the designated channel name. |
-| [`SetChannelConfirmation`](#SetChannelConfirmation)                           | Response | Sends the result of requesting the target appliance to change the TV channel using the number of channel to CEK as a response to the [`SetChannelRequest`](#SetChannelRequest) message. |
+| [`SetChannelConfirmation`](#SetChannelConfirmation)                           | Response | Sends the result of requesting the target appliance to change the TV channel using the number of the channel to CEK as a response to the [`SetChannelRequest`](#SetChannelRequest) message. |
 | [`SetChannelRequest`](#SetChannelRequest)                                     | Request  | Requests the Clova Home extension to set the target appliance to change the TV channel to the designated channel number. |
 | [`SetColorConfirmation`](#SetColorConfirmation)                               | Response | Sends the result of requesting the target appliance to change the color of lights, screens, or lamps to CEK as a response to the [`SetColorRequest`](#SetColorRequest) message. |
 | [`SetColorRequest`](#SetColorRequest)                                         | Request  | Mainly used to control appliances such as smart lamps. Requests the Clova Home extension to change the color of lights, screens, or lamps of the target appliance.  |
@@ -3903,7 +3903,7 @@ Mainly used to control appliances such as TVs or set-top boxes. Requests the Clo
 * [`SetChannelByNameConfirmation`](#SetChannelByNameConfirmation)
 
 ## SetChannelConfirmation {#SetChannelConfirmation}
-Sends the result of requesting the target appliance to change the TV channel using the number of channel to CEK as a response to the [`SetChannelRequest`](#SetChannelRequest) message.
+Sends the result of requesting the target appliance to change the TV channel using the number of the channel to CEK as a response to the [`SetChannelRequest`](#SetChannelRequest) message.
 
 ### Payload fields
 

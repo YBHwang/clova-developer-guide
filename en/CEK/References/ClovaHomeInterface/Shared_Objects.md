@@ -3,7 +3,7 @@ These shared objects are used in the message `payload` when sending [Clova Home 
 
 | Object name            | Description                                            |
 |--------------------|---------------------------------------------------|
-| [ActionInforObject](#ActionInforObject)                   | Object containing information on an appliance control actions.  |
+| [ActionInforObject](#ActionInforObject)                   | Object containing information on appliance control actions.  |
 | [AirQualityInfoObject](#AirQualityInfoObject)             | Object containing information on air quality.            |
 | [ApplianceInfoObject](#ApplianceInfoObject)               | Object containing information on an IoT appliance.        |
 | [BatteryInfoObject](#BatteryInfoObject)                   | Object containing information on battery.            |
@@ -32,7 +32,7 @@ These shared objects are used in the message `payload` when sending [Clova Home 
 | [VolumeInfoObject](#VolumeInfoObject)                     | Object containing information on volume.          |
 
 ## ActionInforObject {#ActionInforObject}
-ActionInforObject contains information on an appliance control actions and expresses a command for an action to be conducted on an appliance.
+ActionInforObject contains information on appliance control actions and expresses a command for an action to be performed on an appliance.
 
 ### Object fields
 | Field name       | Data type    | Description                     | Required/Included |
