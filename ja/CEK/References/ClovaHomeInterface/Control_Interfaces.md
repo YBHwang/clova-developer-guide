@@ -5030,7 +5030,22 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 [`TurnOnRequest`](#TurnOnRequest)メッセージに対するレスポンスです。デバイスの電源をオンにするようにリクエストした後、その処理結果をCEKに返します。
 
 ### Payload fields
-なし
+| フィールド名       | データ型    | フィールドの説明                     | 必須/選択 |
+|---------------|---------|-----------------------------|:---------:|
+| `targetTemperature`               | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | 現在の温度情報を持つオブジェクト | Optional |
+| `fanSpeed`            | [SpeedInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SpeedInfoObject)  | 現在のファンの速度情報を持つオブジェクト| Optional |
+| `mode`            | [ModeInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ModeInfoObject)  | 現在の運転モード情報を持つオブジェクト| Optional |
+
+### 備考
+ユーザに通知すべき情報がある場合に、ペイロードに値を入れてCEKに返すことが出来ます。`applianceTypes` の値により、応答に使用出来るフィールドが違います。
+
+| applianceTypes     | 応答に使用できるフィールド     |
+|--------------------|---------------------------------|
+| `"AIRCONDITIONER"` | `mode`、 `fanSpeed`、　`targetTemperature` |
+| `"AIRPURIFIER"`    | `fanSpeed`   |
+| `"HEATER"`         | `targetTemperature` |
+| `"HUMIDIFIER"`     | `fanSpeed` |
+| `"WATERBOILER"`    | `mode`、 `targetTemperature` |
 
 ### Message example
 
