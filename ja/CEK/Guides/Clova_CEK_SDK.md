@@ -16,6 +16,8 @@ GitHubにてClova Extensions Kitソフトウェア開発キットを提供して
 ## CEK SDK for Kotlin {#SDK_For_Kotlin}
 <a href="{{ book.GitHubBaseURLforExtensionExample }}/clova-cek-sdk-kotlin">{{ book.GitHubBaseURLforExtensionExample }}/clova-cek-sdk-kotlin</a>
 
+## CEK SDK for Python {#SDK_For_Python}
+<a href="{{ book.GitHubBaseURLforExtensionExample }}/clova-cek-sdk-python">{{ book.GitHubBaseURLforExtensionExample }}/clova-cek-sdk-python</a>
 
 <div class="note">
   <p><strong>メモ</strong></p>
