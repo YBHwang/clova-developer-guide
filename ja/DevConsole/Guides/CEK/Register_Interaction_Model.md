@@ -94,10 +94,10 @@ Clovaプラットフォームでは共通したユーザーリクエストのカ
 Extensionが使用する[ビルトインスロットタイプ](#AddBuiltinSlotType)と[カスタムスロットタイプ](#AddCustomSlotType)を追加したら、次はカスタムインテントを追加します。続けて、ピザを注文するユーザーのリクエストを仮定します。次の順で「OrderPizza」という名前のインテントを追加します。
 
 <ol>
-  <li><strong>{{ book.DevConsole.cek_builder_list_title_intent }}</strong>パネルか、左側のサイドメニューの<strong>{{ book.DevConsole.cek_builder_list_title_intent }}</strong>メニュー内の<strong><カスタムインテント/strong>の右に表示された<img class="inlineImage" src="/DevConsole/Resources/Images/DevConsole-Plus_Button.png" />ボタンをクリックします。</li>
+  <li><strong>{{ book.DevConsole.cek_builder_list_title_intent }}</strong>パネルか、左側のサイドメニューの<strong>{{ book.DevConsole.cek_builder_list_title_intent }}</strong>メニュー内の<strong>カスタムインテント</strong>の右に表示された<img class="inlineImage" src="/DevConsole/Resources/Images/DevConsole-Plus_Button.png" />ボタンをクリックします。</li>
   <li><strong>{{ book.DevConsole.cek_builder_new_intent }}</strong>の入力フィールドに、追加するカスタムインテントの名前を入力し、<strong>{{ book.DevConsole.cek_create }}</strong>ボタンをクリックします。カスタムインテントが生成されると、そのカスタムインテントの詳細を確認する画面が表示されます。</li>
   <img src="/DevConsole/Resources/Images/DevConsole-Add_Custom_Intent_1.png" />
-  <li><strong>{{ book.DevConsole.cek_builder_intent_slot_title }}</strong>の入力フィールドに、追加するスロットの名前を入力し、右の<img class="inlineImage" src="/DevConsole/Resources/Images/DevConsole-Plus_Button.png" />ボタンをクリックしてslotを追加します。</li>
+  <li><strong>{{ book.DevConsole.cek_builder_intent_slot_title }}</strong>の入力フィールドに、追加するスロットの名前を入力し、右の<img class="inlineImage" src="/DevConsole/Resources/Images/DevConsole-Plus_Button.png" />ボタンをクリックしてスロットを追加します。</li>
   <img src="/DevConsole/Resources/Images/DevConsole-Add_Custom_Intent_2.png" />
   <li>スロットを追加し、そのスロットのタイプを指定します。</li>
   <img src="/DevConsole/Resources/Images/DevConsole-Add_Custom_Intent_3.png" />
