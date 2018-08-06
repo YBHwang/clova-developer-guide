@@ -72,7 +72,6 @@ Due to the various purposes, this repository has the following branches:
   <li>Branches for Korean business
     <ul>
       <li><strong>doc-KR</strong> (KO and EN, document -> doc-KR)<br />Branch for Korean business, this branch holds KO and EN version documentation.</li>
-      <li><strong>doc-KR-En_Partner</strong> (EN, PDF doc, doc-KR -> doc-KR-En_Partner)<br />Branch for Korean partners who prefer English such as Xaomi.</li>
       <li><strong>doc-KR-Partner-LGUplus</strong> (KO, TV STB exclusive spec., PDF doc, doc-KR -> doc-KR-Partner-LGUplus)<br />Branch for LG Uplus (Korean partner) contains LG Uplus exclusive specification.</li>
       <li><strong>doc-KR-Partner</strong> (KO, PDF doc, doc-KR-Partner-LGUplus -> doc-KR-Partner)<br />Branch for Korean partners contains partner exclusive specification.</li>
       <li><strong>doc-KR-Public</strong> (KO, Online doc, doc-KR-Partner -> doc-KR-Public)<br />Branch for public documentation which is deployed on NAVER developer center.</li>
