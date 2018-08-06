@@ -1,17 +1,16 @@
 {
-  "title": "Clova 개발자 가이드",
-  "description": "이 문서는 Clova가 제공하는 CIC와 CEK 플랫폼에 대한 개발 가이드 및 API 레퍼런스를 제공합니다.",
+  "title": "Clova Developer Guide",
+  "description": "This documentation provides developer guides as well as API references for CIC and CEK platforms provided by Clova.",
   "direction": "ltr",
   "author": "NAVER Corporation",
   "variables": {
     "ClassifiedInfo": "Confidential",
-    "language": "ko",
+    "DocVersion": "v4.6",
+    "language": "en",
     "TargetCountryCode": "KR",
-    "TargetReaderType": "Internal",
+    "TargetReaderType": "Partner",
     "ExtensionAdminEmail": "dl_extension_admin@navercorp.com",
     "DeveloperConsoleURL": "https://developers.naver.com/console/clova",
-    "DeveloperCenterName": "NAVER 개발자 센터",
-    "DeveloperCenterForumURL": "https://developers.naver.com/forum/list",
     "GitHubBaseURLforExtensionExample": "https://github.com/naver",
     "DocOwner": "NAVER",
     "OrientedService": "NAVER",
@@ -134,5 +133,5 @@
     },
     "paperSize": "a3"
   },
-  "plugins": ["-search"]
+  "plugins": "-search"
 }
