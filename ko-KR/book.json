@@ -8,7 +8,7 @@
     "DocVersion": "v3.37.1",
     "language": "ko",
     "TargetCountryCode": "KR",
-    "TargetReaderType": "Internal",
+    "TargetReaderType": "Partner",
     "ExtensionAdminEmail": "dl_extension_admin@navercorp.com",
     "DeveloperConsoleURL": "https://developers.naver.com/console/clova",
     "DeveloperCenterName": "NAVER 개발자 센터",
