@@ -21,6 +21,14 @@
   </thead>
   <tbody>
   <tr>
+  <td>v3.37.1</td><td>2018-08-09</td>
+  <td>
+    <ul>
+      <li>[CIC] <a href="/CIC/CIC_Overview.html#DialogModel">대화 모델</a>에 대한 설명을 보완</li>
+    </ul>
+  </td>
+</tr>
+  <tr>
     <td>v3.37.0</td><td>2018-07-23</td>
     <td>
       <ul>
