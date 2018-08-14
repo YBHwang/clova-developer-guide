@@ -66,6 +66,7 @@ Typically, user authentication is processed on the pair app. However, transferri
 | 200 OK           | The request has been successfully processed.                      |
 | 400 Bad Request  | Required parameters such as `client_id` are missing or invalid parameters have been used. |
 | 403 Forbidden    | The {{ book.TargetServiceForClientAuth }} access token specified in the header is invalid. |
+| 423 Locked       | Authentication attempted using the {{ book.TargetServiceForClientAuth }} account of a user who unsubscribed from the Clova membership less than one month ago. A user who has unsubscribed from Clova cannot use their account to use the Clova service for a month. <div class="note"><p><strong>Note!</strong></p><p>If the client receives a <code>423 Locked</code> status code, a guidance message saying "This account has been unsubscribed from the Clova service. You can use this account again if you log in to the account one month after the date of unsubscription." must be displayed.</p></div>  |
 | 451 Unavailable For Legal Reasons | The user has not agreed to the Terms and Conditions. The client should go to the URI in the `redirect_uri` field and display the webpage. This URI points to the Terms and Conditions page.  |
 | 500 Server Internal Error | Failed to issue an authorization code due to an internal server error. |
 
@@ -74,13 +75,13 @@ Typically, user authentication is processed on the pair app. However, transferri
 {% raw %}
 
 ```json
-// Example 1: If the HTTP response message has 200 OK
+// Example 1: Example of the HTTP response message having 200 OK
 {
     "code": "cnl__eCSTdsdlkjfweyuxXvnlA",
     "state": "FKjaJfMlakjdfTVbES5ccZ"
 }
 
-// Example 2: If the HTTP response message has 451 Unavailable For Legal Reasons
+// Example 2: Example of the HTTP response message having 451 Unavailable For Legal Reasons
 {
   "code":"4mrklvwoC_KNgDlvmslka",
   "redirect_uri":"https://ssl.pstatic.net/static/clova/service/terms/place/terms_3rd.html?code=4mrklvwoC_KNgDlvmslka&grant_type=code&state=FKjaJfMlakjdfTVbES5ccZ",
@@ -301,7 +302,7 @@ This API deletes the [issued Clova access token](#RequestClovaAccessToken). The 
 |---------------|-------------------------|
 | 200 OK                    | The request has been processed successfully.                                                                                                                       |
 | 400 Bad Request           | Required parameters such as `client_id` are missing or invalid parameters have been used.                                        |
-| 401 Unauthorized          | Invalid client credentials (`client_id` or `client_secret`) or client information (`device_id` or `model_id`) is received as parameters. |
+| 401 Unauthorized          | Invalid client credentials (`client_id` or `client_secret`) or user information (`device_id` or `model_id`) are received as parameters. |
 | 500 Internal Server Error | Failed to delete the access token due to an internal server error.                                                                                             |
 
 ### Response example

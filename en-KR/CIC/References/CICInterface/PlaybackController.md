@@ -4,7 +4,7 @@ The PlaybackController namespace provides interfaces for playing audio and contr
 
 | Message name         | Type  | Description                                   |
 |------------------|-----------|---------------------------------------------|
-| [`CustomCommandIssued`](#CustomCommandIssued)  | Event     | Reports to CIC that the user pressed one of the shortcut buttons on the client device.  |
+| [`CustomCommandIssued`](#CustomCommandIssued)  | Event     | Reports to CIC when the user presses one of the shortcut buttons on the client device.  |
 | [`ExpectNextCommand`](#ExpectNextCommand)      | Directive | Instructs the client to send the [`PlaybackController.NextCommandIssued`](#NextCommandIssued) event to CIC just like the effect of a user pressing the Next button from the client device.  |
 | [`ExpectPauseCommand`](#ExpectPauseCommand)    | Directive | Instructs the client to send the [`PlaybackController.PauseCommandIssued`](#PauseCommandIssued) event to CIC just like the effect of a user pressing the Pause button from the client device.  |
 | [`ExpectPlayCommand`](#ExpectPlayCommand)      | Directive | Instructs the client to send the [`PlaybackController.PlayCommandIssued`](#PlayCommandIssued) event to CIC just like the effect of a user pressing the Play button from the client device.  |
@@ -13,19 +13,19 @@ The PlaybackController namespace provides interfaces for playing audio and contr
 | [`ExpectStopCommand`](#ExpectStopCommand)      | Directive | Instructs the client to send the [`PlaybackController.StopCommandIssued`](#StopCommandIssued) event to CIC just like the effect of a user pressing the Stop button from the client device.  |
 | [`Mute`](#Mute)                                | Directive | Instructs the client to mute the audio player.            |
 | [`Next`](#Next)                                | Directive | Instructs the client to start playing the next audio stream in the playback queue.   |
-| [`NextCommandIssued`](#NextCommandIssued)      | Event     | Reports to CIC that the user pressed the Next button on the client device or responds to the [`PlaybackController.ExpectNextCommand`](#ExpectNextCommand) directive from CIC. |
+| [`NextCommandIssued`](#NextCommandIssued)      | Event     | Reports to CIC if the user presses the Next button on the client device or responds to the [`PlaybackController.ExpectNextCommand`](#ExpectNextCommand) directive from CIC. |
 | [`Pause`](#Pause)                              | Directive | Instructs the client to pause the current audio stream.        |
-| [`PauseCommandIssued`](#PauseCommandIssued)    | Event     | Reports to CIC that the user pressed the Pause button on the client device or responds to the [`PlaybackController.ExpectPauseCommand`](#ExpectPauseCommand) directive from CIC.  |
-| [`PlayCommandIssued`](#PlayCommandIssued)      | Event     | Reports to CIC that the user pressed the Play button on the client device or responds to the [`PlaybackController.ExpectPlayCommand`](#ExpectPlayCommand) directive from CIC.  |
+| [`PauseCommandIssued`](#PauseCommandIssued)    | Event     | Reports to CIC if the user presses the Pause button on the client device or responds to the [`PlaybackController.ExpectPauseCommand`](#ExpectPauseCommand) directive from CIC.  |
+| [`PlayCommandIssued`](#PlayCommandIssued)      | Event     | Reports to CIC if the user presses the Play button on the client device or responds to the [`PlaybackController.ExpectPlayCommand`](#ExpectPlayCommand) directive from CIC.  |
 | [`Previous`](#Previous)                        | Directive | Instructs the client to start playing the previous audio stream in the playback queue. |
-| [`PreviousCommandIssued`](#PreviousCommandIssued) | Event | Reports to CIC that the user pressed the Previous button on the client device or responds to the [`PlaybackController.ExpectPreviousCommand`](#ExpectPreviousCommand) directive from CIC. |
+| [`PreviousCommandIssued`](#PreviousCommandIssued) | Event | Reports to CIC if the user presses the Previous button on the client device or responds to the [`PlaybackController.ExpectPreviousCommand`](#ExpectPreviousCommand) directive from CIC. |
 | [`Replay`](#Replay)                            | Directive | Instructs the client to replay the current audio stream from the beginning.         |
 | [`Resume`](#Resume)                            | Directive | Instructs the client to resume playing the audio stream.                |
-| [`ResumeCommandIssued`](#ResumeCommandIssued)  | Directive | Reports to CIC that the user pressed the Resume button on the client device or responds to the [`PlaybackController.ExpectResumeCommand`](#ExpectResumeCommand) directive from CIC.  |
+| [`ResumeCommandIssued`](#ResumeCommandIssued)  | Directive | Reports to CIC if the user presses the Resume button on the client device or responds to the [`PlaybackController.ExpectResumeCommand`](#ExpectResumeCommand) directive from CIC.  |
 | [`SetRepeatMode`](#SetRepeatMode)              | Directive | Instructs the client to change the playback state to a specified repeat mode.  |
-| [`SetRepeatModeCommandIssued`](#SetRepeatModeCommandIssued) | Event | Reports to CIC that the user pressed the Repeat button on the client device.  |
+| [`SetRepeatModeCommandIssued`](#SetRepeatModeCommandIssued) | Event | Reports to CIC when the user presses the Repeat button on the client device.  |
 | [`Stop`](#Stop)                                | Directive | Instructs the client to stop playing an audio stream.                |
-| [`StopCommandIssued`](#StopCommandIssued)      | Event     | Reports to CIC that the user pressed the Repeat button on the client device.  |
+| [`StopCommandIssued`](#StopCommandIssued)      | Event     | Reports to CIC if the user presses the Resume button on the client device or responds to the [`PlaybackController.ExpectStopCommand`](#ExpectStopCommand) directive from CIC.  |
 | [`TurnOffRepeatMode`](#TurnOffRepeatMode)      | Directive | **(Deprecated)** Instructs the client to stop the repeat function for one song.                  |
 | [`TurnOnRepeatMode`](#TurnOnRepeatMode)        | Directive | **(Deprecated)** Instructs the client to start the repeat function for one song.                  |
 | [`Unmute`](#Unmute)                            | Directive | Instructs the client to unmute the audio player.              |
@@ -33,7 +33,7 @@ The PlaybackController namespace provides interfaces for playing audio and contr
 | [`VolumeUp`](#VolumeUp)                        | Directive | **(Deprecated)** Instructs the client to turn up the audio player volume.                      |
 
 ## CustomCommandIssued event {#CustomCommandIssued}
-Reports to CIC that the user pressed one of the shortcut buttons on the client device. Upon receiving the event, CIC sends the appropriate directive to the client.
+Reports to CIC when the user presses one of the shortcut buttons on the client device. Upon receiving the event, CIC sends the appropriate directive to the client.
 
 ### Context fields
 
@@ -42,7 +42,7 @@ Reports to CIC that the user pressed one of the shortcut buttons on the client d
 ### Payload fields
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `button`      | string  | The name of the shortcut button on the client device. E.g. <code>"CUSTOM_BUTTON_2"</code> | Always |
+| `button`      | string  | The name of the shortcut button on the client device. E.g. <code>"CUSTOM_BUTTON_2"</code> | Required |
 
 ### Remarks
 * The button on the client device can either be a physical button or a software button like a widget button on a music player.
@@ -155,10 +155,10 @@ Instructs the client to send the [`PlaybackController.PlayCommandIssued`](#PlayC
 
 | Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:---------:|
-| `handover`            | object  | Object containing information required for remote takeover of media playback. The `handover` object is included in the directive when taking over the media playback. If the `handover` object is included, the client must provide the details of this object in the `handover` object of the [`PlaybackController.PlayCommandIssued`](#PlayCommandIssued) event `payload`.     | Conditional |
+| `handover`            | object  | Object containing information required for remote takeover of media playback. This object is included in the directive if the media playback must be taken over. So, if the `handover` object is included in the directive, the client must use the details of this object in the `handover` object in the `payload` of the [`PlaybackController.PlayCommandIssued`](#PlayCommandIssued) event.     | Conditional |
 | `handover.deviceId`   | string  | The ID of the client device handing over media playback.  | Always |
 | `handover.customData` | string  | The information required to play the media.               | Always |
-| `token`               | string  | The token of the media to play. When taking over a media playback, the `token` field is included in the message. If a value exists in the `token` field, the client must include this value in the `token` field when sending the [`PlaybackController.PlayCommandIssued`](#PlayCommandIssued) event.  | Conditional  |
+| `token`               | string  | The token of the media to play. The `token` field is included in the directive if the media playback must be taken over. So, if a value exists in the `token` field, the client must include this value in the `token` field when sending the [`PlaybackController.PlayCommandIssued`](#PlayCommandIssued) event.  | Conditional  |
 
 ### Message example
 {% raw %}
@@ -286,7 +286,7 @@ None
 
 ### Remarks
 
-If the control is related to speaker output, Clova does not provide a voice guide with the [`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) directive. This is in consideration of the UX such as for a user listening to music. Instead, you should implement an action to inform the user that the volume has been changed using the lights or a simple sound effect on the client.
+If the control is related to speaker output, Clova does not provide a voice guide with the [`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) directive. This is in consideration of the UX such as for a user listening to music. For this, you must implement an action to inform the user that the volume has been changed using the lights or a simple sound effect on the client.
 
 ### Message example
 {% raw %}
@@ -335,7 +335,7 @@ None
 * [`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)
 
 ## NextCommandIssued event {#NextCommandIssued}
-Reports to CIC that the user pressed the Next button on the client device or responds to the [`PlaybackController.ExpectNextCommand`](#ExpectNextCommand) directive from CIC. Upon receiving the event, CIC sends the appropriate directive to the client.
+Reports to CIC if the user presses the Next button on the client device or responds to the [`PlaybackController.ExpectNextCommand`](#ExpectNextCommand) directive from CIC. Upon receiving the event, CIC sends the appropriate directive to the client.
 
 
 ### Context fields
@@ -417,7 +417,7 @@ None
 * [`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)
 
 ## PauseCommandIssued event {#PauseCommandIssued}
-Reports to CIC that the user pressed the Pause button on the client device or responds to the [`PlaybackController.ExpectPauseCommand`](#ExpectPauseCommand) directive from CIC. Upon receiving the event, CIC sends the appropriate directive to the client.
+Reports to CIC if the user presses the Pause button on the client device or responds to the [`PlaybackController.ExpectPauseCommand`](#ExpectPauseCommand) directive from CIC. Upon receiving the event, CIC sends the appropriate directive to the client.
 
 
 ### Context fields
@@ -472,7 +472,7 @@ Reports to CIC that the user pressed the Pause button on the client device or re
 * [`PlaybackController.StopCommandIssued`](#StopCommandIssued)
 
 ## PlayCommandIssued event {#PlayCommandIssued}
-Reports to CIC that the user pressed the Play button on the client device or responds to the [`PlaybackController.ExpectPlayCommand`](#ExpectPlayCommand) directive from CIC. Upon receiving the event, CIC sends the appropriate directive to the client. If the `handover` field exists is in the `payload` of the [`PlaybackController.ExpectPlayCommand`](#ExpectPlayCommand) directive received from CIC, the client must take over the media playback using the field value.
+Reports to CIC if the user presses the Play button on the client device or responds to the [`PlaybackController.ExpectPlayCommand`](#ExpectPlayCommand) directive from CIC. Upon receiving the event, CIC sends the appropriate directive to the client. If the `handover` field exists is in the `payload` of the [`PlaybackController.ExpectPlayCommand`](#ExpectPlayCommand) directive received from CIC, the client must take over the media playback using the field value.
 
 
 ### Context fields
@@ -484,10 +484,10 @@ Reports to CIC that the user pressed the Play button on the client device or res
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
 | `deviceId`            | string  | The client device ID. Skip the `deviceId` field if you are not remotely handing over the media playback to another device. | Optional |
-| `handover`            | object  | Object containing information required for remote takeover of media playback. When taking over media playback, use the `handover` object as the `handover` object in the `payload` of the [`PlaybackController.ExpectPlayCommand`](#ExpectPlayCommand) directive.     | Optional |
+| `handover`            | object  | Object containing information required for remote takeover of media playback. If media playback must be taken over, use the `handover` object as the `handover` object in `payload` of the [`PlaybackController.ExpectPlayCommand`](#ExpectPlayCommand) directive.     | Optional |
 | `handover.deviceId`   | string  | The ID of the client device handing over media playback.  | Required |
 | `handover.customData` | string  | The information required to play the media.               | Required |
-| `token`               | string  | The token of the media to play. When the user presses the play button on the playlist, the `playableItems[].token` field value of the [`TemplateRuntime.RenderPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#RenderPlayerInfo) directive must be applied. The value of the `token` field value may need to be entered if the [`PlaybackController.ExpectPlayCommand`](#ExpectPlayCommand) directive is received.  | Optional  |
+| `token`               | string  | The token of the media to play. When the user presses the Play button after selecting a media on the playlist, the `playableItems[].token` field value of the [`TemplateRuntime.RenderPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#RenderPlayerInfo) directive must be applied to this field. Or, the value of the `token` field value may need to be used if the [`PlaybackController.ExpectPlayCommand`](#ExpectPlayCommand) directive is received.  | Optional  |
 
 ### Remarks
 * The button on the client device can either be a physical button or a software button like a widget button on a music player.
@@ -558,7 +558,7 @@ None
 
 
 ## PreviousCommandIssued event {#PreviousCommandIssued}
-Reports to CIC that the user pressed the Previous button on the client device or responds to the [`PlaybackController.ExpectPreviousCommand`](#ExpectPreviousCommand) directive from CIC. Upon receiving the event, CIC sends the appropriate directive to the client.
+Reports to CIC if the user presses the Previous button on the client device or responds to the [`PlaybackController.ExpectPreviousCommand`](#ExpectPreviousCommand) directive from CIC. Upon receiving the event, CIC sends the appropriate directive to the client.
 
 
 ### Context fields
@@ -668,7 +668,7 @@ None
 * [`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)
 
 ## ResumeCommandIssued event {#ResumeCommandIssued}
-Reports to CIC that the user pressed the Resume button on the client device or responds to the [`PlaybackController.ExpectResumeCommand`](#ExpectResumeCommand) directive from CIC. Upon receiving the event, CIC sends the appropriate directive to the client.
+Reports to CIC if the user presses the Resume button on the client device or responds to the [`PlaybackController.ExpectResumeCommand`](#ExpectResumeCommand) directive from CIC. Upon receiving the event, CIC sends the appropriate directive to the client.
 
 
 ### Context fields
@@ -760,7 +760,7 @@ Instructs the client to change the playback state to a specified repeat mode. Up
 * [`PlaybackController.PlayCommandIssued`](#PlayCommandIssued)
 
 ## SetRepeatModeCommandIssued event {#SetRepeatModeCommandIssued}
-Reports to CIC that the user pressed the Repeat button on the client device. Upon receiving the event, CIC sends the [`PlaybackController.SetRepeatMode`](#SetRepeatMode) directive to the target client.
+Reports to CIC when the user presses the Repeat button on the client device. Upon receiving the event, CIC sends the [`PlaybackController.SetRepeatMode`](#SetRepeatMode) directive to the target client.
 
 
 ### Context fields
@@ -845,7 +845,7 @@ None
 * [`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)
 
 ## StopCommandIssued event {#StopCommandIssued}
-Reports to CIC that the user pressed the Resume button on the client device or responds to the [`PlaybackController.ExpectStopCommand`](#ExpectStopCommand) directive from CIC. Upon receiving the event, CIC sends the appropriate directive to the client.
+Reports to CIC if the user presses the Resume button on the client device or responds to the [`PlaybackController.ExpectStopCommand`](#ExpectStopCommand) directive from CIC. Upon receiving the event, CIC sends the appropriate directive to the client.
 
 
 ### Context fields
@@ -959,7 +959,7 @@ None
 
 ### Remarks
 
-If the control is related to speaker output, Clova does not provide a voice guide with the [`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) directive. This is in consideration of the UX such as for a user listening to music. Instead, you should implement an action to inform the user that the volume has been changed using the lights or a simple sound effect on the client.
+If the control is related to speaker output, Clova does not provide a voice guide with the [`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) directive. This is in consideration of the UX such as for a user listening to music. For this, you must implement an action to inform the user that the volume has been changed using the lights or a simple sound effect on the client.
 
 ### Message example
 {% raw %}
