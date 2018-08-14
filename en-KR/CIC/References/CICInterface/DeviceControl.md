@@ -10,8 +10,8 @@ The DeviceControl namespace provides the following events and directives.
 
 | Message name         | Type  | Description                                   |
 |------------------|-----------|---------------------------------------------|
-| [`ActionExecuted`](#ActionExecuted)       | Event     | Reports to CIC that the client has taken an action on the specified feature or mode.           |
-| [`ActionFailed`](#ActionFailed)           | Event     | Reports to CIC that the client cannot or has failed to take an action on the specified feature or mode. |
+| [`ActionExecuted`](#ActionExecuted)       | Event     | Reports to CIC if the client has taken an action on the specified feature or mode.           |
+| [`ActionFailed`](#ActionFailed)           | Event     | Reports to CIC if the client cannot or has failed to take an action on the specified feature or mode. |
 | [`BtConnect`](#BtConnect)                 | Directive | Instructs the client to connect to a Bluetooth speaker.                               |
 | [`BtConnectByPINCode`](#BtConnectByPINCode) | Directive | Instructs the client to connect to the Bluetooth speaker that has requested a PIN code.                        |
 | [`BtDisconnect`](#BtDisconnect)           | Directive | Instructs the client to disconnect from the Bluetooth speaker.                               |
@@ -40,7 +40,7 @@ The general process of controlling a client device is as follows:
 
 1. The user makes a voice request ([`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)) to control the client device. For this process, the [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) context must be included in the event.
 2. CIC determines whether the client can perform the control request of the user by analyzing the `actions[]` field in the [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) context.
-3. If the client is able to handle the request, CIC sends a directive of DeviceControl API that contains the control request.
+3. When the client is able to handle the request, CIC sends a directive of DeviceControl API that contains the control request.
 4. After handling the directive, the client must send the result to CIC using the [`DeviceControl.ActionExecuted`](#ActionExecuted) or [`DeviceControl.ActionFailed`](#ActionFailed) event.
 
 There are times when the Clova app needs to check the states of client devices registered in the user account. The general process of requesting for device states is as follows:
@@ -60,7 +60,7 @@ There are times when the Clova app needs to check the states of client devices r
 
 ## ActionExecuted event {#ActionExecuted}
 
-Reports to CIC that the client has taken an action on the specified feature or mode.
+Reports to CIC if the client has taken an action on the specified feature or mode.
 
 ### Context fields
 
@@ -126,7 +126,7 @@ Upon receiving this event, CIC sends the [`SynchronizeState`](#SynchronizeState)
 
 ## ActionFailed event {#ActionFailed}
 
-Reports to CIC that the client cannot or has failed to take an action on the specified feature or mode.
+Reports to CIC if the client cannot or has failed to take an action on the specified feature or mode.
 
 ### Context fields
 
@@ -207,7 +207,7 @@ Instructs the client to connect to one of the paired Bluetooth speakers. CIC may
 | Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:---------:|
 | `name`       | string  | The name of the Bluetooth device to connect to.         | Always     |
-| `address`    | string  | The MAC address of the Bluetooth device to connect to.     | Always     |
+| `address`    | string  | The address of the Bluetooth device to connect to.     | Always     |
 | `connected`  | boolean | Indicates the connection with the specified Bluetooth device. <ul><li><code>true</code>: Connected</li><li><code>false</code>: Not connected</li></ul>      | Always     |
 | `role`       | string  | The role of the Bluetooth device to connect.<ul><li><code>"sink"</code></li><li><code>"source"</code></li></ul> | Always     |
 
@@ -535,7 +535,7 @@ Instructs the client to turn down the speaker volume or lower the screen brightn
 * The default unit by which the volume or brightness is changed is up to the client.
 * The client must frequently report the current speaker volume and screen brightness to CIC using the [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) context object.
 * After handling the directive, the client must send the result to CIC, using the [`DeviceControl.ActionExecuted`](#ActionExecuted) or [`DeviceControl.ActionFailed`](#ActionFailed) event.
-* Clova normally provides a voice guide ([`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) directive) when sending a directive to the client for device control. However, if the control is related to speaker output like the `"volume"` is set in the `target` field, Clova does not provide a voice guide with the [`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) directive. This is in consideration of the UX such as for a user listening to music. Instead, you should implement an action to inform the user that the volume has been changed using the lights or a simple sound effect on the client.
+* Clova normally provides a voice guide ([`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) directive) when sending a directive to the client for device control. However, if the control is related to speaker output like the `"volume"` is set in the `target` field, Clova does not provide a voice guide with the [`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) directive. This is in consideration of the UX such as for a user listening to music. For this, you must implement an action to inform the user that the volume has been changed using the lights or a simple sound effect on the client.
 
 ### Message example
 
@@ -623,7 +623,7 @@ Instructs the client to turn up the speaker volume or increase the screen bright
 * The default unit by which the volume or brightness is changed is up to the client.
 * The client must frequently report the current speaker volume and screen brightness to CIC using the [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) context object.
 * After handling the directive, the client must send the result to CIC, using the [`DeviceControl.ActionExecuted`](#ActionExecuted) or [`DeviceControl.ActionFailed`](#ActionFailed) event.
-* Clova normally provides a voice guide ([`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) directive) when sending a directive to the client for device control. However, if the control is related to speaker output like the `"volume"` is set in the `target` field, Clova does not provide a voice guide with the [`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) directive. This is in consideration of the UX such as for a user listening to music. Instead, you should implement an action to inform the user that the volume has been changed using the lights or a simple sound effect on the client.
+* Clova normally provides a voice guide ([`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) directive) when sending a directive to the client for device control. However, if the control is related to speaker output like the `"volume"` is set in the `target` field, Clova does not provide a voice guide with the [`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) directive. This is in consideration of the UX such as for a user listening to music. For this, you must implement an action to inform the user that the volume has been changed using the lights or a simple sound effect on the client.
 
 ### Message example
 
@@ -661,7 +661,7 @@ Instructs the client to turn up the speaker volume or increase the screen bright
 
 | Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:---------:|
-| `target`      | string  | The target app to launch. The app can be specified in one of the following ways: <ul><li>Custom URL scheme: A custom URL scheme of the target app. E.g. <code>"{{ book.OrientedServiceWithLowerCase }}searchapp://..."</code></li><li>Relay page URL: A relay page URL that executes the app if the app is already installed. E.g. <code>"http://{{ book.OrientedServiceWithLowerCase }}app.{{ book.OrientedServiceWithLowerCase }}.com/..."</code></li><li>App name: The name of the app recognized from user speech. E.g. <code>"{{ book.OrientedService }}App"</code></li></ul> | Always     |
+| `target`      | string  | The target app to launch. The app can be specified in one of the following ways: <ul><li>Custom URL scheme: A custom URL scheme of the target app. (e.g. <code>"{{ book.OrientedServiceWithLowerCase }}searchapp://..."</code>)</li><li>Relay page URL: A relay page URL that executes the app if the app is already installed. (e.g. App name: <code>"http://{{ book.OrientedServiceWithLowerCase }}app.{{ book.OrientedServiceWithLowerCase }}.com/..."</code>)</li><li>App name: The name of the app recognized from user speech. (e.g. <code>"{{ book.OrientedService }}App"</code>)</li></ul> | Always     |
 
 ### Remarks
 
@@ -885,7 +885,7 @@ Instructs the client to set the speaker volume level or screen brightness level 
 
 * The client must frequently report the current speaker volume and screen brightness to CIC using the [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) context object.
 * After handling the directive, the client must send the result to CIC, using the [`DeviceControl.ActionExecuted`](#ActionExecuted) or [`DeviceControl.ActionFailed`](#ActionFailed) event.
-* Clova normally provides a voice guide ([`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) directive) when sending a directive to the client for device control. However, if the control is related to speaker output like the `"volume"` is set in the `target` field, Clova does not provide a voice guide with the [`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) directive. This is in consideration of the UX such as for a user listening to music. Instead, you should implement an action to inform the user that the volume has been changed using the lights or a simple sound effect on the client.
+* Clova normally provides a voice guide ([`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) directive) when sending a directive to the client for device control. However, if the control is related to speaker output like the `"volume"` is set in the `target` field, Clova does not provide a voice guide with the [`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) directive. This is in consideration of the UX such as for a user listening to music. For this, you must implement an action to inform the user that the volume has been changed using the lights or a simple sound effect on the client.
 
 ### Message example
 
@@ -977,13 +977,13 @@ Instructs the client to turn off or disable a specified feature or mode. For exa
 
 ### Remarks
 
-* When turning off or disabling a certain feature or mode, follow the policy of the client device. For example, when disabling sound, the client policy will determine whether or not the client activates vibration or mute mode.
+* When turning off or disabling a certain feature or mode, follow the policy of the client device. For example, when sound is disabled, the client policy will determine whether or not the client activates vibration or mute mode.
 * The client must frequently report the client state to CIC using the [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) context object.
 * After handling the directive, the client must send the result to CIC, using the [`DeviceControl.ActionExecuted`](#ActionExecuted) or [`DeviceControl.ActionFailed`](#ActionFailed) event.
 
 <div class="danger">
   <p><strong>Caution!</strong></p>
-  <p>Turn the power off of the client device when the <code>target</code> field is set to <code>"power"</code>.</p>
+  <p>Turn the power off of the client device if the <code>target</code> field is set to <code>"power"</code>.</p>
 </div>
 
 ### Message example

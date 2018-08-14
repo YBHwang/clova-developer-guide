@@ -1,12 +1,12 @@
 # Settings
 
-The Settings namespace provides interfaces for updating or synchronizing the client settings information between Clova and the client. The Settings namespace provides the following events and directives.
+The Settings namespace provides an interface to update or synchronize the client settings between Clova and the client. The Settings namespace provides the following events and directives.
 
 | Message name         | Type  | Description                                 |
 |------------------|-----------|-------------------------------------------|
 | [`ExpectReport`](#ExpectReport) | Directive | Instructs the client to report the current settings information. Upon receiving the directive, the client must send the [`Settings.Report`](#Report) event to CIC. |
-| [`Report`](#Report)             | Event     | Reports the current settings information to CIC. If the [`Settings.ExpectReport`](#ExpectReport) directive is received from CIC, the client must send the `Settings.Report` event to CIC. |
-| [`Update`](#Update)             | Directive | Instructs the client to apply the values saved to the `payload` as the setting value.  |
+| [`Report`](#Report)             | Event     | The client reports the current settings information to CIC. If the [`Settings.ExpectReport`](#ExpectReport) directive is received from CIC, the client must send the `Settings.Report` event to CIC.  |
+| [`Update`](#Update)             | Directive | Instructs the client to apply the values saved to `payload` as the setting value.  |
 
 <div class="note">
   <p><strong>Note!</strong></p>
@@ -72,7 +72,7 @@ None
 * [`Settings.Report`](#Report)
 
 ## Report event {#Report}
-Reports the current settings information to CIC. If the [`Settings.ExpectReport`](#ExpectReport) directive is received from CIC, the client must send the `Settings.Report` event to CIC.
+The client reports the current settings information to CIC. If the [`Settings.ExpectReport`](#ExpectReport) directive is received from CIC, the client must send the `Settings.Report` event to CIC.
 
 ### Context fields
 
@@ -82,7 +82,7 @@ Reports the current settings information to CIC. If the [`Settings.ExpectReport`
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `configuration` | object | Object containing the settings information of the predefined client. All sub-fields of this object have a string type.<div class="note"><p><strong>Note!</strong></p><p>Contact your Clova representative to predefine the client settings information.</p></div> | Required   |
+| `configuration` | object | Object containing the settings information of the predefined client. All sub-fields of this object have a string type.<div class="note"><p><strong>Note!</strong></p><p>Contact the Clova partnership team to predefine the client settings information.</p></div> | Required   |
 
 ### Message example
 {% raw %}
@@ -120,13 +120,13 @@ Reports the current settings information to CIC. If the [`Settings.ExpectReport`
 * [`Settings.ExpectReport`](#ExpectReport)
 
 ## Update directive {#Update}
-Instructs the client to apply the values saved to the `payload` as the setting value.
+Instructs the client to apply the values saved to `payload` as the setting value.
 
 ### Payload fields
 
 | Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:---------:|
-| `configuration` | object | Object containing the settings information of the predefined client. All sub-fields of this object have a string type.<div class="note"><p><strong>Note!</strong></p><p>Contact your Clova representative to predefine the client settings information.</p></div> | Always   |
+| `configuration` | object | Object containing the settings information of the predefined client. All sub-fields of this object have a string type.<div class="note"><p><strong>Note!</strong></p><p>Contact the Clova partnership team to predefine the client settings information.</p></div> | Always   |
 
 ### Remarks
 
