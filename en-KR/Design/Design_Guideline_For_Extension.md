@@ -91,7 +91,7 @@ Next is an example of writing a script by dividing the usage scenario into multi
 | User      | Update me on the order from Pizzabot.                               | #1, #9      |
 | Extension | It's on its way. Please wait a little while longer.                 | #9          |
 
-## Defining an extension name {#DefineExtensionName}
+## Defining the extension name {#DefineExtensionName}
 
 Before creating a new extension, you must first define the extension name. The extension name includes the **skill name** and **invocation name**. The **skill name** is the name used in the skill store and a skill is implemented as an extension. The **invocation name** is the name the user speaks to Clova to start the extension.
 
