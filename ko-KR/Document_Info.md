@@ -25,6 +25,7 @@
   <td>
     <ul>
       <li>[CIC] <a href="/CIC/CIC_Overview.html#DialogModel">대화 모델</a>에 대한 설명을 보완</li>
+      <li>[CEK] <a href="/CEK/Guides/Build_Custom_Extension.md#ProvidingMetaDataForDisplay">오디오 콘텐츠의 메타 정보 제공</a> 절에서 일부 오타 수정</li>
     </ul>
   </td>
 </tr>

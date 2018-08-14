@@ -162,7 +162,7 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
 
 [오디오 콘텐츠의 재생을 지시](#DirectClientToPlayAudio)하는 {{ "[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)" if book.TargetCountryCode == "KR" else "[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)" }} 지시 메시지에는 제목, 앨범, 가수, 가사 등과 같은 정보는 포함되어 있지 않습니다. Custom extension은 클라이언트가 요청할 때 이런 메타 정보를 제공해야 합니다.
 
-클라이언트는 콘텐츠에 대한 재생 메타 정보를 얻기 위해 {{ "[`TemplateRuntime.ReqeusetPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#ReqeusetPlayerInfo)" if book.TargetCountryCode == "KR" else "[`TemplateRuntime.ReqeusetPlayerInfo`](/CEK/References/CEK_API.md#ReqeusetPlayerInfo)" }} 이벤트 메시지를 Clova에게 전송합니다. 이때, 이벤트 메시지의 내용이 [`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest) 타입의 요청 메시지로 다음과 같이 전달됩니다. 참고로 아래 예는 `eJyr5lIqSSyITy4tKs4vUrJSUE` 토큰을 가지는 콘텐츠를 기준으로 다음 10 곡에 대한 메타 정보를 요청한 것을 의미합니다.
+클라이언트는 콘텐츠에 대한 재생 메타 정보를 얻기 위해 {{ "[`TemplateRuntime.RequestPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#RequestPlayerInfo)" if book.TargetCountryCode == "KR" else "[`TemplateRuntime.RequestPlayerInfo`](/CEK/References/CEK_API.md#RequestPlayerInfo)" }} 이벤트 메시지를 Clova에게 전송합니다. 이때, 이벤트 메시지의 내용이 [`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest) 타입의 요청 메시지로 다음과 같이 전달됩니다. 참고로 아래 예는 `eJyr5lIqSSyITy4tKs4vUrJSUE` 토큰을 가지는 콘텐츠를 기준으로 다음 10 곡에 대한 메타 정보를 요청한 것을 의미합니다.
 
 ```json
 {
