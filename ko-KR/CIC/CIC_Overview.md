@@ -49,10 +49,13 @@ CIC가 제공하는 대화 모델을 이해하기 위해 다음 내용을 설명
 
 CIC는 사용자 요청에 대한 응답으로 지시 메시지를 클라이언트에게 보내며, 이 지시 메시지에 사용자 요청 수신 시 받았던 대화 ID 정보를 포함시킵니다. 따라서, 대화 ID를 통해 CIC로부터 전달된 결과가 현재 사용자의 요청에 부합한 응답인지 확인할 수 있습니다. 클라이언트는 다음과 같이 동작을 수행해야 합니다.
 
-1. 사용자가 새로운 발화를 시작할 때마다 **새로운 대화 ID를 생성**합니다.
-2. [SpeechRecognizer.Recognize](/CIC/References/CICInterface/SpeechRecognizer.md) 이벤트 메시지를 이용하여 사용자의 요청을 CIC로 전달합니다.
-  * 이때, 클라이언트는 기억하고 있는 **마지막 대화 ID**를 새로 생성한 대화 ID로 교체해야 합니다.
-  * 마지막 대화 ID가 교체되면 이전 대화 ID와 관련하여 클라이언트가 처리 중이거나 처리해야 할 지시 메시지를 모두 폐기해야 합니다.
-3. CIC가 요청 처리 결과를 지시 메시지로 보내면, 지시 메시지에 포함된 대화 ID와 클라이언트가 기억하고 있는 마지막 대화 ID를 비교합니다.
-  * **대화 ID가 서로 같으면** 수신한 지시 메시지의 내용에 맞게 사용자에게 결과를 전달합니다.
-  * **대화 ID가 서로 다르면** 수신한 지시 메시지를 폐기합니다.
+1. 사용자가 새로운 대화를 시작할 때마다 **새로운 대화 ID를 생성**합니다.
+  * 음성 발화이면, [SpeechRecognizer.Recognize](/CIC/References/CICInterface/SpeechRecognizer.md) 이벤트 메시지를 이용하여 사용자의 요청을 CIC로 전달합니다. 텍스트 명령이면, [TextRecognizer.Recognize](/CIC/References/CICInterface/TextRecognizer.md) 이벤트 메시지를 이용합니다.
+  * 이때, 클라이언트는 [이벤트 메시지의 헤더](/CIC/References/CIC_API.md#Event)에 새로 생성한 대화 ID를 포함하고, 이것을 **마지막 대화 ID**로 저장해 두어야 합니다.
+2. 클라이언트는 CIC로부터 지시 메시지를 받으면, [지시 메시지의 헤더](/CIC/References/CIC_API.md#Directive)에 포함된 대화 ID와 클라이언트가 저장해 둔 마지막 대화 ID를 비교해야 합니다.
+  * **지시 메시지가 대화 ID를 포함하고 있지 않으면**, **즉시** 수신한 지시 메시지의 내용에 맞게 사용자에게 결과를 전달합니다.
+  * 지시 메시지가 대화 ID를 포함하고 있고 **두 대화 ID가 서로 같으면**, 수신한 메시지를 [메시지 큐](/CIC/Guides/Interact_with_CIC.md#ManageMessageQ)에 추가하고 나중에 차례가 되면 해당 내용을 사용자에게 전달합니다.
+  * 지시 메시지가 대화 ID를 포함하고 있고 **두 대화 ID가 서로 다르면**, 수신한 지시 메시지를 폐기합니다.
+  * 클라이언트는 새 대화 ID를 가진 지시 메시지를 처리하기 위해 다음과 같은 것을 수행해야 합니다.
+    * 이전 대화 ID를 가진 지시 메시지의 내용을 사용자에게 제공하고 있다면 이를 즉시 중단해야 할 수 있습니다. [기본 오디오 재생 규칙](/Design/Design_Guideline_For_Client_Hardware.md#AudioInterruptionRule)이나 [사용자 발화 시 오디오 재생 규칙](/Design/Design_Guideline_For_Client_Hardware.md#AudioInterruptionRuleForUserUtterance)을 참고하여
+    * 메시지 큐에서 이전 대화 ID를 가진 지시 메시지를 모두 폐기해야 합니다. 이를 위해 메시지 큐에 있는 지시 메시지의 대화 ID를 항상 확인해야 합니다.
