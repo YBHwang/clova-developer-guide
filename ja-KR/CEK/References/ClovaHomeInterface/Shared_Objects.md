@@ -1,51 +1,51 @@
-# Shared objects {#SharedObjects}
-These shared objects are used in the message `payload` when sending [Clova Home extension messages](/CEK/References/CEK_API.md#ClovaHomeExtMessage):
+# 共有オブジェクト {#SharedObjects}
+[Clova Home Extensionメッセージ](/CEK/References/CEK_API.md#ClovaHomeExtMessage)を送信する際、`payload`には以下のような共有オブジェクトが含まれます。
 
-| Object name            | Description                                            |
+| オブジェクト            | 説明                                            |
 |--------------------|---------------------------------------------------|
-| [ActionInforObject](#ActionInforObject)                   | Object containing information on appliance control actions.  |
-| [AirQualityInfoObject](#AirQualityInfoObject)             | Object containing information on air quality.            |
-| [ApplianceInfoObject](#ApplianceInfoObject)               | Object containing information on an IoT appliance.        |
-| [BatteryInfoObject](#BatteryInfoObject)                   | Object containing information on battery.            |
-| [BillInfoObject](#BillInfoObject)                         | Object containing information on billing.             |
-| [BrightnessInfoObject](#BrightnessInfoObject)             | Object containing information on light or screen brightness. |
-| [ColorInfoObject](#ColorInfoObject)                       | Object containing information on the color of lights, screens, or lamps of the target appliance.  |
-| [ColorTemperatureInfoObject](#ColorTemperatureInfoObject) | Object containing information on the color temperature of lights, screens, or lamps of the target appliance.  |
-| [ConsumptionInfoObject](#ConsumptionInfoObject)           | Object containing information on energy consumption.       |
-| [CustomCommandInfoObject](#CustomCommandInfoObject)       | Object containing information on custom commands.   |
-| [CustomInfoObject](#CustomInfoObject)                     | Object containing information directly entered by the user, such as an customized name, required units, or figures. |
-| [EndpointInfoObject](#EndpointInfoObject)                 | Object containing information on the endpoint, which the target appliance must ultimately control.  |
-| [ExpendableInfoObject](#ExpendableInfoObject)             | Object containing information on usage or remaining lifespan of appliance parts.  |
-| [FineDustInfoObject](#FineDustInfoObject)                 | Object containing information on fine dust.          |
-| [IntensityLevelInfoObject](#IntensityLevelInfoObject)     | Object containing information on pressure or water pressure intensity.   |
-| [ModeInfoObject](#ModeInfoObject)                         | Object containing information on the operation mode.          |
-| [HumidityInfoObject](#HumidityInfoObject)                 | Object containing information on humidity.              |
-| [PeriodInfoObject](#PeriodInfoObject)                     | Object containing information on the period.          |
-| [PhaseInfoObject](#PhaseInfoObject)                       | Object containing information on the phase of appliance actions.
-| [ProgressiveTaxBracketInfoObject](#ProgressiveTaxBracketInfoObject)  | Object containing information on progressive tax brackets.       |
-| [SittingStateInfoObject](#SittingStateInfoObject)         | Object containing the sit-down information of the user on appliances such as a smart chair.  |
-| [SleepScoreInfoObject](#SleepScoreInfoObject)             | Object containing information on sleep score.          |
-| [SpeedInfoObject](#SpeedInfoObject)                       | Object containing information on speed.              |
-| [TemperatureInfoObject](#TemperatureInfoObject)           | Object containing information on temperature.          |
-| [TVChannelNameInfoObject](#TVChannelNameInfoObject)       | Object containing information on a TV channel name.      |
-| [TVChannelInfoObject](#TVChannelInfoObject)               | Object containing information on a TV channel.           |
-| [UltraFineDustInfoObject](#UltraFineDustInfoObject)       | Object containing information on ultrafine dust.         |
-| [VolumeInfoObject](#VolumeInfoObject)                     | Object containing information on volume.          |
+| [ActionInforObject](#ActionInforObject)                   | デバイス制御動作の情報を持っています。  |
+| [AirQualityInfoObject](#AirQualityInfoObject)             | 空気質の情報を持っています。            |
+| [ApplianceInfoObject](#ApplianceInfoObject)               | IoTデバイスの情報を持っています。        |
+| [BatteryInfoObject](#BatteryInfoObject)                   | バッテリーの情報を持っています。            |
+| [BillInfoObject](#BillInfoObject)                         | 利用料金の情報を持っています。             |
+| [BrightnessInfoObject](#BrightnessInfoObject)             | 照明や画面の輝度情報を持っています。 |
+| [ColorInfoObject](#ColorInfoObject)                       | デバイスの照明や画面、電球の色の情報を持っています。  |
+| [ColorTemperatureInfoObject](#ColorTemperatureInfoObject) | デバイスの照明や画面、電球の色温度の情報を持っています。  |
+| [ConsumptionInfoObject](#ConsumptionInfoObject)           | 電力の使用量情報を持っています。       |
+| [CustomCommandInfoObject](#CustomCommandInfoObject)       | カスタムコマンドの情報を持っています。   |
+| [CustomInfoObject](#CustomInfoObject)                     | 任意の名前、必要な単位・数値情報を直接入力する際に使用できます。 |
+| [EndpointInfoObject](#EndpointInfoObject)                 | デバイスがコントロールするエンドポイントの情報を持っています。  |
+| [ExpendableInfoObject](#ExpendableInfoObject)             | デバイスの消耗品の使用量や残り寿命に関する情報を持っています。  |
+| [FineDustInfoObject](#FineDustInfoObject)                 | PM10の情報を持っています。          |
+| [IntensityLevelInfoObject](#IntensityLevelInfoObject)     | 圧力や水圧の強度情報を持っています。   |
+| [ModeInfoObject](#ModeInfoObject)                         | 運転モードの情報を持っています。          |
+| [HumidityInfoObject](#HumidityInfoObject)                 | 湿度情報を持っています。              |
+| [PeriodInfoObject](#PeriodInfoObject)                     | 期間情報を持っています。          |
+| [PhaseInfoObject](#PhaseInfoObject)                       | デバイスの動作の段階情報を持っています。
+| [ProgressiveTaxBracketInfoObject](#ProgressiveTaxBracketInfoObject)  | 累進税の段階情報を持っています。       |
+| [SittingStateInfoObject](#SittingStateInfoObject)         | スマートチェアなどのデバイスに対する、ユーザーの着席情報を持っています。  |
+| [SleepScoreInfoObject](#SleepScoreInfoObject)             | 睡眠スコアの情報を持っています。          |
+| [SpeedInfoObject](#SpeedInfoObject)                       | 速度情報を持っています。              |
+| [TemperatureInfoObject](#TemperatureInfoObject)           | 温度情報を持っています。          |
+| [TVChannelNameInfoObject](#TVChannelNameInfoObject)       | テレビのチャンネル名を持っています。      |
+| [TVChannelInfoObject](#TVChannelInfoObject)               | テレビチャンネルの情報を持っています。           |
+| [UltraFineDustInfoObject](#UltraFineDustInfoObject)       | PM2.5の情報を持っています。         |
+| [VolumeInfoObject](#VolumeInfoObject)                     | 音量情報を持っています。          |
 
 ## ActionInforObject {#ActionInforObject}
-ActionInforObject contains information on appliance control actions and expresses a command for an action to be performed on an appliance.
+デバイス制御動作の情報を持っているオブジェクトです。1つのデバイスに対して、1つの動作を指示するコマンドを表します。
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `applianceId` | string  | Device ID                      | Required/Always     |
-| `action`      | string  | The action of appliance control. See the [Actions](#Actions) table under the [ApplianceInfoObject](#ApplianceInfoObject) section for the list of actions.     | Required/Always     |
+| `applianceId` | string  | デバイスのID                      |      |
+| `action`      | string  | デバイスの制御動作動作のリストについては、[ApplianceInfoObject](#ApplianceInfoObject)の[Actions](#Actions)項目を参照してください。     |      |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example: An example used in DiscoverAppliancesResponse message
+// サンプル：DiscoverAppliancesResponseメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "99f9d8ff-9366-4cab-a90c-b4c7eca0abbe",
@@ -56,7 +56,7 @@ ActionInforObject contains information on appliance control actions and expresse
   "payload": {
     "customCommands": [
       {
-        "name": "Good morning",
+        "name": "おはよう",
         "actions": [
           {
             "applianceId": "device-001",
@@ -73,7 +73,7 @@ ActionInforObject contains information on appliance control actions and expresse
         ]
       },
       {
-        "name": "Good evening",
+        "name": "おやすみ",
         "actions": [
           {
             "applianceId": "device-0011",
@@ -94,10 +94,10 @@ ActionInforObject contains information on appliance control actions and expresse
       {
         "applianceId": "device-001",
         "manufacturerName": "device-manufacturer-name",
-        "modelName": "Smart lamp",
+        "modelName": "スマート照明",
         "version": "v1.0",
-        "friendlyName": "Living room lamp",
-        "friendlyDescription": "A lamp that can be controlled using a smartphone",
+        "friendlyName": "リビングの照明",
+        "friendlyDescription": "スマートフォンで制御できる照明",
         "isIr": false,
         "isReachable": true,
           "actions": [
@@ -114,10 +114,10 @@ ActionInforObject contains information on appliance control actions and expresse
       {
         "applianceId": "device-002",
         "manufacturerName": "device-manufacturer-name",
-        "modelName": "Smart plug",
+        "modelName": "スマートコンセント",
         "version": "v1.0",
-        "friendlyName": "Kitchen plug",
-        "friendlyDescription": "An energy-saving plug",
+        "friendlyName": "キッチンのコンセント",
+        "friendlyDescription": "節電コンセント",
         "isIr": false,
         "isReachable": true,
         "actions": [
@@ -128,7 +128,7 @@ ActionInforObject contains information on appliance control actions and expresse
         "applianceTypes": ["SMARTPLUG"],
         "additionalApplianceDetails": {},
         "location": "LIVING_ROOM",
-        "tags": ["Study", "Johnroom", "Poweroffdeviceforawaymode"]
+        "tags": ["勉強", "チョルスの部屋", "おでかけの際に電源をオフにするデバイス"]
       }
     ]
   }
@@ -137,23 +137,23 @@ ActionInforObject contains information on appliance control actions and expresse
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [CustomCommandInfoObject](#CustomCommandInfoObject)
 * [`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DiscoverAppliancesResponse)
 
 ## AirQualityInfoObject {#AirQualityInfoObject}
-AirQualityInfoObject contains information on air quality. This is used to indicate the air quality measured by the appliance. It is expressed as a string.
+空気質の情報を持っているオブジェクトです。デバイスで測定された空気質を示します。文字列で表されます。
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `index`       | string  | Air quality level. It is limited to the following values.<ul><li><code>"good"</code>: Good</li><li><code>"normal"</code>: Normal</li><li><code>"bad"</code>: Bad</li><li><code>"verybad"</code>: Very bad</li></ul> | Required/Always     |
+| `index`       | string  | 空気質の指数。次のいずれかの値を持ちます。<ul><li><code>"good"</code>：良い</li><li><code>"normal"</code>：普通</li><li><code>"bad"</code>：悪い</li><li><code>"verybad"</code>：非常に悪い</li></ul> |      |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example: An example used in the GetAirQualityResponse message
+// サンプル：GetAirQualityResponseメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "33da6561-0149-4532-a30b-e0de8f75c4cf",
@@ -171,89 +171,89 @@ AirQualityInfoObject contains information on air quality. This is used to indica
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetAirQualityRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetAirQualityRequest)
 * [`GetAirQualityResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetAirQualityResponse)
 
 ## ApplianceInfoObject {#ApplianceInfoObject}
-ApplianceInfoObject contains the information on IoT appliances. This is used to send a list of appliances registered in the user account to CEK or to request the Clova Home extension to control a specific appliance.
+IoTデバイスの情報を持っているオブジェクトです。ユーザーアカウントに登録されているデバイスのリストをCEKに渡したり、特定のデバイスをターゲットに指定して、Clova Home Extensionにそのデバイスの操作をリクエストする際に使われます。
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `actions[]`                  | string array  | List of actions supported by an appliance. The client must restrict the user to controlling the IoT device within the scope of actions supported by the appliance. | Optional/Always    |
-| `additionalApplianceDetails` | object        | Additional information provided by the manufacturer or IoT service.                                 | Optional/Conditional    |
-| `applianceId`                | string        | Device ID                                                                        | Required/Always    |
-| `applianceTypes[]`           | string array  | The appliance type. The `applicationType` determines the value of the `actions` field, which is the action that can be performed an appliance. You must designate the type of appliance registered to the user account of the IoT service as one of the following values: Select the appliance type by referring to the items in the Remarks section.                                                                              | Required/Always    |
-| `friendlyName`               | string        | The name of the appliance given by the user.                                                           | Optional/Always    |
-| `friendlyDescription`        | string        | The description of the appliance.                                                                  | Optional/Always    |
-| `isIr`                       | boolean       | Whether the appliance is controlled by infrared communication.<ul><li><code>true</code>: By infrared communication</li><li><code>false</code>: Not by infrared communication</li></ul> <div class="note"><p><strong>Note!</strong></p><p>The following restrictions apply when controlling appliances via infrared communication (<code>true</code>):</p><ul><li>Clova does not send the results of device control to users.</li><li>Even if the appliance type supports the <code>HealthCheck</code> action, Clova does not send <code>HealthCheck</code> action-related requests to the extension.</li></ul></div>  | Optional/Conditional  |
-| `isReachable`                | boolean       | Whether or not remote control is available.<ul><li>true: Remote control is available</li><li>false: Remote control is not available</li></ul>  | Optional/Always    |
-| `manufacturerName`           | string        | The name of the appliance manufacturer.                                                                  | Optional/Always    |
-| `modelName`                  | string        | The name of the appliance model.                                                                   | Optional/Always    |
-| `version`                    | string        | The software version of the manufacturer.                                                            | Optional/Always    |
-| `location`                   | string        | The location of the appliance installation. Enter the code value in the [Locations](#Locations) field. The Korean text that corresponds to the inputted code value is added to the `tags` field.            | Optional/Always    |
-| `tags`                       | string array  | The list of tags added to the appliance by the user. The user can add various attributes as tags such as location of installation, purpose of use, or product brand to the appliance from the Clova app or the IoT service. Appliances with the same attributes (tags) are grouped together, and simultaneous control is possible if the appliances in the same group have identical permitted actions.  | Optional/Always  |
+| `actions[]`                  | string array  | デバイスでサポートされている動作のリスト。クライアントは、ユーザーがIoTデバイスを操作する際、デバイスでサポートされている動作の範囲内でリクエストするように案内する必要があります。 |     |
+| `additionalApplianceDetails` | object        | メーカーまたはIoTサービスが提供する追加情報を持っているフィールド                                 | 任意/条件付き    |
+| `applianceId`                | string        | デバイスのID                                                                        |     |
+| `applianceTypes[]`           | string array  | デバイスのタイプ。`applicationType`によって、そのデバイスでサポートされている動作を示す`actions`フィールドの値が異なります。IoTサービスでユーザーアカウントに登録されているデバイスのタイプを、次のいずれかに指定する必要があります。備考を参考にして、デバイスのタイプを入力します。                                                                              |     |
+| `friendlyName`               | string        | ユーザーがつけたデバイスの名前                                                           |     |
+| `friendlyDescription`        | string        | デバイスの説明                                                                  |     |
+| `isIr`                       | boolean       | デバイスのコントロールに、赤外線通信を利用するかどうかを示すフィールド<ul><li><code>true</code>：赤外線通信を利用する</li><li><code>false</code>：赤外線通信を利用しない</li></ul><div class="note"><p><strong>メモ</strong></p><p>デバイスを赤外線通信でコントロール(<code>true</code>)する場合、以下の制約があります。</p><ul><li>Clovaは、ユーザーにデバイスのコントロール結果を伝えません。</li><li>そのデバイスのタイプで<code>HealthCheck</code>動作をサポートされていても、Clovaは<code>HealthCheck</code>動作に関連するリクエストをExtensionに渡しません。</li></ul></div>  | 任意/条件付き  |
+| `isReachable`                | boolean       | デバイスが遠隔操作できる状態にあるかどうかを示す値<ul><li>true：遠隔操作できる</li><li>false：遠隔操作できない</li></ul>  |     |
+| `manufacturerName`           | string        | デバイスメーカーの名前                                                                  |     |
+| `modelName`                  | string        | デバイスのモデル名                                                                   |     |
+| `version`                    | string        | メーカーのソフトウェアバージョン                                                            |     |
+| `location`                   | string        | デバイスが設置されている場所。[Locations](#Locations)項目内のコードを入力します。入力したコードに対応する位置情報のテキストが`tags`フィールドに追加されます。            |     |
+| `tags`                       | string array  | ユーザーがデバイスに追加したタグのリスト。ユーザーはClovaアプリまたはIoTサービスで、デバイスの設置場所、使用目的、メーカーなど、さまざまな属性をタグとしてデバイスに追加することができます。同じ属性(タグ)を持つデバイスは、同じグループになります。同じグループ内に、同じ動作がサポートされているデバイスがある場合、同時に制御することができます。  |   |
 
-### Remarks
-If the user requests the appliance list using the [`DiscoverAppliancesRequest`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesRequest) message, the Clova Home extension must fill out all the fields except the `additionalApplianceDetails` field, and deliver the information. Here, the value of the `actions` field is normally determined by the `applianceTypes` field and may have the following values depending on the value of the `applianceTypes` field:
+### 備考
+[`DiscoverAppliancesRequest`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesRequest)メッセージでユーザーのデバイスリストをリクエストすると、Clova Home Extensionは`additionalApplianceDetails`を除くすべてのフィールドを設定して返す必要があります。その際、 `actions` の値は通常`applianceTypes`によって決定され、`applianceTypes`フィールドの値により次の値を持ちます。
 
-| applianceTypes | Description         | Permitted actions                                  |
+| applianceTypes | 説明         | サポートされる動作                                  |
 |----------------|-------------|-------------------------------------------------|
-| `"AIRCONDITIONER"`  | Type of an air conditioner         | DecrementFanSpeed, DecrementTargetTemperature, GetCurrentTemperature, GetTargetTemperature, HealthCheck, IncrementFanSpeed, IncrementTargetTemperature, SetFanSpeed, SetMode, SetTargetTemperature, TurnOff, TurnOn               |
-| `"AIRPURIFIER"`     | Type of an air purifier        | DecrementFanSpeed, GetAirQuality, GetFineDust, GetUltraFineDust, HealthCheck, IncrementFanSpeed, SetFanSpeed, TurnOff, TurnOn    |
-| `"AIRSENSOR"`       | Type of an air sensor     | GetAirQuality, GetCurrentTemperature, GetFineDust, GetHumidity, GetUltraFineDust, HealthCheck                                     |
-| `"BIDET"`           | Type of a bidet            | Close, GetDeviceState, GetExpendableState, HealthCheck, Open, TurnOff, TurnOn                                                         |
-| `"BODYWEIGHTSCALE"` | Type of a weighing scale          | GetDeviceState, HealthCheck                                                                                                             |
-| `"CLOTHESCAREMACHINE"` | Type of a clothing care machine    | GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                                     |
-| `"CLOTHESDRYER"`    | Type of a drying machine       | GetDeviceState, HealthCheck, TurnOff, TurnOn                                                                                           |
-| `"CLOTHESWASHER"`   | Type of a washing machine       | GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                           |
-| `"DEHUMIDIFIER"`    | Type of a dehumidifier           | GetCurrentTemperature, GetHumidity, HealthCheck, SetFanSpeed, TurnOff, TurnOn                                                    |
-| `"DISHWASHER"`      | Type of a dishwasher       | GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                           |
-| `"ELECTRICKETTLE"`  | Type of an electric kettle       | GetCurrentTemperature, HealthCheck, TurnOff, TurnOn                                                                              |
-| `"ELECTRICTOOTHBRUSH"` | Type of an electric toothbrush     | GetDeviceState, HealthCheck                                                                                                            |
-| `"FAN"`             | Type of a fan           | HealthCheck, SetMode, TurnOff, TurnOn                                                                                            |
-| `"HEATER"`          | Type of a heater            | DecrementTargetTemperature, GetCurrentTemperature, HealthCheck, IncrementTargetTemperature, TurnOff, TurnOn                      |
-| `"HUMIDIFIER"`      | Type of a humidifier           | GetCurrentTemperature, GetHumidity, HealthCheck, SetFanSpeed, TurnOff, TurnOn                                                    |
-| `"KIMCHIREFRIGERATOR"` | Type of a kimchi refrigerator    | GetDeviceState, HealthCheck                                                                                                            |
-| `"LIGHT"`           | Type of a smart lighting   | DecrementBrightness, DecrementVolume HealthCheck, IncrementBrightness, IncrementVolume SetBrightness, SetColor, SetColorTemperature, SetMode, TurnOff, TurnOn            |
-| `"MASSAGECHAIR"`    | Type of a massage chair        | DecrementIntensityLevel, HealthCheck, IncrementIntensityLevel, TurnOff, TurnOn                                                     |
-| `"MICROWAVE"`       | Type of a microwave      | GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                                      |
-| `"MOTIONSENSOR"`    | Type of a motion detector    | GetDeviceState, HealthCheck                                                                                                             |
-| `"OPENCLOSESENSOR"` | Type of an open-close sensor    | GetCloseTime, GetDeviceState, GetOpenState, GetOpenTime, HealthCheck                                                                                   |
-| `"OVEN"`            | Type of an oven            | GetDeviceState, HealthCheck                                                                                                             |
-| `"POWERSTRIP"`      | Type of a power strip         | GetConsumption, GetEstimateBill, GetProgressiveTaxBracket, HealthCheck, TurnOff, TurnOn                                                                     |
-| `"PURIFIER"`        | Type of a water purifier          | GetDeviceState, GetExpendableState, HealthCheck, ReleaseMode, SetMode, SetTargetTemperature                                                     |
-| `"RANGE"`           | Type of an electric range          | GetDeviceState, HealthCheck                                                                                                             |
-| `"RANGEHOOD"`       | Type of a range hood      | HealthCheck, TurnOff, TurnOn                                                                                                      |
-| `"REFRIGERATOR"`    | Type of a refrigerator          | GetDeviceState, HealthCheck, SetTargetTemperature, SetMode                |
-| `"RICECOOKER"`      | Type of a rice cooker        | GetCleaningCycle, GetDeviceState, GetExpendableState, GetKeepWarmTime, GetPhase, GetRemainingTime, HealthCheck, ReleaseMode, SetMode, Stop, TurnOff, TurnOn          |
-| `"ROBOTVACUUM"`     | Type of a robot vacuum       | Charge, GetBatteryInfo, HealthCheck, TurnOff, TurnOn                                                                             |
-| `"SETTOPBOX"`       | Type of a set-top box     | DecrementChannel, DecrementVolume, HealthCheck, IncrementChannel, IncrementVolume, Mute, SetChannel, SetChannelByName, TurnOff, TurnOn, Unmute |
-| `"SLEEPINGMONITOR"` | Type of a sleep sensor        | GetAsleepDuration, GetAwakeDuration, GetDeviceState, GetSleepScore, GetSleepStartTime, HealthCheck, TurnOff, TurnOn              |
-| `"SMARTBED"`        | Type of a smart bed      | HealthCheck, Lower, Raise, Stop                                                                                                   |
-| `"SMARTCHAIR"`      | Type of a smart chair      | GetCurrentSittingState, GetRightPostureRatio, GetUsageTime, HealthCheck                                                                                       |
-| `"SMARTCURTAIN"`    | Type of a smart curtain      | Close, HealthCheck, Open, Stop                                                                                                    |
-| `"SMARTHUB"`        | Type of a smart hub      | GetCurrentTemperature, GetHumidity, GetTargetTemperature, HealthCheck, SetMode                                                    |
-| `"SMARTMETER"`      | Type of a smart meter      | GetConsumption, GetCurrentBill, GetEstimateBill, GetProgressiveTaxBracket, HealthCheck                                            |
-| `"SMARTPLUG"`       | Type of a smart plug     | GetConsumption, GetEstimateBill, HealthCheck, TurnOff, TurnOn                                                                                                     |
-| `"SMARTTV"`         | Type of a smart TV       | DecrementChannel, DecrementVolume, HealthCheck, IncrementChannel, IncrementVolume, Mute, SetChannel, SetChannelByName, TurnOff, TurnOn, Unmute |
-| `"SMARTVALVE"`      | Type of a smart valve      | GetLockState, SetLockState                                                                                                        |
-| `"SMOKESENSOR"`     | Type of a smoke sensor       | GetDeviceState, HealthCheck                                                                                                             |
-| `"SWITCH"`          | Type of a switch to control outlets in homes | HealthCheck, TurnOff, TurnOn                                                                                       |
-| `"THERMOSTAT"`      | Type of a thermostat   | DecrementTargetTemperature, GetCurrentTemperature, HealthCheck, IncrementTargetTemperature, SetMode, SetTargetTemperature TurnOff, TurnOn       |
-| `"VENTILATOR"`      | Type of a ventilator          | GetDeviceState, HealthCheck, SetFanSpeed, TurnOff, TurnOn                                                                         |
-| `"WATERBOILER"`     | Type of a water boiler          | HealthCheck, SetMode, TurnOff, TurnOn                                                                                             |
+| `"AIRCONDITIONER"`  | 冷暖房機         | DecrementFanSpeed、DecrementTargetTemperature、GetCurrentTemperature、GetTargetTemperature、HealthCheck、IncrementFanSpeed、IncrementTargetTemperature、SetFanSpeed、SetMode、SetTargetTemperature、TurnOff、TurnOn               |
+| `"AIRPURIFIER"`     | 空気清浄機        | DecrementFanSpeed、GetAirQuality、GetFineDust、GetUltraFineDust、HealthCheck、IncrementFanSpeed、SetFanSpeed、TurnOff、TurnOn    |
+| `"AIRSENSOR"`       | 空気質測定器     | GetAirQuality、GetCurrentTemperature、GetFineDust、GetHumidity、GetUltraFineDust、HealthCheck                                     |
+| `"BIDET"`           | 温水洗浄便座            | Close、GetDeviceState、GetExpendableState、HealthCheck、Open、TurnOff、TurnOn                                                         |
+| `"BODYWEIGHTSCALE"` | 体重計          | GetDeviceState、HealthCheck                                                                                                             |
+| `"CLOTHESCAREMACHINE"` | 衣類管理機    | GetRemainingTime、HealthCheck、TurnOff、TurnOn                                                                                     |
+| `"CLOTHESDRYER"`    | 衣類乾燥機       | GetDeviceState、HealthCheck、TurnOff、TurnOn                                                                                           |
+| `"CLOTHESWASHER"`   | 洗濯機       | GetPhase、GetRemainingTime、HealthCheck、TurnOff、TurnOn                                                                           |
+| `"DEHUMIDIFIER"`    | 除湿器           | GetCurrentTemperature、GetHumidity、HealthCheck、SetFanSpeed、TurnOff、TurnOn                                                    |
+| `"DISHWASHER"`      | 食器洗い機       | GetPhase、GetRemainingTime、HealthCheck、TurnOff、TurnOn                                                                           |
+| `"ELECTRICKETTLE"`  | 電気ポット       | GetCurrentTemperature、HealthCheck、TurnOff、TurnOn                                                                              |
+| `"ELECTRICTOOTHBRUSH"` | 電動歯ブラシ     | GetDeviceState、HealthCheck                                                                                                            |
+| `"FAN"`             | 扇風機           | HealthCheck、SetMode、TurnOff、TurnOn                                                                                            |
+| `"HEATER"`          | ヒーター            | DecrementTargetTemperature、GetCurrentTemperature、HealthCheck、IncrementTargetTemperature、TurnOff、TurnOn                      |
+| `"HUMIDIFIER"`      | 加湿器           | GetCurrentTemperature、GetHumidity、HealthCheck、SetFanSpeed、TurnOff、TurnOn                                                    |
+| `"KIMCHIREFRIGERATOR"` | キムチ冷蔵庫    | GetDeviceState、HealthCheck                                                                                                            |
+| `"LIGHT"`           | スマート照明   | DecrementBrightness、DecrementVolume HealthCheck、IncrementBrightness、IncrementVolume SetBrightness、SetColor、SetColorTemperature、SetMode、TurnOff、TurnOn            |
+| `"MASSAGECHAIR"`    | マッサージチェア        | DecrementIntensityLevel、HealthCheck、IncrementIntensityLevel、TurnOff、TurnOn                                                     |
+| `"MICROWAVE"`       | 電子レンジ      | GetRemainingTime、HealthCheck、TurnOff、TurnOn                                                                                      |
+| `"MOTIONSENSOR"`    | モーションセンサー    | GetDeviceState、HealthCheck                                                                                                             |
+| `"OPENCLOSESENSOR"` | 開閉センサー    | GetCloseTime、GetDeviceState、GetOpenState、GetOpenTime、HealthCheck                                                                                   |
+| `"OVEN"`            | オーブン            | GetDeviceState、HealthCheck                                                                                                             |
+| `"POWERSTRIP"`      | テーブルタップ         | GetConsumption、GetEstimateBill、GetProgressiveTaxBracket、HealthCheck、TurnOff、TurnOn                                                                     |
+| `"PURIFIER"`        | 浄水器          | GetDeviceState、GetExpendableState、HealthCheck、ReleaseMode、SetMode、SetTargetTemperature                                                     |
+| `"RANGE"`           | クッキングヒーター・コンロ          | GetDeviceState、HealthCheck                                                                                                             |
+| `"RANGEHOOD"`       | レンジフード      | HealthCheck、TurnOff、TurnOn                                                                                                      |
+| `"REFRIGERATOR"`    | 冷蔵庫          | GetDeviceState、HealthCheck、SetTargetTemperature、SetMode                |
+| `"RICECOOKER"`      | 炊飯器        | GetCleaningCycle、GetDeviceState、GetExpendableState、GetKeepWarmTime、GetPhase、GetRemainingTime、HealthCheck、ReleaseMode、SetMode、Stop、TurnOff、TurnOn          |
+| `"ROBOTVACUUM"`     | ロボット掃除機       | Charge、GetBatteryInfo、HealthCheck、TurnOff、TurnOn                                                                             |
+| `"SETTOPBOX"`       | セットトップボックス     | DecrementChannel、DecrementVolume、HealthCheck、IncrementChannel、IncrementVolume、Mute、SetChannel、SetChannelByName、TurnOff、TurnOn、Unmute |
+| `"SLEEPINGMONITOR"` | 睡眠センサー        | GetAsleepDuration、GetAwakeDuration、GetDeviceState、GetSleepScore、GetSleepStartTime、HealthCheck、TurnOff、TurnOn              |
+| `"SMARTBED"`        | スマートベッド      | HealthCheck、Lower、Raise、Stop                                                                                                   |
+| `"SMARTCHAIR"`      | スマートチェア      | GetCurrentSittingState、GetRightPostureRatio、GetUsageTime、HealthCheck                                                                                       |
+| `"SMARTCURTAIN"`    | スマートカーテン      | Close、HealthCheck、Open、Stop                                                                                                    |
+| `"SMARTHUB"`        | スマートハブ      | GetCurrentTemperature、GetHumidity、GetTargetTemperature、HealthCheck、SetMode                                                    |
+| `"SMARTMETER"`      | 電力量計      | GetConsumption、GetCurrentBill、GetEstimateBill、GetProgressiveTaxBracket、HealthCheck                                            |
+| `"SMARTPLUG"`       | スマートプラグ     | GetConsumption、GetEstimateBill、HealthCheck、TurnOff、TurnOn                                                                                                     |
+| `"SMARTTV"`         | スマートテレビ       | DecrementChannel、DecrementVolume、HealthCheck、IncrementChannel、IncrementVolume、Mute、SetChannel、SetChannelByName、TurnOff、TurnOn、Unmute |
+| `"SMARTVALVE"`      | スマートバルブ      | GetLockState、SetLockState                                                                                                        |
+| `"SMOKESENSOR"`     | 煙センサー       | GetDeviceState、HealthCheck                                                                                                             |
+| `"SWITCH"`          | 家庭内のコンセントの電源を制御するスイッチ | HealthCheck、TurnOff、TurnOn                                                                                       |
+| `"THERMOSTAT"`      | 温度調節器   | DecrementTargetTemperature、GetCurrentTemperature、HealthCheck、IncrementTargetTemperature、SetMode、SetTargetTemperature TurnOff、TurnOn       |
+| `"VENTILATOR"`      | 換気扇          | GetDeviceState、HealthCheck、SetFanSpeed、TurnOff、TurnOn                                                                         |
+| `"WATERBOILER"`     | 温水器          | HealthCheck、SetMode、TurnOff、TurnOn                                                                                             |
 
 <div class="note">
-<p><strong>Note!</strong></p>
-<p>You can restrict actions to allow fewer actions than are permitted by the applianceTypes depending on the functional limitations of the actual appliance. For example, if there is no function to adjust the fan speed on the air purifier (<code>AIRPURIFIER</code> type), the DiscoverAppliancesResponse message must be sent without the IncrementFanSpeed and DecrementFanSpeed fields from the permitted actions. Note that if a user requests an unsupported action, CEK informs the user immediately that the request is not within the permitted range.</p>
+<p><strong>メモ</strong></p>
+<p>デバイスデバイスの機能上の制約によって、そのデバイスのapplianceTypesでサポートされているactionsのうち、いずれかを選択して使用することもできます。例えば、ユーザーが登録した空気清浄機(<code>AIRPURIFIER</code>タイプ)にファンの回転速度を調節する機能がない場合、そのデバイスでサポートされているactionsのうち、IncrementFanSpeedとDecrementFanSpeedを除いてDiscoverAppliancesResponseメッセージを返す必要があります。ちなみに、ユーザーがデバイスでサポートされていない動作(action)をリクエストした場合、CEKはすぐユーザーに有効な範囲外のリクエストであることを通知します。</p>
 </div>
 
 ### Actions {#Actions}
-The table below lists the [interfaces](/CEK/References/CEK_API.md#ClovaHomeExtInterface) related to each action:
+actions項目と関連する[インターフェース](/CEK/References/CEK_API.md#ClovaHomeExtInterface)は、以下の表のとおりです。
 
-| Action                    | Related interface                            |
+| actions                    | 関連インターフェース                            |
 |----------------------------|------------------------------------------|
 | Charge                     | [`ChargeConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#ChargeConfirmation), [`ChargeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#ChargeRequest) |
 | Close                      | [`CloseConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#CloseConfirmation), [`CloseRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#CloseRequest)  |
@@ -315,13 +315,13 @@ The table below lists the [interfaces](/CEK/References/CEK_API.md#ClovaHomeExtIn
 | Unmute                     | [`UnmuteConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#UnmuteConfirmation), [`UnmuteRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#UnmuteRequest) |
 
 <div class="note">
-<p><strong>Note!</strong></p>
-<p>You can automatically set the location of the IoT appliances of the user by using the `location` field for each appliance in the <a href="/CEK/References/ClovaHomeInterface/Discovery_Interfaces.html#DiscoverAppliancesResponse"><code>DiscoverAppliancesResponse</code></a> message when sending the list of user registered appliance to CEK.</p>
+<p><strong>メモ</strong></p>
+<p><a href="/CEK/References/ClovaHomeInterface/Discovery_Interfaces.html#DiscoverAppliancesResponse"><code>DiscoverAppliancesResponse</code></a>メッセージでユーザーが登録したIoTデバイスのリストをCEKに返す際、各デバイスの位置を`location`フィールドに追加しておくと、そのIoTデバイスの位置が自動的に設定されます。</p>
 </div>
 
 ### Locations {#Locations}
 
-The table below shows the location information supported by `location` field. This information is used for analyzing the user utterance or showing the location of the appliance to the user.
+以下の表は、`location`フィールドでサポートされている位置情報です。ユーザーの発話を分析したり、ユーザーにデバイスを見せる際に使用します。
 
 {% include "/CEK/References/ClovaHomeInterface/Location.md" %}
 
@@ -329,7 +329,7 @@ The table below shows the location information supported by `location` field. Th
 {% raw %}
 
 ```json
-// Example 1: An example used in DiscoverAppliancesResponse message
+//例1：DiscoverAppliancesResponseメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "99f9d8ff-9366-4cab-a90c-b4c7eca0abbe",
@@ -342,10 +342,10 @@ The table below shows the location information supported by `location` field. Th
       {
         "applianceId": "device-001",
         "manufacturerName": "device-manufacturer-name",
-        "modelName": "Smart lamp",
+        "modelName": "スマート照明",
         "version": "v1.0",
-        "friendlyName": "Living room lamp",
-        "friendlyDescription": "A lamp that can be controlled using a smartphone",
+        "friendlyName": "リビングの照明",
+        "friendlyDescription": "スマートフォンで制御できる照明",
         "isIr": false,
         "isReachable": true,
           "actions": [
@@ -360,10 +360,10 @@ The table below shows the location information supported by `location` field. Th
       {
         "applianceId": "device-002",
         "manufacturerName": "device-manufacturer-name",
-        "modelName": "Smart plug",
+        "modelName": "スマートコンセント",
         "version": "v1.0",
-        "friendlyName": "Kitchen plug",
-        "friendlyDescription": "An energy-saving plug",
+        "friendlyName": "キッチンのコンセント",
+        "friendlyDescription": "節電コンセント",
         "isIr": false,
         "isReachable": true,
         "actions": [
@@ -379,7 +379,7 @@ The table below shows the location information supported by `location` field. Th
   }
 }
 
-// Example 2: An example used in the TurnOnRequest message
+//例2：TurnOnRequestメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
@@ -398,23 +398,23 @@ The table below shows the location information supported by `location` field. Th
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesResponse)
 * [`DiscoverAppliancesRequest`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesRequest)
 
 ## BatteryInfoObject {#BatteryInfoObject}
-BatteryInfoObject contains information on the appliance battery. This is used to indicate battery information and expressed as an integer (0-100) that represents a percentage.
+デバイスのバッテリー情報を持っているオブジェクトです。バッテリー残量のパーセントを示す整数(0~100)で表されます。
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | Remaining battery (%)                 | Required/Always     |
+| `value`       | number  | バッテリー残量(%)                 |      |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example 1: An example used in the GetBatteryInfoRequest message
+//例1：GetBatteryInfoRequestメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
@@ -430,7 +430,7 @@ BatteryInfoObject contains information on the appliance battery. This is used to
   }
 }
 
-// Example 2: An example used in the GetBatteryInfoResponse message
+//例2：GetBatteryInfoResponseメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
@@ -448,24 +448,24 @@ BatteryInfoObject contains information on the appliance battery. This is used to
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetBatteryInfoRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetBatteryInfoRequest)
 * [`GetBatteryInfoResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetBatteryInfoResponse)
 
 ## BillInfoObject {#BillInfoObject}
-BillInfoObject contains the information on billing derived from the amount of energy consumption measured by the appliance. The billing information is displayed in two components: amount and currency unit.
+デバイスが測定した電力使用量に基づいて計算された料金情報を持っているオブジェクトです。金額と通貨単位が別のフィールドで表されます。
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `currency`    | string  | Currency unit (<a href="https://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO 4217</a>)  | Required/Always |
-| `value`       | number  | Amount of bill                    | Required/Always   |
+| `currency`    | string  | 通貨単位(<a href="https://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO 4217</a>)  |  |
+| `value`       | number  | 料金の金額                    |    |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example: An example used in the GetCurrentBillResponse message
+// サンプル：GetCurrentBillResponseメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "33da6561-0149-4532-a30b-e0de8f75c4cf",
@@ -485,25 +485,25 @@ BillInfoObject contains the information on billing derived from the amount of en
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetCurrentBillRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentBillRequest)
 * [`GetCurrentBillResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentBillResponse)
 * [`GetEstimateBillRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateBillRequest)
 * [`GetEstimateBillResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateBillResponse)
 
 ## BrightnessInfoObject {#BrightnessInfoObject}
-BrightnessInfoObject contains information on light or screen brightness. This is used to indicate the light or screen brightness to change, or the brightness before and after the change. It is expressed as an integer (0-100) that represents a percentage.
+照明や画面の輝度情報を持っているオブジェクトです。変更する照明や画面の明るさ、または変更前後の明るさのパーセントを示す整数(0~100)で表されます。
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | Brightness (%)                      | Required/Always     |
+| `value`       | number  | 輝度(%)                      |      |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example 1: An example used in the IncrementBrightnessRequest message
+//例1：IncrementBrightnessRequestメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
@@ -522,7 +522,7 @@ BrightnessInfoObject contains information on light or screen brightness. This is
   }
 }
 
-// Example 2: An example used in the IncrementBrightnessConfirmation message
+//例2：IncrementBrightnessConfirmationメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
@@ -545,7 +545,7 @@ BrightnessInfoObject contains information on light or screen brightness. This is
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`DecrementBrightnessConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementBrightnessConfirmation)
 * [`DecrementBrightnessRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementBrightnessRequest)
 * [`IncrementBrightnessConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#IncrementBrightnessConfirmation)
@@ -554,20 +554,20 @@ BrightnessInfoObject contains information on light or screen brightness. This is
 * [`SetBrightnessRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetBrightnessRequest)
 
 ## ColorInfoObject {#ColorInfoObject}
-ColorInfoObject contains information on the color of lights, the screen, or lamps of the target appliance. This is used to indicate the light or screen color to change, or the color before and after the change. The color information is expressed in the (<a href="https://en.wikipedia.org/wiki/HSL_and_HSV" target="_blank">HSV</a>) model.
+デバイスの照明や画面、電球の色の情報を持っているオブジェクトです。変更するデバイスの照明や画面、電球の色や変更前後の色を示します。(<a href="https://en.wikipedia.org/wiki/HSL_and_HSV" target="_blank">HSV</a>)値で表されます。
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `brightness`  | number  | Value (0-100). This field is omissible if [BrightnessInfoObject](#BrightnessInfoObject) is used on the brightness settings of a specific appliance.  | Optional/Conditional |
-| `hue`         | number  | Hue (0-360)                  | Required/Always |
-| `saturation`  | number  | Saturation (0-100)                  | Required/Always |
+| `brightness`  | number  | 明度(0~100)。特定のデバイスの明度の設定に[BrightnessInfoObject](#BrightnessInfoObject)が使用されている場合、このフィールドは省略されることがあります。  | 任意/条件付き |
+| `hue`         | number  | 色相(0~360)                  |  |
+| `saturation`  | number  | 彩度(0~100)                  |  |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example: An example used in the SetColorRequest message
+// サンプル：SetColorRequestメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "a97dff79-5684-4535-8df3-193713c478aa",
@@ -591,23 +591,23 @@ ColorInfoObject contains information on the color of lights, the screen, or lamp
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`SetColorConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetColorConfirmation)
 * [`SetColorRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetColorRequest)
 
 ## ColorTemperatureInfoObject {#ColorTemperatureInfoObject}
-ColorTemperatureInfoObject contains information on the color temperature of lights, the screen, or lamps of the target appliance. This is used to indicate the light or screen color temperature to change, or the color temperature before and after the change. It is expressed using the Kelvin (K) scale.
+デバイスの照明や画面、電球の色温度情報を持っているオブジェクトです。変更するデバイスの照明や画面、電球の色温度、または変更前後の色温度を示します。単位はK(ケルビン)です。
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | Color temperature (K, Kelvin)             | Required/Always     |
+| `value`       | number  | 色温度(K、ケルビン)             |      |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example: An example used in the SetColorTemperatureRequest message
+// サンプル：SetColorTemperatureRequestメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "a97dff79-5684-4535-8df3-193713c478aa",
@@ -629,25 +629,25 @@ ColorTemperatureInfoObject contains information on the color temperature of ligh
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`SetColorTemperatureConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetColorTemperatureConfirmation)
 * [`SetColorTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetColorTemperatureRequest)
 
 ## ConsumptionInfoObject {#ConsumptionInfoObject}
-ConsumptionInfoObject contains information on energy or resource measured by the appliance. The consumption information is displayed in two components: energy consumption amount and unit.
+デバイスで測定されたエネルギーまたはリソースの使用量情報を持っているオブジェクトです。エネルギー使用量の数値と単位が別のフィールドで表されます。
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `name`        | string  | The name of item consuming energy or resource.                   | Required/Always  |
-| `unit`        | string  | Energy or resource consumption unit (e.g. kW for electricity)        | Required/Always  |
-| `value`       | number  | Energy or resource consumption amount.                    | Required/Always   |
+| `name`        | string  | エネルギーまたはリソースを使用する項目                   |   |
+| `unit`        | string  | エネルギーまたはリソースの使用単位(例：電気の場合、kW)        |   |
+| `value`       | number  | エネルギーまたはリソースの使用値                    |    |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example: An example used in GetConsumptionResponse message
+// サンプル：GetConsumptionResponseメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "33da6561-0149-4532-a30b-e0de8f75c4cf",
@@ -658,7 +658,7 @@ ConsumptionInfoObject contains information on energy or resource measured by the
   "payload": {
     "consumption": [
       {
-        "name": "Electricity consumption",
+        "name": "電気使用量",
         "value": 79.7,
         "unit": "kW"
       }
@@ -670,7 +670,7 @@ ConsumptionInfoObject contains information on energy or resource measured by the
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetCurrentBillRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentBillRequest)
 * [`GetCurrentBillResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentBillResponse)
 * [`GetEstimateBillRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateBillRequest)
@@ -678,20 +678,20 @@ ConsumptionInfoObject contains information on energy or resource measured by the
 
 ## CustomCommandInfoObject {#CustomCommandInfoObject}
 
-CustomCommandInfoObject contains information on custom commands. The object contains information on the command that the user registered via the Clova app. The commands registered to the user account are returned with the appliance information retrieval results of the [`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DiscoverAppliancesResponse) message. This object includes an appliance's control actions performed when custom command is invoked.
+カスタムコマンドの情報を持っているオブジェクトです。ユーザーがClovaアプリで登録したカスタムコマンドの情報を持っています。[`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DiscoverAppliancesResponse)メッセージ内のデバイス照会結果に、ユーザーのアカウントに登録されているコマンドが追加されます。このオブジェクトには、カスタムコマンドを呼び出すと処理されるデバイス制御動作が含まれます。
 
 ### Object fields
 
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `name`        | string  | The name of the custom command.             | Required/Always      |
-| `actions[]`   | [ActionInforObject](#ActionInforObject) array | The list of appliance control actions to perform through the custom command.  | Required/Always  |
+| `name`        | string  | カスタムコマンドの名前。             |       |
+| `actions[]`   | [ActionInforObject](#ActionInforObject) array | カスタムコマンドで処理するデバイス制御動作のリスト  |   |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example: An example used in DiscoverAppliancesResponse message
+// サンプル：DiscoverAppliancesResponseメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "99f9d8ff-9366-4cab-a90c-b4c7eca0abbe",
@@ -702,7 +702,7 @@ CustomCommandInfoObject contains information on custom commands. The object cont
   "payload": {
     "customCommands": [
       {
-        "name": "Good morning",
+        "name": "おはよう",
         "actions": [
           {
             "applianceId": "device-001",
@@ -719,7 +719,7 @@ CustomCommandInfoObject contains information on custom commands. The object cont
         ]
       },
       {
-        "name": "Good evening",
+        "name": "おやすみ",
         "actions": [
           {
             "applianceId": "device-0011",
@@ -740,10 +740,10 @@ CustomCommandInfoObject contains information on custom commands. The object cont
       {
         "applianceId": "device-001",
         "manufacturerName": "device-manufacturer-name",
-        "modelName": "Smart lamp",
+        "modelName": "スマート照明",
         "version": "v1.0",
-        "friendlyName": "Living room lamp",
-        "friendlyDescription": "A lamp that can be controlled using a smartphone",
+        "friendlyName": "リビングの照明",
+        "friendlyDescription": "スマートフォンで制御できる照明",
         "isIr": false,
         "isReachable": true,
           "actions": [
@@ -760,10 +760,10 @@ CustomCommandInfoObject contains information on custom commands. The object cont
       {
         "applianceId": "device-002",
         "manufacturerName": "device-manufacturer-name",
-        "modelName": "Smart plug",
+        "modelName": "スマートコンセント",
         "version": "v1.0",
-        "friendlyName": "Kitchen plug",
-        "friendlyDescription": "An energy-saving plug",
+        "friendlyName": "キッチンのコンセント",
+        "friendlyDescription": "節電コンセント",
         "isIr": false,
         "isReachable": true,
         "actions": [
@@ -774,7 +774,7 @@ CustomCommandInfoObject contains information on custom commands. The object cont
         "applianceTypes": ["SMARTPLUG"],
         "additionalApplianceDetails": {},
         "location": "LIVING_ROOM",
-        "tags": ["Study", "Johnroom", "Poweroffdeviceforawaymode"]
+        "tags": ["勉強", "チョルスの部屋", "おでかけの際に電源をオフにするデバイス"]
       }
     ]
   }
@@ -783,26 +783,26 @@ CustomCommandInfoObject contains information on custom commands. The object cont
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [ActionInforObject](#ActionInforObject)
 * [`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DiscoverAppliancesResponse)
 
 ## CustomInfoObject {#CustomInfoObject}
 
-CustomInfoObject contains information directly entered by the user such as customized name, required unit, or values. This object is used when the [shared objects](#SharedObjects) provided by default cannot express the object information or when providing all information of the appliance using the [`GetDeviceStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateResponse) message.
+任意の名前、必要な単位や数値で情報を直接入力する際に使用されるオブジェクトです。[共有オブジェクト](#SharedObjects)がデフォルトで提供するオブジェクトで情報を表すことができない場合、このオブジェクトを使用できます。または、[`GetDeviceStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateResponse)メッセージでデバイスが持つすべての情報を提供するときに使用されます。
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `name`        | string            | The customized name to indicate an appliance state or measurement target. When responding to the user, the state name entered in this field is output as speech. | Required/Always |
-| `value`       | number or string | The state value or measurement value.                                                                             | Required/Always |
-| `unit`        | string            | The value of the appliance state or the unit information of the measurement. This is omitted if the data type of the `value` field is a string and may have the following units if it is a numeric value.<ul><li><code>"celcius"</code>: Celsius</li><li><code>"percentage"</code>: Percentage</li></ul> | Optional/Conditional |
+| `name`        | string            | デバイスのステータス情報や測定対象を示す任意の名前。ユーザーに応答する際、このフィールドに入力された値が音声で出力されます。 |  |
+| `value`       | numberまたはstring | ステータス値または測定値                                                                             |  |
+| `unit`        | string            | デバイスのステータス値または測定値の単位。`value`フィールドの型がstringの場合には省略され、numberの場合には次の値を持ちます。<ul><li><code>"celcius"</code>：摂氏温度</li><li><code>"percentage"</code>：パーセント</li></ul> | 任意/条件付き |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example: An example used in GetDeviceStateResponse message
+// サンプル：GetDeviceStateResponseメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "33da6561-0149-4532-a30b-e0de8f75c4cf",
@@ -813,17 +813,17 @@ CustomInfoObject contains information directly entered by the user such as custo
   "payload": {
     "states": [
       {
-        "name": "Temperature of the freezer",
+        "name": "冷凍室の温度",
         "value": -11,
         "unit": "celsius"
       },
       {
-        "name": "Temperature of the fridge",
+        "name": "冷蔵室の温度",
         "value": 2,
         "unit": "celsius"
       },
       {
-        "name": "Humidity of fridge",
+        "name": "冷蔵室の湿度",
         "value": 10,
         "unit": "percentage"
       },
@@ -835,30 +835,30 @@ CustomInfoObject contains information directly entered by the user such as custo
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetDeviceStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateRequest)
 * [`GetDeviceStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateResponse)
 
 ## EndpointInfoObject {#EndpointInfoObject}
-EndpointInfoObject contains information on the endpoint, which the target appliance must ultimately control. A user can specify the endpoint for the target appliance to apply a specific setting value or temperature. An endpoint refers to a specific part of an appliance, the operation method, or area of application. For example, when a user controls the temperature of the refrigerator, the user can additionally specify whether to change the temperature of the freezer or the fridge. {{ "Also, when the user controls an air conditioner with a heating function, the user can separately specify the temperature of the cooling mode and the temperature of the heating mode for further control." if book.TargetCountryCode == "JP" }}
+デバイスがコントロールするエンドポイントの情報を持っているオブジェクトです。ユーザーは、デバイスが温度や特定の設定値を適用するエンドポイントを指定できます。エンドポイントとは、デバイスの特定部分、動作方法、またはそれを適用する領域などのことをいいます。例えば、設定温度を調整する場合、ユーザーは冷蔵庫の温度を調節するとき、冷凍室の温度を変更するか、それとも冷蔵室の温度を変更するかを追加で指定することができます。{{ "また、暖房機能があるエアコンを調節する場合には、冷房モードで動作するときの温度と、暖房モードで動作するときの温度を区分してコントロールできます。" if book.TargetCountryCode == "JP" }}
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | string  | The endpoint. For more information, see [Endpoint references](#EndpointReferences).    | Required/Always |
+| `value`       | string  | エンドポイントを表す文字列。詳細については、[エンドポイントリファレンス](#EndpointReferences)を参照してください。    |  |
 
-### Endpoint references {#EndpointReferences}
+### エンドポイントリファレンス {#EndpointReferences}
 
-| Endpoint code.   | Description                                   |
+| エンドポイントのコード   | 説明                                   |
 |----------------|---------------------------------------|
-| coldwater      | The cold water temperature of a water purifier or thermostat.              |
-| freezer        | The freezer compartment of a refrigerator.                           |
-| fridge         | The fridge compartment of a refrigerator.                           |
-| hotwater       | The hot water temperature of a water purifier or thermostat.              |
+| coldwater      | 浄水器や温度調節器の冷水の温度              |
+| freezer        | 冷蔵庫の冷凍室                           |
+| fridge         | 冷蔵庫の冷蔵室                           |
+| hotwater       | 浄水器や温度調節器のお湯の温度              |
 
 <div class="note">
-  <p><strong>Note!</strong></p>
-  <p>Additions to the endpoint list may be made.</p>
+  <p><strong>メモ</strong></p>
+  <p>エンドポイントのリストは追加される可能性があります。</p>
 </div>
 
 
@@ -866,7 +866,7 @@ EndpointInfoObject contains information on the endpoint, which the target applia
 {% raw %}
 
 ```json
-// Example: An example used in the SetTargetTemperatureRequest message
+// サンプル：SetTargetTemperatureRequestメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
@@ -891,24 +891,24 @@ EndpointInfoObject contains information on the endpoint, which the target applia
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`SetTargetTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetTargetTemperatureRequest)
 
 ## ExpendableInfoObject {#ExpendableInfoObject}
-ExpendableInfoObject contains information on usage or remaining lifespan of device parts. This is used to indicate the usage amount of the appliance parts or their remaining lifespans.
+デバイスの消耗品の使用量や残り寿命に関する情報を持っているオブジェクトです。デバイスの消耗品の使用量や残り寿命を示します。
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `name`          | string  | The name of the part.                  | Required/Always |
-| `remainingTime` | string   | The remaining lifespan of the part. (Duration, <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>)    | Optional/Conditional |
-| `usage`         | [CustomInfoObject](#CustomInfoObject)          | The usage amount of the part (can be expressed as the number of uses or percentage of usage).      | Optional/Conditional |
+| `name`          | string  | 消耗品名                  |  |
+| `remainingTime` | string   | 消耗品の残り寿命(継続時間、<a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>)    | 任意/条件付き |
+| `usage`         | [CustomInfoObject](#CustomInfoObject)          | 消耗品の使用量(回数またはパーセントで表す)      | 任意/条件付き |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example: An example used in the GetExpendableStateResponse message
+// サンプル：GetExpendableStateResponseメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "33da6561-0149-4532-a30b-e0de8f75c4cf",
@@ -919,11 +919,11 @@ ExpendableInfoObject contains information on usage or remaining lifespan of devi
   "payload": {
     "expendableInfo": [
       {
-        "name": "Packing",
+        "name": "パッキン",
         "remainingTime": "P0001-04-10"
       },
       {
-        "name": "Filter 1",
+        "name": "フィルター1",
         "usage": {
           "value": 80,
           "unit": "percentage"
@@ -937,24 +937,24 @@ ExpendableInfoObject contains information on usage or remaining lifespan of devi
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetExpendableStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetExpendableStateRequest)
 * [`GetExpendableStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetExpendableStateResponse)
 
 ## FineDustInfoObject {#FineDustInfoObject}
-FineDustInfoObject contains information on fine dust. This is used to indicate the fine dust index or level measured by the appliance. It is expressed as a number.
+PM10の情報を持っているオブジェクトです。デバイスが測定したPM10の指数やレベルを示す数字で表されます。
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | Fine dust index.                  | Optional/Conditional    |
-| `index`       | string  | Fine dust level. It is limited to the following values.<ul><li><code>"good"</code>: Good</li><li><code>"normal"</code>: Normal</li><li><code>"bad"</code>: Bad</li><li><code>"verybad"</code>: Very bad</li></ul> | Required/Always     |
+| `value`       | number  | PM10指数                  | 任意/条件付き    |
+| `index`       | string  | PM10レベル次のいずれかの値を持ちます。<ul><li><code>"good"</code>：良い</li><li><code>"normal"</code>：普通</li><li><code>"bad"</code>：悪い</li><li><code>"verybad"</code>：非常に悪い</li></ul> |      |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example: An example used in the GetFineDustResponse message
+// サンプル：GetFineDustResponseメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "33da6561-0149-4532-a30b-e0de8f75c4cf",
@@ -973,23 +973,23 @@ FineDustInfoObject contains information on fine dust. This is used to indicate t
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetFineDustRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetFineDustRequest)
 * [`GetFineDustResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetFineDustResponse)
 
 ## IntensityLevelInfoObject {#IntensityLevelInfoObject}
-IntensityLevelInfoObject contains information on pressure or water pressure intensity. This is displayed according to the pressure or water pressure intensities in each appliance.
+圧力/水圧の強度情報を持っているオブジェクトです。デバイスの持つ圧力/水圧の強度を示します。
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | Intensity of pressure or water pressure.            | Optional/Conditional    |
+| `value`       | number  | 圧力/水圧の強度            | 任意/条件付き    |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example: An example used in the IncrementIntensityLevelConfirmation message
+// サンプル：IncrementIntensityLevelConfirmationメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "be3dde71-84c0-48cf-80d8-440c1ede54d8",
@@ -1012,7 +1012,7 @@ IntensityLevelInfoObject contains information on pressure or water pressure inte
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 
 * [`DecrementIntensityLevelConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementIntensityLevelConfirmation)
 * [`DecrementIntensityLevelRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementIntensityLevelRequest)
@@ -1020,19 +1020,19 @@ IntensityLevelInfoObject contains information on pressure or water pressure inte
 * [`IncrementIntensityLevelRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#IncrementIntensityLevelRequest)
 
 ## ModeInfoObject {#ModeInfoObject}
-ModeInfoObject contains information on the operation mode. This is used to indicate the name of the operation mode to change or the operation mode before and after the change. It is expressed as a string.
+運転モード(operation mode)の情報を持っているオブジェクトです。変更する運転モードの名前や、変更前後の運転モードを示します。文字列で表されます。
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | string  | [Operation mode](#OperationModes)    | Required/Always     |
+| `value`       | string  | [運転モード](#OperationModes)(Operation mode)    |      |
 
 ### Operation modes {#OperationModes}
 
 <table>
   <thead>
     <tr>
-      <th style="width:20%">Appliance type</th><th style="width:80%">Operation mode list and description</th>
+      <th style="width:20%">デバイスのタイプ</th><th style="width:80%">運転モードのリストおよび説明</th>
     </tr>
   </thead>
   <tdoby>
@@ -1040,13 +1040,13 @@ ModeInfoObject contains information on the operation mode. This is used to indic
       <td><code>"AIRCONDITIONER"</code></td>
       <td>
         <ul>
-          <li><code>"auto"</code>: Auto mode. A mode mainly used in air conditioners.</li>
-          <li><code>"cool"</code>: Cooling mode. A mode mainly used in air conditioners.</li>
-          <li><code>"dehumidify"</code>: Dehumidifier mode. A mode mainly used in appliances such as air conditioners or dehumidifiers.</li>
+          <li><code>"auto"</code>：自動モード。主にエアコンで使用されるモードです。</li>
+          <li><code>"cool"</code>：冷房モード。主にエアコンで使用されるモードです。</li>
+          <li><code>"dehumidify"</code>：除湿モード。主にエアコンや除湿器のようなデバイスで使用されるモードです。</li>
           {% if book.TargetCountryCode == "JP" %}
-          <li><code>"heat"</code>: Heating mode. A mode mainly used in air conditioners.</li>
+          <li><code>"heat"</code>：暖房モード。主にエアコンで使用されるモードです。</li>
           {% endif %}
-          <li><code>"sleep"</code>: Sleep mode. A mode mainly used in appliances such as smart hubs.</li>
+          <li><code>"sleep"</code>：スリープモード。主にスマートハブのようなデバイスで使用されるモードです。</li>
         </ul>
       </td>
     </tr>
@@ -1054,21 +1054,21 @@ ModeInfoObject contains information on the operation mode. This is used to indic
       <td><code>"FAN"</code></td>
       <td>
         <ul>
-          <li><code>"auto"</code>: Auto mode</li>
-          <li><code>"baby"</code>: Baby mode</li>
-          <li><code>"sleep"</code>: Sleep mode</li>
+          <li><code>"auto"</code>：自動モード</li>
+          <li><code>"baby"</code>：ベビーモード</li>
+          <li><code>"sleep"</code>：スリープモード</li>
       </td>
     </tr>
     <tr>
       <td><code>"LIGHT"</code></td>
       <td>
         <ul>
-          <li><code>"concentration"</code>: Concentrating mode</li>
-          <li><code>"reading"</code>: Reading mode</li>
-          <li><code>"rest"</code>: Resting mode</li>
-          <li><code>"sleep"</code>: Sleep mode</li>
-          <li><code>"vitality"</code>: Vitality mode</li>
-          <li><code>"wakeup"</code>: Wake up mode</li>
+          <li><code>"concentration"</code>：集中モード</li>
+          <li><code>"reading"</code>：読書モード</li>
+          <li><code>"rest"</code>：リラックスモード</li>
+          <li><code>"sleep"</code>：スリープモード</li>
+          <li><code>"vitality"</code>：生き生きモード</li>
+          <li><code>"wakeup"</code>：ウェイクアップモード</li>
         </ul>
       </td>
     </tr>
@@ -1076,10 +1076,10 @@ ModeInfoObject contains information on the operation mode. This is used to indic
       <td><code>"PURIFIER"</code></td>
       <td>
         <ul>
-          <li><code>"coldwater"</code>: Cold water mode</li>
-          <li><code>"general"</code>: General mode</li>
-          <li><code>"hotwater"</code>: Hot water mode</li>
-          <li><code>"smartchecking"</code>: Smart inspection mode</li>
+          <li><code>"coldwater"</code>：冷水モード</li>
+          <li><code>"general"</code>：一般モード</li>
+          <li><code>"hotwater"</code>：温水モード</li>
+          <li><code>"smartchecking"</code>：スマート点検モード</li>
         </ul>
       </td>
     </tr>
@@ -1087,9 +1087,9 @@ ModeInfoObject contains information on the operation mode. This is used to indic
       <td><code>"REFRIGERATOR"</code></td>
       <td>
         <ul>
-          <li><code>"filter"</code>: Filter mode</li>
-          <li><code>"freeze"</code>: Express freeze mode</li>
-          <li><code>"powersaving"</code>: Power saving mode</li>
+          <li><code>"filter"</code>：除菌脱臭モード</li>
+          <li><code>"freeze"</code>：急速冷凍モード</li>
+          <li><code>"powersaving"</code>：節電モード</li>
         </ul>
       </td>
     </tr>
@@ -1097,10 +1097,10 @@ ModeInfoObject contains information on the operation mode. This is used to indic
       <td><code>"RICECOOKER"</code></td>
       <td>
         <ul>
-          <li><code>"general"</code>: General mode</li>
-          <li><code>"keepwarm"</code>: Warm mode</li>
-          <li><code>"powersaving"</code>: Power saving mode</li>
-          <li><code>"reheating"</code>: Reheating mode</li>
+          <li><code>"general"</code>：一般モード</li>
+          <li><code>"keepwarm"</code>：保温モード</li>
+          <li><code>"powersaving"</code>：節電モード</li>
+          <li><code>"reheating"</code>：再加熱モード</li>
         </ul>
       </td>
     </tr>
@@ -1108,10 +1108,10 @@ ModeInfoObject contains information on the operation mode. This is used to indic
       <td><code>"SMARTHUB"</code></td>
       <td>
         <ul>
-          <li><code>"away"</code>: Away mode</li>
-          <li><code>"hotwater"</code>: Hot water mode</li>
-          <li><code>"indoor"</code>: Indoor mode</li>
-          <li><code>"sleep"</code>: Sleep mode</li>
+          <li><code>"away"</code>：おでかけモード</li>
+          <li><code>"hotwater"</code>：温水モード</li>
+          <li><code>"indoor"</code>：在宅モード</li>
+          <li><code>"sleep"</code>：スリープモード</li>
         </ul>
       </td>
     </tr>
@@ -1119,10 +1119,10 @@ ModeInfoObject contains information on the operation mode. This is used to indic
       <td><code>"THERMOSTAT"</code></td>
       <td>
         <ul>
-          <li><code>"away"</code>: Away mode</li>
-          <li><code>"hotwater"</code>: Hot water mode</li>
-          <li><code>"indoor"</code>: Indoor mode</li>
-          <li><code>"sleep"</code>: Sleep mode</li>
+          <li><code>"away"</code>：おでかけモード</li>
+          <li><code>"hotwater"</code>：温水モード</li>
+          <li><code>"indoor"</code>：在宅モード</li>
+          <li><code>"sleep"</code>：スリープモード</li>
         </ul>
       </td>
     </tr>
@@ -1130,8 +1130,8 @@ ModeInfoObject contains information on the operation mode. This is used to indic
       <td><code>"WATERBOILER"</code></td>
       <td>
         <ul>
-          <li><code>"hotwater"</code>: Hot water supply mode</li>
-          <li><code>"reheating"</code>: Reheating mode</li>
+          <li><code>"hotwater"</code>：給湯モード</li>
+          <li><code>"reheating"</code>：再加熱モード</li>
         </ul>
       </td>
     </tr>
@@ -1142,7 +1142,7 @@ ModeInfoObject contains information on the operation mode. This is used to indic
 {% raw %}
 
 ```json
-// Example 1: An example used in the SetModeRequest message for a thermostat
+//例1：SetModeRequestメッセージで使用されたサンプル-サーモスタット
 {
   "header": {
     "messageId": "33da6561-0149-4532-a30b-e0de8f75c4cf",
@@ -1161,7 +1161,7 @@ ModeInfoObject contains information on the operation mode. This is used to indic
   }
 }
 
-// Example 2: An example used in the SetModeRequest message - smart hub
+//例2：SetModeRequestメッセージで使用されたサンプル-スマートハブ
 {
   "header": {
     "messageId": "b4151a0d-1ec5-4ed0-a39a-1538c356b93b",
@@ -1180,7 +1180,7 @@ ModeInfoObject contains information on the operation mode. This is used to indic
   }
 }
 
-// Example 3: An example used in the SetModeConfirmation message
+//例3：SetModeConfirmationメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "b7434bd2-c397-461d-b08d-a4a427455c8f",
@@ -1198,23 +1198,23 @@ ModeInfoObject contains information on the operation mode. This is used to indic
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`SetModeConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetModeConfirmation)
 * [`SetModeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetModeRequest)
 
 ## HumidityInfoObject {#HumidityInfoObject}
-HumidityInfoObject contains information on humidity. This is used to indicate the humidity condition measured by the appliance. It is expressed as a string.
+湿度情報を持っているオブジェクトです。デバイスで測定された湿度を示します。文字列で表されます。
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | Humidity (%)                      | Required/Always     |
+| `value`       | number  | 湿度(%)                      |      |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example: An example used in the GetHumidityResponse message
+// サンプル：GetHumidityResponseメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "33da6561-0149-4532-a30b-e0de8f75c4cf",
@@ -1232,26 +1232,26 @@ HumidityInfoObject contains information on humidity. This is used to indicate th
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetHumidityRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetHumidityRequest)
 * [`GetHumidityResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetHumidityResponse)
 
 ## PeriodInfoObject {#PeriodInfoObject}
 
-PeriodInfoObject contains information for periods used to retrieve measured data such as amount of consumption or estimated bills.
+使用量や推定料金などの測定データを照会する際に、その照会期間の情報を持っているオブジェクトです。
 
 ### Object fields
 
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `end`         | string  | The end time of the period. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    | Required/Always      |
-| `start`       | string  | The start time of the period. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    | Required/Always      |
+| `end`         | string  | 期間の終了日時(タイムスタンプ、<a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    |       |
+| `start`       | string  | 期間の開始日時(タイムスタンプ、<a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    |       |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example: An example used in the GetUsageTimeRequest message
+// サンプル：GetUsageTimeRequestメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "59a3f5bc-4c38-4d4c-9b71-3a037bf9f9b0",
@@ -1274,24 +1274,24 @@ PeriodInfoObject contains information for periods used to retrieve measured data
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetUsageTimeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetUsageTimeRequest)
 
 ## PhaseInfoObject {#PhaseInfoObject}
 
-PhaseInfoObject contains information on the phase of device actions. This is used to indicate the current phase of the action or the previous phase of the action.
+デバイスの動作の段階情報を持っているオブジェクトです。現在の動作の段階、または以前の動作の段階を示します。
 
 ### Object fields
 
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | string  | The string to express the phase of action.        | Required/Always      |
+| `value`       | string  | 動作の段階を表す文字列        |       |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example 1: An example used in the GetPhaseResponse message
+//例1：GetPhaseResponseメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "b502dd42-b698-4d3b-9ddb-bbdda70f254f",
@@ -1301,13 +1301,13 @@ PhaseInfoObject contains information on the phase of device actions. This is use
   },
   "payload": {
     "phase": {
-        "value": "Spin-dry",
+        "value": "脱水",
     },
     "applianceResponseTimestamp": "2017-11-23T20:30:19+09:00"
   }
 }
 
-// Example 2: An example used in the StopConfirmation message
+//例2：StopConfirmationメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "a4349fd5-7c1c-4fae-9bbd-291749bdd63a",
@@ -1317,7 +1317,7 @@ PhaseInfoObject contains information on the phase of device actions. This is use
   },
   "payload": {
     "phase": {
-      "value": "Wash"
+      "value": "洗濯"
     }
   }
 }
@@ -1325,25 +1325,25 @@ PhaseInfoObject contains information on the phase of device actions. This is use
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetPhaseRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetPhaseRequest)
 * [`GetPhaseResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetPhaseResponse)
 * [`StopConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#StopConfirmation)
 * [`StopRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#StopRequest)
 
 ## ProgressiveTaxBracketInfoObject {#ProgressiveTaxBracketInfoObject}
-ProgressiveTaxBracketInfoObject contains information on progressive tax brackets.
+累進税の段階情報を持っているオブジェクトです。
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | Progressive tax bracket                    | Required/Always     |
+| `value`       | number  | 累進税の段階                    |      |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example 1: An example used in the GetProgressiveTaxBracketResponse message
+//例1：GetProgressiveTaxBracketResponseメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "b502dd42-b698-4d3b-9ddb-bbdda70f254f",
@@ -1362,23 +1362,23 @@ ProgressiveTaxBracketInfoObject contains information on progressive tax brackets
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetProgressiveTaxBracketRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetProgressiveTaxBracketRequest)
 * [`GetProgressiveTaxBracketResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetProgressiveTaxBracketResponse)
 
 ## SittingStateInfoObject {#SittingStateInfoObject}
-SittingStateInfoObject contains the sit-down information of the user on appliances such as a smart chair.
+スマートチェアなどのデバイスに対する、ユーザーの着席情報を持っているオブジェクトです。
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | boolean | Sit-down state<ul><li><code>true</code>: A state of sitting down</li><li><code>false</code>: A state of not sitting down</li></ul>       | Required/Always     |
+| `value`       | boolean | 着席状態<ul><li><code>true</code>：着席中</li><li><code>false</code>：着席中ではない</li></ul>       |      |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example: An example used in the GetCurrentSittingStateResponse message
+// サンプル：GetCurrentSittingStateResponseメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "33da6561-0149-4532-a30b-e0de8f75c4cf",
@@ -1401,23 +1401,23 @@ SittingStateInfoObject contains the sit-down information of the user on applianc
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetCurrentSittingStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentSittingStateRequest)
 * [`GetCurrentSittingStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentSittingStateResponse)
 
 ## SleepScoreInfoObject {#SleepScoreInfoObject}
-SleepScoreInfoObject contains information on sleep score. When showing results over a period, this object holds the average value.
+睡眠スコアの情報を持っているオブジェクトです。期間の結果は平均値で表されます。
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | The sleep score.                     | Required/Always     |
+| `value`       | number  | 睡眠スコア                     |      |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example: An example used in the GetSleepScoreResponse message
+// サンプル：GetSleepScoreResponseメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "33da6561-0149-4532-a30b-e0de8f75c4cf",
@@ -1436,23 +1436,23 @@ SleepScoreInfoObject contains information on sleep score. When showing results o
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetSleepScoreRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetSleepScoreRequest)
 * [`GetSleepScoreResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetSleepScoreResponse)
 
 ## SpeedInfoObject {#SpeedInfoObject}
-SpeedInfoObject contains information on speed. This is used to indicate the speed to change or the desired speed before and after the change. It is expressed as an integer.
+速度情報を持っているオブジェクトです。変更する速度や、変更前後の設定速度を示します。整水で表されます。
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | Speed value                       | Required/Always     |
+| `value`       | number  | 速度の値                       |      |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example 1: An example used in the IncrementFanSpeedRequest message
+//例1：IncrementFanSpeedRequestメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
@@ -1471,7 +1471,7 @@ SpeedInfoObject contains information on speed. This is used to indicate the spee
   }
 }
 
-// Example 2: An example used in the IncrementFanSpeedConfirmation message
+//例2：IncrementFanSpeedConfirmationメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
@@ -1494,7 +1494,7 @@ SpeedInfoObject contains information on speed. This is used to indicate the spee
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`DecrementFanSpeedConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementFanSpeedConfirmation)
 * [`DecrementFanSpeedRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementFanSpeedRequest)
 * [`IncrementFanSpeedConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#IncrementFanSpeedConfirmation)
@@ -1503,18 +1503,18 @@ SpeedInfoObject contains information on speed. This is used to indicate the spee
 * [`SetFanSpeedRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetFanSpeedRequest)
 
 ## TemperatureInfoObject {#TemperatureInfoObject}
-TemperatureInfoObject contains information on temperature. This is used to indicate the amount of temperature to change, the temperature before and after the change, or the currently set desired temperature. It is expressed up to one decimal place.
+温度情報を持っているオブジェクトです。変更する温度の度合、変更前後の設定温度や現在の設定温度を示します。小数第1位までの数字で表されます。
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | Temperature value                       | Required/Always     |
+| `value`       | number  | 温度の値                       |      |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example 1: An example used in the IncrementTargetTemperatureRequest message
+//例1：IncrementTargetTemperatureRequestメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
@@ -1533,7 +1533,7 @@ TemperatureInfoObject contains information on temperature. This is used to indic
   }
 }
 
-// Example 2: An example used in the IncrementTargetTemperatureConfirmation message
+//例2：IncrementTargetTemperatureConfirmationメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
@@ -1556,7 +1556,7 @@ TemperatureInfoObject contains information on temperature. This is used to indic
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`DecrementTargetTemperatureConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementTargetTemperatureConfirmation)
 * [`DecrementTargetTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementTargetTemperatureRequest)
 * [`GetCurrentTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentTemperatureRequest)
@@ -1569,18 +1569,18 @@ TemperatureInfoObject contains information on temperature. This is used to indic
 * [`SetTargetTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetTargetTemperatureRequest)
 
 ## TVChannelNameInfoObject {#TVChannelNameInfoObject}
-TVChannelNameInfoObject contains information on a TV channel name. This is used to indicate the name of TV channel to change or the TV channel before and after the change. It is expressed as a string.
+テレビのチャンネル名の情報を持っているオブジェクトです。変更するチャンネルや変更前後のチャンネル名を示します。文字列で表されます。
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | string  | Name of a TV channel                  | Required/Always     |
+| `value`       | string  | テレビのチャンネル名                  |      |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example 1: An example used in the SetChannelByNameRequest message
+//例1：SetChannelByNameRequestメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
@@ -1599,7 +1599,7 @@ TVChannelNameInfoObject contains information on a TV channel name. This is used 
   }
 }
 
-// Example 2: An example used in the SetChannelByNameConfirmation message
+//例2：SetChannelByNameConfirmationメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
@@ -1617,23 +1617,23 @@ TVChannelNameInfoObject contains information on a TV channel name. This is used 
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`SetChannelByNameConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetChannelByNameConfirmation)
 * [`SetChannelByNameRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetChannelByNameRequest)
 
 ## TVChannelInfoObject {#TVChannelInfoObject}
-TVChannelInfoObject contains information on a TV channel number. This is used to indicate the channel number of TV channel to change or the TV channel before and after the change. It is expressed as a number.
+テレビのチャンネル番号情報を持っているオブジェクトです。変更するチャンネルや変更前後のチャンネル番号を示します。数字で表されます。
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`             | number  | TV channel number                      | Required/Always     |
+| `value`             | number  | テレビのチャンネル番号                      |      |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example 1: An example used in the SetChannelRequest message
+//例1：SetChannelRequestメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "33da6561-0149-4532-a30b-e0de8f75c4cf",
@@ -1655,7 +1655,7 @@ TVChannelInfoObject contains information on a TV channel number. This is used to
   }
 }
 
-// Example 2: An example used in the SetChannelConfirmation message
+//例2：SetChannelConfirmationメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
@@ -1676,7 +1676,7 @@ TVChannelInfoObject contains information on a TV channel number. This is used to
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`DecrementChannelConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementChannelConfirmation)
 * [`DecrementChannelRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementChannelRequest)
 * [`IncrementChannelConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#IncrementChannelConfirmation)
@@ -1685,19 +1685,19 @@ TVChannelInfoObject contains information on a TV channel number. This is used to
 * [`SetChannelRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetChannelRequest)
 
 ## UltraFineDustInfoObject {#UltraFineDustInfoObject}
-UltraFineDustInfoObject contains information on ultrafine dust. This is used to indicate the ultrafine dust index or the level measured by the appliance. It is expressed as a number.
+PM2.5の情報を持っているオブジェクトです。デバイスで測定されたPM2.5の指数を示します。数字で表されます。
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | Ultrafine dust index.                | Optional/Conditional    |
-| `index`       | number  | Ultrafine dust level. It is limited to the following values.<ul><li><code>"good"</code>: Good</li><li><code>"normal"</code>: Normal</li><li><code>"bad"</code>: Bad</li><li><code>"verybad"</code>: Very bad</li></ul> | Required/Always     |
+| `value`       | number  | PM2.5指数                | 任意/条件付き    |
+| `index`       | number  | PM2.5レベル次のいずれかの値を持ちます。<ul><li><code>"good"</code>：良い</li><li><code>"normal"</code>：普通</li><li><code>"bad"</code>：悪い</li><li><code>"verybad"</code>：非常に悪い</li></ul> |      |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example: An example used in the GetUltraFineDustResponse message
+// サンプル：GetUltraFineDustResponseメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "33da6561-0149-4532-a30b-e0de8f75c4cf",
@@ -1716,23 +1716,23 @@ UltraFineDustInfoObject contains information on ultrafine dust. This is used to 
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`GetUltraFineDustRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetUltraFineDustRequest)
 * [`GetUltraFineDustResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetUltraFineDustResponse)
 
 ## VolumeInfoObject {#VolumeInfoObject}
-VolumeInfoObject contains information on the speaker volume. This is used to indicate the new volume to change or the volume before and after the change. It is expressed as an integer.
+スピーカーの音量情報を持っているオブジェクトです。調整する音量や調整前後の音量を示します。整水で表されます。
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | Value of the volume                       | Required/Always     |
+| `value`       | number  | 音量の値                       |      |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example 1: An example used in the IncrementVolumeRequest message
+//例1：IncrementVolumeRequestメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
@@ -1751,7 +1751,7 @@ VolumeInfoObject contains information on the speaker volume. This is used to ind
   }
 }
 
-// Example 2: An example used in the IncrementVolumeConfirmation message
+//例2：IncrementVolumeConfirmationメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
@@ -1774,7 +1774,7 @@ VolumeInfoObject contains information on the speaker volume. This is used to ind
 
 {% endraw %}
 
-### See also
+### 次の項目も参照してください。
 * [`DecrementVolumeConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementVolumeConfirmation)
 * [`DecrementVolumeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementVolumeRequest)
 * [`IncrementVolumeConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#IncrementVolumeConfirmation)

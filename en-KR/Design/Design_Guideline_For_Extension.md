@@ -1,15 +1,16 @@
 # Design guidelines for extensions
 
-When creating an extension, you must first consider how your technology and services can bring the most convenience and benefit Clova users. The document provides guidelines for designing an extension to bring a healthy and beneficial service to users.
+When creating an extension, you must first consider how your technology and services can bring the most convenience and benefit Clova users. The document provides guidelines for designing an extension to bring a healthy and beneficial service to users. Note that the extension features are provided to Clova users as a "skill" and you can implement the extension to provide skills to users.
 
 It is possible to create an extension for web service information lookup, shopping and delivery services, interactive games, broadcasts, real-time briefings, IoT device control, and even for other voice-initiated activities or services. The following guidelines must be followed when designing extensions: The details covered here are only the basic recommendations for designing the extension with examples. You can further design and implement the extension according to your own business experience and service characteristics.
 
 * [Setting goals](#SettingGoal)
 * [Writing user scenario scripts](#MakeUseCaseScenarioScript)
+* [Defining the extension name](#DefineExtensionName)
 * [Defining an interaction model](#DefineInteractionModel)
 * [Deciding the sound output type](#DecideSoundOutputType)
-* [Precautions](#Precautions)
 * [Supported audio compression formats](#SupportedAudioCompressionFormat)
+* [Guidelines for providing contents](#ContentGuideline)
 * [Continuous updates](#ContinuousUpdate)
 
 ## Setting goals {#SettingGoal}
@@ -90,8 +91,30 @@ Next is an example of writing a script by dividing the usage scenario into multi
 | User      | Update me on the order from Pizzabot.                               | #1, #9      |
 | Extension | It's on its way. Please wait a little while longer.                 | #9          |
 
+## Defining the extension name {#DefineExtensionName}
 
-## Defining an Interaction Model {#DefineInteractionModel}
+Before creating a new extension, you must first define the extension name. The extension name includes the **skill name** and **invocation name**. The **skill name** is the name used in the skill store and a skill is implemented as an extension. The **invocation name** is the name the user speaks to Clova to start the extension.
+
+The **skill name** and **invocation name** do not have to be the same. However, it is preferable to use the same or similar names in order to reduce confusion.
+
+The **skill name** and **invocation name** must satisfy the following conditions:
+
+| Condition                                       | Description                                           |
+|-------------------------------------------|-----------------------------------------------|
+| No one-word names or universally used words       | One-word names are not permitted unless they are the names of private brands or services. Also, universally used words, such as "sports news," are not permitted. It is recommended that you combine common words with another name, such as the name of the developer, developer company, service, or brand. (e.g. "Taro's sports news") |
+| No words that refer to the name of a person or place         | Using the name of a person or place is not permitted. However, it can be allowed after review if the name makes up only a part of the skill name or invocation name.<ul><li>Not permitted: "King Sejong the Great," "Yi Sun-shin," "Seoul City," "Gangnam District"</li><li>Permitted after review: "King Sejong's Korean class," "Hotspots in Seoul"</li></ul> |
+| No words or expressions that affect Clova functions | The name cannot contain any expressions that affect Clova functions. For example,<ul><li>Clova invocation words: "Clova," "Hey Clova," "Hey Sally," "Hey Jessica," "Hey Jjanggu"</li><li>Default Clova skill innovation words: Expressions to execute and invoke basic Clova skills such as "Today's weather."</li><li>Phrases that end the execution of the <strong>invocation name</strong>: "Start" or "stop"</li><li>Prepositions of the <strong>invocation name</strong>: "To—" or "From—"</li></ul><div class="note"><p><strong>Note!</strong></p><p>The name must match well with prepositions that are used with the <strong>invocation name</strong>.</p></div> |
+| No names that are the same as or similar to another skill      | The names already in use by another skill or similar names are not permitted. |
+| No name that could be easily misunderstood                   | The following names may be misleading and are not allowed:<ul><li>Names that can be mistaken as a third party {{ book.OrientedService }} or affiliated company (e.g. Naver fishing master)</li><li>The <strong>skill name</strong> and <strong>invocation name</strong> are different to the extent of having different meanings (e.g. The skill name is "Cat crying sound" and the invocation name is "Dog crying sound")</li><li>The name and the provided content is different (e.g. The name is "Cat crying sound" but the provided content is a dog crying sound)</li></ul>
+| No names that violate the Terms and Conditions            | The names must comply with the [Clova extensions kit Terms and Conditions](https://developers.naver.com/console/clova/cek/#/terms). Names that infringe on the rights of a third party or use obscene expressions are not allowed. |
+| Other precautions                               | Other precautionary conditions for names are as follows:<ul><li>Proper nouns are allowed as an exception, such as private brand names, intellectual property, names, and places.</li><li>If possible, it is recommended that you use an <strong>invocation name</strong> that can be easily pronounced or have an alternative pronunciation.</li><li>To help users understand how to use the extension, you can include the <strong>invocation name</strong> in parentheses next to the <strong>skill name</strong>.</li></ul> |
+
+<div class="note">
+<p><strong>Note!</strong></p>
+<p>Conditions of the extension name are subject to change at any time. Any existing names can be rejected due to the changes in policy. Thank you for your understanding in this matter, and we apologize for any inconvenience. If you are unsure, write your opinion when you <a href="/DevConsole/Guides/CEK/Deploy_Extension.html#RequestExtensionSubmission">submit a request for review</a>.</p>
+</div>
+
+## Defining an interaction model {#DefineInteractionModel}
 
 An interaction model in Clova is a set of rules to convert the voice user request into a standardized format (JSON) to be processed in the extension. For example, if a custom extension is providing a pizza delivery service, a user might say "Order two boxes of pepperoni pizza." The interaction model defines the rules for converting such requests into the format required for providing the service (JSON) as shown below.
 
@@ -176,7 +199,7 @@ The built-in slot type is an information type pre-defined by Clova which defines
 
 #### Custom slot type {#CustomSlotType}
 
-The custom slot type is an information type specialized to the domain of the provided service (extension) and is mainly comprised of proper nouns or nouns. For the aforementioned utterance, the "OrderPizza" intent must identify the relevant information (slot) for the pizza type from user utterance, but there is also a high possibility that the pizza type expressions will be used only in services related to pizza. Therefore, you can define a custom slot type like "PIZZA_TYPE" and declare various items in "PIZZA_TYPE", such as "pepperoni pizza," "combination pizza," and "cheese pizza," which can be ordered from the pizza delivery service.
+The custom slot type is an information type specialized to the domain of the provided service (extension) and is mainly comprised of proper nouns or nouns. For the aforementioned utterance, the "OrderPizza" intent must identify the relevant information (slot) for the pizza type from user utterance, but there is also a high possibility that the pizza type expressions will be used only in services related to pizza. Therefore, you can define a custom slot type like "PIZZA_TYPE" and declare various items in "PIZZA_TYPE" such as "pepperoni pizza," "combination pizza," and "cheese pizza," which can be ordered from the pizza delivery service.
 
 In a sentence however, these items can be expressed in various ways with a same or similar meaning. "Barbecue pizza" has the same meaning as "BBQ pizza" and long names, such as "shrimp golden crust pizza," may be shortened to "shrimp gold-crust pizza." Therefore, there is a need to not only declare the items classified by the concept but also the representative term for each item and its synonyms when declaring custom slot types. This allows for converting the various synonyms used in the user utterance to the representative term during the recognition process and helps to receive a unified value of information under a similar concept for when the extension is handling the intent.
 
@@ -188,8 +211,8 @@ You can list various sample of user utterances when defining the intent. These s
 * Input as many sample utterances as possible conveying the same intention but with different expressions.
 * Write sample utterances with variations without duplicated patterns.
 * Follow the standard below for the required number of sample utterances:
-  * For a built-in slot type of an intent or for custom slot type with human-recognizable dictionary size, there should be at least 30 utterance sentences including the slot.
-  * For a slot type of an intent with a massive dictionary, such as singer names, song titles, movie titles, or company names, there should be at least 100 utterance sentences including the slot.
+  * For a built-in slot type of an intent or for custom slot type with human-recognizable dictionary size, there must be at least 30 utterance sentences including the slot.
+  * For a slot type of an intent with a massive dictionary, such as singer names, song titles, movie titles, or company names, there must be at least 100 utterance sentences including the slot.
   * For an intent in a simple form, only around 10 utterance sentences are required.
 * If a new expression is found or there has been a recognition problem with the exiting expression, you should add new samples, even after completing the sample utterances according to the recommendations.
 * If there is an ambiguous value that is difficult to determine as a slot among the values registered in the slot type dictionary, you should specify it as a slot by using it in a sample utterance. However, it is even better to not use any ambiguous values as a slot.
@@ -207,7 +230,7 @@ Call for one box of pepperoni pizza.
 I want one pepperoni pizza.
 ```
 
-If Clova learns with the above sample utterances where the value `"pepperoni"` and `"one"` is included in the user utterance, the possibility for the utterance to be recognized as the `OrderPizza` intent becomes very high. For example, this means that an utterance that intends to check the menu, such as "How much is one pepperoni pizza?" is likely to be processed as a request to order pizza.
+If Clova learns with the above sample utterances where the value `"pepperoni"` and `"one"` is included in the user utterance, there is a higher possibility for the utterance to be recognized as the `OrderPizza` intent. For example, this means that an utterance that intends to check the menu, such as "How much is one pepperoni pizza?" is likely to be processed as a request to order pizza.
 
 To prevent this, we recommend that you write writing sample utterances in the following format:
 
@@ -344,10 +367,10 @@ If you [register the interaction model] (/DevConsole/Guides/CEK/Register_Interac
 
 The extension must send results to the user through Clova after handling the user request. Clova basically uses sound when having dialogues with the user and also uses sound when responding to the user, as well as when receiving requests. Clova provides the response types, that use sound, as shown below. Depending on the user scenario, the extension must provide a response using the appropriate types.
 
-* [Speech output type](#OutpuSpeech)
+* [Speech output type](#OutputSpeech)
 * [Audio content play type](#AudioPlayer)
 
-###  Speech output type {#OutpuSpeech}
+###  Speech output type {#OutputSpeech}
 
 This is a text-to-speech (TTS) output type that uses a processed voice to express the information input via text using speech synthesis technology. It is widely used for the purpose of answering the questions or requests of a user. A response can be composed of one or more speech output (TTS) and a short sound effect (.mp3) can be provided simultaneously.
 
@@ -405,20 +428,90 @@ Below is a simple usage scenario of audio content play type.
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>For information on how to respond using an audio content play type, see <a href="/CEK/Guides/Build_Custom_Extension.md#ProvideAudioContent">Providing audio content</a>.</p>
+  <p>For information on how to respond using an audio content play type, see <a href="/CEK/Guides/Build_Custom_Extension.html#ProvideAudioContent">Providing audio content</a>.</p>
 </div>
 
+## Guidelines for providing content {#ContentGuideline}
 
-## Precautions {#Precautions}
+There are guidelines that must be observed when providing content to users via skills (extensions). A Clova administrator conducts reviews guideline violations before [publishing the skill](/DevConsole/Guides/CEK/Deploy_Extension.md) to the skill store. If a skill is in violation of the guidelines or deemed acceptable, the publishing request may be rejected or an already published skill can be revoked. Therefore, you must make sure that your skill adheres to the following guidelines before [requesting a review](/DevConsole/Guides/CEK/Deploy_Extension.md#RequestExtensionSubmission).
 
-When designing extension, you must take precautionary actions to prevent any potential social or legal issues as described in this section. It is strongly recommended that the details below are reviewed not only at the extension creation phase but also upon registration in Clova and before deployment.
+* [Completeness of skill](#SkillCompleteness)
+* [Security of skill](#SkillSecurity)
+* [Protection of rights and legal compliances](#RightAndLegal)
+* [Morals](#Morals)
+* [Privacy](#Privacy)
+* [Other precautions](#OtherPrecautions)
 
-* Review for any violations on copyright protection obligations
-* Review for any violations on privacy obligations
-* Review for a continuous, not one-time basis, service connection or provision of data
-* Review for any provocative content that can be harmful to children or general users
+### Completeness of skill {#SkillCompleteness}
 
-## Supported Audio Compression Formats {#SupportedAudioCompressionFormat}
+Skills must comply with the following in order to meet the completeness guidelines and provide a better user experience by providing convenience or resolving inconveniences:
+
+* Except under special situations, such as server maintenance, your skill must always be ready to respond to user requests.
+* Information on the skill including [basic information](/DevConsole/Guides/CEK/Register_Extension.md#InputExtensionInfo), [server settings](/DevConsole/Guides/CEK/Register_Extension.md#SetServerConnection), or [deployment information](/DevConsole/Guides/CEK/Deploy_Extension.md#InputDeploymentInfo) must be updated as the latest information at all times without wrong or missing information.
+* The [user scenario](/Design/Design_Guideline_For_Extension.md#MakeUseCaseScenarioScript) must be achievable and natural. The [interaction model](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel) must be well defined and implemented for the satisfactory recognition of user requests.
+* If server linking or account linking is required to provide content, your skill must meet the necessary [security conditions](/CEK/Guides/Link_User_Account.md#ApplyAccountLinking).
+
+### Security of skill {#SkillSecurity}
+
+Skills must comply with the following guidelines to guarantee user safety:
+
+* Your skill must not induce or encourage any actions that may endanger human life or compromise physical safety.
+* Your skill must not induce or encourage any actions that could raise safety concerns for underage persons such as running away or rebelling.
+* Your skill must not interfere with the use of {{ book.DocOwner }} or third-party devices, equipment, or systems, or cause operational disruptions.
+* Your skill must not illegally change or remove the information accumulated in the equipment of {{ book.DocOwner }} or a third party.
+* Your skill must not contain or send harmful programs such as a virus.
+
+### Protection of rights and legal compliances {#RightAndLegal}
+
+Skills must comply with the following to protect rights and obligate to respect relevant laws:
+
+* Your skill must not infringe on the rights of {{ book.DocOwner }} or a third party (copyrights, intellectual property rights, portrait rights, naming rights, human rights, reputation rights, or other rights).
+* Your skill must not provide content with unclear rights (e.g. Secondary creation).
+* Your skill must not provide content without permission or without proof of receiving permission from the rights holder.
+* Your skill must not provide content that induces or encourages illegal behavior such as gambling.
+* Your skill must not provide content on sexual assaults, explicit expressions of sexual activity, child pornography, or child abuse, as well as any other brutal or obscene content, including any content with it.
+* Your skill must not provide content that may encourage or aid in crime or any content that violates or is in danger of violating laws or good morals.
+
+<div class="note">
+  <p><strong>Note!</strong></p>
+  <p>The Clova administrator can request relevant documents to verify the content rights for the review.</p>
+</div>
+
+### Ethics {#Morals}
+
+Skills must comply with the following ethical guidelines:
+
+* Your skill must not cause users to scrutinize, curse, attack, or create negative feelings against a specific individual, group, corporation, or country.
+* Your skill must not cause users to attack a specific religion, culture, ethnicity, or national character, or create a negative feeling against it.
+* Your skill must not include antisocial content or cause discomfort.
+* Your skill must clearly indicate that it is not developed or provided by {{ book.DocOwner }}.
+* Your skill must not unjustly discriminate against or criticize {{ book.DocOwner }} or a third party or induce or encourage such actions from users.
+
+### Privacy {#Privacy}
+
+The skills must comply with the privacy responsibilities by following the guidelines below:
+
+* Your skill must not collect any personal information such as Clova usage data.
+* Your skill must not collect the following sensitive information:
+  * Information about race, religion, social status, military history, crime history, or damages from crime
+  * Information about handicaps, intellectual handicaps, or mental handicaps
+  * Results of health diagnoses or checkups
+  * Information about medical records, treatments, or drug administration
+  * Information related to civil or criminal cases, such as confinement or search as suspect or defendant
+
+### Other precautions {#OtherPrecautions}
+
+The following precautions apply when providing skill contents:
+
+* If the skill is linked to your device, Clova device, or a third-party device (e.g. an IoT device), the Clova administrator may ask for the device to be submitted for review.
+* Your skill must not be in violation of the [Clova extensions kit Terms and Conditions](https://developers.naver.com/console/clova/cek/#/terms) along with the details mentioned above.
+
+<div class="note">
+<p><strong>Note!</strong></p>
+<p>Assessing the feasibility of your skill may be difficult due to some exceptions. If so, state your opinion when you <a href="/DevConsole/Guides/CEK/Deploy_Extension.html#RequestExtensionSubmission">request a review</a>.</p>
+</div>
+
+## Supported audio compression formats {#SupportedAudioCompressionFormat}
 
 If audio content is provided by the extension, it must be in an audio compression format supported by Clova.
 
@@ -431,6 +524,6 @@ If audio content is provided by the extension, it must be in an audio compressio
 
 ## Continuous updates {#ContinuousUpdate}
 
-During the extension development phase, user scenarios are created based on anticipated user utterances which is then applied to the extension. This helps to develop the extension, however, the actual way that it is used by users can be different and there can even be some unexpected use patterns from users. Basically, users can use the extension differently than anticipated. Therefore, continuous improvement efforts are required to enhance user satisfaction after deploying the extension, such as efforts to improve the extension functions and conversation flow.
+During the extension development phase, user scenarios are created based on anticipated user utterances which are then applied to the extension. This helps to develop the extension, however, the actual way that it is used by users can be different and there can even be some unexpected use patterns from users. Basically, users can use the extension differently than anticipated. Therefore, continuous improvement efforts are required to enhance user satisfaction after deploying the extension, such as efforts to improve the extension functions and conversation flow.
 
 Update the extension after registration, by analyzing the statistics provided by the Clova platform or the incoming user utterance record (scheduled to be provided in the future).

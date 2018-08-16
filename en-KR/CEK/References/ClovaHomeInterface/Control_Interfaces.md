@@ -112,10 +112,6 @@ These control interfaces are used to check IoT device information and carry out 
 | [`SetColorTemperatureRequest`](#SetColorTemperatureRequest)                   | Request  | Mainly used to control appliances such as smart lamps. Requests the Clova Home extension to change the color temperature of lights, screens, or lamps of the target appliance.  |
 | [`SetFanSpeedConfirmation`](#SetFanSpeedConfirmation)                         | Response | Sends the result of requesting the target appliance to change the fan speed to CEK as a response to the [`SetFanSpeedRequest`](#SetFanSpeedRequest) message. |
 | [`SetFanSpeedRequest`](#SetFanSpeedRequest)                                   | Request  | Requests the Clova Home extension to set the target appliance to change the fan speed to the designated value. |
-| [`SetFreezerTargetTemperatureConfirmation`](#SetFreezerTargetTemperatureConfirmation)  | Response  |  Sends the result of requesting to change the desired temperature of the freezer to CEK as a response to the [`SetFreezerTargetTemperatureRequest`](#SetFreezerTargetTemperatureRequest) message. |
-| [`SetFreezerTargetTemperatureRequest`](#SetFreezerTargetTemperatureRequest)   | Request  | Used to control appliances such as refrigerators. Requests the Clova Home extension to change the desired temperature of the freezer compartment to the designated value.  |
-| [`SetFridgeTargetTemperatureConfirmation`](#SetFridgeTargetTemperatureConfirmation) | Response | Sends the result of requesting to change the desired temperature of the fridge to CEK as a response to the [`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest) message.  |
-| [`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest)     | Request  | Used to control appliances such as refrigerators. Requests the Clova Home extension to change the desired temperature of the fridge compartment to the designated value.  |
 | [`SetLockStateConfirmation`](#SetLockStateConfirmation)                       | Response | Sends the result of requesting the target appliance to lock or unlock to CEK as a response to the [`SetLockStateRequest`](#SetLockStateRequest) message.  |
 | [`SetLockStateRequest`](#SetLockStateRequest)                                 | Request  | Requests the Clova Home extension to lock or unlock the target appliance.  |
 | [`SetModeConfirmation`](#SetModeConfirmation)                                 | Response | Sends the result of requesting the target appliance to change the operation mode to CEK as a response to the [`SetModeRequest`](#SetModeRequest) message. |
@@ -272,7 +268,7 @@ Sends the result of requesting the target appliance to dim the lights to CEK as 
 
 ### Remarks
 
-You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. In this case, you must notify the user that the appliance control request is successfully processed without stating any specific information.
+You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. You can simply notify the user that the appliance control request is successfully processed without stating specific information.
 
 ### Message example
 
@@ -359,7 +355,7 @@ Sends the result of requesting the target appliance to channel down the TV to CE
 
 ### Remarks
 
-You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. In this case, you must notify the user that the appliance control request is successfully processed without stating any specific information.
+You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. You can simply notify the user that the appliance control request is successfully processed without stating specific information.
 
 ### Message example
 
@@ -449,7 +445,7 @@ Sends the result of requesting the target appliance to lower the fan speed to CE
 
 ### Remarks
 
-You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. In this case, you must notify the user that the appliance control request is successfully processed without stating any specific information.
+You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. You can simply notify the user that the appliance control request is successfully processed without stating specific information.
 
 ### Message example
 
@@ -534,7 +530,7 @@ Sends the result of requesting the target appliance to lower the pressure level,
 
 ### Remarks
 
-You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. In this case, you must notify the user that the appliance control request is successfully processed without stating any specific information.
+You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. You can simply notify the user that the appliance control request is successfully processed without stating specific information.
 
 ### Message example
 
@@ -619,7 +615,7 @@ Sends the result of requesting the target appliance to lower the temperature to 
 
 ### Remarks
 
-You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. In this case, you must notify the user that the appliance control request is successfully processed without stating any specific information.
+You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. You can simply notify the user that the appliance control request is successfully processed without stating specific information.
 
 ### Message example
 
@@ -704,7 +700,7 @@ Sends the result of requesting the target appliance to lower the speaker volume 
 
 ### Remarks
 
-You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. In this case, you must notify the user that the appliance control request is successfully processed without stating any specific information.
+You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. You can simply notify the user that the appliance control request is successfully processed without stating specific information.
 
 ### Message example
 
@@ -2899,7 +2895,7 @@ Sends the result of requesting the target appliance to increase brightness of li
 
 ### Remarks
 
-You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. In this case, you must notify the user that the appliance control request is successfully processed without stating any specific information.
+You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. You can simply notify the user that the appliance control request is successfully processed without stating specific information.
 
 ### Message example
 
@@ -2986,7 +2982,7 @@ Sends the result of requesting the target appliance to channel up the TV to CEK 
 
 ### Remarks
 
-You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. In this case, you must notify the user that the appliance control request is successfully processed without stating any specific information.
+You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. You can simply notify the user that the appliance control request is successfully processed without stating specific information.
 
 ### Message example
 
@@ -3077,7 +3073,7 @@ Sends the result of requesting the target appliance to increase the fan speed to
 
 ### Remarks
 
-You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. In this case, you must notify the user that the appliance control request is successfully processed without stating any specific information.
+You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. You can simply notify the user that the appliance control request is successfully processed without stating specific information.
 
 ### Message example
 
@@ -3162,7 +3158,7 @@ Sends the result of requesting the target appliance to increase the pressure lev
 
 ### Remarks
 
-You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. In this case, you must notify the user that the appliance control request is successfully processed without stating any specific information.
+You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. You can simply notify the user that the appliance control request is successfully processed without stating specific information.
 
 ### Message example
 
@@ -3247,7 +3243,7 @@ Sends the result of requesting the target appliance to increase the temperature 
 
 ### Remarks
 
-You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. In this case, you must notify the user that the appliance control request is successfully processed without stating any specific information.
+You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. You can simply notify the user that the appliance control request is successfully processed without stating specific information.
 
 ### Message example
 
@@ -3676,7 +3672,7 @@ Sends the result of requesting to disable the operation mode of the current appl
 
 ### Remarks
 
-You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. In this case, you must notify the user that the appliance control request is successfully processed without stating any specific information.
+You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. You can simply notify the user that the appliance control request is successfully processed without stating specific information.
 
 ### Message example
 
@@ -3757,7 +3753,7 @@ Sends the result of requesting the target appliance to change brightness of ligh
 
 ### Remarks
 
-You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. In this case, you must notify the user that the appliance control request is successfully processed without stating any specific information.
+You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. You can simply notify the user that the appliance control request is successfully processed without stating specific information.
 
 ### Message example
 
@@ -3835,7 +3831,7 @@ Sends the result of requesting the target appliance to change the TV channel usi
 
 ### Remarks
 
-You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. In this case, you must notify the user that the appliance control request is successfully processed without stating any specific information.
+You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. You can simply notify the user that the appliance control request is successfully processed without stating specific information.
 
 ### Message example
 
@@ -3914,7 +3910,7 @@ Sends the result of requesting the target appliance to change the TV channel usi
 
 ### Remarks
 
-You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. In this case, you must notify the user that the appliance control request is successfully processed without stating any specific information.
+You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. You can simply notify the user that the appliance control request is successfully processed without stating specific information.
 
 ### Message example
 
@@ -3999,7 +3995,7 @@ Sends the result of requesting the target appliance to change the color of light
 
 ### Remarks
 
-You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. In this case, you must notify the user that the appliance control request is successfully processed without stating any specific information.
+You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. You can simply notify the user that the appliance control request is successfully processed without stating specific information.
 
 ### Message example
 
@@ -4081,7 +4077,7 @@ Sends the result of requesting the target appliance to change the color temperat
 
 ### Remarks
 
-You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. In this case, you must notify the user that the appliance control request is successfully processed without stating any specific information.
+You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. You can simply notify the user that the appliance control request is successfully processed without stating specific information.
 
 ### Message example
 
@@ -4159,7 +4155,7 @@ Sends the result of requesting the target appliance to change the fan speed to C
 
 ### Remarks
 
-You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. In this case, you must notify the user that the appliance control request is successfully processed without stating any specific information.
+You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. You can simply notify the user that the appliance control request is successfully processed without stating specific information.
 
 ### Message example
 
@@ -4225,162 +4221,6 @@ Mainly used to control an appliance such as an air purifier. Requests the Clova 
 
 ### See also
 * [`SetFanSpeedConfirmation`](#SetFanSpeedConfirmation)
-
-## SetFreezerTargetTemperatureConfirmation {#SetFreezerTargetTemperatureConfirmation}
-Sends the result of requesting to change the desired temperature of the freezer to CEK as a response to the [`SetFreezerTargetTemperatureRequest`](#SetFreezerTargetTemperatureRequest) message.
-
-### Payload fields
-
-| Field name       | Data type    | Description                     | Required |
-|---------------|---------|-----------------------------|:---------:|
-| `targetTemperature`               | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | Object containing the desired temperature information to set on the target appliance or that the extension has requested to be set on the target appliance.                                | Optional    |
-
-### Remarks
-
-You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. In this case, you must notify the user that the appliance control request is successfully processed without stating any specific information.
-
-### Message example
-
-{% raw %}
-
-```json
-{
-  "header": {
-    "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
-    "name": "SetFreezerTargetTemperatureConfirmation",
-    "namespace": "ClovaHome",
-    "payloadVersion": "1.0"
-  },
-  "payload": {
-    "targetTemperature": {
-      "value": 22
-    }
-  }
-}
-```
-
-{% endraw %}
-
-### See also
-* [`SetFreezerTargetTemperatureRequest`](#SetFreezerTargetTemperatureRequest)
-
-## SetFreezerTargetTemperatureRequest {#SetFreezerTargetTemperatureRequest}
-Used to control appliances such as refrigerators. Requests the Clova Home extension to change the desired temperature of the freezer compartment to the designated value. The extension must use the [`SetFreezerTargetTemperatureConfirmation`](#SetFreezerTargetTemperatureConfirmation) message as a response to this request.
-
-### Payload fields
-
-| Field name       | Data type    | Description                     | Included |
-|---------------|---------|-----------------------------|:---------:|
-| `accessToken`   | string | Access token of the user account for an IoT service. CEK sends the access token of a user account acquired from the authorization server of a third-party service. For more information, see [Linking user account](/CEK/Guides/Link_User_Account.md).                          | Always    |
-| `appliance`     | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) | Object containing target appliance information. The `applianceId` field is a required field.        | Always    |
-| `targetTemperature`       | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | Object containing the desired temperature information to set on the target appliance.     | Always    |
-
-### Message example
-
-{% raw %}
-
-```json
-{
-  "header": {
-    "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
-    "name": "SetFreezerTargetTemperatureRequest",
-    "namespace": "ClovaHome",
-    "payloadVersion": "1.0"
-  },
-  "payload": {
-    "accessToken": "92ebcb67fe33",
-    "appliance": {
-      "applianceId": "device-021"
-    },
-    "targetTemperature": {
-      "value": 22
-    }
-  }
-}
-```
-
-{% endraw %}
-
-### See also
-* [`SetFreezerTargetTemperatureConfirmation`](#SetFreezerTargetTemperatureConfirmation)
-
-## SetFridgeTargetTemperatureConfirmation {#SetFridgeTargetTemperatureConfirmation}
-Sends the result of requesting to change the desired temperature of the fridge to CEK as a response to the [`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest) message.
-
-### Payload fields
-
-| Field name       | Data type    | Description                     | Required |
-|---------------|---------|-----------------------------|:---------:|
-| `targetTemperature`               | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | Object containing the desired temperature information to set on the target appliance or that the extension has requested to be set on the target appliance.                                | Optional    |
-
-### Remarks
-
-You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. In this case, you must notify the user that the appliance control request is successfully processed without stating any specific information.
-
-### Message example
-
-{% raw %}
-
-```json
-{
-  "header": {
-    "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
-    "name": "SetFridgeTargetTemperatureConfirmation",
-    "namespace": "ClovaHome",
-    "payloadVersion": "1.0"
-  },
-  "payload": {
-    "targetTemperature": {
-      "value": 22
-    }
-  }
-}
-```
-
-{% endraw %}
-
-### See also
-* [`SetFridgeTargetTemperatureRequest`](#SetFridgeTargetTemperatureRequest)
-
-## SetFridgeTargetTemperatureRequest {#SetFridgeTargetTemperatureRequest}
-Used to control appliances such as refrigerators. Requests the Clova Home extension to change the desired temperature of the fridge compartment to the designated value. The extension must use the [`SetFridgeTargetTemperatureConfirmation`](#SetFridgeTargetTemperatureConfirmation) message as a response to this request.
-
-### Payload fields
-
-| Field name       | Data type    | Description                     | Included |
-|---------------|---------|-----------------------------|:---------:|
-| `accessToken`   | string | Access token of the user account for an IoT service. CEK sends the access token of a user account acquired from the authorization server of a third-party service. For more information, see [Linking user account](/CEK/Guides/Link_User_Account.md).                          | Always    |
-| `appliance`     | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) | Object containing target appliance information. The `applianceId` field is a required field.        | Always    |
-| `targetTemperature`       | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | Object containing the desired temperature information to set on the target appliance.     | Always    |
-
-### Message example
-
-{% raw %}
-
-```json
-{
-  "header": {
-    "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
-    "name": "SetFridgeTargetTemperatureRequest",
-    "namespace": "ClovaHome",
-    "payloadVersion": "1.0"
-  },
-  "payload": {
-    "accessToken": "92ebcb67fe33",
-    "appliance": {
-      "applianceId": "device-021"
-    },
-    "targetTemperature": {
-      "value": 22
-    }
-  }
-}
-```
-
-{% endraw %}
-
-### See also
-* [`SetFridgeTargetTemperatureConfirmation`](#SetFridgeTargetTemperatureConfirmation)
 
 ## SetLockStateConfirmation {#SetLockStateConfirmation}
 Sends the result of requesting the target appliance to lock or unlock to CEK as a response to the [`SetLockStateRequest`](#SetLockStateRequest) message.
@@ -4464,7 +4304,7 @@ Sends the result of requesting the target appliance to change the operation mode
 
 ### Remarks
 
-You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. In this case, you must notify the user that the appliance control request is successfully processed without stating any specific information.
+You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. You can simply notify the user that the appliance control request is successfully processed without stating specific information.
 
 ### Message example
 
@@ -4538,11 +4378,12 @@ Sends the result of requesting the target appliance to change the desired temper
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
+| `endpoint`     | [EndpointInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#EndpointInfoObject)    | Object containing the information on the final target (endpoint). A user can specify the endpoint for the target appliance to apply a specific setting value or temperature. An endpoint refers to a specific part of an appliance, the operation method, or area of application. For example, when a user controls the temperature of the refrigerator, the user can additionally specify whether to change the temperature of the freezer or the fridge. {{ "Also, when the user controls an air conditioner with a heating function, the user can separately specify the temperature of the cooling mode and the temperature of the heating mode for further control." if book.TargetCountryCode == "JP" }}  | Optional  |
 | `targetTemperature`               | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | Object containing the desired temperature information to set on the target appliance or that the extension has requested to be set on the target appliance.                                | Optional    |
 
 ### Remarks
 
-You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. In this case, you must notify the user that the appliance control request is successfully processed without stating any specific information.
+You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. You can simply notify the user that the appliance control request is successfully processed without stating specific information.
 
 ### Message example
 
@@ -4559,6 +4400,9 @@ You do not have to enter the value if the information to enter for the payload c
   "payload": {
     "targetTemperature": {
       "value": 22
+    },
+    "endpoint": {
+      "value": "freezer"
     }
   }
 }
@@ -4578,6 +4422,7 @@ Mainly used to control appliances such as air conditioners or thermostats. Reque
 |---------------|---------|-----------------------------|:---------:|
 | `accessToken`   | string | Access token of the user account for an IoT service. CEK sends the access token of a user account acquired from the authorization server of a third-party service. For more information, see [Linking user account](/CEK/Guides/Link_User_Account.md).                          | Always    |
 | `appliance`     | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) | Object containing target appliance information. The `applianceId` field is a required field. | Always    |
+| `endpoint`     | [EndpointInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#EndpointInfoObject)    | Object containing the information on the final target (endpoint). A user can specify the endpoint for the target appliance to apply a specific setting value or temperature. An endpoint refers to a specific part of an appliance, the operation method, or area of application. For example, when a user controls the temperature of the refrigerator, the user can additionally specify whether to change the temperature of the freezer or the fridge. {{ "Also, when the user controls an air conditioner with a heating function, the user can separately specify the temperature of the cooling mode and the temperature of the heating mode for further control." if book.TargetCountryCode == "JP" }}  | Conditional  |
 | `targetTemperature`       | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | Object containing the desired temperature information to set on the target appliance.                | Always    |
 
 ### Message example
@@ -4599,6 +4444,9 @@ Mainly used to control appliances such as air conditioners or thermostats. Reque
     },
     "targetTemperature": {
       "value": 22
+    },
+    "endpoint": {
+      "value": "freezer"
     }
   }
 }
