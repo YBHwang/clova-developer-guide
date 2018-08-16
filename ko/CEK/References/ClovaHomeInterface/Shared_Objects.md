@@ -247,7 +247,11 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 
 <div class="note">
 <p><strong>Note!</strong></p>
+<<<<<<< HEAD:ko/CEK/References/ClovaHomeInterface/Shared_Objects.md
 <p>실제 기기의 기능 제약에 따라 기기의 applianceTypes가 허용하는 actions보다 적은 actions을 사용하도록 제한할 수 있다. 예를 들면, 사용자가 등록한 공기청정기(<code>AIRPURIFIER</code> 타입)에 팬 속도를 조절할 수 있는 기능이 없으면 해당 기기에 허용되는 actions에서 IncrementFanSpeed와 DecrementFanSpeed를 제외하고 DiscoverAppliancesResponse 메시지를 보내야 합니다. 참고로 사용자가 대상 기기가 지원하지 않는 동작(action)을 요청하면 CEK가 바로 사용자에게 허용되지 않는 범위의 요청임을 알려줍니다.</p>
+=======
+<p>You can restrict actions to allow fewer actions than are permitted by the applianceTypes depending on the functional limitations of the actual appliance. For example, if there is no function to adjust the fan speed on the air purifier (<code>AIRPURIFIER</code> type), the DiscoverAppliancesResponse message must be sent without the IncrementFanSpeed and DecrementFanSpeed fields from the permitted actions. Note that if a user requests an unsupported action, CEK informs the user immediately that the request is not within the permitted range.</p>
+>>>>>>> doc-KR-Partner:en-KR/CEK/References/ClovaHomeInterface/Shared_Objects.md
 </div>
 
 ### Actions {#Actions}
