@@ -151,7 +151,7 @@ Here is an example of including the `PlaybackController.Pause` directive message
 }
 ```
 
-When the client receives the `Clova.NextIntent` or `Clova.PreviousIntent` built-in intent as an `IntentReqeust` type request message after the user makes an utterance on corresponding to "Previous" or "Next", [direct the client to play the audio content(`AudioPlayer.Play`)](#DirectClientToPlayAudio) before or after the current audio using a [response message](/CEK/References/CEK_API.md#CustomExtResponseMessage).
+When the client receives the `Clova.NextIntent` or `Clova.PreviousIntent` built-in intent as an `IntentReqeust` type request message after the user makes an utterance corresponding to "Previous" or "Next", [direct the client to play the audio content(`AudioPlayer.Play`)](#DirectClientToPlayAudio) before or after the current audio using a [response message](/CEK/References/CEK_API.md#CustomExtResponseMessage).
 
 <div class="note">
   <p><strong>Note!</strong></p>
@@ -162,7 +162,7 @@ When the client receives the `Clova.NextIntent` or `Clova.PreviousIntent` built-
 
 In the {{ "[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)" if book.TargetCountryCode == "KR" else "[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)" }} directive message which [directs the client to play audio content](#DirectClientToPlayAudio), information such as title, album, singer or lyrics are not included. The custom extension must provide such metadata if requested by the client.
 
-In order to obtain such metadata on playback content, the client sends the {{ "[`TemplateRuntime.ReqeusetPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#ReqeusetPlayerInfo)" if book.TargetCountryCode == "KR" else "[`TemplateRuntime.ReqeusetPlayerInfo`](/CEK/References/CEK_API.md#ReqeusetPlayerInfo)" }} event message to Clova. For this process, details of the event message are sent as a request message of the [`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest) type as shown below. Note that the example below refers to a request of metadata on the next 10 songs, based on the content that has the `eJyr5lIqSSyITy4tKs4vUrJSUE` token.
+In order to obtain such metadata on playback content, the client sends the {{ "[`TemplateRuntime.RequestPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#RequestPlayerInfo)" if book.TargetCountryCode == "KR" else "[`TemplateRuntime.RequestPlayerInfo`](/CEK/References/CEK_API.md#RequestPlayerInfo)" }} event message to Clova. For this process, details of the event message are sent as a request message of the [`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest) type as shown below. Note that the example below refers to a request of metadata on the next 10 songs, based on the content that has the `eJyr5lIqSSyITy4tKs4vUrJSUE` token.
 
 ```json
 {
@@ -364,7 +364,7 @@ Also, you can use the `EventRequest` type request message which includes the `Au
 {% if book.TargetCountryCode == "KR" %}
 Note that `AudioPlayer.PlaybackState` context is attached to the `AudioPlayer` namespace event message mentioned in this section. Since this information is also attached when sending an `EventRequest` type request message, the custom extension can identify information, such as audio content ID, playback state, or the audio content offset from the attached [`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState) context information.
 {% elif book.TargetCountryCode == "JP" %}
-Note that `AudioPlayer.PlaybackState` context is attached to the `AudioPlayer` namespace event message mentioned in this section. Since this information is also attached when sending an `EventRequest` type request message, the custom extension can identify information, such as audio content ID, playback state,  or the audio content offset from the attached `AudioPlayer.PlaybackState` context information.
+Note that `AudioPlayer.PlaybackState` context is attached to the `AudioPlayer` namespace event message mentioned in this section. Since this information is also attached when sending an `EventRequest` type request message, the custom extension can identify information, such as audio content ID, playback state, or the audio content offset from the attached `AudioPlayer.PlaybackState` context information.
 {% endif %}
 
 Here is an example of sending the `AudioPlayer.PlaybackState` context information.
