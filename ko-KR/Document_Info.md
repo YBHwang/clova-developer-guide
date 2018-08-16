@@ -30,7 +30,7 @@
   </td>
 </tr>
   <tr>
-    <td>v3.37.0</td><td>v4.6</td><td>2018-07-23</td>
+    <td>v3.37.0</td><td>미적용</td><td>2018-07-23</td>
     <td>
       <ul>
         <li>[Design] <a href="/Design/Design_Guideline_For_Client_Hardware.html">클라이언트 기기 디자인 가이드라인</a>의 <a href="/Design/Design_Guideline_For_Client_Hardware.html#SoundEffect">효과음</a> 중 Attending 상태 진입에 대한 효과음 업데이트</li>
@@ -42,7 +42,7 @@
     </td>
   </tr>
   <tr>
-    <td>v3.36.0</td><td>v4.5</td><td>2018-07-09</td>
+    <td>v3.36.0</td><td>미적용</td><td>2018-07-09</td>
     <td>
       <ul>
         <li>[Design] Extension의 <a href="/Design/Design_Guideline_For_Extension.html#DefineExtensionName">이름 정의</a>에 대한 가이드라인 추가</li>
@@ -52,7 +52,7 @@
     </td>
   </tr>
   <tr>
-    <td>v3.35.0</td><td>v4.4</td><td>2018-06-25</td>
+    <td>v3.35.0</td><td>v4.6</td><td>2018-06-25</td>
     <td>
       <ul>
         <li>[Design] Extension의 <a href="/Design/Design_Guideline_For_Extension.html#DecideSoundOutputType">응답 유형</a>에 대한 가이드라인 추가</li>
@@ -62,7 +62,7 @@
     </td>
   </tr>
   <tr>
-    <td>v3.34.2</td><td>v4.3</td><td>2018-06-17</td>
+    <td>v3.34.2</td><td>v4.5</td><td>2018-06-17</td>
     <td>
       <ul>
         <li>[CIC] 실시간 방송 콘텐츠를 구분하기 위해 <a href="/CIC/References/CICInterface/TemplateRuntime.html#RenderPlayerInfo">TemplateRuntime.RenderPlayerInfo</a>에 isLive 필드 추가</li>
@@ -72,7 +72,7 @@
     </td>
   </tr>
   <tr>
-    <td>v3.34.1</td><td>v4.2</td><td>2018-05-28</td>
+    <td>v3.34.1</td><td>v4.4</td><td>2018-05-28</td>
     <td>
       <ul>
         <li>[CEK] Clova Home extension API <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ConditionsNotMetError">ConditionsNotMetError</a>에 state 필드 추가</li>
@@ -81,7 +81,7 @@
     </td>
   </tr>
   <tr>
-    <td>v3.34.0</td><td>v4.1</td><td>2018-05-21</td>
+    <td>v3.34.0</td><td>v4.3</td><td>2018-05-21</td>
     <td>
       <ul>
         <li>[CIC] <a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a> 맥락 객체의 <a href="/CIC/References/Context_Objects.html#BluetoothInfoObject">BluetoothInfoObject</a>에 빠진 필드(btlist[].role) 추가</li>
@@ -90,7 +90,7 @@
     </td>
   </tr>
   <tr>
-    <td>v3.33.0</td><td>v</td><td>2018-05-14</td>
+    <td>v3.33.0</td><td>v4.2</td><td>2018-05-14</td>
     <td>
       <ul>
         <li>[CIC] <a href="/CIC/References/CICInterface/Clova.html#LaunchURI">LaunchURI</a> 지시 메시지를 DeviceControl 네임스페이스에서 <a href="/CIC/References/CICInterface/Clova.html">Clova</a> 네임스페이스로 이전</li>
@@ -99,7 +99,7 @@
     </td>
   </tr>
   <tr>
-    <td>v3.32.0</td><td>v4.0</td><td>2018-05-07</td>
+    <td>v3.32.0</td><td>v4.1</td><td>2018-05-07</td>
     <td>
       <ul>
         <li>[CIC] DeviceControl 네임스페이스에 LaunchURI 지시 메시지 추가</li>
@@ -108,7 +108,7 @@
     </td>
   </tr>
   <tr>
-    <td>v3.31.0</td><td>v3.9</td><td>2018-04-30</td>
+    <td>v3.31.0</td><td>v4.0</td><td>2018-04-30</td>
     <td>
       <ul>
         <li>[CEK] Clova Home extension API에 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetOpenStateRequest">GetOpenStateRequest</a>, <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetOpenStateResponse">GetOpenStateResponse</a> 추가</li>
@@ -116,7 +116,7 @@
     </td>
   </tr>
   <tr>
-    <td>v3.30.0</td><td>v3.8</td><td>2018-04-23</td>
+    <td>v3.30.0</td><td>v3.9</td><td>2018-04-23</td>
     <td>
       <ul>
         <li>[CEK] Clova Home extension API에 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#ReleaseModeConfirmation">ReleaseModeConfirmation</a>, <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#ReleaseModeRequest">ReleaseModeRequest</a> 추가</li>
@@ -124,7 +124,7 @@
     </td>
   </tr>
   <tr>
-    <td>v3.29.0</td><td>v</td><td>2018-04-16</td>
+    <td>v3.29.0</td><td>v3.8</td><td>2018-04-16</td>
     <td>
       <ul>
         <li>[CIC] <a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a> 이벤트 메시지의 wakeWord 필드 설명 및 Audio data 설명 업데이트</li>
