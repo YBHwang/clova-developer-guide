@@ -247,7 +247,7 @@ If the user requests the appliance list using the [`DiscoverAppliancesRequest`](
 
 <div class="note">
 <p><strong>Note!</strong></p>
-<p>You can restrict actions to allow fewer actions than are permitted by the applianceTypes depending on the functional limitations of the actual appliance. For example, if there is no function to adjust the fan speed on the air purifier (<code>AIRPURIFIER</code> type), the DiscoverAppliancesResponse message must be sent without the IncrementFanSpeed and DecrementFanSpeed fields from the permitted actions. Note that if a user request an unsupported action, CEK informs the user immediately that the request is not within the permitted range.</p>
+<p>You can restrict actions to allow fewer actions than are permitted by the applianceTypes depending on the functional limitations of the actual appliance. For example, if there is no function to adjust the fan speed on the air purifier (<code>AIRPURIFIER</code> type), the DiscoverAppliancesResponse message must be sent without the IncrementFanSpeed and DecrementFanSpeed fields from the permitted actions. Note that if a user requests an unsupported action, CEK informs the user immediately that the request is not within the permitted range.</p>
 </div>
 
 ### Actions {#Actions}
