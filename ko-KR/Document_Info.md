@@ -25,6 +25,7 @@
   <td>
     <ul>
       <li>[CIC] <a href="/CIC/References/CICInterface/Alerts.html#StopAlert">Alerts.StopAlert</a> 지시 메시지의 예제에서 오류 수정</li>
+      <li>[CIC] 표기에 따른 혼동을 피하기 위해 <a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a> 지시 메시지의 initiator.inputSource 필드의 설명을 수정</li>
       <li>[CEK] <a href="/CEK/References/CEK_API.html#CustomExtMessage">Custom extension 메시지</a> <a href="/CEK/References/CEK_API.html#CustomExtEventRequest">EventRequest</a> 요청 타입의 예제에서 오류 수정</li>
     </ul>
   </td>
