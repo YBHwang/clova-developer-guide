@@ -21,11 +21,19 @@
   </thead>
   <tbody>
   <tr>
+  <td>v3.37.2</td><td>미적용</td><td>2018-08-24</td>
+  <td>
+    <ul>
+      <li>[CEK] <a href="/CEK/References/CEK_API.html#CustomExtMessage">Custom extension 메시지</a> <a href="/CEK/References/CEK_API.html#CustomExtEventRequest">EventRequest</a> 요청 타입의 예제에서 오류 수정</li>
+    </ul>
+  </td>
+</tr>
+  <tr>
   <td>v3.37.1</td><td>미적용</td><td>2018-08-09</td>
   <td>
     <ul>
       <li>[CIC] <a href="/CIC/CIC_Overview.html#DialogModel">대화 모델</a>에 대한 설명을 보완</li>
-      <li>[CEK] <a href="/CEK/Guides/Build_Custom_Extension.md#ProvidingMetaDataForDisplay">오디오 콘텐츠의 메타 정보 제공</a> 절에서 일부 오타 수정</li>
+      <li>[CEK] <a href="/CEK/Guides/Build_Custom_Extension.html#ProvidingMetaDataForDisplay">오디오 콘텐츠의 메타 정보 제공</a> 절에서 일부 오타 수정</li>
     </ul>
   </td>
 </tr>
