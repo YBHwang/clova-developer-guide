@@ -1,4 +1,4 @@
-overview
+# CIC overview
 Learn what Clova Interface Connect (hereinafter referred to as "CIC") is and how it works. This document will help you understand how CIC operates and includes CIC guides and references.
 
 ## What is CIC? {#WhatisCIC}
@@ -34,14 +34,14 @@ Dialogues between users and Clova usually proceed as followings:
 
 1. A user starts to speak to Clova.
 2. The client records the user speech and sends the recording to CIC.
-3. CIC returns the result to the client. The client delivers the result to the user through synthesized speech or text.
+3. CIC returns the results to the client. The client delivers the result to the user through synthesized speech or the display.
 
 Having CIC and a client in between, dialogues between users and Clova are rather indirect and have the following limitations:
 
 * Delivering requests and receiving responses take more time compared to direct dialogues.
 * Response is not immediate when new requests are made or new dialogues are initiated by users.
 
-Suppose a user asks Clova, "How's the weather today?" Before Clova responds or while Clova is responding, the user makes another request: "Play some upbeat music." The user will probably no longer want the weather information. Had the dialogue been direct, you would simply ignore the weather information returned. However, since dialogues are relayed by a client to Clova, the client must recognize the dialogue status and take appropriate actions to provide what user wants.
+Suppose a user asks Clova, "How's the weather today?" But before Clova responds or while Clova is responding, the user makes another request: "Play some upbeat music." At this time, the user will probably no longer want a response to "How's the weather today?" Had the dialogue been direct, you would simply ignore the weather information returned. However, since dialogues are relayed by a client to Clova, the client must recognize the dialogue status and take appropriate actions to provide what user wants.
 
 ### Dialogue ID and client action {#DialogIDandClientOP}
 
@@ -50,9 +50,12 @@ To overcome the restrictions of indirect dialogues, we use a **dialogue ID**. To
 A directive, returned from CIC as a response to the user request, contains a dialogue ID. This dialogue ID is identical to the one that had been embedded in the user request. In short, dialogue IDs help you identify whether the Clova response corresponds to the latest user request or not. To use dialogue IDs:
 
 1. Create a **new dialogue ID** every time a user initiates a dialogue.
-2. Send the user request to CIC with the [SpeechRecognizer.Recognize](/CIC/References/CICInterface/SpeechRecognizer.md) event.
-  * Replace the **latest dialogue ID** with the newly created dialogue ID.
-  * When the latest dialogue ID is replaced, discard all directives associated to dialogue IDs other than the latest, regardless of whether the directives are being processed or are waiting to be processed.
-3. When CIC returns a directive with the request result, compare the dialogue ID of the directive with the latest dialogue ID kept on the client.
-  * **If the dialogue IDs match**, return the result contained in the directive to the user.
-  * **If the dialogue IDs do not match**, discard the received directive.
+  * For voice utterances, use the [SpeechRecognizer.Recognize](/CIC/References/CICInterface/SpeechRecognizer.md) event to send the user request to CIC. For text commands, use the [TextRecognizer.Recognize](/CIC/References/CICInterface/TextRecognizer.md) event.
+  * Here, the client must include the newly created dialogue ID in the [header of the event](/CIC/References/CIC_API.md#Event) and save this ID as the **latest dialogue ID**.
+2. Upon receiving a directive from CIC, the client must compare the dialogue ID included in the [header of the directive](/CIC/References/CIC_API.md#Directive) and the latest saved dialogue ID.
+  * **If the directive does not contain a dialogue ID**, **immediately** send the relevant result that corresponds to the received directive to the user.
+  * If the directive contains a dialogue ID and **if the compared dialogue IDs match**, add the received message to the [message queue](/CIC/Guides/Interact_with_CIC.md#ManageMessageQ) and send the relevant information to the user when its turn comes.
+  * If the directive contains a dialogue ID and **if the compared dialogue IDs do not match**, discard the received directive.
+  * In order to handle a received directive containing a new dialogue ID, the client must be able to perform the following:
+    * If the directive contains the old dialogue ID, the client may have to immediately stop providing the details of the directive to the user.
+    * See [Rules for basic audio playback](/Design/Design_Guideline_For_Client_Hardware.md#AudioInterruptionRule) or the [Audio playback rules for user utterances](/Design/Design_Guideline_For_Client_Hardware.md#AudioInterruptionRuleForUserUtterance).and discard all directives containing old dialogue IDs from the message queue. For this, the client must always check the dialogue ID of directives in the message queue.
