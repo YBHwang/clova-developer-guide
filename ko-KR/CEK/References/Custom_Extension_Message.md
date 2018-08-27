@@ -388,7 +388,7 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
   "timestamp": "2018-06-19T11:37:21Z",
   "event" : {
     "namespace":"ClovaSkill",
-    "name":"SkillEnabled",
+    "name":"SkillDisabled",
     "payload": null
   }
 }
