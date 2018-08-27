@@ -21,6 +21,16 @@
   </thead>
   <tbody>
   <tr>
+  <td>v3.37.2</td><td>미적용</td><td>2018-08-24</td>
+  <td>
+    <ul>
+      <li>[CIC] <a href="/CIC/References/CICInterface/Alerts.md#StopAlert">Alerts.StopAlert</a> 지시 메시지의 예제에서 오류 수정</li>
+      <li>[CIC] 표기에 따른 혼동을 피하기 위해 <a href="/CIC/References/CICInterface/SpeechRecognizer.md#Recognize">SpeechRecognizer.Recognize</a> 지시 메시지의 initiator.inputSource 필드의 설명을 수정</li>
+      <li>[CEK] <a href="/CEK/References/CEK_API.md#CustomExtMessage">Custom extension 메시지</a> <a href="/CEK/References/CEK_API.md#CustomExtEventRequest">EventRequest</a> 요청 타입의 예제에서 오류 수정</li>
+    </ul>
+  </td>
+</tr>
+  <tr>
   <td>v3.37.1</td><td>미적용</td><td>2018-08-09</td>
   <td>
     <ul>
