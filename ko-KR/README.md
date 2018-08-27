@@ -51,7 +51,7 @@
     </tr>
     <tr>
       <td style="text-align: center;">개발</td>
-      <td>
+      <td style="vertical-align: top;">
         <ul>
           <li>가이드</li>
           <ul>
