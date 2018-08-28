@@ -1,6 +1,6 @@
 # AudioPlayer
 
-AudioPlayerインターフェースは、クライアントからオーディオストリームの再生をリクエストするか、またはオーディオストリームの再生中に発生するイベントをCICにレポートする際に使用される名前欄です。AudioPlayerが提供するイベントとディレクティブは、次の通りです。
+AudioPlayerインターフェースは、クライアントからオーディオストリームの再生をリクエストするか、またはオーディオストリームの再生中に発生するイベントをCICにレポートする際に使用される名前空間です。AudioPlayerが提供するイベントとディレクティブは、次の通りです。
 
 | メッセージ         | タイプ  | 説明                                   |
 |------------------|---------|---------------------------------------------|
@@ -27,10 +27,10 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 
 ![](/CIC/Resources/Images/CIC_Playback_State_Sync_Work_Flow.png)
 
-1. Clovaアプリは、{{ "[`AudioPlayer.RequestPlaybackState`](#RequestPlaybackState) イベントを使用して " if book.TargetReaderType == "Internal" }}CICにユーザーのアカウントに登録されているすべてのクライアント、または特定のクライアントのストリーム再生状態をリクエストします。
+1. Clovaアプリは、{{ "[`AudioPlayer.RequestPlaybackState`](#RequestPlaybackState)イベントを使用して" if book.TargetReaderType == "Internal" }}CICにユーザーのアカウントに登録されているすべてのクライアント、または特定のクライアントのストリーム再生状態をリクエストします。
 2. CICは、[`AudioPlayer.ExpectReportPlaybackState`](#ExpectReportPlaybackState)ディレクティブで、ユーザーのアカウントに登録されているすべてのクライアント、または特定のクライアントに、現在のストリーム再生状態をレポートするように指示します。
 3. ストリームの再生状態をレポートするように指示されたクライアントは、[`AudioPlayer.ReportPlaybackState`](#ReportPlaybackState)イベントで、CICに現在のストリームの再生状態をレポートします。
-4. CICは、{{ "[`AudioPlayer.SynchronizePlaybackState`](#SynchronizePlaybackState)を使用して " if book.TargetReaderType == "Internal" }}他のクライアントのストリーム再生状態をリクエストしたクライアントに状態情報を送信し、同期するように指示します。
+4. CICは、{{ "[`AudioPlayer.SynchronizePlaybackState`](#SynchronizePlaybackState)を使用して" if book.TargetReaderType == "Internal" }}他のクライアントのストリーム再生状態をリクエストしたクライアントに状態情報を送信し、同期するように指示します。
 
 
 ## ClearQueueディレクティブ {#ClearQueue}

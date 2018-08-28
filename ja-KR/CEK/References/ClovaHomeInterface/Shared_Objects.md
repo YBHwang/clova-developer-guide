@@ -39,7 +39,7 @@
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
 | `applianceId` | string  | デバイスのID                      |      |
-| `action`      | string  | デバイスの制御動作動作のリストについては、[ApplianceInfoObject](#ApplianceInfoObject)の[Actions](#Actions)項目を参照してください。     |      |
+| `action`      | string  | デバイスの制御動作。動作のリストについては、[ApplianceInfoObject](#ApplianceInfoObject)の[Actions](#Actions)項目を参照してください。     |      |
 
 ### Object Example
 {% raw %}
@@ -247,7 +247,7 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 
 <div class="note">
 <p><strong>メモ</strong></p>
-<p>デバイスデバイスの機能上の制約によって、そのデバイスのapplianceTypesでサポートされているactionsのうち、いずれかを選択して使用することもできます。例えば、ユーザーが登録した空気清浄機(<code>AIRPURIFIER</code>タイプ)にファンの回転速度を調節する機能がない場合、そのデバイスでサポートされているactionsのうち、IncrementFanSpeedとDecrementFanSpeedを除いてDiscoverAppliancesResponseメッセージを返す必要があります。ちなみに、ユーザーがデバイスでサポートされていない動作(action)をリクエストした場合、CEKはすぐユーザーに有効な範囲外のリクエストであることを通知します。</p>
+<p>デバイスの機能上の制約によって、そのデバイスのapplianceTypesでサポートされているactionsのうち、いずれかを選択して使用することもできます。例えば、ユーザーが登録した空気清浄機(<code>AIRPURIFIER</code>タイプ)にファンの回転速度を調節する機能がない場合、そのデバイスでサポートされているactionsのうち、IncrementFanSpeedとDecrementFanSpeedを除いてDiscoverAppliancesResponseメッセージを返す必要があります。ちなみに、ユーザーがデバイスでサポートされていない動作(action)をリクエストした場合、CEKはすぐユーザーに有効な範囲外のリクエストであることを通知します。</p>
 </div>
 
 ### Actions {#Actions}

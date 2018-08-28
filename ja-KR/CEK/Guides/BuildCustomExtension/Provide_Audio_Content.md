@@ -1,7 +1,7 @@
 ## オーディオコンテンツを提供する {#ProvideAudioContent}
 
 {% if book.TargetCountryCode == "KR" %}
-Custom Extensionで、ユーザーに音楽やポッドキャストなどのオーディオコンテンツを提供することができます。そのためには、[Custom Extensionメッセージ](/CEK/References/CEK_API.md#CustomExtMessage)の仕様のうち、[CIC API](/CIC/References/CIC_API.md)を使用する必要があります。ユーザーにオーディオコンテンツを提供するには、次の内容をExtensionに実装する必要があります。**特に、必須の実装項目は必ず実装される必要があります。**
+Custom Extensionで、ユーザーに音楽やポッドキャストなどのオーディオコンテンツを提供することができます。そのためには、[Custom Extensionのメッセージ](/CEK/References/CEK_API.md#CustomExtMessage)の仕様のうち、[CIC API](/CIC/References/CIC_API.md)を使用する必要があります。ユーザーにオーディオコンテンツを提供するには、次の内容をExtensionに実装する必要があります。**特に、必須の実装項目は必ず実装される必要があります。**
 
 * 必須
   * [オーディオコンテンツの再生を指示する](#DirectClientToPlayAudio)
@@ -18,7 +18,7 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
   <p>オーディオコンテンツを再生するCustom Extensionを作成するには、<a href="/DevConsole/Guides/CEK/Register_Extension.html">Clova Developer CenterにExtensionを登録する</a>とき、<a href="/DevConsole/Guides/CEK/Register_Extension.html#InputExtensionInfo">基本情報</a>の{{ book.DevConsole.cek_audioplayer }}項目で<strong>はい</strong>を選択する必要があります。</p>
 </div>
 {% elif book.TargetCountryCode == "JP" %}
-Custom Extensionで、ユーザーに音楽やポッドキャストなどのオーディオコンテンツを提供することができます。そのためには、[Custom Extensionメッセージ](/CEK/References/CEK_API.md#CustomExtMessage)の[`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージと[レスポンスメッセージ](/CEK/References/CEK_API.md#CustomExtResponseMessage)の仕様のうち、[オーディオコンテンツ再生関連のCIC API](/CEK/References/CEK_API.md#CICAPIforAudioPlayback)を使用する必要があります。ユーザーにオーディオコンテンツを提供するには、次の内容をExtensionに実装する必要があります。
+Custom Extensionで、ユーザーに音楽やポッドキャストなどのオーディオコンテンツを提供することができます。そのためには、[Custom Extensionのメッセージ](/CEK/References/CEK_API.md#CustomExtMessage)の[`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージと[レスポンスメッセージ](/CEK/References/CEK_API.md#CustomExtResponseMessage)の仕様のうち、[オーディオコンテンツ再生関連のCIC API](/CEK/References/CEK_API.md#CICAPIforAudioPlayback)を使用する必要があります。ユーザーにオーディオコンテンツを提供するには、次の内容をExtensionに実装する必要があります。
 
 * 必須
   * [オーディオコンテンツの再生を指示する](#DirectClientToPlayAudio)
@@ -362,9 +362,9 @@ Custom Extensionは、レスポンスメッセージを使って、クライア�
 </div>
 
 {% if book.TargetCountryCode == "KR" %}
-ちなみに、このセクションで扱っている`AudioPlayer`名前欄イベントには、`AudioPlayer.PlaybackState`コンテキストが含まれます。その情報もまた、`EventRequest`タイプのリクエストメッセージが送信されるときに含まれるので、Custom Extensionは含まれた[`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState)コンテキストからオーディオコンテンツのID、再生状態、オーディオコンテンツの再生位置などを把握できます。
+ちなみに、このセクションで扱っている`AudioPlayer`名前空間イベントには、`AudioPlayer.PlaybackState`コンテキストが含まれます。その情報もまた、`EventRequest`タイプのリクエストメッセージが送信されるときに含まれるので、Custom Extensionは含まれた[`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState)コンテキストからオーディオコンテンツのID、再生状態、オーディオコンテンツの再生位置などを把握できます。
 {% elif book.TargetCountryCode == "JP" %}
-ちなみに、このセクションで扱っている`AudioPlayer`名前欄イベントには、`AudioPlayer.PlaybackState`コンテキストが含まれます。その情報もまた、`EventRequest`タイプのリクエストメッセージが送信されるときに含まれるので、Custom Extensionは含まれた`AudioPlayer.PlaybackState`コンテキストからオーディオコンテンツのID、再生状態、オーディオコンテンツの再生位置などを把握できます。
+ちなみに、このセクションで扱っている`AudioPlayer`名前空間イベントには、`AudioPlayer.PlaybackState`コンテキストが含まれます。その情報もまた、`EventRequest`タイプのリクエストメッセージが送信されるときに含まれるので、Custom Extensionは含まれた`AudioPlayer.PlaybackState`コンテキストからオーディオコンテンツのID、再生状態、オーディオコンテンツの再生位置などを把握できます。
 {% endif %}
 
 以下は、`AudioPlayer.PlaybackState`コンテキストが送信されたサンプルです。
