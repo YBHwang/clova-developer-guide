@@ -21,6 +21,12 @@
   </thead>
   <tbody>
   <tr>
+  <td>v3.37.3</td><td>미적용</td><td>2018-08-31</td>
+  <td>
+    <ul>
+      <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">지원 기기</a> 중 난방기(HEATER)와 온도 조절기(THERMOSTAT) 타입에 GetTargetTemperature 동작 추가</li>
+    </ul>
+  </td>
   <td>v3.37.2</td><td>미적용</td><td>2018-08-24</td>
   <td>
     <ul>
