@@ -21,18 +21,14 @@
   </thead>
   <tbody>
   <tr>
-  <td>v3.37.3</td><td>미적용</td><td>2018-08-31</td>
+  <td>v3.38</td><td>미적용</td><td>2018-08-29</td>
   <td>
     <ul>
       <li>[Design] <a href="/Design/Design_Guideline_For_Client_Hardware.html">클라이언트 기기 디자인 가이드라인</a>에 <a href="/Design/Design_Guideline_For_Client_Hardware.html#LightColor">조명 색상</a>의 RGB 값 변경</li>
       <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">지원 기기</a> 중 난방기(HEATER)와 온도 조절기(THERMOSTAT) 타입에 GetTargetTemperature 동작 추가</li>
-    </ul>
-  </td>
-  <td>v3.37.2</td><td>미적용</td><td>2018-08-24</td>
-  <td>
-    <ul>
       <li>[CIC] <a href="/CIC/References/CICInterface/Alerts.html#StopAlert">Alerts.StopAlert</a> 지시 메시지의 예제에서 오류 수정</li>
       <li>[CIC] 표기에 따른 혼동을 피하기 위해 <a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a> 지시 메시지의 initiator.inputSource 필드의 설명을 수정</li>
+      <li>[CIC] <a href="/CIC/Guides/Implement_Client_Features.md">클라이언트 기능 구현하기</a> 절 추가</li>
       <li>[CEK] <a href="/CEK/References/CEK_API.html#CustomExtMessage">Custom extension 메시지</a> <a href="/CEK/References/CEK_API.html#CustomExtEventRequest">EventRequest</a> 요청 타입의 예제에서 오류 수정</li>
     </ul>
   </td>
@@ -288,7 +284,7 @@
           <li>[Design] 플랫폼 구현 상황에 맞게 <a href="/Design/Design_Guideline_For_Extension.html#DefineInteractionModel">built-in intent</a>에 대한 설명 수정</li>
           <li>[CIC] <a href="/CIC/Guides/Interact_with_CIC.html#HandleDelegation">위임된 사용자 요청 처리하기</a> 절 추가 및 <a href="/CIC/References/CICInterface/Clova.html#HandleDelegatedEvent">Clova.HandleDelegatedEvent</a> 지시 메시지와 <a href="/CIC/References/CICInterface/Clova.html#ProcessDelegatedEvent">Clova.ProcessDelegatedEvent</a> 이벤트 메시지 추가</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/PlaybackController.html#NextCommandIssued">PlaybackController.NextCommandIssued</a>와 <a href="/CIC/References/CICInterface/PlaybackController.html#PreviousCommandIssued">PlaybackController.PreviousCommandIssued</a> 이벤트 메시지에 <a href="/CIC/References/Context_Objects.html#PlaybackState">AudioPlayer.PlaybackState</a> 맥락 정보를 포함하도록 설명 추가</li>
-          <li>[CIC] <a href="/CIC/References/CICInterface/Alerts.html">Alerts</a> API의 <a href="/CIC/References/CICInterface/Alerts.html#AlertsWorkFlow">동작 구조</a>에 대한 설명 개선</li>
+          <li>[CIC] <a href="/CIC/References/CICInterface/Alerts.html">Alerts</a> API의 동작 구조에 대한 설명 개선</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> API의 <a href="/CIC/References/CICInterface/DeviceControl.html#DeviceContorlWorkFlow">동작 구조</a>에 대한 설명 추가</li>
           <li>[CIC] 일부 content template 및 공유 객체에 대한 오류 교정 내용 수정</li>
           <li>[CEK] <a href="/CEK/Examples/Extension_Examples.html">Extension 예제</a> 페이지 추가</li>
@@ -401,7 +397,7 @@
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/PlaybackController.html">PlaybackController</a> 네임스페이스에 <a href="/CIC/References/CICInterface/PlaybackController.html#Replay">Replay</a> 지시 메시지 추가</li>
-          <li>[CIC] 알람 동기화에 대한 보충 설명을 <a href="/CIC/References/CICInterface/Alerts.html#AlertsWorkFlow">알람 동작 구조</a> 절에 추가</li>
+          <li>[CIC] 알람 동기화에 대한 보충 설명을 알람 동작 구조 절에 추가</li>
           <li>[CIC] content 필드를 <a href="/CIC/References/Context_Objects.html#AlertsState">Alert.AlertsState</a> 문맥 정보의 <a href="/CIC/References/Context_Objects.html#AlertInfoObject">AlertInfoObject</a>에서 제거</li>
           <li>[공통] 일부 문서 이미지 수정 및 문서 오류 교정</li>
         </ul>
