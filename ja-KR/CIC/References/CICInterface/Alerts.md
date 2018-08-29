@@ -611,7 +611,7 @@ Alertsが提供するイベントとディレクティブは、次の通りで�
   "directive": {
     "header": {
       "namespace": "Alerts",
-      "name": "DeleteAlert",
+      "name": "StopAlert",
       "messageId": "4e4080d6-c440-498a-bb73-ae86c6312806",
       "dialogRequestId": "6b4061db-fbc1-45a2-9c54-b7c62d366b98"
     },
