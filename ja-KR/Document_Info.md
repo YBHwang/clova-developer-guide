@@ -21,11 +21,21 @@
   </thead>
   <tbody>
   <tr>
+  <td>v3.37.2</td><td>2018-08-24</td>
+  <td>
+    <ul>
+      <li>[CIC] <a href="/CIC/References/CICInterface/Alerts.html#StopAlert">Alerts.StopAlert</a>ディレクティブのサンプルからエラーを修正</li>
+      <li>[CIC] 記載内容による混同を避けるべく、<a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a>ディレクティブのinitiator.inputSourceフィールドの説明を修正</li>
+      <li>[CEK] <a href="/CEK/References/CEK_API.html#CustomExtMessage">Custom extensionメッセージ</a>の<a href="/CEK/References/CEK_API.html#CustomExtEventRequest">EventRequest</a>リクエストタイプのサンプルからエラーを修正</li>
+    </ul>
+  </td>
+</tr>
+  <tr>
   <td>v3.37.1</td><td>2018/08/09</td>
   <td>
     <ul>
       <li>[CIC] <a href="/CIC/CIC_Overview.html#DialogModel">ダイアログモデル</a>の説明を補充</li>
-      <li>[CEK] <a href="/CEK/Guides/Build_Custom_Extension.md#ProvidingMetaDataForDisplay">オーディオコンテンツのメタデータを提供する</a>セクションで一部の誤字・脱字を訂正</li>
+      <li>[CEK] <a href="/CEK/Guides/Build_Custom_Extension.html#ProvidingMetaDataForDisplay">オーディオコンテンツのメタデータを提供する</a>セクションで一部の誤字・脱字を訂正</li>
     </ul>
   </td>
 </tr>
