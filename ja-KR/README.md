@@ -51,7 +51,7 @@ Clovaプラットフォームでは、クライアント開発者とExtension開
     </tr>
     <tr>
       <td style="text-align: center;">開発</td>
-      <td>
+      <td style="vertical-align: top;">
         <ul>
           <li>ガイド</li>
           <ul>
