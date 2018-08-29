@@ -388,7 +388,7 @@ Here is an example of the `request` object field of the `EventRequest` type mess
   "timestamp": "2018-06-19T11:37:21Z",
   "event" : {
     "namespace":"ClovaSkill",
-    "name":"SkillEnabled",
+    "name":"SkillDisabled",
     "payload": null
   }
 }
