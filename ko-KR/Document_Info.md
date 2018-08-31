@@ -27,10 +27,11 @@
       <li>[Design] <a href="/Design/Design_Guideline_For_Client_Hardware.html">클라이언트 기기 디자인 가이드라인</a>에 <a href="/Design/Design_Guideline_For_Client_Hardware.html#LightColor">조명 색상</a>의 RGB 값 변경</li>
       <li>[CIC] <a href="/CIC/References/CICInterface/Alerts.html#StopAlert">Alerts.StopAlert</a> 지시 메시지의 예제에서 오류 수정</li>
       <li>[CIC] 표기에 따른 혼동을 피하기 위해 <a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a> 지시 메시지의 initiator.inputSource 필드의 설명을 수정</li>
-      <li>[CIC] <a href="/CIC/Guides/Implement_Client_Features.md">클라이언트 기능 구현하기</a> 절 추가</li>
+      <li>[CIC] <a href="/CIC/Guides/Implement_Client_Features.html">클라이언트 기능 구현하기</a> 절 추가</li>
       <li>[CEK] <a href="/CEK/References/CEK_API.html#CustomExtMessage">Custom extension 메시지</a> <a href="/CEK/References/CEK_API.html#CustomExtEventRequest">EventRequest</a> 요청 타입의 예제에서 오류 수정</li>
       <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">지원 기기</a> 중 난방기(HEATER)와 온도 조절기(THERMOSTAT) 타입에 GetTargetTemperature 동작 추가</li>
       <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">공유 객체</a> 필드 필수/포함 여부 표기 개선</li>
+      <li>[CIC] <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a>, <a href="/CIC/References/CICInterface/TemplateRuntime.html">TemplateRuntime</a> 네임스페이스에 일부 필드 업데이트</li>
     </ul>
   </td>
 </tr>
@@ -50,7 +51,7 @@
         <li>[Design] <a href="/Design/Design_Guideline_For_Client_Hardware.html">클라이언트 기기 디자인 가이드라인</a>의 <a href="/Design/Design_Guideline_For_Client_Hardware.html#SoundEffect">효과음</a> 중 Attending 상태 진입에 대한 효과음 업데이트</li>
         <li>[CIC] <a href="/CIC/References/Clova_Auth_API.html">CIC 인증 API</a>의 <a href="/CIC/References/Clova_Auth_API.html#RequestAuthorizationCode">Authorization code 요청</a> 설명에 423 Locked 상태 코드 추가</li>
         <li>[CEK] Clova Home extension API에서 SetFreezerTargetTemperature, SetFridgeTargetTemperature 동작을 제거하고 이와 관련된 인터페이스를 제거</li>
-        <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetTargetTemperatureRequest">SetTargetTemperatureRequest</a>에 endpoint 필드를 추가하고 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.md#EndpointInfoObject">EndpointInfoObject</a> 객체를 추가</li>
+        <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#SetTargetTemperatureRequest">SetTargetTemperatureRequest</a>에 endpoint 필드를 추가하고 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#EndpointInfoObject">EndpointInfoObject</a> 객체를 추가</li>
         <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">지원 기기</a> 중 환풍기(VENTILATOR) 타입에 SetFanSpeed 동작 추가</li>
       </ul>
     </td>
@@ -450,7 +451,7 @@
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/SpeechRecognizer.html#ExpectSpeech">SpeechRecognizer.ExpectSpeech</a> 지시 메시지에 explicit 필드 추가</li>
-          <li>[CIC] <a href="/CIC/References/Content_Templates.md">Content template</a>에 <a href="/CIC/References/ContentTemplates/Common_Fields.md">공통 필드</a> 스펙 추가</li>
+          <li>[CIC] <a href="/CIC/References/Content_Templates.html">Content template</a>에 <a href="/CIC/References/ContentTemplates/Common_Fields.html">공통 필드</a> 스펙 추가</li>
         </ul>
       </td>
     </tr>
@@ -564,7 +565,7 @@
       <td>v1.1.0</td><td>v0.2</td><td>2017-06-08</td>
       <td>
         <ul>
-          <li>[CIC] <a href="/CIC/Guides/Interact_with_CIC.html">CIC 연동하기</a>에 <a href="/CIC/Guides/Interact_with_CIC.md#ManageConnection">연결 관리하기</a> 추가 (HTTP Ping)</li>
+          <li>[CIC] <a href="/CIC/Guides/Interact_with_CIC.html">CIC 연동하기</a>에 <a href="/CIC/Guides/Interact_with_CIC.html#ManageConnection">연결 관리하기</a> 추가 (HTTP Ping)</li>
         </ul>
       </td>
     </tr>
