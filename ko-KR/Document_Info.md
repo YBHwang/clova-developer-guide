@@ -21,14 +21,11 @@
   </thead>
   <tbody>
     <tr>
-      <td>v3.38</td><td>미적용</td><td>2018-08-29</td>
+      <td>v3.38.0</td><td>미적용</td><td>2018-08-29</td>
       <td>
         <ul>
           <li>[Design] <a href="/Design/Design_Guideline_For_Client_Hardware.md">클라이언트 기기 디자인 가이드라인</a>에 <a href="/Design/Design_Guideline_For_Client_Hardware.md#LightColor">조명 색상</a>의 RGB 값 변경</li>
-          <li>[CIC] <a href="/CIC/References/CICInterface/Alerts.md#StopAlert">Alerts.StopAlert</a> 지시 메시지의 예제에서 오류 수정</li>
-          <li>[CIC] 표기에 따른 혼동을 피하기 위해 <a href="/CIC/References/CICInterface/SpeechRecognizer.md#Recognize">SpeechRecognizer.Recognize</a> 지시 메시지의 initiator.inputSource 필드의 설명을 수정</li>
           <li>[CIC] <a href="/CIC/Guides/Implement_Client_Features.md">클라이언트 기능 구현하기</a> 절 추가</li>
-          <li>[CEK] <a href="/CEK/References/CEK_API.md#CustomExtMessage">Custom extension 메시지</a> <a href="/CEK/References/CEK_API.md#CustomExtEventRequest">EventRequest</a> 요청 타입의 예제에서 오류 수정</li>
           <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject">지원 기기</a> 중 난방기(HEATER)와 온도 조절기(THERMOSTAT) 타입에 GetTargetTemperature 동작 추가</li>
           <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.md">공유 객체</a> 필드 필수/포함 여부 표기 개선</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/AudioPlayer.md">AudioPlayer</a>, <a href="/CIC/References/CICInterface/TemplateRuntime.md">TemplateRuntime</a> 네임스페이스에 일부 필드 업데이트</li>
