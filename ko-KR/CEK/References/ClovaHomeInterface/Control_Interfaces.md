@@ -590,7 +590,7 @@ IoT 기기 정보 확인 및 기기 제어와 관련된 요청 및 응답을 수
     "appliance": {
       "applianceId": "device-015"
     },
-    "deltaTemperature": {
+    "deltaIntensity": {
       "value": 1
     }
   }
@@ -3218,7 +3218,7 @@ IoT 기기 정보 확인 및 기기 제어와 관련된 요청 및 응답을 수
     "appliance": {
       "applianceId": "device-015"
     },
-    "deltaTemperature": {
+    "deltaIntensity": {
       "value": 1
     }
   }
