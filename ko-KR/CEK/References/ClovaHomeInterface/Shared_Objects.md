@@ -3,7 +3,7 @@
 
 | 객체 이름            | 객체 설명                                            |
 |--------------------|---------------------------------------------------|
-| [ActionInforObject](#ActionInforObject)                   | 기기 제어 동작 정보가 담긴 객체  |
+| [ActionInfobject](#ActionInfobject)                   | 기기 제어 동작 정보가 담긴 객체  |
 | [AirQualityInfoObject](#AirQualityInfoObject)             | 공기질 정보가 담긴 객체            |
 | [ApplianceInfoObject](#ApplianceInfoObject)               | IoT 기기의 정보가 담긴 객체        |
 | [BatteryInfoObject](#BatteryInfoObject)                   | 배터리 정보가 담긴 객체            |
@@ -32,13 +32,13 @@
 | [UltraFineDustInfoObject](#UltraFineDustInfoObject)       | 초미세 먼지 정보가 담긴 객체         |
 | [VolumeInfoObject](#VolumeInfoObject)                     | 볼륨 정보를 담고 있는 객체          |
 
-## ActionInforObject {#ActionInforObject}
+## ActionInfobject {#ActionInfobject}
 기기 제어 동작 정보가 담긴 객체로써 하나의 기기에 하나의 동작을 수행하는 명령을 표현합니다.
 
 ### Object fields
-| 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |
-|---------------|---------|-----------------------------|:-------------:|
-| `applianceId` | string  | 기기 ID                      | 필수/항상     |
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
+|---------------|---------|-----------------------------|:-------:|
+| `applianceId` | string  | 기기 ID                      | 필수     |
 | `action`      | string  | 기기 제어 동작. 동작 목록은 [ApplianceInfoObject](#ApplianceInfoObject)의 [Actions](#Actions) 항목을 참조합니다.     | 필수/항상     |
 
 ### Object Example
@@ -145,9 +145,9 @@
 공기질 정보를 담고 있는 객체입니다. 기기가 측정한 공기질 상태를 나타낼 때 사용되며 문자열로 표현됩니다.
 
 ### Object fields
-| 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:-------------:|
-| `index`       | string  | 공기질 수준. 다음과 같은 값으로 제한되어 있습니다.<ul><li><code>"good"</code>: 좋음</li><li><code>"normal"</code>: 보통</li><li><code>"bad"</code>: 나쁨</li><li><code>"verybad"</code>: 매우 나쁨</li></ul> | 필수/항상     |
+| `index`       | string  | 공기질 수준. 다음과 같은 값으로 제한되어 있습니다.<ul><li><code>"good"</code>: 좋음</li><li><code>"normal"</code>: 보통</li><li><code>"bad"</code>: 나쁨</li><li><code>"verybad"</code>: 매우 나쁨</li></ul> | 필수   |
 
 ### Object Example
 {% raw %}
@@ -178,20 +178,27 @@
 ## ApplianceInfoObject {#ApplianceInfoObject}
 IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등록된 기기 목록을 CEK에게 전달하거나 특정 기기를 대상으로 지정하여 Clova Home extension에 기기 제어를 요청할 때 이 객체를 사용합니다.
 
-### Object fields
-| 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |
+### Object fields used in reqeusts
+| 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
 |---------------|---------|-----------------------------|:-------------:|
-| `actions[]`                  | string array  | 기기가 지원하는 동작 목록. 클라이언트는 기기가 지원하는 동작 내에서 사용자가 IoT 기기를 제어하도록 제한해야 합니다. | 선택/항상    |
-| `additionalApplianceDetails` | object        | 제조사나 IoT 서비스에서 제공하는 추가 정보를 담고 있는 필드                                 | 선택/조건부    |
-| `applianceId`                | string        | 기기 ID                                                                        | 필수/항상    |
-| `applianceTypes[]`           | string array  | 기기 타입. `applicationType`에 따라 해당 기기가 수행할 수 있는 동작인 `actions` 필드의 값이 달라집니다. IoT 서비스에서 사용자 계정에 등록된 기기의 타입을 다음 값 중 하나로 지정해야 합니다. Remarks 항목을 참고하여 기기 타입을 입력합니다.                                                                              | 필수/항상    |
-| `friendlyName`               | string        | 사용자가 붙여준 기기의 이름                                                           | 선택/항상    |
-| `friendlyDescription`        | string        | 기기에 대한 설명                                                                  | 선택/항상    |
-| `isIr`                       | boolean       | 기기를 적외선 통신 방식으로 제어하는지 나타내는 필드<ul><li><code>true</code>: 적외선 통신 방식 사용</li><li><code>false</code>: 적외선 통신 방식 사용 안함</li></ul> <div class="note"><p><strong>Note!</strong></p><p>적외선 통신 방식으로 기기를 제어(<code>true</code>)할 때 다음과 같은 제약 사항이 있습니다.</p><ul><li>Clova는 사용자에게 기기 제어 결과를 전달하지 않습니다.</li><li>해당 기기 타입이 <code>HealthCheck</code> 동작을 지원하더라도 Clova는 <code>HealthCheck</code> 동작과 관련된 요청을 extension으로 전달하지 않습니다.</li></ul></div>  | 선택/조건부  |
-| `isReachable`                | boolean       | 원격 제어 가능 여부<ul><li>true: 원격 제어 가능</li><li>false: 원격 제어 불가</li></ul>  | 선택/항상    |
-| `manufacturerName`           | string        | 기기 제조사 이름                                                                  | 선택/항상    |
-| `modelName`                  | string        | 기기 모델 이름                                                                   | 선택/항상    |
-| `version`                    | string        | 제조사의 소프트웨어 버전                                                            | 선택/항상    |
+| `additionalApplianceDetails` | object        | 제조사나 IoT 서비스에서 제공하는 추가 정보를 담고 있는 필드                                 | 조건부    |
+| `applianceId`                | string        | 기기 ID                                                                         | 항상     |
+
+### Object fields used in responses
+
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
+|---------------|---------|-----------------------------|:-------------:|
+| `actions[]`                  | string array  | 기기가 지원하는 동작 목록. 클라이언트는 기기가 지원하는 동작 내에서 사용자가 IoT 기기를 제어하도록 제한해야 합니다. | 선택    |
+| `additionalApplianceDetails` | object        | 제조사나 IoT 서비스에서 제공하는 추가 정보를 담고 있는 필드                                 | 선택    |
+| `applianceId`                | string        | 기기 ID                                                                        | 필수    |
+| `applianceTypes[]`           | string array  | 기기 타입. `applicationType`에 따라 해당 기기가 수행할 수 있는 동작인 `actions` 필드의 값이 달라집니다. IoT 서비스에서 사용자 계정에 등록된 기기의 타입을 다음 값 중 하나로 지정해야 합니다. Remarks 항목을 참고하여 기기 타입을 입력합니다.                                                                              | 필수    |
+| `friendlyName`               | string        | 사용자가 붙여준 기기의 이름                                                           | 선택    |
+| `friendlyDescription`        | string        | 기기에 대한 설명                                                                  | 선택    |
+| `isIr`                       | boolean       | 기기를 적외선 통신 방식으로 제어하는지 나타내는 필드<ul><li><code>true</code>: 적외선 통신 방식 사용</li><li><code>false</code>: 적외선 통신 방식 사용 안함</li></ul> <div class="note"><p><strong>Note!</strong></p><p>적외선 통신 방식으로 기기를 제어(<code>true</code>)할 때 다음과 같은 제약 사항이 있습니다.</p><ul><li>Clova는 사용자에게 기기 제어 결과를 전달하지 않습니다.</li><li>해당 기기 타입이 <code>HealthCheck</code> 동작을 지원하더라도 Clova는 <code>HealthCheck</code> 동작과 관련된 요청을 extension으로 전달하지 않습니다.</li></ul></div>  | 선택  |
+| `isReachable`                | boolean       | 원격 제어 가능 여부<ul><li>true: 원격 제어 가능</li><li>false: 원격 제어 불가</li></ul>  | 선택    |
+| `manufacturerName`           | string        | 기기 제조사 이름                                                                  | 선택    |
+| `modelName`                  | string        | 기기 모델 이름                                                                   | 선택    |
+| `version`                    | string        | 제조사의 소프트웨어 버전                                                            | 선택    |
 | `location`                   | string        | 기기가 설치된 장소. [Locations](#Locations) 항목에 있는 코드 값을 입력합니다. 해당 코드 값에 대응되는 한글 표현의 텍스트가 `tags` 필드에 추가됩니다.            | 선택/항상    |
 | `tags`                       | string array  | 사용자가 기기에 추가한 태그 목록. 사용자는 Clova 앱이나 IoT 서비스에서 기기의 설치 장소, 사용 목적, 제품 브랜드 등 다양한 속성을 태그로 기기에 추가할 수 있습니다. 같은 속성(태그)을 가지는 기기는 같은 그룹이 되며, 같은 그룹에 속한 기기 사이에 허용 동작이 같으면 동시 제어가 가능해 집니다.  | 선택/항상  |
 
@@ -213,7 +220,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 | `"ELECTRICKETTLE"`  | 전기 주전자 타입       | GetCurrentTemperature, HealthCheck, TurnOff, TurnOn                                                                              |
 | `"ELECTRICTOOTHBRUSH"` | 전동 칫솔 타입     | GetDeviceState, HealthCheck                                                                                                            |
 | `"FAN"`             | 선풍기 타입           | HealthCheck, SetMode, TurnOff, TurnOn                                                                                            |
-| `"HEATER"`          | 히터 타입            | DecrementTargetTemperature, GetCurrentTemperature, HealthCheck, IncrementTargetTemperature, TurnOff, TurnOn                      |
+| `"HEATER"`          | 히터 타입            | DecrementTargetTemperature, GetCurrentTemperature, GetTargetTemperature, HealthCheck, IncrementTargetTemperature, TurnOff, TurnOn                      |
 | `"HUMIDIFIER"`      | 가습기 타입           | GetCurrentTemperature, GetHumidity, HealthCheck, SetFanSpeed, TurnOff, TurnOn                                                    |
 | `"KIMCHIREFRIGERATOR"` | 김치 냉장고 타입    | GetDeviceState, HealthCheck                                                                                                            |
 | `"LIGHT"`           | 스마트 조명 기기 타입   | DecrementBrightness, DecrementVolume HealthCheck, IncrementBrightness, IncrementVolume SetBrightness, SetColor, SetColorTemperature, SetMode, TurnOff, TurnOn            |
@@ -241,7 +248,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 | `"SMARTVALVE"`      | 스마트 밸브 타입      | GetLockState, SetLockState                                                                                                        |
 | `"SMOKESENSOR"`     | 연기 센서 타입       | GetDeviceState, HealthCheck                                                                                                             |
 | `"SWITCH"`          | 가정 내 콘센트 전원을 제어하는 스위치 타입 | HealthCheck, TurnOff, TurnOn                                                                                       |
-| `"THERMOSTAT"`      | 온도 조절 기기 타입   | DecrementTargetTemperature, GetCurrentTemperature, HealthCheck, IncrementTargetTemperature, SetMode, SetTargetTemperature TurnOff, TurnOn       |
+| `"THERMOSTAT"`      | 온도 조절 기기 타입   | DecrementTargetTemperature, GetCurrentTemperature, GetTargetTemperature, HealthCheck, IncrementTargetTemperature, SetMode, SetTargetTemperature TurnOff, TurnOn       |
 | `"VENTILATOR"`      | 환풍기 타입          | GetDeviceState, HealthCheck, SetFanSpeed, TurnOff, TurnOn                                                                         |
 | `"WATERBOILER"`     | 온수기 타입          | HealthCheck, SetMode, TurnOff, TurnOn                                                                                             |
 
@@ -406,31 +413,15 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 기기의 배터리 정보를 담고 있는 객체입니다. 배터리 정보를 나타낼 때 사용되며 백분율을 의미하는 정수(0~100)로 표현됩니다.
 
 ### Object fields
-| 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |
-|---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | 배터리 잔량(%)                 | 필수/항상     |
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
+|---------------|---------|-----------------------------|:-------:|
+| `value`       | number  | 배터리 잔량(%)                 | 필수     |
 
 ### Object Example
 {% raw %}
 
 ```json
-// 예제 1: GetBatteryInfoRequest 메시지에서 사용된 예
-{
-  "header": {
-    "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
-    "name": "GetBatteryInfoRequest",
-    "namespace": "ClovaHome",
-    "payloadVersion": "1.0"
-  },
-  "payload": {
-    "accessToken": "92ebcb67fe33",
-    "appliance": {
-      "applianceId": "device-010"
-    }
-  }
-}
-
-// 예제 2: GetBatteryInfoResponse 메시지에서 사용된 예
+// 예제: GetBatteryInfoResponse 메시지에서 사용된 예
 {
   "header": {
     "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
@@ -449,17 +440,16 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 {% endraw %}
 
 ### See also
-* [`GetBatteryInfoRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetBatteryInfoRequest)
 * [`GetBatteryInfoResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetBatteryInfoResponse)
 
 ## BillInfoObject {#BillInfoObject}
 기기가 측정한 에너지 사용량을 기반으로 도출된 요금 정보를 담고 있는 객체입니다. 요금 정보는 액수와 통화 단위를 나누어 표시합니다.
 
 ### Object fields
-| 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:-------------:|
-| `currency`    | string  | 통화 단위 (<a href="https://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO 4217</a>)  | 필수/항상 |
-| `value`       | number  | 요금의 액수                    | 필수/항상   |
+| `currency`    | string  | 통화 단위 (<a href="https://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO 4217</a>)  | 필수 |
+| `value`       | number  | 요금의 액수                    | 필수   |
 
 ### Object Example
 {% raw %}
@@ -567,7 +557,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 {% raw %}
 
 ```json
-// 예제: SetColorRequest 메시지에서 사용된 예
+// 예제 1: SetColorRequest 메시지에서 사용된 예
 {
   "header": {
     "messageId": "a97dff79-5684-4535-8df3-193713c478aa",
@@ -581,6 +571,23 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
       "applianceId": "device-020"
     },
     "color": {
+  		"hue": 100,
+      "saturation": 100,
+      "brightness": 100
+  	}
+  }
+}
+
+// 예제 2: SetColorConfirmation 메시지에서 사용된 예
+{
+  "header": {
+    "messageId": "0e380076-59f1-4417-9d30-895be4b34cea",
+    "name": "SetColorConfirmation",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+  	"color": {
   		"hue": 100,
       "saturation": 100,
       "brightness": 100
@@ -607,7 +614,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 {% raw %}
 
 ```json
-// 예제: SetColorTemperatureRequest 메시지에서 사용된 예
+// 예제 1: SetColorTemperatureRequest 메시지에서 사용된 예
 {
   "header": {
     "messageId": "a97dff79-5684-4535-8df3-193713c478aa",
@@ -625,6 +632,21 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
     }
   }
 }
+
+// 예제 2: SetColorTemperatureConfirmation 메시지에서 사용된 예
+{
+  "header": {
+    "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
+    "name": "SetColorTemperatureConfirmation",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+  	"colorTemperature": {
+  		"value": 3600
+  	}
+  }
+}
 ```
 
 {% endraw %}
@@ -637,11 +659,11 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 기기가 측정한 에너지 또는 자원 사용량 정보를 담고 있는 객체입니다. 에너지 사용 수치와 단위를 나누어 표시합니다.
 
 ### Object fields
-| 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:-------------:|
-| `name`        | string  | 에너지 또는 자원 사용 항목명                   | 필수/항상  |
-| `unit`        | string  | 에너지 또는 자원 사용 단위(예: 전기일 때 kW)        | 필수/항상  |
-| `value`       | number  | 에너지 또는 자원 사용 수치                    | 필수/항상   |
+| `name`        | string  | 에너지 또는 자원 사용 항목명                   | 필수  |
+| `unit`        | string  | 에너지 또는 자원 사용 단위(예: 전기일 때 kW)        | 필수  |
+| `value`       | number  | 에너지 또는 자원 사용 수치                    | 필수   |
 
 ### Object Example
 {% raw %}
@@ -671,9 +693,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 {% endraw %}
 
 ### See also
-* [`GetCurrentBillRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentBillRequest)
 * [`GetCurrentBillResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentBillResponse)
-* [`GetEstimateBillRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateBillRequest)
 * [`GetEstimateBillResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateBillResponse)
 
 ## CustomCommandInfoObject {#CustomCommandInfoObject}
@@ -682,10 +702,10 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 
 ### Object fields
 
-| 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:-------------:|
-| `name`        | string  | 사용자 정의 명령의 이름.             | 필수/항상      |
-| `actions[]`   | [ActionInforObject](#ActionInforObject) array | 사용자 정의 명령을 통해 수행할 기기 제어 동작 목록  | 필수/항상  |
+| `name`        | string  | 사용자 정의 명령의 이름.             | 필수      |
+| `actions[]`   | [ActionInfobject](#ActionInfobject) array | 사용자 정의 명령을 통해 수행할 기기 제어 동작 목록  | 필수  |
 
 ### Object Example
 {% raw %}
@@ -784,7 +804,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 {% endraw %}
 
 ### See also
-* [ActionInforObject](#ActionInforObject)
+* [ActionInfobject](#ActionInfobject)
 * [`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DiscoverAppliancesResponse)
 
 ## CustomInfoObject {#CustomInfoObject}
@@ -792,11 +812,11 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 정보를 임의의 이름, 필요한 단위나 수치로 직접 입력할 때 사용되는 객체입니다. [공유 객체](#SharedObjects)가 기본으로 제공하는 객체로 정보를 표현할 수 없을 때 이 객체를 사용하거나 [`GetDeviceStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateResponse) 메시지를 통해 대상 기기가 가진 전체 정보를 제공할 때 사용됩니다.
 
 ### Object fields
-| 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:-------------:|
-| `name`        | string            | 기기 상태 정보나 측정 대상을 가리킬 임의의 이름. 사용자에게 응답할 때 이 필드에 입력된 상태 이름이 음성으로 출력됩니다. | 필수/항상 |
-| `value`       | number 또는 string | 상태 값이나 측정 값.                                                                             | 필수/항상 |
-| `unit`        | string            | 기기 상태 값이나 측정 값의 단위 정보. `value` 필드의 자료형이 문자열이면 생략되며, 수치이면 다음과 같은 단위를 가질 수 있습니다.<ul><li><code>"celcius"</code>: 섭씨 온도</li><li><code>"percentage"</code>: 퍼센트</li></ul> | 선택/조건부 |
+| `name`        | string            | 기기 상태 정보나 측정 대상을 가리킬 임의의 이름. 사용자에게 응답할 때 이 필드에 입력된 상태 이름이 음성으로 출력됩니다. | 필수 |
+| `value`       | number 또는 string | 상태 값이나 측정 값.                                                                             | 필수 |
+| `unit`        | string            | 기기 상태 값이나 측정 값의 단위 정보. `value` 필드의 자료형이 문자열이면 생략되며, 수치이면 다음과 같은 단위를 가질 수 있습니다.<ul><li><code>"celcius"</code>: 섭씨 온도</li><li><code>"percentage"</code>: 퍼센트</li></ul> | 선택 |
 
 ### Object Example
 {% raw %}
@@ -836,7 +856,6 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 {% endraw %}
 
 ### See also
-* [`GetDeviceStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateRequest)
 * [`GetDeviceStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateResponse)
 
 ## EndpointInfoObject {#EndpointInfoObject}
@@ -866,7 +885,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 {% raw %}
 
 ```json
-// 예제: SetTargetTemperatureRequest 메시지에서 사용된 예
+// 예제 1: SetTargetTemperatureRequest 메시지에서 사용된 예
 {
   "header": {
     "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
@@ -887,22 +906,41 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
     }
   }
 }
+
+// 예제 2: SetTargetTemperatureConfirmation 메시지에서 사용된 예
+{
+  "header": {
+    "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
+    "name": "SetTargetTemperatureConfirmation",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "targetTemperature": {
+      "value": 22
+    },
+    "endpoint": {
+      "value": "freezer"
+    }
+  }
+}
 ```
 
 {% endraw %}
 
 ### See also
+* [`SetTargetTemperatureConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetTargetTemperatureConfirmation)
 * [`SetTargetTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetTargetTemperatureRequest)
 
 ## ExpendableInfoObject {#ExpendableInfoObject}
 기기 소모품의 사용량이나 남은 수명 정보를 담고 있는 객체입니다. 대상 기기의 소모품 사용량이나 남은 수명을 나타낼 때 사용됩니다.
 
 ### Object fields
-| 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:-------------:|
-| `name`          | string  | 소모품의 이름                  | 필수/항상 |
-| `remainingTime` | sting   | 소모품의 남은 수명(Duration, <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>)    | 선택/조건부 |
-| `usage`         | [CustomInfoObject](#CustomInfoObject)          | 소모품의 사용량 (회수 또는 퍼센트로 표현 가능)      | 선택/조건부 |
+| `name`          | string  | 소모품의 이름                  | 필수 |
+| `remainingTime` | sting   | 소모품의 남은 수명(Duration, <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>)    | 선택 |
+| `usage`         | [CustomInfoObject](#CustomInfoObject)          | 소모품의 사용량 (회수 또는 퍼센트로 표현 가능)      | 선택 |
 
 ### Object Example
 {% raw %}
@@ -938,17 +976,16 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 {% endraw %}
 
 ### See also
-* [`GetExpendableStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetExpendableStateRequest)
 * [`GetExpendableStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetExpendableStateResponse)
 
 ## FineDustInfoObject {#FineDustInfoObject}
 미세 먼지 정보를 담고 있는 객체입니다. 기기가 측정한 미세 먼지 지수나 수준을 나타낼 때 사용되며 숫자로 표현됩니다.
 
 ### Object fields
-| 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | 미세 먼지 지수                  | 선택/조건부    |
-| `index`       | string  | 미세 먼지 수준. 다음과 같은 값으로 제한되어 있습니다.<ul><li><code>"good"</code>: 좋음</li><li><code>"normal"</code>: 보통</li><li><code>"bad"</code>: 나쁨</li><li><code>"verybad"</code>: 매우 나쁨</li></ul> | 필수/항상     |
+| `value`       | number  | 미세 먼지 지수                  | 선택    |
+| `index`       | string  | 미세 먼지 수준. 다음과 같은 값으로 제한되어 있습니다.<ul><li><code>"good"</code>: 좋음</li><li><code>"normal"</code>: 보통</li><li><code>"bad"</code>: 나쁨</li><li><code>"verybad"</code>: 매우 나쁨</li></ul> | 필수     |
 
 ### Object Example
 {% raw %}
@@ -974,7 +1011,6 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 {% endraw %}
 
 ### See also
-* [`GetFineDustRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetFineDustRequest)
 * [`GetFineDustResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetFineDustResponse)
 
 ## IntensityLevelInfoObject {#IntensityLevelInfoObject}
@@ -989,7 +1025,26 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 {% raw %}
 
 ```json
-// 예제: IncrementIntensityLevelConfirmation 메시지에서 사용된 예
+// 예제 1: IncrementIntensityLevelRequest 메시지에서 사용된 예
+{
+  "header": {
+    "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
+    "name": "IncrementIntensityLevelRequest",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "accessToken": "92ebcb67fe33",
+    "appliance": {
+      "applianceId": "device-015"
+    },
+    "deltaIntensity": {
+      "value": 1
+    }
+  }
+}
+
+// 예제 2: IncrementIntensityLevelConfirmation 메시지에서 사용된 예
 {
   "header": {
     "messageId": "be3dde71-84c0-48cf-80d8-440c1ede54d8",
@@ -1206,9 +1261,9 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 습도 정보를 담고 있는 객체입니다. 기기가 측정한 습도 상태를 나타낼 때 사용되며 문자열로 표현됩니다.
 
 ### Object fields
-| 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | 습도(%)                      | 필수/항상     |
+| `value`       | number  | 습도(%)                      | 필수     |
 
 ### Object Example
 {% raw %}
@@ -1233,7 +1288,6 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 {% endraw %}
 
 ### See also
-* [`GetHumidityRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetHumidityRequest)
 * [`GetHumidityResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetHumidityResponse)
 
 ## PeriodInfoObject {#PeriodInfoObject}
@@ -1242,16 +1296,16 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 
 ### Object fields
 
-| 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |
+| 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
 |---------------|---------|-----------------------------|:-------------:|
-| `end`         | string  | 기간의 종료 시간(Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    | 필수/항상      |
-| `start`       | string  | 기간의 시작 시간(Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    | 필수/항상      |
+| `end`         | string  | 기간의 종료 시간(Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    | 항상      |
+| `start`       | string  | 기간의 시작 시간(Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    | 항상      |
 
 ### Object Example
 {% raw %}
 
 ```json
-// 예제: GetUsageTimeRequest 메시지에서 사용된 예
+// 예제 1: GetUsageTimeRequest 메시지에서 사용된 예
 {
   "header": {
     "messageId": "59a3f5bc-4c38-4d4c-9b71-3a037bf9f9b0",
@@ -1283,15 +1337,15 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 
 ### Object fields
 
-| 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | string  | 동작 단계를 설명하는 문자열        | 필수/항상      |
+| `value`       | string  | 동작 단계를 설명하는 문자열        | 필수      |
 
 ### Object Example
 {% raw %}
 
 ```json
-// 예제 1: GetPhaseResponse 메시지에서 사용된 예
+// 예제: GetPhaseResponse 메시지에서 사용된 예
 {
   "header": {
     "messageId": "b502dd42-b698-4d3b-9ddb-bbdda70f254f",
@@ -1306,44 +1360,27 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
     "applianceResponseTimestamp": "2017-11-23T20:30:19+09:00"
   }
 }
-
-// 예제 2: StopConfirmation 메시지에서 사용된 예
-{
-  "header": {
-    "messageId": "a4349fd5-7c1c-4fae-9bbd-291749bdd63a",
-    "name": "StopConfirmation",
-    "namespace": "ClovaHome",
-    "payloadVersion": "1.0"
-  },
-  "payload": {
-    "phase": {
-      "value": "세탁"
-    }
-  }
-}
 ```
 
 {% endraw %}
 
 ### See also
-* [`GetPhaseRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetPhaseRequest)
 * [`GetPhaseResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetPhaseResponse)
 * [`StopConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#StopConfirmation)
-* [`StopRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#StopRequest)
 
 ## ProgressiveTaxBracketInfoObject {#ProgressiveTaxBracketInfoObject}
 누진세 단계 정보를 담고 있는 객체입니다.
 
 ### Object fields
-| 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | 누진세 단계                    | 필수/항상     |
+| `value`       | number  | 누진세 단계                    | 필수     |
 
 ### Object Example
 {% raw %}
 
 ```json
-// 예제 1: GetProgressiveTaxBracketResponse 메시지에서 사용된 예
+// 예제: GetProgressiveTaxBracketResponse 메시지에서 사용된 예
 {
   "header": {
     "messageId": "b502dd42-b698-4d3b-9ddb-bbdda70f254f",
@@ -1363,16 +1400,15 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 {% endraw %}
 
 ### See also
-* [`GetProgressiveTaxBracketRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetProgressiveTaxBracketRequest)
 * [`GetProgressiveTaxBracketResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetProgressiveTaxBracketResponse)
 
 ## SittingStateInfoObject {#SittingStateInfoObject}
 스마트 의자와 같은 기기에 대한 사용자의 착성 정보가 담긴 객체입니다.
 
 ### Object fields
-| 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | boolean | 착석 여부<ul><li><code>true</code>: 착석 중인 상태</li><li><code>false</code>: 착석 중이지 않은 상태</li></ul>       | 필수/항상     |
+| `value`       | boolean | 착석 여부<ul><li><code>true</code>: 착석 중인 상태</li><li><code>false</code>: 착석 중이지 않은 상태</li></ul>       | 필수    |
 
 ### Object Example
 {% raw %}
@@ -1402,16 +1438,15 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 {% endraw %}
 
 ### See also
-* [`GetCurrentSittingStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentSittingStateRequest)
 * [`GetCurrentSittingStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentSittingStateResponse)
 
 ## SleepScoreInfoObject {#SleepScoreInfoObject}
 수면 점수에 대한 정보를 담고 있는 객체입니다. 기간에 대한 결과를 나타낼 때는 평균값을 의미합니다.
 
 ### Object fields
-| 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | 수면 점수                     | 필수/항상     |
+| `value`       | number  | 수면 점수                     | 필수     |
 
 ### Object Example
 {% raw %}
@@ -1437,7 +1472,6 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 {% endraw %}
 
 ### See also
-* [`GetSleepScoreRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetSleepScoreRequest)
 * [`GetSleepScoreResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetSleepScoreResponse)
 
 ## SpeedInfoObject {#SpeedInfoObject}
@@ -1688,10 +1722,10 @@ TV 채널의 번호 정보를 담고 있는 객체입니다. 변경할 TV 채널
 초미세 먼지 정보를 담고 있는 객체입니다. 기기가 측정한 초미세 먼지 지수를 나타낼 때 사용되며 숫자로 표현됩니다.
 
 ### Object fields
-| 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | 초미세 먼지 지수                | 선택/조건부    |
-| `index`       | number  | 초미세 먼지 수준. 다음과 같은 값으로 제한되어 있습니다.<ul><li><code>"good"</code>: 좋음</li><li><code>"normal"</code>: 보통</li><li><code>"bad"</code>: 나쁨</li><li><code>"verybad"</code>: 매우 나쁨</li></ul> | 필수/항상     |
+| `value`       | number  | 초미세 먼지 지수                | 선택    |
+| `index`       | number  | 초미세 먼지 수준. 다음과 같은 값으로 제한되어 있습니다.<ul><li><code>"good"</code>: 좋음</li><li><code>"normal"</code>: 보통</li><li><code>"bad"</code>: 나쁨</li><li><code>"verybad"</code>: 매우 나쁨</li></ul> | 필수     |
 
 ### Object Example
 {% raw %}
@@ -1717,7 +1751,6 @@ TV 채널의 번호 정보를 담고 있는 객체입니다. 변경할 TV 채널
 {% endraw %}
 
 ### See also
-* [`GetUltraFineDustRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetUltraFineDustRequest)
 * [`GetUltraFineDustResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetUltraFineDustResponse)
 
 ## VolumeInfoObject {#VolumeInfoObject}
