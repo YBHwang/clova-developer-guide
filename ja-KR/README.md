@@ -51,7 +51,7 @@ Clovaプラットフォームでは、クライアント開発者とExtension開
     </tr>
     <tr>
       <td style="text-align: center;">開発</td>
-      <td>
+      <td style="vertical-align: top;">
         <ul>
           <li>ガイド</li>
           <ul>
@@ -78,13 +78,13 @@ Clovaプラットフォームでは、クライアント開発者とExtension開
           <ul>
             <li><a href="/CEK/Guides/Build_Custom_Extension.md">Custom Extensionを作成する</a></li>
             <li><a href="/CEK/Guides/Build_Clova_Home_Extension.md">Clova Home Extensionを作成する</a></li>
-            <li><a href="/CEK/Guides/Link_User_Account.md">ユーザーアカウントをリンクする</a></li>
+            <li><a href="/CEK/Guides/Link_User_Account.md">ユーザーアカウントを連携する</a></li>
             <li><a href="/DevConsole/Guides/CEK/Register_Extension.md">Extensionを登録する</a></li>
             <li><a href="/DevConsole/Guides/CEK/Register_Interaction_Model.md">対話モデルを登録する</a></li>
           </ul>
           <li>リファレンス</li>
           <ul>
-            <li><a href="/CEK/References/CEK_API.md#CustomExtMessage">Custom Extensionメッセージ</a></li>
+            <li><a href="/CEK/References/CEK_API.md#CustomExtMessage">Custom Extensionのメッセージ</a></li>
             <li><a href="/CEK/References/CEK_API.md#ClovaHomeExtMessage">Clova Home Extensionメッセージ</a></li>
           </ul>
           <li>Extensionサンプル</li>

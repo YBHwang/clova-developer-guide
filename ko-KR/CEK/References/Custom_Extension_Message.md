@@ -817,7 +817,7 @@ CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 
 | `audioItem.titleText`     | string | 현재 음악의 제목을 표현하는 텍스트 필드                                                         | 항상  |
 | `playBehavior`            | string | 지시 메시지에 포함된 오디오 스트림을 클라이언트에서 언제 재생할지를 결정하는 구분자 <ul><li><code>"REPLACE_ALL"</code>: 재생 대기열을 모두 비우고, 전달받은 오디오 스트림을 즉시 재생합니다.</li><li><code>"ENQUEUE"</code>: 재생 대기열에 전달받은 오디오 스트림을 추가합니다.</li></ul> | 항상 |
 | `source`                  | object | 오디오 스트리밍 서비스의 출처 정보                                                    | 항상 |
-| `source.logoUrl`          | string | 오디오 스트리밍 서비스의 로고 이미지 URL. 이 필드 또는 필드의 값이 없거나 로고 이미지를 표시할 수 없으면 `source.name` 필드에 있는 오디오 스트리밍 서비스의 이름이라도 표시해야 합니다.  | 조건부 |
+| `source.logoUrl`          | string | 오디오 스트리밍 서비스의 로고 이미지의 URL. 이 필드 또는 필드의 값이 없거나 로고 이미지를 표시할 수 없으면 `source.name` 필드에 있는 오디오 스트리밍 서비스의 이름이라도 표시해야 합니다.  | 조건부 |
 | `source.name`             | string | 오디오 스트리밍 서비스의 이름                                                        | 항상 |
 
 ### Remarks
@@ -1432,7 +1432,7 @@ CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 
 | `playableItems[].titleText`        | string        | 현재 음악의 제목을 표현하는 텍스트 필드                                                         | 항상  |
 | `playableItems[].token`            | string        | 미디어 콘텐츠의 token                                                                     | 항상 |
 | `provider`                         | object        | 미디어 콘텐츠 제공자의 정보가 담긴 객체                                                         | 조건부 |
-| `provider.logoUrl`                 | string        | 미디어 콘텐츠 제공자 로고 이미지의 URL                                                         | 조건부 |
+| `provider.logoUrl`                 | string        | 미디어 콘텐츠 제공자 로고 이미지의 URL. 이 필드 또는 필드의 값이 없거나 로고 이미지를 표시할 수 없으면 `provider.name` 필드에 있는 미디어 콘텐츠 제공자의 이름이라도 표시해야 합니다. | 조건부 |
 | `provider.name`                    | string        | 미디어 콘텐츠 제공자의 이름                                                                   | 항상  |
 | `provider.smallLogoUrl`            | string        | 크기가 작은 미디어 콘텐츠 제공자 로고 이미지의 URL                                                | 조건부 |
 

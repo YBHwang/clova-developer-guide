@@ -21,11 +21,21 @@ The revision history of this document is as follows:
   </thead>
   <tbody>
   <tr>
+  <td>v3.37.2</td><td>Not applied</td><td>2018-08-24</td>
+  <td>
+    <ul>
+      <li>[CIC] Corrected error on example code of the <a href="/CIC/References/CICInterface/Alerts.html#StopAlert">Alerts.StopAlert</a> directive</li>
+      <li>[CIC] Changed initiator.inputSource field description on the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a> directive to avoid confusion</li>
+      <li>[CEK] Corrected error on the <a href="/CEK/References/CEK_API.html#CustomExtMessage">Custom extension message</a> <a href="/CEK/References/CEK_API.html#CustomExtEventRequest">EventRequest</a> request type example</li>
+    </ul>
+  </td>
+</tr>
+  <tr>
   <td>v3.37.1</td><td>Not applied</td><td>2018-08-09</td>
   <td>
     <ul>
       <li>[CIC] Supplemented description of the <a href="/CIC/CIC_Overview.html#DialogModel">dialogue model</a></li>
-      <li>[CEK] Emended typos in the section on <a href="/CEK/Guides/Build_Custom_Extension.md#ProvidingMetaDataForDisplay">Providing audio content metadata for display</a></li>
+      <li>[CEK] Emended typos in the section on <a href="/CEK/Guides/Build_Custom_Extension.html#ProvidingMetaDataForDisplay">Providing audio content metadata for display</a></li>
     </ul>
   </td>
 </tr>

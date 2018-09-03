@@ -7,10 +7,7 @@
 2. [CIC 연결하기](#ConnectToCIC)
 3. [이벤트 메시지 전송하기](#SendEvent)
 4. [지시 메시지 처리하기](#HandleDirective)
-
-그 외 개발자는 다음과 같은 내용을 알고 구현해야 합니다.
-* [메시지 큐 관리하기](#ManageMessageQ)
-* [위임된 사용자 요청 처리하기](#HandleDelegation)
+5. [메시지 큐 관리하기](#ManageMessageQ)
 
 {% include "/CIC/Guides/InteractWithCIC/Preparation.md" %}
 
@@ -21,5 +18,3 @@
 {% include "/CIC/Guides/InteractWithCIC/Handle_Directive.md" %}
 
 {% include "/CIC/Guides/InteractWithCIC/Manage_Message_Q.md" %}
-
-{% include "/CIC/Guides/InteractWithCIC/Handle_Delegation.md" %}

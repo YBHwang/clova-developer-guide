@@ -1,6 +1,6 @@
 # イベントの索引
 
-| 名前欄         | メッセージ       | 説明                                             |
+| 名前空間         | メッセージ       | 説明                                             |
 |-------------------|----------------|-------------------------------------------------|
 | Alerts            | [`AlertStarted`](/CIC/References/CICInterface/Alerts.md#AlertStarted)                 | クライアントから、アラームが開始したことをCICにレポートします。 |
 | Alerts            | [`AlertStopped`](/CIC/References/CICInterface/Alerts.md#AlertStopped)                 | クライアントから、アラームが停止したことをCICにレポートします。 |

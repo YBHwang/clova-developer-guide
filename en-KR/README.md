@@ -51,7 +51,7 @@ For client and extension developers, Clova platform provides Clova interface con
     </tr>
     <tr>
       <td style="text-align: center;">Development</td>
-      <td>
+      <td style="vertical-align: top;">
         <ul>
           <li>Guide</li>
           <ul>

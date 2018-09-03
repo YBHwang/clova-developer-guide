@@ -1,5 +1,5 @@
-## Custom Extensionメッセージ {#CustomExtMessage}
-Custom Extensionメッセージは、CEKとCustom Extensionが情報をやり取りする際に使用されるメッセージです。Custom Extensionメッセージは、[リクエストメッセージ](#CustomExtRequestMessage)と[レスポンスメッセージ](#CustomExtResponseMessage)の2種類があります。リクエストメッセージには、[リクエストタイプ](#CustomExtRequestType)によって`EventRequest`、`IntentRequest`、`LaunchRequest`、`SessionEndedRequest`の4つのタイプがあります。
+## Custom Extensionのメッセージ {#CustomExtMessage}
+Custom Extensionのメッセージは、CEKとCustom Extensionが情報をやり取りする際に使用されるメッセージです。Custom Extensionのメッセージは、[リクエストメッセージ](#CustomExtRequestMessage)と[レスポンスメッセージ](#CustomExtResponseMessage)の2種類があります。リクエストメッセージには、[リクエストタイプ](#CustomExtRequestType)によって`EventRequest`、`IntentRequest`、`LaunchRequest`、`SessionEndedRequest`の4つのタイプがあります。
 
 ### リクエストメッセージ {#CustomExtRequestMessage}
 CEKは、Clovaが解析したユーザーのリクエストをCustom Extensionに渡すために、リクエストメッセージを送信します(HTTPリクエスト)。ここでは、リクエストメッセージの構造、各フィールドの説明、リクエストタイプとそれによって異なる`request`フィールドについて説明します。
@@ -76,7 +76,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
 | `context.System.device.display.size`        | string | ディスプレイ装置の解像度のサイズを示す値。あらかじめ指定された値または任意の解像度のサイズを表す値(`"custom"`)が入力されていることがあります。または、ディスプレイ装置がないことを表す値(`"none"`)が入力されていることもあります。<ul><li><code>"none"</code>：クライアントデバイスにディスプレイ装置がない</li><li><code>"s100"</code>：低解像度(160px X 107px)</li><li><code>"m100"</code>：中解像度(427px X 240px)</li><li><code>"l100"</code>：高解像度(640px X 360px)</li><li><code>"xl100"</code>：超高解像度(xlarge type、899px X 506px)</li><li><code>"custom"</code>：あらかじめ定義された規格ではない解像度。</li></ul><div class="note"><p><strong>メモ</strong></p><p>クライアントデバイスのアスペクト比とDPIに適合した画質のメディアコンテンツを提供する必要があります。</p></div> |  |
 | `context.System.user`                      | object  | クライアントデバイスに認証されたのデフォルトユーザーの情報を持っているオブジェクト                 |  |
 | `context.System.user.userId`               | string  | デバイスのデフォルトユーザーのClova ID                                    |  |
-| `context.System.user.accessToken`          | string  | 特定のサービスのユーザーアカウントのアクセストークン。デバイスのデフォルトユーザーとリンクされたユーザーアカウントのアクセストークンが渡されます。CEKは、外部サービスの認可サーバーから取得したユーザーアカウントのアクセストークンを渡します。詳細については、[ユーザーアカウントをリンクする](/CEK/Guides/Link_User_Account.md)を参照してください。 |  |
+| `context.System.user.accessToken`          | string  | 特定のサービスのユーザーアカウントのアクセストークン。デバイスのデフォルトユーザーと関連付けられたユーザーアカウントのアクセストークンが渡されます。CEKは、外部サービスの認可サーバーから取得したユーザーアカウントのアクセストークンを渡します。詳細については、[ユーザーアカウントを連携する](/CEK/Guides/Link_User_Account.md)を参照してください。 |  |
 | `request`                                 | object  | 解析されたユーザーの発話情報を持っているオブジェクト。[リクエストタイプ](#CustomExtRequestType)によって、構成されるフィールドが異なります。 |  |
 | `session`                                  | object  | セッション情報を持っているオブジェクトここでセッションとは、ユーザーのリクエストを区分する論理的な単位です。     |  |
 | `session.new`                              | boolean | リクエストメッセージが新しいセッションに対するものか、それとも既存のセッションに対するものかを区分します。<ul><li>true：新しいセッション</li><li>false：既存のセッション</li></ul>  |  |
@@ -84,7 +84,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
 | `session.sessionId`                        | string  | セッションID                                                    |  |
 | `session.user`                             | object  | 現在のユーザーの情報を持っているオブジェクト                             |  |
 | `session.user.userId`                      | string  | 現在のユーザーのClova ID`context.System.user.userId`の値と異なることがあります。 |  |
-| `session.user.accessToken`                 | string  | 特定のサービスのユーザーアカウントのアクセストークン。現在のユーザーとリンクされたユーザーアカウントのアクセストークンが渡されます。CEKは、外部サービスの認可サーバーから取得したユーザーアカウントのアクセストークンを渡します。詳細については、[ユーザーアカウントをリンクする](/CEK/Guides/Link_User_Account.md)を参照してください。|条件付き |
+| `session.user.accessToken`                 | string  | 特定のサービスのユーザーアカウントのアクセストークン。現在のユーザー関連付けられたユーザーアカウントのアクセストークンが渡されます。CEKは、外部サービスの認可サーバーから取得したユーザーアカウントのアクセストークンを渡します。詳細については、[ユーザーアカウントを連携する](/CEK/Guides/Link_User_Account.md)を参照してください。|条件付き |
 | `version`                                  | string  | メッセージフォーマットのバージョン(CEKのバージョン)                          |  |
 
 #### Message example
@@ -332,9 +332,9 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
 | フィールド名       | データ型    | フィールドの説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `event`           | object  | クライアントがClovaに渡した情報が保存されているオブジェクト                                       |    |
-| `event.name`      | string  | {{ "クライアントからClovaに送信したメッセージの名前" if book.TargetCountryCode == "KR" else "クライアントからClovaに送信したイベントの名前、または、スキルの有効化/無効化を表す名前です。スキルの有効化/無効化を表す名前は、`SkillEnabled`/`SkillDisabled`になります。スキルの有効化/無効化のリクエストを受けた場合、[リクエストメッセージ](#CustomExtRequestMessage)の`context.System.application.applicationId`フィールドと`context.System.user.userId`フィールドを使用して、ユーザーの情報を取得したり、ユーザーの情報を廃棄したりするように実装することができます。" }} |    |
-| `event.namespace` | string  | {{ "クライアントがClovaに送信したイベントの名前空間" if book.TargetCountryCode == "KR" else "クライアントがClovaに送信したイベントの名前空間、または、スキルが有効か無効かを示す名前空間。スキルが有効か無効かを示す名前空間は、`ClovaSkill`に固定されます。" }}   |   |
-| `event.payload`   | object  | {{ "クライアントがClovaに送信した`payload`、または、`payload`の一部の情報。一部のイベントの`EventRequest`リクエストタイプは、`payload`が空の場合があります。" if book.TargetCountryCode == "KR" else "クライアントがClovaに送信した`payload`または`payload`の一部の情報。一部のイベント、または、スキルが有効か無効かを示すための`EventRequest`リクエストは、`payload`が空のオブジェクトの場合があります。" }}  |   |
+| `event.name`      | string  | {{ "クライアントからClovaに送信したイベントの名前" if book.TargetCountryCode == "KR" else "クライアントからClovaに送信したイベントの名前、または、スキルの有効化/無効化を表す名前。スキルの有効化/無効化を表す名前は、`SkillEnabled`/`SkillDisabled`になります。スキルの有効化/無効化に関するリクエストを受信した場合、[リクエストメッセージ](#CustomExtRequestMessage)の`context.System.application.applicationId`フィールドと`context.System.user.userId`フィールドを使用して、ユーザーの情報を取得したり、ユーザーの情報を廃棄したりするように実装することができます。"}} |    |
+| `event.namespace` | string  | {{ "クライアントからClovaに送信したイベントの名前空間" if book.TargetCountryCode == "KR" else "クライアントからClovaに送信したイベントの名前空間、または、スキルの有効化/無効化を表す名前空間。スキルの有効化/無効化を表す名前空間は、`ClovaSkill`に固定されます。"}}   |   |
+| `event.payload`   | object  | {{ "クライアントからClovaに送信したイベントの`payload`、または`payload`の一部の情報。一部のイベントの`EventRequest`リクエストタイプは、`payload`が空のオブジェクトの場合があります。if book.TargetCountryCode == "KR" else "クライアントからClovaに送信したイベントの`payload`、または`payload`の一部の情報。一部のイベントや、スキルの有効化/無効化を表すための`EventRequest`リクエストタイプは、`payload`が空のオブジェクトの場合があります。"}}  |   |
 | `requestId`       | string  | クライアントがClovaに情報を渡すときに作成されたダイアログID(`event.header.dialogRequestId`)    |    |
 | `timestamp`       | string  | クライアントがClovaに情報を渡した日時(タイムスタンプ、<a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)<div class="note"><p><strong>メモ</strong></p><p>CEKは<code>EventRequest</code>タイプのリクエストの順序を保証しません。クライアントからのリクエストの順序は、このフィールドの値から把握することができます。</p></div>                    |   |
 | `type`            | string  | リクエストメッセージのタイプ。`"EventRequest"`の値に固定されます。         |  |
@@ -388,7 +388,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
   "timestamp": "2018-06-19T11:37:21Z",
   "event" : {
     "namespace":"ClovaSkill",
-    "name":"SkillEnabled",
+    "name":"SkillDisabled",
     "payload": null
   }
 }
@@ -559,21 +559,21 @@ Extensionは、リクエストメッセージを処理して、レスポンス�
 | `response.directives[].header`           | object       | ディレクティブのヘッダー                                          |  |
 | `response.directives[].header.messageId` | string       | メッセージID(UUID)。メッセージを区別するための識別子です。   |  |
 | `response.directives[].header.name`      | string       | ディレクティブのAPI名                                      |  |
-| `response.directives[].header.namespace` | string       | ディレクティブのAPI名前欄                                |  |
+| `response.directives[].header.namespace` | string       | ディレクティブのAPI名前空間                                |  |
 | `response.directives[].payload`          | object       | ディレクティブに関する情報を持つオブジェクト。ディレクティブに応じて、payloadオブジェクトの構成とフィールド値を変更できます。         |  |
 | `response.outputSpeech`                  | object       | 音声に合成する情報を含んでいるオブジェクト。合成された音声はCICを介してクライアントに渡されます。              |  |
 | `response.outputSpeech.brief`            | [SpeechInfoObject](#CustomExtSpeechInfoObject) | 出力する要約音声情報                    | 任意 |
 | `response.outputSpeech.type`             | string       | 出力する音声情報のタイプ<ul><li><code>"SimpleSpeech"</code>：単文タイプの音声情報です。最も基本となるタイプで、この値を指定した場合、<code>response.outputSpeech.values</code>フィールドが<a href="#CustomExtSpeechInfoObject"><code>SpeechInfoObject</code></a>オブジェクトを持っている必要があります。</li><li><code>"SpeechList"</code>：複文タイプの音声情報です。複数の文章を出力する際に使用されます。この値を指定した場合、<code>response.outputSpeech.values</code>フィールドが<a href="#CustomExtSpeechInfoObject"><code>SpeechInfoObject</code></a>オブジェクト配列を持っている必要があります。</li><li><code>"SpeechSet"</code>：複合タイプの音声情報です。画面を持たないクライアントデバイスに、要約音声情報と詳細音声情報を渡す際に使用されます。この値を指定した場合、<code>response.outputSpeech.values</code>フィールドの代わりに<code>response.outputSpeech.brief</code>と<code>response.outputSpeech.verbose</code>フィールドを持っている必要があります。</li></ul> |  |
 | `response.outputSpeech.values[]`           | [SpeechInfoObject](#CustomExtSpeechInfoObject) or [SpeechInfoObject](#CustomExtSpeechInfoObject) array | クライアントデバイスで出力する音声情報を持っているオブジェクトまたはオブジェクト配列 | 任意 |
-| `response.outputSpeech.verbose`          | object       | 画面を持たないクライアントデバイスに渡す際に使用されます。詳細音声情報を含んでいます。 | 任意 |
+| `response.outputSpeech.verbose`          | object       | 画面を持たないクライアントデバイスに渡す際に使用されます。詳細音声情報を含んでいます。 | 選択 |
 | `response.outputSpeech.verbose.type`     | string       | 出力する音声情報のタイプ単文と複文タイプの音声情報のみ入力できます。<ul><li><code>"SimpleSpeech"</code>：単文タイプの音声情報です。最も基本的な音声情報を渡す際に使用されます。この値を指定した場合、<code>response.outputSpeech.verbose.values</code>フィールドが<a href="#CustomExtSpeechInfoObject"><code>SpeechInfoObject</code></a>オブジェクトを持っている必要があります。</li><li><code>"SpeechList"</code>：複文タイプの音声情報です。複数の文章を出力する際に使用されます。この値を指定した場合、<code>response.outputSpeech.verbose.values</code>フィールドが<a href="#CustomExtSpeechInfoObject"><code>SpeechInfoObject</code></a>オブジェクト配列を持っている必要があります。</li></ul> |  |
 | `response.outputSpeech.verbose.values[]`           | [SpeechInfoObject](#CustomExtSpeechInfoObject) or [SpeechInfoObject](#CustomExtSpeechInfoObject) array | クライアントデバイスで出力する詳細音声情報を持っているオブジェクトまたはオブジェクト配列 |  |
-| `response.reprompt`                               | obejct       | ユーザーの追加の発話を促す音声情報を含んでいるオブジェクト。`response.reprompt`フィールドを使用すると、ユーザーにマルチターン対話を続けるか尋ねたり、または必須情報を話すように促すことができます。通常、マルチターン対話を行う際、ユーザーが追加の発話をしないと、入力待ち時間が過ぎ、マルチターン対話が自動的に終了します。ただし、`response.reprompt`フィールドを使用すると、Clovaは、入力待ち時間が過ぎた後、クライアントが`response.reprompt`フィールドに作成した音声を出力し、再度ユーザーの追加の発話を促すように[`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak)ディレクティブと[`SpeechRecognizer.ExpectSpeech`](/CIC/References/CICInterface/SpeechRecognizer.md#ExpectSpeech)ディレクティブをクライアントに渡します。<div class="note"><p><strong>メモ</strong></p><p><code>response.reprompt</code>フィールドは、<code>response.shouldEndSession</code>フィールド値を<code>false</code>に入力した場合、有効です。主に単文タイプの音声情報(<code>"SimpleSpeech"</code>)を渡すことをお勧めします。<code>response.reprompt</code>フィールドを使用すると、入力待ち時間を最大1回延長できます。</p></div> | 任意 |
+| `response.reprompt`                               | obejct       | ユーザーの追加の発話を促す音声情報を含んでいるオブジェクト。`response.reprompt`フィールドを使用すると、ユーザーにマルチターン対話を続けるか尋ねたり、または必須情報を話すように促すことができます。通常、マルチターン対話を行う際、ユーザーが追加の発話をしないと、入力待ち時間が過ぎ、マルチターン対話が自動的に終了します。ただし、`response.reprompt`フィールドを使用すると、Clovaは、入力待ち時間が過ぎた後、クライアントが`response.reprompt`フィールドに作成した音声を出力し、再度ユーザーの追加の発話を促すように[`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak)ディレクティブと[`SpeechRecognizer.ExpectSpeech`](/CIC/References/CICInterface/SpeechRecognizer.md#ExpectSpeech)ディレクティブをクライアントに渡します。<div class="note"><p><strong>メモ</strong></p><p><code>response.reprompt</code>フィールドは、<code>response.shouldEndSession</code>フィールド値を<code>false</code>に入力した場合、有効です。主に単文タイプの音声情報(<code>"SimpleSpeech"</code>)を渡すことをお勧めします。<code>response.reprompt</code>フィールドを使用すると、入力待ち時間を最大1回延長できます。</p></div> | 選択 |
 | `response.reprompt.outputSpeech`                  | object       | 音声に合成する情報を含んでいるオブジェクト。合成された音声はCICを介してクライアントに渡されます。              |  |
-| `response.reprompt.outputSpeech.brief`            | [SpeechInfoObject](#CustomExtSpeechInfoObject) | 出力する要約音声情報                    | 任意 |
+| `response.reprompt.outputSpeech.brief`            | [SpeechInfoObject](#CustomExtSpeechInfoObject) | 出力する要約音声情報                    | 選択 |
 | `response.reprompt.outputSpeech.type`             | string       | 出力する音声情報のタイプ<ul><li>"SimpleSpeech"：単文タイプの音声情報です。最も基本となるタイプで、この値を指定した場合、<code>response.outputSpeech.values</code>フィールドが<a href="#CustomExtSpeechInfoObject"><code>SpeechInfoObject</code></a>オブジェクトを持っている必要があります。</li><li><code>"SpeechList"</code>：複文タイプの音声情報です。複数の文章を出力する際に使用されます。この値を指定した場合、<code>response.outputSpeech.values</code>フィールドが<a href="#CustomExtSpeechInfoObject"><code>SpeechInfoObject</code></a>オブジェクト配列を持っている必要があります。</li><li><code>"SpeechSet"</code>：複合タイプの音声情報です。画面を持たないクライアントデバイスに、要約音声情報と詳細音声情報を渡す際に使用されます。この値を指定した場合、<code>response.outputSpeech.values</code>フィールドの代わりに<code>response.outputSpeech.brief</code>と<code>response.outputSpeech.verbose</code>フィールドを持っている必要があります。</li></ul> |  |
-| `response.reprompt.outputSpeech.values[]`           | [SpeechInfoObject](#CustomExtSpeechInfoObject) or [SpeechInfoObject](#CustomExtSpeechInfoObject) array | クライアントデバイスで出力する音声情報を持っているオブジェクトまたはオブジェクト配列 | 任意 |
-| `response.reprompt.outputSpeech.verbose`          | object       | 画面を持たないクライアントデバイスに渡す際に使用されます。詳細音声情報を含んでいます。 | 任意 |
+| `response.reprompt.outputSpeech.values[]`           | [SpeechInfoObject](#CustomExtSpeechInfoObject) or [SpeechInfoObject](#CustomExtSpeechInfoObject) array | クライアントデバイスで出力する音声情報を持っているオブジェクトまたはオブジェクト配列 | 選択 |
+| `response.reprompt.outputSpeech.verbose`          | object       | 画面を持たないクライアントデバイスに渡す際に使用されます。詳細音声情報を含んでいます。 | 選択 |
 | `response.reprompt.outputSpeech.verbose.type`     | string       | 出力する音声情報のタイプ単文と複文タイプの音声情報のみ入力できます。<ul><li><code>"SimpleSpeech"</code>：単文タイプの音声情報です。最も基本的な音声情報を渡す際に使用されます。この値を指定した場合、<code>response.outputSpeech.verbose.values</code>フィールドが<a href="#CustomExtSpeechInfoObject"><code>SpeechInfoObject</code></a>オブジェクトを持っている必要があります。</li><li><code>"SpeechList"</code>：複文タイプの音声情報です。複数の文章を出力する際に使用されます。この値を指定した場合、<code>response.outputSpeech.verbose.values</code>フィールドが<a href="#CustomExtSpeechInfoObject"><code>SpeechInfoObject</code></a>オブジェクト配列を持っている必要があります。</li></ul> |  |
 | `response.reprompt.outputSpeech.verbose.values[]`           | [SpeechInfoObject](#CustomExtSpeechInfoObject) or [SpeechInfoObject](#CustomExtSpeechInfoObject) array | クライアントデバイスで出力する詳細音声情報を持っているオブジェクトまたはオブジェクト配列 |  |
 | `response.shouldEndSession`              | boolean      | セッション終了のフラグクライアントに特定のExtensionの使用が終了したことを示すフィールドです。[`SessionEndedRequest`](#CustomExtSessionEndedRequest)タイプのリクエストメッセージを受け取る前に、Extensionから先に使用終了を示す際に使用されます。<ul><li>true：使用を終了する</li><li>false：引き続き使用する。ユーザーとマルチターン対話を行います。</li></ul> |  |
@@ -772,8 +772,8 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 {% endraw %}
 
 #### 次の項目も参照してください。
-* [Custom Extensionレスポンスを返す](/CEK/Guides/Build_Custom_Extension.md#ReturnCustomExtensionResponse)
-* [コンテンツテンプレート](/CIC/References/Content_Templates.md)
+* [Custom Extensionでレスポンスを返す](/CEK/Guides/Build_Custom_Extension.md#ReturnCustomExtensionResponse)
+* コンテンツテンプレート(準備中)
 
 {% if book.TargetCountryCode == "JP" %}
 ## オーディオコンテンツ再生関連のCIC API {#CICAPIforAudioPlayback}
@@ -782,7 +782,7 @@ CIC APIは、ユーザーのクライアントデバイスがClovaと通信を�
 
 従って、Custom Extensionがオーディオコンテンツを提供する場合、以下のCIC APIを理解しておく必要があります。
 
-| 名前欄   | メッセージ         | タイプ  | 説明                                   |
+| 名前空間   | メッセージ         | タイプ  | 説明                                   |
 |-------------|------------------|---------|---------------------------------------------|
 | AudioPlayer | [`Play`](#Play)                       | ディレクティブ | クライアントに対して、特定のオーディオストリームを再生するか、または再生キューに追加するように指示します。                         |
 | AudioPlayer | [`PlayFinished`](#PlayFinished)       | イベント     | クライアントがオーディオストリームの再生を終了するとき、そのオーディオストリームの情報をCICにレポートするために使用します。     |

@@ -32,7 +32,7 @@ GET|POST /authorize
 | `device_id`     | string  | クライアントデバイスのMACアドレスまたは生成したUUID                                                              |  |
 | `model_id`      | string  | クライアントデバイスのモデルID                                                                          | 任意 |
 | `response_type` | string  | 応答タイプ現在、`"code"`のみサポートされています。                                                             |  |
-| `state`         | string  | クロスサイトリクエストフォージェリ(cross-site request forgery)攻撃を防ぐために、クライアントによって使用される状態トークンの値(URLエンコーディングを使用する) |  |
+| `state`         | string  | クロスサイトリクエストフォージェリ(cross-site request forgery)攻撃を防ぐために、クライアントによって使用されるステータストークンの値(URLエンコーディングを使用する) |  |
 
 ### Request example
 
@@ -57,7 +57,7 @@ GET|POST /authorize
 |---------------|---------|-----------------------------|:---------:|
 | `code`          | string | 認可サーバーから取得した認可コード。HTTPレスポンスメッセージが`200`または`451`のステータスコードを持つ場合、HTTPレスポンスのボディーに含まれています。      |       |
 | `redirect_uri`  | string | サービスの利用規約を提供するページのURI。HTTPレスポンスメッセージが`451 Unavailable For Legal Reasons`のステータスコードを持つ場合、HTTPレスポンスメッセージのボディに含まれています。クライアントは、このフィールドに含まれたURIにリダイレクトして、ページを表示する必要があります。ユーザーが利用規約に同意すると、クライアントは、`302 Found`(URL redirection)のステータスコードを持つレスポンスを、次のURLと共に受信します。<ul><li><code>clova://agreement-success</code>：ユーザーが利用規約に同意した場合。クライアントは、Clovaアクセストークンを取得するために、次のステップに進みます。</li><li><code>clova://agreement-failure</code>：サーバーのエラーにより、利用規約に同意できなかった場合。クライアントは、適切な例外処理をする必要があります。</li></ul> |       |
-| `state`         | string | クロスサイトリクエストフォージェリ(cross-site request forgery)攻撃を防ぐために、クライアントから受け取った状態のトークンを復号化した値(URLデコーディングを適用)。HTTPレスポンスメッセージが`200`または`451`のステータスコードを持つ場合、HTTPレスポンスのボディーに含まれています。 |       |
+| `state`         | string | クロスサイトリクエストフォージェリ(cross-site request forgery)攻撃を防ぐために、クライアントから受け取ったステータストークンを復号化した値(URLデコーディングを適用)。HTTPレスポンスメッセージが`200`または`451`のステータスコードを持つ場合、HTTPレスポンスのボディーに含まれています。 |       |
 
 ### Status codes
 
