@@ -1,0 +1,76 @@
+!include ../../../styles/PlantUML_StyleSheet.puml
+
+participant "Client app\nor paired app" as client #9EA0CA
+participant "Clova" as clova #05D686
+participant "Extension" as ext #9EA0CA
+participant "IoT device hub" as hub #9EA0CA
+
+group Enable extension
+
+  [->> client: Enable Clova Home extension
+
+  activate client
+
+  ref over client, clova: Account linking
+
+end
+
+... ...
+
+group Discover devices
+
+  [->> client: Request to retrieve device list
+  client ->> clova: Send request to retrieve device list
+
+  activate clova
+
+    clova ->> ext: Send DiscoverApplianceRequest
+
+    activate ext
+
+      ext ->> hub: Request the IoT device list\nregistered to the user account
+
+      activate hub
+        hub -->> ext: Return user device list
+      deactivate hub
+
+      ext -->> clova: Return DiscoverApplianceResponse
+
+    deactivate ext
+
+    clova -->> client: Return user device list
+
+  deactivate clova
+
+  client -> client: Display user IoT device list\nand allowed operations
+
+end
+
+... ...
+
+group Control device
+
+  [->> client: Request to control device
+  client ->> clova: Send request to control device
+
+  activate clova
+
+    clova ->> ext: Send XxxxRequest
+
+    activate ext
+
+      ext ->> hub: Request to control device
+
+      activate hub
+        hub -->> ext: Service response
+      deactivate hub
+
+      ext -->> clova: Return XxxxResponse or\nXxxxConfirmation
+
+    deactivate ext
+
+    clova -->> client: Send result of request
+
+  deactivate clova
+
+end

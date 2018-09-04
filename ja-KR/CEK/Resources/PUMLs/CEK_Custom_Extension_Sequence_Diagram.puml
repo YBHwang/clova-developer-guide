@@ -1,0 +1,65 @@
+!include ../../../styles/PlantUML_StyleSheet.puml
+
+participant "クライアントアプリ\nまたはデバイス" as client #9EA0CA
+participant "Clova" as clova #05D686
+participant "天気予報\nCustom Extension" as ext #9EA0CA
+
+group Session
+  [->> client: ユーザーからの入力を受信する
+  activate client
+    client ->> clova: 「天気予報アプリに今日の天気を聞いて」
+
+    activate clova
+      clova -> clova: ユーザーの発話を解析する\n(対話モデル)
+      clova ->> ext: IntentRequestを送信する(HTTPリクエスト)
+
+      activate ext
+        ext -> ext: ユーザーのリクエストを処理する
+        ext -->> clova: レスポンスメッセージを送信する(HTTPレスポンス)
+      deactivate ext
+
+      clova -->> client: 「今日の天気は晴れです」
+    deactivate clova
+
+  deactivate client
+end
+
+group Session
+  [->> client: ユーザーからの入力を受信する
+  activate client
+    client ->> clova: 「天気予報アプリに明日の天気を聞いて」
+
+    activate clova
+      clova -> clova: ユーザーの発話を解析する\n(対話モデル)
+      clova ->> ext: IntentRequestを送信する(HTTPリクエスト)
+
+      activate ext
+        ext -> ext: ユーザーのリクエストを処理する
+        ext -->> clova: レスポンスメッセージを送信する(HTTPレスポンス)
+      deactivate ext
+
+      clova -->> client: 「明日の天気は曇りです」
+    deactivate clova
+
+  deactivate client
+end
+
+group Session
+  [->> client: ユーザーからの入力を受信する
+  activate client
+    client ->> clova: 「天気予報アプリにソウルの天気を聞いて」
+
+    activate clova
+      clova -> clova: ユーザーの発話を解析する\n(対話モデル)
+      clova ->> ext: IntentRequestを送信する(HTTPリクエスト)
+
+      activate ext
+        ext -> ext: ユーザーのリクエストを処理する
+        ext -->> clova: レスポンスメッセージを送信する(HTTPレスポンス)
+      deactivate ext
+
+      clova -->> client: 「ソウルの天気は晴れです」
+    deactivate clova
+
+  deactivate client
+end

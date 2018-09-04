@@ -1,0 +1,41 @@
+!include ../../../styles/PlantUML_StyleSheet.puml
+
+participant クライアント as client #9EA0CA
+participant CIC as cic #05D686
+participant Clova as clova #05D686
+
+activate client
+  client ->> cic: Recognizeイベントを送信する\n「クラシック音楽をプレイして」
+deactivate client
+
+activate  cic
+  cic ->> clova: ユーザーの音声認識をリクエストする
+deactivate cic
+
+activate clova
+  clova -> clova: 音声を認識する
+
+  clova -> clova: 意味を解析する
+  clova -->> cic: 意味を解析した結果を送信する
+deactivate clova
+
+activate cic
+  cic -->> client: Speakディレクティブを送信する\n「クラシック音楽です」
+
+activate client
+  client -> client: 音声を出力する
+  cic -->> client: RenderTextディレクティブを送信する\n「クラシック音楽です」
+  client -> client: 画面にテキストを表示する
+  cic -->> client: Playディレクティブを送信する「ヴィヴァルディフォーシーズンスプリング」\n楽曲情報を含める
+deactivate cic
+  client -> client: プレイする
+
+  client ->> cic: PlayStartedイベントを送信する\nクライアントの再生状態情報を送信する
+
+deactivate client
+
+activate cic
+
+cic ->> clova: クライアントの再生状態を送信する
+
+activate clova

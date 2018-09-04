@@ -1,0 +1,76 @@
+!include ../../../styles/PlantUML_StyleSheet.puml
+
+participant "クライアントアプリ\nまたはペアリングアプリ" as client #9EA0CA
+participant "Clova" as clova #05D686
+participant "Extension" as ext #9EA0CA
+participant "IoTデバイスハブ" as hub #9EA0CA
+
+group Enable extension
+
+  [->> client: Clova Home Extensionをアクティブにする
+
+  activate client
+
+  ref over client, clova: アカウントリンク(Account Linking)
+
+end
+
+... ...
+
+group Discover devices
+
+  [->> client: デバイスリスト照会のリクエスト
+  client ->> clova: デバイスリスト照会のリクエストを送信する
+
+  activate clova
+
+    clova ->> ext: DiscoverApplianceRequestを送信する
+
+    activate ext
+
+      ext ->> hub: ユーザーアカウントに登録されている\nIoTデバイスのリストをリクエストする
+
+      activate hub
+        hub -->> ext: ユーザーのデバイスリストを返す
+      deactivate hub
+
+      ext -->> clova: DiscoverApplianceResponseを返す
+
+    deactivate ext
+
+    clova -->> client: ユーザーのデバイスリストを返す
+
+  deactivate clova
+
+  client -> client: ユーザーのIoTデバイスのリストおよび\n許可されている動作を表示する
+
+end
+
+... ...
+
+group Control device
+
+  [->> client: デバイス操作のリクエスト
+  client ->> clova: デバイス操作のリクエストを送信する
+
+  activate clova
+
+    clova ->> ext: XxxxRequestを送信する
+
+    activate ext
+
+      ext ->> hub: デバイス操作のリクエスト
+
+      activate hub
+        hub -->> ext: サービス応答
+      deactivate hub
+
+      ext -->> clova: XxxxResponseまたは\nXxxxConfirmationを返す
+
+    deactivate ext
+
+    clova -->> client: リクエストの結果を送信する
+
+  deactivate clova
+
+end

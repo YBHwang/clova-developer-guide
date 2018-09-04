@@ -1,0 +1,50 @@
+!include ../../../styles/PlantUML_StyleSheet.puml
+
+actor "User" as user
+participant "Client app\nor paired app" as app #9EA0CA
+participant CEK as cek #05D686
+actor "Developer" as dev #9EA0CA
+participant Extension as ext #9EA0CA
+participant "Authorization server" as auth #9EA0CA
+
+dev ->> cek: Register authentication information (OAuth 2.0)\l- Authorization URL\l- Client ID\l- Client secret\l- Redirect URI\l- Access token URI\l- ...
+
+activate cek
+deactivate cek
+
+user ->> app: Enable extension
+
+activate app
+  app ->> cek: Request authorization URL
+
+  activate cek
+    cek -->> app: Return authorization URL
+  deactivate cek
+
+  app ->> auth: Request login page (authorization URL)
+
+  activate auth
+    auth -->> app: Return login page
+  deactivate auth
+
+  app -> app: Display login page
+  user ->> app: Authenticate account (login)
+  app ->> auth: Request authorization
+
+  activate auth
+  auth -->> app: Return Authorization code\lor access token with redirect URI
+  deactivate auth
+
+  app ->> cek: Pass the\lauthorization code\lor access token
+deactivate app
+
+  activate cek
+    cek ->> auth: Pass authorization code as a parameter to the access token URI
+    activate auth
+      auth -->> cek: Return access token
+    deactivate auth
+
+    cek -> cek: Save the access token\nto user account information
+    cek ->> ext: Send the user request with the access token
+    deactivate cek
+    activate ext

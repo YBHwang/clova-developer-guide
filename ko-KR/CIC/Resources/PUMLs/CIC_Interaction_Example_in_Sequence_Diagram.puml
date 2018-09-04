@@ -1,0 +1,41 @@
+!include ../../../styles/PlantUML_StyleSheet.puml
+
+participant 클라이언트 as client #9EA0CA
+participant CIC as cic #05D686
+participant Clova as clova #05D686
+
+activate client
+  client ->> cic: Recognize 이벤트 메시지 전송\n"클래식 음악 들려줘"
+deactivate client
+
+activate  cic
+  cic ->> clova: 사용자 음성 인식 요청
+deactivate cic
+
+activate clova
+  clova -> clova: 음성 인식
+
+  clova -> clova: 의미 분석
+  clova -->> cic: 의미 분석 결과 전달
+deactivate clova
+
+activate cic
+  cic -->> client: Speak 지시 메시지 전송\n"클래식 음악입니다."
+
+activate client
+  client -> client: 음성 출력
+  cic -->> client: RenderText 지시 메시지 전송\n"클래식 음악입니다."
+  client -> client: 화면에 텍스트 표시
+  cic -->> client: Play 지시 메시지 전송 "비발디: 사계 봄"\n음악 정보 포함
+deactivate cic
+  client -> client: 음악 재생
+
+  client ->> cic: PlayStarted 이벤트 메시지 전송\n클라이언트의 재생 상태 정보 전달
+
+deactivate client
+
+activate cic
+
+cic ->> clova: 클라이언트 재생 상태 전달
+
+activate clova

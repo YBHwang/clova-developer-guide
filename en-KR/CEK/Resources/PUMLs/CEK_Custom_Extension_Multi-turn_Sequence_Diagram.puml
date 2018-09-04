@@ -1,0 +1,84 @@
+!include ../../../styles/PlantUML_StyleSheet.puml
+
+participant "Client app\nor device" as client #9EA0CA
+participant "Clova" as clova #05D686
+participant "Pizza-bot\nCustom extension" as ext #9EA0CA
+
+[->> client: Receive user input
+
+activate client
+  client ->> clova: "Start Pizzabot"
+  hnote over client, clova: Enable extension
+
+    activate clova
+      clova -> clova: Analyze user utterance\l(Interaction model)
+
+    group Session
+
+      group Initiation
+        clova ->> ext: Send LaunchRequest (HTTP request)
+
+        activate ext
+          ext -> ext: Handle user request
+          ext -->> clova: Send response message (HTTP response)
+        deactivate ext
+
+        clova -->> client: "Hello, this is Pizzabot.\lWhat can I do for you?"
+
+        deactivate clova
+
+      end
+
+  [->> client: Receive user input
+
+  client ->> clova: "Order pepperoni pizza."
+
+  activate clova
+    clova -> clova: Analyze user utterance\l(Interaction model)
+    clova ->> ext: Send IntentRequest (HTTP request)
+
+    activate ext
+      ext -> ext: Handle user request
+      ext -->> clova: Send response message (HTTP response)
+    deactivate ext
+
+    clova -->> client: "How many boxes of pizza do you want to order?"
+
+  deactivate clova
+
+  [->> client: Receive user input
+
+  client ->> clova: "Order two boxes."
+
+  activate clova
+    clova -> clova: Analyze user utterance\l(Interaction model)
+    clova ->> ext: Send IntentRequest (HTTP request)
+
+    activate ext
+      ext -> ext: Handle user request
+      ext -->> clova: Send response message (HTTP response)
+    deactivate ext
+
+    clova -->> client: “Where should I deliver to?"
+
+  deactivate clova
+
+  group Termination
+
+    [->> client: Receive user input
+
+    client ->> clova: “You can stop now."
+    hnote over client, clova: Disable extension
+
+    activate clova
+      clova -> clova: "Analyze user utterance\n(Interaction model)"
+      clova ->> ext: Send SessionEndedRequest (HTTP request)
+    deactivate clova
+	activate ext
+			ext -> ext: Disable
+	activate ext
+	deactivate ext
+	deactivate ext
+  end
+
+end
