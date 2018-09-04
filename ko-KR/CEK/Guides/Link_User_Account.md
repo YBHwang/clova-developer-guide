@@ -90,7 +90,7 @@ Extension에 계정 연결을 적용하려면 우선 사용자가 계정 인증�
 
 다음은 클라이언트 앱 또는 클라이언트 기기와 페어링하는 앱이 로그인 페이지를 요청하는 URL 예입니다.
 
-<pre><code>https://yourdomain.com/login?state=qwer123
+<pre><code>https://example.com/login?state=qwer123
                             &client_id=clova-extension
                             &scope=listen_music%20basic_profile
                             &response_type=code
@@ -147,7 +147,7 @@ Clova가 사용자 계정 연결을 위해 Authorization code를 획득하면 Cl
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",

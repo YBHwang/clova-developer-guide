@@ -21,6 +21,14 @@
   </thead>
   <tbody>
     <tr>
+      <td>v3.39.0</td><td>미적용</td><td>2018-09-07</td>
+      <td>
+        <ul>
+          <li>[공통] 예제 설명 중 "yourdomain.com"으로 표시된 예제를 문서 작성용 도메인 이름인 "example.com"으로 변경</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.38.0</td><td>미적용</td><td>2018-08-29</td>
       <td>
         <ul>

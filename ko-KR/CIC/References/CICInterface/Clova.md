@@ -228,17 +228,17 @@ Clova 인터페이스는 CIC가 사용자 요청이 인식된 결과를 클라�
         {
           "uri": "sampleapp2://main",
           "title": "Sample app2",
-          "iconImageUrl": "https://yourdomain.com/sampleappicon.png",
-          "marketUrl": "https://play.google.com/store/apps/details?id=com.yourdomain.sampleapp",
-          "packageName": "com.yourdomain.sampleapp",
+          "iconImageUrl": "https://example.com/sampleappicon.png",
+          "marketUrl": "https://play.google.com/store/apps/details?id=com.example.sampleapp",
+          "packageName": "com.example.sampleapp",
           "description": "Sample app2"
         },
         {
           "uri": "sampleapp://main",
           "title": "Sample app",
-          "iconImageUrl": "https://yourdomain.com/sampleappicon.png",
-          "marketUrl": "https://play.google.com/store/apps/details?id=com.yourdomain.sampleapp",
-          "packageName": "com.yourdomain.sampleapp",
+          "iconImageUrl": "https://example.com/sampleappicon.png",
+          "marketUrl": "https://play.google.com/store/apps/details?id=com.example.sampleapp",
+          "packageName": "com.example.sampleapp",
           "description": "Sample app"
         }
       ]
