@@ -1,50 +1,51 @@
 !include ../../../styles/PlantUML_StyleSheet.puml
 
-actor 사용자 as user #9EA0CA
-participant 클라이언트 as client #9EA0CA
+actor User as user #9EA0CA
+participant Client as client #9EA0CA
 participant CIC as cic #05D686
 
 
-  client -> client : 알람 시작
-  client ->> cic : 알람 시작 보고\n(Alerts.AlertStarted 이벤트 메시지,\lAlert.AlertsState에 activateAlerts 필드 필수 포함)
+  client -> client : Start alarm
+  client ->> cic : Report start of alarm\n(Alerts.AlertStarted event,\linclude activateAlerts as a required field in Alert.AlertsState)
 
   activate cic
   deactivate cic
 
-  user ->> client : 알람 중지 요청 (발화 또는 물리버튼)
+  user ->> client : Request to stop alarm (using utterance or physical button)
 
-  alt 알람 중지 요청 유형 == 사용자 발화
+  alt Type of stop alarm request == User utterance
 
-    client ->> cic : 알람 중지 요청 전달\n(SpeechRecognizer.Recognize 이벤트 메시지)
+    client ->> cic : Send request to stop alarm\n(SpeechRecognizer.Recognize event)
 
   activate cic
 
-  else 알람 중지 요청 유형 == 물리 버튼
+  else Type of stop alarm request == Physical button
 
-    client ->> cic : 알람 중지 요청 전달\n(Alerts.RequestAlertStop 이벤트 메시지)
+    client ->> cic : Send request to stop alarm\n(Alerts.RequestAlertStop event)
 
   end
 
-  cic -->> client : Alerts.StopAlert 지시 메시지 전달
+  cic -->> client : Send Alerts.StopAlert directive
 
   deactivate cic
 
-  client ->> cic : 알람 중지 결과 보고\n(Alerts.AlertStopped 이벤트 메시지)
+  client ->> cic : Report result of stop alarm\n(Alerts.AlertStopped event)
+
   activate cic
 
-    opt 반복 알람 여부 == 네
+    opt Alarm is repeated == Yes
 
-      cic -->> client : 다음 반복 알람 전달\n(Alerts.SetAlert 지시 메시지)
+      cic -->> client : Send next repeated alarm\n(Alerts.SetAlert directive)
 
     end
 
-    opt 알람 종류 == 액션타이머
+    opt Alarm type == Action timer
 
-      cic -->> client : 사용자가 예약한 동작을 수행하는 지시 메시지 전달
+      cic -->> client : Send the directive to perform the user-scheduled action
 
-    deactivate cic
+  deactivate cic
 
-      client -> client : 예약된 동작 수행
+      client -> client : Perform scheduled action
 
     end
 

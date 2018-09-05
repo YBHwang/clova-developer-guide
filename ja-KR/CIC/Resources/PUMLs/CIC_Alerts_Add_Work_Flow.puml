@@ -1,49 +1,49 @@
 !include ../../../styles/PlantUML_StyleSheet.puml
 
-actor 사용자 as user #9EA0CA
-participant 클라이언트 as client #9EA0CA
+actor ユーザー as user #9EA0CA
+participant クライアント as client #9EA0CA
 participant CIC as cic #05D686
 
 
-user ->> client : 알람 등록 요청:\n"오늘 오후 9시에 알람 등록해줘."
+user ->> client : アラームの設定をリクエストする：\n「今日の午後9時にアラームを設定して」
 
 activate client
-  client ->> cic : 사용자 요청 전달\n(SpeechRecognizer.Recognize 이벤트 메시지)
+  client ->> cic : ユーザーのリクエストを送信する\n(SpeechRecognizer.Recognizeイベント)
 deactivate client
 
 activate cic
-  cic -> cic : 사용자 발화 분석
-  cic -->> client : Alerts.SetAlert 지시 메시지 전달
+  cic -> cic : ユーザーの発話を解析する
+  cic -->> client : Alerts.SetAlertディレクティブを送信する
 deactivate cic
 
 activate client
-  client -> client : 클라이언트 기기에 알람 등록
+  client -> client : クライアントデバイスにアラームを設定する
 
-alt 알람 등록 결과 == 등록 실패
+alt アラーム設定結果 == 設定失敗
 
-  client ->> cic : Alerts.SetAlertFailed 이벤트 메시지 전송
+  client ->> cic : Alerts.SetAlertFailedイベントを送信する
   deactivate client
   activate cic
 
-    cic -->> client : SpeechSynthesizer.Speak 지시 메시지 전달\n("알람을 등록하지 못했어요.")
+  cic -->> client : SpeechSynthesizer.Speakディレクティブを送信する\n(「アラームを設定できませんでした」)
   deactivate cic
   activate client
-    client -->> user : 알람 등록 결과 전달
+    client -->> user : アラームの設定結果を送信する
 
-else 알람 등록 결과 == 등록 성공
+else アラーム設定結果 == 設定成功
 
-  client ->> cic : Alerts.SetAlertSucceeded 이벤트 메시지 전송
+  client ->> cic : Alerts.SetAlertSucceededイベントを送信する
 
 deactivate client
 
 activate cic
-  cic -> cic : 사용자 알람 등록
-  cic -->> client : SpeechSynthesizer.Speak 지시 메시지 전달\n("알람이 등록되었습니다.")
+  cic -> cic : ユーザーのアラームを設定する
+  cic -->> client : SpeechSynthesizer.Speakディレクティブを送信する\n(「アラームが設定されました」)
 activate client
-  cic -->> client :  Actiontimer, Alarm, Reminder, Timer 템플릿 전달\n(Clova.RenderTemplate 지시 메시지)
+  cic -->> client : Actiontimer、Alarm、Reminder、Timerテンプレートを送信する\n(Clova.RenderTemplateディレクティブ)
 deactivate cic
 
-  client -> client : 음성 출력 및 등록된 알람 내용 표시
-  client -->> user : 알람 등록 결과 전달
+  client -> client : 音声出力および設定されたアラームの内容を表示する
+  client -->> user : アラームの設定結果を送信する
 
   end

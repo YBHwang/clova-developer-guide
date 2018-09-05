@@ -30,6 +30,7 @@ participant CIC as cic #05D686
   deactivate cic
 
   client ->> cic : 알람 중지 결과 보고\n(Alerts.AlertStopped 이벤트 메시지)
+  
   activate cic
 
     opt 반복 알람 여부 == 네
