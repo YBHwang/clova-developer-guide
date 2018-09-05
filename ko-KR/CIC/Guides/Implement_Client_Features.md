@@ -3,8 +3,8 @@ CIC와 연동된 클라이언트에서 사용자가 사용하고자 하는 서�
 
 이 문서는 다음과 같은 순서로 클라이언트 개발자가 알아야 할 내용을 전달하고 있습니다.
 
-1. [위임된 사용자 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Delegation.md)
-2. [알람 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md)
+1. [위임된 사용자 요청 처리하기](#Handle_Delegation)
+2. [알람 처리하기](#Handle_Alerts)
 
 {% include "/CIC/Guides/ImplementClientFeatures/Handle_Delegation.md" %}
 
