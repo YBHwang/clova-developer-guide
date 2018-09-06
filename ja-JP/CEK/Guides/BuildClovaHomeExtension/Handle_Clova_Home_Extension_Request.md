@@ -1,3 +1,6 @@
+---
+tags: ClovaHome
+---
 ## Clova Home Extensionリクエストを処理する {#HandleClovaHomeExtensionRequest}
 
 ユーザーは、「照明をつけて」などのように、IoTデバイスの操作をClovaにリクエストします(HTTPリクエスト)。クライアントは[Discovery機能](#ProvideDeviceDiscovery)を利用して確保したデバイスのリストと、デバイスごとに許可されている動作を確認して、ユーザーからのIoTデバイス操作のリクエストが処理できるものなのか検証します。検証されたユーザーのリクエストは、CEKを介してClova Home Extensionに渡されます。その際、[Clova Home Extensionメッセージ](/CEK/References/CEK_API.md#ClovaHomeExtMessage)を使用します。

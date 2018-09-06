@@ -25,14 +25,14 @@ Clova Home Extensionの開発者は、次の内容を知っておく必要があ
 
 {% endif %}
 
-{% set targetFile = 'Preparation.md' if book.EnableClovaHome else 'Dummy.md' %}
-{% include "/CEK/Guides/BuildClovaHomeExtension/" + targetFile %}
+{% set targetFile = '/CEK/Guides/BuildClovaHomeExtension/Preparation.md' if book.EnableClovaHome else book.DummyFile %}
+{% include targetFile %}
 
-{% set targetFile = 'Provide_Device_Discovery.md' if book.EnableClovaHome else 'Dummy.md' %}
-{% include "/CEK/Guides/BuildClovaHomeExtension/" + targetFile  %}
+{% set targetFile = '/CEK/Guides/BuildClovaHomeExtension/Provide_Device_Discovery.md' if book.EnableClovaHome else book.DummyFile %}
+{% include targetFile  %}
 
-{% set targetFile = 'Handle_Clova_Home_Extension_Request.md' if book.EnableClovaHome else 'Dummy.md' %}
-{% include "/CEK/Guides/BuildClovaHomeExtension/" + targetFile  %}
+{% set targetFile = '/CEK/Guides/BuildClovaHomeExtension/Handle_Clova_Home_Extension_Request.md' if book.EnableClovaHome else book.DummyFile %}
+{% include targetFile  %}
 
-{% set targetFile = 'Return_Clova_Home_Extension_Response.md' if book.EnableClovaHome else 'Dummy.md' %}
-{% include "/CEK/Guides/BuildClovaHomeExtension/" + targetFile  %}
+{% set targetFile = '/CEK/Guides/BuildClovaHomeExtension/Return_Clova_Home_Extension_Response.md' if book.EnableClovaHome else book.DummyFile %}
+{% include targetFile  %}

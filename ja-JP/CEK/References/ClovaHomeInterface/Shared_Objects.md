@@ -1,3 +1,6 @@
+---
+tags: ClovaHome
+---
 # 共有オブジェクト {#SharedObjects}
 [Clova Home Extensionメッセージ](/CEK/References/CEK_API.md#ClovaHomeExtMessage)を送信する際、`payload`には以下のような共有オブジェクトが含まれます。
 

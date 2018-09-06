@@ -1,3 +1,6 @@
+---
+tags: ClovaHome
+---
 # Error
 Clova Home ExtensionがCEKにエラーを返す際に使用されるインターフェースです。以下のエラーメッセージを使用できます。
 
