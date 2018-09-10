@@ -25,6 +25,7 @@
       <td>
         <ul>
           <li>[공통] 예제 설명 중 "yourdomain.com"으로 표시된 예제를 문서 작성용 도메인 이름인 "example.com"으로 변경</li>
+          <li>[CIC] <a href="/CIC/Guides/ImplementClientFeatures/Handle_Alerts.html">알람 처리하기</a> 절의 링크 오류, 코드 예제 표기 오류 수정</li>
         </ul>
       </td>
     </tr>
