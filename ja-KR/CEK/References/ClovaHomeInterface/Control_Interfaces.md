@@ -590,7 +590,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
     "appliance": {
       "applianceId": "device-015"
     },
-    "deltaTemperature": {
+    "deltaIntensity": {
       "value": 1
     }
   }
@@ -3218,7 +3218,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
     "appliance": {
       "applianceId": "device-015"
     },
-    "deltaTemperature": {
+    "deltaIntensity": {
       "value": 1
     }
   }
@@ -4422,7 +4422,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 |---------------|---------|-----------------------------|:---------:|
 | `accessToken`   | string | IoTサービスのユーザーアカウントのアクセストークン。CEKは、外部サービスの認可サーバーから取得したユーザーアカウントのアクセストークンを渡します。詳細については、[ユーザーアカウントを連携する](/CEK/Guides/Link_User_Account.md)を参照してください。                          |     |
 | `appliance`     | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) | デバイスの情報を持つオブジェクト。`applianceId`フィールドは必須です。 |     |
-| `endpoint`     | [EndpointInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#EndpointInfoObject)    | 設定温度を適用するエンドポイント。デバイスが温度を適用するエンドポイントが指定されます。エンドポイントとは、デバイスの特定部分、動作方法、またはそれを適用する領域などのことをいいます。例えば、ユーザーは冷蔵庫の温度を調節するとき、冷凍室の温度を変更するか、それとも冷蔵室の温度を変更するかを指定することができます。{{ "また、暖房機能があるエアコンを調節する場合には、冷房モードで動作するときの温度と、暖房モードで動作するときの温度を区分してコントロールできます。" if book.TargetCountryCode == "JP" }}  | 条件付き  |
+| `endpoint`     | [EndpointInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#EndpointInfoObject)    | 設定温度を適用するエンドポイント。デバイスが温度を適用するエンドポイントが指定されます。エンドポイントとは、デバイスの特定部分、動作方法、またはそれを適用する領域などのことをいいます。例えば、ユーザーは冷蔵庫の温度を調節するとき、冷凍室の温度を変更するか、それとも冷蔵室の温度を変更するかを指定することができます。{{ "また、暖房機能があるエアコンを調節する場合には、冷房モードで動作するときの温度と、暖房モードで動作するときの温度を区分してコントロールできます。"if book.TargetCountryCode == "JP" }}  | 条件付き  |
 | `targetTemperature`       | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | 設定する温度情報を持つオブジェクト                |     |
 
 ### Message example
