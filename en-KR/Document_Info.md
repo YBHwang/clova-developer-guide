@@ -20,139 +20,151 @@ The revision history of this document is as follows:
     </tr>
   </thead>
   <tbody>
-  <tr>
-  <td>v3.37.2</td><td>Not applied</td><td>2018-08-24</td>
-  <td>
-    <ul>
-      <li>[CIC] Corrected error on example code of the <a href="/CIC/References/CICInterface/Alerts.html#StopAlert">Alerts.StopAlert</a> directive</li>
-      <li>[CIC] Changed initiator.inputSource field description on the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a> directive to avoid confusion</li>
-      <li>[CEK] Corrected error on the <a href="/CEK/References/CEK_API.html#CustomExtMessage">Custom extension message</a> <a href="/CEK/References/CEK_API.html#CustomExtEventRequest">EventRequest</a> request type example</li>
-    </ul>
-  </td>
-</tr>
-  <tr>
-  <td>v3.37.1</td><td>Not applied</td><td>2018-08-09</td>
-  <td>
-    <ul>
-      <li>[CIC] Supplemented description of the <a href="/CIC/CIC_Overview.html#DialogModel">dialogue model</a></li>
-      <li>[CEK] Emended typos in the section on <a href="/CEK/Guides/Build_Custom_Extension.html#ProvidingMetaDataForDisplay">Providing audio content metadata for display</a></li>
-    </ul>
-  </td>
-</tr>
-  <tr>
-    <td>v3.37.0</td><td>Not applied</td><td>2018-07-23</td>
-    <td>
-      <ul>
-        <li>[Design] Updated the sound effect of entering the attending state among the <a href="/Design/Design_Guideline_For_Client_Hardware.html#SoundEffect">sound effects</a> of the <a href="/Design/Design_Guideline_For_Client_Hardware.html">Design guidelines for client devices</a></li>
-        <li>[CIC] Added 423 Locked status code to the section on <a href="/CIC/References/Clova_Auth_API.html#RequestAuthorizationCode">Requesting an authorization code</a> under <a href="/CIC/References/Clova_Auth_API.html">CIC auth API</a></li>
-        <li>[CEK] Removed SetFreezerTargetTemperature and SetFridgeTargetTemperature actions in the Clova Home extension API, and the related interfaces</li>
-        <li>[CEK] Added the endpoint field to <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetTargetTemperatureRequest">SetTargetTemperatureRequest</a> of Clova Home extension API and added the <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.md#EndpointInfoObject">EndpointInfoObject</a> object</li>
-        <li>[CEK] Added the SetFanSpeed action to the ventilator type of appliance in the <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">appliances supported by the </a>Clova Home extension API</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>v3.36.0</td><td>Not applied</td><td>2018-07-09</td>
-    <td>
-      <ul>
-        <li>[Design] Added a guideline for <a href="/Design/Design_Guideline_For_Extension.html#DefineExtensionName">defining the name</a> of the extension</li>
-        <li>[Design] Added a guideline for <a href="/Design/Design_Guideline_For_Extension.html#ContentGuideline">providing contents</a> of the extension</li>
-        <li>[CIC] Added the <a href="/CIC/References/CICInterface/Settings.html">Settings</a> namespace to update and synchronize the settings information of the client device</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>v3.35.0</td><td>v4.6</td><td>2018-06-25</td>
-    <td>
-      <ul>
-        <li>[Design] Added a guideline for the <a href="/Design/Design_Guideline_For_Extension.html#DecideSoundOutputType">response types</a> of the extension</li>
-        <li>[CEK] Added a section on <a href="/CEK/Guides/Build_Custom_Extension.html#ProvideAudioContent">Providing audio content</a> in Creating a custom extension</li>
-        <li>[CEK] Added the <a href="/CEK/References/CEK_API.html#CustomExtEventRequest">EventRequest type</a> to the <a href="/CEK/References/CEK_API.html#CustomExtRequestType">request types</a> of custom extension messages</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>v3.34.2</td><td>v4.5</td><td>2018-06-17</td>
-    <td>
-      <ul>
-        <li>[CIC] Added the isLive field to <a href="/CIC/References/CICInterface/TemplateRuntime.html#RenderPlayerInfo">TemplateRuntime.RenderPlayerInfo</a> to distinguish real-time broadcasting content</li>
-        <li>[CEK] Added a subtitle field to the <a href="/CIC/References/ContentTemplates/Common_Fields.html">common field</a> of <a href="/CIC/References/Content_Templates.html">Content template</a></li>
-        <li>[CEK] Added the isIr field to <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a> of the Clova Home extension API for appliances controlled by infrared communication</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>v3.34.1</td><td>v4.4</td><td>2018-05-28</td>
-    <td>
-      <ul>
-        <li>[CEK] Added a state field to <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ConditionsNotMetError">ConditionsNotMetError</a> of the Clova Home extension API</li>
-        <li>[CEK] Added subchannel information to <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#TVChannelInfoObject">TVChannelInfoObject</a> of the Clova Home extension API</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>v3.34.0</td><td>v4.3</td><td>2018-05-21</td>
-    <td>
-      <ul>
-        <li>[CIC] Added the missing field (btlist[].role) in <a href="/CIC/References/Context_Objects.html#BluetoothInfoObject">BluetoothInfoObject</a> of the <a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a> context object</li>
-        <li>[CEK] Added <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ValueNotFoundError">ValueNotFoundError</a> to the Clova Home extension API</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>v3.33.0</td><td>v4.2</td><td>2018-05-14</td>
-    <td>
-      <ul>
-        <li>[CIC] Moved the <a href="/CIC/References/CICInterface/Clova.html#LaunchURI">LaunchURI</a> directive from the DeviceControl namespace to the <a href="/CIC/References/CICInterface/Clova.html">Clova</a> namespace</li>
-        <li>[CEK] Added HTTP request message headers (SignatureCEK, SignatureCEKCertChainUrl) and a section on <a href="/CEK/References/CEK_API.html#RequestMessageValidation">Validating request messages</a></li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>v3.32.0</td><td>v4.1</td><td>2018-05-07</td>
-    <td>
-      <ul>
-        <li>[CIC] Added the LaunchURI directive to the DeviceControl namespace</li>
-        <li>[CIC] Deprecated the <a href="/CIC/References/CICInterface/DeviceControl.html#LaunchApp">LaunchApp</a> directive and the <a href="/CIC/References/CICInterface/DeviceControl.html#OpenScreen">OpenScreen</a> directive of the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>v3.31.0</td><td>v4.0</td><td>2018-04-30</td>
-    <td>
-      <ul>
-        <li>[CEK] Added <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetOpenStateRequest">GetOpenStateRequest</a> and <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetOpenStateResponse">GetOpenStateResponse</a> to the Clova Home extension API</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>v3.30.0</td><td>v3.9</td><td>2018-04-23</td>
-    <td>
-      <ul>
-        <li>[CEK] Added <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#ReleaseModeConfirmation">ReleaseModeConfirmation</a> and <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#ReleaseModeRequest">ReleaseModeRequest</a> to the Clova Home extension API</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>v3.29.0</td><td>v3.8</td><td>2018-04-16</td>
-    <td>
-      <ul>
-        <li>[CIC] Updated the description of the wakeWord field and audio data of the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a> event</li>
-        <li>[CIC] Added the <a href="/CIC/References/CICInterface/DeviceControl.html#Open">Open</a> directive to the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace</li>
-        <li>[CEK] Added the openState field description to <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetLockStateResponse">GetLockStateResponse</a> of the Clova Home extension API</li>
-        <li>[CEK] Added <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetCleaningCycleRequest">GetCleaningCycleRequest</a> and <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetCleaningCycleResponse">GetCleaningCycleResponse</a> to the Clova Home extension API</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>v3.28.1</td><td>v3.7</td><td>2018-04-09</td>
-    <td>
-      <ul>
-        <li>[CIC] Updated the description and example image for the <a href="Design/Design_Guideline_For_Client_Hardware.html#BootingScreen">bootscreen</a> in the Design guidelines for client devices</li>
-        <li>[CEK] Changed the description of the brightness field and required/included state of <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ColorInfoObject">ColorInfoObject</a> in the Clova Home extension API</li>
-      </ul>
-    </td>
-  </tr>
+    <tr>
+      <td>v3.38.0</td><td>Not applied</td><td>2018-08-29</td>
+      <td>
+        <ul>
+          <li>[Design] Changed the RGB value of the <a href="/Design/Design_Guideline_For_Client_Hardware.html#LightColor">light colors</a> in the <a href="/Design/Design_Guideline_For_Client_Hardware.html">Design guidelines for client devices</a></li>
+          <li>[CIC] Added a section on <a href="/CIC/Guides/Implement_Client_Features.html">Implementing client features</a></li>
+          <li>[CEK] Added the GetTargetTemperature action to the heater and thermostat type of <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">appliances that are supported</a> by the Clova Home extension API</li>
+          <li>[CEK] Improved the required/included state indicators of <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">shared objects</a> in the Clova Home extension API</li>
+          <li>[CIC] Updated some fields in the <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a> and <a href="/CIC/References/CICInterface/TemplateRuntime.html">TemplateRuntime</a> namespaces</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.37.2</td><td>Not applied</td><td>2018-08-24</td>
+      <td>
+        <ul>
+          <li>[CIC] Revised an error in the example for the <a href="/CIC/References/CICInterface/Alerts.html#StopAlert">Alerts.StopAlert</a> directive</li>
+          <li>[CIC] Revised the description on the initiator.inputSource field of the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a> directive to avoid confusion</li>
+          <li>[CEK] Revised an error in the example of an <a href="/CEK/References/CEK_API.html#CustomExtEventRequest">EventRequest</a> type of a <a href="/CEK/References/CEK_API.html#CustomExtMessage">custom extension</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.37.1</td><td>Not applied</td><td>2018-08-09</td>
+      <td>
+        <ul>
+          <li>[CIC] Supplemented the description of the <a href="/CIC/CIC_Overview.html#DialogModel">dialogue model</a></li>
+          <li>[CEK] Emended typos in the section on <a href="/CEK/Guides/Build_Custom_Extension.html#ProvidingMetaDataForDisplay">Providing audio content metadata for display</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.37.0</td><td>Not applied</td><td>2018-07-23</td>
+      <td>
+        <ul>
+          <li>[Design] Updated the sound effect of entering the attending state among the <a href="/Design/Design_Guideline_For_Client_Hardware.html#SoundEffect">sound effects</a> of the <a href="/Design/Design_Guideline_For_Client_Hardware.html">Design guidelines for client devices</a></li>
+          <li>[CIC] Added 423 Locked status code to the section on <a href="/CIC/References/Clova_Auth_API.html#RequestAuthorizationCode">Requesting an authorization code</a> under <a href="/CIC/References/Clova_Auth_API.html">CIC auth API</a></li>
+          <li>[CEK] Removed SetFreezerTargetTemperature and SetFridgeTargetTemperature actions in the Clova Home extension API, and the related interfaces</li>
+          <li>[CEK] Added the endpoint field to <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#SetTargetTemperatureRequest">SetTargetTemperatureRequest</a> of the Clova Home extension API and added <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#EndpointInfoObject">EndpointInfoObject</a></li>
+          <li>[CEK] Added the SetFanSpeed action to the ventilator type of appliance in the <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">appliances supported by the </a>Clova Home extension API</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.36.0</td><td>Not applied</td><td>2018-07-09</td>
+      <td>
+        <ul>
+          <li>[Design] Added a guideline for <a href="/Design/Design_Guideline_For_Extension.html#DefineExtensionName">defining the name</a> of the extension</li>
+          <li>[Design] Added a guideline for <a href="/Design/Design_Guideline_For_Extension.html#ContentGuideline">providing contents</a> of the extension</li>
+          <li>[CIC] Added the <a href="/CIC/References/CICInterface/Settings.html">Settings</a> namespace to update and synchronize the settings information of the client device</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.35.0</td><td>v4.6</td><td>2018-06-25</td>
+      <td>
+        <ul>
+          <li>[Design] Added a guideline for the <a href="/Design/Design_Guideline_For_Extension.html#DecideSoundOutputType">response types</a> of the extension</li>
+          <li>[CEK] Added a section on <a href="/CEK/Guides/Build_Custom_Extension.html#ProvideAudioContent">Providing audio content</a> in Creating a custom extension</li>
+          <li>[CEK] Added the <a href="/CEK/References/CEK_API.html#CustomExtEventRequest">EventRequest type</a> to the <a href="/CEK/References/CEK_API.html#CustomExtRequestType">request types</a> of custom extension messages</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.34.2</td><td>v4.5</td><td>2018-06-17</td>
+      <td>
+        <ul>
+          <li>[CIC] Added the isLive field to <a href="/CIC/References/CICInterface/TemplateRuntime.html#RenderPlayerInfo">TemplateRuntime.RenderPlayerInfo</a> to distinguish real-time broadcasting content</li>
+          <li>[CEK] Added a subtitle field to the <a href="/CIC/References/ContentTemplates/Common_Fields.html">common field</a> of <a href="/CIC/References/Content_Templates.html">Content template</a></li>
+          <li>[CEK] Added the isIr field to <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a> of the Clova Home extension API for appliances controlled by infrared communication</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.34.1</td><td>v4.4</td><td>2018-05-28</td>
+      <td>
+        <ul>
+          <li>[CEK] Added a state field to <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ConditionsNotMetError">ConditionsNotMetError</a> of the Clova Home extension API</li>
+          <li>[CEK] Added subchannel information to <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#TVChannelInfoObject">TVChannelInfoObject</a> of the Clova Home extension API</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.34.0</td><td>v4.3</td><td>2018-05-21</td>
+      <td>
+        <ul>
+          <li>[CIC] Added the missing field (btlist[].role) in <a href="/CIC/References/Context_Objects.html#BluetoothInfoObject">BluetoothInfoObject</a> of the <a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a> context object</li>
+          <li>[CEK] Added <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ValueNotFoundError">ValueNotFoundError</a> to the Clova Home extension API</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.33.0</td><td>v4.2</td><td>2018-05-14</td>
+      <td>
+        <ul>
+          <li>[CIC] Moved the <a href="/CIC/References/CICInterface/Clova.html#LaunchURI">LaunchURI</a> directive from the DeviceControl namespace to the <a href="/CIC/References/CICInterface/Clova.html">Clova</a> namespace</li>
+          <li>[CEK] Added HTTP request message headers (SignatureCEK, SignatureCEKCertChainUrl) and a section on <a href="/CEK/References/CEK_API.html#RequestMessageValidation">Validating request messages</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.32.0</td><td>v4.1</td><td>2018-05-07</td>
+      <td>
+        <ul>
+          <li>[CIC] Added the LaunchURI directive to the DeviceControl namespace</li>
+          <li>[CIC] Deprecated the <a href="/CIC/References/CICInterface/DeviceControl.html#LaunchApp">LaunchApp</a> directive and the <a href="/CIC/References/CICInterface/DeviceControl.html#OpenScreen">OpenScreen</a> directive of the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.31.0</td><td>v4.0</td><td>2018-04-30</td>
+      <td>
+        <ul>
+          <li>[CEK] Added <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetOpenStateRequest">GetOpenStateRequest</a> and <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetOpenStateResponse">GetOpenStateResponse</a> to the Clova Home extension API</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.30.0</td><td>v3.9</td><td>2018-04-23</td>
+      <td>
+        <ul>
+          <li>[CEK] Added <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#ReleaseModeConfirmation">ReleaseModeConfirmation</a> and <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#ReleaseModeRequest">ReleaseModeRequest</a> to the Clova Home extension API</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.29.0</td><td>v3.8</td><td>2018-04-16</td>
+      <td>
+        <ul>
+          <li>[CIC] Updated the description of the wakeWord field and audio data of the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a> event</li>
+          <li>[CIC] Added the <a href="/CIC/References/CICInterface/DeviceControl.html#Open">Open</a> directive to the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace</li>
+          <li>[CEK] Added the openState field description to <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetLockStateResponse">GetLockStateResponse</a> of the Clova Home extension API</li>
+          <li>[CEK] Added <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetCleaningCycleRequest">GetCleaningCycleRequest</a> and <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetCleaningCycleResponse">GetCleaningCycleResponse</a> to the Clova Home extension API</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.28.1</td><td>v3.7</td><td>2018-04-09</td>
+      <td>
+        <ul>
+          <li>[CIC] Updated the description and example image for the <a href="Design/Design_Guideline_For_Client_Hardware.html#BootingScreen">bootscreen</a> in the Design guidelines for client devices</li>
+          <li>[CEK] Changed the description of the brightness field and required/included state of <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ColorInfoObject">ColorInfoObject</a> in the Clova Home extension API</li>
+        </ul>
+      </td>
+    </tr>
     <tr>
       <td>v3.28.0</td><td>v3.6</td><td>2018-04-02</td>
       <td>
@@ -211,8 +223,8 @@ The revision history of this document is as follows:
       <td>v3.25.0</td><td>v3.3</td><td>2018-02-26</td>
       <td>
         <ul>
-          <li>[CIC] Added the deviceUUID field to the initiator field of the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a> event message</li>
-          <li>[CIC] Added <a href="/CIC/References/CICInterface/Alerts.html#RequestSynchronizeAlert">RequestSynchronizeAlert</a> event message and <a href="/CIC/References/CICInterface/Alerts.html#SynchronizeAlert">SynchronizeAlert</a> directive message related to alarm synchronization to the <a href="/CIC/References/CICInterface/Alerts.html">Alerts</a> namespace</li>
+          <li>[CIC] Added the deviceUUID field to the initiator field of the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a> event</li>
+          <li>[CIC] Added the <a href="/CIC/References/CICInterface/Alerts.html#RequestSynchronizeAlert">RequestSynchronizeAlert</a> event and the <a href="/CIC/References/CICInterface/Alerts.html#SynchronizeAlert">SynchronizeAlert</a> directive related to alarm synchronization to the <a href="/CIC/References/CICInterface/Alerts.html">Alerts</a> namespace</li>
           <li>[CIC] Scheduled to remove some fields related to alarm synchronization from the System namespace</li>
         </ul>
       </td>
@@ -221,8 +233,8 @@ The revision history of this document is as follows:
       <td>v3.24.0</td><td>v3.2</td><td>2018-02-19</td>
       <td>
         <ul>
-          <li>[CIC] Added the initiator field to the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a> event message to accurately identify the user invocation</li>
-          <li>[CIC] Added the label field to the <a href="/CIC/References/CICInterface/Alerts.html#SetAlert">Alerts.SetAlert</a> directive message to check details of reminders and scheduled actions</li>
+          <li>[CIC] Added the initiator field to the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a> event to accurately identify the user invocation</li>
+          <li>[CIC] Added the label field to the <a href="/CIC/References/CICInterface/Alerts.html#SetAlert">Alerts.SetAlert</a> directive to check details of reminders and scheduled actions</li>
           <li>[CIC] Added the label field to the <a href="/CIC/References/ContentTemplates/ActionTimer.html">ActionTimer</a>, <a href="/CIC/References/ContentTemplates/ActionTimerList.html">ActionTimerList</a>, <a href="/CIC/References/ContentTemplates/Reminder.html">Reminder</a>, and <a href="/CIC/References/ContentTemplates/ReminderList.html">ReminderList</a> templates to display the details of reminders and scheduled actions</li>
         </ul>
       </td>
@@ -246,9 +258,9 @@ The revision history of this document is as follows:
       <td>
         <ul>
           <li>[Design] Added <a href="/Design/Design_Guideline_For_Client_Hardware.html#SoundEffect">sound effects for reminders</a> in the <a href="/Design/Design_Guideline_For_Client_Hardware.html">Design guidelines for client devices</a></li>
-          <li>[CIC] Added a <a href="/CIC/References/CICInterface/Notifier.html#Notify">Notifier.Notify</a> event message to the <a href="/CIC/References/CICInterface/Notifier.html">Notifier</a> namespace and updated the payload field of the namespace</li>
+          <li>[CIC] Added the <a href="/CIC/References/CICInterface/Notifier.html#Notify">Notifier.Notify</a> event to the <a href="/CIC/References/CICInterface/Notifier.html">Notifier</a> namespace and updated the payload field of the namespace</li>
           <li>[CIC] Added <a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechFinished">SpeechFinished</a>, <a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechStarted">SpeechStarted</a>, and <a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechStopped">SpeechStopped</a> event messages to the <a href="/CIC/References/ContextObjects/SpeechState.html">SpeechSynthesizer.SpeechState</a> and <a href="/CIC/References/CICInterface/SpeechSynthesizer.html">SpeechSynthesizer</a> namespaces</li>
-          <li>[CIC] Added speechId and explicit fields to the <a href="/CIC/References/CICInterface/TextRecognizer.html">TextRecognizer.Recognize</a> event message for multi-turn dialogues</li>
+          <li>[CIC] Added speechId and explicit fields to the <a href="/CIC/References/CICInterface/TextRecognizer.html">TextRecognizer.Recognize</a> event for multi-turn dialogues</li>
           <li>[CEK] Added <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#NoSuchTargetError">NoSuchTargetError</a>, <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#NotSupportedInCurrentModeError">NotSupportedInCurrentModeError</a>, <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#UnsupportedOperationError">UnsupportedOperationError</a>, and <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ValueOutOfRangeError">ValueOutOfRangeError</a> to the <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html">error interface</a> of the Clova Home extension message references</li>
           <li>[Dev. console] Added the method to check the connection before <a href="/DevConsole/Guides/CEK/Register_Extension.html#SetServerConnection">setting an extension server connection</a> and added a guide on the <a href="/DevConsole/Guides/CEK/Test_Extension.html#TestOnClovaApp">automated application of tester IDs</a></li>
           <li>[Dev. console] Updated some UIs on the Clova developer console</li>
@@ -279,9 +291,9 @@ The revision history of this document is as follows:
       <td>
         <ul>
           <li>[Design] Modified the description of the <a href="/Design/Design_Guideline_For_Extension.html#DefineInteractionModel">built-in intent</a> based on platform implementation</li>
-          <li>[CIC] Added a section on <a href="/CIC/Guides/Interact_with_CIC.html#HandleDelegation">handling delegated user requests</a> and added a <a href="/CIC/References/CICInterface/Clova.html#HandleDelegatedEvent">Clova.HandleDelegatedEvent</a> directive message and a <a href="/CIC/References/CICInterface/Clova.html#ProcessDelegatedEvent">Clova.ProcessDelegatedEvent</a> event message</li>
+          <li>[CIC] Added a section on <a href="/CIC/Guides/Interact_with_CIC.html#HandleDelegation">Handling delegated user requests</a> and added the <a href="/CIC/References/CICInterface/Clova.html#HandleDelegatedEvent">Clova.HandleDelegatedEvent</a> directive and the <a href="/CIC/References/CICInterface/Clova.html#ProcessDelegatedEvent">Clova.ProcessDelegatedEvent</a> event</li>
           <li>[CIC] Added a description to include the <a href="/CIC/References/Context_Objects.html#PlaybackState">AudioPlayer.PlaybackState</a> context information in <a href="/CIC/References/CICInterface/PlaybackController.html#NextCommandIssued">PlaybackController.NextCommandIssued</a> and <a href="/CIC/References/CICInterface/PlaybackController.html#PreviousCommandIssued">PlaybackController.PreviousCommandIssued</a> event messages</li>
-          <li>[CIC] Revised the description of the <a href="/CIC/References/CICInterface/Alerts.html#AlertsWorkFlow">interaction structure</a> of the <a href="/CIC/References/CICInterface/Alerts.html">Alerts</a> API</li>
+          <li>[CIC] Revised the description of the interaction structure of the <a href="/CIC/References/CICInterface/Alerts.html">Alerts</a> API</li>
           <li>[CIC] Added the description of the <a href="/CIC/References/CICInterface/DeviceControl.html#DeviceContorlWorkFlow">interaction structure</a> of the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> API</li>
           <li>[CIC] Emended errors on some content templates and shared objects</li>
           <li>[CEK] Added the <a href="/CEK/Examples/Extension_Examples.html">Extension examples</a> page</li>
@@ -305,7 +317,7 @@ The revision history of this document is as follows:
         <ul>
           <li>[Design] Moved the section on <a href="/Design/Design_Guideline_For_Extension.html#DefineInteractionModel">Defining an interaction model</a> in <a href="/DevConsole/Guides/CEK/Register_Interaction_Model.html">Registering interaction model</a> to <a href="/Design/Design_Guideline_For_Extension.html">Design guidelines for extensions</a></li>
           <li>[Design] Added a guideline to prepare <a href="/Design/Design_Guideline_For_Extension.html#UtteranceExample">sample utterances</a> in the section on <a href="/Design/Design_Guideline_For_Extension.html#DefineInteractionModel">Defining an interaction model</a></li>
-          <li>[CIC] Removed ExpectSpeechTimedOut event message from the <a href="/CIC/References/CICInterface/SpeechRecognizer.html">SpeechRecognizer</a> interface</li>
+          <li>[CIC] Removed the ExpectSpeechTimedOut event from the <a href="/CIC/References/CICInterface/SpeechRecognizer.html">SpeechRecognizer</a> interface</li>
           <li>[CIC] Removed the Clova.FreetalkState object from the <a href="/CIC/References/Context_Objects.html">context information</a></li>
           <li>[Dev. console] Added a description on how to use the test mode in <a href="/DevConsole/Guides/CEK/Test_Extension.html">Testing an extension</a></li>
           <li>[Dev. console] Modified image and description due to UI improvements</li>
@@ -318,7 +330,7 @@ The revision history of this document is as follows:
       <td>
         <ul>
           <li>[Design] Added <a href="/Design/Design_Guideline_For_Extension.html">Design guidelines for extensions</a></li>
-          <li>[CIC] Added <a href="/CIC/References/CICInterface/AudioPlayer.html#ClearQueue">ClearQueue</a> directive message to the <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a> interface</li>
+          <li>[CIC] Added the <a href="/CIC/References/CICInterface/AudioPlayer.html#ClearQueue">ClearQueue</a> directive to the <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a> interface</li>
         </ul>
       </td>
     </tr>
@@ -329,7 +341,7 @@ The revision history of this document is as follows:
           <li>[Design] Added <a href="/Design/Design_Guideline_For_Client_Hardware.html#AudioInterruptionRule">audio interruption rules</a> to the <a href="/Design/Design_Guideline_For_Client_Hardware.html">Design guidelines for client devices</a></li>
           <li>[Design] Improved the images in <a href="/Design/Design_Guideline_For_Client_Hardware.html">Design guidelines for client devices</a></li>
           <li>[CIC] Added the section on <a href="/CIC/Guides/Interact_with_CIC.html#UserAgentString">user-agent strings</a> for prerequisites before interacting with CIC</li>
-          <li>[CIC] Added the description of the 412 Precondition failed code in the <a href="/CIC/References/CIC_API.html#SendEvent">Sending event messages</a> section of the <a href="/CIC/References/CIC_API.html">CIC API reference</a></li>
+          <li>[CIC] Added the description of the 412 Precondition failed code in the <a href="/CIC/References/CIC_API.html#SendEvent">Sending events</a> section of the <a href="/CIC/References/CIC_API.html">CIC API reference</a></li>
           <li>[CEK] Added a reprompt field in the <a href="/CEK/References/CEK_API.html#CustomExtResponseMessage">response message</a> to encourage multi-turn dialogues with the user</li>
           <li>[CEK] Emended errors in the document</li>
         </ul>
@@ -360,7 +372,7 @@ The revision history of this document is as follows:
       <td>v3.13.0</td><td>v2.0</td><td>2017-11-06</td>
       <td>
         <ul>
-          <li>[CIC] Added the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#KeepRecording">SpeechRecognizer.KeepRecording</a> directive message</li>
+          <li>[CIC] Added the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#KeepRecording">SpeechRecognizer.KeepRecording</a> directive</li>
           <li>[CIC] Added <a href="/CIC/References/Context_Objects.html#Display">Device.Display</a> context information</li>
           <li>[CIC] Added a token field to the <a href="/CIC/References/ContentTemplates/ActionTimer.html">ActionTimer</a>, <a href="/CIC/References/ContentTemplates/ActionTimerList.html">ActionTimerList</a>, <a href="/CIC/References/ContentTemplates/Alarm.html">Alarm</a>, <a href="/CIC/References/ContentTemplates/AlarmList.html">AlarmList</a>, <a href="/CIC/References/ContentTemplates/Memo.html">Memo</a>, <a href="/CIC/References/ContentTemplates/MemoList.html">MemoList</a>, <a href="/CIC/References/ContentTemplates/Reminder.html">Reminder</a>, <a href="/CIC/References/ContentTemplates/ReminderList.html">ReminderList</a>, <a href="/CIC/References/ContentTemplates/Schedule.html">Schedule</a>, <a href="/CIC/References/ContentTemplates/ScheduleList.html">ScheduleList</a>, <a href="/CIC/References/ContentTemplates/Timer.html">Timer</a>, and <a href="/CIC/References/ContentTemplates/TimerList.html">TimerList</a> templates</li>
           <li>[CEK] Changed the name of the context.System.device.displayType to context.System.device.display from the request messages of <a href="/CEK/References/CEK_API.html#CustomExtMessage">custom extension messages</a> and changed the sub-field configuration</li>
@@ -384,7 +396,7 @@ The revision history of this document is as follows:
         <ul>
           <li>[CIC] Added emotionCode and motionCode fields to the <a href="/CIC/References/ContentTemplates/Text.html">Text</a> template</li>
           <li>[CIC] Changed assets[].url field contents of <a href="/CIC/References/CICInterface/Alerts.html#SetAlert">Alerts.SetAlert</a> directive message</li>
-          <li>[CIC] Revised an example error for the <a href="/CIC/References/CICInterface/AudioPlayer.html#StreamRequested">AudioPlayer.StreamRequested</a> event message</li>
+          <li>[CIC] Revised an error in the example of the <a href="/CIC/References/CICInterface/AudioPlayer.html#StreamRequested">AudioPlayer.StreamRequested</a> event</li>
           <li>[CEK] Added context.System.device.displayType field to the request message in the request message of <a href="/CEK/References/CEK_API.html#CustomExtMessage">custom extension messages</a></li>
         </ul>
       </td>
@@ -394,7 +406,7 @@ The revision history of this document is as follows:
       <td>
         <ul>
           <li>[CIC] Added <a href="/CIC/References/CICInterface/PlaybackController.html#Replay">Replay</a> directive message to the <a href="/CIC/References/CICInterface/PlaybackController.html">PlaybackController</a> namespace</li>
-          <li>[CIC] Added supplementary information on alarm synchronization in the <a href="/CIC/References/CICInterface/Alerts.html#AlertsWorkFlow">Overall process</a> section</li>
+          <li>[CIC] Added supplementary information on alarm synchronization in the Overall process section</li>
           <li>[CIC] Removed the content field from the <a href="/CIC/References/Context_Objects.html#AlertsState">Alert.AlertsState</a> of <a href="/CIC/References/Context_Objects.html#AlertInfoObject">AlertInfoObject</a> context information</li>
           <li>[Common] Modified images and emended errors in the document</li>
         </ul>
@@ -406,7 +418,7 @@ The revision history of this document is as follows:
         <ul>
           <li>[CIC] Added the <a href="/CIC/References/CICInterface/Alerts.html">Alerts</a> namespace and alarm related interface</li>
           <li>[CIC] Added the <a href="/CIC/References/CICInterface/System.html">System</a> namespace and alarm related interface</li>
-          <li>[CIC] Added the expectContentType field to the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#ExpectSpeech">SpeechRecognizer.ExpectSpeech</a> directive message</li>
+          <li>[CIC] Added the expectContentType field to the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#ExpectSpeech">SpeechRecognizer.ExpectSpeech</a> directive</li>
           <li>[CIC] Added a warning field to the <a href="/CIC/References/Context_Objects.html#VolumeInfoObject">VolumeInfoObject</a> of <a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a></li>
           <li>[CIC] Added templates: <a href="/CIC/References/ContentTemplates/ActionTimer.html">ActionTimer</a>, <a href="/CIC/References/ContentTemplates/ActionTimerList.html">ActionTimerList</a>, <a href="/CIC/References/ContentTemplates/Alarm.html">Alarm</a>, <a href="/CIC/References/ContentTemplates/AlarmList.html">AlarmList</a>, <a href="/CIC/References/ContentTemplates/Memo.html">Memo</a>, <a href="/CIC/References/ContentTemplates/MemoList.html">MemoList</a>, <a href="/CIC/References/ContentTemplates/Reminder.html">Reminder</a>, <a href="/CIC/References/ContentTemplates/ReminderList.html">ReminderList</a>, <a href="/CIC/References/ContentTemplates/Schedule.html">Schedule</a>, <a href="/CIC/References/ContentTemplates/ScheduleList.html">ScheduleList</a>, <a href="/CIC/References/ContentTemplates/Timer.html">Timer</a>, and <a href="/CIC/References/ContentTemplates/TimerList.html">TimerList</a></li>
           <li>[CIC] Modified some code examples of the <a href="/CIC/References/ContentTemplates/ImageText.html">ImageText</a> template</li>
@@ -419,8 +431,8 @@ The revision history of this document is as follows:
       <td>v3.8.0</td><td>v1.5</td><td>2017-09-25</td>
       <td>
         <ul>
-          <li>[CIC] Added <a href="/CIC/References/CICInterface/PlaybackController.html#NextCommandIssued">PlaybackController.NextCommandIssued</a> and <a href="/CIC/References/CICInterface/PlaybackController.html#PreviousCommandIssued">PlaybackController.PreviousCommandIssued</a> event messages for music playback control to the <a href="/CIC/References/CICInterface/PlaybackController.html">PlaybackController API</a></li>
-          <li>[CIC] Added expectSpeechId field to the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#ExpectSpeech">SpeechRecognizer.ExpectSpeech</a> directive message, and added speechId and explicit fields to the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a> event message</li>
+          <li>[CIC] Added the <a href="/CIC/References/CICInterface/PlaybackController.html#NextCommandIssued">PlaybackController.NextCommandIssued</a> and <a href="/CIC/References/CICInterface/PlaybackController.html#PreviousCommandIssued">PlaybackController.PreviousCommandIssued</a> events for music playback control to the <a href="/CIC/References/CICInterface/PlaybackController.html">PlaybackController API</a></li>
+          <li>[CIC] Added the expectSpeechId field to the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#ExpectSpeech">SpeechRecognizer.ExpectSpeech</a> directive, and added speechId and explicit fields to the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a> event</li>
           <li>[CIC] Added the <a href="/CIC/References/ContentTemplates/Popup.html">Popup template</a></li>
           <li>[CEK] Added 34 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html">Control APIs</a>, including ChargeConfirmation in the Clova Home extension API</li>
           <li>[CEK] Added 6 more Clova Home extension API <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">supported appliances</a> and added a location field</li>
@@ -431,7 +443,7 @@ The revision history of this document is as follows:
       <td>v3.7.0</td><td>v1.4</td><td>2017-09-18</td>
       <td>
         <ul>
-          <li>[CIC] Added <a href="/CIC/References/CICInterface/DeviceControl.html#ExpectReportState">DeviceControl.ExpectReportState</a> directive message, <a href="/CIC/References/CICInterface/DeviceControl.html#ReportState">DeviceControl.ReportState</a> event message, and <a href="/CIC/References/CICInterface/DeviceControl.html#RequestStateSynchronization">DeviceControl.RequestStateSynchronization</a> event message to DeviceControl API. Changed the name of the DeviceControl.UpdateDeviceState directive message to <a href="/CIC/References/CICInterface/DeviceControl.html#SynchronizeState">DeviceControl.SynchronizeState</a></li>
+          <li>[CIC] Added the <a href="/CIC/References/CICInterface/DeviceControl.html#ExpectReportState">DeviceControl.ExpectReportState</a> directive, <a href="/CIC/References/CICInterface/DeviceControl.html#ReportState">DeviceControl.ReportState</a> event, and <a href="/CIC/References/CICInterface/DeviceControl.html#RequestStateSynchronization">DeviceControl.RequestStateSynchronization</a> event to DeviceControl API and changed the name of the DeviceControl.UpdateDeviceState directive to <a href="/CIC/References/CICInterface/DeviceControl.html#SynchronizeState">DeviceControl.SynchronizeState</a></li>
           <li>[CIC] Added the item3 field to the <a href="/CIC/References/ContentTemplates/Text.html">Text</a> template</li>
           <li>[CIC] Added a source field in the <a href="/CIC/References/CICInterface/AudioPlayer.html#Play">AudioPlayer.Play</a> directive message</li>
           <li>[CIC] Added the durationInMilliseconds field in <a href="/CIC/References/CICInterface/AudioPlayer.html#AudioStreamInfoObject">AudioStreamInfoObject</a> </li>
@@ -446,7 +458,7 @@ The revision history of this document is as follows:
       <td>
         <ul>
           <li>[CIC] Added the explicit field to the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#ExpectSpeech">SpeechRecognizer.ExpectSpeech</a> directive message</li>
-          <li>[CIC] Added a <a href="/CIC/References/ContentTemplates/Common_Fields.md">common fields</a> specification to the <a href="/CIC/References/Content_Templates.md">Content</a> template</li>
+          <li>[CIC] Added <a href="/CIC/References/ContentTemplates/Common_Fields.html">common fields</a> specification to the <a href="/CIC/References/Content_Templates.html">Content</a> template</li>
         </ul>
       </td>
     </tr>
@@ -454,9 +466,9 @@ The revision history of this document is as follows:
       <td>v3.5.0</td><td>v1.2</td><td>2017-09-04</td>
       <td>
         <ul>
-          <li>[CIC] Added the <a href="/CIC/References/CICInterface/Clova.html#Help">Clova.Help</a> directive message</li>
+          <li>[CIC] Added the <a href="/CIC/References/CICInterface/Clova.html#Help">Clova.Help</a> directive</li>
           <li>[CIC] Added the <a href="/CIC/References/CICInterface/DeviceControl.html#LaunchApp">DeviceControl.LaunchApp</a> directive message</li>
-          <li>[CIC] Added the TextRecognizer namespace and <a href="/CIC/References/CICInterface/TextRecognizer.html">TextRecognizer.Recognize</a> event message</li>
+          <li>[CIC] Added the TextRecognizer namespace and the <a href="/CIC/References/CICInterface/TextRecognizer.html">TextRecognizer.Recognize</a> event</li>
           <li>[CIC] Rewrote the table of contents and descriptions of the <a href="/CIC/References/CIC_API.html">CIC API</a> and <a href="/CEK/References/CEK_API.html">CEK API</a></li>
           <li>[CIC] Updated content on CIC API: Added status codes for the request and response header, and applied the format of the REST API reference to the document</li>
           <li>[Other] Emended errors in the document</li>
@@ -560,7 +572,7 @@ The revision history of this document is as follows:
       <td>v1.1.0</td><td>v0.2</td><td>2017-06-08</td>
       <td>
         <ul>
-          <li>[CIC] Added the section on <a href="/CIC/Guides/Interact_with_CIC.md#ManageConnection">Managing connections</a> (HTTP PING) to <a href="/CIC/Guides/Interact_with_CIC.html">Interacting with CIC</a></li>
+          <li>[CIC] Added the section on <a href="/CIC/Guides/Interact_with_CIC.html#ManageConnection">Managing connections</a> (HTTP PING) to <a href="/CIC/Guides/Interact_with_CIC.html">Interacting with CIC</a></li>
         </ul>
       </td>
     </tr>

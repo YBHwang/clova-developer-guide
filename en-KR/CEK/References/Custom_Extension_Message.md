@@ -76,7 +76,7 @@ CEK uses request messages (HTTP Requests) to send user intents analyzed by Clova
 | `context.System.device.display.size`        | string | The resolution of the display. A predefined size value or a random value for the resolution size (`"custom"`) may be entered already. Value (`"none"`) may also be entered if there is no display device. <ul><li><code>"none"</code>: No display in client device</li><li><code>"s100"</code>: Low resolution (160px X 107px)</li><li><code>"m100"</code>: Medium resolution (427px X 240px)</li><li><code>"l100"</code>: High resolution (640px X 360px)</li><li><code>"xl100"</code>: Ultrahigh resolution (xlarge type, 899px X 506px)</li><li><code>"custom"</code>: Resolution is not in a predefined specification.</li></ul><div class="note"><p><strong>Note!</strong></p><p>You must provide media content with image quality that is appropriate for screen ratio and DPI of the client device.</p></div> | Always |
 | `context.System.user`                      | object  | The object that has authenticated basic user information in the client device.                 | Always |
 | `context.System.user.userId`               | string  | Clova ID of the device default user.                                    | Always |
-| `context.System.user.accessToken`          | string  | Access token of the user account for a specific service. The access token for the user account connected with the default device user is delivered. CEK sends the access token of a user account acquired from the authorization server of a third-party service. For more information, see [Linking user account](/CEK/Guides/Link_User_Account.md). | Always |
+| `context.System.user.accessToken`          | string  | Access token of the user account for a specific service. The access token for the user account connected with the default device user is delivered. CEK sends the access token of a user account acquired from the authorization server of a third-party service. For more information, see [Linking user accounts](/CEK/Guides/Link_User_Account.md). | Always |
 | `request`                                 | object  | The object that has the analyzed details of the user utterance. The field configuration will vary depending on the [request type](#CustomExtRequestType). | Always |
 | `session`                                  | object  | The object that has the session information. A session is a logical unit used to distinguish user requests.     | Always |
 | `session.new`                              | boolean | Distinguishes whether the request message is for a new session or the existing session. <ul><li>true: New session</li><li>false: Existing session</li></ul>  | Always |
@@ -84,7 +84,7 @@ CEK uses request messages (HTTP Requests) to send user intents analyzed by Clova
 | `session.sessionId`                        | string  | Session ID                                                    | Always |
 | `session.user`                             | object  | The object that has the information of the current user.                             | Always |
 | `session.user.userId`                      | string  | Clova ID of the current user. The value may be different from `context.System.user.userId`. | Always |
-| `session.user.accessToken`                 | string  | Access token of the user account for a specific service. The access token for the user account connected with the current user is delivered. CEK sends the access token of a user account acquired from the authorization server of a third-party service. For more information, see [Linking user account](/CEK/Guides/Link_User_Account.md).| Conditional |
+| `session.user.accessToken`                 | string  | Access token of the user account for a specific service. The access token for the user account connected with the current user is delivered. CEK sends the access token of a user account acquired from the authorization server of a third-party service. For more information, see [Linking user accounts](/CEK/Guides/Link_User_Account.md).| Conditional |
 | `version`                                  | string  | Version of message format (CEK version).                          | Always |
 
 #### Message example
@@ -332,9 +332,9 @@ The `request` object field configuration of the `EventRequest` type message is a
 | Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:---------:|
 | `event`           | object  | The object that stores the information sent by the client to Clova.                                       | Always   |
-| `event.name`      | string  | {{ "Name of the event message sent by the client to Clova." if book.TargetCountryCode == "KR" else "Name of the event message sent by the client to Clova or a name that distinguishes whether a skill action is enabled or disabled. The name to distinguish the action state of a skill is `SkillEnabled` or `SkillDisabled`. If a request is received that indicates an enabling or disabling action of a skill, you can use the `context.System.application.applicationId` field and the `context.System.user.userId` field of the [request message](#CustomExtRequestMessage) to collect or discard the user information." }} | Always   |
-| `event.namespace` | string  | {{ "Namespace of the event message sent by the client to Clova." if book.TargetCountryCode == "KR" else "Namespace of the event message sent by the client to Clova or a namespace that distinguishes whether a skill action is enabled or disabled. The namespace to distinguish the action state of a skill is always set to `ClovaSkill`." }}   | Always  |
-| `event.payload`   | object  | {{ "`payload` or partial information of the `payload` of the event message sent by the client to Clova. Some `EventRequest` type event messages may have an empty `payload`." if book.TargetCountryCode == "KR" else "`payload` or partial information of the `payload` of the event message sent by the client to Clova. Some event messages or `EventRequest` type event messages that distinguish whether a skill action is enabled or disabled may have an empty `payload`." }}  | Always  |
+| `event.name`      | string  | {{ "The name of the event sent to Clova by the client." if book.TargetCountryCode == "KR" else "The name of the event message sent to Clova by the client or the name that represents the active or non-active action of a skill. The name that represents the active or non-active action of a skill is either `SkillEnabled` or `SkillDisabled`. Once a request is received, which holds information about the active or non-active state of the skill, you can use the `context.System.application.applicationId` field and `context.System.user.userId` field of the [request message](#CustomExtRequestMessage) so that it collects or discards user information." }} | Always   |
+| `event.namespace` | string  | {{ "The namespace of the event sent to Clova by the client." if book.TargetCountryCode == "KR" else "The namespace of the event message sent to Clova by the client or the name that represents the active or non-active state of a skill. The namespace that represents the active or non-active state of a skill is always `ClovaSkill`." }}   | Always  |
+| `event.payload`   | object  | {{ "`payload` or part of the `payload` information of the event message sent to Clova by the client. Some `EventRequest` type of event message may have an empty `payload`." if book.TargetCountryCode == "KR" else "`payload` or part of the `payload` information of the event message sent to Clova by the client. Some event messages or `EventRequest` type event messages that represent the active or non-active state of a skill may have an empty `payload`." }}  | Always  |
 | `requestId`       | string  | Dialogue ID (`event.header.dialogRequestId`) generated when the client sends information to Clova.    | Always   |
 | `timestamp`       | string  | The send time of when the client sends information to Clova (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)<div class="note"><p><strong>Note!</strong></p><p>Since CEK does not guarantee the correct order in <code>EventRequest</code> type requests, you can use this field value to determine the order of client requests.</p></div>                    |   |
 | `type`            | string  | The type of request message. The value is always set to `"EventRequest"`.         | Always |
@@ -809,7 +809,7 @@ Instructs the client to either play or add to the playback queue the specified a
 |---------------|---------|-----------------------------|:---------:|
 | `audioItem`               | object | The metadata of an audio stream to play and audio stream information required for playback.                     | Always |
 | `audioItem.artImageUrl`   | string | The URL for the image on the audio (e.g. album image).                                                  | Conditional  |
-| `audioItem.audioItemId`   | string | The ID of an audio stream. Use this ID to remove redundant Play directives. | Always |
+| `audioItem.audioItemId`   | string | ID of an audio stream. Use this ID to remove redundant Play directives. | Always |
 | `audioItem.headerText`    | string | The text field used mainly to indicate the title of current play list.                                                | Conditional  |
 | `audioItem.stream`        | [AudioStreamInfoObject](#AudioStreamInfoObject) | The audio stream information required for playback.        | Always |
 | `audioItem.titleSubText1` | string | The text field used mainly to indicate the name of the artist.                                                          | Always |
@@ -1238,7 +1238,7 @@ Receives the audio stream information that can be played as a response to the [`
 #### Payload fields
 | Field name | Data type | Description | Included |
 |---------|------|--------|:---------:|
-| `audioItemId` | string | The ID of the audio stream. Use this ID to remove redundant Play directives. | Always |
+| `audioItemId` | string | ID of the audio stream. Use this ID to remove redundant Play directives. | Always |
 | `audioStream` | [AudioStreamInfoObject](#AudioStreamInfoObject) | The audio stream information required for playback.       | Always |
 
 #### Remarks
@@ -1432,9 +1432,9 @@ Instructs the client to display the sent playback metadata such as a playlist, a
 | `playableItems[].titleText`        | string        | The text field used mainly to indicate the title of the currently playing music.                                                         | Always  |
 | `playableItems[].token`            | string        | The token of the media content.                                                                     | Always |
 | `provider`                         | object        | The information of the media content provider.                                                         | Conditional |
-| `provider.logoUrl`                 | string        | The logo image URL of the media content provider.                                                         | Conditional |
+| `provider.logoUrl`                 | string        | The URL for the logo of the media content provider. If this field is unavailable or undefined, or if the logo cannot be displayed, you must at least display the name of the media content provider specified in the `provider.name` field. | Conditional |
 | `provider.name`                    | string        | The name of the media content provider.                                                                   | Always  |
-| `provider.smallLogoUrl`            | string        | The URL of the small logo image of the media content provider.                                                | Conditional |
+| `provider.smallLogoUrl`            | string        | The URL for the small logo of the media content provider.                                                | Conditional |
 
 #### Message example
 {% raw %}
