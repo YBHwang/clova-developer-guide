@@ -123,7 +123,7 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
 | `playableItems[].titleText`        | string        | 現在のオーディオコンテンツのタイトルを表すテキストフィールド                                                         | 常時  |
 | `playableItems[].token`            | string        | メディアコンテンツのトークン                                                                     | 常時 |
 | `provider`                         | object        | メディアコンテンツ提供元の情報を持つオブジェクト                                                         | 条件付き |
-| `provider.logoUrl`                 | string        | メディアコンテンツ提供元のロゴ画像のURL                                                         | 条件付き |
+| `provider.logoUrl`                 | string        | メディアコンテンツ提供元のロゴ画像のURL。このフィールドまたはフィールドの値がなかったり、ロゴ画像を表示できない場合、`provider.name`フィールド内のメディアコンテンツ提供元の名前を表示する必要があります。 | 条件付き |
 | `provider.name`                    | string        | メディアコンテンツ提供元の名前                                                                   | 常時  |
 | `provider.smallLogoUrl`            | string        | メディアコンテンツ提供元の小さなロゴ画像のURL                                                | 条件付き |
 
