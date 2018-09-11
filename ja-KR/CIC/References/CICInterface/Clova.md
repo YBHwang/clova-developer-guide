@@ -6,11 +6,11 @@ Clovaインターフェースは、CICからユーザーリクエストの認識
 {% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}|------------------|-----------|---------------------------------------------|
 | [`ExpectLogin`](#ExpectLogin)                    | ディレクティブ | クライアントに対して、ユーザーの{{ book.OrientedService }}アカウント認証(ログイン)を行うように指示します。|{% else %}|------------------|-----------|---------------------------------------------|{% endif %}
 | [`FinishExtension`](#FinishExtension)            | ディレクティブ | クライアントに対して、特定のExtensionを終了するように指示します。             |
-| [`HandleDelegatedEvent`](#HandleDelegatedEvent)  | ディレクティブ | クライアントに対して、Clovaアプリから[委任されたユーザーのリクエストを処理する](/CIC/Guides/Interact_with_CIC.md#HandleDelegation)ように指示します。   |
+| [`HandleDelegatedEvent`](#HandleDelegatedEvent)  | ディレクティブ | クライアントに対して、Clovaアプリから[委任されたユーザーのリクエストを処理する](/CIC/Guides/ImplementClientFeatures/Handle_Delegation.md)ように指示します。   |
 | [`Hello`](#Hello)                                | ディレクティブ | クライアントに対して、ダウンチャネルが確立したことを通知します。       |
 | [`Help`](#Help)                                  | ディレクティブ | クライアントに対して、あらかじめ用意されたヘルプを提供するように指示します。       |
 | [`LaunchURI`](#LaunchURI)                        | ディレクティブ | クライアントに、URIで表現されるウェブサイトまたはアプリを開いたり、起動するように指示します。                         |
-| [`ProcessDelegatedEvent`](#ProcessDelegatedEvent) | イベント    | クライアントが、[委任されたユーザーのリクエスト](/CIC/Guides/Interact_with_CIC.md#HandleDelegation)に対する結果をCICから受信するために使用します。  |
+| [`ProcessDelegatedEvent`](#ProcessDelegatedEvent) | イベント    | クライアントが、[委任されたユーザーのリクエスト](/CIC/Guides/ImplementClientFeatures/Handle_Delegation.md)の結果をCICから受信するために使用します。  |
 | [`RenderTemplate`](#RenderTemplate)              | ディレクティブ | クライアントに対して、テンプレートを表示するように指示します。                     |
 | [`RenderText`](#RenderText)                      | ディレクティブ | クライアントに対して、テキストを表示するように指示します。                     |
 | [`StartExtension`](#StartExtension)              | ディレクティブ | クライアントに対して、特定のExtensionを起動するように指示します。            |
@@ -89,7 +89,7 @@ Clovaインターフェースは、CICからユーザーリクエストの認識
 
 ## HandleDelegatedEventディレクティブ {#HandleDelegatedEvent}
 
-クライアントに対して、Clovaアプリから[委任されたユーザーのリクエストを処理する](/CIC/Guides/Interact_with_CIC.md#HandleDelegation)ように指示します。ユーザーはClovaアプリを使用する際、リクエストの処理結果をClovaアプリではなく、ユーザーが持っている別のクライアントデバイスで処理するように指定することができます。このディレクティブは、結果の処理を委任されたクライアントデバイスに送信されます。ディレクティブを受信したクライアントは、[`ProcessDelegatedEvent`](#ProcessDelegatedEvent)イベントをCICに送信して、ユーザーから委任されたリクエストの処理結果を受信する必要があります。
+クライアントに対して、Clovaアプリから[委任されたユーザーのリクエストを処理する](/CIC/Guides/ImplementClientFeatures/Handle_Delegation.md)ように指示します。ユーザーはClovaアプリを使用する際、リクエストの処理結果をClovaアプリではなく、ユーザーが持っている別のクライアントデバイスで処理するように指定することができます。このディレクティブは、結果の処理を委任されたクライアントデバイスに送信されます。ディレクティブを受信したクライアントは、[`ProcessDelegatedEvent`](#ProcessDelegatedEvent)イベントをCICに送信して、ユーザーから委任されたリクエストの処理結果を受信する必要があります。
 
 ### Payload fields
 
@@ -124,7 +124,7 @@ Clovaインターフェースは、CICからユーザーリクエストの認識
 
 ### 次の項目も参照してください。
 * [Clova.ProcessDelegatedEvent](#ProcessDelegatedEvent)
-* [委任されたユーザーのリクエストを処理する](/CIC/Guides/Interact_with_CIC.md#HandleDelegation)
+* [委任されたユーザーのリクエストを処理する](/CIC/Guides/ImplementClientFeatures/Handle_Delegation.md)
 
 ## Helloディレクティブ {#Hello}
 
@@ -272,7 +272,7 @@ Clovaインターフェースは、CICからユーザーリクエストの認識
 
 ## ProcessDelegatedEventイベント {#ProcessDelegatedEvent}
 
-クライアントが、[委任されたユーザーのリクエスト](/CIC/Guides/Interact_with_CIC.md#HandleDelegation)に対する結果をCICから受信するために使用します。このイベントをCICに送信する際、[`HandleDelegatedEvent`](#HandleDelegatedEvent)ディレクティブで受信した`delegationId`をこのメッセージの`payload`に含める必要があります。クライアントは、そのディレクティブに対する応答として、ユーザーがClovaアプリにリクエストしたことの処理結果を受信します。
+クライアントが、[委任されたユーザーのリクエスト](/CIC/Guides/ImplementClientFeatures/Handle_Delegation.md)の結果をCICから受信するために使用します。このイベントをCICに送信する際、[`HandleDelegatedEvent`](#HandleDelegatedEvent)ディレクティブで受信した`delegationId`をこのメッセージの`payload`に含める必要があります。クライアントは、そのディレクティブに対する応答として、ユーザーがClovaアプリにリクエストしたことの処理結果を受信します。
 
 ### Context fields
 
@@ -315,7 +315,7 @@ Clovaインターフェースは、CICからユーザーリクエストの認識
 ### 次の項目も参照してください。
 * [`Clova.HandleDelegatedEvent`](#HandleDelegatedEvent)
 * [`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)
-* [委任されたユーザーのリクエストを処理する](/CIC/Guides/Interact_with_CIC.md#HandleDelegation)
+* [委任されたユーザーのリクエストを処理する](/CIC/Guides/ImplementClientFeatures/Handle_Delegation.md)
 
 ## RenderTemplateディレクティブ {#RenderTemplate}
 
