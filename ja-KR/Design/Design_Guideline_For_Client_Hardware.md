@@ -93,10 +93,10 @@ Clovaが搭載されたクライアントデバイスを使用するユーザー
 
 | ライトの色     | RGB値                | 説明                                   | 必須/任意 |
 |-------------|----------------------|---------------------------------------|:--------:|
-| Green       | <span style="color:#32C864; font-size:150%; vertical-align:middle;">&#9724;</span> 50, 200, 100(#32C864)   | ユーザーの音声入力を聞き取っている                                  |   |
-| Yellow Green | <span style="color:#B4FF00; font-size:150%; vertical-align:middle;">&#9724;</span> 180, 255, 0(#B4FF00)    | Clova通知(Notification)                             |   |
+| Green       | <span style="color:#05D686; font-size:150%; vertical-align:middle;">&#9724;</span> 5, 214, 134(#05D686)   | ユーザーの音声入力を聞き取っている                                  |   |
+| Yellow Green | <span style="color:#96FF00; font-size:150%; vertical-align:middle;">&#9724;</span> 150, 255, 0(#96FF00)    | Clova通知(Notification)                             |   |
 | Red         | <span style="color:#FF0000; font-size:150%; vertical-align:middle;">&#9724;</span> 255, 0, 0(#FF0000)      | マイクのミュート、ネットワーク接続エラー、バッテリー不足などのエラー状況     |   |
-| Warm White   | <span style="color:#EDE9E5; font-size:150%; vertical-align:middle;">&#9724;</span> 237, 233, 229(#EDE9E5)  | スピーカーによるClovaの音声出力、アラーム/リマインダー/タイマーイベントの受信                             |   |
+| Warm White   | <span style="color:#F0E6E6; font-size:150%; vertical-align:middle;">&#9724;</span> 240, 230, 230(#F0E6E6)  | スピーカーによるClovaの音声出力、アラーム/リマインダー/タイマーイベントの受信                             |   |
 
 以下は、Waveのライトの事例です。
 
