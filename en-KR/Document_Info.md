@@ -21,6 +21,16 @@ The revision history of this document is as follows:
   </thead>
   <tbody>
     <tr>
+      <td>v3.39.0</td><td>Not applied</td><td>9/7/2018</td>
+      <td>
+        <ul>
+          <li>[Design] Added recommendations on attributes and loudness for sound quality by audio content type in the <a href="/Design/Design_Guideline_For_Extension.html#SupportedAudioCompressionFormat">Supported audio compression formats</a> section of Design guidelines for extensions</li>
+          <li>[Common] Changed "yourdomain.com" used in examples to "example.com," which is the domain name for document preparation</li>
+          <li>[CIC] Revised errors in links and mistakes in code examples in the <a href="/CIC/Guides/ImplementClientFeatures/Handle_Alerts.html">Handling alerts</a> section</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.38.0</td><td>Not applied</td><td>2018-08-29</td>
       <td>
         <ul>

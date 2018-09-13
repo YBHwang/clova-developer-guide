@@ -105,7 +105,7 @@ CEK uses request messages (HTTP Requests) to send user intents analyzed by Clova
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",
@@ -152,7 +152,7 @@ CEK uses request messages (HTTP Requests) to send user intents analyzed by Clova
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",
@@ -201,7 +201,7 @@ CEK uses request messages (HTTP Requests) to send user intents analyzed by Clova
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",
@@ -241,7 +241,7 @@ CEK uses request messages (HTTP Requests) to send user intents analyzed by Clova
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",

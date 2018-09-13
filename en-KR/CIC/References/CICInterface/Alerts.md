@@ -19,7 +19,7 @@ You must implement the following on a client, using the Alerts interfaces:
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>For more information on the workflow of registering, modifying, deleting, starting, or stopping an alarm, see <a href="/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md">Handling alerts</a>.</p>
+  <p>For more information on the workflow of registering, modifying, deleting, starting, or stopping an alarm, see <a href="/CIC/Guides/Implement_Client_Features.md#HandleAlerts">Handling alerts</a>.</p>
 </div>
 
 The Alerts namespace provides the following events and directives.

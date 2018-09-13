@@ -6,11 +6,11 @@ The Clova namespace provides interfaces that return the result for a user voice 
 {% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}|------------------|-----------|---------------------------------------------|
 | [`ExpectLogin`](#ExpectLogin)                    | Directive | Instructs the client to prompt its user to authenticate their {{ book.OrientedService }} account. |{% else %}|------------------|--------------|---------------------------------------------|{% endif %}
 | [`FinishExtension`](#FinishExtension)            | Directive | Instructs the client to end the specified extension.             |
-| [`HandleDelegatedEvent`](#HandleDelegatedEvent)  | Directive | Instructs the client to [handle the user request delegated](/CIC/Guides/ImplementClientFeatures/Handle_Delegation.md) from the Clova app.   |
+| [`HandleDelegatedEvent`](#HandleDelegatedEvent)  | Directive | Instructs the client to [handle the user request delegated](/CIC/Guides/Implement_Client_Features.md#HandleDelegation) from the Clova app.   |
 | [`Hello`](#Hello)                                | Directive | Notifies the client that a downchannel has been established between the client and CIC.       |
 | [`Help`](#Help)                                  | Directive | Instructs the client to provide the existing Help guide to the user.       |
 | [`LaunchURI`](#LaunchURI)                        | Directive | Instructs the client to either launch or execute the site or the app expressed as a URI.                         |
-| [`ProcessDelegatedEvent`](#ProcessDelegatedEvent) | Event    | Requests CIC for the result of handling the [delegated user request](/CIC/Guides/ImplementClientFeatures/Handle_Delegation.md).  |
+| [`ProcessDelegatedEvent`](#ProcessDelegatedEvent) | Event    | Requests CIC for the result of handling the [delegated user request](/CIC/Guides/Implement_Client_Features.md#HandleDelegation).  |
 | [`RenderTemplate`](#RenderTemplate)              | Directive | Instructs the client to display the given template.                     |
 | [`RenderText`](#RenderText)                      | Directive | Instructs the client to display the given text.                     |
 | [`StartExtension`](#StartExtension)              | Directive | Instructs the client to start the specified extension.            |
@@ -89,7 +89,7 @@ Instructs the client to end the specified extension. The client must end the spe
 
 ## HandleDelegatedEvent directive {#HandleDelegatedEvent}
 
-Instructs the client to [handle the user request delegated](/CIC/Guides/ImplementClientFeatures/Handle_Delegation.md) from the Clova app. A user can delegate another client device of the user, that is not the Clova app, to receive the handling results of requests made while using the Clova app. This directive is sent to the client device that has been delegated to handle the result. That client device must then send the [`ProcessDelegatedEvent`](#ProcessDelegatedEvent) event to CIC to receive the handled result.
+Instructs the client to [handle the user request delegated](/CIC/Guides/Implement_Client_Features.md#HandleDelegation) from the Clova app. A user can delegate another client device of the user, that is not the Clova app, to receive the handling results of requests made while using the Clova app. This directive is sent to the client device that has been delegated to handle the result. That client device must then send the [`ProcessDelegatedEvent`](#ProcessDelegatedEvent) event to CIC to receive the handled result.
 
 ### Payload fields
 
@@ -124,7 +124,7 @@ This directive is sent through a [downchannel](/CIC/Guides/Interact_with_CIC.md#
 
 ### See also
 * [Clova.ProcessDelegatedEvent](#ProcessDelegatedEvent)
-* [Handling delegated user requests](/CIC/Guides/ImplementClientFeatures/Handle_Delegation.md)
+* [Handling delegated user requests](/CIC/Guides/Implement_Client_Features.md#HandleDelegation)
 
 ## Hello directive {#Hello}
 
@@ -228,17 +228,17 @@ Instructs the client to either launch or execute the site or the app expressed a
         {
           "uri": "sampleapp2://main",
           "title": "Sample app2",
-          "iconImageUrl": "https://yourdomain.com/sampleappicon.png",
-          "marketUrl": "https://play.google.com/store/apps/details?id=com.yourdomain.sampleapp",
-          "packageName": "com.yourdomain.sampleapp",
+          "iconImageUrl": "https://example.com/sampleappicon.png",
+          "marketUrl": "https://play.google.com/store/apps/details?id=com.example.sampleapp",
+          "packageName": "com.example.sampleapp",
           "description": "Sample app2"
         },
         {
           "uri": "sampleapp://main",
           "title": "Sample app",
-          "iconImageUrl": "https://yourdomain.com/sampleappicon.png",
-          "marketUrl": "https://play.google.com/store/apps/details?id=com.yourdomain.sampleapp",
-          "packageName": "com.yourdomain.sampleapp",
+          "iconImageUrl": "https://example.com/sampleappicon.png",
+          "marketUrl": "https://play.google.com/store/apps/details?id=com.example.sampleapp",
+          "packageName": "com.example.sampleapp",
           "description": "Sample app"
         }
       ]
@@ -272,7 +272,7 @@ None
 
 ## ProcessDelegatedEvent event {#ProcessDelegatedEvent}
 
-Requests CIC for the result of handling the [delegated user request](/CIC/Guides/ImplementClientFeatures/Handle_Delegation.md). When sending this event to CIC, make sure to include the `delegationId` value received through the [`HandleDelegatedEvent`](#HandleDelegatedEvent) directive in the `payload` of this message. The client will receive the result on the request which the user had made through Clova app as a response to this directive.
+Requests CIC for the result of handling the [delegated user request](/CIC/Guides/Implement_Client_Features.md#HandleDelegation). When sending this event to CIC, make sure to include the `delegationId` value received through the [`HandleDelegatedEvent`](#HandleDelegatedEvent) directive in the `payload` of this message. The client will receive the result on the request which the user had made through Clova app as a response to this directive.
 
 ### Context fields
 
@@ -315,7 +315,7 @@ Requests CIC for the result of handling the [delegated user request](/CIC/Guides
 ### See also
 * [`Clova.HandleDelegatedEvent`](#HandleDelegatedEvent)
 * [`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)
-* [Handling delegated user requests](/CIC/Guides/ImplementClientFeatures/Handle_Delegation.md)
+* [Handling delegated user requests](/CIC/Guides/Implement_Client_Features.md#HandleDelegation)
 
 ## RenderTemplate directive {#RenderTemplate}
 
