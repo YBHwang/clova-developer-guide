@@ -1,8 +1,12 @@
 ## アラームを処理する {#HandleAlerts}
 
-ユーザーは、発話でClovaにアラームを追加するようにリクエストすることができます。Clovaは、そのようなリクエストを受け取ると、アラームを設定し、設定した時刻にユーザーに通知する必要があります。クライアントは、Clovaから送信されるアラーム関連メッセージを適切に処理する必要があります。
+ユーザーは、発話でClovaにアラームを追加するようにリクエストすることができます。Clovaは、そのようなリクエストを受信すると、アラームを設定したり、設定した時刻にアラームを鳴らしたりするよう、ディレクティブをクライアントに送信します。クライアントは、Clovaから送信されるアラーム関連メッセージを適切に処理する必要があります。
 
-ここでは、アラームの設定・開始・編集および削除に関するリクエストを処理する仕組みと、それに伴うクライアントのアクションについて説明します。
+ここでは、以下の内容について説明します。
+* [アラームを設定する](#RegisterAlert)
+* [アラームを鳴らす](#RingAlert)
+* [アラームを編集および削除する](#EditAlert)
+* [アラームを同期する](#SyncAlert)
 
 <div class="danger">
 <p><strong>注意</strong></p>
@@ -23,7 +27,7 @@
 * アラームのラベルまたは内容(任意)
 * アラームの設定時刻に再生するオーディオ(任意)
 
-例えば、以下のような`Alerts.SetAlert`ディレクティブを受信した場合、
+クライアントは、次のような`Alerts.SetAlert`ディレクティブを受信します。
 
 ```json
 {
@@ -58,7 +62,7 @@
 }
 ```
 
-上記の内容を分析し、以下のようにアラームを設定する必要があります。
+上記のディレクティブには、以下の情報が含まれます。クライアントは、以下の内容に基づいてアラームを設定する必要があります。
 * アラームの種類：`REMINDER`
 * アラームの設定時刻：`2017-09-25T09:00:50+09:00`
 * アラームのラベルまたは内容：「入金する」
@@ -68,6 +72,7 @@
 
 クライアントがアラームを設定して、その結果をCICに送信します。アラームを正常に設定した場合、[`Alerts.SetAlertSucceeded`](/CIC/References/CICInterface/Alerts.md#SetAlertSucceeded)イベントをCICに送信します。
 
+{% raw %}
 ```json
 {
   "context": [
@@ -93,9 +98,11 @@
   }
 }
 ```
+{% endraw %}
 
 アラームの設定に失敗した場合には、[`Alerts.SetAlertFailed`](/CIC/References/CICInterface/Alerts.md#SetAlertFailed)イベントを送信します。
 
+{% raw %}
 ```json
 {
   "context": [
@@ -121,17 +128,19 @@
   }
 }
 ```
+{% endraw %}
 
 Clovaは、アラームを設定した結果をユーザーに通知するために、[`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak)ディレクティブと[`Clova.RenderTemplate`](/CIC/References/CICInterface/Clova.md#RenderTemplate)ディレクティブをクライアントに送信します。クライアントは、そのディレクティブの内容をユーザーに通知する必要があります。
 
 ### アラームを鳴らす {#RingAlert}
 
-クライアントは、アラームが設定された時刻になると、以下のアクションを実行する必要があります。
+設定された時刻になると、Clovaはアラームを開始するためにディレクティブを送信します。アラームが開始される仕組みは、以下の通りです。
 
 ![](/CIC/Resources/Images/CIC_Alerts_Ring_Work_Flow.png)
 
 アラームが設定された時刻になると、クライアントはアラームを実行し、そのことを[`Alerts.AlertStarted`](/CIC/References/CICInterface/Alerts.md#AlertStarted)イベントでCICにレポートする必要があります。
 
+{% raw %}
 ```json
 {
   "context": [
@@ -157,11 +166,13 @@ Clovaは、アラームを設定した結果をユーザーに通知するため
   }
 }
 ```
+{% endraw %}
 
 アラームが実行されると、クライアントは、CICに送信するすべてのイベントに、アクティブなアラームの情報を含める必要があります。そのとき、[`Alert.AlertsState`](/CIC/References/Context_Objects.md#AlertsState)コンテキストの`activeAlerts`フィールドを使用する必要があります。
 
 ユーザーは、発話([`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize))、物理ボタン(ハードウェア)、またはGUIボタン(ソフトウェア)でアラームを停止するようリクエストします。クライアントは、ユーザーからのアラーム停止のリクエストを、[`Alerts.RequestAlertStop`](/CIC/References/CICInterface/Alerts.md#RequestAlertStop)イベントでCICにレポートする必要があります。
 
+{% raw %}
 ```json
 {
   "context": [
@@ -187,6 +198,7 @@ Clovaは、アラームを設定した結果をユーザーに通知するため
   }
 }
 ```
+{% endraw %}
 
 Clovaは、クライアントがアラームを停止するよう、クライアントに[`Alerts.StopAlert`](/CIC/References/CICInterface/Alerts.md#StopAlert)ディレクティブを送信します。
 
@@ -194,7 +206,7 @@ Clovaは、クライアントがアラームを停止するよう、クライア
 * 停止するアラームの識別子
 * アラームの種類
 
-例えば、以下のような`Alerts.StopAlert`ディレクティブを受信した場合、
+クライアントは、次のような`Alerts.StopAlert`ディレクティブを受信します。
 
 ```json
 {
@@ -217,6 +229,7 @@ Clovaは、クライアントがアラームを停止するよう、クライア
 
 クライアントは、アラームを停止し、そのことを[`Alerts.AlertStopped`](/CIC/References/CICInterface/Alerts.md#AlertStopped)イベントでレポートする必要があります。
 
+{% raw %}
 ```json
 {
   "context": [
@@ -242,6 +255,7 @@ Clovaは、クライアントがアラームを停止するよう、クライア
   }
 }
 ```
+{% endraw %}
 
 アクションタイマータイプのアラームが設定されている場合、Clovaはクライアントに対して、ユーザーが予約したアクションに該当するディレクティブを送信します。
 
@@ -250,7 +264,10 @@ Clovaは、クライアントがアラームを停止するよう、クライア
 <p>スヌーズアラームの場合、現在の時刻からもっとも近いアラーム1件のみをクライアントに設定し、実行します。クライアントに設定されているスヌーズアラームが一度実行されてから停止すると、次のスヌーズアラームをCICから新しく受信します。もし、ネットワークに長い間接続できない場合、スヌーズアラームが正常に動作しない可能性があります。</p>
 </div>
 
-上記の流れで、Clovaアプリでのみアラームを編集または削除できます。なお、ユーザーの発話に対するレスポンスとしてのディレクティブではない場合、ディレクティブは[ダウンチャネル](/CIC/Guides/Interact_with_CIC.md#CreateConnection)ストリーム上でクライアントに送信されます。
+<div class="note">
+<p><strong>メモ</strong></p>
+<p>上記の流れで、Clovaアプリでのみアラームを編集または削除できます。なお、ユーザーの発話に対するレスポンスとしてのディレクティブではない場合、ディレクティブは[ダウンチャネル](/CIC/Guides/Interact_with_CIC.md#CreateConnection)ストリーム上でクライアントに送信されます。</p>
+</div>
 
 ### アラームを編集および削除する {#EditAlert}
 
@@ -262,7 +279,7 @@ Clovaは、クライアントがアラームを停止するよう、クライア
 * 削除するアラームの識別子
 * アラームの種類
 
-例えば、以下のような`Alerts.DeleteAlert`ディレクティブを受信した場合、
+クライアントは、次のような`Alerts.DeleteAlert`ディレクティブを受信します。
 
 ```json
 {
@@ -285,6 +302,7 @@ Clovaは、クライアントがアラームを停止するよう、クライア
 
 クライアントがアラームを編集するか、または削除します。アラームを正常に削除した場合、[`Alerts.DeleteAlertSucceeded`](/CIC/References/CICInterface/Alerts.md#DeleteAlertSucceeded)イベントをCICに送信します。
 
+{% raw %}
 ```json
 {
   "context": [
@@ -310,9 +328,11 @@ Clovaは、クライアントがアラームを停止するよう、クライア
   }
 }
 ```
+{% endraw %}
 
 アラームの削除に失敗した場合には、[`Alerts.DeleteAlertFailed`](/CIC/References/CICInterface/Alerts.md#DeleteAlertFailed)イベントを送信します。
 
+{% raw %}
 ```json
 {
   "context": [
@@ -338,11 +358,13 @@ Clovaは、クライアントがアラームを停止するよう、クライア
   }
 }
 ```
+{% endraw %}
 
 ### アラームを同期する {#SyncAlert}
 
 ユーザーのクライアントが追加されたり、一部または特定のクライアントのネットワーク接続が一度解除され、再接続した場合、あるいはクライアントに登録されているユーザーのアカウントが変更された場合、クライアントはCICに接続または再接続すると[`System.RequestSynchronizeState`](/CIC/References/CICInterface/System.md#RequestSynchronizeState)イベントをCICを送信し、CICから[`System.SynchronizeState`](/CIC/References/CICInterface/System.md#SynchronizeState)ディレクティブを受信します。そのとき、`allAlerts`フィールドのアラームデータをデバイスのアラーム情報と同期する必要があります。
 
+{% raw %}
 ```json
 {
   "directive": {
@@ -380,3 +402,4 @@ Clovaは、クライアントがアラームを停止するよう、クライア
   }
 }
 ```
+{% endraw %}
