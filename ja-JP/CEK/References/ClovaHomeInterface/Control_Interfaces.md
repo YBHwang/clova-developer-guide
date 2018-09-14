@@ -4545,7 +4545,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 
 | フィールド名       | データ型    | フィールドの説明                     | Optional |
 |---------------|---------|-----------------------------|:---------:|
-| `lockState`   | string  | デバイスに設定されたか、またはExtensionからリクエストされたデバイスのロック状態。次のいずれかになります。<ul><li><code>"LOCKED"</code></li><li><code>"UNLOCKED"</code></li></ul> |     |
+| `lockState`   | string  | デバイスに設定されたか、またはExtensionからリクエストされたデバイスのロック状態。次のいずれかになります。<ul><li><code>"LOCKED"</code></li><li><code>"UNLOCKED"</code></li></ul> NOTE: applianceType = "SMARTLOCK"の場合に"UNLOCKED"はサポートされません。 |     |
 
 
 ### Message example
