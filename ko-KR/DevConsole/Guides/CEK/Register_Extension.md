@@ -34,7 +34,7 @@ Extension을 등록하는 과정에서 가장 먼저 할 일은 등록할 extens
   <li><strong>{{ book.DevConsole.cek_lang }}</strong> 항목에서 extension에서 사용할 언어를 선택합니다. 현재 <strong>{{ book.DevConsole.ko_KR }}</strong>만 지원하고 있습니다.</li>
   <li>Extension의 ID, 이름, 호출 이름에 해당하는 정보를 다음 항목에 입력합니다.
     <ol>
-      <li><strong>{{ book.DevConsole.cek_id }}</strong>: Extension의 고유 ID입니다. Reverse domain name 표기 형식(예: com.yourdomain.extension.pizzabot)으로 입력합니다.</li>
+      <li><strong>{{ book.DevConsole.cek_id }}</strong>: Extension의 고유 ID입니다. Reverse domain name 표기 형식(예: com.example.extension.pizzabot)으로 입력합니다.</li>
       <li><strong>{{ book.DevConsole.cek_name }}</strong>: Extension의 이름입니다. 추후 Clova extension 스토어에 노출됩니다.</li>
       <li><strong>{{ book.DevConsole.cek_invocation_name }}</strong>: 사용자가 extension을 호출할 때 부르는 이름입니다. 일반적으로 보유하고 있는 서비스, 회사 또는 조직의 이름이 될 수 있으나 사용자의 편의 등을 위해 간결하고 특색있는 단어를 지정하는 것이 좋습니다. 범용적인 단어나 타사의 이름이나 서비스에 해당하는 용어는 사용할 수 없습니다. <strong>{{ book.DevConsole.cek_invocation_name }}</strong>은 extension 심사 시 검수받게 됩니다.</li>
       <li><strong>{{ book.DevConsole.cek_provider }}</strong>: Extension의 제작 주체(회사나 개인)의 이름 또는 별칭을 입력합니다. 추후 extension 스토어에 노출되며, extension 승인 과정에서 심사를 받게 됩니다.</li>
@@ -58,7 +58,7 @@ Extension 서버를 등록하기 전에 우선 extension 서버와 통신이 되
 
 {% raw %}
 ```bash
-$ curl "https://yourdomain.com/pizzabot" -X POST
+$ curl "https://example.com/pizzabot" -X POST
 ```
 {% endraw %}
 

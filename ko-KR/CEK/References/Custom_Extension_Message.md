@@ -105,7 +105,7 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",
@@ -152,7 +152,7 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",
@@ -201,7 +201,7 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",
@@ -241,7 +241,7 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",
