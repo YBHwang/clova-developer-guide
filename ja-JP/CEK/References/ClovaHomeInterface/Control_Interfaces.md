@@ -2043,7 +2043,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
     "payloadVersion": "1.0"
   },
   "payload": {
-    "OpenState": "LOCKED",
+    "OpenState": "CLOSED",
     "applianceResponseTimestamp": "2017-11-23T20:31:08+09:00"
   }
 }
@@ -4344,7 +4344,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
   },
   "payload": {
     "targetTemperature": {
-      "value": 22
+      "value": 5
     }
   }
 }
@@ -4384,7 +4384,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
       "applianceId": "device-021"
     },
     "targetTemperature": {
-      "value": 22
+      "value": 5
     }
   }
 }
