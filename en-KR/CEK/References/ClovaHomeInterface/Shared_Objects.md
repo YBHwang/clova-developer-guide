@@ -3,7 +3,7 @@ These shared objects are used in the message `payload` when sending [Clova Home 
 
 | Object name            | Description                                            |
 |--------------------|---------------------------------------------------|
-| [ActionInforObject](#ActionInforObject)                   | Object containing information on appliance control actions.  |
+| [ActionInfobject](#ActionInfobject)                   | Object containing information on appliance control actions.  |
 | [AirQualityInfoObject](#AirQualityInfoObject)             | Object containing information on air quality.            |
 | [ApplianceInfoObject](#ApplianceInfoObject)               | Object containing information on an IoT appliance.        |
 | [BatteryInfoObject](#BatteryInfoObject)                   | Object containing information on battery.            |
@@ -32,13 +32,13 @@ These shared objects are used in the message `payload` when sending [Clova Home 
 | [UltraFineDustInfoObject](#UltraFineDustInfoObject)       | Object containing information on ultrafine dust.         |
 | [VolumeInfoObject](#VolumeInfoObject)                     | Object containing information on volume.          |
 
-## ActionInforObject {#ActionInforObject}
+## ActionInfobject {#ActionInfobject}
 ActionInforObject contains information on appliance control actions and expresses a command for an action to be performed on an appliance.
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
-|---------------|---------|-----------------------------|:-------------:|
-| `applianceId` | string  | Device ID                      | Required/Always     |
+| Field name       | Data type    | Description                     | Required |
+|---------------|---------|-----------------------------|:-------:|
+| `applianceId` | string  | Device ID                      | Required     |
 | `action`      | string  | The action of appliance control. See the [Actions](#Actions) table under the [ApplianceInfoObject](#ApplianceInfoObject) section for the list of actions.     | Required/Always     |
 
 ### Object Example
@@ -145,9 +145,9 @@ ActionInforObject contains information on appliance control actions and expresse
 AirQualityInfoObject contains information on air quality. This is used to indicate the air quality measured by the appliance. It is expressed as a string.
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:-------------:|
-| `index`       | string  | Air quality level. It is limited to the following values.<ul><li><code>"good"</code>: Good</li><li><code>"normal"</code>: Normal</li><li><code>"bad"</code>: Bad</li><li><code>"verybad"</code>: Very bad</li></ul> | Required/Always     |
+| `index`       | string  | Air quality level. It is limited to the following values.<ul><li><code>"good"</code>: Good</li><li><code>"normal"</code>: Normal</li><li><code>"bad"</code>: Bad</li><li><code>"verybad"</code>: Very bad</li></ul> | Required   |
 
 ### Object Example
 {% raw %}
@@ -178,22 +178,29 @@ AirQualityInfoObject contains information on air quality. This is used to indica
 ## ApplianceInfoObject {#ApplianceInfoObject}
 ApplianceInfoObject contains the information on IoT appliances. This is used to send a list of appliances registered in the user account to CEK or to request the Clova Home extension to control a specific appliance.
 
-### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+### Object fields used in reqeusts
+| Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:-------------:|
-| `actions[]`                  | string array  | List of actions supported by an appliance. The client must restrict the user to controlling the IoT device within the scope of actions supported by the appliance. | Optional/Always    |
-| `additionalApplianceDetails` | object        | Additional information provided by the manufacturer or IoT service.                                 | Optional/Conditional    |
-| `applianceId`                | string        | Device ID                                                                        | Required/Always    |
-| `applianceTypes[]`           | string array  | The appliance type. The `applicationType` determines the value of the `actions` field, which is the action that can be performed an appliance. You must designate the type of appliance registered to the user account of the IoT service as one of the following values: Select the appliance type by referring to the items in the Remarks section.                                                                              | Required/Always    |
-| `friendlyName`               | string        | The name of the appliance given by the user.                                                           | Optional/Always    |
-| `friendlyDescription`        | string        | The description of the appliance.                                                                  | Optional/Always    |
-| `isIr`                       | boolean       | Whether the appliance is controlled by infrared communication.<ul><li><code>true</code>: By infrared communication</li><li><code>false</code>: Not by infrared communication</li></ul> <div class="note"><p><strong>Note!</strong></p><p>The following restrictions apply when controlling appliances via infrared communication (<code>true</code>):</p><ul><li>Clova does not send the results of device control to users.</li><li>Even if the appliance type supports the <code>HealthCheck</code> action, Clova does not send <code>HealthCheck</code> action-related requests to the extension.</li></ul></div>  | Optional/Conditional  |
-| `isReachable`                | boolean       | Whether or not remote control is available.<ul><li>true: Remote control is available</li><li>false: Remote control is not available</li></ul>  | Optional/Always    |
-| `manufacturerName`           | string        | The name of the appliance manufacturer.                                                                  | Optional/Always    |
-| `modelName`                  | string        | The name of the appliance model.                                                                   | Optional/Always    |
-| `version`                    | string        | The software version of the manufacturer.                                                            | Optional/Always    |
-| `location`                   | string        | The location of the appliance installation. Enter the code value in the [Locations](#Locations) field. The Korean text that corresponds to the inputted code value is added to the `tags` field.            | Optional/Always    |
-| `tags`                       | string array  | The list of tags added to the appliance by the user. The user can add various attributes as tags such as location of installation, purpose of use, or product brand to the appliance from the Clova app or the IoT service. Appliances with the same attributes (tags) are grouped together, and simultaneous control is possible if the appliances in the same group have identical permitted actions.  | Optional/Always  |
+| `additionalApplianceDetails` | object        | Additional information provided by the manufacturer or IoT service.                                 | Conditional    |
+| `applianceId`                | string        | Device ID                                                                         | Always     |
+
+### Object fields used in responses
+
+| Field name       | Data type    | Description                     | Required |
+|---------------|---------|-----------------------------|:-------------:|
+| `actions[]`                  | string array  | List of actions supported by an appliance. The client must restrict the user to controlling the IoT device within the scope of actions supported by the appliance. | Optional    |
+| `additionalApplianceDetails` | object        | Additional information provided by the manufacturer or IoT service.                                 | Optional    |
+| `applianceId`                | string        | Device ID                                                                        | Required    |
+| `applianceTypes[]`           | string array  | The appliance type. The `applicationType` determines the value of the `actions` field, which is the action that can be performed an appliance. You must designate the type of appliance registered to the user account of the IoT service as one of the following values: Select the appliance type by referring to the items in the Remarks section.                                                                              | Required    |
+| `friendlyName`               | string        | The name of the appliance given by the user.                                                           | Optional    |
+| `friendlyDescription`        | string        | The description of the appliance.                                                                  | Optional    |
+| `isIr`                       | boolean       | Whether the appliance is controlled by infrared communication.<ul><li><code>true</code>: By infrared communication</li><li><code>false</code>: Not by infrared communication</li></ul> <div class="note"><p><strong>Note!</strong></p><p>The following restrictions apply when controlling appliances via infrared communication (<code>true</code>):</p><ul><li>Clova does not send the results of device control to users.</li><li>Even if the appliance type supports the <code>HealthCheck</code> action, Clova does not send <code>HealthCheck</code> action-related requests to the extension.</li></ul></div>  | Optional  |
+| `isReachable`                | boolean       | Whether or not remote control is available.<ul><li>true: Remote control is available</li><li>false: Remote control is not available</li></ul>  | Optional    |
+| `manufacturerName`           | string        | The name of the appliance manufacturer.                                                                  | Optional    |
+| `modelName`                  | string        | The name of the appliance model.                                                                   | Optional    |
+| `version`                    | string        | The software version of the manufacturer.                                                            | Optional    |
+| `location`                   | string        | The location of the appliance installation. Enter the code value in the [Locations](#Locations) field. The Korean text that corresponds to the inputted code value is added to the `tags` field.            | Optional    |
+| `tags`                       | string array  | The list of tags added to the appliance by the user. The user can add various attributes as tags such as location of installation, purpose of use, or product brand to the appliance from the Clova app or the IoT service. Appliances with the same attributes (tags) are grouped together, and simultaneous control is possible if the appliances in the same group have identical permitted actions.  | Optional  |
 
 ### Remarks
 If the user requests the appliance list using the [`DiscoverAppliancesRequest`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesRequest) message, the Clova Home extension must fill out all the fields except the `additionalApplianceDetails` field, and deliver the information. Here, the value of the `actions` field is normally determined by the `applianceTypes` field and may have the following values depending on the value of the `applianceTypes` field:
@@ -213,7 +220,7 @@ If the user requests the appliance list using the [`DiscoverAppliancesRequest`](
 | `"ELECTRICKETTLE"`  | Type of an electric kettle       | GetCurrentTemperature, HealthCheck, TurnOff, TurnOn                                                                              |
 | `"ELECTRICTOOTHBRUSH"` | Type of an electric toothbrush     | GetDeviceState, HealthCheck                                                                                                            |
 | `"FAN"`             | Type of a fan           | HealthCheck, SetMode, TurnOff, TurnOn                                                                                            |
-| `"HEATER"`          | Type of a heater            | DecrementTargetTemperature, GetCurrentTemperature, HealthCheck, IncrementTargetTemperature, TurnOff, TurnOn                      |
+| `"HEATER"`          | Type of a heater            | DecrementTargetTemperature, GetCurrentTemperature, GetTargetTemperature, HealthCheck, IncrementTargetTemperature, TurnOff, TurnOn                      |
 | `"HUMIDIFIER"`      | Type of a humidifier           | GetCurrentTemperature, GetHumidity, HealthCheck, SetFanSpeed, TurnOff, TurnOn                                                    |
 | `"KIMCHIREFRIGERATOR"` | Type of a kimchi refrigerator    | GetDeviceState, HealthCheck                                                                                                            |
 | `"LIGHT"`           | Type of a smart lighting   | DecrementBrightness, DecrementVolume HealthCheck, IncrementBrightness, IncrementVolume SetBrightness, SetColor, SetColorTemperature, SetMode, TurnOff, TurnOn            |
@@ -241,7 +248,7 @@ If the user requests the appliance list using the [`DiscoverAppliancesRequest`](
 | `"SMARTVALVE"`      | Type of a smart valve      | GetLockState, SetLockState                                                                                                        |
 | `"SMOKESENSOR"`     | Type of a smoke sensor       | GetDeviceState, HealthCheck                                                                                                             |
 | `"SWITCH"`          | Type of a switch to control outlets in homes | HealthCheck, TurnOff, TurnOn                                                                                       |
-| `"THERMOSTAT"`      | Type of a thermostat   | DecrementTargetTemperature, GetCurrentTemperature, HealthCheck, IncrementTargetTemperature, SetMode, SetTargetTemperature TurnOff, TurnOn       |
+| `"THERMOSTAT"`      | Type of a thermostat   | DecrementTargetTemperature, GetCurrentTemperature, GetTargetTemperature, HealthCheck, IncrementTargetTemperature, SetMode, SetTargetTemperature TurnOff, TurnOn       |
 | `"VENTILATOR"`      | Type of a ventilator          | GetDeviceState, HealthCheck, SetFanSpeed, TurnOff, TurnOn                                                                         |
 | `"WATERBOILER"`     | Type of a water boiler          | HealthCheck, SetMode, TurnOff, TurnOn                                                                                             |
 
@@ -406,31 +413,15 @@ The table below shows the location information supported by `location` field. Th
 BatteryInfoObject contains information on the appliance battery. This is used to indicate battery information and expressed as an integer (0-100) that represents a percentage.
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
-|---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | Remaining battery (%)                 | Required/Always     |
+| Field name       | Data type    | Description                     | Required |
+|---------------|---------|-----------------------------|:-------:|
+| `value`       | number  | Remaining battery (%)                 | Required     |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example 1: An example used in the GetBatteryInfoRequest message
-{
-  "header": {
-    "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
-    "name": "GetBatteryInfoRequest",
-    "namespace": "ClovaHome",
-    "payloadVersion": "1.0"
-  },
-  "payload": {
-    "accessToken": "92ebcb67fe33",
-    "appliance": {
-      "applianceId": "device-010"
-    }
-  }
-}
-
-// Example 2: An example used in the GetBatteryInfoResponse message
+// Example: An example used in the GetBatteryInfoResponse message
 {
   "header": {
     "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
@@ -449,17 +440,16 @@ BatteryInfoObject contains information on the appliance battery. This is used to
 {% endraw %}
 
 ### See also
-* [`GetBatteryInfoRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetBatteryInfoRequest)
 * [`GetBatteryInfoResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetBatteryInfoResponse)
 
 ## BillInfoObject {#BillInfoObject}
 BillInfoObject contains the information on billing derived from the amount of energy consumption measured by the appliance. The billing information is displayed in two components: amount and currency unit.
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:-------------:|
-| `currency`    | string  | Currency unit (<a href="https://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO 4217</a>)  | Required/Always |
-| `value`       | number  | Amount of bill                    | Required/Always   |
+| `currency`    | string  | Currency unit (<a href="https://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO 4217</a>)  | Required |
+| `value`       | number  | Amount of bill                    | Required   |
 
 ### Object Example
 {% raw %}
@@ -567,7 +557,7 @@ ColorInfoObject contains information on the color of lights, the screen, or lamp
 {% raw %}
 
 ```json
-// Example: An example used in the SetColorRequest message
+// Example 1: An example used in the SetColorRequest message
 {
   "header": {
     "messageId": "a97dff79-5684-4535-8df3-193713c478aa",
@@ -581,6 +571,23 @@ ColorInfoObject contains information on the color of lights, the screen, or lamp
       "applianceId": "device-020"
     },
     "color": {
+  		"hue": 100,
+      "saturation": 100,
+      "brightness": 100
+  	}
+  }
+}
+
+// Example 2: An example used in the SetColorConfirmation message
+{
+  "header": {
+    "messageId": "0e380076-59f1-4417-9d30-895be4b34cea",
+    "name": "SetColorConfirmation",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+  	"color": {
   		"hue": 100,
       "saturation": 100,
       "brightness": 100
@@ -607,7 +614,7 @@ ColorTemperatureInfoObject contains information on the color temperature of ligh
 {% raw %}
 
 ```json
-// Example: An example used in the SetColorTemperatureRequest message
+// Example 1: An example used in the SetColorTemperatureRequest message
 {
   "header": {
     "messageId": "a97dff79-5684-4535-8df3-193713c478aa",
@@ -625,6 +632,21 @@ ColorTemperatureInfoObject contains information on the color temperature of ligh
     }
   }
 }
+
+// Example 2: An example used in the SetColorTemperatureConfirmation message
+{
+  "header": {
+    "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
+    "name": "SetColorTemperatureConfirmation",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+  	"colorTemperature": {
+  		"value": 3600
+  	}
+  }
+}
 ```
 
 {% endraw %}
@@ -637,11 +659,11 @@ ColorTemperatureInfoObject contains information on the color temperature of ligh
 ConsumptionInfoObject contains information on energy or resource measured by the appliance. The consumption information is displayed in two components: energy consumption amount and unit.
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:-------------:|
-| `name`        | string  | The name of item consuming energy or resource.                   | Required/Always  |
-| `unit`        | string  | Energy or resource consumption unit (e.g. kW for electricity)        | Required/Always  |
-| `value`       | number  | Energy or resource consumption amount.                    | Required/Always   |
+| `name`        | string  | The name of item consuming energy or resource.                   | Required  |
+| `unit`        | string  | Energy or resource consumption unit (e.g. kW for electricity)        | Required  |
+| `value`       | number  | Energy or resource consumption amount.                    | Required   |
 
 ### Object Example
 {% raw %}
@@ -671,9 +693,7 @@ ConsumptionInfoObject contains information on energy or resource measured by the
 {% endraw %}
 
 ### See also
-* [`GetCurrentBillRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentBillRequest)
 * [`GetCurrentBillResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentBillResponse)
-* [`GetEstimateBillRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateBillRequest)
 * [`GetEstimateBillResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateBillResponse)
 
 ## CustomCommandInfoObject {#CustomCommandInfoObject}
@@ -682,10 +702,10 @@ CustomCommandInfoObject contains information on custom commands. The object cont
 
 ### Object fields
 
-| Field name       | Data type    | Description                     | Required/Included |
+| Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:-------------:|
-| `name`        | string  | The name of the custom command.             | Required/Always      |
-| `actions[]`   | [ActionInforObject](#ActionInforObject) array | The list of appliance control actions to perform through the custom command.  | Required/Always  |
+| `name`        | string  | The name of the custom command.             | Required      |
+| `actions[]`   | [ActionInfobject](#ActionInfobject) array | The list of appliance control actions to perform through the custom command.  | Required  |
 
 ### Object Example
 {% raw %}
@@ -784,7 +804,7 @@ CustomCommandInfoObject contains information on custom commands. The object cont
 {% endraw %}
 
 ### See also
-* [ActionInforObject](#ActionInforObject)
+* [ActionInfobject](#ActionInfobject)
 * [`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DiscoverAppliancesResponse)
 
 ## CustomInfoObject {#CustomInfoObject}
@@ -792,11 +812,11 @@ CustomCommandInfoObject contains information on custom commands. The object cont
 CustomInfoObject contains information directly entered by the user such as customized name, required unit, or values. This object is used when the [shared objects](#SharedObjects) provided by default cannot express the object information or when providing all information of the appliance using the [`GetDeviceStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateResponse) message.
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:-------------:|
-| `name`        | string            | The customized name to indicate an appliance state or measurement target. When responding to the user, the state name entered in this field is output as speech. | Required/Always |
-| `value`       | number or string | The state value or measurement value.                                                                             | Required/Always |
-| `unit`        | string            | The value of the appliance state or the unit information of the measurement. This is omitted if the data type of the `value` field is a string and may have the following units if it is a numeric value.<ul><li><code>"celcius"</code>: Celsius</li><li><code>"percentage"</code>: Percentage</li></ul> | Optional/Conditional |
+| `name`        | string            | The customized name to indicate an appliance state or measurement target. When responding to the user, the state name entered in this field is output as speech. | Required |
+| `value`       | number or string | The state value or measurement value.                                                                             | Required |
+| `unit`        | string            | The value of the appliance state or the unit information of the measurement. This is omitted if the data type of the `value` field is a string and may have the following units if it is a numeric value.<ul><li><code>"celcius"</code>: Celsius</li><li><code>"percentage"</code>: Percentage</li></ul> | Optional |
 
 ### Object Example
 {% raw %}
@@ -836,7 +856,6 @@ CustomInfoObject contains information directly entered by the user such as custo
 {% endraw %}
 
 ### See also
-* [`GetDeviceStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateRequest)
 * [`GetDeviceStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateResponse)
 
 ## EndpointInfoObject {#EndpointInfoObject}
@@ -866,7 +885,7 @@ EndpointInfoObject contains information on the endpoint, which the target applia
 {% raw %}
 
 ```json
-// Example: An example used in the SetTargetTemperatureRequest message
+// Example 1: An example used in the SetTargetTemperatureRequest message
 {
   "header": {
     "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
@@ -887,22 +906,41 @@ EndpointInfoObject contains information on the endpoint, which the target applia
     }
   }
 }
+
+// Example 2: An example used in the SetTargetTemperatureConfirmation message
+{
+  "header": {
+    "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
+    "name": "SetTargetTemperatureConfirmation",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "targetTemperature": {
+      "value": 22
+    },
+    "endpoint": {
+      "value": "freezer"
+    }
+  }
+}
 ```
 
 {% endraw %}
 
 ### See also
+* [`SetTargetTemperatureConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetTargetTemperatureConfirmation)
 * [`SetTargetTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetTargetTemperatureRequest)
 
 ## ExpendableInfoObject {#ExpendableInfoObject}
 ExpendableInfoObject contains information on usage or remaining lifespan of device parts. This is used to indicate the usage amount of the appliance parts or their remaining lifespans.
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:-------------:|
-| `name`          | string  | The name of the part.                  | Required/Always |
-| `remainingTime` | string   | The remaining lifespan of the part. (Duration, <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>)    | Optional/Conditional |
-| `usage`         | [CustomInfoObject](#CustomInfoObject)          | The usage amount of the part (can be expressed as the number of uses or percentage of usage).      | Optional/Conditional |
+| `name`          | string  | The name of the part.                  | Required |
+| `remainingTime` | string   | The remaining lifespan of the part. (Duration, <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>)    | Optional |
+| `usage`         | [CustomInfoObject](#CustomInfoObject)          | The usage amount of the part (can be expressed as the number of uses or percentage of usage).      | Optional |
 
 ### Object Example
 {% raw %}
@@ -938,17 +976,16 @@ ExpendableInfoObject contains information on usage or remaining lifespan of devi
 {% endraw %}
 
 ### See also
-* [`GetExpendableStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetExpendableStateRequest)
 * [`GetExpendableStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetExpendableStateResponse)
 
 ## FineDustInfoObject {#FineDustInfoObject}
 FineDustInfoObject contains information on fine dust. This is used to indicate the fine dust index or level measured by the appliance. It is expressed as a number.
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | Fine dust index.                  | Optional/Conditional    |
-| `index`       | string  | Fine dust level. It is limited to the following values.<ul><li><code>"good"</code>: Good</li><li><code>"normal"</code>: Normal</li><li><code>"bad"</code>: Bad</li><li><code>"verybad"</code>: Very bad</li></ul> | Required/Always     |
+| `value`       | number  | Fine dust index.                  | Optional    |
+| `index`       | string  | Fine dust level. It is limited to the following values.<ul><li><code>"good"</code>: Good</li><li><code>"normal"</code>: Normal</li><li><code>"bad"</code>: Bad</li><li><code>"verybad"</code>: Very bad</li></ul> | Required     |
 
 ### Object Example
 {% raw %}
@@ -974,7 +1011,6 @@ FineDustInfoObject contains information on fine dust. This is used to indicate t
 {% endraw %}
 
 ### See also
-* [`GetFineDustRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetFineDustRequest)
 * [`GetFineDustResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetFineDustResponse)
 
 ## IntensityLevelInfoObject {#IntensityLevelInfoObject}
@@ -989,7 +1025,26 @@ IntensityLevelInfoObject contains information on pressure or water pressure inte
 {% raw %}
 
 ```json
-// Example: An example used in the IncrementIntensityLevelConfirmation message
+// Example 1: An example used in the IncrementIntensityLevelRequest message
+{
+  "header": {
+    "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
+    "name": "IncrementIntensityLevelRequest",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "accessToken": "92ebcb67fe33",
+    "appliance": {
+      "applianceId": "device-015"
+    },
+    "deltaIntensity": {
+      "value": 1
+    }
+  }
+}
+
+// Example 2: An example used in the IncrementIntensityLevelConfirmation message
 {
   "header": {
     "messageId": "be3dde71-84c0-48cf-80d8-440c1ede54d8",
@@ -1206,9 +1261,9 @@ ModeInfoObject contains information on the operation mode. This is used to indic
 HumidityInfoObject contains information on humidity. This is used to indicate the humidity condition measured by the appliance. It is expressed as a string.
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | Humidity (%)                      | Required/Always     |
+| `value`       | number  | Humidity (%)                      | Required     |
 
 ### Object Example
 {% raw %}
@@ -1233,7 +1288,6 @@ HumidityInfoObject contains information on humidity. This is used to indicate th
 {% endraw %}
 
 ### See also
-* [`GetHumidityRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetHumidityRequest)
 * [`GetHumidityResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetHumidityResponse)
 
 ## PeriodInfoObject {#PeriodInfoObject}
@@ -1242,16 +1296,16 @@ PeriodInfoObject contains information for periods used to retrieve measured data
 
 ### Object fields
 
-| Field name       | Data type    | Description                     | Required/Included |
+| Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:-------------:|
-| `end`         | string  | The end time of the period. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    | Required/Always      |
-| `start`       | string  | The start time of the period. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    | Required/Always      |
+| `end`         | string  | The end time of the period. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    | Always      |
+| `start`       | string  | The start time of the period. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    | Always      |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example: An example used in the GetUsageTimeRequest message
+// Example 1: An example used in the GetUsageTimeRequest message
 {
   "header": {
     "messageId": "59a3f5bc-4c38-4d4c-9b71-3a037bf9f9b0",
@@ -1283,15 +1337,15 @@ PhaseInfoObject contains information on the phase of device actions. This is use
 
 ### Object fields
 
-| Field name       | Data type    | Description                     | Required/Included |
+| Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | string  | The string to express the phase of action.        | Required/Always      |
+| `value`       | string  | The string to express the phase of action.        | Required      |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example 1: An example used in the GetPhaseResponse message
+// Example: An example used in the GetPhaseResponse message
 {
   "header": {
     "messageId": "b502dd42-b698-4d3b-9ddb-bbdda70f254f",
@@ -1306,44 +1360,27 @@ PhaseInfoObject contains information on the phase of device actions. This is use
     "applianceResponseTimestamp": "2017-11-23T20:30:19+09:00"
   }
 }
-
-// Example 2: An example used in the StopConfirmation message
-{
-  "header": {
-    "messageId": "a4349fd5-7c1c-4fae-9bbd-291749bdd63a",
-    "name": "StopConfirmation",
-    "namespace": "ClovaHome",
-    "payloadVersion": "1.0"
-  },
-  "payload": {
-    "phase": {
-      "value": "Wash"
-    }
-  }
-}
 ```
 
 {% endraw %}
 
 ### See also
-* [`GetPhaseRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetPhaseRequest)
 * [`GetPhaseResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetPhaseResponse)
 * [`StopConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#StopConfirmation)
-* [`StopRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#StopRequest)
 
 ## ProgressiveTaxBracketInfoObject {#ProgressiveTaxBracketInfoObject}
 ProgressiveTaxBracketInfoObject contains information on progressive tax brackets.
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | Progressive tax bracket                    | Required/Always     |
+| `value`       | number  | Progressive tax bracket                    | Required     |
 
 ### Object Example
 {% raw %}
 
 ```json
-// Example 1: An example used in the GetProgressiveTaxBracketResponse message
+// Example: An example used in the GetProgressiveTaxBracketResponse message
 {
   "header": {
     "messageId": "b502dd42-b698-4d3b-9ddb-bbdda70f254f",
@@ -1363,16 +1400,15 @@ ProgressiveTaxBracketInfoObject contains information on progressive tax brackets
 {% endraw %}
 
 ### See also
-* [`GetProgressiveTaxBracketRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetProgressiveTaxBracketRequest)
 * [`GetProgressiveTaxBracketResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetProgressiveTaxBracketResponse)
 
 ## SittingStateInfoObject {#SittingStateInfoObject}
 SittingStateInfoObject contains the sit-down information of the user on appliances such as a smart chair.
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | boolean | Sit-down state<ul><li><code>true</code>: A state of sitting down</li><li><code>false</code>: A state of not sitting down</li></ul>       | Required/Always     |
+| `value`       | boolean | Sit-down state<ul><li><code>true</code>: A state of sitting down</li><li><code>false</code>: A state of not sitting down</li></ul>       | Required    |
 
 ### Object Example
 {% raw %}
@@ -1402,16 +1438,15 @@ SittingStateInfoObject contains the sit-down information of the user on applianc
 {% endraw %}
 
 ### See also
-* [`GetCurrentSittingStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentSittingStateRequest)
 * [`GetCurrentSittingStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentSittingStateResponse)
 
 ## SleepScoreInfoObject {#SleepScoreInfoObject}
 SleepScoreInfoObject contains information on sleep score. When showing results over a period, this object holds the average value.
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | The sleep score.                     | Required/Always     |
+| `value`       | number  | The sleep score.                     | Required     |
 
 ### Object Example
 {% raw %}
@@ -1437,7 +1472,6 @@ SleepScoreInfoObject contains information on sleep score. When showing results o
 {% endraw %}
 
 ### See also
-* [`GetSleepScoreRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetSleepScoreRequest)
 * [`GetSleepScoreResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetSleepScoreResponse)
 
 ## SpeedInfoObject {#SpeedInfoObject}
@@ -1688,10 +1722,10 @@ TVChannelInfoObject contains information on a TV channel number. This is used to
 UltraFineDustInfoObject contains information on ultrafine dust. This is used to indicate the ultrafine dust index or the level measured by the appliance. It is expressed as a number.
 
 ### Object fields
-| Field name       | Data type    | Description                     | Required/Included |
+| Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | Ultrafine dust index.                | Optional/Conditional    |
-| `index`       | number  | Ultrafine dust level. It is limited to the following values.<ul><li><code>"good"</code>: Good</li><li><code>"normal"</code>: Normal</li><li><code>"bad"</code>: Bad</li><li><code>"verybad"</code>: Very bad</li></ul> | Required/Always     |
+| `value`       | number  | Ultrafine dust index.                | Optional    |
+| `index`       | number  | Ultrafine dust level. It is limited to the following values.<ul><li><code>"good"</code>: Good</li><li><code>"normal"</code>: Normal</li><li><code>"bad"</code>: Bad</li><li><code>"verybad"</code>: Very bad</li></ul> | Required     |
 
 ### Object Example
 {% raw %}
@@ -1717,7 +1751,6 @@ UltraFineDustInfoObject contains information on ultrafine dust. This is used to 
 {% endraw %}
 
 ### See also
-* [`GetUltraFineDustRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetUltraFineDustRequest)
 * [`GetUltraFineDustResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetUltraFineDustResponse)
 
 ## VolumeInfoObject {#VolumeInfoObject}

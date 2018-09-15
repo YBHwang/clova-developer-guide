@@ -296,7 +296,7 @@ BBQピザ1つ出前取ってくれる?
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",
@@ -340,7 +340,7 @@ BBQピザ1つ出前取ってくれる?
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",
@@ -521,6 +521,15 @@ Extensionでオーディオコンテンツを提供する場合、必ずClovaで
   <p><strong>注意</strong></p>
   <p>Clovaでサポートされていない音声圧縮形式でオーディオを提供すると、クライアントがオーディオを正常に再生できないおそれがあります。</p>
 </div>
+
+提供するオーディオコンテンツのタイプに応じて、以下のオーディオ属性とラウドネスに準拠することをお勧めします。
+
+| オーディオコンテンツのタイプ        | サンプリングレート、ビット深度、チャンネル | ラウドネス  | 備考                                     |
+|-----------------------|-------------------------|---------------|----------------------------------------|
+| 音楽                   | 44,100Hz / 16bit / ステレオ  | -10(±1) LUFS  | ビートボックス音楽の場合、-17(±1) LUFSに調整します。 |
+| 効果音       | 44,100Hz / 16bit / ステレオ  | -18(±1) LUFS  |                                         |
+| オーディオブック               | 44,100Hz / 16bit / ステレオ  | -12(±1) LUFS  |                                         |
+| アンビエントジャンルの音楽・音声  | 44,100Hz / 16bit / ステレオ  | -25(±1) LUFS  | 波の音、雨音のようなオーディオコンテンツです。コンテンツの特性に応じて、ラウドネス値を適切に調整する必要があります。 |
 
 ## 随時更新 {#ContinuousUpdate}
 

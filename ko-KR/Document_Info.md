@@ -21,6 +21,16 @@
   </thead>
   <tbody>
     <tr>
+      <td>v3.39.0</td><td>미적용</td><td>2018-09-07</td>
+      <td>
+        <ul>
+          <li>[Design] Extension 디자인 가이드라인의 <a href="/Design/Design_Guideline_For_Extension.html#SupportedAudioCompressionFormat">플랫폼 지원 오디오 압축 포맷</a>에 오디오 콘텐츠별 음질 관련 속성과 음량에 대한 권고 사항 추가</li>
+          <li>[공통] 예제 설명 중 "yourdomain.com"으로 표시된 예제를 문서 작성용 도메인 이름인 "example.com"으로 변경</li>
+          <li>[CIC] <a href="/CIC/Guides/ImplementClientFeatures/Handle_Alerts.html">알람 처리하기</a> 절의 링크 오류, 코드 예제 표기 오류 수정</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.38.0</td><td>미적용</td><td>2018-08-29</td>
       <td>
         <ul>

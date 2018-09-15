@@ -46,7 +46,7 @@ LaunchRequest 타입 메시지는 `request.type` 필드에 `"LaunchRequest"`라�
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",
@@ -104,7 +104,7 @@ IntentRequest 타입 메시지는 `request.type` 필드에 `"IntentRequest"`라�
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",
@@ -177,7 +177,7 @@ IntentRequest 타입 메시지는 `request.type` 필드에 `"IntentRequest"`라�
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",

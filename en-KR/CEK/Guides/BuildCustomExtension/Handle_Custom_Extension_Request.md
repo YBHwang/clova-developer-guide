@@ -18,13 +18,13 @@ The three types of requests and the user utterance patterns for each request typ
 
 <div class="note">
 <p><strong>Note!</strong></p>
-<p>The <a href="/CEK/References/CEK_API.html#CustomExtEventRequest"><code>EventRequest</code></a> request type is a message sent to the extension mainly due to a change in client state rather than user utterance. This request type is used to collect information on client state and in the response of the extension regarding the change in client state. It is also used when the extension <a href="/CEK/Guides/Build_Custom_Extension.html#ProvideAudioContent">provides audio content</a>. Therefore, <code>EventRequest</code> is not covered in this section.</p>
+<p><a href="/CEK/References/CEK_API.html#CustomExtEventRequest"><code>EventRequest</code></a> request type is a message sent to the extension mainly due to a change in client state rather than user utterance. This request type is used to collect information on client state and in the response of the extension regarding the change in client state. It is also used when the extension <a href="/CEK/Guides/Build_Custom_Extension.html#ProvideAudioContent">provides audio content</a>. Therefore, <code>EventRequest</code> is not covered in this section.</p>
 </div>
 
 ### Handling a LaunchRequest {#HandleLaunchRequest}
 [`LaunchRequest` type](/CEK/References/CEK_API.md#CustomExtLaunchRequest) request is used to declare that the user has requested to use a specific extension. For example, when the user makes a command, such as "Start Pizzabot" or "Open Pizzabot," CEK sends a `LaunchRequest` type request to the extension providing the pizza delivery service. Once the request is received, the extension must prepare to receive the next request of the user.
 
-In the LaunchRequest type message, the `request.type` field has a `"LaunchRequest"` value and the `request` field does not contain the analyzed information of the user utterance. The extension developer should develop the code so that the extension handles preparations for the service at the receipt of this message type or sends a [response message](#ReturnCustomExtensionResponse) to the user that the preparations for the services are complete.
+In the LaunchRequest type message, the `request.type` field has a `"LaunchRequest"` value and the `request` field does not contain the analyzed information of the user utterance. You must develop the extension so that it handles preparations for the service upon receiving this message type or sends a [response message](#ReturnCustomExtensionResponse) to the user informing them that the preparations for the service are complete.
 
 After receiving this message until receiving the [`SessionEndedRequest` type](#HandleSessionEndedRequest) request message, the extension will receive [`IntentRequest` type](#HandleIntentRequest) messages. The `session.sessionId` field will remain the same as the previous message.
 
@@ -46,7 +46,7 @@ Below is an example of a `LaunchRequest` type request message.
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",
@@ -82,7 +82,7 @@ The fields used in the example above represent the following information:
 
 ### Handling an IntentRequest {#HandleIntentRequest}
 
-[`IntentRequest` type](/CEK/References/CEK_API.md#CustomExtIntentRequest) of request is used by the CEK to send user requests to the extension based on the predefined [interaction model](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel). `IntentRequest` is sent to the extension when the user makes a command by specifying the extension invocation name or when the user makes a command without specifying the extension invocation name after the `LaunchRequest` is generated. For example, if the user says "Order a pizza from Pizzabot" or starts the service with another command and then says a command, like "Order pizza", CEK sends a `IntentRequest` type request to the extension providing the pizza delivery service. `IntentRequest` type request is also used when handling multi-turn dialogue requests as well as single-turn requests.
+[`IntentRequest` type](/CEK/References/CEK_API.md#CustomExtIntentRequest) of request is used by the CEK to send user requests to the extension based on the predefined [interaction model](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel). `IntentRequest` is sent to the extension when the user makes a command by specifying the extension invocation name or when the user makes a command without specifying the extension invocation name after the `LaunchRequest` is generated. For example, if the user says "Order a pizza from Pizzabot" or starts the service with another command then says something like "Order pizza," CEK sends an `IntentRequest` type request to the extension providing the pizza delivery service. `IntentRequest` type request is also used when handling multi-turn dialogue requests as well as single-turn requests.
 
 In the IntentRequest type message, the `request.type` field has a `"IntentRequest"` value. You can find the name of the called intent and the analysis of utterance information in the `request.intent` field. After handling the user request by analyzing this field, you can send the [response message](#ReturnCustomExtensionResponse).
 
@@ -104,7 +104,7 @@ Below is an example of a `IntentRequest` type request message.
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",
@@ -145,7 +145,7 @@ The fields used in the example above represent the following information:
 * `version`: The current version of the custom extension message format is v0.1.0.
 * `session`: As a **user request continued on the existing session**, this contains the ID of the existing session and user information (ID, accessToken).
 * `context`: Information on the client device containing device ID and basic user information.
-* `request`: As an `IntentRequest` type request, the [intent](/Design/Design_Guideline_For_Extension.md#Intent) registered with the name `"OrderPizza"` has been called. The `"pizzaType"` [slot](/Design/Design_Guideline_For_Extension.md#Slot) is sent together with the intent, as the required information, and holds the value called `"pepperoni"`.
+* `request`: As an `IntentRequest` type request, the [intent](/Design/Design_Guideline_For_Extension.md#Intent) registered with the name `"OrderPizza"` has been called. The `"pizzaType"` [slot](/Design/Design_Guideline_For_Extension.md#Slot) is sent together with the intent, as the required information, and holds a value called "pepperoni."
 
 <div class="note">
   <p><strong>Note!</strong></p>
@@ -154,7 +154,7 @@ The fields used in the example above represent the following information:
 
 ### Handling a SessionEndedRequest {#HandleSessionEndedRequest}
 
-[`SessionEndedRequest` type request](/CEK/References/CEK_API.md#CustomExtSessionEndedRequest) is used to declare that the user has requested to stop using a specific mode or customer extension. When the user makes a command like "Exit" or "Stop," the client stops using the extension and CEK sends a `SessionEndedRequest` type request to the extension providing the dialogue service.
+[`SessionEndedRequest` type request](/CEK/References/CEK_API.md#CustomExtSessionEndedRequest) is used to declare that the user has requested to stop using a specific mode or customer extension. When the user makes a command like "Exit" or "Stop," CEK sends a `SessionEndedRequest` type request to the extension providing the dialogue service.
 
 In the `SessionEndedRequest` type message, the `request.type` field has a `"SessionEndedRequest"` value and the `request` field does not contain the analyzed details of user utterance, like the `LaunchRequest` type. The extension developer can write the code used to exit the service.
 
@@ -177,7 +177,7 @@ Below is an example of a `SessionEndedRequest` type request message.
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",

@@ -105,7 +105,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",
@@ -152,7 +152,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",
@@ -201,7 +201,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",
@@ -241,7 +241,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",
@@ -773,7 +773,7 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 
 #### 次の項目も参照してください。
 * [Custom Extensionでレスポンスを返す](/CEK/Guides/Build_Custom_Extension.md#ReturnCustomExtensionResponse)
-* コンテンツテンプレート(準備中)
+* [コンテンツテンプレート](/CIC/References/Content_Templates.md)
 
 {% if book.TargetCountryCode == "JP" %}
 ## オーディオコンテンツ再生関連のCIC API {#CICAPIforAudioPlayback}
@@ -817,7 +817,7 @@ CIC APIは、ユーザーのクライアントデバイスがClovaと通信を�
 | `audioItem.titleText`     | string | 現在のオーディオコンテンツのタイトルを表すテキストフィールド                                                         |   |
 | `playBehavior`            | string | ディレクティブに含まれたオーディオストリームを、クライアントでいつ再生するかを指定するフィールド<ul><li><code>"REPLACE_ALL"</code>：再生キューをすべてクリアして、送信されたオーディオストリームをすぐに再生します。</li><li><code>"ENQUEUE"</code>：再生キューに、送信されたオーディオストリームを追加します。</li></ul> |  |
 | `source`                  | object | オーディオストリーミングサービスの提供元                                                    |  |
-| `source.logoUrl`          | string | オーディオストリーミングサービスのロゴ画像のURLこのフィールドまたはフィールドの値がなかったり、ロゴ画像を表示できない場合、`source.name`フィールド内のオーディオストリーミングサービスの名前を表示する必要があります。  | 条件付き |
+| `source.logoUrl`          | string | オーディオストリーミングサービスのロゴ画像のURL。このフィールドまたはフィールドの値がなかったり、ロゴ画像を表示できない場合、`source.name`フィールド内のオーディオストリーミングサービスの名前を表示する必要があります。  | 条件付き |
 | `source.name`             | string | オーディオストリーミングサービスの名前                                                        |  |
 
 ### 備考
@@ -1432,7 +1432,7 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
 | `playableItems[].titleText`        | string        | 現在のオーディオコンテンツのタイトルを表すテキストフィールド                                                         |   |
 | `playableItems[].token`            | string        | メディアコンテンツのトークン                                                                     |  |
 | `provider`                         | object        | メディアコンテンツ提供元の情報を持つオブジェクト                                                         | 条件付き |
-| `provider.logoUrl`                 | string        | メディアコンテンツ提供元のロゴ画像のURL                                                         | 条件付き |
+| `provider.logoUrl`                 | string        | メディアコンテンツ提供元のロゴ画像のURL。このフィールドまたはフィールドの値がなかったり、ロゴ画像を表示できない場合、`provider.name`フィールド内のメディアコンテンツ提供元の名前を表示する必要があります。 | 条件付き |
 | `provider.name`                    | string        | メディアコンテンツ提供元の名前                                                                   |   |
 | `provider.smallLogoUrl`            | string        | メディアコンテンツ提供元の小さなロゴ画像のURL                                                | 条件付き |
 

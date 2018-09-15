@@ -230,7 +230,7 @@ Call for one box of pepperoni pizza.
 I want one pepperoni pizza.
 ```
 
-If Clova learns with the above sample utterances where the value `"pepperoni"` and `"one"` is included in the user utterance, there is a higher possibility for the utterance to be recognized as the `OrderPizza` intent. For example, this means that an utterance that intends to check the menu, such as "How much is one pepperoni pizza?" is likely to be processed as a request to order pizza.
+If Clova learns with the above sample utterances, there is a higher possibility for an utterance that includes values "pepperoni" or "one" to be recognized as the `OrderPizza` intent. For example, this means that an utterance that intends to check the menu, such as "How much is one pepperoni pizza?" is likely to be processed as a request to order pizza.
 
 To prevent this, we recommend that you write writing sample utterances in the following format:
 
@@ -244,7 +244,7 @@ Get one shrimp gold-crust pizza.
 The above utterances are organized in the pattern of noun (pizza type), noun (quantity), and verb (intention), and it also includes commonly used prepositions, endings, adverbs, and interjections. Once you have used up all of the possible utterance patterns, you can reuse the patterns but change the slot values to meet the recommended number of utterance sentences. Add sample utterances by complying with the following details:
 * Add new sentences by changing the slot value used in the sample utterance.
 * Add new sentences by changing the style of the sentence, such as the use of prepositions, endings, adverbs, and interjections.
-* **Make sure to avoid repeated use of set combination values.** For example, the utterance "Order two boxes of pepperoni pizza." and "Please order just one pepperoni pizza for me." may have different endings, prepositions, and quantity values, but they have an overlapping combination of values `"pepperoni"` and `"order"`.
+* **Make sure to avoid repeated use of set combination values.** For example, the utterances "Order two boxes of pepperoni pizza." and "Please order just one pepperoni pizza for me." may have different endings, prepositions, and quantity values, but they have an overlapping combination of values "pepperoni" and "order."
 
 ```
 Quick, order 5 BBQs.
@@ -296,7 +296,7 @@ If you [register the interaction model] (/DevConsole/Guides/CEK/Register_Interac
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",
@@ -340,7 +340,7 @@ If you [register the interaction model] (/DevConsole/Guides/CEK/Register_Interac
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",
@@ -521,6 +521,15 @@ If audio content is provided by the extension, it must be in an audio compressio
   <p><strong>Caution!</strong></p>
   <p>If audio content is provided using an audio compression format not supported by Clova, the client may not be able to play it properly.</p>
 </div>
+
+It is recommended that you follow the sound attributes and loudness for each audio content type as shown in the table below.
+
+| Audio content type        | Sampling frequency, bit depth, and channel | Loudness  | Remark                                     |
+|-----------------------|-------------------------|--------------- |----------------------------------------|
+| Music                   | 44100 Hz, 16-bit, stereo  | -10(±1) LUFS  | -17(±1) LUFS for beat box music. |
+| Sound effect       | 44100 Hz, 16-bit, stereo  | -18(±1) LUFS  |                                         |
+| Audio book               | 44100 Hz, 16-bit, stereo  | -12(±1) LUFS  |                                         |
+| Music or sound in the ambient genre  | 44100 Hz, 16-bit, stereo  | -25(±1) LUFS  | Examples of this type of audio content are wave sounds or rain sounds. The loudness must be adjusted according to the characteristics of each content. |
 
 ## Continuous updates {#ContinuousUpdate}
 

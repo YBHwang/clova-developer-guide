@@ -1,0 +1,85 @@
+!include ../../../styles/PlantUML_StyleSheet.puml
+
+participant "クライアントアプリ\nまたはデバイス" as client #9EA0CA
+participant "Clova" as clova #05D686
+participant "Pizza-bot\nCustom extension" as ext #9EA0CA
+
+[->> client: ユーザーからの入力を受信する
+
+activate client
+  client ->> clova: 「ピザボットを起動して」
+  hnote over client, clova: Extensionを有効にする
+
+    activate clova
+      clova -> clova: ユーザーの発話を解析する\l(対話モデル)
+
+    group Session
+
+      group Initiation
+        clova ->> ext: LaunchRequestを送信する(HTTPリクエスト)
+
+        activate ext
+          ext -> ext: ユーザーのリクエストを処理する
+          ext -->> clova: レスポンスメッセージを送信する(HTTPレスポンス)
+        deactivate ext
+
+        clova -->> client: 「こんにちは。ピザボットです。\lどういったご用件ですか?」
+
+        deactivate clova
+
+      end
+
+  [->> client: ユーザーからの入力を受信する
+
+  client ->> clova: 「ペパロニピザを注文して」
+
+  activate clova
+    clova -> clova: ユーザーの発話を解析する\l(対話モデル)
+    clova ->> ext: IntentRequestを送信する(HTTPリクエスト)
+
+    activate ext
+      ext -> ext: ユーザーのリクエストを処理する
+      ext -->> clova: レスポンスメッセージを送信する(HTTPレスポンス)
+    deactivate ext
+
+    clova -->> client: 「何枚注文しますか?」
+
+  deactivate clova
+
+  [->> client: ユーザーからの入力を受信する
+
+  client ->> clova: 「2枚注文して」
+
+  activate clova
+    clova -> clova: ユーザーの発話を解析する\l(対話モデル)
+    clova ->> ext: IntentRequestを送信する(HTTPリクエスト)
+
+    activate ext
+      ext -> ext: ユーザーのリクエストを処理する
+      ext -->> clova: レスポンスメッセージを送信する(HTTPレスポンス)
+    deactivate ext
+
+    clova -->> client: 「配達先はどこにしますか?」
+
+  deactivate clova
+
+  group Termination
+
+    [->> client: ユーザーからの入力を受信する
+
+    client ->> clova: 「もう終了して」
+    hnote over client, clova: Extensionの使用を終了する
+
+    activate clova
+      clova -> clova: 「ユーザーの発話を解析する\n(対話モデル)」
+      clova ->> ext: SessionEndedRequestを送信する(HTTPリクエスト)
+    deactivate clova
+
+	activate ext
+		ext -> ext: 終了
+	activate ext
+	deactivate ext
+	deactivate ext
+  end
+
+end
