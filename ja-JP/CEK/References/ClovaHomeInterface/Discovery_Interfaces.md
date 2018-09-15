@@ -17,7 +17,7 @@ tags: ClovaHome
 
 | フィールド名       | データ型    | フィールドの説明                     | Optional |
 |---------------|---------|-----------------------------|:---------:|
-| `accessToken`   | string  | Clova Home Extensionのアクセストークン  |      |
+| `accessToken`   | string  | Clova Home Extensionのアクセストークン  |<!-- -->|
 
 ### Message example
 
@@ -47,8 +47,8 @@ tags: ClovaHome
 
 | フィールド名       | データ型    | フィールドの説明                     | Optional |
 |---------------|---------|-----------------------------|:---------:|
-| `customCommands[]`        | [CustomCommandInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#CustomCommandInfoObject) array  | ユーザーアカウントに登録されているカスタムコマンドのリストを持つオブジェクト配列   |      |
-| `discoveredAppliances[]`  | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) array          | ユーザーアカウントに登録されているデバイスを説明するオブジェクト配列          |     |
+| `customCommands[]`        | [CustomCommandInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#CustomCommandInfoObject) array  | ユーザーアカウントに登録されているカスタムコマンドのリストを持つオブジェクト配列   |<!-- -->|
+| `discoveredAppliances[]`  | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) array          | ユーザーアカウントに登録されているデバイスを説明するオブジェクト配列          |<!-- -->|
 
 ### 備考
 IoTサービスを提供する際、ユーザーアカウントに登録されているデバイスのリストを提供する必要があります。

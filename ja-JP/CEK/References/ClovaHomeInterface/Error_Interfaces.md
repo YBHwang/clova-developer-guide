@@ -5,19 +5,10 @@ tags: ClovaHome
 Clova Home ExtensionがCEKにエラーを返す際に使用されるインターフェースです。以下のエラーメッセージを使用できます。
 
 
-| メッセージ         | タイプ  | 説明                                   |
-|------------------|-----------|---------------------------------------------|
-| [`ConditionsNotMetError`](#ConditionsNotMetError)          | Error Response | エンドポイントが動作するための特定の条件(ステータス)が満たされていない場合、CEKにこのメッセージをレスポンスとして返します。 |
-| [`DeviceFailureError`](#DeviceFailureError)                | Error Response | エンドポイントに障害が発生した場合、CEKにこのメッセージをレスポンスとして返します。              |
-| [`DriverInternalError`](#DriverInternalError)              | Error Response | 内部エラーが発生した場合、CEKにこのメッセージをレスポンスとして返します。                |
-| [`ExpiredAccessTokenError`](#ExpiredAccessTokenError)      | Error Response | [アカウント連携](/CEK/Guides/Link_User_Account.md)の際、[認可サーバー](/CEK/Guides/Link_User_Account.md#BuildAuthServer)から発行されたアクセストークンが期限切れである場合、CEKにこのメッセージをレスポンスとして返します。  |
-| [`InvalidAccessTokenError`](#InvalidAccessTokenError)      | Error Response | ユーザーが使用中のアクセストークンに対する権限を解除した場合、CEKにこのメッセージをレスポンスとして返します。         |
-| [`NoSuchTargetError`](#NoSuchTargetError)                  | Error Response | エンドポイントが存在しない場合、このメッセージをレスポンスとして返します。                            |
-| [`NotSupportedInCurrentModeError`](#NotSupportedInCurrentModeError) | Error Response | エンドポイントの現在のモードでサポートされていないディレクティブを受信した場合、CEKにこのメッセージをレスポンスとして返します。  |
-| [`TargetOfflineError`](#TargetOfflineError)                | Error Response | エンドポイントがオフラインになっているため、アクセスできなかったことを示します。 |
+| メッセージ         | タイプ  | 説明                                   \|　\|------------------|-----------|---------------------------------------------\|　\| [`ConditionsNotMetError`](#ConditionsNotMetError)          | Error Response | エンドポイントが動作するための特定の条件(ステータス)が満たされていない場合、CEKにこのメッセージをレスポンスとして返します。 \|　\| [`DeviceFailureError`](#DeviceFailureError)                | Error Response | エンドポイントに障害が発生した場合、CEKにこのメッセージをレスポンスとして返します。              |　　| [`DriverInternalError`](#DriverInternalError)              | Error Response | 内部エラーが発生した場合、CEKにこのメッセージをレスポンスとして返します。                |
+| [`ExpiredAccessTokenError`](#ExpiredAccessTokenError)      | Error Response | [アカウント連携](/CEK/Guides/Link_User_Account.md)の際、[認可サーバー](/CEK/Guides/Link_User_Account.md#BuildAuthServer)から発行されたアクセストークンが期限切れである場合、CEKにこのメッセージをレスポンスとして返します。  \|　\| [`InvalidAccessTokenError`](#InvalidAccessTokenError)      | Error Response | ユーザーが使用中のアクセストークンに対する権限を解除した場合、CEKにこのメッセージをレスポンスとして返します。         \|　\| [`NoSuchTargetError`](#NoSuchTargetError)                  | Error Response | エンドポイントが存在しない場合、このメッセージをレスポンスとして返します。                            \|　\| [`NotSupportedInCurrentModeError`](#NotSupportedInCurrentModeError) | Error Response | エンドポイントの現在のモードでサポートされていないディレクティブを受信した場合、CEKにこのメッセージをレスポンスとして返します。  |　　| [`TargetOfflineError`](#TargetOfflineError)                | Error Response | エンドポイントがオフラインになっているため、アクセスできなかったことを示します。 |
 | [`UnsupportedOperationError`](#UnsupportedOperationError)  | Error Response | エンドポイントでサポートされないリクエストを示します。   |
-| [`ValueNotFoundError`](#ValueNotFoundError)                | Error Response | エンドポイントが測定値や状態値を測定したりまたは保存したりすることができず、リクエストされた値を提供できない場合、CEKにこのメッセージをレスポンスとして返します。  |
-| [`ValueOutOfRangeError`](#ValueOutOfRangeError)            | Error Response | エンドポイントが処理できる範囲外の値を設定しようとするリクエストを示します。 |
+| [`ValueNotFoundError`](#ValueNotFoundError)                | Error Response | エンドポイントが測定値や状態値を測定したりまたは保存したりすることができず、リクエストされた値を提供できない場合、CEKにこのメッセージをレスポンスとして返します。  \|　\| [`ValueOutOfRangeError`](#ValueOutOfRangeError)            | Error Response | エンドポイントが処理できる範囲外の値を設定しようとするリクエストを示します。 |
 
 <div class="note">
 <p><strong>メモ</strong></p>
@@ -31,7 +22,7 @@ Clova Home ExtensionがCEKにエラーを返す際に使用されるインター
 
 | フィールド名       | データ型    | フィールドの説明                     | Optional |
 |---------------|---------|-----------------------------|:---------:|
-| `state`       | string  | 満たされていない条件や状態を表す値。このフィールドはユーザーにTTSとして再生されるので、ユーザーにとってわかりやすい言葉で作成される必要があります。以下のように、ユーザーに現在の状況をレポートします。<pre><code>{デバイス}の{state}状態ではサポートしていない機能です。確認してから、再度試してください。</code></pre>  |     |
+| `state`       | string  | 満たされていない条件や状態を表す値。このフィールドはユーザーにTTSとして再生されるので、ユーザーにとってわかりやすい言葉で作成される必要があります。以下のように、ユーザーに現在の状況をレポートします。<pre><code>{デバイス}の{state}状態ではサポートしていない機能です。確認してから、再度試してください。</code></pre>  \|　\|
 
 ### 備考
 * エラーが発生した場合にも、エラーメッセージはリクエスト成功のHTTPレスポンス(200 OK)でCEKに返す必要があります。
@@ -340,8 +331,8 @@ Clova Home ExtensionがCEKにエラーを返す際に使用されるインター
 
 | フィールド名       | データ型    | フィールドの説明                     | Optional |
 |---------------|---------|-----------------------------|:---------:|
-| `maximumValue` | number | エンドポイントでサポートされる最大値 |     |
-| `minimumValue` | number | エンドポイントでサポートされる最小値 |     |
+| `maximumValue` | number | エンドポイントでサポートされる最大値 |<!-- -->|
+| `minimumValue` | number | エンドポイントでサポートされる最小値 |<!-- -->|
 
 ### 備考
 * エラーが発生した場合にも、エラーメッセージはリクエスト成功のHTTPレスポンス(200 OK)でCEKに返す必要があります。
