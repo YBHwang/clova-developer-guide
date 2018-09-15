@@ -1777,7 +1777,7 @@ PM2.5の情報を持っているオブジェクトです。エンドポイント
 * [`GetUltraFineDustResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetUltraFineDustResponse)
 
 ## VolumeInfoObject {#VolumeInfoObject}
-スピーカーの音量情報を持っているオブジェクトです。調整する音量や調整前後の音量を示します。整水で表されます。
+スピーカーの音量情報を持っているオブジェクトです。調整する音量や調整前後の音量を示します。整数で表されます。
 
 ### Object fields
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
