@@ -45,7 +45,7 @@ tags: ClovaHome
 | `applianceId` | string  | エンドポイントのID                      | 必須/常時     |
 | `action`      | string  | エンドポイントの制御動作動作のリストについては、[ApplianceInfoObject](#ApplianceInfoObject)の[Actions](#Actions)項目を参照してください。     | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -153,7 +153,7 @@ tags: ClovaHome
 |---------------|---------|-----------------------------|:-------------:|
 | `index`       | string  | 空気質の指数。次のいずれかの値を持ちます。<ul><li><code>"good"</code>：良い</li><li><code>"normal"</code>：普通</li><li><code>"bad"</code>：悪い</li><li><code>"verybad"</code>：非常に悪い</li></ul> | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -336,7 +336,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 
 {% include "/CEK/References/ClovaHomeInterface/Location.md" %}
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -421,7 +421,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | バッテリー残量(%)                 | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -472,7 +472,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 | `currency`    | string  | 通貨単位(<a href="https://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO 4217</a>)  | 必須/常時 |
 | `value`       | number  | 料金の金額                    | 必須/常時   |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -510,7 +510,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | 輝度(%)                      | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -574,7 +574,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 | `hue`         | number  | 色相(0~360)                  | 必須/常時 |
 | `saturation`  | number  | 彩度(0~100)                  | 必須/常時 |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -614,7 +614,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | 色温度(K、ケルビン)             | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -654,7 +654,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 | `unit`        | string  | エネルギーまたはリソースの使用単位(例、電気：kW)        | 必須/常時  |
 | `value`       | number  | エネルギーまたはリソースの使用値                    | 必須/常時   |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -696,7 +696,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 |---------------|---------|-----------------------------|:-------------:|
 | `value`             | number  | テレビのチャンネル番号                      | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -736,7 +736,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 | `name`        | string  | カスタムコマンドの名前。             | 必須/常時      |
 | `actions[]`   | [ActionInforObject](#ActionInforObject) array | カスタムコマンドで処理するエンドポイント制御動作のリスト  | 必須/常時  |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -847,7 +847,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 | `value`       | numberまたはstring | ステータス値または測定値                                                                             | 必須/常時 |
 | `unit`        | string            | エンドポイントのステータス値または測定値の単位。`value`フィールドの型がstringの場合には省略され、numberの場合には次の値を持ちます。<ul><li><code>"celcius"</code>：摂氏温度</li><li><code>"percentage"</code>：パーセント</li></ul> | 任意/条件付き |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -898,7 +898,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 | `remainingTime` | string   | 消耗品の残り寿命(継続時間、<a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>)    | 任意/条件付き |
 | `usage`         | [CustomInfoObject](#CustomInfoObject)          | 消耗品の使用量(回数またはパーセントで表す)      | 任意/条件付き |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -944,7 +944,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 | `value`       | number  | PM10指数                  | 任意/条件付き    |
 | `index`       | string  | PM10レベル次のいずれかの値を持ちます。<ul><li><code>"good"</code>：良い</li><li><code>"normal"</code>：普通</li><li><code>"bad"</code>：悪い</li><li><code>"verybad"</code>：非常に悪い</li></ul> | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -979,7 +979,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | 圧力/水圧の強度            | 任意/条件付き    |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1134,7 +1134,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
   </tdoby>
 </table>
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1206,7 +1206,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | 湿度(%)                      | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1243,7 +1243,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 | `end`         | string  | 期間の終了日時(タイムスタンプ、<a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    | 必須/常時      |
 | `start`       | string  | 期間の開始日時(タイムスタンプ、<a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    | 必須/常時      |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1283,7 +1283,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | string  | 動作の段階を表す文字列        | 必須/常時      |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1335,7 +1335,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | 累進税の段階                    | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1370,7 +1370,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | boolean | 着席状態<ul><li><code>true</code>：着席中</li><li><code>false</code>：着席中ではない</li></ul>       | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1409,7 +1409,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | 睡眠スコア                     | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1444,7 +1444,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | 速度の値                       | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1506,7 +1506,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | 温度の値                       | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1576,7 +1576,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | string  | テレビのチャンネル名                  | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1629,7 +1629,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 |---------------|---------|-----------------------------|:-------------:|
 | `value`             | number  | テレビのチャンネル番号                      | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1692,7 +1692,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | string  | テレビの入力ソース名	                  | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1746,7 +1746,7 @@ PM2.5の情報を持っているオブジェクトです。エンドポイント
 | `value`       | number  | PM2.5指数                | 任意/条件付き    |
 | `index`       | number  | PM2.5レベル次のいずれかの値を持ちます。<ul><li><code>"good"</code>：良い</li><li><code>"normal"</code>：普通</li><li><code>"bad"</code>：悪い</li><li><code>"verybad"</code>：非常に悪い</li></ul> | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1781,7 +1781,7 @@ PM2.5の情報を持っているオブジェクトです。エンドポイント
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | 音量の値                       | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
