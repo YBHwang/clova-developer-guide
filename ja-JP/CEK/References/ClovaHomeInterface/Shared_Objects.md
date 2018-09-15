@@ -486,8 +486,8 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
   },
   "payload": {
     "currentBill": {
-        "value": 29900,
-        "currency": "KRW"
+        "value": 2990,
+        "currency": "JPY"
     },
     "applianceResponseTimestamp": "2017-11-23T20:30:54+09:00"
   }

@@ -1465,8 +1465,8 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
   },
   "payload": {
     "currentBill": {
-        "value": 29900,
-        "currency": "KRW"
+        "value": 2990,
+        "currency": "JPY"
     },
     "applianceResponseTimestamp": "2017-11-23T20:30:54+09:00"
   }
@@ -1692,8 +1692,8 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
   },
   "payload": {
     "estimateBill": {
-        "value": 60000,
-        "currency": "KRW"
+        "value": 6000,
+        "currency": "JPY"
     },
     "applianceResponseTimestamp": "2017-11-23T20:30:54+09:00"
   }
