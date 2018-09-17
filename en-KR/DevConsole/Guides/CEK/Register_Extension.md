@@ -52,7 +52,7 @@ Once you complete entering the basic extension information, you will be directed
 
 ## Setting a server connection {#SetServerConnection}
 
-The extension will make an HTTPS connection to the CEK. Here, the CEK sends an HTTP request to the extension and the extension sends an HTTP response to the CEK. In order for the CEK to send an HTTP request to the extension, you must set up a server connection from the Clova developer console. You can set up a server connection after you [enter the basic extension information](#InputExtensionInfo) for the created extension.
+The extension will make an HTTPS connection to CEK. Here, CEK sends an HTTP request to the extension and the extension sends an HTTP response to CEK. In order for CEK to send an HTTP request to the extension, you must set up a server connection from the Clova developer console. You can set up a server connection after you [enter the basic extension information](#InputExtensionInfo) for the created extension.
 
 Make sure to check whether a connection with the extension server is available before registering the extension server. You can check the connection state using a simple curl command as shown in the example below.
 

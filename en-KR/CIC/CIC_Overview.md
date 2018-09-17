@@ -11,7 +11,7 @@ Clients use the CIC API to send user requests to CIC and also to receive respons
 
 Through the CIC API, various communications are made between clients and CIC in the form of messages. The message type depends on who the message sender is as follows.
 
-* [Event](/CIC/References/CIC_API.md#Event): Messages that clients send to CIC. Send events to CIC to pass users voice requests (speech input) to CIC and to notify CIC when your client states have changed.
+* [Event](/CIC/References/CIC_API.md#Event): Messages that clients send to CIC. Send events to CIC to pass user voice requests (speech input) to CIC and to notify CIC when your client states have changed.
 
 * [Directive](/CIC/References/CIC_API.md#Directive): Messages that CIC sends to clients to control client behavior. For example, a directive can instruct an app to display certain information or play synthesized speech. Directives are sent to clients when:
     * Responding to user requests. After recognizing user voice request (user intent), CIC returns directives to instruct clients to perform certain actions relevant to the user intent.
