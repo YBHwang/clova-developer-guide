@@ -3,7 +3,7 @@
 
 | 객체 이름            | 객체 설명                                            |
 |--------------------|---------------------------------------------------|
-| [ActionInfobject](#ActionInfobject)                   | 기기 제어 동작 정보가 담긴 객체  |
+| [ActionInfoObject](#ActionInfoObject)                   | 기기 제어 동작 정보가 담긴 객체  |
 | [AirQualityInfoObject](#AirQualityInfoObject)             | 공기질 정보가 담긴 객체            |
 | [ApplianceInfoObject](#ApplianceInfoObject)               | IoT 기기의 정보가 담긴 객체        |
 | [BatteryInfoObject](#BatteryInfoObject)                   | 배터리 정보가 담긴 객체            |
@@ -32,7 +32,7 @@
 | [UltraFineDustInfoObject](#UltraFineDustInfoObject)       | 초미세 먼지 정보가 담긴 객체         |
 | [VolumeInfoObject](#VolumeInfoObject)                     | 볼륨 정보를 담고 있는 객체          |
 
-## ActionInfobject {#ActionInfobject}
+## ActionInfoObject {#ActionInfoObject}
 기기 제어 동작 정보가 담긴 객체로써 하나의 기기에 하나의 동작을 수행하는 명령을 표현합니다.
 
 ### Object fields
@@ -705,7 +705,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 | 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:-------------:|
 | `name`        | string  | 사용자 정의 명령의 이름.             | 필수      |
-| `actions[]`   | [ActionInfobject](#ActionInfobject) array | 사용자 정의 명령을 통해 수행할 기기 제어 동작 목록  | 필수  |
+| `actions[]`   | [ActionInfoObject](#ActionInfoObject) array | 사용자 정의 명령을 통해 수행할 기기 제어 동작 목록  | 필수  |
 
 ### Object Example
 {% raw %}
@@ -804,7 +804,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 {% endraw %}
 
 ### See also
-* [ActionInfobject](#ActionInfobject)
+* [ActionInfoObject](#ActionInfoObject)
 * [`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DiscoverAppliancesResponse)
 
 ## CustomInfoObject {#CustomInfoObject}
