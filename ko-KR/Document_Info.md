@@ -25,6 +25,7 @@
       <td>
         <ul>
           <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">지원 기기</a> 설명 중 Actions 항목에 빠진 동작(GetCleaningCycle, GetOpenState, ReleaseMode)을 추가</li>
+          <li>[Common] 일부 사용자 접점에 있는 Extension 표기를 Skill로 변경</li>
         </ul>
       </td>
     </tr>
