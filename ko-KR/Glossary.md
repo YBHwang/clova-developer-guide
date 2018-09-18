@@ -28,7 +28,7 @@ Clova 플랫폼과 연동하는 클라이언트 기기나 [Clova extension](#Clo
 * Clova 서비스 관련 통계 자료 제공 (추후 제공 예정)
 
 ### Clova extension {#ClovaExtension}
-음악, 쇼핑, 금융 등과 같은 외부 서비스(3rd party service)나 집안의 IoT 기기 제어 등 사용자가 Clova를 통해 다양한 경험을 제공받을 수 있도록 Clova에게 확장된 기능을 제공하는 웹 애플리케이션입니다. 일반적으로 extension이라 부르며, Clova 플랫폼은 현재 다음과 같은 두 종류의 Clova extension을 지원 및 제공하고 있습니다. 일반 사용자에게는 "확장 서비스"라는 표현으로 제공됩니다.
+음악, 쇼핑, 금융 등과 같은 외부 서비스(3rd party service)나 집안의 IoT 기기 제어 등 사용자가 Clova를 통해 다양한 경험을 제공받을 수 있도록 Clova에게 확장된 기능을 제공하는 웹 애플리케이션입니다. 일반적으로 extension이라 부르며, Clova 플랫폼은 현재 다음과 같은 두 종류의 Clova extension을 지원 및 제공하고 있습니다. 일반 사용자에게는 "skill"이라는 표현으로 제공됩니다.
 * [Custom extension](#CustomExtension)
 * [Clova Home extension](#ClovaHomeExtension)
 
@@ -72,14 +72,6 @@ Downchannel은 클라이언트가 [Clova Interface Connect](#CIC)로부터 지�
 ### Extension {#Extension}
 [Clova extension](#ClovaExtension)의 다른 표현
 
-### Skill Store {#SkillStore}
-
-Skill이 사용자에게 제공될 수 있도록 만든 플랫폼입니다.
-
-### Skill Store 홈 {#SkillStoreHome}
-
-Skill Store에 등록된 skill이 표시되는 페이지입니다. Clova 앱의 **확장 서비스 관리** 메뉴를 지칭하는 용어입니다.
-
 ### Extension 페이지 {#ExtensionPage}
 
 Skill Store 홈 (**확장 서비스 관리** 메뉴)에서 특정 extension을 선택했을 때 표시되는 페이지로 extension에 대한 자세한 설명을 제공하는 페이지입니다.
@@ -108,7 +100,15 @@ Intent는 Clova extension이 처리할 사용자의 요청을 구별한 범주�
 
 ### Skill {#Skill}
 
-Clova가 제공하는 확장 기능을 의미합니다. Skill을 사용자에게 제공하려면 [Clova extension](#ClovaExtension)을 개발해야 합니다.
+Clova가 제공하는 사용자에게 제공하는 확장 기능이나 서비스 등을 의미합니다. Skill을 사용자에게 제공하려면 [Clova extension](#ClovaExtension)을 개발해야 합니다.
+
+### Skill Store {#SkillStore}
+
+Skill이 사용자에게 제공될 수 있도록 만든 플랫폼입니다.
+
+### Skill Store 홈 {#SkillStoreHome}
+
+Skill Store에 등록된 skill이 표시되는 페이지입니다. Clova 앱의 **확장 서비스 관리** 메뉴를 지칭하는 용어입니다.
 
 ### Slot {#Slot}
 [Intent](#Intent)에 선언된 요청을 처리할 때 필요한 정보이며, intent를 정의할 때 함께 정의해야 합니다. Clova는 사용자 요청을 분석한 후 slot에 해당하는 정보를 추출하게 됩니다. 자세한 내용은 [interaction 모델 정의](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel)를 참조합니다.

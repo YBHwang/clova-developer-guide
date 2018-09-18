@@ -86,7 +86,7 @@ Extension의 [배포 정보](#InputDeploymentInfo)와 [개인 정보 보호 및 
   <p>심사 중에는 extension의 정보와 interaction 모델을 수정할 수 없습니다.</p>
 </div>
 
-심사는 개별 심사로 진행되며 심사를 위한 별도 환경에서 진행됩니다. 만약, [사용자 계정 연결](/CEK/Guides/Link_User_Account.md)이 필요한 서비스이면 [배포 정보를 입력](#InputDeploymentInfo)할 때 테스트를 위한 계정 정보를 **{{ book.DevConsole.cek_test_instructions }}** 항목에 입력해야 합니다.
+Skill 심사는 Skill Store에 반영하기 전에 진행되며 심사를 위한 별도 환경에서 진행됩니다. 만약, [사용자 계정 연결](/CEK/Guides/Link_User_Account.md)이 필요한 서비스이면 [배포 정보를 입력](#InputDeploymentInfo)할 때 테스트를 위한 계정 정보를 **{{ book.DevConsole.cek_test_instructions }}** 항목에 입력해야 합니다.
 
 Extension을 심사할 때 살펴보는 기본 평가 항목은 다음과 같습니다.
 
@@ -95,13 +95,13 @@ Extension을 심사할 때 살펴보는 기본 평가 항목은 다음과 같습
   * 시나리오 상 사용되는 발화 데이터에 금칙어, 민감어 등이 있는지 확인합니다.
   * [콘텐츠 제공 시 준수 사항](/Design/Design_Guideline_For_Extension.md#ContentGuideline)을 지켰는지 확인합니다.
   * Extension이 [사용자 계정을 연결](/CEK/Guides/Link_User_Account.md)한다면 서비스에 특화된 부분을 더 검토할 수 있습니다.
-* Extension의 동작 검증
+* Skill의 동작 검증
   * Extension이 서비스에 적합한 용어를 사용하고 있는지 확인합니다.
   * Intent, slot 등 interaction 모델을 검증합니다.
-  * Extension [세부 목표](/Design/Design_Guideline_For_Extension.md#SettingGoal)에 부합되는 서비스를 제공하고 있는지 확인합니다.
+  * Skill [세부 목표](/Design/Design_Guideline_For_Extension.md#SettingGoal)에 부합되는 서비스를 제공하고 있는지 확인합니다.
 * 배포 정보 검증
   * Extension의 설명, 카테고리, 검색 키워드와 같이 입력된 배포 정보가 extension에 맞게 입력되었는지 확인합니다.
-  * Extension이 개인 정보 관리 규정 등 입력된 정책에 맞게 동작하는지 확인합니다.
+  * Skill이 개인 정보 관리 규정 등 입력된 정책에 맞게 동작하는지 확인합니다.
 
 심사 중에 **{{ book.DevConsole.cek_cancel_review }}** 메뉴를 클릭하면 언제든지 심사 신청을 취소할 수 있습니다. 심사 신청을 취소하면 이전 상태로 돌아갑니다.
 

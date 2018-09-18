@@ -32,7 +32,7 @@ Extension을 등록하는 과정에서 가장 먼저 할 일은 등록할 extens
 <ol>
   <li><strong>{{ book.DevConsole.cek_type }}</strong> 항목에서 등록할 extension의 타입을 선택합니다. Extension 타입을 선택하면 그에 해당하는 입력 필드가 추가로 나타납니다.</li>
   <li><strong>{{ book.DevConsole.cek_lang }}</strong> 항목에서 extension에서 사용할 언어를 선택합니다. 현재 <strong>{{ book.DevConsole.ko_KR }}</strong>만 지원하고 있습니다.</li>
-  <li>Extension의 ID, 이름, 호출 이름에 해당하는 정보를 다음 항목에 입력합니다.
+  <li>Extension의 ID, <strong>Skill 이름</strong>, <strong>호출 이름</strong>에 해당하는 정보를 다음 항목에 입력합니다.
     <ol>
       <li><strong>{{ book.DevConsole.cek_id }}</strong>: Extension의 고유 ID입니다. Reverse domain name 표기 형식(예: com.example.extension.pizzabot)으로 입력합니다.</li>
       <li><strong>{{ book.DevConsole.cek_name }}</strong>: Extension의 이름입니다. 추후 Clova Skill Store에 노출됩니다.</li>
