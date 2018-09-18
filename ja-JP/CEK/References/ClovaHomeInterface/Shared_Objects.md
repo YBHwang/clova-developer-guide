@@ -43,7 +43,7 @@ tags: ClovaHome
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
 | `applianceId` | string  | エンドポイントのID                      | 必須/常時     |
-| `action`      | string  | エンドポイントの制御動作動作のリストについては、[ApplianceInfoObject](#ApplianceInfoObject)の[Actions](#Actions)項目を参照してください。     | 必須/常時     |
+| `action`      | string  | エンドポイントの制御動作。動作のリストについては、[ApplianceInfoObject](#ApplianceInfoObject)の[Actions](#Actions)項目を参照してください。     | 必須/常時     |
 
 ### Object example
 {% raw %}
@@ -186,7 +186,7 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
 | `actions[]`                  | string array  | エンドポイントでサポートされている動作のリスト。クライアントは、ユーザーがIoTデバイスを操作する際、エンドポイントでサポートされている動作の範囲内でリクエストするように案内する必要があります。 | 任意/常時    |
-| `actionsNeededUserConfirmation[]`  | string array  | ユーザへの動作確認が必要な動作のリスト。`actions` フィールドに指定されている値のうち、`TurnOn`、`TurnOff`、`SetMode` を指定できます。ここに指定された動作のリクエストを行う前に、ユーザに対して、例えば「エアコンをつけても良いですか？」のような確認を行います。 | 任意/条件付    |
+| `actionsNeededUserConfirmation[]`  | string array  | ユーザーへの動作確認が必要な動作のリスト。`actions` フィールドに指定されている値のうち、`TurnOn`、`TurnOff`、`SetMode` を指定できます。ここに指定された動作のリクエストを行う前に、ユーザーに対して、例えば「エアコンをつけても良いですか？」のような確認を行います。 | 任意/条件付    |
 | `additionalApplianceDetails` | object        | メーカーまたはIoTサービスが提供する追加情報を持っているフィールド                                 | 任意/条件付き    |
 | `applianceId`                | string        | エンドポイントのID                                                                        | 必須/常時    |
 | `applianceTypes[]`           | string array  | エンドポイントのタイプ。`applicationType`によって、そのエンドポイントでサポートされている動作を示す`actions`フィールドの値が異なります。IoTサービスでユーザーアカウントに登録されているエンドポイントのタイプを、次のいずれかに指定する必要があります。備考を参考にして、エンドポイントのタイプを入力します。                                                                              | 必須/常時    |
@@ -736,7 +736,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `name`        | string  | カスタムコマンドの名前。             | 必須/常時      |
+| `name`        | string  | カスタムコマンドの名前             | 必須/常時      |
 | `actions[]`   | [ActionInforObject](#ActionInforObject) array | カスタムコマンドで処理するエンドポイント制御動作のリスト  | 必須/常時  |
 
 ### Object example
@@ -945,7 +945,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | PM10指数                  | 任意/条件付き    |
-| `index`       | string  | PM10レベル次のいずれかの値を持ちます。<ul><li><code>"good"</code>：良い</li><li><code>"normal"</code>：普通</li><li><code>"bad"</code>：悪い</li><li><code>"verybad"</code>：非常に悪い</li></ul> | 必須/常時     |
+| `index`       | string  | PM10レベル。次のいずれかの値を持ちます。<ul><li><code>"good"</code>：良い</li><li><code>"normal"</code>：普通</li><li><code>"bad"</code>：悪い</li><li><code>"verybad"</code>：非常に悪い</li></ul> | 必須/常時     |
 
 ### Object example
 {% raw %}
@@ -1747,7 +1747,7 @@ PM2.5の情報を持っているオブジェクトです。エンドポイント
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | PM2.5指数                | 任意/条件付き    |
-| `index`       | number  | PM2.5レベル次のいずれかの値を持ちます。<ul><li><code>"good"</code>：良い</li><li><code>"normal"</code>：普通</li><li><code>"bad"</code>：悪い</li><li><code>"verybad"</code>：非常に悪い</li></ul> | 必須/常時     |
+| `index`       | number  | PM2.5レベル。次のいずれかの値を持ちます。<ul><li><code>"good"</code>：良い</li><li><code>"normal"</code>：普通</li><li><code>"bad"</code>：悪い</li><li><code>"verybad"</code>：非常に悪い</li></ul> | 必須/常時     |
 
 ### Object example
 {% raw %}

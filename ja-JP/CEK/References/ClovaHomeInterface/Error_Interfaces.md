@@ -12,7 +12,7 @@ Clova Home ExtensionがCEKにエラーを返す際に使用されるインター
 | [`DriverInternalError`](#DriverInternalError)             | Error Response | 内部エラーが発生した場合、CEKにこのメッセージをレスポンスとして返します。                |
 | [`ExpiredAccessTokenError`](#ExpiredAccessTokenError)     | Error Response | [アカウント連携](/CEK/Guides/Link_User_Account.md)の際、[認可サーバー](/CEK/Guides/Link_User_Account.md#BuildAuthServer)から発行されたアクセストークンが期限切れである場合、CEKにこのメッセージをレスポンスとして返します。  |
 | [`InvalidAccessTokenError`](#InvalidAccessTokenError)     | Error Response | ユーザーが使用中のアクセストークンに対する権限を解除した場合、CEKにこのメッセージをレスポンスとして返します。         |
-| [`NoSuchTargetError`](#NoSuchTargetError)                 | Error Response | エンドポイントが存在しない場合、このメッセージをレスポンスとして返します。                            |
+| [`NoSuchTargetError`](#NoSuchTargetError)                 | Error Response | エンドポイントが存在しない場合、CEKにこのメッセージをレスポンスとして返します。                            |
 | [`NotSupportedInCurrentModeError`](#NotSupportedInCurrentModeError) | Error Response | エンドポイントの現在のモードでサポートされていないディレクティブを受信した場合、CEKにこのメッセージをレスポンスとして返します。  |
 | [`TargetOfflineError`](#TargetOfflineError)               | Error Response | エンドポイントがオフラインになっているため、アクセスできなかったことを示します。 |
 | [`UnsupportedOperationError`](#UnsupportedOperationError) | Error Response | エンドポイントでサポートされないリクエストを示します。   |

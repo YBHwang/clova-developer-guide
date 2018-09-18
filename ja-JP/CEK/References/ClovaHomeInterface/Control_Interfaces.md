@@ -41,6 +41,8 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 | [`GetConsumptionResponse`](#GetConsumptionResponse)                           | Response | [`GetConsumptionRequest`](#GetConsumptionRequest)メッセージに対するレスポンスです。現在まで測定されたエネルギーまたはリソースの情報をCEKに返します。  |
 | [`GetCurrentBillRequest`](#GetCurrentBillRequest)                             | Request  | 主にスマートプラグやスマートテーブルタップのようなデバイスで測定された、現在までのエネルギー使用量に基づいた利用料金を確認する際に使用します。測定された料金情報をClova Home Extensionにリクエストします。  |
 | [`GetCurrentBillResponse`](#GetCurrentBillResponse)                           | Response | [`GetCurrentBillRequest`](#GetCurrentBillRequest)メッセージに対するレスポンスです。現在まで測定された料金情報をCEKに返します。   |
+| [`GetCurrentSittingStateRequest`](#GetCurrentSittingStateRequest)             | Request  | スマートチェアなどのデバイスで、ユーザーの使用状況を確認する際に使用します。デバイスで検知されたユーザーの着席情報と、直近でユーザーがデバイスを使用した時間の情報をClova Home Extensionにリクエストします。  |
+| [`GetCurrentSittingStateResponse`](#GetCurrentSittingStateResponse)           | Response | [`GetCurrentSittingStateRequest`](#GetCurrentSittingStateRequest)メッセージに対するレスポンスです。デバイスで検知されたユーザーの着席情報と、直近でユーザーがデバイスを使用した時間の情報をCEKに返します。  |
 | [`GetCurrentTemperatureRequest`](#GetCurrentTemperatureRequest)               | Request  | 現在の温度をClova Home Extensionにリクエストします。 |
 | [`GetCurrentTemperatureResponse`](#GetCurrentTemperatureResponse)             | Response | [`GetCurrentTemperatureRequest`](#GetCurrentTemperatureRequest)メッセージに対するレスポンスです。デバイスで測定された現在の温度をCEKに返します。 |
 | [`GetDeviceStateRequest`](#GetDeviceStateRequest)                             | Request  | デバイスが提供するすべてのステータス情報を確認する際に使用します。  |
@@ -69,8 +71,6 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 | [`GetRemainingTimeResponse`](#GetRemainingTimeResponse)                       | Response | [`GetRemainingTimeRequest`](#GetRemainingTimeRequest)メッセージに対するレスポンスです。デバイスの動作終了までの残り時間をCEKに返します。 |
 | [`GetRightPostureRatioRequest`](#GetRightPostureRatioRequest)                 | Request  | ユーザーが正しい姿勢でデバイスを使用した割合を確認する際に使用します。ユーザーがデバイスを使用する際、特定の期間または現在まで正しい姿勢を保った割合の情報をClova Home Extensionにリクエストします。  |
 | [`GetRightPostureRatioResponse`](#GetRightPostureRatioResponse)               | Response | [`GetRightPostureRatioRequest`](#GetRightPostureRatioRequest)メッセージに対するレスポンスです。ユーザーが正しい姿勢でデバイスを使用した割合をCEKに返します。  |
-| [`GetCurrentSittingStateRequest`](#GetCurrentSittingStateRequest)             | Request  | スマートチェアなどのデバイスで、ユーザーの使用状況を確認する際に使用します。デバイスで検知されたユーザーの着席情報と、直近でユーザーがデバイスを使用した時間の情報をClova Home Extensionにリクエストします。  |
-| [`GetCurrentSittingStateResponse`](#GetCurrentSittingStateResponse)           | Response | [`GetCurrentSittingStateRequest`](#GetCurrentSittingStateRequest)メッセージに対するレスポンスです。デバイスで検知されたユーザーの着席情報と、直近でユーザーがデバイスを使用した時間の情報をCEKに返します。  |
 | [`GetSleepScoreRequest`](#GetSleepScoreRequest)                               | Request  | 睡眠センサーのようなデバイスで、ユーザーの睡眠スコアの情報を確認する際に使用します。デバイスで評価されたユーザーの睡眠スコアをClova Home Extensionにリクエストします。  |
 | [`GetSleepScoreResponse`](#GetSleepScoreResponse)                             | Response | [`GetSleepScoreRequest`](#GetSleepScoreRequest)メッセージに対するレスポンスです。デバイスで評価されたユーザーの睡眠スコアをCEKに返します。  |
 | [`GetSleepStartTimeRequest`](#GetSleepStartTimeRequest)                       | Request  | 睡眠センサーのようなデバイスで、ユーザーの睡眠スコアの情報を確認する際に使用します。デバイスで測定されたユーザーの睡眠開始時間をClova Home Extensionにリクエストします。  |
@@ -2439,7 +2439,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 | フィールド名       | データ型    | フィールドの説明                     | Optional |
 |---------------|---------|-----------------------------|:---------:|
 | `applianceResponseTimestamp` | string  | リクエストがエンドポイントで確認された日時(タイムスタンプ、<a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
-| `sittingState`               | [SittingStateInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SittingStateInfoObject) |  スマートチェアなどのエンドポイントに対する、ユーザーの着席情報を持っています。              |<!-- -->|
+| `sittingState`               | [SittingStateInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SittingStateInfoObject) |  スマートチェアなどのエンドポイントに対する、ユーザーの着席情報を持っています              |<!-- -->|
 | `recentlySittingPeriod`      | [PeriodInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#PeriodInfoObject) | 直近の使用時間情報を持っているオブジェクト              | Optional    |
 
 ### Message example
@@ -2872,8 +2872,8 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 
 | フィールド名       | データ型    | フィールドの説明                     | Optional |
 |---------------|---------|-----------------------------|:---------:|
-| `isReachable` | boolean | ネットワークでデバイスにアクセスできるかを示す値。<ul><li><code>true</code>：アクセス可能(オンライン)</li><li><code>false</code>：アクセス不可(オフライン)</li></ul> |<!-- -->|
-| `isTurnOn`    | boolean | デバイスの動作状態を示す値。<ul><li><code>true</code>：動作中(working)</li><li><code>false</code>：アイドル状態(idle)</li></ul>                  |<!-- -->|
+| `isReachable` | boolean | ネットワークでデバイスにアクセスできるかを示す値<ul><li><code>true</code>：アクセス可能(オンライン)</li><li><code>false</code>：アクセス不可(オフライン)</li></ul> |<!-- -->|
+| `isTurnOn`    | boolean | デバイスの動作状態を示す値<ul><li><code>true</code>：動作中(working)</li><li><code>false</code>：アイドル状態(idle)</li></ul>                  |<!-- -->|
 
 ### Message example
 
@@ -4208,7 +4208,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 |---------------|---------|-----------------------------|:---------:|
 | `accessToken`   | string | IoTサービスのユーザーアカウントのアクセストークン。CEKは、外部サービスの認可サーバーから取得したユーザーアカウントのアクセストークンを渡します。詳細については、[ユーザーアカウントを連携する](/CEK/Guides/Link_User_Account.md)を参照してください。                          |<!-- -->|
 | `appliance`     | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) | エンドポイントの情報を持つオブジェクト。`applianceId`フィールドは必須です。 |<!-- -->|
-| `fanSpeed`       | [SpeedInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SpeedInfoObject) | 設定するファンの速度情報を持つオブジェクトファンの速度とは風速のことで、次のいずれかになります。<ul><li><code>1</code>：弱風(1段階)</li><li><code>2</code>：中風(2段階)</li><li><code>3</code>：強風(3段階)</li></ul>     |<!-- -->|
+| `fanSpeed`       | [SpeedInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SpeedInfoObject) | 設定するファンの速度情報を持つオブジェクト。ファンの速度とは風速のことで、次のいずれかになります。<ul><li><code>1</code>：弱風(1段階)</li><li><code>2</code>：中風(2段階)</li><li><code>3</code>：強風(3段階)</li></ul>     |<!-- -->|
 
 ### Message example
 
