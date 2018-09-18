@@ -21,6 +21,14 @@
   </thead>
   <tbody>
     <tr>
+      <td>v3.39.0</td><td>미적용</td><td>2018-09-21</td>
+      <td>
+        <ul>
+          <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">지원 기기</a> 설명 중 Actions 항목에 빠진 동작(GetCleaningCycle, GetOpenState, ReleaseMode)을 추가</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.39.0</td><td>미적용</td><td>2018-09-07</td>
       <td>
         <ul>
