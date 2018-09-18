@@ -1,5 +1,5 @@
 # Extension 배포하기
-[Custom extension](/CEK/Guides/Build_Custom_Extension.md) 또는 Clova Home extension을 [Clova developer console에 등록](/DevConsole/Guides/CEK/Register_Extension.md)했다면 등록한 extension을 Clova 서비스에 배포할 수 있습니다. 배포하면 일반 사용자들이 **{{ book.DevConsole.ManageExtensions }}**라는 메뉴(Extension 스토어)에서 배포된 extension을 사용할 수 있게 됩니다.
+[Custom extension](/CEK/Guides/Build_Custom_Extension.md) 또는 Clova Home extension을 [Clova developer console에 등록](/DevConsole/Guides/CEK/Register_Extension.md)했다면 등록한 extension을 Clova 서비스에 배포할 수 있습니다. 배포하면 일반 사용자들이 **{{ book.DevConsole.ManageExtensions }}**라는 메뉴(Skill Store)에서 배포된 extension을 사용할 수 있게 됩니다.
 
 Extension을 배포할 때 일반적으로 다음 항목을 수행해야 합니다.
 
@@ -17,7 +17,7 @@ Clova developer console에서 [extension을 등록](/DevConsole/Guides/CEK/Regis
 
 ![](/DevConsole/Resources/Images/DevConsole-Input_Deployment_Info.png)
 
-Extension을 사용자에게 설명하기 위한 정보로서 Clova 앱의 **{{ book.DevConsole.ManageExtensions }}** 메뉴(Extension 스토어)에서 사용자에게 제공됩니다. 다음과 같은 정보들이 입력됩니다.
+Extension을 사용자에게 설명하기 위한 정보로서 Clova 앱의 **{{ book.DevConsole.ManageExtensions }}** 메뉴(Skill Store)에서 사용자에게 제공됩니다. 다음과 같은 정보들이 입력됩니다.
 
 * **{{ book.DevConsole.cek_category }}**: Extension의 종류로서 사용자가 extension 종류별로 목록을 확인하거나 검색할 때 이용됩니다.
 * **{{ book.DevConsole.cek_test_instructions }}**: [Extension 승인](#RequestExtensionSubmission) 프로세스에서 승인 담당자가 extension을 검증하는데 필요한 참고 정보로서 일반 사용자에게는 노출되지 않습니다. 안내 문구에 따라 작성합니다.

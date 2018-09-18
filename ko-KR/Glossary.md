@@ -72,17 +72,17 @@ Downchannel은 클라이언트가 [Clova Interface Connect](#CIC)로부터 지�
 ### Extension {#Extension}
 [Clova extension](#ClovaExtension)의 다른 표현
 
-### Skill 스토어 {#SkillStore}
+### Skill Store {#SkillStore}
 
 Skill이 사용자에게 제공될 수 있도록 만든 플랫폼입니다.
 
-### Skill 스토어 홈 {#SkillStoreHome}
+### Skill Store 홈 {#SkillStoreHome}
 
-Skill 스토어에 등록된 skill이 표시되는 페이지입니다. Clova 앱의 **확장 서비스 관리** 메뉴를 지칭하는 용어입니다.
+Skill Store에 등록된 skill이 표시되는 페이지입니다. Clova 앱의 **확장 서비스 관리** 메뉴를 지칭하는 용어입니다.
 
 ### Extension 페이지 {#ExtensionPage}
 
-Extension 스토어 홈 (**확장 서비스 관리** 메뉴)에서 특정 extension을 선택했을 때 표시되는 페이지로 extension에 대한 자세한 설명을 제공하는 페이지입니다.
+Skill Store 홈 (**확장 서비스 관리** 메뉴)에서 특정 extension을 선택했을 때 표시되는 페이지로 extension에 대한 자세한 설명을 제공하는 페이지입니다.
 
 ### HTTP/2 {#HTTP2}
 HTTP 프로토콜의 두 번째 버전이다. [SPDY](https://en.wikipedia.org/wiki/SPDY)에 기반하고 있으며, 국제 인터넷 표준화 기구(IETF)에서 개발되고 있다. 1997년 RFC 2068로 표준이 된 HTTP 1.1을 개선한 것으로, 2014년 12월 표준안 제안(Proposed Standard)으로 고려되어, 2015년 2월 17일 IESG에서 제안안으로 승인되었다. 2015년 5월, <a href="https://tools.ietf.org/html/rfc7540" target="_blank">RFC 7540</a>]로 공개되었다.

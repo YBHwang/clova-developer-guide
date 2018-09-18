@@ -93,7 +93,7 @@ Extension을 설계할 때 제일 먼저 할 일은 extension의 목표를 정�
 
 ## Extension 이름 정의 {#DefineExtensionName}
 
-새로운 extension을 작성할 때는 우선 extension 이름을 정의해야 합니다. Extension의 이름에는 **skill 이름**과 **호출 이름**이 있습니다. **Skill 이름**은 skill 스토어에 표시되는 이름으로 skill은 extension으로 구현됩니다. **호출 이름**은 사용자가 extension을 사용하기 위해 Clova에게 말하는 이름입니다.
+새로운 extension을 작성할 때는 우선 extension 이름을 정의해야 합니다. Extension의 이름에는 **skill 이름**과 **호출 이름**이 있습니다. **Skill 이름**은 Skill Store에 표시되는 이름으로 skill은 extension으로 구현됩니다. **호출 이름**은 사용자가 extension을 사용하기 위해 Clova에게 말하는 이름입니다.
 
 **Skill 이름**과 **호출 이름**이 반드시 같을 필요는 없습니다. 단, **Skill 이름**과 **호출 이름**이 많이 다르면 사용자에게 혼란을 줄 수 있으니 되도록이면 같거나 비슷한 이름을 사용하는 것이 좋습니다.
 
@@ -433,7 +433,7 @@ Extension은 사용자의 요청을 처리한 후 그 결과를 Clova를 통해 
 
 ## 콘텐츠 제공 시 준수 사항 {#ContentGuideline}
 
-Skill(extension)을 통해 콘텐츠를 사용자에게 제공할 때 지켜야하는 준수 사항이 있습니다. Clova 운영자는 skill 스토어에 [skill을 배포](/DevConsole/Guides/CEK/Deploy_Extension.md)하기 전에 이 준수 사항을 위반했는지 심사합니다. Skill이 준수 사항을 위반하거나 명확히 따르지 않으면 배포를 거부하거나 이미 배포된 skill 제공을 중단할 수 있습니다. 따라서, [심사를 신청](/DevConsole/Guides/CEK/Deploy_Extension.md#RequestExtensionSubmission)하기 전에 반드시 이하의 준수 사항을 따랐는지 확인해야 합니다.
+Skill(extension)을 통해 콘텐츠를 사용자에게 제공할 때 지켜야하는 준수 사항이 있습니다. Clova 운영자는 Skill Store에 [skill을 배포](/DevConsole/Guides/CEK/Deploy_Extension.md)하기 전에 이 준수 사항을 위반했는지 심사합니다. Skill이 준수 사항을 위반하거나 명확히 따르지 않으면 배포를 거부하거나 이미 배포된 skill 제공을 중단할 수 있습니다. 따라서, [심사를 신청](/DevConsole/Guides/CEK/Deploy_Extension.md#RequestExtensionSubmission)하기 전에 반드시 이하의 준수 사항을 따랐는지 확인해야 합니다.
 
 * [Skill의 완전성](#SkillCompleteness)
 * [Skill의 안전성](#SkillSecurity)
