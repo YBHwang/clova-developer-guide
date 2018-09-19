@@ -34,7 +34,7 @@
       <td>
         <ul>
           <li>[Design] Extension 디자인 가이드라인의 <a href="/Design/Design_Guideline_For_Extension.html#SupportedAudioCompressionFormat">플랫폼 지원 오디오 압축 포맷</a>에 오디오 콘텐츠별 음질 관련 속성과 음량에 대한 권고 사항 추가</li>
-          <li>[CIC] <a href="/CIC/Guides/ImplementClientFeatures/Handle_Alerts.html">알람 처리하기</a> 절의 링크 오류, 코드 예제 표기 오류 수정</li>
+          <li>[CIC] <a href="/CIC/Guides/Implement_Client_Features.html#HandleAlerts">알람 처리하기</a> 절의 링크 오류, 코드 예제 표기 오류 수정</li>
           <li>[Common] 예제 설명 중 "yourdomain.com"으로 표시된 예제를 문서 작성용 도메인 이름인 "example.com"으로 변경</li>
         </ul>
       </td>
@@ -71,7 +71,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.37.0</td><td>미적용</td><td>2018-07-23</td>
+      <td>v3.37.0</td><td>미적용</td><td>2018-07-23</td>
       <td>
         <ul>
           <li>[Design] <a href="/Design/Design_Guideline_For_Client_Hardware.html">클라이언트 기기 디자인 가이드라인</a>의 <a href="/Design/Design_Guideline_For_Client_Hardware.html#SoundEffect">효과음</a> 중 Attending 상태 진입에 대한 효과음 업데이트</li>
@@ -83,10 +83,10 @@
       </td>
     </tr>
     <tr>
-      <td>v3.36.0</td><td>미적용</td><td>2018-07-09</td>
+      <td>v3.36.0</td><td>미적용</td><td>2018-07-09</td>
       <td>
         <ul>
-          <li>[Design] Extension의 <a href="/Design/Design_Guideline_For_Extension.html#DefineExtensionName">이름 정의</a>에 대한 가이드라인 추가</li>
+          <li>[Design] Extension의 <a href="/Design/Design_Guideline_For_Extension.html#DefineInvocationName">이름 정의</a>에 대한 가이드라인 추가</li>
           <li>[Design] Extension의 <a href="/Design/Design_Guideline_For_Extension.html#ContentGuideline">콘텐츠 제공 시 준수 사항</a>에 대한 가이드라인 추가</li>
           <li>[CIC] 클라이언트 기기 설정 정보를 업데이트 및 동기화하기 위해 <a href="/CIC/References/CICInterface/Settings.html">Settings</a> 네임스페이스 추가</li>
         </ul>
@@ -135,7 +135,7 @@
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/Clova.html#LaunchURI">LaunchURI</a> 지시 메시지를 DeviceControl 네임스페이스에서 <a href="/CIC/References/CICInterface/Clova.html">Clova</a> 네임스페이스로 이전</li>
-          <li>[CEK] HTTP 요청 메시지에 헤더(SignatureCEK, SignatureCEKCertChainUrl) 추가 및 <a href="/CEK/References/CEK_API.html#RequestMessageValidation">요청 메시지 검증</a> 절 추가</li>
+          <li>[CEK] HTTP 요청 메시지에 헤더(SignatureCEK, SignatureCEKCertChainUrl) 추가 및 요청 메시지 검증 절 추가</li>
         </ul>
       </td>
     </tr>
@@ -310,7 +310,7 @@
       <td>
         <ul>
           <li>[Design] 플랫폼 구현 상황에 맞게 <a href="/Design/Design_Guideline_For_Extension.html#DefineInteractionModel">built-in intent</a>에 대한 설명 수정</li>
-          <li>[CIC] <a href="/CIC/Guides/Interact_with_CIC.html#HandleDelegation">위임된 사용자 요청 처리하기</a> 절 추가 및 <a href="/CIC/References/CICInterface/Clova.html#HandleDelegatedEvent">Clova.HandleDelegatedEvent</a> 지시 메시지와 <a href="/CIC/References/CICInterface/Clova.html#ProcessDelegatedEvent">Clova.ProcessDelegatedEvent</a> 이벤트 메시지 추가</li>
+          <li>[CIC] <a href="/CIC/Guides/Implement_Client_Features.html#HandleDelegation">위임된 사용자 요청 처리하기</a> 절 추가 및 <a href="/CIC/References/CICInterface/Clova.html#HandleDelegatedEvent">Clova.HandleDelegatedEvent</a> 지시 메시지와 <a href="/CIC/References/CICInterface/Clova.html#ProcessDelegatedEvent">Clova.ProcessDelegatedEvent</a> 이벤트 메시지 추가</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/PlaybackController.html#NextCommandIssued">PlaybackController.NextCommandIssued</a>와 <a href="/CIC/References/CICInterface/PlaybackController.html#PreviousCommandIssued">PlaybackController.PreviousCommandIssued</a> 이벤트 메시지에 <a href="/CIC/References/Context_Objects.html#PlaybackState">AudioPlayer.PlaybackState</a> 맥락 정보를 포함하도록 설명 추가</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/Alerts.html">Alerts</a> API의 동작 구조에 대한 설명 개선</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> API의 <a href="/CIC/References/CICInterface/DeviceControl.html#DeviceContorlWorkFlow">동작 구조</a>에 대한 설명 추가</li>
