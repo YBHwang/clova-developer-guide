@@ -1,3 +1,6 @@
+---
+tags: ClovaHome
+---
 ## Discovery機能を提供する {#ProvideDeviceDiscovery}
 
 ユーザーがIoTサービスを有効にすると、クライアントアプリ、またはクライアントデバイスとペアリングするアプリで、ユーザーアカウントに登録されているIoTデバイスのリストを提供する必要があります。Clova Home Extensionは、CEKから[`DiscoverAppliancesRequest`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesRequest)メッセージを受け取ります(HTTPリクエスト)。Clova Home Extensionは、受け取ったユーザーアカウントのアクセストークンを使用して、IoTサービスからユーザーアカウントに登録されているデバイスのリストを取得し、そのリストを[`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesResponse)メッセージで応答する必要があります(HTTPレスポンス)。CEKとClova Home Extensionの間でやり取りするメッセージについての詳細は、[Clova Home Extensionメッセージ](/CEK/References/CEK_API.md#ClovaHomeExtMessage)を参照してください。

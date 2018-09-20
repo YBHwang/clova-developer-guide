@@ -230,7 +230,7 @@ Call for one box of pepperoni pizza.
 I want one pepperoni pizza.
 ```
 
-If Clova learns with the above sample utterances, there is a higher possibility for an utterance that includes values "pepperoni" or "one" to be recognized as the `OrderPizza` intent. For example, this means that an utterance that intends to check the menu, such as "How much is one pepperoni pizza?" is likely to be processed as a request to order pizza.
+If Clova learns with the above sample utterances, there is a higher possibility for an utterance that includes values `"pepperoni"` or `"one"` to be recognized as the `OrderPizza` intent. For example, this means that an utterance that intends to check the menu, such as "How much is one pepperoni pizza?" is likely to be processed as a request to order pizza.
 
 To prevent this, we recommend that you write writing sample utterances in the following format:
 
@@ -526,7 +526,7 @@ It is recommended that you follow the sound attributes and loudness for each aud
 
 | Audio content type        | Sampling frequency, bit depth, and channel | Loudness  | Remark                                     |
 |-----------------------|-------------------------|--------------- |----------------------------------------|
-| Music                   | 44100 Hz, 16-bit, stereo  | -10(±1) LUFS  | -17(±1) LUFS for beat box music. |
+| Music                   | 44100 Hz, 16-bit, stereo  | -10(±1) LUFS  | -17(±1) LUFS for beat boxing. |
 | Sound effect       | 44100 Hz, 16-bit, stereo  | -18(±1) LUFS  |                                         |
 | Audio book               | 44100 Hz, 16-bit, stereo  | -12(±1) LUFS  |                                         |
 | Music or sound in the ambient genre  | 44100 Hz, 16-bit, stereo  | -25(±1) LUFS  | Examples of this type of audio content are wave sounds or rain sounds. The loudness must be adjusted according to the characteristics of each content. |

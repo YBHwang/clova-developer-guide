@@ -22,6 +22,7 @@
     "RedirectURLforAccountLinking": "https://clova-cic.line-apps.com/v1/al/token/",
     "ReleaseYear": "2018",
     "EnableClovaHome": false,
+    "DummyFile": "/Dummy.md",
     "DevConsole": {
       "ManageExtensions": "スキルストア",
       "ExtensionPage": "Extensionページ",
