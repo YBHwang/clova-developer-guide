@@ -1,3 +1,6 @@
+---
+tags: ClovaHome
+---
 # 共有オブジェクト {#SharedObjects}
 [Clova Home Extensionメッセージ](/CEK/References/CEK_API.md#ClovaHomeExtMessage)を送信する際、`payload`には以下のような共有オブジェクトが含まれます。
 
@@ -40,9 +43,9 @@
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
 | `applianceId` | string  | エンドポイントのID                      | 必須/常時     |
-| `action`      | string  | エンドポイントの制御動作動作のリストについては、[ApplianceInfoObject](#ApplianceInfoObject)の[Actions](#Actions)項目を参照してください。     | 必須/常時     |
+| `action`      | string  | エンドポイントの制御動作。動作のリストについては、[ApplianceInfoObject](#ApplianceInfoObject)の[Actions](#Actions)項目を参照してください。     | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -129,7 +132,7 @@
         "applianceTypes": ["SMARTPLUG"],
         "additionalApplianceDetails": {},
         "location": "LIVING_ROOM",
-        "tags": ["勉強", "チョルスの部屋", "おでかけの際に電源をオフにするデバイス"]
+        "tags": ["勉強", "ブラウンの部屋", "おでかけの際に電源をオフにするデバイス"]
       }
     ]
   }
@@ -150,7 +153,7 @@
 |---------------|---------|-----------------------------|:-------------:|
 | `index`       | string  | 空気質の指数。次のいずれかの値を持ちます。<ul><li><code>"good"</code>：良い</li><li><code>"normal"</code>：普通</li><li><code>"bad"</code>：悪い</li><li><code>"verybad"</code>：非常に悪い</li></ul> | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -183,7 +186,7 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
 | `actions[]`                  | string array  | エンドポイントでサポートされている動作のリスト。クライアントは、ユーザーがIoTデバイスを操作する際、エンドポイントでサポートされている動作の範囲内でリクエストするように案内する必要があります。 | 任意/常時    |
-| `actionsNeededUserConfirmation[]`  | string array  | ユーザへの動作確認が必要な動作のリスト。`actions` フィールドに指定されている値のうち、`TurnOn`、`TurnOff`、`SetMode` を指定できます。ここに指定された動作のリクエストを行う前に、ユーザに対して、例えば「エアコンをつけても良いですか？」のような確認を行います。 | 任意/条件付    |
+| `actionsNeededUserConfirmation[]`  | string array  | ユーザーへの動作確認が必要な動作のリスト。`actions` フィールドに指定されている値のうち、`TurnOn`、`TurnOff`、`SetMode` を指定できます。ここに指定された動作のリクエストを行う前に、ユーザーに対して、例えば「エアコンをつけても良いですか？」のような確認を行います。 | 任意/条件付    |
 | `additionalApplianceDetails` | object        | メーカーまたはIoTサービスが提供する追加情報を持っているフィールド                                 | 任意/条件付き    |
 | `applianceId`                | string        | エンドポイントのID                                                                        | 必須/常時    |
 | `applianceTypes[]`           | string array  | エンドポイントのタイプ。`applicationType`によって、そのエンドポイントでサポートされている動作を示す`actions`フィールドの値が異なります。IoTサービスでユーザーアカウントに登録されているエンドポイントのタイプを、次のいずれかに指定する必要があります。備考を参考にして、エンドポイントのタイプを入力します。                                                                              | 必須/常時    |
@@ -195,7 +198,7 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 | `modelName`                  | string        | デバイスのモデル名                                                                   | 任意/常時    |
 | `version`                    | string        | メーカーのソフトウェアバージョン                                                            | 任意/常時    |
 | `location`                   | string        | エンドポイントが設置されている場所。[Locations](#Locations)項目内のコードを入力します。入力したコードに対応する位置情報のテキストが`tags`フィールドに追加されます。            | 任意/常時    |
-| `tags`                       | string array  | ユーザーがデバイスに追加したタグのリスト。ユーザーはClovaアプリまたはIoTサービスで、デバイスの設置場所、使用目的、メーカーなど、さまざまな属性をタグとしてデバイスに追加することができます。同じ属性(タグ)を持つデバイスは、同じグループになります。同じグループ内に、同じ動作がサポートされているデバイスがある場合、同時に制御することができます。  | 任意/常時  |
+| `tags[]`                       | string array  | ユーザーがデバイスに追加したタグのリスト。ユーザーはClovaアプリまたはIoTサービスで、デバイスの設置場所、使用目的、メーカーなど、さまざまな属性をタグとしてデバイスに追加することができます。同じ属性(タグ)を持つデバイスは、同じグループになります。同じグループ内に、同じ動作がサポートされているデバイスがある場合、同時に制御することができます。  | 任意/常時  |
 
 ### 備考
 [`DiscoverAppliancesRequest`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesRequest)メッセージでユーザーのデバイスリストをリクエストすると、Clova Home Extensionは`additionalApplianceDetails`を除くすべてのフィールドを設定して返す必要があります。その際、 `actions` の値は通常`applianceTypes`によって決定され、`applianceTypes`フィールドの値により次の値を持ちます。
@@ -270,6 +273,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 | GetAsleepDuration              | [`GetAsleepDurationRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetAsleepDurationRequest), [`GetAsleepDurationResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetAsleepDurationResponse) |
 | GetAwakeDuration              | [`GetAwakeDurationRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetAwakeDurationRequest), [`GetAwakeDurationResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetAwakeDurationResponse) |
 | GetBatteryInfo              | [`GetBatteryInfoRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetBatteryInfoRequest), [`GetBatteryInfoResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetBatteryInfoResponse) |
+| GetCleaningCycle                | [`GetCleaningCycleRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCleaningCycleRequest), [`GetCleaningCycleResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCleaningCycleResponse)  |
 | GetCloseTime                | [`GetCloseTimeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCloseTimeRequest), [`GetCloseTimeResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCloseTimeResponse)  |
 | GetConsumption              | [`GetConsumptionRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetConsumptionRequest), [`GetConsumptionResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetConsumptionResponse)  |
 | GetCurrentBill              | [`GetCurrentBillRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentBillRequest), [`GetCurrentBillResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentBillResponse)  |
@@ -282,6 +286,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 | GetHumidity                | [`GetHumidityRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetHumidityRequest), [`GetHumidityResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetHumidityResponse) |
 | GetKeepWarmTime            | [`GetKeepWarmTimeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetKeepWarmTimeRequest), [`GetKeepWarmTimeResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetKeepWarmTimeResponse) |
 | GetLockState               | [`GetLockStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetLockStateRequest), [`GetLockStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetLockStateResponse) |
+| GetOpenState                | [`GetOpenStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetOpenStateRequest), [`GetOpenStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetOpenStateResponse)  |
 | GetOpenTime                | [`GetOpenTimeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetOpenTimeRequest), [`GetOpenTimeResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetOpenTimeResponse)  |
 | GetPhase                   | [`GetPhaseRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetPhaseRequest), [`GetPhaseResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetPhaseResponse)  |
 | GetProgressiveTaxBracket   | [`GetProgressiveTaxBracketRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetProgressiveTaxBracketRequest), [`GetProgressiveTaxBracketResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetProgressiveTaxBracketResponse) |
@@ -303,7 +308,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 | Mute                       | [`MuteConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#MuteConfirmation), [`MuteRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#MuteRequest) |
 | Open                       | [`OpenConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#OpenConfirmation), [`OpenRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#OpenRequest)  |
 | Raise                      | [`RaiseConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#RaiseConfirmation), [`RaiseRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#RaiseRequest)  |
-| ReleaseMode                | [`ReleaseModeConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#ReleaseModeConfirmation), [`ReleaseModeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#ReleaseModeRequest) |
+| ReleaseMode                | [`ReleaseModeConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#ReleaseModeConfirmation), [`ReleaseModeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#ReleaseModeRequest)  |
 | SetBrightness              | [`SetBrightnessConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetBrightnessConfirmation), [`SetBrightnessRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetBrightnessRequest)  |
 | SetChannel                 | [`SetChannelConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetChannelConfirmation), [`SetChannelRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetChannelRequest) |
 | SetChannelByName           | [`SetChannelByNameConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetChannelByNameConfirmation), [`SetChannelByNameRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetChannelByNameRequest) |
@@ -334,7 +339,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 
 {% include "/CEK/References/ClovaHomeInterface/Location.md" %}
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -419,7 +424,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | バッテリー残量(%)                 | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -470,7 +475,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 | `currency`    | string  | 通貨単位(<a href="https://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO 4217</a>)  | 必須/常時 |
 | `value`       | number  | 料金の金額                    | 必須/常時   |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -484,8 +489,8 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
   },
   "payload": {
     "currentBill": {
-        "value": 29900,
-        "currency": "KRW"
+        "value": 2990,
+        "currency": "JPY"
     },
     "applianceResponseTimestamp": "2017-11-23T20:30:54+09:00"
   }
@@ -508,7 +513,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | 輝度(%)                      | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -572,7 +577,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 | `hue`         | number  | 色相(0~360)                  | 必須/常時 |
 | `saturation`  | number  | 彩度(0~100)                  | 必須/常時 |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -612,7 +617,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | 色温度(K、ケルビン)             | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -652,7 +657,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 | `unit`        | string  | エネルギーまたはリソースの使用単位(例、電気：kW)        | 必須/常時  |
 | `value`       | number  | エネルギーまたはリソースの使用値                    | 必須/常時   |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -692,9 +697,9 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 ### Object fields
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`             | number  | テレビのチャンネル番号                      | 必須/常時     |
+| `value`             | number  | リクエストの発行回数     | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -731,10 +736,10 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `name`        | string  | カスタムコマンドの名前。             | 必須/常時      |
+| `name`        | string  | カスタムコマンドの名前             | 必須/常時      |
 | `actions[]`   | [ActionInforObject](#ActionInforObject) array | カスタムコマンドで処理するエンドポイント制御動作のリスト  | 必須/常時  |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -821,7 +826,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
         "applianceTypes": ["SMARTPLUG"],
         "additionalApplianceDetails": {},
         "location": "LIVING_ROOM",
-        "tags": ["勉強", "チョルスの部屋", "おでかけの際に電源をオフにするデバイス"]
+        "tags": ["勉強", "ブラウンの部屋", "おでかけの際に電源をオフにするデバイス"]
       }
     ]
   }
@@ -845,7 +850,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 | `value`       | numberまたはstring | ステータス値または測定値                                                                             | 必須/常時 |
 | `unit`        | string            | エンドポイントのステータス値または測定値の単位。`value`フィールドの型がstringの場合には省略され、numberの場合には次の値を持ちます。<ul><li><code>"celcius"</code>：摂氏温度</li><li><code>"percentage"</code>：パーセント</li></ul> | 任意/条件付き |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -896,7 +901,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 | `remainingTime` | string   | 消耗品の残り寿命(継続時間、<a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>)    | 任意/条件付き |
 | `usage`         | [CustomInfoObject](#CustomInfoObject)          | 消耗品の使用量(回数またはパーセントで表す)      | 任意/条件付き |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -940,9 +945,9 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | PM10指数                  | 任意/条件付き    |
-| `index`       | string  | PM10レベル次のいずれかの値を持ちます。<ul><li><code>"good"</code>：良い</li><li><code>"normal"</code>：普通</li><li><code>"bad"</code>：悪い</li><li><code>"verybad"</code>：非常に悪い</li></ul> | 必須/常時     |
+| `index`       | string  | PM10レベル。次のいずれかの値を持ちます。<ul><li><code>"good"</code>：良い</li><li><code>"normal"</code>：普通</li><li><code>"bad"</code>：悪い</li><li><code>"verybad"</code>：非常に悪い</li></ul> | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -977,7 +982,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | 圧力/水圧の強度            | 任意/条件付き    |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1151,7 +1156,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
   </tdoby>
 </table>
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1223,7 +1228,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | 湿度(%)                      | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1260,7 +1265,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 | `end`         | string  | 期間の終了日時(タイムスタンプ、<a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    | 必須/常時      |
 | `start`       | string  | 期間の開始日時(タイムスタンプ、<a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    | 必須/常時      |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1300,7 +1305,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | string  | 動作の段階を表す文字列        | 必須/常時      |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1352,7 +1357,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | 累進税の段階                    | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1387,7 +1392,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | boolean | 着席状態<ul><li><code>true</code>：着席中</li><li><code>false</code>：着席中ではない</li></ul>       | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1426,7 +1431,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | 睡眠スコア                     | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1461,7 +1466,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | 速度の値                       | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1523,7 +1528,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | 温度の値                       | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1593,7 +1598,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | string  | テレビのチャンネル名                  | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1646,7 +1651,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 |---------------|---------|-----------------------------|:-------------:|
 | `value`             | number  | テレビのチャンネル番号                      | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1709,7 +1714,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | string  | テレビの入力ソース名	                  | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1761,9 +1766,9 @@ PM2.5の情報を持っているオブジェクトです。エンドポイント
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | PM2.5指数                | 任意/条件付き    |
-| `index`       | number  | PM2.5レベル次のいずれかの値を持ちます。<ul><li><code>"good"</code>：良い</li><li><code>"normal"</code>：普通</li><li><code>"bad"</code>：悪い</li><li><code>"verybad"</code>：非常に悪い</li></ul> | 必須/常時     |
+| `index`       | number  | PM2.5レベル。次のいずれかの値を持ちます。<ul><li><code>"good"</code>：良い</li><li><code>"normal"</code>：普通</li><li><code>"bad"</code>：悪い</li><li><code>"verybad"</code>：非常に悪い</li></ul> | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1791,14 +1796,14 @@ PM2.5の情報を持っているオブジェクトです。エンドポイント
 * [`GetUltraFineDustResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetUltraFineDustResponse)
 
 ## VolumeInfoObject {#VolumeInfoObject}
-スピーカーの音量情報を持っているオブジェクトです。調整する音量や調整前後の音量を示します。整水で表されます。
+スピーカーの音量情報を持っているオブジェクトです。調整する音量や調整前後の音量を示します。整数で表されます。
 
 ### Object fields
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | 音量の値                       | 必須/常時     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json

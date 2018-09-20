@@ -17,7 +17,7 @@ Extensionの登録は、通常、次の順で行われます。
 
 ## 利用規約および個人情報の取得に同意する {#AgreeTermsOfUse}
 
-Extensionを登録するには、先にCEKのAPIサービスの利用規約と個人情報の取得に同意する必要があります。
+Extensionを登録するには、先にCEKのAPIサービスの利用規約と個人情報の取得に同意する必要があります。利用規約および個人情報の取得に関する内容は、最初の一度のみ表示され、同意した後は表示されません。
 
 ![](/DevConsole/Resources/Images/DevConsole-Agree_Terms_of_Use_and_Collecting_Personal_Info.png)
 
@@ -35,7 +35,7 @@ Extensionの基本情報は、Clova Developer CenterでExtensionを作成する�
   <li><strong>{{ book.DevConsole.cek_lang }}</strong>項目で、Extensionで使用する言語を選択します。現在、<strong>{{ book.DevConsole.ko_KR }}</strong>のみサポートされています。</li>
   <li>ExtensionのID、名前、呼び出し名を次の項目に入力します。
     <ol>
-      <li><strong>{{ book.DevConsole.cek_id }}</strong>Extensionの一意のIDです。リバースドメインネームの形式(例：com.yourdomain.extension.pizzabot)で入力します。</li>
+      <li><strong>{{ book.DevConsole.cek_id }}</strong>Extensionの一意のIDです。リバースドメインネームの形式(例：com.yourdomain.extension.pizzabot)を入力します。</li>
       <li><strong>{{ book.DevConsole.cek_name }}</strong>：Extensionの名前です。今後スキルストアで表示されます。</li>
       <li><strong>{{ book.DevConsole.cek_invocation_name }}</strong>：ユーザーがExtensionを呼び出す際に呼ぶ名前です。保有しているサービス、会社および組織の名前を使用できますが、ユーザーにとって呼びやすい、シンプルな言葉を指定することをお勧めします。汎用的な言葉、他社の名前やサービスに該当する言葉は使用できません。<strong>{{ book.DevConsole.cek_invocation_name }}</strong>は、Extensionを審査する際にチェックされます。</li>
       <li><strong>{{ book.DevConsole.cek_provider }}</strong>：Extensionを作成した主体(会社や個人)の名前、またはニックネームを入力します。後ほどスキルストアで表示され、Extensionを審査する際にチェックされます。</li>
@@ -59,7 +59,7 @@ Extensionのサーバーを登録するには、先にExtensionのサーバー�
 
 {% raw %}
 ```bash
-$ curl "https://yourdomain.com/pizzabot" -X POST
+$ curl "https://example.com/pizzabot" -X POST
 ```
 {% endraw %}
 

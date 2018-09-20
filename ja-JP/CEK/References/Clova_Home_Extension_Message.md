@@ -32,7 +32,7 @@ Clova Home Extensionメッセージは、`header`フィールドと`payload`で�
 | `header`                 | object | メッセージのヘッダー                                                                                            |      |
 | `header.messageId`       | string | メッセージID(UUID)。個別メッセージを区別するために、Clovaで作成された識別子です。                                         |      |
 | `header.name`            | string | メッセージのAPI名                                                                                        |      |
-| `header.namespace`       | string | このフィールドは`"ClovaHome"`に固定されます。                                                                     |      |
+| `header.namespace`       | string | このフィールドは`"ClovaHome"`に固定されます                                                                    |      |
 | `header.payloadVersion`  | string | `header.name`に明示されたClova Home Extensionメッセージのバージョン。このバージョンによって、`payload`フィールドの構成が異なることがあります。  |      |
 | `payload`                | object | `header.name`に指定された[インターフェース](#ClovaHomeExtInterface)によって、payloadオブジェクトの構成とフィールド値が異なります。       |      |
 

@@ -21,6 +21,16 @@
   </thead>
   <tbody>
     <tr>
+      <td>v3.39.0</td><td>未適用</td><td>2018/09/07</td>
+      <td>
+        <ul>
+          <li>[Design] Extensionのデザインガイドラインの<a href="/Design/Design_Guideline_For_Extension.html#SupportedAudioCompressionFormat">プラットフォームでサポートされるオーディオ圧縮形式</a>に、オーディオコンテンツごとのオーディオ属性とラウドネスに関する推奨事項を追加</li>
+          <li>[共通] サンプルの説明で、「yourdomain.com」になっているサンプルをドキュメント作成用のドメイン名である「example.com」に変更</li>
+          <li>[CIC] <a href="/CIC/Guides/ImplementClientFeatures/Handle_Alerts.html">アラームを処理する</a>セクションのリンクの誤り、サンプルコードの表記の誤りを訂正</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.38.0</td><td>未適用</td><td>2018/08/29</td>
       <td>
         <ul>

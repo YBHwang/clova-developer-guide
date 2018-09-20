@@ -27,10 +27,10 @@ The client can receive a shared sound source playback state from all other or sp
 
 ![](/CIC/Resources/Images/CIC_Playback_State_Sync_Work_Flow.png)
 
-1. Clova app requests the audio playback state of all or specific clients registered in the user account to CIC {{"using the [`AudioPlayer.RequestPlaybackState`](#RequestPlaybackState) event " if book.TargetReaderType == "Internal"}}.
+1. Clova app requests the audio playback state of all or specific clients registered in the user account to CIC {{ "using the [`AudioPlayer.RequestPlaybackState`](#RequestPlaybackState) event " if book.TargetReaderType == "Internal" }}.
 2. CIC instructs all or specific clients registered in the [`AudioPlayer.ExpectReportPlaybackState`](#ExpectReportPlaybackState) user account to report the current audio playback state.
 3. After receiving the report request, the client reports the current audio playback state using [`AudioPlayer.ReportPlaybackState`](#ReportPlaybackState) event.
-4. CIC instructs the client that made the request to synchronize information by sending the states of the information {{"using [`AudioPlayer.SynchronizePlaybackState`](#SynchronizePlaybackState)" if book.TargetReaderType == "Internal"}}.
+4. CIC instructs the client that made the request to synchronize information by sending the states of the information {{ "using [`AudioPlayer.SynchronizePlaybackState`](#SynchronizePlaybackState)" if book.TargetReaderType == "Internal" }}.
 
 
 ## ClearQueue directive {#ClearQueue}

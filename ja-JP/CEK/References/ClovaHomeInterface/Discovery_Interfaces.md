@@ -1,3 +1,6 @@
+---
+tags: ClovaHome
+---
 # Discovery
 
 ユーザーアカウントに登録されているIoTデバイスのリストを確認する際に使用されるインターフェースです。
@@ -14,7 +17,7 @@
 
 | フィールド名       | データ型    | フィールドの説明                     | Optional |
 |---------------|---------|-----------------------------|:---------:|
-| `accessToken`   | string  | Clova Home Extensionのアクセストークン  |      |
+| `accessToken`   | string  | Clova Home Extensionのアクセストークン  |<!-- -->|
 
 ### Message example
 
@@ -44,8 +47,8 @@
 
 | フィールド名       | データ型    | フィールドの説明                     | Optional |
 |---------------|---------|-----------------------------|:---------:|
-| `customCommands[]`        | [CustomCommandInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#CustomCommandInfoObject) array  | ユーザーアカウントに登録されているカスタムコマンドのリストを持つオブジェクト配列   |      |
-| `discoveredAppliances[]`  | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) array          | ユーザーアカウントに登録されているデバイスを説明するオブジェクト配列          |     |
+| `customCommands[]`        | [CustomCommandInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#CustomCommandInfoObject) array  | ユーザーアカウントに登録されているカスタムコマンドのリストを持つオブジェクト配列   |<!-- -->|
+| `discoveredAppliances[]`  | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) array          | ユーザーアカウントに登録されているデバイスを説明するオブジェクト配列          |<!-- -->|
 
 ### 備考
 IoTサービスを提供する際、ユーザーアカウントに登録されているデバイスのリストを提供する必要があります。
@@ -137,7 +140,7 @@ IoTサービスを提供する際、ユーザーアカウントに登録され�
         "applianceTypes": ["SMARTPLUG"],
         "additionalApplianceDetails": {},
         "location": "LIVING_ROOM",
-        "tags": ["勉強", "チョルスの部屋", "おでかけの際に電源をオフにするデバイス"]
+        "tags": ["勉強", "ブラウンの部屋", "おでかけの際に電源をオフにするデバイス"]
       }
     ]
   }

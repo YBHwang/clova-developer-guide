@@ -1,5 +1,5 @@
 # Extension 배포하기
-[Custom extension](/CEK/Guides/Build_Custom_Extension.md) 또는 Clova Home extension을 [Clova developer console에 등록](/DevConsole/Guides/CEK/Register_Extension.md)했다면 등록한 extension을 Clova 서비스에 배포할 수 있습니다. 배포하면 일반 사용자들이 **{{ book.DevConsole.ManageExtensions }}**라는 메뉴(Extension 스토어)에서 배포된 extension을 사용할 수 있게 됩니다.
+[Custom extension](/CEK/Guides/Build_Custom_Extension.md) 또는 Clova Home extension을 [Clova developer console에 등록](/DevConsole/Guides/CEK/Register_Extension.md)했다면 등록한 extension을 Clova 서비스에 배포할 수 있습니다. 배포하면 일반 사용자들이 **{{ book.DevConsole.ManageExtensions }}**라는 메뉴(Skill Store)에서 배포된 extension을 사용할 수 있게 됩니다.
 
 Extension을 배포할 때 일반적으로 다음 항목을 수행해야 합니다.
 
@@ -17,7 +17,7 @@ Clova developer console에서 [extension을 등록](/DevConsole/Guides/CEK/Regis
 
 ![](/DevConsole/Resources/Images/DevConsole-Input_Deployment_Info.png)
 
-Extension을 사용자에게 설명하기 위한 정보로서 Clova 앱의 **{{ book.DevConsole.ManageExtensions }}** 메뉴(Extension 스토어)에서 사용자에게 제공됩니다. 다음과 같은 정보들이 입력됩니다.
+Extension을 사용자에게 설명하기 위한 정보로서 Clova 앱의 **{{ book.DevConsole.ManageExtensions }}** 메뉴(Skill Store)에서 사용자에게 제공됩니다. 다음과 같은 정보들이 입력됩니다.
 
 * **{{ book.DevConsole.cek_category }}**: Extension의 종류로서 사용자가 extension 종류별로 목록을 확인하거나 검색할 때 이용됩니다.
 * **{{ book.DevConsole.cek_test_instructions }}**: [Extension 승인](#RequestExtensionSubmission) 프로세스에서 승인 담당자가 extension을 검증하는데 필요한 참고 정보로서 일반 사용자에게는 노출되지 않습니다. 안내 문구에 따라 작성합니다.
@@ -86,7 +86,7 @@ Extension의 [배포 정보](#InputDeploymentInfo)와 [개인 정보 보호 및 
   <p>심사 중에는 extension의 정보와 interaction 모델을 수정할 수 없습니다.</p>
 </div>
 
-심사는 개별 심사로 진행되며 심사를 위한 별도 환경에서 진행됩니다. 만약, [사용자 계정 연결](/CEK/Guides/Link_User_Account.md)이 필요한 서비스이면 [배포 정보를 입력](#InputDeploymentInfo)할 때 테스트를 위한 계정 정보를 **{{ book.DevConsole.cek_test_instructions }}** 항목에 입력해야 합니다.
+Skill 심사는 Skill Store에 반영하기 전에 진행되며 심사를 위한 별도 환경에서 진행됩니다. 만약, [사용자 계정 연결](/CEK/Guides/Link_User_Account.md)이 필요한 서비스이면 [배포 정보를 입력](#InputDeploymentInfo)할 때 테스트를 위한 계정 정보를 **{{ book.DevConsole.cek_test_instructions }}** 항목에 입력해야 합니다.
 
 Extension을 심사할 때 살펴보는 기본 평가 항목은 다음과 같습니다.
 
@@ -95,13 +95,13 @@ Extension을 심사할 때 살펴보는 기본 평가 항목은 다음과 같습
   * 시나리오 상 사용되는 발화 데이터에 금칙어, 민감어 등이 있는지 확인합니다.
   * [콘텐츠 제공 시 준수 사항](/Design/Design_Guideline_For_Extension.md#ContentGuideline)을 지켰는지 확인합니다.
   * Extension이 [사용자 계정을 연결](/CEK/Guides/Link_User_Account.md)한다면 서비스에 특화된 부분을 더 검토할 수 있습니다.
-* Extension의 동작 검증
+* Skill의 동작 검증
   * Extension이 서비스에 적합한 용어를 사용하고 있는지 확인합니다.
   * Intent, slot 등 interaction 모델을 검증합니다.
-  * Extension [세부 목표](/Design/Design_Guideline_For_Extension.md#SettingGoal)에 부합되는 서비스를 제공하고 있는지 확인합니다.
+  * Skill [세부 목표](/Design/Design_Guideline_For_Extension.md#SettingGoal)에 부합되는 서비스를 제공하고 있는지 확인합니다.
 * 배포 정보 검증
   * Extension의 설명, 카테고리, 검색 키워드와 같이 입력된 배포 정보가 extension에 맞게 입력되었는지 확인합니다.
-  * Extension이 개인 정보 관리 규정 등 입력된 정책에 맞게 동작하는지 확인합니다.
+  * Skill이 개인 정보 관리 규정 등 입력된 정책에 맞게 동작하는지 확인합니다.
 
 심사 중에 **{{ book.DevConsole.cek_cancel_review }}** 메뉴를 클릭하면 언제든지 심사 신청을 취소할 수 있습니다. 심사 신청을 취소하면 이전 상태로 돌아갑니다.
 

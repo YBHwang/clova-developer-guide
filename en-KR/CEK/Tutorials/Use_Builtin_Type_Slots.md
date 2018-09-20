@@ -1,5 +1,5 @@
 # Utilizing user-input information
-This tutorial will guide on how to make the Sample Dice extension created in [Building a basic extension](/CEK/Tutorials/Build_Simple_Extension.md) to roll more than one die depending on the user request. 
+This tutorial will guide you on how to make the Sample Dice extension created in [Building a basic extension](/CEK/Tutorials/Build_Simple_Extension.md) to roll more than one die depending on the user request. 
 
 Voice commands of users can contain the action that needs to be performed by an extension and also additional information for the action. But first, let us recap on how to use the Sample Dice extension as described in [Tutorial introduction](/CEK/Tutorials/Introduction.md).
 
