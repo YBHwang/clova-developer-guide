@@ -25,6 +25,7 @@
       <td>
         <ul>
           <li>[CIC] 콘텐츠의 MIME type을 명시하기 위해 <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a> <a href="/CIC/References/CICInterface/AudioPlayer.html#AudioStreamInfoObject">AudioStreamInfoObject</a>의 payload에 format 필드를 추가</li>
+          <li>[CIC] 미디어 콘텐츠 재생 시 좋아요 및 구독 기능을 처리하기 위해 <a href="/CIC/References/CICInterface/TemplateRuntime">TemplateRuntime</a> 네임스페이스에 SubscribeCommandIssued, UnsubscribeCommandIssued 이벤트 메시지와 UpdateLike, UpdateSubscribe 지시 메시지에 추가</li>
           <li>[CIC] 미디어 콘텐츠 재생 시 표시해야 하는 버튼이나 제어 UI의 종류를 <a href="/CIC/References/CICInterface/TemplateRuntime.html#RenderPlayerInfo">TemplateRuntime.RenderPlayerInfo</a> 지시 메시지에 추가</li>
           <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">지원 기기</a> 설명 중 Actions 항목에 빠진 동작(GetCleaningCycle, GetOpenState, ReleaseMode)을 추가</li>
           <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html">오류 메시지(Error)</a>에 <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ActionTemporarilyBlockedError">ActionTemporarilyBlockedError</a>와 <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ValueNotSupportedError">ValueNotSupportedError</a> 오류 메시지를 추가</li>

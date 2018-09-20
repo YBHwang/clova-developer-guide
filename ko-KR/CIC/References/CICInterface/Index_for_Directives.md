@@ -67,3 +67,5 @@
 | System             | [`SynchronizeState`](/CIC/References/CICInterface/System.md#SynchronizeState) | 클라이언트에게 `payload`에 있는 데이터를 동기화하도록 지시합니다.                                   |
 | TemplateRuntime    | [`ExpectRequestPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#ExpectRequestPlayerInfo)  | 클라이언트에게 재생 메타 정보를 요청하도록 지시합니다. 클라이언트는 이 지시 메시지를 받으면 [`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo) 이벤트 메시지를 CIC로 전송해야 합니다. |
 | TemplateRuntime    | [`RenderPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#RenderPlayerInfo)                | CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 앨범 이미지, 가사와 같은 재생 메타 정보를 전달하고 이를 표시하도록 지시합니다. |
+| TemplateRuntime    | [`UpdateLike`](/CIC/References/CICInterface/TemplateRuntime.md#UpdateLike)                            | 클라이언트에게 미디어 플레이어에서 특정 미디어에 대한 사용자의 좋아요(like) 여부에 따라 좋아요 표시 상태를 지정된 값으로 업데이트하도록 지시합니다.  |
+| TemplateRuntime    | [`UpdateSubscribe`](/CIC/References/CICInterface/TemplateRuntime.md#UpdateSubscribe)                  | 클라이언트에게 미디어 플레이어에서 특정 미디어에 사용자의 구독(subscribe) 여부에 따라 구독 표시 상태를 지정된 값으로 업데이트하도록 지시합니다.  |
