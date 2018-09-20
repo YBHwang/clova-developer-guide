@@ -633,7 +633,7 @@ SpeechInfoObject 객체는 응답 메시지의 `response.outputSpeech`에서 재
         {
           "type": "URL",
           "lang": "" ,
-          "value": "https://tts.com/song.mp3"
+          "value": "https://tts.example.com/song.mp3"
         }
       ]
     },
@@ -843,23 +843,21 @@ CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 
         "audioItemId": "90b77646-93ab-444f-acd9-60f9f278ca38",
         "episodeId": 22346122,
         "stream": {
-          "beginAtInMilliseconds": 0,
-          "episodeId": 22346122,
-          "playType": "NONE",
-          "podcastId": 12548,
+          "beginAtInMilliseconds": 419704,
           "progressReport": {
             "progressReportDelayInMilliseconds": null,
             "progressReportIntervalInMilliseconds": 60000,
             "progressReportPositionInMilliseconds": null
           },
-          "url": "https://streaming.example.com/1212334548/2231122",
+          "token": "eyJ1cmwiOiJodHRwczovL2FwaS1leC5wb2RiYmFuZy5jb20vY2xvdmEvZmlsZS8xMjU0OC8yMjYxODcwMSIsInBsYXlUeXBlIjoiTk9ORSIsInBvZGNhc3RJZCI6MTI1NDgsImVwaXNvZGVJZCI6MjI2MTg3MDF9",
+          "url": "https://streaming.example.com/clova/file/12548/22618701",
           "urlPlayable": true
         },
         "type": "podcast"
       },
       "source": {
         "name": "Potbbang",
-        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png"
+        "logoUrl": "https://img.musicservice.example.net/logo_180125.png"
       },
       "playBehavior": "REPLACE_ALL"
     }
@@ -903,7 +901,7 @@ CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 
       },
       "source": {
         "name": "Sample Music Provider",
-        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png"
+        "logoUrl": "https://img.musicservice.example.net/logo_180125.png"
       },
       "playBehavior": "REPLACE_ALL"
     }
@@ -1260,7 +1258,7 @@ CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 
         "audioItemId": "5313c879-25bb-461c-93fc-f85d95edf2a0",
         "stream": {
             "token": "b767313e-6790-4c28-ac18-5d9f8e432248",
-            "url": "https://sample.musicservice.net/b767313e.mp3"
+            "url": "https://musicservice.example.net/b767313e.mp3"
         }
     }
   }
@@ -1472,7 +1470,7 @@ CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 
       "displayType": "list",
       "playableItems": [
         {
-          "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/662058.jpg",
+          "artImageUrl": "http://musicmeta.musicservice.example.com/example/album/662058.jpg",
           "controls": [
             {
               "enabled": true,
@@ -1497,7 +1495,7 @@ CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 
           "token": "eJyr5lIqSSyITy4tKs4vUrJSUE="
         },
         {
-          "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/202646.jpg",
+          "artImageUrl": "http://musicmeta.musicservice.example.com/example/album/202646.jpg",
           "controls": [
             {
               "enabled": true,
@@ -1524,9 +1522,9 @@ CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 
         ...
       ],
       "provider": {
-        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png",
+        "logoUrl": "https://img.musicservice.example.net/logo_180125.png",
         "name": "SampleMusicProvider",
-        "smallLogoUrl": "https://img.musicproviderdomain.net/smallLogo_180125.png"
+        "smallLogoUrl": "https://img.musicservice.example.net/smallLogo_180125.png"
       }
     }
   }
@@ -1612,7 +1610,7 @@ CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 
     "progressReportIntervalInMilliseconds": 60000,
     "progressReportPositionInMilliseconds": null
   },
-  "url": "https://api-ex.podbbang.com/file/12548/22346122",
+  "url": "https://streaming.example.com/file/12548/22346122",
   "urlPlayable": true
 }
 

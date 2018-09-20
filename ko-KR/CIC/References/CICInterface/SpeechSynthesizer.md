@@ -129,7 +129,7 @@ Content-Type: application/octet-stream
     "payload": {
       "format": "AUDIO_MPEG",
       "token": "64ffeb07-4b86-4659-9f59-07a77b363a0b",
-      "url": "https://ssl.pstatic.net/static/clova/service/clova_song/1.mp3"
+      "url": "https://ssl.pstatic.example.net/static/clova/service/clova_song/1.mp3"
     }
   }
 }

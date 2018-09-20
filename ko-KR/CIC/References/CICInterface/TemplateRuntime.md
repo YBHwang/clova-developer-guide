@@ -163,7 +163,7 @@ CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 
       "displayType": "list",
       "playableItems": [
         {
-          "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/662058.jpg",
+          "artImageUrl": "http://musicmeta.musicservice.example.com/example/album/662058.jpg",
           "controls": [
             {
               "enabled": true,
@@ -188,7 +188,7 @@ CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 
           "token": "eJyr5lIqSSyITy4tKs4vUrJSUE="
         },
         {
-          "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/202646.jpg",
+          "artImageUrl": "http://musicmeta.musicservice.example.com/example/album/202646.jpg",
           "controls": [
             {
               "enabled": true,
@@ -215,9 +215,9 @@ CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 
         ...
       ],
       "provider": {
-        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png",
+        "logoUrl": "https://img.musicservice.example.net/logo_180125.png",
         "name": "SampleMusicProvider",
-        "smallLogoUrl": "https://img.musicproviderdomain.net/smallLogo_180125.png"
+        "smallLogoUrl": "https://img.musicservice.example.net/smallLogo_180125.png"
       }
     }
   }

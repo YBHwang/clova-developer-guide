@@ -54,7 +54,7 @@
         {
           "type": "URL",
           "lang": "" ,
-          "value": "https://tts.com/song.mp3"
+          "value": "https://tts.example.com/song.mp3"
         }
       ]
     },
@@ -109,7 +109,7 @@
       },
       "referenceUrl": {
         "type": "url",
-        "value": "https://m.search.naver.com/search.naver?where=m&sm=mob_lic&query=%eb%a6%ac%ec%98%a4%eb%84%ac+%eb%a9%94%ec%8b%9c+%ec%86%8c%ec%86%8d%ed%8c%80"
+        "value": "https://m.search.example.com/search.naver?where=m&sm=mob_lic&query=%eb%a6%ac%ec%98%a4%eb%84%ac+%eb%a9%94%ec%8b%9c+%ec%86%8c%ec%86%8d%ed%8c%80"
       },
       "subTextList": [
         {
@@ -123,7 +123,7 @@
       },
       "thumbImageUrl": {
         "type": "url",
-        "value": "http://sstatic.naver.net/people/3/201607071816066361.jpg"
+        "value": "http://sstatic.example.net/people/3/201607071816066361.jpg"
       }
     },
     "directives": [],

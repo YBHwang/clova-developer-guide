@@ -37,7 +37,7 @@
 {
   "bgClipUrl": {
     "type": "url",
-    "value": "https://ssl.pstatic.net/static/clova/service/weather/bg_clean_daytime.mp4"
+    "value": "https://ssl.pstatic.example.net/static/clova/service/weather/bg_clean_daytime.mp4"
   },
   "concentrationOfFineDust": {
     "type": "string",
@@ -63,7 +63,7 @@
       },
       "temperatureImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       }
     },
     {
@@ -85,7 +85,7 @@
       },
       "temperatureImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       }
     },
     {
@@ -107,7 +107,7 @@
       },
       "temperatureImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       }
     },
     {
@@ -129,7 +129,7 @@
       },
       "temperatureImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       }
     },
     {
@@ -151,7 +151,7 @@
       },
       "temperatureImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       }
     },
     {
@@ -173,7 +173,7 @@
       },
       "temperatureImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       }
     },
     {
@@ -195,7 +195,7 @@
       },
       "temperatureImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       }
     },
     {
@@ -217,7 +217,7 @@
       },
       "temperatureImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       }
     },
     {
@@ -239,7 +239,7 @@
       },
       "temperatureImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       }
     },
     {
@@ -261,7 +261,7 @@
       },
       "temperatureImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       }
     }
   ],
@@ -291,7 +291,7 @@
   },
   "referenceUrl" : {
     "type" : "url",
-    "value" : "http://weather.contentproviderdomain.com/"
+    "value" : "http://weather.contentservice.example.com/"
   },
   "type": "TodayWeather"
 }

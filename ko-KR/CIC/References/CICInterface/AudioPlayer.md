@@ -147,23 +147,21 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
         "audioItemId": "90b77646-93ab-444f-acd9-60f9f278ca38",
         "episodeId": 22346122,
         "stream": {
-          "beginAtInMilliseconds": 0,
-          "episodeId": 22346122,
-          "playType": "NONE",
-          "podcastId": 12548,
+          "beginAtInMilliseconds": 419704,
           "progressReport": {
             "progressReportDelayInMilliseconds": null,
             "progressReportIntervalInMilliseconds": 60000,
             "progressReportPositionInMilliseconds": null
           },
-          "url": "https://streaming.example.com/1212334548/2231122",
+          "token": "eyJ1cmwiOiJodHRwczovL2FwaS1leC5wb2RiYmFuZy5jb20vY2xvdmEvZmlsZS8xMjU0OC8yMjYxODcwMSIsInBsYXlUeXBlIjoiTk9ORSIsInBvZGNhc3RJZCI6MTI1NDgsImVwaXNvZGVJZCI6MjI2MTg3MDF9",
+          "url": "https://streaming.example.com/clova/file/12548/22618701",
           "urlPlayable": true
         },
         "type": "podcast"
       },
       "source": {
         "name": "Potbbang",
-        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png"
+        "logoUrl": "https://img.musicservice.example.net/logo_180125.png"
       },
       "playBehavior": "REPLACE_ALL"
     }
@@ -207,7 +205,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
       },
       "source": {
         "name": "Sample Music Provider",
-        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png"
+        "logoUrl": "https://img.musicservice.example.net/logo_180125.png"
       },
       "playBehavior": "REPLACE_ALL"
     }
@@ -769,7 +767,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
         "audioItemId": "5313c879-25bb-461c-93fc-f85d95edf2a0",
         "stream": {
             "token": "b767313e-6790-4c28-ac18-5d9f8e432248",
-            "url": "https://sample.musicservice.net/b767313e.mp3"
+            "url": "https://musicservice.example.net/b767313e.mp3"
         }
     }
   }
@@ -928,15 +926,12 @@ AudioPlayer API를 이용하여 이벤트 메시지나 지시 메시지를 보�
 // 바로 재생 가능한 오디오 스트림 URL 정보가 담긴 객체
 {
   "beginAtInMilliseconds": 0,
-  "episodeId": 22346122,
-  "playType": "NONE",
-  "podcastId": 12548,
   "progressReport": {
     "progressReportDelayInMilliseconds": null,
     "progressReportIntervalInMilliseconds": 60000,
     "progressReportPositionInMilliseconds": null
   },
-  "url": "https://api-ex.podbbang.com/file/12548/22346122",
+  "url": "https://api-ex.example.com/file/12548/22346122",
   "urlPlayable": true
 }
 

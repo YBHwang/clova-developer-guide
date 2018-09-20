@@ -28,7 +28,7 @@
 {
   "bgImageUrl": {
     "type": "url",
-    "value": "https://ssl.pstatic.net/static/clova/service/weather/bg_cloud_night.mp4"
+    "value": "https://ssl.pstatic.example.net/static/clova/service/weather/bg_cloud_night.mp4"
   },
   "humidity": {
     "type": "percentage",
@@ -56,7 +56,7 @@
   },
   "referenceUrl" : {
     "type" : "url",
-    "value" : "http://weather.contentproviderdomain.com/"
+    "value" : "http://weather.contentservice.example.com/"
   },
   "type": "Humidity"
 }

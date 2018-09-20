@@ -39,7 +39,7 @@
   },
   "bgClipUrl": {
     "type": "url",
-    "value": "https://ssl.pstatic.net/static/clova/service/weather/bg_clean_daytime.mp4"
+    "value": "https://ssl.pstatic.example.net/static/clova/service/weather/bg_clean_daytime.mp4"
   },
   "concentrationOfAtmosphere": {
     "type": "string",
@@ -57,7 +57,7 @@
     {
       "atmosphereImageUrl": {
         "type": "url",
-        "value": "http://static.contentproviderdomain.net/clova/service/weather/air_icon_02.png"
+        "value": "http://static.contentservice.example.net/clova/service/weather/air_icon_02.png"
       },
       "concentrationOfAtmosphere": {
         "type": "string",
@@ -71,7 +71,7 @@
     {
       "atmosphereImageUrl": {
         "type": "url",
-        "value": "http://static.contentproviderdomain.net/clova/service/weather/air_icon_02.png"
+        "value": "http://static.contentservice.example.net/clova/service/weather/air_icon_02.png"
       },
       "concentrationOfAtmosphere": {
         "type": "string",
@@ -85,7 +85,7 @@
     {
       "atmosphereImageUrl": {
         "type": "url",
-        "value": "http://static.contentproviderdomain.net/clova/service/weather/air_icon_02.png"
+        "value": "http://static.contentservice.example.net/clova/service/weather/air_icon_02.png"
       },
       "concentrationOfAtmosphere": {
         "type": "string",
@@ -99,7 +99,7 @@
     {
       "atmosphereImageUrl": {
         "type": "url",
-        "value": "http://static.contentproviderdomain.net/clova/service/weather/air_icon_02.png"
+        "value": "http://static.contentservice.example.net/clova/service/weather/air_icon_02.png"
       },
       "concentrationOfAtmosphere": {
         "type": "string",
@@ -131,7 +131,7 @@
   },
   "referenceUrl" : {
     "type" : "url",
-    "value" : "http://weather.contentproviderdomain.com/"
+    "value" : "http://weather.contentservice.example.com/"
   },
   "temperatureCode": {
     "type": "string",
@@ -152,7 +152,7 @@
   },
   "bgClipUrl": {
     "type": "url",
-    "value": "https://ssl.pstatic.net/static/clova/service/weather/bg_cloud_daytime.mp4"
+    "value": "https://ssl.pstatic.example.net/static/clova/service/weather/bg_cloud_daytime.mp4"
   },
   "concentrationOfAtmosphere": {
     "type": "string",
@@ -166,7 +166,7 @@
     {
       "atmosphereImageUrl": {
         "type": "url",
-        "value": "http://static.contentproviderdomain.net/clova/service/weather/air_icon_02.png"
+        "value": "http://static.contentservice.example.net/clova/service/weather/air_icon_02.png"
       },
       "concentrationOfAtmosphere": {
         "type": "string",
@@ -180,7 +180,7 @@
     {
       "atmosphereImageUrl": {
         "type": "url",
-        "value": "http://static.contentproviderdomain.net/clova/service/weather/air_icon_02.png"
+        "value": "http://static.contentservice.example.net/clova/service/weather/air_icon_02.png"
       },
       "concentrationOfAtmosphere": {
         "type": "string",
@@ -194,7 +194,7 @@
     {
       "atmosphereImageUrl": {
         "type": "url",
-        "value": "http://static.contentproviderdomain.net/clova/service/weather/air_icon_02.png"
+        "value": "http://static.contentservice.example.net/clova/service/weather/air_icon_02.png"
       },
       "concentrationOfAtmosphere": {
         "type": "string",
@@ -208,7 +208,7 @@
     {
       "atmosphereImageUrl": {
         "type": "url",
-        "value": "http://static.contentproviderdomain.net/clova/service/weather/air_icon_02.png"
+        "value": "http://static.contentservice.example.net/clova/service/weather/air_icon_02.png"
       },
       "concentrationOfAtmosphere": {
         "type": "string",
