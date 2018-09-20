@@ -4545,7 +4545,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 
 | フィールド名       | データ型    | フィールドの説明                     | Optional |
 |---------------|---------|-----------------------------|:---------:|
-| `lockState`   | string  | デバイスに設定されたか、またはExtensionからリクエストされたデバイスのロック状態。次のいずれかになります。<ul><li><code>"LOCKED"</code></li><li><code>"UNLOCKED"</code></li></ul> NOTE: applianceType が "SMARTLOCK"の場合、"UNLOCKED"の指定はサポートされません。 |     |
+| `lockState`   | string  | デバイスに設定されたか、またはExtensionからリクエストされたデバイスのロック状態。次のいずれかになります。<ul><li><code>"LOCKED"</code></li><li><code>"UNLOCKED"</code></li></ul> |     |
 
 
 ### Message example
@@ -4580,7 +4580,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 |---------------|---------|-----------------------------|:---------:|
 | `accessToken`   | string | IoTサービスのユーザーアカウントのアクセストークン。CEKは、外部サービスの認可サーバーから取得したユーザーアカウントのアクセストークンを渡します。詳細については、[ユーザーアカウントを連携する](/CEK/Guides/Link_User_Account.md)を参照してください。                          |     |
 | `appliance`     | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) | エンドポイントの情報を持つオブジェクト。`applianceId`フィールドは必須です。 |     |
-| `lockState`       | string | 設定するデバイスのロック状態。次のいずれかになります。<ul><li><code>"LOCKED"</code></li><li><code>"UNLOCKED"</code></li></ul> |     |
+| `lockState`       | string | 設定するデバイスのロック状態。次のいずれかになります。<ul><li><code>"LOCKED"</code></li><li><code>"UNLOCKED"</code></li></ul> NOTE: applianceType が "SMARTLOCK"の場合、"UNLOCKED"の指定はサポートされません。 |     |
 
 ### Message example
 
