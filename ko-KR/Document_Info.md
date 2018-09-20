@@ -24,6 +24,7 @@
       <td>v3.40.0</td><td>미적용</td><td>2018-09-21</td>
       <td>
         <ul>
+          <li>[CIC] 콘텐츠의 MIME type을 명시하기 위해 <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a> <a href="/CIC/References/CICInterface/AudioPlayer.html#AudioStreamInfoObject">AudioStreamInfoObject</a>의 payload에 format 필드를 추가</li>
           <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">지원 기기</a> 설명 중 Actions 항목에 빠진 동작(GetCleaningCycle, GetOpenState, ReleaseMode)을 추가</li>
           <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html">오류 메시지(Error)</a>에 <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ActionTemporarilyBlockedError">ActionTemporarilyBlockedError</a>와 <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ValueNotSupportedError">ValueNotSupportedError</a> 오류 메시지를 추가</li>
           <li>[Common] 일부 잘못된 코드 예제를 수정</li>
