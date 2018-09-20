@@ -18,6 +18,7 @@
     "OrientedService": "NAVER",
     "OrientedServiceWithLowerCase": "naver",
     "TargetServiceForClientAuth": "NAVER",
+    "PublicKeyURLforCEKMessageValidation": "https://clova.ai/.well-known/signature-public-key.pem",
     "LoginAPIofTargetService": "https://developers.naver.com/docs/login/overview/",
     "AuthServerBaseURL": "https://auth.clova.ai/",
     "CICBaseURL": "https://prod-ni-cic.clova.ai/",
