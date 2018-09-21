@@ -6,7 +6,7 @@
 
 * [목표 수립](#SettingGoal)
 * [사용 시나리오 스크립트 작성](#MakeUseCaseScenarioScript)
-* [Extension 이름 정의](#DefineExtensionName)
+* [Extension 이름 정의](#DefineInvocationName)
 * [Interaction 모델 정의](#DefineInteractionModel)
 * [응답 유형 결정](#DecideSoundOutputType)
 * [플랫폼 지원 오디오 압축 포맷](#SupportedAudioCompressionFormat)
@@ -91,7 +91,7 @@ Extension을 설계할 때 제일 먼저 할 일은 extension의 목표를 정�
 | 사용자      | 피자봇에서 주문한 것 조회해줘.                               | #1, #9      |
 | Extension | 지금 열심히 배달 중이에요. 조금만 기다려주세요.                 | #9          |
 
-## Extension 이름 정의 {#DefineExtensionName}
+## Extension 이름 정의 {#DefineInvocationName}
 
 새로운 extension을 작성할 때는 우선 extension 이름을 정의해야 합니다. Extension의 이름에는 **skill 이름**과 **호출 이름**이 있습니다. **Skill 이름**은 skill 스토어에 표시되는 이름으로 skill은 extension으로 구현됩니다. **호출 이름**은 사용자가 extension을 사용하기 위해 Clova에게 말하는 이름입니다.
 
