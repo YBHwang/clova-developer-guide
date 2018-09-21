@@ -21,8 +21,9 @@
 | [ModeInfoObject](#ModeInfoObject)                         | 운전 모드 정보가 담긴 객체          |
 | [HumidityInfoObject](#HumidityInfoObject)                 | 습도 정보가 담긴 객체              |
 | [PeriodInfoObject](#PeriodInfoObject)                     | 기간 정보를 담고 있는 객체          |
-| [PhaseInfoObject](#PhaseInfoObject)                       | 기기 동작의 단계 정보가 담긴 객체
-| [ProgressiveTaxBracketInfoObject](#ProgressiveTaxBracketInfoObject)  | 누진세 단계 정보       |
+| [PhaseInfoObject](#PhaseInfoObject)                       | 기기 동작의 단계 정보가 담긴 객체     |
+| [ProgressiveTaxBracketInfoObject](#ProgressiveTaxBracketInfoObject)  | 누진세 단계 정보가 담긴 객체 |
+| [RatioInfoObject](#RatioInfoObject)                       | 비율 정보를 담고 있는 객체          |
 | [SittingStateInfoObject](#SittingStateInfoObject)         | 스마트 의자와 같은 기기에 대한 사용자의 착석 정보가 담긴 객체  |
 | [SleepScoreInfoObject](#SleepScoreInfoObject)             | 수면 점수 정보가 담긴 객체          |
 | [SpeedInfoObject](#SpeedInfoObject)                       | 속도 정보가 담긴 객체              |
@@ -1404,6 +1405,46 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 
 ### See also
 * [`GetProgressiveTaxBracketResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetProgressiveTaxBracketResponse)
+
+## RatioInfoObject {#RatioInfoObject}
+
+비율 정보를 담고 있는 객체입니다.
+
+### Object fields
+
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
+|---------------|---------|-----------------------------|:-------------:|
+| `value`       | number  | 비율 값. 단위는 퍼센트(%)입니다.   | 필수      |
+
+### Object Example
+{% raw %}
+
+```json
+// 예제: GetCurrentSittingStateResponse 메시지에서 사용된 예
+{
+  "header": {
+    "messageId": "33da6561-0149-4532-a30b-e0de8f75c4cf",
+    "name": "GetCurrentSittingStateResponse",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "sittingState": {
+      "value": true
+    },
+    "recentlySittingPeriod": {
+      "start": "2018-03-28T00:10:00+09:00",
+      "end": "2018-03-28T23:59:59+09:00"
+    },
+    "applianceResponseTimestamp": "2018-03-29T14:32:13+09:00"
+  }
+}
+```
+
+{% endraw %}
+
+### See also
+* [`GetCurrentSittingStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentSittingStateResponse)
 
 ## SittingStateInfoObject {#SittingStateInfoObject}
 스마트 의자와 같은 기기에 대한 사용자의 착성 정보가 담긴 객체입니다.
