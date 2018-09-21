@@ -84,7 +84,7 @@ GET|POST /authorize
 // 예제 2: HTTP 응답 메시지가 451 Unavailable For Legal Reasons 상태 코드를 가지는 예
 {
   "code":"4mrklvwoC_KNgDlvmslka",
-  "redirect_uri":"https://ssl.pstatic.net/static/clova/service/terms/place/terms_3rd.html?code=4mrklvwoC_KNgDlvmslka&grant_type=code&state=FKjaJfMlakjdfTVbES5ccZ",
+  "redirect_uri":"https://ssl.pstatic.example.net/static/clova/service/terms/place/terms_3rd.html?code=4mrklvwoC_KNgDlvmslka&grant_type=code&state=FKjaJfMlakjdfTVbES5ccZ",
   "state":"FKjaJfMlakjdfTVbES5ccZ"
 }
 ```

@@ -4,11 +4,15 @@ TemplateRuntime 인터페이스는 클라이언트나 CIC가 미디어 플레이
 
 | 메시지 이름         | 메시지 타입  | 메시지 설명                                   |
 |------------------|-----------|---------------------------------------------|
-| [`ExpectRequestPlayerInfo`](#ExpectRequestPlayerInfo)  | Directive | 클라이언트에게 재생 메타 정보를 요청하도록 지시합니다. 클라이언트는 이 지시 메시지를 받으면 [`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo) 이벤트 메시지를 CIC로 전송해야 합니다. |
-| [`LikeCommandIssued`](#LikeCommandIssued)              | Event     | 사용자가 클라이언트 기기에서 미디어 플레이어에서 특정 미디어에 대해 좋아요 버튼(Like)을 눌렀을 때 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. |
-| [`RenderPlayerInfo`](#RenderPlayerInfo)                | Directive | CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 앨범 이미지, 가사와 같은 재생 메타 정보를 전달하고 이를 표시하도록 지시합니다. |
-| [`RequestPlayerInfo`](#RequestPlayerInfo)              | Event     | 클라이언트가 미디어 플레이어에 표시할 재생 목록, 앨범 이미지, 가사와 같은 재생 메타 정보를 CIC에게 요청합니다. |
-| [`UnlikeCommandIssued`](#UnlikeCommandIssued)          | Event     | 사용자가 클라이언트 기기에서 미디어 플레이어에서 특정 미디어에 대해 좋아요 취소 버튼(Unlike)을 눌렀을 때 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. |
+| [`ExpectRequestPlayerInfo`](#ExpectRequestPlayerInfo)   | Directive | 클라이언트에게 재생 메타 정보를 요청하도록 지시합니다. 클라이언트는 이 지시 메시지를 받으면 [`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo) 이벤트 메시지를 CIC로 전송해야 합니다. |
+| [`LikeCommandIssued`](#LikeCommandIssued)               | Event     | 사용자가 클라이언트 기기에서 미디어 플레이어에서 특정 미디어에 대해 좋아요 버튼(Like)을 눌렀을 때 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. |
+| [`RenderPlayerInfo`](#RenderPlayerInfo)                 | Directive | CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 앨범 이미지, 가사와 같은 재생 메타 정보를 전달하고 이를 표시하도록 지시합니다. |
+| [`RequestPlayerInfo`](#RequestPlayerInfo)               | Event     | 클라이언트가 미디어 플레이어에 표시할 재생 목록, 앨범 이미지, 가사와 같은 재생 메타 정보를 CIC에게 요청합니다. |
+| [`SubscribeCommandIssued`](#SubscribeCommandIssued)     | Event     | 사용자가 클라이언트 기기에서 미디어 플레이어에서 구독 버튼(Subscribe)을 눌렀을 때 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다.  |
+| [`UnlikeCommandIssued`](#UnlikeCommandIssued)           | Event     | 사용자가 클라이언트 기기에서 미디어 플레이어에서 특정 미디어에 대해 좋아요 취소 버튼(Unlike)을 눌렀을 때 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. |
+| [`UnsubscribeCommandIssued`](#UnsubscribeCommandIssued) | Event     | 사용자가 클라이언트 기기에서 미디어 플레이어에서 구독 취소 버튼(Subscribe)을 눌렀을 때 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. |
+| [`UpdateLike`](#UpdateLike)                             | Directive | 클라이언트에게 미디어 플레이어에서 특정 미디어에 대한 사용자의 좋아요(like) 여부에 따라 좋아요 표시 상태를 지정된 값으로 업데이트하도록 지시합니다.  |
+| [`UpdateSubscribe`](#UpdateSubscribe)                   | Directive | 클라이언트에게 미디어 플레이어에서 특정 미디어에 사용자의 구독(subscribe) 여부에 따라 구독 표시 상태를 지정된 값으로 업데이트하도록 지시합니다.  |
 
 ## ExpectRequestPlayerInfo directive {#ExpectRequestPlayerInfo}
 
@@ -90,6 +94,7 @@ TemplateRuntime 인터페이스는 클라이언트나 CIC가 미디어 플레이
 ### See also
 * [`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo)
 * [`TemplateRuntime.UnlikeCommandIssued`](#UnlikeCommandIssued)
+* [`TemplateRuntime.UpdateLike`](#UpdateLike)
 
 ## RenderPlayerInfo directive {#RenderPlayerInfo}
 
@@ -108,7 +113,7 @@ CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 
 | `playableItems[].artImageUrl`  | string    | 미디어 콘텐츠 관련 이미지의 URL. 앨범 자켓 이미지나 관련 아이콘 등의 이미지가 위치한 URL입니다.      | 조건부 |
 | `playableItems[].controls[]`                | object array  | 특정 미디어 콘텐츠를 재생할 때 반드시 표시해야 하는 버튼의 정보를 담고 있는 객체 배열입니다. 이 객체 배열을 생략될 수 있습니다.  | 조건부 |
 | `playableItems[].controls[].enabled`        | boolean      | `playableItems[].controls[].name`에 명시된 버튼이 미디어 플레이어에서 활성화되어야 하는지 나타냅니다.<ul><li><code>true</code>: 활성화</li><li><code>false</code>: 비활성화</li></ul>  | 항상  |
-| `playableItems[].controls[].name`           | string       | 버튼 이름. 다음과 같은 값이 포함될 수 있습니다.<ul><li><code>"NEXT"</code>: 다음 버튼</li><li><code>"PLAY_PAUSE"</code>: 재생/일시 정지 버튼</li><li><code>"PREVIOUS"</code>: 이전 버튼</li></ul>  | 항상  |
+| `playableItems[].controls[].name`           | string       | 버튼 또는 제어 UI의 이름. 다음과 같은 값이 포함될 수 있습니다.<ul><li><code>"BACKWARD_15S"</code>: 15초 뒤로 이동 버튼</li><li><code>"BACKWARD_30S"</code>: 30초 뒤로 이동 버튼</li><li><code>"BACKWARD_60S"</code>: 60초 뒤로 이동 버튼</li><li><code>"FORWARD_15S"</code>: 15초 앞으로 이동 버튼</li><li><code>"FORWARD_30S"</code>: 30초 앞으로 이동 버튼</li><li><code>"FORWARD_60S"</code>: 60초 앞으로 이동 버튼</li><li><code>"NEXT"</code>: 다음 버튼</li><li><code>"PLAY_PAUSE"</code>: 재생/일시 정지 버튼</li><li><code>"PREVIOUS"</code>: 이전 버튼</li><li><code>"PROGRESS_BAR"</code>: 진행 표시줄</li><li><code>"REPEAT"</code>: 반복 버튼</li><li><code>"SUBSCRIBE_UNSUBSCRIBE"</code>: 구독/구독 취소 버튼</li></ul>  | 항상  |
 | `playableItems[].controls[].selected`       | boolean      | 미디어 콘텐츠가 선택된 상태 여부. 이 값은 선호 항목의 개념이 들어간 것을 표현할 때 사용될 수 있습니다. 이 값이 `true`로 선택되었다면 사용자가 선호 항목으로 등록해둔 콘텐츠이기 때문에 미디어 플레이어에서 관련된 UI에 표현해야 합니다. <ul><li><code>true</code>: 선택됨</li><li><code>false</code>: 선택 안됨</li></ul> | 항상  |
 | `playableItems[].controls[].type`           | string       | 버튼의 타입. 현재는 `"BUTTON"` 값만 사용됩니다.  | 항상 |
 | `playableItems[].headerText`       | string        | 주로 현재 재생 목록의 제목을 표현하는 텍스트 필드                                                | 조건부  |
@@ -163,7 +168,7 @@ CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 
       "displayType": "list",
       "playableItems": [
         {
-          "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/662058.jpg",
+          "artImageUrl": "http://musicmeta.musicservice.example.com/example/album/662058.jpg",
           "controls": [
             {
               "enabled": true,
@@ -188,7 +193,7 @@ CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 
           "token": "eJyr5lIqSSyITy4tKs4vUrJSUE="
         },
         {
-          "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/202646.jpg",
+          "artImageUrl": "http://musicmeta.musicservice.example.com/example/album/202646.jpg",
           "controls": [
             {
               "enabled": true,
@@ -215,9 +220,9 @@ CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 
         ...
       ],
       "provider": {
-        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png",
+        "logoUrl": "https://img.musicservice.example.net/logo_180125.png",
         "name": "SampleMusicProvider",
-        "smallLogoUrl": "https://img.musicproviderdomain.net/smallLogo_180125.png"
+        "smallLogoUrl": "https://img.musicservice.example.net/smallLogo_180125.png"
       }
     }
   }
@@ -230,7 +235,9 @@ CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 
 * [`AudioPlayer.Play`](#Play)
 * [`TemplateRuntime.LikeCommandIssued`](#LikeCommandIssued)
 * [`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo)
+* [`TemplateRuntime.SubscribeCommandIssued`](#SubscribeCommandIssued)
 * [`TemplateRuntime.UnlikeCommandIssued`](#UnlikeCommandIssued)
+* [`TemplateRuntime.UnsubscribeCommandIssued`](#UnsubscribeCommandIssued)
 
 ## RequestPlayerInfo event {#RequestPlayerInfo}
 클라이언트가 미디어 플레이어에 표시할 재생 목록, 앨범 이미지, 가사와 같은 재생 메타 정보를 CIC에게 요청합니다. 이 이벤트 메시지를 CIC에게 전송하면 CIC는 [`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo) 지시 메시지를 클라이언트에게 전송합니다.
@@ -282,6 +289,57 @@ CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 
 * [`TemplateRuntime.ExpectRequestPlayerInfo`](#ExpectRequestPlayerInfo)
 * [`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo)
 
+## SubscribeCommandIssued event {#SubscribeCommandIssued}
+사용자가 클라이언트 기기에서 미디어 플레이어에서 구독 버튼(Subscribe)을 눌렀을 때 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. 이 이벤트 메시지를 받은 CIC는 상황에 맞는 지시 메시지를 클라이언트에게 전송합니다.
+
+### Context fields
+
+{% include "/CIC/References/CICInterface/Context_Objects_List.md" %}
+
+### Payload fields
+
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `token`    | string  | 미디어 콘텐츠의 token. [`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo) 지시 메시지의 `playableItems[].token` 필드로 제공된 token 값이 입력되어야 합니다. | 필수 |
+
+### Remarks
+* 클라이언트 기기의 버튼은 물리적인 하드웨어 방식의 버튼일 수도 있고 음악 플레이어 위젯 버튼과 같은 소프트웨어 방식의 버튼일 수도 있습니다.
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "context": [
+    {{Alerts.AlertsState}},
+    {{AudioPlayer.PlayerState}},
+    {{Device.DeviceState}},
+    {{Device.Display}},
+    {{Clova.Location}},
+    {{Clova.SavedPlace}},
+    {{Speaker.VolumeState}},
+    {{SpeechSynthesizer.SpeechState}}
+  ],
+  "event": {
+    "header": {
+      "namespace": "TemplateRuntime",
+      "name": "SubscribeCommandIssued",
+      "messageId": "ec3deb51-2ed8-47ae-ac17-d2ce24370f8f"
+    },
+    "payload": {
+      "token": "SSyITy4teJyr5lIqKs4vUrJSUE"
+    }
+  }
+}
+```
+{% endraw %}
+
+### See also
+* [`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo)
+* [`TemplateRuntime.UnsubscribeCommandIssued`](#UnsubscribeCommandIssued)
+* [`TemplateRuntime.UpdateSubscribe`](#UpdateSubscribe)
+
 ## UnlikeCommandIssued event {#UnlikeCommandIssued}
 사용자가 클라이언트 기기에서 미디어 플레이어에서 특정 미디어에 대해 좋아요 취소 버튼(Unlike)을 눌렀을 때 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. 이 이벤트 메시지를 받은 CIC는 상황에 맞는 지시 메시지를 클라이언트에게 전송합니다.
 
@@ -332,3 +390,139 @@ CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 
 ### See also
 * [`TemplateRuntime.LikeCommandIssued`](#LikeCommandIssued)
 * [`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo)
+* [`TemplateRuntime.UpdateLike`](#UpdateLike)
+
+## UnsubscribeCommandIssued event {#UnsubscribeCommandIssued}
+사용자가 클라이언트 기기에서 미디어 플레이어에서 구독 취소 버튼(Subscribe)을 눌렀을 때 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. 이 이벤트 메시지를 받은 CIC는 상황에 맞는 지시 메시지를 클라이언트에게 전송합니다.
+
+### Context fields
+
+{% include "/CIC/References/CICInterface/Context_Objects_List.md" %}
+
+### Payload fields
+
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `token`    | string  | 미디어 콘텐츠의 token. [`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo) 지시 메시지의 `playableItems[].token` 필드로 제공된 token 값이 입력되어야 합니다. | 필수 |
+
+### Remarks
+* 클라이언트 기기의 버튼은 물리적인 하드웨어 방식의 버튼일 수도 있고 음악 플레이어 위젯 버튼과 같은 소프트웨어 방식의 버튼일 수도 있습니다.
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "context": [
+    {{Alerts.AlertsState}},
+    {{AudioPlayer.PlayerState}},
+    {{Device.DeviceState}},
+    {{Device.Display}},
+    {{Clova.Location}},
+    {{Clova.SavedPlace}},
+    {{Speaker.VolumeState}},
+    {{SpeechSynthesizer.SpeechState}}
+  ],
+  "event": {
+    "header": {
+      "namespace": "TemplateRuntime",
+      "name": "UnsubscribeCommandIssued",
+      "messageId": "04deb09e-54cc-4525-9e97-4ff4168872b5"
+    },
+    "payload": {
+      "token": "r5lIqKs4vUSSyITy4teJyrJSUE"
+    }
+  }
+}
+```
+{% endraw %}
+
+### See also
+* [`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo)
+* [`TemplateRuntime.SubscribeCommandIssued`](#SubscribeCommandIssued)
+* [`TemplateRuntime.UpdateSubscribe`](#UpdateSubscribe)
+
+## UpdateLike directive {#UpdateLike}
+
+클라이언트에게 미디어 플레이어에서 특정 미디어에 대한 사용자의 좋아요(like) 여부에 따라 좋아요 표시 상태를 지정된 값으로 업데이트하도록 지시합니다. 사용자의 발화나 좋아요 버튼([`TemplateRuntime.LikeCommandIssued`](#LikeCommandIssued)) 또는 좋아요 취소 버튼([`TemplateRuntime.UnlikeCommandIssued`](#UnlikeCommandIssued)) 누름 동작에 대한 응답으로 전달되거나 사용자가 다른 기기에서 좋아요와 관련된 동작을 수행했을 때 이를 동기화하기 위해 전달됩니다.
+
+### Payload fields
+
+| 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `like`        | boolean | 좋아요 표시 여부<ul><li><code>true</code>: 좋아요 표시</li><li><code>false</code>: 좋아요 표시 안함</li></ul>             | 항상 |
+| `token`       | string  | 미디어 콘텐츠의 token. [`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo) 지시 메시지의 `playableItems[].token` 필드에 해당하는 값이 token 값이 포함됩니다.      | 항상 |
+
+## Remarks
+
+동기화를 위해 이 지시 메시지가 전달될 때는 이벤트 메시지에 대한 응답이 아닌 [downchannel](/CIC/Guides/Interact_with_CIC.md#CreateConnection)을 통해 전달됩니다.
+
+### Message example
+{% raw %}
+
+```json
+{
+  "directive": {
+    "header": {
+      "namespace": "TemplateRuntime",
+      "name": "UpdateLike",
+      "messageId": "fb65457e-bd2e-4876-b739-2b8cc5b67486",
+      "dialogRequestId": "94e045dd-78c7-415e-b73b-f0cb9cbfd75d"
+    },
+    "payload": {
+      "token": "r5lIqKs4vUSSyITy4teJyrJSUE",
+      "like": true
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### See also
+* [`TemplateRuntime.LikeCommandIssued`](#LikeCommandIssued)
+* [`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo)
+* [`TemplateRuntime.UnlikeCommandIssued`](#UnlikeCommandIssued)
+
+## UpdateSubscribe directive {#UpdateSubscribe}
+
+클라이언트에게 미디어 플레이어에서 특정 미디어에 대한 사용자의 구독 여부에 따라 구독(subscribe) 표시 상태를 지정된 값으로 업데이트하도록 지시합니다. 사용자의 발화나 구독 버튼([`TemplateRuntime.SubscribeCommandIssued`](#SubscribeCommandIssued)) 또는 구독 취소 버튼([`TemplateRuntime.UnsubscribeCommandIssued`](#UnsubscribeCommandIssued)) 누름 동작에 대한 응답으로 전달되거나 사용자가 다른 기기에서 구독과 관련된 동작을 수행했을 때 이를 동기화하기 위해 전달됩니다.
+
+### Payload fields
+
+| 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `subscribe`   | boolean | 구독 여부<ul><li><code>true</code>: 구독 중임</li><li><code>false</code>: 구독 중이지 않음</li></ul>             | 항상 |
+| `token`       | string  | 미디어 콘텐츠의 token. [`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo) 지시 메시지의 `playableItems[].token` 필드에 해당하는 값이 token 값이 포함됩니다.      | 항상 |
+
+## Remarks
+
+동기화를 위해 이 지시 메시지가 전달될 때는 이벤트 메시지에 대한 응답이 아닌 [downchannel](/CIC/Guides/Interact_with_CIC.md#CreateConnection)을 통해 전달됩니다.
+
+### Message example
+{% raw %}
+
+```json
+{
+  "directive": {
+    "header": {
+      "namespace": "TemplateRuntime",
+      "name": "UpdateSubscribe",
+      "messageId": "fb65457e-bd2e-4876-b739-2b8cc5b67486",
+      "dialogRequestId": "94e045dd-78c7-415e-b73b-f0cb9cbfd75d"
+    },
+    "payload": {
+      "token": "r5lIqKs4vUSSyITy4teJyrJSUE",
+      "subscribe": true
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### See also
+* [`TemplateRuntime.SubscribeCommandIssued`](#SubscribeCommandIssued)
+* [`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo)
+* [`TemplateRuntime.UnsubscribeCommandIssued`](#UnsubscribeCommandIssued)

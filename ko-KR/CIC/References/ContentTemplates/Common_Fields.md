@@ -54,7 +54,7 @@
 | [clova://{{ book.OrientedServiceWithLowerCase }}Search](#NaverSearch)        | {{ book.OrientedService }} 앱에서 특정 키워드를 검색하는 동작                    |
 | [clova://{{ book.OrientedServiceWithLowerCase }}-maps](#NaverMaps)           | {{ book.OrientedService }} 지도 앱을 실행하는 동작                            |
 | [clova://ttsRepeat](#TTSRepeat)            | Text to speech 발화를 수행하는 동작                     |
-| [clova://webview](#Webview)                | WebView로 웹 페이지를 여는 동작                          |
+| [clova://webview](#WebView)                | WebView로 웹 페이지를 여는 동작                          |
 
 <div class="note">
   <p><strong>Note!</strong></p>

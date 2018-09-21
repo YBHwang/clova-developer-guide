@@ -21,12 +21,29 @@
   </thead>
   <tbody>
     <tr>
+      <td>v3.40.0</td><td>미적용</td><td>2018-09-21</td>
+      <td>
+        <ul>
+          <li>[CIC] 콘텐츠의 MIME type을 명시하기 위해 <a href="/CIC/References/CICInterface/AudioPlayer.md">AudioPlayer</a> <a href="/CIC/References/CICInterface/AudioPlayer.md#AudioStreamInfoObject">AudioStreamInfoObject</a>의 payload에 format 필드를 추가</li>
+          <li>[CIC] 미디어 콘텐츠 재생 시 좋아요 및 구독 기능을 처리하기 위해 <a href="/CIC/References/CICInterface/TemplateRuntime">TemplateRuntime</a> 네임스페이스에 SubscribeCommandIssued, UnsubscribeCommandIssued 이벤트 메시지와 UpdateLike, UpdateSubscribe 지시 메시지에 추가</li>
+          <li>[CIC] 미디어 콘텐츠 재생 시 표시해야 하는 버튼이나 제어 UI의 종류를 <a href="/CIC/References/CICInterface/TemplateRuntime.md#RenderPlayerInfo">TemplateRuntime.RenderPlayerInfo</a> 지시 메시지에 추가</li>
+          <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject">지원 기기</a> 설명 중 Actions 항목에 빠진 동작(GetCleaningCycle, GetOpenState, ReleaseMode)을 추가</li>
+          <li>[CEK] Clova에서 전달하는 메시지의 검증을 위해 <a href="/CEK/References/CEK_API.md#HTTPHeader">HTTP 헤더</a>에 SignatureCEK 필드 설명을 추가하고 <a href="/CEK/Guides/Build_Custom_Extension.md">custom extension 만들기</a> 문서와 <a href="/CEK/Guides/Build_Clova_Home_Extension.md">Clova Home extension 만들기</a> 문서에 각각 요청 메시지 검증 절을 추가</li>
+          <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.md">오류 메시지(Error)</a>에 <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.md#ActionTemporarilyBlockedError">ActionTemporarilyBlockedError</a>와 <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.md#ValueNotSupportedError">ValueNotSupportedError</a> 오류 메시지를 추가</li>
+          <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.md">공유 객체</a>에 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.md#RatioInfoObject">RatioInfoObject</a> 객체 추가</li>
+          <li>[Common] 일부 잘못된 코드 예제를 수정</li>
+          <li>[Common] 일부 잘못된 링크를 수정</li>
+          <li>[Common] 일부 사용자 접점에 있는 Extension 표기를 Skill로 변경(UI 캡처 이미지 함께 업데이트)</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.39.0</td><td>미적용</td><td>2018-09-07</td>
       <td>
         <ul>
           <li>[Design] Extension 디자인 가이드라인의 <a href="/Design/Design_Guideline_For_Extension.md#SupportedAudioCompressionFormat">플랫폼 지원 오디오 압축 포맷</a>에 오디오 콘텐츠별 음질 관련 속성과 음량에 대한 권고 사항 추가</li>
-          <li>[공통] 예제 설명 중 "yourdomain.com"으로 표시된 예제를 문서 작성용 도메인 이름인 "example.com"으로 변경</li>
-          <li>[CIC] <a href="/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md">알람 처리하기</a> 절의 링크 오류, 코드 예제 표기 오류 수정</li>
+          <li>[CIC] <a href="/CIC/Guides/Implement_Client_Features.md#HandleAlerts">알람 처리하기</a> 절의 링크 오류, 코드 예제 표기 오류 수정</li>
+          <li>[Common] 예제 설명 중 "yourdomain.com"으로 표시된 예제를 문서 작성용 도메인 이름인 "example.com"으로 변경</li>
         </ul>
       </td>
     </tr>
@@ -62,7 +79,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.37.0</td><td>미적용</td><td>2018-07-23</td>
+      <td>v3.37.0</td><td>미적용</td><td>2018-07-23</td>
       <td>
         <ul>
           <li>[Design] <a href="/Design/Design_Guideline_For_Client_Hardware.md">클라이언트 기기 디자인 가이드라인</a>의 <a href="/Design/Design_Guideline_For_Client_Hardware.md#SoundEffect">효과음</a> 중 Attending 상태 진입에 대한 효과음 업데이트</li>
@@ -74,10 +91,10 @@
       </td>
     </tr>
     <tr>
-      <td>v3.36.0</td><td>미적용</td><td>2018-07-09</td>
+      <td>v3.36.0</td><td>미적용</td><td>2018-07-09</td>
       <td>
         <ul>
-          <li>[Design] Extension의 <a href="/Design/Design_Guideline_For_Extension.md#DefineExtensionName">이름 정의</a>에 대한 가이드라인 추가</li>
+          <li>[Design] Extension의 <a href="/Design/Design_Guideline_For_Extension.md#DefineInvocationName">이름 정의</a>에 대한 가이드라인 추가</li>
           <li>[Design] Extension의 <a href="/Design/Design_Guideline_For_Extension.md#ContentGuideline">콘텐츠 제공 시 준수 사항</a>에 대한 가이드라인 추가</li>
           <li>[CIC] 클라이언트 기기 설정 정보를 업데이트 및 동기화하기 위해 <a href="/CIC/References/CICInterface/Settings.md">Settings</a> 네임스페이스 추가</li>
         </ul>
@@ -126,7 +143,7 @@
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/Clova.md#LaunchURI">LaunchURI</a> 지시 메시지를 DeviceControl 네임스페이스에서 <a href="/CIC/References/CICInterface/Clova.md">Clova</a> 네임스페이스로 이전</li>
-          <li>[CEK] HTTP 요청 메시지에 헤더(SignatureCEK, SignatureCEKCertChainUrl) 추가 및 <a href="/CEK/References/CEK_API.md#RequestMessageValidation">요청 메시지 검증</a> 절 추가</li>
+          <li>[CEK] HTTP 요청 메시지에 헤더(SignatureCEK, SignatureCEKCertChainUrl) 추가 및 요청 메시지 검증 절 추가</li>
         </ul>
       </td>
     </tr>
@@ -301,7 +318,7 @@
       <td>
         <ul>
           <li>[Design] 플랫폼 구현 상황에 맞게 <a href="/Design/Design_Guideline_For_Extension.md#DefineInteractionModel">built-in intent</a>에 대한 설명 수정</li>
-          <li>[CIC] <a href="/CIC/Guides/Interact_with_CIC.md#HandleDelegation">위임된 사용자 요청 처리하기</a> 절 추가 및 <a href="/CIC/References/CICInterface/Clova.md#HandleDelegatedEvent">Clova.HandleDelegatedEvent</a> 지시 메시지와 <a href="/CIC/References/CICInterface/Clova.md#ProcessDelegatedEvent">Clova.ProcessDelegatedEvent</a> 이벤트 메시지 추가</li>
+          <li>[CIC] <a href="/CIC/Guides/Implement_Client_Features.md#HandleDelegation">위임된 사용자 요청 처리하기</a> 절 추가 및 <a href="/CIC/References/CICInterface/Clova.md#HandleDelegatedEvent">Clova.HandleDelegatedEvent</a> 지시 메시지와 <a href="/CIC/References/CICInterface/Clova.md#ProcessDelegatedEvent">Clova.ProcessDelegatedEvent</a> 이벤트 메시지 추가</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/PlaybackController.md#NextCommandIssued">PlaybackController.NextCommandIssued</a>와 <a href="/CIC/References/CICInterface/PlaybackController.md#PreviousCommandIssued">PlaybackController.PreviousCommandIssued</a> 이벤트 메시지에 <a href="/CIC/References/Context_Objects.md#PlaybackState">AudioPlayer.PlaybackState</a> 맥락 정보를 포함하도록 설명 추가</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/Alerts.md">Alerts</a> API의 동작 구조에 대한 설명 개선</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.md">DeviceControl</a> API의 <a href="/CIC/References/CICInterface/DeviceControl.md#DeviceContorlWorkFlow">동작 구조</a>에 대한 설명 추가</li>
