@@ -288,7 +288,7 @@ CIC는 이 이벤트 메시지를 수신하면 사용자 계정에 등록된 모
 * [`DeviceControl.ActionFailed`](#ActionFailed)
 * [`DeviceControl.BtConnect`](#BtConnect)
 * [`DeviceControl.BtRequestForPINCode`](#BtRequestForPINCode)
-* [`DeviceControl.ReportState`](/CIC/References/Context_Objects.md#ReportState)
+* [`DeviceControl.ReportState`](#ReportState)
 
 ## BtDisconnect directive {#BtDisconnect}
 

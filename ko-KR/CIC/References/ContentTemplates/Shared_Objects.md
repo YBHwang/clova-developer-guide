@@ -284,13 +284,13 @@ URL 정보를 가지는 객체입니다.
 // 예제 1
 {
   "type": "url",
-  "value": "https://m.search.contentproviderdomain.com/search?where=m_image&mode=default&query=%EC%86%90%ED%9D%A5%EB%AF%BC%20%EC%9D%B4%EB%AF%B8%EC%A7%80#imgId=news4100000269062_1"
+  "value": "https://m.search.contentservice.example.com/search?where=m_image&mode=default&query=%EC%86%90%ED%9D%A5%EB%AF%BC%20%EC%9D%B4%EB%AF%B8%EC%A7%80#imgId=news4100000269062_1"
 }
 
 // 예제 2
 {
   "type": "url",
-  "value": "https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.contentproviderdomain.com%2Fimage%2F410%2F2015%2F08%2F31%2F20150831_1441012614_99_20150831181804.jpg&type=b360"
+  "value": "https://search.pstatic.example.net/common/?src=http%3A%2F%2Fimgnews.contentservice.example.com%2Fimage%2F410%2F2015%2F08%2F31%2F20150831_1441012614_99_20150831181804.jpg&type=b360"
 }
 ```
 

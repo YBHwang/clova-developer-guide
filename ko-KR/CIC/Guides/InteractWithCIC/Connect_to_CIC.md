@@ -43,7 +43,7 @@ Clova access token을 획득하는 절차는 다음과 같습니다.
     <p>(만약, <a href="/CIC/References/Clova_Auth_API.html#RequestAuthorizationCode">authorization code를 요청</a>에 대한 응답으로 <code>451 Unavailable For Legal Reasons</code> 상태 코드를 수신하면) 응답 메시지 본문 <code>redirect_uri</code> 필드에 입력된 URI를 이용하여 사용자에게 이용 약관 동의 페이지를 보여줘야 합니다. 다음은 상태 코드가 <code>451 Unavailable For Legal Reasons</code>일 때 수신하게 되는 응답 메시지의 본문의 예 입니다.</p>
     <pre><code>{
   "code": "4mrklvwoC_KNgDlvmslka",
-  "redirect_uri": "https://ssl.pstatic.net/static/clova/service/terms/place/terms_3rd.html?code=4mrklvwoC_KNgDlvmslka&grant_type=code&state=FKjaJfMlakjdfTVbES5ccZ",
+  "redirect_uri": "https://ssl.pstatic.example.net/static/clova/service/terms/place/terms_3rd.html?code=4mrklvwoC_KNgDlvmslka&grant_type=code&state=FKjaJfMlakjdfTVbES5ccZ",
   "state": "FKjaJfMlakjdfTVbES5ccZ"
 }
 </code></pre>

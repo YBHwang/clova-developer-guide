@@ -8,15 +8,18 @@ Clova Home extension을 만들기 위해 사전에 준비해야 할 것이 무�
 
 다음과 같은 순서로 Clova Home extension 개발자가 알아야 할 내용을 전달합니다.
 
-1. [사전 준비사항](#Preparation)
-2. [Discovery 기능 제공하기](#ProvideDeviceDiscovery)
-3. [Clova Home extension 요청 처리하기](#HandleClovaHomeExtensionRequest)
-4. [Clova Home extension 응답 반환하기](#ReturnClovaHomeExtensionResponse)
+* [사전 준비사항](#Preparation)
+* [Discovery 기능 제공하기](#ProvideDeviceDiscovery)
+* [Clova Home extension 요청 처리하기](#HandleClovaHomeExtensionRequest)
+  * [요청 메시지 검증](#RequestMessageValidation)
+* [Clova Home extension 응답 반환하기](#ReturnClovaHomeExtensionResponse)
 
 {% include "/CEK/Guides/BuildClovaHomeExtension/Preparation.md" %}
 
 {% include "/CEK/Guides/BuildClovaHomeExtension/Provide_Device_Discovery.md" %}
 
 {% include "/CEK/Guides/BuildClovaHomeExtension/Handle_Clova_Home_Extension_Request.md" %}
+
+{% include "/CEK/Guides/BuildCustomExtension/Handle_Custom_Extension_Request.md" %}
 
 {% include "/CEK/Guides/BuildClovaHomeExtension/Return_Clova_Home_Extension_Response.md" %}

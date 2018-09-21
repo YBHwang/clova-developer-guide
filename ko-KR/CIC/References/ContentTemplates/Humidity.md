@@ -21,6 +21,8 @@
 | `temperatureCode`      | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | [날씨 코드](#WeatherCode) 정보가 담긴 객체. 이 객체의 `value` 필드는 빈 문자열(`""`)을 가질 수도 있습니다.  |
 | `type`          | string | Content template 구분자. `"Humidity"` 값을 가집니다. |
 
+{% include "/CIC/References/ContentTemplates/Shared_Weather_Code.md" %}
+
 ## Template example
 
 {% raw %}
@@ -28,7 +30,7 @@
 {
   "bgImageUrl": {
     "type": "url",
-    "value": "https://ssl.pstatic.net/static/clova/service/weather/bg_cloud_night.mp4"
+    "value": "https://ssl.pstatic.example.net/static/clova/service/weather/bg_cloud_night.mp4"
   },
   "humidity": {
     "type": "percentage",
@@ -56,7 +58,7 @@
   },
   "referenceUrl" : {
     "type" : "url",
-    "value" : "http://weather.contentproviderdomain.com/"
+    "value" : "http://weather.contentservice.example.com/"
   },
   "type": "Humidity"
 }
