@@ -1183,7 +1183,7 @@ IoT 기기 정보 확인 및 기기 제어와 관련된 요청 및 응답을 수
 {% endraw %}
 
 ### See also
-* [`GetCleaningCycleRequest`](#GetGetCleaningCycleRequest)
+* [`GetCleaningCycleRequest`](#GetCleaningCycleRequest)
 
 ## GetCloseTimeRequest {#GetCloseTimeRequest}
 주로 열림 감지 센서가 감지한 내용 중 감지 대상이 마지막으로 닫혔던 시점의 시간 정보를 Clova Home extension에게 요청합니다. 이 요청에 대한 응답으로 [`GetCloseTimeResponse`](#GetCloseTimeResponse) 메시지를 사용해야 합니다.

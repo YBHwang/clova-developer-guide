@@ -9,6 +9,7 @@ Custom extension이란 Clova가 기본으로 제공하고 있는 기능이나 �
    * [`LaunchRequest` 요청 처리](#HandleLaunchRequest)
    * [`IntentRequest` 요청 처리](#HandleIntentRequest)
    * [`SessionEndedRequest` 요청 처리](#HandleSessionEndedRequest)
+   * [요청 메시지 검증](#RequestMessageValidation)
 * [Custom extension 응답 반환하기](#ReturnCustomExtensionResponse)
 * [Multi-turn 대화 수행하기](#DoMultiturnDialog)
 * [Audio 콘텐츠 제공하기](#ProvideAudioContent)
@@ -16,6 +17,8 @@ Custom extension이란 Clova가 기본으로 제공하고 있는 기능이나 �
 {% include "/CEK/Guides/BuildCustomExtension/Preparation.md" %}
 
 {% include "/CEK/Guides/BuildCustomExtension/Handle_Custom_Extension_Request.md" %}
+
+{% include "/CEK/Guides/SharedContent/Validating_Request_Message.md" %}
 
 {% include "/CEK/Guides/BuildCustomExtension/Return_Custom_Extension_Response.md" %}
 
