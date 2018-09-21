@@ -10,7 +10,7 @@ A consistent UI and UX must be provided to users of Clova client devices for a f
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>Any guidelines or specifications not mentioned in this document can be implemented according to the manufacturer needs or policies. However, if you are uncertain and need help to decide, contact your Clova representative.</p>
+  <p>Any guidelines or specifications not mentioned in this document can be implemented according to the manufacturer needs or policies. However, if you are uncertain and need help to decide, contact the partnership team.</p>
 </div>
 
 ## Client states and events {#ClientStateAndEvent}
@@ -75,9 +75,9 @@ The following guidelines must be followed when providing buttons.
 * If there is new button input while a task is already in progress from a previous input, the feedback effect on the previous input must be stopped to provide the feedback effect on the latest input.
 * It is permitted to provide the play and pause button as GUIs for devices supporting UI screens.
 * The buttons may be provided via the following methods:
-  - An exclusive button for one type of function only (e.g. a button for Bluetooth)
-  - Using the long-press gesture on the button to provide a function (e.g. reset via the long press gesture of the power button)
-  - Using a combination of buttons to provide a function (e.g. reset by pressing the power and play button simultaneously)
+  - An exclusive button for one type of function (e.g. a Bluetooth button)
+  - Long-press gesture on a button to provide a function (e.g. reset by long-pressing the Power button)
+  - Combination of multiple buttons to provide a function (e.g. reset by pressing the power and play buttons at the same time)
 
 ## LED {#Light}
 
@@ -93,10 +93,10 @@ The client must use the following colors of light:
 
 | Light color     | RGB value                | Description                                   | Required |
 |-------------|----------------------|---------------------------------------|:--------:|
-| Green       | <span style="color:#32C864; font-size:150%; vertical-align:middle;">&#9724;</span> 50, 200, 100(#32C864)   | Receipt of user audio input                                  | Required  |
-| Yellow Green | <span style="color:#B4FF00; font-size:150%; vertical-align:middle;">&#9724;</span> 180, 255, 0(#B4FF00)    | Clova notification                             | Required  |
+| Green       | <span style="color:#05D686; font-size:150%; vertical-align:middle;">&#9724;</span> 5, 214, 134(#05D686)   | Receipt of user audio input                                  | Required  |
+| Yellow Green | <span style="color:#96FF00; font-size:150%; vertical-align:middle;">&#9724;</span> 150, 255, 0(#96FF00)    | Clova notification                             | Required  |
 | Red         | <span style="color:#FF0000; font-size:150%; vertical-align:middle;">&#9724;</span> 255, 0, 0(#FF0000)      | Errors including mic mute, network connection error, or not enough battery     | Required  |
-| Warm White   | <span style="color:#EDE9E5; font-size:150%; vertical-align:middle;">&#9724;</span> 237, 233, 229(#EDE9E5)  | Clova voice outputs and receipt of alarm/reminder/timer events through speaker                             | Required  |
+| Warm White   | <span style="color:#F0E6E6; font-size:150%; vertical-align:middle;">&#9724;</span> 240, 230, 230(#F0E6E6)  | Clova voice outputs and receipt of alarm/reminder/timer events through speaker                             | Required  |
 
 The following image shows the implementation of light colors on Wave:
 
@@ -164,7 +164,7 @@ A client may have to play other audio content during audio playback. In this cas
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>Alert and notification types recognize sound effects and utterances as a single audio content. For example, the reminder recognizes the reminder sound and reminder utterance as a single alert audio content. For a low battery notification, the system state utterance such as "Not enough battery." and the beep sound becomes a single notification audio content.</p>
+  <p>Alert and notification types recognize sound effects and utterances as a single audio content. For example, a reminder recognizes the reminder sound and reminder utterance as a single alert audio content. For a low battery notification, the system state utterance such as "Not enough battery" and the beep sound becomes a single notification audio content.</p>
 </div>
 
 The rules for audio playback are as follows:
@@ -174,7 +174,7 @@ The rules for audio playback are as follows:
 * However, if the [Content type](#AudioInterruptionRule) of the audio playing and the new audio is the same, follow the process below.
   - **Alert, Content, Dialogue, Feedback type**: Cancel the audio content playing and play the new audio content.
   - For **Notification type**: Continue playing the audio content and keep the new audio content in the playback queue. After finishing the current audio content, play the following audio content in the queue order.
-* To cancel playing the audio content, you must cancel the currently playing audio content first.
+* To cancel playing the audio content, you must first cancel the currently playing audio content.
 
 Based on above rules, the following table shows how to process the playing audio content for each audio content type:
 
@@ -238,13 +238,13 @@ If a user attempts voice input while the client is playing audio content, follow
 
 * If there is audio content being played, process it as background audio from the attending state to the processing and reporting state.
 * If the waiting time for voice input has been exceeded or the user request processing has failed, the audio content processed as the background audio must be played in the original mode.
-* In case of having to play other audio content, depending on the processed result of the request, audio contents must be played in accordance with the [Rules for basic audio playback](#AudioInterruptionRule).
+* If a different audio content has to be played depending on the processed result of the request, the audio content must be played in accordance with the [Rules for basic audio playback](#AudioInterruptionRule).
 * The same rules apply for the listening and processing and reporting states gained from attempting multi-turn dialogues.
 
 If there is a request to play a new audio content during the attending and listening state, process the request as follows:
 
-* For playing audio content of **alert/dialogue/content** type, the audio content must be played after canceling the receipt of user voice input.
-* For playing audio content of **Notification** type or **Feedback** type, the audio content must be played as the background audio.
+* For playing audio content of **alert/dialogue/content** type, the audio content must be played after canceling the receiving of user voice input.
+* For playing audio content of **notification** type or **feedback** type, the audio content must be played as the background audio.
 
 ### Sound effects {#SoundEffect}
 
@@ -275,7 +275,7 @@ The following guidelines must be followed when providing sound effects.
 * Other sound effects may be added depending on your UX policies or for appropriate situations.
 * Users must be able to recognize each situation by the sound.
 * The sound effects must be consistent with the light effects or screen states.
-* If you are providing a sound effect for button feedback, it must be suitable to the property and feeling of a button.
+* If you are providing a sound effect for button feedback, the sound effect must be suitable to the property and feeling of a button.
 
 ### Supported audio compression formats {#SupportedAudioCompressionFormat}
 
@@ -401,7 +401,7 @@ The voice agent of A type icon must be expressed as follows for the correspondin
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>The loading state refers to the state of preparing the <a href="#VoiceAgent">voice agent</a> in order to receive user input. This state is only applicable for devices with screens and indications must be given to users that the preparations are underway for expressing voice agent graphics.</p>
+  <p>The loading state refers to the state of preparing the <a href="#VoiceAgent">voice agent</a> in order to receive user input. This state is only applicable for devices with GUI and an indication must be given to users that the preparation is underway for expressing voice agent graphics.</p>
 </div>
 
 #### B type Icon {#IconBType}
@@ -424,5 +424,5 @@ The voice agent of a B type icon must be expressed as follows for the correspond
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>The loading state refers to the state of preparing the <a href="#VoiceAgent">voice agent</a> in order to receive user input. This state is only applicable for devices with screens and indications must be given to users that the preparations are underway for expressing voice agent graphics.</p>
+  <p>The loading state refers to the state of preparing the <a href="#VoiceAgent">voice agent</a> in order to receive user input. This state is only applicable for devices with GUI and an indication must be given to users that the preparation is underway for expressing voice agent graphics.</p>
 </div>

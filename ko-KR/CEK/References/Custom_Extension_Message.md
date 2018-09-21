@@ -369,7 +369,7 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
 ```
 {% elif book.TargetCountryCode == "JP" %}
 ```json
-// 예제 1. Skill을 활성화했을 때
+// 예제 1. 사용자가 skill을 활성화했을 때
 "request": {
   "type": "EventRequest",
   "requestId": "f09874hiudf-sdf-4wku-flksdjfo4hjsdf",
@@ -381,7 +381,7 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
   }
 }
 
-// 예제 2. Skill을 비활성화했을 때
+// 예제 2. 사용자가 skill을 비활성화했을 때
 "request": {
   "type": "EventRequest",
   "requestId": "f09874hiudf-sdf-4wku-flksdjfo4hjsdf",

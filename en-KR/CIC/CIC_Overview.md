@@ -14,7 +14,7 @@ Through the CIC API, various communications are made between clients and CIC in 
 * [Event](/CIC/References/CIC_API.md#Event): Messages that clients send to CIC. Send events to CIC to pass user voice requests (speech input) to CIC and to notify CIC when your client states have changed.
 
 * [Directive](/CIC/References/CIC_API.md#Directive): Messages that CIC sends to clients to control client behavior. For example, a directive can instruct an app to display certain information or play synthesized speech. Directives are sent to clients when:
-    * Responding to user requests. After recognizing a user voice request (user intent), CIC returns directives to instruct clients to perform certain actions relevant to the user intent.
+    * Responding to user requests. After recognizing user voice request (user intent), CIC returns directives to instruct clients to perform certain actions relevant to the user intent.
     * Certain conditions require CIC to send directives to clients without any preceding user requests.
 
 The following sequence diagram shows how messages are sent back and forth between CIC and a client.
@@ -34,7 +34,7 @@ Dialogues between users and Clova usually proceed as followings:
 
 1. A user starts to speak to Clova.
 2. The client records the user speech and sends the recording to CIC.
-3. CIC returns the results to the client. The client delivers the result to the user through synthesized speech or the display.
+3. CIC returns result to the client. The client delivers the result to the user through synthesized speech or display.
 
 Having CIC and a client in between, dialogues between users and Clova are rather indirect and have the following limitations:
 

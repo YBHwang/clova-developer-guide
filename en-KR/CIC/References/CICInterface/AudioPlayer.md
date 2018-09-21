@@ -27,10 +27,10 @@ The client can receive a shared sound source playback state from all other or sp
 
 ![](/CIC/Resources/Images/CIC_Playback_State_Sync_Work_Flow.png)
 
-1. The Clova app requests the audio playback state of all or specific clients registered in the user account to CIC using the {{ "[`AudioPlayer.RequestPlaybackState`](#RequestPlaybackState) event " if book.TargetReaderType == "Internal" }}.
+1. Clova app requests the audio playback state of all or specific clients registered in the user account to CIC {{ "using the [`AudioPlayer.RequestPlaybackState`](#RequestPlaybackState) event " if book.TargetReaderType == "Internal" }}.
 2. CIC instructs all or specific clients registered in the [`AudioPlayer.ExpectReportPlaybackState`](#ExpectReportPlaybackState) user account to report the current audio playback state.
 3. After receiving the report request, the client reports the current audio playback state using [`AudioPlayer.ReportPlaybackState`](#ReportPlaybackState) event.
-4. CIC instructs the client that made the request to synchronize information by sending the states of the information using the {{ "[`AudioPlayer.SynchronizePlaybackState`](#SynchronizePlaybackState) event " if book.TargetReaderType == "Internal" }}.
+4. CIC instructs the client that made the request to synchronize information by sending the states of the information {{ "using [`AudioPlayer.SynchronizePlaybackState`](#SynchronizePlaybackState)" if book.TargetReaderType == "Internal" }}.
 
 
 ## ClearQueue directive {#ClearQueue}
@@ -107,7 +107,7 @@ Instructs the client to either play or add to the playback queue the specified a
 |---------------|---------|-----------------------------|:---------:|
 | `audioItem`               | object | The metadata of an audio stream to play and audio stream information required for playback.                     | Always |
 | `audioItem.artImageUrl`   | string | The URL for the image on the audio (e.g. album image).                                                  | Conditional  |
-| `audioItem.audioItemId`   | string | The ID of an audio stream. Use this ID to remove redundant Play directives. | Always |
+| `audioItem.audioItemId`   | string | ID of an audio stream. Use this ID to remove redundant Play directives. | Always |
 | `audioItem.headerText`    | string | The text field used mainly to indicate the title of current play list.                                                | Conditional  |
 | `audioItem.stream`        | [AudioStreamInfoObject](#AudioStreamInfoObject) | The audio stream information required for playback.        | Always |
 | `audioItem.titleSubText1` | string | The text field used mainly to indicate the name of the artist.                                                          | Always |
@@ -118,6 +118,11 @@ Instructs the client to either play or add to the playback queue the specified a
 | `source`                  | object | The information of the audio streaming service.                                                    | Always |
 | `source.logoUrl`          | string | The URL for the logo of the audio streaming service. If this field is unavailable or undefined, or if the logo cannot be displayed, you must at least display the name of the music service provider specified in the `source.name` field.  | Conditional |
 | `source.name`             | string | The text field containing the name of the audio streaming service.                                                        | Always |
+
+<div class="note">
+  <p><strong>Note!</strong></p>
+  <p>Using `source.logoUrl` over `source.name` is recommended for a more intuitive user experience.</p>
+</div>
 
 ### Remarks
 Based on the policy of music service providers, certain information required for playback (e.g. streaming URL) may have to be acquired right before playback. Whether additional information will be requested is specified in the `audioItem.stream.urlPlayable` field, as shown below:
@@ -698,7 +703,7 @@ Requests CIC for the current playback state of the client. Upon receiving the `A
 ### Payload fields
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `deviceId`    | string  | The ID of the target client. The opaque ID in a random format. If this field is omitted, the request is broadcasted to all clients registered in the user account. | Optional |
+| `deviceId`    | string  | ID of the target client. The opaque ID in a random format. If this field is omitted, the request is broadcasted to all clients registered in the user account. | Optional |
 
 ### Message example
 {% raw %}
@@ -742,7 +747,7 @@ Receives the audio stream information that can be played as a response to the [`
 ### Payload fields
 | Field name | Data type | Description | Included |
 |---------|------|--------|:---------:|
-| `audioItemId` | string | The ID of the audio stream. Use this ID to remove redundant Play directives. | Always |
+| `audioItemId` | string | ID of the audio stream. Use this ID to remove redundant Play directives. | Always |
 | `audioStream` | [AudioStreamInfoObject](#AudioStreamInfoObject) | The audio stream information required for playback.       | Always |
 
 ### Remarks
@@ -847,7 +852,7 @@ Instructs the client to synchronize the audio playback state. The client that ha
 
 | Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:---------:|
-| `deviceId`    | string  | The ID of the target client. The opaque ID in a random format.  | Always  |
+| `deviceId`    | string  | ID of the target client. The opaque ID in a random format.  | Always  |
 | `event`       | string  | The event occurred in the client.<ul><li><code>PlayFinished</code></li><li><code>PlayPaused</code></li><li><code>PlayResumed</code></li><li><code>PlayStarted</code></li><li><code>PlayStopped</code></li></ul>  | Conditional  |
 | `playbackState`          | object  | The playback state of the client.             | Conditional  |
 | `playbackState.offsetInMilliseconds`   | number  | The current-time indicator of the audio playing The unit is in milliseconds. This field can have a null value.  | Conditional  |

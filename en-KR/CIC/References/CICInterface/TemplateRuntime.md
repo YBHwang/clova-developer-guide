@@ -5,10 +5,10 @@ The TemplateRuntime namespace is used when the client or CIC requests or sends t
 | Message name         | Type  | Description                                   |
 |------------------|-----------|---------------------------------------------|
 | [`ExpectRequestPlayerInfo`](#ExpectRequestPlayerInfo)  | Directive | Instructs the client to request the playback metadata. Upon receiving the directive, the client must send the [`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo) event to CIC. |
-| [`LikeCommandIssued`](#LikeCommandIssued)              | Event     | Reports to CIC that the user pressed the Like button on the client device for a specific media. |
+| [`LikeCommandIssued`](#LikeCommandIssued)              | Event     | Reports to CIC when the user presses the Like button for specific media from the client device. |
 | [`RenderPlayerInfo`](#RenderPlayerInfo)                | Directive | Instructs the client to display the sent playback metadata such as a playlist, album image, and lyrics on the media player. |
 | [`RequestPlayerInfo`](#RequestPlayerInfo)              | Event     | Requests CIC for playback metadata such as a playlist, album image, and lyrics to display on the media player. |
-| [`UnlikeCommandIssued`](#UnlikeCommandIssued)          | Event     | Reports to CIC that the user pressed the Unlike button on the client device for a specific media. |
+| [`UnlikeCommandIssued`](#UnlikeCommandIssued)          | Event     | Reports to CIC when the user presses the Unlike button for specific media from the client device. |
 
 ## ExpectRequestPlayerInfo directive {#ExpectRequestPlayerInfo}
 
@@ -41,7 +41,7 @@ None
 * [`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo)
 
 ## LikeCommandIssued event {#LikeCommandIssued}
-Reports to CIC that the user pressed the Like button on the client device for a specific media. Upon receiving the event, CIC sends the appropriate directive to the client.
+Reports to CIC when the user presses the Like button for specific media from the client device. Upon receiving the event, CIC sends the appropriate directive to the client.
 
 
 ### Context fields
@@ -93,7 +93,7 @@ Reports to CIC that the user pressed the Like button on the client device for a 
 
 ## RenderPlayerInfo directive {#RenderPlayerInfo}
 
-Instructs the client to display the sent playback metadata such as a playlist, album image, and lyrics on the media player. If the user has requested to play music, the client plays the media by receiving the [`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play) directive. If necessary, a client with a display may have to express information related to playback on the media player. For this process, the playback metadata can be requested to CIC using the [`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo) event and the `TemplateRuntime.RenderPlayerInfo` directive is returned. The `TemplateRuntime.RenderPlayerInfo` directive contains playback metadata on the media to play now and media to play later. The client is able to display metadata and play list of the currently playing media by providing the playback metadata of the `TemplateRuntime.RenderPlayerInfo` directive to the user. It also provides the base data (`token`) that can process when the user has request to play specific media in the playlist, or to perform actions such as like ([`TemplateRuntime.LikeCommandIssued`](#LikeCommandIssued)) or unlike ([`TemplateRuntime.UnlikeCommandIssued`](#UnlikeCommandIssued)).
+Instructs the client to display the sent playback metadata such as a playlist, album image, and lyrics on the media player. When the user requests to play music, the client plays the media by receiving the [`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play) directive. If necessary, a client with a display may have to express information related to playback on the media player. For this process, the playback metadata can be requested to CIC using the [`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo) event and the `TemplateRuntime.RenderPlayerInfo` directive is returned. The `TemplateRuntime.RenderPlayerInfo` directive contains playback metadata on the media to play now and media to play later. The client is able to display metadata and play list of the currently playing media by providing the playback metadata of the `TemplateRuntime.RenderPlayerInfo` directive to the user. It also provides the base data (`token`) that can process when the user has request to play specific media in the playlist, or to perform actions such as like ([`TemplateRuntime.LikeCommandIssued`](#LikeCommandIssued)) or unlike ([`TemplateRuntime.UnlikeCommandIssued`](#UnlikeCommandIssued)).
 
 ### Payload fields
 | Field name       | Data type    | Description                     | Included |
@@ -112,7 +112,7 @@ Instructs the client to display the sent playback metadata such as a playlist, a
 | `playableItems[].controls[].selected`       | boolean      | Indicates whether the media content is selected. This value can be used for displaying user preferences. For example, if this value is set as `true`, the content must be expressed on the relevant UI of the media player since the user has selected it as a preference. <ul><li><code>true</code>: Selected</li><li><code>false</code>: Not selected</li></ul> | Always  |
 | `playableItems[].controls[].type`           | string       | The type of button. Currently, only the `"BUTTON"` value is available.  | Always |
 | `playableItems[].headerText`       | string        | The text field used mainly to indicate the title of current play list.                                                | Conditional  |
-| `playableItems[].isLive`           | boolean       | Whether the content is a real-time content or not.<ul><li><code>true</code>: Real-time content</li><li><code>false</code>: Not a real-time content</li></ul><div class="note"><p><strong>Note!</strong></p><p>If the content is a real-time content, an icon must be displayed to represent the real-time content state (e.g. A live icon).</p></div>  | Conditional  |
+| `playableItems[].isLive`           | boolean       | Whether the content is a real-time content or not.<ul><li><code>true</code>: Real-time content</li><li><code>false</code>: Non-real-time content</li></ul><div class="note"><p><strong>Note!</strong></p><p>If the content is a real-time content, you must display an icon to indicate its state (e.g. A live icon).</p></div>  | Conditional  |
 | `playableItems[].lyrics[]`         | object array  | The object array containing the lyrics information.                                                            | Conditional  |
 | `playableItems[].lyrics[].data`    | string        | The lyrics data. Either this field or the `playableItems[].lyrics[].url` field exists.              | Conditional  |
 | `playableItems[].lyrics[].format`  | string        | The format of the lyrics data.<ul><li><code>"LRC"</code>: <a href="https://en.wikipedia.org/wiki/LRC_(file_format)" target="_blank">LRC format</a></li><li><code>"PLAIN"</code>: Plain text format</li></ul>  | Always  |
@@ -123,9 +123,9 @@ Instructs the client to display the sent playback metadata such as a playlist, a
 | `playableItems[].titleText`        | string        | The text field used mainly to indicate the title of the currently playing music.                                                         | Always  |
 | `playableItems[].token`            | string        | The token of the media content.                                                                     | Always |
 | `provider`                         | object        | The information of the media content provider.                                                         | Conditional |
-| `provider.logoUrl`                 | string        | The logo image URL of the media content provider.                                                         | Conditional |
+| `provider.logoUrl`                 | string        | The URL for the logo of the media content provider. If this field is unavailable or undefined, or if the logo cannot be displayed, you must at least display the name of the media content provider specified in the `provider.name` field. | Conditional |
 | `provider.name`                    | string        | The name of the media content provider.                                                                   | Always  |
-| `provider.smallLogoUrl`            | string        | The URL of the small logo image of the media content provider.                                                | Conditional |
+| `provider.smallLogoUrl`            | string        | The URL for the small logo of the media content provider.                                                | Conditional |
 
 ### Message example
 {% raw %}
@@ -283,7 +283,7 @@ Requests CIC for playback metadata such as a playlist, album image, and lyrics t
 * [`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo)
 
 ## UnlikeCommandIssued event {#UnlikeCommandIssued}
-Reports to CIC that the user pressed the Unlike button on the client device for a specific media. Upon receiving the event, CIC sends the appropriate directive to the client.
+Reports to CIC when the user presses the Unlike button for specific media from the client device. Upon receiving the event, CIC sends the appropriate directive to the client.
 
 
 ### Context fields

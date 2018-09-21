@@ -7,10 +7,7 @@
 2. [CICに接続する](#ConnectToCIC)
 3. [イベントを送信する](#SendEvent)
 4. [ディレクティブを処理する](#HandleDirective)
-
-また、開発者は次の内容を理解して、実装する必要があります。
-* [メッセージキューを管理する](#ManageMessageQ)
-* [委任されたユーザーのリクエストを処理する](#HandleDelegation)
+5. [メッセージキューを管理する](#ManageMessageQ)
 
 {% include "/CIC/Guides/InteractWithCIC/Preparation.md" %}
 
@@ -21,5 +18,3 @@
 {% include "/CIC/Guides/InteractWithCIC/Handle_Directive.md" %}
 
 {% include "/CIC/Guides/InteractWithCIC/Manage_Message_Q.md" %}
-
-{% include "/CIC/Guides/InteractWithCIC/Handle_Delegation.md" %}

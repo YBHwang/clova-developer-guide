@@ -3,7 +3,7 @@
 
 | オブジェクト            | 説明                                            |
 |--------------------|---------------------------------------------------|
-| [ActionInforObject](#ActionInforObject)                   | デバイス制御動作の情報を持っています。  |
+| [ActionInfobject](#ActionInfobject)                   | デバイス制御動作の情報を持っています。  |
 | [AirQualityInfoObject](#AirQualityInfoObject)             | 空気質の情報を持っています。            |
 | [ApplianceInfoObject](#ApplianceInfoObject)               | IoTデバイスの情報を持っています。        |
 | [BatteryInfoObject](#BatteryInfoObject)                   | バッテリーの情報を持っています。            |
@@ -32,12 +32,12 @@
 | [UltraFineDustInfoObject](#UltraFineDustInfoObject)       | PM2.5の情報を持っています。         |
 | [VolumeInfoObject](#VolumeInfoObject)                     | 音量情報を持っています。          |
 
-## ActionInforObject {#ActionInforObject}
+## ActionInfobject {#ActionInfobject}
 デバイス制御動作の情報を持っているオブジェクトです。1つのデバイスに対して、1つの動作を指示するコマンドを表します。
 
 ### Object fields
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
-|---------------|---------|-----------------------------|:-------------:|
+|---------------|---------|-----------------------------|:-------:|
 | `applianceId` | string  | デバイスのID                      |      |
 | `action`      | string  | デバイスの制御動作。動作のリストについては、[ApplianceInfoObject](#ApplianceInfoObject)の[Actions](#Actions)項目を参照してください。     |      |
 
@@ -147,7 +147,7 @@
 ### Object fields
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `index`       | string  | 空気質の指数。次のいずれかの値を持ちます。<ul><li><code>"good"</code>：良い</li><li><code>"normal"</code>：普通</li><li><code>"bad"</code>：悪い</li><li><code>"verybad"</code>：非常に悪い</li></ul> |      |
+| `index`       | string  | 空気質の指数。次のいずれかの値を持ちます。<ul><li><code>"good"</code>：良い</li><li><code>"normal"</code>：普通</li><li><code>"bad"</code>：悪い</li><li><code>"verybad"</code>：非常に悪い</li></ul> |    |
 
 ### Object Example
 {% raw %}
@@ -178,22 +178,29 @@
 ## ApplianceInfoObject {#ApplianceInfoObject}
 IoTデバイスの情報を持っているオブジェクトです。ユーザーアカウントに登録されているデバイスのリストをCEKに渡したり、特定のデバイスをターゲットに指定して、Clova Home Extensionにそのデバイスの操作をリクエストする際に使われます。
 
-### Object fields
+### リクエストで使用されるオブジェクトフィールド
+| フィールド名       | データ型    | フィールドの説明                     | 任意/任意 |
+|---------------|---------|-----------------------------|:-------------:|
+| `additionalApplianceDetails` | object        | メーカーまたはIoTサービスが提供する追加情報を持っているフィールド                                 | 条件付き    |
+| `applianceId`                | string        | デバイスのID                                                                         |      |
+
+### レスポンスで使用されるオブジェクトフィールド
+
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `actions[]`                  | string array  | デバイスでサポートされている動作のリスト。クライアントは、ユーザーがIoTデバイスを操作する際、デバイスでサポートされている動作の範囲内でリクエストするように案内する必要があります。 |     |
-| `additionalApplianceDetails` | object        | メーカーまたはIoTサービスが提供する追加情報を持っているフィールド                                 | 任意/条件付き    |
+| `actions[]`                  | string array  | デバイスでサポートされている動作のリスト。クライアントは、ユーザーがIoTデバイスを操作する際、デバイスでサポートされている動作の範囲内でリクエストするように案内する必要があります。 | 任意    |
+| `additionalApplianceDetails` | object        | メーカーまたはIoTサービスが提供する追加情報を持っているフィールド                                 | 任意    |
 | `applianceId`                | string        | デバイスのID                                                                        |     |
 | `applianceTypes[]`           | string array  | デバイスのタイプ。`applicationType`によって、そのデバイスでサポートされている動作を示す`actions`フィールドの値が異なります。IoTサービスでユーザーアカウントに登録されているデバイスのタイプを、次のいずれかに指定する必要があります。備考を参考にして、デバイスのタイプを入力します。                                                                              |     |
-| `friendlyName`               | string        | ユーザーがつけたデバイスの名前                                                           |     |
-| `friendlyDescription`        | string        | デバイスの説明                                                                  |     |
-| `isIr`                       | boolean       | デバイスのコントロールに、赤外線通信を利用するかどうかを示すフィールド<ul><li><code>true</code>：赤外線通信を利用する</li><li><code>false</code>：赤外線通信を利用しない</li></ul><div class="note"><p><strong>メモ</strong></p><p>デバイスを赤外線通信でコントロール(<code>true</code>)する場合、以下の制約があります。</p><ul><li>Clovaは、ユーザーにデバイスのコントロール結果を伝えません。</li><li>そのデバイスのタイプで<code>HealthCheck</code>動作をサポートされていても、Clovaは<code>HealthCheck</code>動作に関連するリクエストをExtensionに渡しません。</li></ul></div>  | 任意/条件付き  |
-| `isReachable`                | boolean       | デバイスが遠隔操作できる状態にあるかどうかを示す値<ul><li>true：遠隔操作できる</li><li>false：遠隔操作できない</li></ul>  |     |
-| `manufacturerName`           | string        | デバイスメーカーの名前                                                                  |     |
-| `modelName`                  | string        | デバイスのモデル名                                                                   |     |
-| `version`                    | string        | メーカーのソフトウェアバージョン                                                            |     |
-| `location`                   | string        | デバイスが設置されている場所。[Locations](#Locations)項目内のコードを入力します。入力したコードに対応する位置情報のテキストが`tags`フィールドに追加されます。            |     |
-| `tags`                       | string array  | ユーザーがデバイスに追加したタグのリスト。ユーザーはClovaアプリまたはIoTサービスで、デバイスの設置場所、使用目的、メーカーなど、さまざまな属性をタグとしてデバイスに追加することができます。同じ属性(タグ)を持つデバイスは、同じグループになります。同じグループ内に、同じ動作がサポートされているデバイスがある場合、同時に制御することができます。  |   |
+| `friendlyName`               | string        | ユーザーがつけたデバイスの名前                                                           | 任意    |
+| `friendlyDescription`        | string        | デバイスの説明                                                                  | 任意    |
+| `isIr`                       | boolean       | デバイスのコントロールに、赤外線通信を利用するかどうかを示すフィールド<ul><li><code>true</code>：赤外線通信を利用する</li><li><code>false</code>：赤外線通信を利用しない</li></ul><div class="note"><p><strong>メモ</strong></p><p>デバイスを赤外線通信でコントロール(<code>true</code>)する場合、以下の制約があります。</p><ul><li>Clovaは、ユーザーにデバイスのコントロール結果を伝えません。</li><li>そのデバイスのタイプで<code>HealthCheck</code>動作をサポートされていても、Clovaは<code>HealthCheck</code>動作に関連するリクエストをExtensionに渡しません。</li></ul></div>  | 任意  |
+| `isReachable`                | boolean       | デバイスが遠隔操作できる状態にあるかどうかを示す値<ul><li>true：遠隔操作できる</li><li>false：遠隔操作できない</li></ul>  | 任意    |
+| `manufacturerName`           | string        | デバイスメーカーの名前                                                                  | 任意    |
+| `modelName`                  | string        | デバイスのモデル名                                                                   | 任意    |
+| `version`                    | string        | メーカーのソフトウェアバージョン                                                            | 任意    |
+| `location`                   | string        | デバイスが設置されている場所。[Locations](#Locations)項目内のコードを入力します。入力したコードに対応する位置情報のテキストが`tags`フィールドに追加されます。            | 任意    |
+| `tags`                       | string array  | ユーザーがデバイスに追加したタグのリスト。ユーザーはClovaアプリまたはIoTサービスで、デバイスの設置場所、使用目的、メーカーなど、さまざまな属性をタグとしてデバイスに追加することができます。同じ属性(タグ)を持つデバイスは、同じグループになります。同じグループ内に、同じ動作がサポートされているデバイスがある場合、同時に制御することができます。  | 任意  |
 
 ### 備考
 [`DiscoverAppliancesRequest`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesRequest)メッセージでユーザーのデバイスリストをリクエストすると、Clova Home Extensionは`additionalApplianceDetails`を除くすべてのフィールドを設定して返す必要があります。その際、 `actions` の値は通常`applianceTypes`によって決定され、`applianceTypes`フィールドの値により次の値を持ちます。
@@ -213,7 +220,7 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 | `"ELECTRICKETTLE"`  | 電気ポット       | GetCurrentTemperature、HealthCheck、TurnOff、TurnOn                                                                              |
 | `"ELECTRICTOOTHBRUSH"` | 電動歯ブラシ     | GetDeviceState、HealthCheck                                                                                                            |
 | `"FAN"`             | 扇風機           | HealthCheck、SetMode、TurnOff、TurnOn                                                                                            |
-| `"HEATER"`          | ヒーター            | DecrementTargetTemperature、GetCurrentTemperature、HealthCheck、IncrementTargetTemperature、TurnOff、TurnOn                      |
+| `"HEATER"`          | ヒーター            | DecrementTargetTemperature, GetCurrentTemperature, GetTargetTemperature, HealthCheck, IncrementTargetTemperature, TurnOff, TurnOn                      |
 | `"HUMIDIFIER"`      | 加湿器           | GetCurrentTemperature、GetHumidity、HealthCheck、SetFanSpeed、TurnOff、TurnOn                                                    |
 | `"KIMCHIREFRIGERATOR"` | キムチ冷蔵庫    | GetDeviceState、HealthCheck                                                                                                            |
 | `"LIGHT"`           | スマート照明   | DecrementBrightness、DecrementVolume HealthCheck、IncrementBrightness、IncrementVolume SetBrightness、SetColor、SetColorTemperature、SetMode、TurnOff、TurnOn            |
@@ -241,7 +248,7 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 | `"SMARTVALVE"`      | スマートバルブ      | GetLockState、SetLockState                                                                                                        |
 | `"SMOKESENSOR"`     | 煙センサー       | GetDeviceState、HealthCheck                                                                                                             |
 | `"SWITCH"`          | 家庭内のコンセントの電源を制御するスイッチ | HealthCheck、TurnOff、TurnOn                                                                                       |
-| `"THERMOSTAT"`      | 温度調節器   | DecrementTargetTemperature、GetCurrentTemperature、HealthCheck、IncrementTargetTemperature、SetMode、SetTargetTemperature TurnOff、TurnOn       |
+| `"THERMOSTAT"`      | 温度調節器   | DecrementTargetTemperature, GetCurrentTemperature, GetTargetTemperature, HealthCheck, IncrementTargetTemperature, SetMode, SetTargetTemperature TurnOff, TurnOn       |
 | `"VENTILATOR"`      | 換気扇          | GetDeviceState、HealthCheck、SetFanSpeed、TurnOff、TurnOn                                                                         |
 | `"WATERBOILER"`     | 温水器          | HealthCheck、SetMode、TurnOff、TurnOn                                                                                             |
 
@@ -407,30 +414,14 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 
 ### Object fields
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
-|---------------|---------|-----------------------------|:-------------:|
+|---------------|---------|-----------------------------|:-------:|
 | `value`       | number  | バッテリー残量(%)                 |      |
 
 ### Object Example
 {% raw %}
 
 ```json
-//例1：GetBatteryInfoRequestメッセージで使用されたサンプル
-{
-  "header": {
-    "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
-    "name": "GetBatteryInfoRequest",
-    "namespace": "ClovaHome",
-    "payloadVersion": "1.0"
-  },
-  "payload": {
-    "accessToken": "92ebcb67fe33",
-    "appliance": {
-      "applianceId": "device-010"
-    }
-  }
-}
-
-//例2：GetBatteryInfoResponseメッセージで使用されたサンプル
+// サンプル：GetBatteryInfoResponseメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
@@ -449,7 +440,6 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 {% endraw %}
 
 ### 次の項目も参照してください。
-* [`GetBatteryInfoRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetBatteryInfoRequest)
 * [`GetBatteryInfoResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetBatteryInfoResponse)
 
 ## BillInfoObject {#BillInfoObject}
@@ -567,7 +557,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 {% raw %}
 
 ```json
-// サンプル：SetColorRequestメッセージで使用されたサンプル
+//例1：SetColorRequestメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "a97dff79-5684-4535-8df3-193713c478aa",
@@ -581,6 +571,23 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
       "applianceId": "device-020"
     },
     "color": {
+  		"hue": 100,
+      "saturation": 100,
+      "brightness": 100
+  	}
+  }
+}
+
+//例2：SetColorConfirmationメッセージで使用されたサンプル
+{
+  "header": {
+    "messageId": "0e380076-59f1-4417-9d30-895be4b34cea",
+    "name": "SetColorConfirmation",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+  	"color": {
   		"hue": 100,
       "saturation": 100,
       "brightness": 100
@@ -607,7 +614,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 {% raw %}
 
 ```json
-// サンプル：SetColorTemperatureRequestメッセージで使用されたサンプル
+//例1：SetColorTemperatureRequestメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "a97dff79-5684-4535-8df3-193713c478aa",
@@ -623,6 +630,21 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
     "colorTemperature": {
       "value": 3600
     }
+  }
+}
+
+//例2：SetColorTemperatureConfirmationメッセージで使用されたサンプル
+{
+  "header": {
+    "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
+    "name": "SetColorTemperatureConfirmation",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+  	"colorTemperature": {
+  		"value": 3600
+  	}
   }
 }
 ```
@@ -671,9 +693,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 {% endraw %}
 
 ### 次の項目も参照してください。
-* [`GetCurrentBillRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentBillRequest)
 * [`GetCurrentBillResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentBillResponse)
-* [`GetEstimateBillRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateBillRequest)
 * [`GetEstimateBillResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateBillResponse)
 
 ## CustomCommandInfoObject {#CustomCommandInfoObject}
@@ -685,7 +705,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
 | `name`        | string  | カスタムコマンドの名前。             |       |
-| `actions[]`   | [ActionInforObject](#ActionInforObject) array | カスタムコマンドで処理するデバイス制御動作のリスト  |   |
+| `actions[]`   | [ActionInfobject](#ActionInfobject) array | カスタムコマンドで処理するデバイス制御動作のリスト  |   |
 
 ### Object Example
 {% raw %}
@@ -784,7 +804,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 {% endraw %}
 
 ### 次の項目も参照してください。
-* [ActionInforObject](#ActionInforObject)
+* [ActionInfobject](#ActionInfobject)
 * [`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DiscoverAppliancesResponse)
 
 ## CustomInfoObject {#CustomInfoObject}
@@ -796,7 +816,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 |---------------|---------|-----------------------------|:-------------:|
 | `name`        | string            | デバイスのステータス情報や測定対象を示す任意の名前。ユーザーに応答する際、このフィールドに入力された値が音声で出力されます。 |  |
 | `value`       | numberまたはstring | ステータス値または測定値                                                                             |  |
-| `unit`        | string            | デバイスのステータス値または測定値の単位。`value`フィールドの型がstringの場合には省略され、numberの場合には次の値を持ちます。<ul><li><code>"celcius"</code>：摂氏温度</li><li><code>"percentage"</code>：パーセント</li></ul> | 任意/条件付き |
+| `unit`        | string            | デバイスのステータス値または測定値の単位。`value`フィールドの型がstringの場合には省略され、numberの場合には次の値を持ちます。<ul><li><code>"celcius"</code>：摂氏温度</li><li><code>"percentage"</code>：パーセント</li></ul> | 任意 |
 
 ### Object Example
 {% raw %}
@@ -836,7 +856,6 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 {% endraw %}
 
 ### 次の項目も参照してください。
-* [`GetDeviceStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateRequest)
 * [`GetDeviceStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateResponse)
 
 ## EndpointInfoObject {#EndpointInfoObject}
@@ -866,7 +885,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 {% raw %}
 
 ```json
-// サンプル：SetTargetTemperatureRequestメッセージで使用されたサンプル
+//例1：SetTargetTemperatureRequestメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
@@ -887,11 +906,30 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
     }
   }
 }
+
+//例2：SetTargetTemperatureConfirmationメッセージで使用されたサンプル
+{
+  "header": {
+    "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
+    "name": "SetTargetTemperatureConfirmation",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "targetTemperature": {
+      "value": 22
+    },
+    "endpoint": {
+      "value": "freezer"
+    }
+  }
+}
 ```
 
 {% endraw %}
 
 ### 次の項目も参照してください。
+* [`SetTargetTemperatureConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetTargetTemperatureConfirmation)
 * [`SetTargetTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetTargetTemperatureRequest)
 
 ## ExpendableInfoObject {#ExpendableInfoObject}
@@ -901,8 +939,8 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
 | `name`          | string  | 消耗品名                  |  |
-| `remainingTime` | string   | 消耗品の残り寿命(継続時間、<a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>)    | 任意/条件付き |
-| `usage`         | [CustomInfoObject](#CustomInfoObject)          | 消耗品の使用量(回数またはパーセントで表す)      | 任意/条件付き |
+| `remainingTime` | string   | 消耗品の残り寿命(継続時間、<a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>)    | 任意 |
+| `usage`         | [CustomInfoObject](#CustomInfoObject)          | 消耗品の使用量(回数またはパーセントで表す)      | 任意 |
 
 ### Object Example
 {% raw %}
@@ -938,7 +976,6 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 {% endraw %}
 
 ### 次の項目も参照してください。
-* [`GetExpendableStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetExpendableStateRequest)
 * [`GetExpendableStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetExpendableStateResponse)
 
 ## FineDustInfoObject {#FineDustInfoObject}
@@ -947,7 +984,7 @@ PM10の情報を持っているオブジェクトです。デバイスが測定�
 ### Object fields
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | PM10指数                  | 任意/条件付き    |
+| `value`       | number  | PM10指数                  | 任意    |
 | `index`       | string  | PM10レベル次のいずれかの値を持ちます。<ul><li><code>"good"</code>：良い</li><li><code>"normal"</code>：普通</li><li><code>"bad"</code>：悪い</li><li><code>"verybad"</code>：非常に悪い</li></ul> |      |
 
 ### Object Example
@@ -974,7 +1011,6 @@ PM10の情報を持っているオブジェクトです。デバイスが測定�
 {% endraw %}
 
 ### 次の項目も参照してください。
-* [`GetFineDustRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetFineDustRequest)
 * [`GetFineDustResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetFineDustResponse)
 
 ## IntensityLevelInfoObject {#IntensityLevelInfoObject}
@@ -989,7 +1025,26 @@ PM10の情報を持っているオブジェクトです。デバイスが測定�
 {% raw %}
 
 ```json
-// サンプル：IncrementIntensityLevelConfirmationメッセージで使用されたサンプル
+//例1：IncrementIntensityLevelRequestメッセージで使用されたサンプル
+{
+  "header": {
+    "messageId": "6c04fc2d-64dd-41a0-9162-7cb0d4cf7c08",
+    "name": "IncrementIntensityLevelRequest",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "accessToken": "92ebcb67fe33",
+    "appliance": {
+      "applianceId": "device-015"
+    },
+    "deltaIntensity": {
+      "value": 1
+    }
+  }
+}
+
+//例2：IncrementIntensityLevelConfirmationメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "be3dde71-84c0-48cf-80d8-440c1ede54d8",
@@ -1233,7 +1288,6 @@ PM10の情報を持っているオブジェクトです。デバイスが測定�
 {% endraw %}
 
 ### 次の項目も参照してください。
-* [`GetHumidityRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetHumidityRequest)
 * [`GetHumidityResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetHumidityResponse)
 
 ## PeriodInfoObject {#PeriodInfoObject}
@@ -1242,7 +1296,7 @@ PM10の情報を持っているオブジェクトです。デバイスが測定�
 
 ### Object fields
 
-| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
+| フィールド名       | データ型    | フィールドの説明                     | 任意/任意 |
 |---------------|---------|-----------------------------|:-------------:|
 | `end`         | string  | 期間の終了日時(タイムスタンプ、<a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    |       |
 | `start`       | string  | 期間の開始日時(タイムスタンプ、<a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    |       |
@@ -1251,7 +1305,7 @@ PM10の情報を持っているオブジェクトです。デバイスが測定�
 {% raw %}
 
 ```json
-// サンプル：GetUsageTimeRequestメッセージで使用されたサンプル
+//例1：GetUsageTimeRequestメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "59a3f5bc-4c38-4d4c-9b71-3a037bf9f9b0",
@@ -1291,7 +1345,7 @@ PM10の情報を持っているオブジェクトです。デバイスが測定�
 {% raw %}
 
 ```json
-//例1：GetPhaseResponseメッセージで使用されたサンプル
+// サンプル：GetPhaseResponseメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "b502dd42-b698-4d3b-9ddb-bbdda70f254f",
@@ -1306,30 +1360,13 @@ PM10の情報を持っているオブジェクトです。デバイスが測定�
     "applianceResponseTimestamp": "2017-11-23T20:30:19+09:00"
   }
 }
-
-//例2：StopConfirmationメッセージで使用されたサンプル
-{
-  "header": {
-    "messageId": "a4349fd5-7c1c-4fae-9bbd-291749bdd63a",
-    "name": "StopConfirmation",
-    "namespace": "ClovaHome",
-    "payloadVersion": "1.0"
-  },
-  "payload": {
-    "phase": {
-      "value": "洗濯"
-    }
-  }
-}
 ```
 
 {% endraw %}
 
 ### 次の項目も参照してください。
-* [`GetPhaseRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetPhaseRequest)
 * [`GetPhaseResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetPhaseResponse)
 * [`StopConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#StopConfirmation)
-* [`StopRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#StopRequest)
 
 ## ProgressiveTaxBracketInfoObject {#ProgressiveTaxBracketInfoObject}
 累進税の段階情報を持っているオブジェクトです。
@@ -1343,7 +1380,7 @@ PM10の情報を持っているオブジェクトです。デバイスが測定�
 {% raw %}
 
 ```json
-//例1：GetProgressiveTaxBracketResponseメッセージで使用されたサンプル
+// サンプル：GetProgressiveTaxBracketResponseメッセージで使用されたサンプル
 {
   "header": {
     "messageId": "b502dd42-b698-4d3b-9ddb-bbdda70f254f",
@@ -1363,7 +1400,6 @@ PM10の情報を持っているオブジェクトです。デバイスが測定�
 {% endraw %}
 
 ### 次の項目も参照してください。
-* [`GetProgressiveTaxBracketRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetProgressiveTaxBracketRequest)
 * [`GetProgressiveTaxBracketResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetProgressiveTaxBracketResponse)
 
 ## SittingStateInfoObject {#SittingStateInfoObject}
@@ -1372,7 +1408,7 @@ PM10の情報を持っているオブジェクトです。デバイスが測定�
 ### Object fields
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | boolean | 着席状態<ul><li><code>true</code>：着席中</li><li><code>false</code>：着席中ではない</li></ul>       |      |
+| `value`       | boolean | 着席状態<ul><li><code>true</code>：着席中</li><li><code>false</code>：着席中ではない</li></ul>       |     |
 
 ### Object Example
 {% raw %}
@@ -1402,7 +1438,6 @@ PM10の情報を持っているオブジェクトです。デバイスが測定�
 {% endraw %}
 
 ### 次の項目も参照してください。
-* [`GetCurrentSittingStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentSittingStateRequest)
 * [`GetCurrentSittingStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentSittingStateResponse)
 
 ## SleepScoreInfoObject {#SleepScoreInfoObject}
@@ -1437,7 +1472,6 @@ PM10の情報を持っているオブジェクトです。デバイスが測定�
 {% endraw %}
 
 ### 次の項目も参照してください。
-* [`GetSleepScoreRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetSleepScoreRequest)
 * [`GetSleepScoreResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetSleepScoreResponse)
 
 ## SpeedInfoObject {#SpeedInfoObject}
@@ -1690,8 +1724,8 @@ PM2.5の情報を持っているオブジェクトです。デバイスで測定
 ### Object fields
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | number  | PM2.5指数                | 任意/条件付き    |
-| `index`       | number  | PM2.5レベル次のいずれかの値を持ちます。<ul><li><code>"good"</code>：良い</li><li><code>"normal"</code>：普通</li><li><code>"bad"</code>：悪い</li><li><code>"verybad"</code>：非常に悪い</li></ul> |      |
+| `value`       | number  | PM2.5指数                | 任意    |
+| `index`       | number  | PM2.5レベル次のいずれかの値を持ちます。<ul><li><code>"good"</code>：良い</li><li><code>"normal"</code>：普通</li><li><code>"bad"</code>：悪い</li><li><code>"verybad"</code>：非常に悪い</li></ul> | 必須     |
 
 ### Object Example
 {% raw %}
@@ -1717,7 +1751,6 @@ PM2.5の情報を持っているオブジェクトです。デバイスで測定
 {% endraw %}
 
 ### 次の項目も参照してください。
-* [`GetUltraFineDustRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetUltraFineDustRequest)
 * [`GetUltraFineDustResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetUltraFineDustResponse)
 
 ## VolumeInfoObject {#VolumeInfoObject}

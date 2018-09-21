@@ -19,7 +19,7 @@ Alertsインターフェースは、クライアントでアラームを設定�
 
 <div class="note">
   <p><strong>メモ</strong></p>
-  <p>アラームが設定・編集・削除・開始・停止する仕組みについては、<a href="#AlertsWorkFlow">アラームの仕組み</a>を参照してください。</p>
+  <p>アラームが設定・編集・削除・開始・停止される仕組みについては、<a href="/CIC/Guides/Implement_Client_Features.md#HandleAlerts">アラームを処理する</a>を参照してください。</p>
 </div>
 
 Alertsが提供するイベントとディレクティブは、次の通りです。
@@ -49,45 +49,6 @@ Alertsが提供するイベントとディレクティブは、次の通りで�
 <div class="note">
   <p><strong>メモ</strong></p>
   <p>ネットワークが切れたり、ユーザーアカウントの連携が解除されたら、アカウントに設定されているアラームデータをデバイスから削除する必要があります。</p>
-</div>
-
-## アラームの仕組み {#AlertsWorkFlow}
-
-通常、アラームを設定してから停止するまでの流れは、次の通りです。
-
-![](/CIC/Resources/Images/CIC_Alerts_Work_Flow.png)
-
-1. ユーザーがアラームの設定を発話でリクエスト([`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize))します。
-2. Clovaは、ユーザーの発話を解析して、ユーザーのクライアントデバイスがアラームを追加するように[`Alerts.SetAlert`](#SetAlert)ディレクティブを送信します。
-3. クライアントがアラームを設定して、その結果をCICに送信します([`Alerts.SetAlertSucceeded`](#SetAlertSucceeded)イベント、[`Alerts.SetAlertFailed`](#SetAlertFailed)イベントを使用する)。
-4. Clovaは、アラームが設定された結果をユーザーに通知するために、[`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak)ディレクティブと[`Clova.RenderTemplate`](/CIC/References/CICInterface/Clova.md#RenderTemplate)ディレクティブをクライアントに送信します。
-5. 指定された時刻になると、クライアントはアラームを実行し、そのことを[`Alerts.AlertStarted`](#AlertStarted)イベントでCICにレポートします。アラームが開始したら、クライアントは、CICに送信するすべてのイベントに、現在アクティブなアラームの情報を含める必要があります。その際、[`Alert.AlertsState`](/CIC/References/Context_Objects.md#AlertsState)コンテキストの`activeAlerts`フィールドを使用します。
-6. ユーザーは発話([`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize))、物理ボタン(ハードウェア)、またはGUIボタン(ソフトウェア)でアラームを停止するようにリクエスト([`Alerts.RequestAlertStop`](#RequestAlertStop))します。
-7. Clovaは、クライアントがアラームを停止するように、クライアントに[`Alerts.StopAlert`](#StopAlert)ディレクティブを送信します。
-8. クライアントは、アラームを停止して、そのことを[`Alerts.AlertStopped`](#SetAlertSucceeded)イベントでレポートする必要があります。
-9. アクションタイマーの場合、Clovaはクライアントに対して、ユーザーが予約したアクションに該当するディレクティブを送信します。
-
-<div class="note">
-<p><strong>メモ</strong></p>
-<p>スヌーズアラームの場合、現在の時刻からもっとも近いアラーム1件のみをクライアントに設定し、実行します。クライアントに設定されているスヌーズアラームが一度実行されてから停止すると、次のスヌーズアラームをCICから新しく受信します。もし、ネットワークに長い間接続できない場合、スヌーズアラームが正常に動作しない可能性があります。</p>
-</div>
-
-上記の流れで、アラームを編集または削除できるのはステップ4までです。また、Clovaアプリでのみ編集および削除することができます。なお、ユーザーの発話に対するレスポンスとしてのディレクティブではない場合、ディレクティブは[ダウンチャネル](/CIC/Guides/Interact_with_CIC.md#CreateConnection)ストリーム上でクライアントに送信されます。
-
-アラームを編集または削除する流れは、次の通りです。
-
-1. ユーザーがClovaアプリでアラームを修正するか、削除しようとします。
-2. Clovaはリクエストを処理するために、[`Alerts.SetAlert`](#SetAlert)ディレクティブまたは[`Alerts.DeleteAlert`](#DeleteAlert)ディレクティブをクライアントに送信します。
-3. クライアントは、アラームを編集または削除した結果をCICに送信します。(関連イベントを使用する)
-
-ユーザーのクライアントデバイスが追加されたり、一部または特定のクライアントのネットワーク接続が一度解除され、再接続する場合、あるいはクライアントに登録されているユーザーのアカウントが変更された場合には、以下の順で、サーバーに登録されているユーザーのアラームデータをクライアントと同期する必要があります。
-
-1. クライアントは、CICに接続または再接続した場合、[`System.RequestSynchronizeState`](/CIC/References/CICInterface/System.md#RequestSynchronizeState)イベントをCICに送信します。
-2. クライアントは、CICから[`System.SynchronizeState`](/CIC/References/CICInterface/System.md#SynchronizeState)ディレクティブを受信します。その際、`allAlerts`フィールドのアラームデータをデバイスのアラームデータと同期します。
-
-<div class="danger">
-<p><strong>注意</strong></p>
-<p>上記のような仕組みにより、クライアントがネットワークに接続しない場合、アラームに関連するすべての動作は正常に実行されません。</p>
 </div>
 
 ## AlertStartedイベント {#AlertStarted}

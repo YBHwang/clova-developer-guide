@@ -46,7 +46,7 @@ LaunchRequestタイプのメッセージは、`request.type`フィールドに`"
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",
@@ -104,7 +104,7 @@ IntentRequestタイプのリクエストは、`request.type`フィールドに`"
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",
@@ -177,7 +177,7 @@ IntentRequestタイプのリクエストは、`request.type`フィールドに`"
   "context": {
     "System": {
       "application": {
-        "applicationId": "com.yourdomain.extension.pizzabot"
+        "applicationId": "com.example.extension.pizzabot"
       },
       "user": {
         "userId": "V0qe",
