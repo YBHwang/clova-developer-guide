@@ -25,7 +25,7 @@
       <td>
         <ul>
           <li>[CIC] 콘텐츠의 MIME type을 명시하기 위해 <a href="/CIC/References/CICInterface/AudioPlayer.md">AudioPlayer</a> <a href="/CIC/References/CICInterface/AudioPlayer.md#AudioStreamInfoObject">AudioStreamInfoObject</a>의 payload에 format 필드를 추가</li>
-          <li>[CIC] 미디어 콘텐츠 재생 시 좋아요 및 구독 기능을 처리하기 위해 <a href="/CIC/References/CICInterface/TemplateRuntime">TemplateRuntime</a> 네임스페이스에 SubscribeCommandIssued, UnsubscribeCommandIssued 이벤트 메시지와 UpdateLike, UpdateSubscribe 지시 메시지에 추가</li>
+          <li>[CIC] 미디어 콘텐츠 재생 시 좋아요 및 구독 기능을 처리하기 위해 <a href="/CIC/References/CICInterface/TemplateRuntime.md">TemplateRuntime</a> 네임스페이스에 SubscribeCommandIssued, UnsubscribeCommandIssued 이벤트 메시지와 UpdateLike, UpdateSubscribe 지시 메시지에 추가</li>
           <li>[CIC] 미디어 콘텐츠 재생 시 표시해야 하는 버튼이나 제어 UI의 종류를 <a href="/CIC/References/CICInterface/TemplateRuntime.md#RenderPlayerInfo">TemplateRuntime.RenderPlayerInfo</a> 지시 메시지에 추가</li>
           <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject">지원 기기</a> 설명 중 Actions 항목에 빠진 동작(GetCleaningCycle, GetOpenState, ReleaseMode)을 추가</li>
           <li>[CEK] Clova에서 전달하는 메시지의 검증을 위해 <a href="/CEK/References/CEK_API.md#HTTPHeader">HTTP 헤더</a>에 SignatureCEK 필드 설명을 추가하고 <a href="/CEK/Guides/Build_Custom_Extension.md">custom extension 만들기</a> 문서와 <a href="/CEK/Guides/Build_Clova_Home_Extension.md">Clova Home extension 만들기</a> 문서에 각각 요청 메시지 검증 절을 추가</li>
