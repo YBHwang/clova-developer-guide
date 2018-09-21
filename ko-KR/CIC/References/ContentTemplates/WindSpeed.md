@@ -22,6 +22,8 @@
 | `windDirection` | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | 풍향 정보가 담긴 객체. |
 | `windSpeed`     | [NumberObject](/CIC/References/ContentTemplates/Shared_Objects.md#NumberObject) | 풍속 정보가 담긴 객체. |
 
+{% include "/CIC/References/ContentTemplates/Shared_Weather_Code.md" %}
+
 ## Template example
 
 {% raw %}

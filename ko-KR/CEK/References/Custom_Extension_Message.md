@@ -294,7 +294,7 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
 * [`AudioPlayer.ProgressReportIntervalPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportIntervalPassed)
 * [`AudioPlayer.ProgressReportPositionPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportPositionPassed)
 * [`AudioPlayer.StreamRequested`](/CIC/References/CICInterface/AudioPlayer.md#StreamRequested)
-* [`TemplateRuntime.RequestPlayerInfo`](/CIC/References/CICInterface/AudioPlayer.md#RequestPlayerInfo)
+* [`TemplateRuntime.RequestPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#RequestPlayerInfo)
 {% elif book.TargetCountryCode == "JP" %}
 `EventRequest` 타입은 클라이언트의 상태 변화나 그와 관련된 부수적인 요청을 extension에 전달해야 할 때 사용되는 요청 타입입니다. CEK는 `EventRequest` 요청 타입을 사용하여 사용자가 특정 skill을 활성 또는 비활성화한 결과나 클라이언트의 [오디오 재생 상태를 extension에게 보고](/CEK/Guides/Build_Custom_Extension.md#CollectPlaybackStatusAndProgress)하거나 [오디오 재생 관련 부가 정보를 extension에게 요청](/CEK/Guides/Build_Custom_Extension.md#ProvidingMetaDataForDisplay)하기도 합니다. Extension 개발자는 skill의 활성/비활성화, 오디오 재생 상태 보고 또는 부가 정보 요청에 상응하는 작업을 처리해야 합니다.
 

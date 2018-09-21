@@ -31,7 +31,8 @@
           <li>[CEK] Clova에서 전달하는 메시지의 검증을 위해 <a href="/CEK/References/CEK_API.html#HTTPHeader">HTTP 헤더</a>에 SignatureCEK 필드 설명을 추가하고 <a href="/CEK/Guides/Build_Custom_Extension.html">custom extension 만들기</a> 문서와 <a href="/CEK/Guides/Build_Clova_Home_Extension.html">Clova Home extension 만들기</a> 문서에 각각 요청 메시지 검증 절을 추가</li>
           <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html">오류 메시지(Error)</a>에 <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ActionTemporarilyBlockedError">ActionTemporarilyBlockedError</a>와 <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ValueNotSupportedError">ValueNotSupportedError</a> 오류 메시지를 추가</li>
           <li>[Common] 일부 잘못된 코드 예제를 수정</li>
-          <li>[Common] 일부 사용자 접점에 있는 Extension 표기를 Skill로 변경</li>
+          <li>[Common] 일부 잘못된 링크를 수정</li>
+          <li>[Common] 일부 사용자 접점에 있는 Extension 표기를 Skill로 변경(UI 캡처 이미지 함께 업데이트)</li>
         </ul>
       </td>
     </tr>

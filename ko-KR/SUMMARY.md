@@ -119,7 +119,7 @@
       * [WifiInfoObject](/CIC/References/Context_Objects.md#WifiInfoObject)
     * [Device.Display](/CIC/References/Context_Objects.md#Display)
     * [Speaker.VolumeState](/CIC/References/Context_Objects.md#VolumeState)
-    * [SpeechSynthesizer.SpeechState](/CIC/References/ContextObjects/SpeechState.md)
+    * [SpeechSynthesizer.SpeechState](/CIC/References/Context_Objects.md#SpeechState)
 * [Content template 레퍼런스](/CIC/References/Content_Templates.md)
   * [ActionTimer](/CIC/References/ContentTemplates/ActionTimer.md)
   * [ActionTimerList](/CIC/References/ContentTemplates/ActionTimerList.md)
