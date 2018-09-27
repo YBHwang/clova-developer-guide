@@ -206,21 +206,20 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 | applianceTypes | 説明         | サポートされる動作                                  |
 |----------------|-------------|-------------------------------------------------|
 | `"AIRCONDITIONER"`  | 冷暖房機         | DecrementFanSpeed、DecrementTargetTemperature、GetCurrentTemperature、GetTargetTemperature、HealthCheck、IncrementFanSpeed、IncrementTargetTemperature、SetFanSpeed、SetMode、SetTargetTemperature、TurnOff、TurnOn               |
-| `"AIRPURIFIER"`     | 空気清浄機        | DecrementFanSpeed、GetAirQuality、GetFineDust、GetUltraFineDust、HealthCheck、IncrementFanSpeed、SetFanSpeed、TurnOff、TurnOn    |
+| `"AIRPURIFIER"`     | 空気清浄機        | DecrementFanSpeed、GetAirQuality、GetHumidity、HealthCheck、IncrementFanSpeed、ReleaseMode、SetFanSpeed、SetMode、TurnOff、TurnOn    |
 | `"AIRSENSOR"`       | 空気質測定器     | GetAirQuality、GetCurrentTemperature、GetFineDust、GetHumidity、GetUltraFineDust、HealthCheck                                     |
 | `"BIDET"`           | 温水洗浄便座            | Close、GetDeviceState、GetExpendableState、HealthCheck、Open、TurnOff、TurnOn                                                         |
 | `"BODYWEIGHTSCALE"` | 体重計          | GetDeviceState、HealthCheck                                                                                                             |
 | `"CLOTHESCAREMACHINE"` | 衣類管理機    | GetRemainingTime、HealthCheck、TurnOff、TurnOn                                                                                     |
 | `"CLOTHESDRYER"`    | 衣類乾燥機       | GetDeviceState、HealthCheck、TurnOff、TurnOn                                                                                           |
-| `"CLOTHESWASHER"`   | 洗濯機       | GetPhase、GetRemainingTime、HealthCheck、TurnOff、TurnOn                                                                           |
+| `"CLOTHESWASHER"`   | 洗濯機          | GetDeviceState、GetPhase、GetRemainingTime、HealthCheck、TurnOff、TurnOn                                                                   |
 | `"DEHUMIDIFIER"`    | 除湿器           | GetCurrentTemperature、GetHumidity、HealthCheck、SetFanSpeed、TurnOff、TurnOn                                                    |
 | `"DISHWASHER"`      | 食器洗い機       | GetPhase、GetRemainingTime、HealthCheck、TurnOff、TurnOn                                                                           |
 | `"ELECTRICKETTLE"`  | 電気ポット       | GetCurrentTemperature、HealthCheck、TurnOff、TurnOn                                                                              |
 | `"ELECTRICTOOTHBRUSH"` | 電動歯ブラシ     | GetDeviceState、HealthCheck                                                                                                            |
-| `"FAN"`             | 扇風機           | HealthCheck、SetMode、TurnOff、TurnOn                                                                                            |
-| `"HEATER"`          | ヒーター            | DecrementTargetTemperature、GetCurrentTemperature、HealthCheck、IncrementTargetTemperature、TurnOff、TurnOn                      |
+| `"FAN"`             | 扇風機           | DecrementFanSpeed、HealthCheck、IncrementFanSpeed、SetFanSpeed、SetMode、TurnOff、TurnOn                             |
+| `"HEATER"`          | ヒーター            | DecrementTargetTemperature、GetCurrentTemperature、GetTargetTemperature、HealthCheck、IncrementTargetTemperature、SetTargetTemperature、TurnOff、TurnOn                      |
 | `"HUMIDIFIER"`      | 加湿器           | GetCurrentTemperature、GetHumidity、HealthCheck、SetFanSpeed、TurnOff、TurnOn                                                    |
-| `"KIMCHIREFRIGERATOR"` | キムチ冷蔵庫    | GetDeviceState、HealthCheck                                                                                                            |
 | `"LIGHT"`           | スマート照明   | DecrementBrightness、DecrementVolume HealthCheck、IncrementBrightness、IncrementVolume SetBrightness、SetColor、SetColorTemperature、SetMode、TurnOff、TurnOn            |
 | `"MASSAGECHAIR"`    | マッサージチェア        | DecrementIntensityLevel、HealthCheck、IncrementIntensityLevel、TurnOff、TurnOn                                                     |
 | `"MICROWAVE"`       | 電子レンジ      | GetRemainingTime、HealthCheck、TurnOff、TurnOn                                                                                      |
@@ -228,7 +227,7 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 | `"OPENCLOSESENSOR"` | 開閉センサー    | GetCloseTime、GetDeviceState、GetOpenState、GetOpenTime、HealthCheck                                                                                   |
 | `"OVEN"`            | オーブン            | GetDeviceState、HealthCheck                                                                                                             |
 | `"POWERSTRIP"`      | テーブルタップ         | GetConsumption、GetEstimateBill、GetProgressiveTaxBracket、HealthCheck、TurnOff、TurnOn                                                                     |
-| `"PURIFIER"`        | 浄水器          | GetDeviceState、GetExpendableState、HealthCheck、ReleaseMode、SetMode、SetTargetTemperature                                                     |
+| `"PURIFIER"`        | 浄水器          | GetDeviceState、GetExpendableState、GetTargetTemperature、HealthCheck、ReleaseMode、SetMode、SetTargetTemperature                                                     |
 | `"RANGE"`           | クッキングヒーター・コンロ          | GetDeviceState、HealthCheck                                                                                                             |
 | `"RANGEHOOD"`       | レンジフード      | HealthCheck、TurnOff、TurnOn                                                                                                      |
 | `"REFRIGERATOR"`    | 冷蔵庫          | GetDeviceState、HealthCheck、SetFreezerTargetTemperature、SetFridgeTargetTemperature、SetMode                                           |
@@ -240,13 +239,14 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 | `"SMARTCHAIR"`      | スマートチェア      | GetCurrentSittingState、GetRightPostureRatio、GetUsageTime、HealthCheck                                                                                       |
 | `"SMARTCURTAIN"`    | スマートカーテン      | Close、HealthCheck、Open、Stop                                                                                                    |
 | `"SMARTHUB"`        | スマートハブ      | GetCurrentTemperature、GetHumidity、GetTargetTemperature、HealthCheck、SetMode                                                    |
+| `"SMARTLOCK"`      | スマートロック      | GetLockState, SetLockState                                            |
 | `"SMARTMETER"`      | 電力量計      | GetConsumption、GetCurrentBill、GetEstimateBill、GetProgressiveTaxBracket、HealthCheck                                            |
 | `"SMARTPLUG"`       | スマートプラグ     | GetConsumption、GetEstimateBill、HealthCheck、TurnOff、TurnOn                                                                                                     |
 | `"SMARTTV"`         | スマートテレビ       | ChangeInputSource、DecrementChannel、DecrementVolume、HealthCheck、IncrementChannel、IncrementVolume、Mute、SetChannel、SetChannelByName、SetInputSourceByName、StartRecording、StopRecording、TurnOff、TurnOn、Unmute |
 | `"SMARTVALVE"`      | スマートバルブ      | GetLockState、SetLockState                                                                                                        |
 | `"SMOKESENSOR"`     | 煙センサー       | GetDeviceState、HealthCheck                                                                                                             |
 | `"SWITCH"`          | 家庭内のコンセントの電源を制御するスイッチ | HealthCheck、TurnOff、TurnOn                                                                                       |
-| `"THERMOSTAT"`      | 温度調節器   | DecrementTargetTemperature、GetCurrentTemperature、HealthCheck、IncrementTargetTemperature、SetMode、SetTargetTemperature TurnOff、TurnOn       |
+| `"THERMOSTAT"`      | 温度調節器   | DecrementTargetTemperature、GetCurrentTemperature、GetTargetTemperature、HealthCheck、IncrementTargetTemperature、SetMode、SetTargetTemperature、 TurnOff、TurnOn       |
 | `"VENTILATOR"`      | 換気扇          | GetDeviceState、HealthCheck、TurnOff、TurnOn                                                                                            |
 | `"WATERBOILER"`     | 温水器          | HealthCheck、SetMode、TurnOff、TurnOn                                                                                             |
 
@@ -308,7 +308,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 | Mute                       | [`MuteConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#MuteConfirmation), [`MuteRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#MuteRequest) |
 | Open                       | [`OpenConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#OpenConfirmation), [`OpenRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#OpenRequest)  |
 | Raise                      | [`RaiseConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#RaiseConfirmation), [`RaiseRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#RaiseRequest)  |
-| ReleaseMode              | [`ReleaseModeConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#ReleaseModeConfirmation), [`ReleaseModeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#ReleaseModeRequest)  |
+| ReleaseMode                | [`ReleaseModeConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#ReleaseModeConfirmation), [`ReleaseModeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#ReleaseModeRequest)  |
 | SetBrightness              | [`SetBrightnessConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetBrightnessConfirmation), [`SetBrightnessRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetBrightnessRequest)  |
 | SetChannel                 | [`SetChannelConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetChannelConfirmation), [`SetChannelRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetChannelRequest) |
 | SetChannelByName           | [`SetChannelByNameConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetChannelByNameConfirmation), [`SetChannelByNameRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetChannelByNameRequest) |
@@ -1039,6 +1039,7 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
         <ul>
           {% if book.TargetCountryCode == "JP" %}
           <li><code>"auto"</code>：自動モード。主にエアコンで使用されるモードです。</li>
+          <li><code>"blower"</code>：送風モード。主にエアコンで使用されるモードです。</li>
           {% endif %}
           <li><code>"cool"</code>：冷房モード。主にエアコンで使用されるモードです。</li>
           <li><code>"dehumidify"</code>：除湿モード。主にエアコンや除湿器のようなエンドポイントで使用されるモードです。</li>
@@ -1046,6 +1047,20 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
           <li><code>"heat"</code>：暖房モード。主にエアコンで使用されるモードです。</li>
           {% endif %}
           <li><code>"sleep"</code>：スリープモード。主にスマートハブのようなエンドポイントで使用されるモードです。</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><code>"AIRPURIFIER"</code></td>
+      <td>
+        <ul>
+          {% if book.TargetCountryCode == "JP" %}
+          <li><code>"auto"</code>：自動モード。主にエアコンで使用されるモードです。</li>
+          <li><code>"dehumidify"</code>：除湿モード。主にエアコンや除湿器のようなエンドポイントで使用されるモードです。</li>
+          <li><code>"humidify"</code>：加湿モード。主にエアコンや加湿器のようなエンドポイントで使用されるモードです。</li>
+          <li><code>"removepollen"</code>：花粉モード、花粉除去モード。主に空気清浄機のようなエンドポイントで使用されるモードです。</li>
+          <li><code>"sleep"</code>：スリープモード。主にスマートハブのようなエンドポイントで使用されるモードです。</li>
+          {% endif %}
         </ul>
       </td>
     </tr>
@@ -1108,7 +1123,9 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
       <td>
         <ul>
           <li><code>"away"</code>：おでかけモード</li>
+          {% if book.TargetCountryCode != "JP" %}
           <li><code>"hotwater"</code>：温水モード</li>
+          {% endif %}
           <li><code>"indoor"</code>：在宅モード</li>
           <li><code>"sleep"</code>：スリープモード</li>
         </ul>
@@ -1119,7 +1136,9 @@ PM10の情報を持っているオブジェクトです。エンドポイント�
       <td>
         <ul>
           <li><code>"away"</code>：おでかけモード</li>
+          {% if book.TargetCountryCode != "JP" %}
           <li><code>"hotwater"</code>：温水モード</li>
+          {% endif %}
           <li><code>"indoor"</code>：在宅モード</li>
           <li><code>"sleep"</code>：スリープモード</li>
         </ul>
