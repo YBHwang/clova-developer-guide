@@ -16,7 +16,7 @@ The AudioPlayer namespace provides interfaces for playing an audio stream or rep
 | [`ProgressReportIntervalPassed`](#ProgressReportPositionPassed)| Event | Reports to CIC the current playback state ([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState)), by the specified interval, after playback has started. The interval is specified in the [`AudioPlayer.Play`](#Play) directive.|
 | [`ProgressReportPositionPassed`](#ProgressReportPositionPassed) | Event | Reports to CIC the current playback state ([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState)) at the specified time, which is measured from the start of the audio stream. The reporting time is specified in the [`AudioPlayer.Play`](#Play) directive.|
 | [`ReportPlaybackState`](#ReportPlaybackState)           | Event  | Reports to CIC the current playback state of the client. If the [`AudioPlayer.ExpectReportPlaybackState`](#ExpectReportPlaybackState) directive is received from CIC, the client must send the `AudioPlayer.ReportPlaybackState` event to CIC.  |
-{% if book.TargetReaderType == "Internal" %}| [`RequestPlaybackState`](#RequestPlaybackState)         | Event  | Requests CIC for the current playback state of the client. Upon receiving the `AudioPlayer.ReqeustPlaybackState` event, CIC will send the [`ExpectReportPlaybackState`](#ExpectReportPlaybackState) directive to all or specific clients registered to the user account.  |
+{% if book.TargetReaderType == "Internal" %}| [`RequestPlaybackState`](#RequestPlaybackState)         | Event  | Requests CIC for the current playback state of the client. Upon receiving the `AudioPlayer.RequestPlaybackState` event, CIC will send the [`ExpectReportPlaybackState`](#ExpectReportPlaybackState) directive to all or specific clients registered to the user account.  |
 | [`StreamDeliver`](#StreamDeliver)     | Directive | Receives the audio stream information that can be played as a response to the [`AudioPlayer.StreamRequested`](#StreamRequested) event. |{% else %}| [`StreamDeliver`](#StreamDeliver)     | Directive | Receives the audio stream information that can be played as a response to the [`AudioPlayer.StreamRequested`](#StreamRequested) event. |{% endif %}
 | [`StreamRequested`](#StreamRequested) | Event     | Requests CIC for additional information needed for audio stream playback such as a streaming URL.               |
 {% if book.TargetReaderType == "Internal" %}| [`SynchronizePlaybackState`](#SynchronizePlaybackState) | Directive | Instructs the client to synchronize the audio playback state. The client that had sent the `AudioPlayer.RequestPlaybackState` event will receive the `AudioPlayer.SynchronizePlaybackState` directive. |{% endif %}
@@ -147,23 +147,21 @@ Based on the policy of music service providers, certain information required for
         "audioItemId": "90b77646-93ab-444f-acd9-60f9f278ca38",
         "episodeId": 22346122,
         "stream": {
-          "beginAtInMilliseconds": 0,
-          "episodeId": 22346122,
-          "playType": "NONE",
-          "podcastId": 12548,
+          "beginAtInMilliseconds": 419704,
           "progressReport": {
             "progressReportDelayInMilliseconds": null,
             "progressReportIntervalInMilliseconds": 60000,
             "progressReportPositionInMilliseconds": null
           },
-          "url": "https://streaming.example.com/1212334548/2231122",
+          "token": "eyJ1cmwiOiJodHRwczovL2FwaS1leC5wb2RiYmFuZy5jb20vY2xvdmEvZmlsZS8xMjU0OC8yMjYxODcwMSIsInBsYXlUeXBlIjoiTk9ORSIsInBvZGNhc3RJZCI6MTI1NDgsImVwaXNvZGVJZCI6MjI2MTg3MDF9",
+          "url": "https://streaming.example.com/clova/file/12548/22618701",
           "urlPlayable": true
         },
         "type": "podcast"
       },
       "source": {
         "name": "Potbbang",
-        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png"
+        "logoUrl": "https://img.musicservice.example.net/logo_180125.png"
       },
       "playBehavior": "REPLACE_ALL"
     }
@@ -207,7 +205,7 @@ Based on the policy of music service providers, certain information required for
       },
       "source": {
         "name": "Sample Music Provider",
-        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png"
+        "logoUrl": "https://img.musicservice.example.net/logo_180125.png"
       },
       "playBehavior": "REPLACE_ALL"
     }
@@ -694,7 +692,7 @@ Reports to CIC the current playback state of the client. If the [`AudioPlayer.Ex
 {% if book.TargetReaderType == "Internal" %}
 ## RequestPlaybackState event {#RequestPlaybackState}
 
-Requests CIC for the current playback state of the client. Upon receiving the `AudioPlayer.ReqeustPlaybackState` event, CIC will send the [`AudioPlayer.ExpectReportPlaybackState`](#ExpectReportPlaybackState) directive to all or specific clients registered to the user account.
+Requests CIC for the current playback state of the client. Upon receiving the `AudioPlayer.RequestPlaybackState` event, CIC will send the [`AudioPlayer.ExpectReportPlaybackState`](#ExpectReportPlaybackState) directive to all or specific clients registered to the user account.
 
 ### Context fields
 
@@ -769,7 +767,7 @@ Some contents of the `AudioStreamInfoObject` object provided by the `StreamDeliv
         "audioItemId": "5313c879-25bb-461c-93fc-f85d95edf2a0",
         "stream": {
             "token": "b767313e-6790-4c28-ac18-5d9f8e432248",
-            "url": "https://sample.musicservice.net/b767313e.mp3"
+            "url": "https://musicservice.example.net/b767313e.mp3"
         }
     }
   }
@@ -908,6 +906,7 @@ The object containing streaming details of an audio stream. This object is used 
 | `beginAtInMilliseconds`  | number | The playback start point. The unit is in milliseconds. If this field is specified, play the audio stream from the specified point of the stream. If set to 0, play the audio stream from the beginning.          | Required/Always |
 | `customData`             | string | The metadata on the current audio in a random format. Any streaming information that cannot be classified into a specific category or defined must be included or entered in this field. Streaming service providers can add custom values to the context of audio stream playback.<div class="danger"><p><strong>Caution!</strong></p><p>Clients must not use the value of this field, as it can cause problems. Make sure to insert these field values in the <code>stream</code> field of the <a href="/CIC/References/Context_Objects.html#PlaybackState">PlaybackState context</a> without any changes, when reporting the playback state to CIC.</p></div> | Optional/Conditional  |
 | `durationInMilliseconds` | number | The length of the audio stream. The client can play and navigate audio from the playback time specified in the `beginAtInMilliseconds` field by the amount of time defined in this field. For example, if the value of `beginAtInMilliseconds` field is `10000` and the value of this field is `60000`, you can play and navigate within 10-70 seconds of the audio track. The unit is in milliseconds.   | Optional/Conditional  |
+| `format`                 | string  | The media format (MIME type). This field can be used to identify whether the content uses the HTTP Live Streaming (HLS) protocol. Available values are: The default value is `"audio/mpeg"`.<ul><li><code>"audio/mpeg"</code></li><li><code>"audio/mpegurl"</code></li><li><code> "audio/aac"</code></li><li><code>"application/vnd.apple.mpegurl"</code></li></ul> <div class="note"><p><strong>Note!</strong></p><p>If you want to develop an extension that provides content using the HLS protocol, email <a href="mailto:{{ book.ExtensionAdminEmail }}">{{ book.ExtensionAdminEmail }}</a>.</p></div>   | Optional/Conditional  |
 | `progressReport`         | object  | The time specified to receive the playback state after the audio starts.                                                  | Optional/Conditional |
 | `progressReport.progressReportDelayInMilliseconds`    | number | The duration of time specified to receive the playback state after the audio starts. The unit is in milliseconds. This field can have a null value.  | Optional/Conditional |
 | `progressReport.progressReportIntervalInMilliseconds` | number | The interval specified to receive the playback state while audio is playing. The unit is in milliseconds. This field can have a null value.        | Optional/Conditional |
@@ -928,15 +927,12 @@ The object containing streaming details of an audio stream. This object is used 
 // An example of an audio stream that can be played only with the URL
 {
   "beginAtInMilliseconds": 0,
-  "episodeId": 22346122,
-  "playType": "NONE",
-  "podcastId": 12548,
   "progressReport": {
     "progressReportDelayInMilliseconds": null,
     "progressReportIntervalInMilliseconds": 60000,
     "progressReportPositionInMilliseconds": null
   },
-  "url": "https://api-ex.podbbang.com/file/12548/22346122",
+  "url": "https://api-ex.example.com/file/12548/22346122",
   "urlPlayable": true
 }
 

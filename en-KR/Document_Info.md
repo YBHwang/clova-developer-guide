@@ -21,12 +21,29 @@ The revision history of this document is as follows:
   </thead>
   <tbody>
     <tr>
-      <td>v3.39.0</td><td>Not applied</td><td>9/7/2018</td>
+      <td>v3.40.0</td><td>Not applied</td><td>2018-09-21</td>
+      <td>
+        <ul>
+          <li>[CIC] Added the format field to the payload of <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a> <a href="/CIC/References/CICInterface/AudioPlayer.html#AudioStreamInfoObject">AudioStreamInfoObject</a> to specify the MIME type of contents</li>
+          <li>[CIC] Added SubscribeCommandIssued and UnsubscribeCommandIssued events, and UpdateLike and UpdateSubscribe directives to the <a href="/CIC/References/CICInterface/TemplateRuntime">TemplateRuntime</a> namespace to handle Like and Subscribe features when playing media contents</li>
+          <li>[CIC] Added the button information that must be displayed when playing media contents or the type of UI control to the <a href="/CIC/References/CICInterface/TemplateRuntime.html#RenderPlayerInfo">TemplateRuntime.RenderPlayerInfo</a> directive</li>
+          <li>[CEK] Added the actions missing in the Actions items under the description of <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">appliances that are supported</a> by the Clova Home extension API</li>
+          <li>[CEK] Added the description of the SignatureCEK field added in the <a href="/CEK/References/CEK_API.html#HTTPHeader">HTTP header</a> to verify that the messages sent from Clova, and added a section on verifying each request message to <a href="/CEK/Guides/Build_Custom_Extension.html">Creating a custom extension</a> and <a href="/CEK/Guides/Build_Clova_Home_Extension.html">Creating a Clova Home extension</a></li>
+          <li>[CEK] Added the <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ActionTemporarilyBlockedError">ActionTemporarilyBlockedError</a> and <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ValueNotSupportedError">ValueNotSupportedError</a> messages to the <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html">error messages</a> of the Clova Home extension API</li>
+          <li>[CEK] Added <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#RatioInfoObject">RatioInfoObject</a> to the <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">shared objects</a> of the Clova Home extension API</li>
+          <li>[Common] Revised some wrong code examples</li>
+          <li>[Common] Revised some incorrect links</li>
+          <li>[Common] Changed some notations of the word Extension that is at the point of interaction with the end user, to Skill (Also updated the UI capture images)</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.39.0</td><td>Not applied</td><td>2018-09-07</td>
       <td>
         <ul>
           <li>[Design] Added recommendations on attributes and loudness for sound quality by audio content type in the <a href="/Design/Design_Guideline_For_Extension.html#SupportedAudioCompressionFormat">Supported audio compression formats</a> section of Design guidelines for extensions</li>
+          <li>[CIC] Revised errors in links and mistakes in code examples in the <a href="/CIC/Guides/Implement_Client_Features.html#HandleAlerts">Handling alerts</a> section</li>
           <li>[Common] Changed "yourdomain.com" used in examples to "example.com," which is the domain name for document preparation</li>
-          <li>[CIC] Revised errors in links and mistakes in code examples in the <a href="/CIC/Guides/ImplementClientFeatures/Handle_Alerts.html">Handling alerts</a> section</li>
         </ul>
       </td>
     </tr>
@@ -62,7 +79,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.37.0</td><td>Not applied</td><td>2018-07-23</td>
+      <td>v3.37.0</td><td>Not applied</td><td>2018-07-23</td>
       <td>
         <ul>
           <li>[Design] Updated the sound effect of entering the attending state among the <a href="/Design/Design_Guideline_For_Client_Hardware.html#SoundEffect">sound effects</a> of the <a href="/Design/Design_Guideline_For_Client_Hardware.html">Design guidelines for client devices</a></li>
@@ -74,10 +91,10 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.36.0</td><td>Not applied</td><td>2018-07-09</td>
+      <td>v3.36.0</td><td>Not applied</td><td>2018-07-09</td>
       <td>
         <ul>
-          <li>[Design] Added a guideline for <a href="/Design/Design_Guideline_For_Extension.html#DefineExtensionName">defining the name</a> of the extension</li>
+          <li>[Design] Added a guideline for <a href="/Design/Design_Guideline_For_Extension.html#DefineInvocationName">defining the name</a> of the extension</li>
           <li>[Design] Added a guideline for <a href="/Design/Design_Guideline_For_Extension.html#ContentGuideline">providing contents</a> of the extension</li>
           <li>[CIC] Added the <a href="/CIC/References/CICInterface/Settings.html">Settings</a> namespace to update and synchronize the settings information of the client device</li>
         </ul>
@@ -126,7 +143,7 @@ The revision history of this document is as follows:
       <td>
         <ul>
           <li>[CIC] Moved the <a href="/CIC/References/CICInterface/Clova.html#LaunchURI">LaunchURI</a> directive from the DeviceControl namespace to the <a href="/CIC/References/CICInterface/Clova.html">Clova</a> namespace</li>
-          <li>[CEK] Added HTTP request message headers (SignatureCEK, SignatureCEKCertChainUrl) and a section on <a href="/CEK/References/CEK_API.html#RequestMessageValidation">Validating request messages</a></li>
+          <li>[CEK] Added HTTP request message headers (SignatureCEK, SignatureCEKCertChainUrl) and a section on Validating a request message</li>
         </ul>
       </td>
     </tr>
@@ -301,7 +318,7 @@ The revision history of this document is as follows:
       <td>
         <ul>
           <li>[Design] Modified the description of the <a href="/Design/Design_Guideline_For_Extension.html#DefineInteractionModel">built-in intent</a> based on platform implementation</li>
-          <li>[CIC] Added a section on <a href="/CIC/Guides/Interact_with_CIC.html#HandleDelegation">Handling delegated user requests</a> and added the <a href="/CIC/References/CICInterface/Clova.html#HandleDelegatedEvent">Clova.HandleDelegatedEvent</a> directive and the <a href="/CIC/References/CICInterface/Clova.html#ProcessDelegatedEvent">Clova.ProcessDelegatedEvent</a> event</li>
+          <li>[CIC] Added a section on <a href="/CIC/Guides/Implement_Client_Features.html#HandleDelegation">Handling delegated user requests</a> and added the <a href="/CIC/References/CICInterface/Clova.html#HandleDelegatedEvent">Clova.HandleDelegatedEvent</a> directive and the <a href="/CIC/References/CICInterface/Clova.html#ProcessDelegatedEvent">Clova.ProcessDelegatedEvent</a> event</li>
           <li>[CIC] Added a description to include the <a href="/CIC/References/Context_Objects.html#PlaybackState">AudioPlayer.PlaybackState</a> context information in <a href="/CIC/References/CICInterface/PlaybackController.html#NextCommandIssued">PlaybackController.NextCommandIssued</a> and <a href="/CIC/References/CICInterface/PlaybackController.html#PreviousCommandIssued">PlaybackController.PreviousCommandIssued</a> event messages</li>
           <li>[CIC] Revised the description of the interaction structure of the <a href="/CIC/References/CICInterface/Alerts.html">Alerts</a> API</li>
           <li>[CIC] Added the description of the <a href="/CIC/References/CICInterface/DeviceControl.html#DeviceContorlWorkFlow">interaction structure</a> of the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> API</li>

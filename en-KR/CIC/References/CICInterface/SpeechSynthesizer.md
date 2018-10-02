@@ -58,7 +58,7 @@ Requests CIC to generate a specified text into TTS.
 * [`SpeechSynthesizer.Speak`](#Speak)
 
 ## Speak directive {#Speak}
-Instructs the client to play the synthesized TTS through the client speaker. CIC can return multiple `SpeechSynthesizer.Speak` directives as a response to a single request. As such, your client must play TTS in the same order it has received messages. TTS can be returned either in a [multipart message](/CIC/References/CIC_API.md#MultipartMessage) or an audio streaming address.
+Instructs the client to play the synthesized TTS through the client speaker. CIC can return multiple `SpeechSynthesizer.Speak` directives as a response to a single request. As such, the client must play TTS in the same order it has received messages. TTS can be returned either in a [multipart message](/CIC/References/CIC_API.md#MultipartMessage) or an audio streaming address.
 
 ### Payload fields
 | Field name       | Data type    | Description                     | Included |
@@ -129,7 +129,7 @@ Content-Type: application/octet-stream
     "payload": {
       "format": "AUDIO_MPEG",
       "token": "64ffeb07-4b86-4659-9f59-07a77b363a0b",
-      "url": "https://ssl.pstatic.net/static/clova/service/clova_song/1.mp3"
+      "url": "https://ssl.pstatic.example.net/static/clova/service/clova_song/1.mp3"
     }
   }
 }

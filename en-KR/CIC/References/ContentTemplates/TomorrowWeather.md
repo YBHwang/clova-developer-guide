@@ -11,7 +11,7 @@ The TomorrowWeather template is used in providing tomorrow's weather forecast fo
 | Field name       | Data type    | Description                     |
 |---------------|---------|-----------------------------|
 | `bgClipUrl`                 | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject) | The URL of the video file to play in the background. <div class="danger"><p><strong>Caution!</strong></p><p>Due to a license issue, you are not permitted to use this URL.</p></div> |
-| `contentProviderText`       | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information of the content provider. An empty string (`""`) indicates that no content is to be displayed.  |
+| `contentProviderText`       | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information of the content provider. The `value` field of this object can have an empty string (`""`).  |
 | `highTemperature`           | [TemperatureCObject](/CIC/References/ContentTemplates/Shared_Objects.md#TemperatureCObject) | The highest temperature for tomorrow. |
 | `highTempWeather`           | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information on weather at the highest temperature.  |
 | `hourlyWeatherList[]` | object array | The object array of hourly weather information. |
@@ -20,13 +20,13 @@ The TomorrowWeather template is used in providing tomorrow's weather forecast fo
 | `hourlyWeatherList[].rainfallProbability` | [PercentageObject](/CIC/References/ContentTemplates/Shared_Objects.md#PercentageObject) | The chance of rain. The `value` field of this object array element may have a (`null`) value.      |
 | `hourlyWeatherList[].temperatureImageCode` | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The [weather code](#WeatherCode) for the forecast. |
 | `hourlyWeatherList[].temperatureImageUrl` | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject) | The URL of the icon to represent the forecast. |
-| `lastUpdate`                | [DateTimeObject](/CIC/References/ContentTemplates/Shared_Objects.md#DateTimeObject) | The last update time of the weather information. An empty string (`""`) indicates that no content is to be displayed. |
-| `linkUrl`                   | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject) | The URL of the content. An empty string (`""`) indicates that no content is to be displayed.      |
+| `lastUpdate`                | [DateTimeObject](/CIC/References/ContentTemplates/Shared_Objects.md#DateTimeObject) | The last update time of the weather information. The `value` field of this object can have an empty string (`""`). |
+| `linkUrl`                   | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject) | The URL of the content. The `value` field of this object can have an empty string (`""`).      |
 | `location`                  | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information on the region. |
 | `lowTemperature`           | [TemperatureCObject](/CIC/References/ContentTemplates/Shared_Objects.md#TemperatureCObject) | The lowest temperature for tomorrow. |
 | `lowTempWeather`           | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information on weather at the lowest temperature.  |
-| `referenceText`             | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information of the referred service. An empty string (`""`) indicates that no content is to be displayed.  |
-| `referenceUrl`              | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | The information on the usage result URL of the referred service. An empty string (`""`) indicates that no content is to be displayed.   |
+| `referenceText`             | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information of the referred service. The `value` field of this object can have an empty string (`""`).  |
+| `referenceUrl`              | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | The information on the usage result URL of the referred service. The `value` field of this object can have an empty string (`""`).   |
 | `type`                      | string | The type of this template. The value is always `"TomorrowWeather"`. |
 
 {% include "/CIC/References/ContentTemplates/Shared_Weather_Code.md" %}
@@ -38,7 +38,7 @@ The TomorrowWeather template is used in providing tomorrow's weather forecast fo
 {
   "bgClipUrl": {
     "type": "url",
-    "value": "https://ssl.pstatic.net/static/clova/service/weather/bg_cloud_daytime.mp4"
+    "value": "https://ssl.pstatic.example.net/static/clova/service/weather/bg_cloud_daytime.mp4"
   },
   "highTempWeather": {
     "type": "string",
@@ -68,7 +68,7 @@ The TomorrowWeather template is used in providing tomorrow's weather forecast fo
       },
       "temperatureImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       }
     },
     {
@@ -90,7 +90,7 @@ The TomorrowWeather template is used in providing tomorrow's weather forecast fo
       },
       "temperatureImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       }
     },
     {
@@ -112,7 +112,7 @@ The TomorrowWeather template is used in providing tomorrow's weather forecast fo
       },
       "temperatureImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       }
     },
     {
@@ -134,7 +134,7 @@ The TomorrowWeather template is used in providing tomorrow's weather forecast fo
       },
       "temperatureImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       }
     },
     {
@@ -156,7 +156,7 @@ The TomorrowWeather template is used in providing tomorrow's weather forecast fo
       },
       "temperatureImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       }
     },
     {
@@ -178,7 +178,7 @@ The TomorrowWeather template is used in providing tomorrow's weather forecast fo
       },
       "temperatureImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       }
     },
     {
@@ -200,7 +200,7 @@ The TomorrowWeather template is used in providing tomorrow's weather forecast fo
       },
       "temperatureImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       }
     },
     {
@@ -222,7 +222,7 @@ The TomorrowWeather template is used in providing tomorrow's weather forecast fo
       },
       "temperatureImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       }
     },
     {
@@ -244,7 +244,7 @@ The TomorrowWeather template is used in providing tomorrow's weather forecast fo
       },
       "temperatureImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       }
     },
     {
@@ -266,7 +266,7 @@ The TomorrowWeather template is used in providing tomorrow's weather forecast fo
       },
       "temperatureImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_09.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_09.png"
       }
     }
   ],
@@ -292,11 +292,11 @@ The TomorrowWeather template is used in providing tomorrow's weather forecast fo
   },
   "referenceText" : {
     "type" : "string",
-    "value": "NAVER weather"
+    "value": "Weather"
   },
   "referenceUrl" : {
     "type" : "url",
-    "value" : "http://weather.contentproviderdomain.com/"
+    "value" : "http://weather.contentservice.example.com/"
   },
   "type": "TomorrowWeather"
 }

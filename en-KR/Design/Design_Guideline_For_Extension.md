@@ -1,12 +1,12 @@
 # Design guidelines for extensions
 
-When creating an extension, you must first consider how your technology and services can bring the most convenience and benefit Clova users. The document provides guidelines for designing an extension to bring a healthy and beneficial service to users. Note that the extension features are provided to Clova users as a "skill" and you can implement the extension to provide skills to users.
+When creating an extension, you must first consider how your technology and services can bring the most convenience and benefit Clova users. The document provides guidelines for designing an extension to bring a healthy and beneficial service to users. Note that the Clova functionalities are provided to the users in the name of a "skill" and you must implement an extension to provide skills to users.
 
 It is possible to create an extension for web service information lookup, shopping and delivery services, interactive games, broadcasts, real-time briefings, IoT device control, and even for other voice-initiated activities or services. The following guidelines must be followed when designing extensions: The details covered here are only the basic recommendations for designing the extension with examples. You can further design and implement the extension according to your own business experience and service characteristics.
 
 * [Setting goals](#SettingGoal)
 * [Writing user scenario scripts](#MakeUseCaseScenarioScript)
-* [Defining the extension name](#DefineExtensionName)
+* [Defining the skill name](#DefineInvocationName)
 * [Defining an interaction model](#DefineInteractionModel)
 * [Deciding the sound output type](#DecideSoundOutputType)
 * [Supported audio compression formats](#SupportedAudioCompressionFormat)
@@ -28,8 +28,8 @@ This goal can be written again into a series of detailed, more specific goals. S
 * Include the prerequisites fulfilling the detailed goals and the outcomes that can be achieved. Prerequisites may include:
   - Actions or states required in advance
   - Functions or resources (e.g. GPS, camera, or microphone) required by the extension
-  - Information on external services or platforms (e.g. information on mobile device contacts or SNS accounts)
-* Check to that the collection of detailed goals meets the scopes of extension goals.
+  - Information on external services or platforms (e.g. contacts on a mobile device contacts or SNS account information)
+* Check that the collection of detailed goals meets the scope of extension goals.
 * Each detailed goal is recommended to be written on the level of a single user action, a unit that is classified and processed in the service.
 
 Below is an example of detailed goals for a pizza delivery service.
@@ -40,10 +40,10 @@ Below is an example of detailed goals for a pizza delivery service.
 | #2         | Usage suggestions or recommendations     | Once the pizza delivery service starts, the user can receive information on the next or the anticipated action in the pizza delivery process. |
 | #3         | Menu lookup and selection      | The user can view the menu and choose their pizza.                                   |
 | #4         | Brand lookup and selection     | The user can select a pizza brand of their choice.                                 |
-| #5         | Order and payment          | The user can order pizza if information on the pizza type, quantity, and delivery address is included. |
+| #5         | Order and payment          | The user can order pizza if information on the pizza type, quantity, and delivery address exists. |
 | #6         | Usage suggestions or recommendations     | If the user selects a pizza brand of their choice, they can get suggestions for the pizza, the delivery destination, and the payment method based on their latest order information. |
 | #7         | Usage suggestions or recommendations     | If the user requests a different menu, they can get a menu recommendation from the extension. |
-| #8         | Order and payment          | For payment, the user can apply coupon discounts using the camera.                    |
+| #8         | Order and payment          | For payment, the user can use the camera to scan and apply coupon discounts.                    |
 | #9         | Checking delivery             | Once the order is complete, the user checks the preparation and delivery status.  |
 | #10        | End service            | The user can end the service after completing the desired task.
 | ...        | ...                 | ...                                                            |
@@ -55,7 +55,7 @@ Below is an example of detailed goals for a pizza delivery service.
 
 ## Writing user scenario scripts {#MakeUseCaseScenarioScript}
 
-The user scenario script anticipates the conversation between the user and Clova in advance. By predicting the conversation between the user and Clova, that would be exchanged in various user scenarios based on detailed goals, the level of convenience and flow of the service can be examined. You should write the anticipated user scenario scripts based on the detailed goals defined in [Setting goals](#SettingGoal). This may be used again when registering an [interaction model](#DefineInteractionModel) later on.
+The user scenario script anticipates the conversation between the user and Clova in advance. By predicting the conversation between the user and Clova that would be exchanged in various user scenarios based on detailed goals, the level of convenience and flow of the service can be examined. You should write the anticipated user scenario scripts based on the detailed goals defined in [Setting goals](#SettingGoal). This may be used again when registering an [interaction model](#DefineInteractionModel) later on.
 
 See the following recommendations for writing user scenario scripts:
 
@@ -70,7 +70,7 @@ Next is an example of writing a script by dividing the usage scenario into multi
 
 | Speaker   | Sample utterance                                                                                                         | Relevant detailed goal     |
 |-----------|-----------------------------------------------------------------------------------------------------------------|----------------|
-| User     | Start Pizzabot                                                                                                    | #1             |
+| User     | Start Pizzabot.                                                                                                    | #1             |
 | Extension | Hello, this is Pizzabot. What can I do for you?                                                                             | #2             |
 | User      | What kind of pizzas do you have?                                                                                                    | #3             |
 | Extension | I have combination pizza, pepperoni pizza, and super supreme pizza. What would you like?                                                   | #2, #3         |
@@ -91,27 +91,83 @@ Next is an example of writing a script by dividing the usage scenario into multi
 | User      | Update me on the order from Pizzabot.                               | #1, #9      |
 | Extension | It's on its way. Please wait a little while longer.                 | #9          |
 
-## Defining the extension name {#DefineExtensionName}
+## Defining the skill name {#DefineInvocationName}
 
-Before creating a new extension, you must first define the extension name. The extension name includes the **skill name** and **invocation name**. The **skill name** is the name used in the skill store and a skill is implemented as an extension. The **invocation name** is the name the user speaks to Clova to start the extension.
+When creating a new extension, you must define the **skill name** and **invocation name**. The **skill name** is the name of the extension that is provided on the skill store. The **invocation name** is the name that the user says to Clova to start the extension.
 
-The **skill name** and **invocation name** do not have to be the same. However, it is preferable to use the same or similar names in order to reduce confusion.
+The **skill name** and **invocation name** do not have to be the same. However, it is preferable to use the same name or a similar names to reduce confusion.
 
 The **skill name** and **invocation name** must satisfy the following conditions:
 
-| Condition                                       | Description                                           |
-|-------------------------------------------|-----------------------------------------------|
-| No one-word names or universally used words       | One-word names are not permitted unless they are the names of private brands or services. Also, universally used words, such as "sports news," are not permitted. It is recommended that you combine common words with another name, such as the name of the developer, developer company, service, or brand. (e.g. "Taro's sports news") |
-| No words that refer to the name of a person or place         | Using the name of a person or place is not permitted. However, it can be allowed after review if the name makes up only a part of the skill name or invocation name.<ul><li>Not permitted: "King Sejong the Great," "Yi Sun-shin," "Seoul City," "Gangnam District"</li><li>Permitted after review: "King Sejong's Korean class," "Hotspots in Seoul"</li></ul> |
-| No words or expressions that affect Clova functions | The name cannot contain any expressions that affect Clova functions. For example,<ul><li>Clova invocation words: "Clova," "Hey Clova," "Hey Sally," "Hey Jessica," "Hey Jjanggu"</li><li>Default Clova skill innovation words: Expressions to execute and invoke basic Clova skills such as "Today's weather."</li><li>Phrases that end the execution of the <strong>invocation name</strong>: "Start" or "stop"</li><li>Prepositions of the <strong>invocation name</strong>: "To—" or "From—"</li></ul><div class="note"><p><strong>Note!</strong></p><p>The name must match well with prepositions that are used with the <strong>invocation name</strong>.</p></div> |
-| No names that are the same as or similar to another skill      | The names already in use by another skill or similar names are not permitted. |
-| No name that could be easily misunderstood                   | The following names may be misleading and are not allowed:<ul><li>Names that can be mistaken as a third party {{ book.OrientedService }} or affiliated company (e.g. Naver fishing master)</li><li>The <strong>skill name</strong> and <strong>invocation name</strong> are different to the extent of having different meanings (e.g. The skill name is "Cat crying sound" and the invocation name is "Dog crying sound")</li><li>The name and the provided content is different (e.g. The name is "Cat crying sound" but the provided content is a dog crying sound)</li></ul>
-| No names that violate the Terms and Conditions            | The names must comply with the [Clova extensions kit Terms and Conditions](https://developers.naver.com/console/clova/cek/#/terms). Names that infringe on the rights of a third party or use obscene expressions are not allowed. |
-| Other precautions                               | Other precautionary conditions for names are as follows:<ul><li>Proper nouns are allowed as an exception, such as private brand names, intellectual property, names, and places.</li><li>If possible, it is recommended that you use an <strong>invocation name</strong> that can be easily pronounced or have an alternative pronunciation.</li><li>To help users understand how to use the extension, you can include the <strong>invocation name</strong> in parentheses next to the <strong>skill name</strong>.</li></ul> |
+<table>
+  <thead>
+    <tr>
+      <th style="width:40%">Condition</th><th style="width:60%%">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>No one-word names or universally used words</td>
+      <td>One-word names are not permitted unless they are the names of private brands or services. Also, universally used words such as "sports news," are not permitted. It is recommended that you combine common words with another name such as the name of the developer, developer company, service, or brand. (e.g. "Taro's sports news")</td>
+    </tr>
+    <tr>
+      <td>No words that refer to the name of a person or place</td>
+      <td>Using the name of a person or place is not permitted. In some cases, the use may be permitted after a review if only a part of the name of a person or place is used.
+        <ul>
+          <li>Not permitted: "King Sejong the Great," "Yi Sun-shin," "Seoul City," "Gangnam District"</li>
+          <li>Permitted after review: "King Sejong's Korean class," "Hotspots in Seoul"</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>No words or expressions that affect the functions of Clova</td>
+      <td>The name cannot contain any expressions that affect the functions of Clova.
+        <ul>
+          <li>Clova invocation words: "Clova," "Hey Clova," "Hey Sally," "Hey Jessica," "Hey Jjanggu"</li>
+          <li>Default Clova skill invocation words: Expressions to execute and invoke basic Clova skills such as "Today's weather" and "News headlines"</li>
+          <li>Phrases that start or end the <strong>invocation name</strong>: "Start," "Stop"</li>
+          <li>Prepositions used with the <strong>invocation name</strong>: "To," "From"</li>
+        </ul>
+        <div class="note">
+          <p><strong>Note!</strong></p>
+          <p>The <strong>invocation name</strong> must match well with the prepositions that are used with the name.</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>No names that are the same as or similar to another skill</td>
+      <td>The names already in use by another skill or similar names are not permitted.</td>
+    </tr>
+    <tr>
+      <td>No name that could be easily misunderstood</td>
+      <td>The following names may be misleading and are not allowed:
+        <ul>
+          <li>Names that can be mistaken for a third party {{ book.OrientedService }} or affiliated company (e.g. Naver fishing master)</li>
+          <li>The <strong>skill name</strong> and <strong>invocation name</strong> are very different to the point of having contradicting meanings (e.g. The skill name is "Cat meowing" and the invocation name is "Dog barking")</li>
+          <li>The name and the provided content are different (e.g. The name is "Cat meowing" but the provided content is a dog barking)</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>No names that violate the Terms and Conditions</td>
+      <td>The names must comply with the [Clova extensions kit Terms and Conditions](https://developers.naver.com/console/clova/cek/#/terms). Names that infringe on the rights of a third party or use obscene expressions are not allowed.</td>
+    </tr>
+    <tr>
+      <td>Other precautions</td>
+      <td>Other precautionary conditions for names are as follows:
+        <ul>
+          <li>Proper nouns are allowed as an exception such as private brand names, intellectual property, names, and places.</li>
+          <li>If possible, it is recommended that you use an <strong>invocation name</strong> that can be easily pronounced or that does not have an alternative pronunciation.</li>
+          <li>To help users understand how to use the extension, you can include the <strong>invocation name</strong> in parentheses next to the <strong>skill name</strong>.</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 <div class="note">
 <p><strong>Note!</strong></p>
-<p>Conditions of the extension name are subject to change at any time. Any existing names can be rejected due to the changes in policy. Thank you for your understanding in this matter, and we apologize for any inconvenience. If you are unsure, write your opinion when you <a href="/DevConsole/Guides/CEK/Deploy_Extension.html#RequestExtensionSubmission">submit a request for review</a>.</p>
+<p>Conditions of the skill name are subject to change at any time. Any existing names can be rejected due to changes in policy. Thank you for your understanding in this matter, and we apologize for any inconvenience. If any of the conditions are unclear, let us know when you <a href="/DevConsole/Guides/CEK/Deploy_Extension.html#RequestExtensionSubmission">submit a request for review</a>.</p>
 </div>
 
 ## Defining an interaction model {#DefineInteractionModel}
@@ -128,7 +184,7 @@ Before defining the interaction model in the Clova developer console, there is a
 
 ### Intent {#Intent}
 
-Intent is a category used for processing user requests. It is usually classified using the **verb** factor in the user’s speech. Then it is divided into a custom intent or built-in intent.
+Intent is a category used for processing user requests. It is usually classified using the **verb** factor in the user speech. Then it is divided into a custom intent or built-in intent.
 
 * [Custom intent](#CustomIntent)
 * [Built-in intent](#BuiltinIntent)
@@ -146,7 +202,7 @@ Continuing with the example of the pizza delivery service, the service would con
 * Request to order
 * Request to update delivery status
 
-Based on this example, we can see that defining the interaction model of a pizza delivery service (extension) is declaring the intent list, such as the retrieve menu intent, order intent, update delivery status intent, and listing the possible utterances and information (slot) required by each intent. Therefore, **the first thing to do when defining an interaction model is to define and list the type of requests that will be processed by the extension.** This also becomes the standard for dividing the business logic–in other words, the branch of program–when developing an extension.
+Based on this example, we can see that defining the interaction model of a pizza delivery service (extension) is declaring the intent list, such as the retrieve menu intent, order intent, update delivery status intent, and also listing the possible utterances and information (slot) required by each intent. Therefore, **the first thing to do when defining an interaction model is to define and list the type of requests that will be processed by the extension.** This also becomes the standard for dividing the business logic–in other words, the branch of program–when developing an extension.
 
 ![](/Design/Resources/Images/Extension_Design-Design_Interaction_Model.png)
 
@@ -174,28 +230,28 @@ The built-in intent is a specification declared by the Clova platform for shared
 
 A slot is the information acquired from a user utterance and the **noun** factor used in the utterance can become a slot. When defining [custom intent](#Intent), you must define the slot required by the corresponding intent. To explain this more by comparing it with software development, the intent is a function or handler to process a specific type of user request while the slots are parameters required for this function or handler. From the utterance, "Order two boxes of pepperoni pizza." mentioned above, you can see that information on pizza type "pepperoni pizza" and quantity "two" are required to process the "OrderPizza" intent. Therefore, you must identify the information (slot) needed before defining the intent.
 
-When declaring a slot, you must classify the type of information in the slot– called slot type. The slot type is comprised of built-in slot type and custom slot type.
+When declaring a slot, you must classify the type of information in the slot which is called slot type. The slot type is comprised of built-in slot type and custom slot type.
 
 * [Built-in slot type](#BuiltinSlotType)
 * [Custom slot type](#CustomSlotType)
 
 #### Built-in slot type {#BuiltinSlotType}
 
-The built-in slot type is an information type pre-defined by Clova which defines information expression that can be universally used in all services (extension). The built-in slot type is mainly used for recognizing information, such as time, place, and quantity. For the above utterance, the built-in slot type can be used to recognize information referring to "two boxes." Clova provides the following built-in slot types:
+The built-in slot type is an information type pre-defined by Clova which defines information expression that can be universally used in all services (extension). The built-in slot type is mainly used for recognizing information such as time, place, and quantity. For the above utterance, the built-in slot type can be used to recognize information referring to "two boxes." Clova provides the following built-in slot types:
 
 | Built-in slot type | Description                                            |
 | ----------------------|------------------------------------------------|
-| `CLOVA.DATETIME`      | Information indicating date and time. (e.g.: "10 mins 30 secs," "9 am," "1 hour ago," "12 pm," "Noon," "August 4, 2017," "Last day of previous month") |
-| `CLOVA.DURATION`      | Information indicating a period of time. (e.g.: "One day," "Overnight," "One month," "Next week," "Weekend") |
-| `CLOVA.NUMBER`        | Information indicating numbers. It includes quantity nouns. (e.g.: "Once," "7 people," "One," "30 years old," "Around 8," "16 columns") |
-| `CLOVA.RELATIVETIME`  | Information indicating relative time expressions. (e.g.: "From now on," "Later," "In a bit," "Just now," "Earlier") |
-| `CLOVA.UNIT`          | Information indicating unit expressions. (e.g.: "374 square meters," "100 MB," "25 miles") |
-| `CLOVA.ORDER`        | Information indicating sequencing expressions. (e.g.: "Next," "Front," "Before," "Last," "This," "Previous") |
+| `CLOVA.DATETIME`      | Information indicating date and time. (E.g. "10 mins 30 secs," "9 am," "1 hour ago," "12 pm," "Noon," "August 4, 2017," "Last day of previous month") |
+| `CLOVA.DURATION`      | Information indicating a period of time. (E.g. "One day," "Overnight," "One month," "Next week," "Weekend") |
+| `CLOVA.NUMBER`        | Information indicating numbers. It includes quantity nouns. (E.g. "Once," "7 people," "One," "30 years old," "Around 8," "16 columns") |
+| `CLOVA.RELATIVETIME`  | Information indicating relative time expressions. (E.g. "From now on," "Later," "In a bit," "Just now," "Earlier") |
+| `CLOVA.UNIT`          | Information indicating unit expressions. (E.g. "374 square meters," "100 MB," "25 miles") |
+| `CLOVA.ORDER`        | Information indicating sequencing expressions. (E.g. "Next," "Front," "Before," "Last," "This," "Previous") |
 | `CLOVA.KO_ADDRESS_[Unit for administrative district]` | This information indicates the place names that are called according to the domestic unit of administrative districts. You can find the unit of administrative districts provided by Clova in the Clova developer console. |
-| `CLOVA.WORLD_COUNTRY` | Information indicating worldwide country names. (e.g.: "Ghana," "Japan," "Korea," "France") |
-| `CLOVA.WORLD_CITY`   | Information indicating worldwide city names. (e.g.: "New York," "Paris," "London") |
-| `CLOVA.CURRENCY`      | Information indicating currency. (e.g.: "Yuan," "Yen," "Dollar," "Russian money," "British currency") |
-| `CLOVA.OFFICIALDATE ` | Information indicating holidays, national holidays, and memorial days. (e.g.: "Onset of Spring," "New Year's Day," "Buddha's Birthday," "Independence Day") |
+| `CLOVA.WORLD_COUNTRY` | Information indicating worldwide country names. (E.g. "Ghana," "Japan," "Korea," "France") |
+| `CLOVA.WORLD_CITY`   | Information indicating worldwide city names. (E.g. "New York," "Paris," "London") |
+| `CLOVA.CURRENCY`      | Information indicating currency. (E.g. "Yuan," "Yen," "Dollar," "Russian money," "British currency") |
+| `CLOVA.OFFICIALDATE ` | Information indicating holidays, national holidays, and memorial days. (E.g. "Onset of Spring," "New Year's Day," "Buddha's Birthday," "Independence Day") |
 
 #### Custom slot type {#CustomSlotType}
 
@@ -243,7 +299,7 @@ Get one shrimp gold-crust pizza.
 
 The above utterances are organized in the pattern of noun (pizza type), noun (quantity), and verb (intention), and it also includes commonly used prepositions, endings, adverbs, and interjections. Once you have used up all of the possible utterance patterns, you can reuse the patterns but change the slot values to meet the recommended number of utterance sentences. Add sample utterances by complying with the following details:
 * Add new sentences by changing the slot value used in the sample utterance.
-* Add new sentences by changing the style of the sentence, such as the use of prepositions, endings, adverbs, and interjections.
+* Add new sentences by changing the style of the sentence such as the use of prepositions, endings, adverbs, and interjections.
 * **Make sure to avoid repeated use of set combination values.** For example, the utterances "Order two boxes of pepperoni pizza." and "Please order just one pepperoni pizza for me." may have different endings, prepositions, and quantity values, but they have an overlapping combination of values "pepperoni" and "order."
 
 ```
@@ -433,7 +489,7 @@ Below is a simple usage scenario of audio content play type.
 
 ## Guidelines for providing content {#ContentGuideline}
 
-There are guidelines that must be observed when providing content to users via skills (extensions). A Clova administrator conducts reviews guideline violations before [publishing the skill](/DevConsole/Guides/CEK/Deploy_Extension.md) to the skill store. If a skill is in violation of the guidelines or deemed acceptable, the publishing request may be rejected or an already published skill can be revoked. Therefore, you must make sure that your skill adheres to the following guidelines before [requesting a review](/DevConsole/Guides/CEK/Deploy_Extension.md#RequestExtensionSubmission).
+There are guidelines that must be observed when providing content to users via skills (extensions). A Clova administrator reviews for any guideline violations before [publishing the skill](/DevConsole/Guides/CEK/Deploy_Extension.md) to the skill store. If a skill is in violation of the guidelines or deemed acceptable, the publishing request may be rejected or an already published skill can be revoked. Therefore, you must make sure that your skill adheres to the following guidelines before [requesting a review](/DevConsole/Guides/CEK/Deploy_Extension.md#RequestExtensionSubmission).
 
 * [Completeness of skill](#SkillCompleteness)
 * [Security of skill](#SkillSecurity)
@@ -497,7 +553,7 @@ The skills must comply with the privacy responsibilities by following the guidel
   * Information about handicaps, intellectual handicaps, or mental handicaps
   * Results of health diagnoses or checkups
   * Information about medical records, treatments, or drug administration
-  * Information related to civil or criminal cases, such as confinement or search as suspect or defendant
+  * Information related to civil or criminal cases, such as confinement or search, as a suspect or defendant
 
 ### Other precautions {#OtherPrecautions}
 
@@ -526,13 +582,13 @@ It is recommended that you follow the sound attributes and loudness for each aud
 
 | Audio content type        | Sampling frequency, bit depth, and channel | Loudness  | Remark                                     |
 |-----------------------|-------------------------|--------------- |----------------------------------------|
-| Music                   | 44100 Hz, 16-bit, stereo  | -10(±1) LUFS  | -17(±1) LUFS for beat boxing. |
+| Music                   | 44100 Hz, 16-bit, stereo  | -10(±1) LUFS  | -17(±1) LUFS for beat box music. |
 | Sound effect       | 44100 Hz, 16-bit, stereo  | -18(±1) LUFS  |                                         |
 | Audio book               | 44100 Hz, 16-bit, stereo  | -12(±1) LUFS  |                                         |
 | Music or sound in the ambient genre  | 44100 Hz, 16-bit, stereo  | -25(±1) LUFS  | Examples of this type of audio content are wave sounds or rain sounds. The loudness must be adjusted according to the characteristics of each content. |
 
 ## Continuous updates {#ContinuousUpdate}
 
-During the extension development phase, user scenarios are created based on anticipated user utterances which are then applied to the extension. This helps to develop the extension, however, the actual way that it is used by users can be different and there can even be some unexpected use patterns from users. Basically, users can use the extension differently than anticipated. Therefore, continuous improvement efforts are required to enhance user satisfaction after deploying the extension, such as efforts to improve the extension functions and conversation flow.
+During the extension development phase, user scenarios are created based on anticipated user utterances which are then applied to the extension. This helps to develop the extension, however, the actual way that it is used by users can be different and there can even be some unexpected use patterns from users. Basically, users can use the extension differently than anticipated. Therefore, continuous improvement efforts are required to enhance user satisfaction after deploying the extension such as efforts to improve the extension functions and conversation flow.
 
 Update the extension after registration, by analyzing the statistics provided by the Clova platform or the incoming user utterance record (scheduled to be provided in the future).

@@ -294,7 +294,7 @@ Use the `EventRequest` request type and the following [event messages](/CIC/Refe
 * [`AudioPlayer.ProgressReportIntervalPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportIntervalPassed)
 * [`AudioPlayer.ProgressReportPositionPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportPositionPassed)
 * [`AudioPlayer.StreamRequested`](/CIC/References/CICInterface/AudioPlayer.md#StreamRequested)
-* [`TemplateRuntime.RequestPlayerInfo`](/CIC/References/CICInterface/AudioPlayer.md#RequestPlayerInfo)
+* [`TemplateRuntime.RequestPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#RequestPlayerInfo)
 {% elif book.TargetCountryCode == "JP" %}
 `EventRequest` type is a request type used when changes in the client state or related requests need to be sent to the extension. CEK uses the `EventRequest` request type to report the results of the user enabling or disabling specific skills, [report audio playback status of the client to the extension](/CEK/Guides/Build_Custom_Extension.md#CollectPlaybackStatusAndProgress), or [request additional information related to audio playback from the extension](/CEK/Guides/Build_Custom_Extension.md#ProvidingMetaDataForDisplay). You must develop the extension to handle the tasks of enabling or disabling skills, reporting the audio playback state, or requesting additional information.
 
@@ -369,7 +369,7 @@ Here is an example of the `request` object field of the `EventRequest` type mess
 ```
 {% elif book.TargetCountryCode == "JP" %}
 ```json
-// Example 1. When a skill is enabled
+// Example 1. When the user has enabled a skill
 "request": {
   "type": "EventRequest",
   "requestId": "f09874hiudf-sdf-4wku-flksdjfo4hjsdf",
@@ -381,7 +381,7 @@ Here is an example of the `request` object field of the `EventRequest` type mess
   }
 }
 
-// Example 2. When a skill is disabled
+// Example 2. When the user has disabled a skill
 "request": {
   "type": "EventRequest",
   "requestId": "f09874hiudf-sdf-4wku-flksdjfo4hjsdf",
@@ -576,7 +576,7 @@ The extension must deliver a response message after handling a request message (
 | `response.reprompt.outputSpeech.verbose`          | object       | It is used when delivering content to a client device without a display and contains detailed voice information. | Optional |
 | `response.reprompt.outputSpeech.verbose.type`     | string       | The type of voice information to output. Only the voice information in simple and complex sentence formats can be entered. <ul><li><code>"SimpleSpeech"</code>: Voice information in a simple sentence format. Used when delivering the most basic voice information. If this value is designated, the <code>response.outputSpeech.verbose.values</code> field must have the <a href="#CustomExtSpeechInfoObject"><code>SpeechInfoObject</code></a> object.</li><li><code>"SpeechList"</code>: Voice information in a complex sentence format. It is used when outputting many sentences. If this value is designated, the <code>response.outputSpeech.verbose.values</code> field must have a <a href="#CustomExtSpeechInfoObject"><code>SpeechInfoObject</code></a> object array.</li></ul> | Required |
 | `response.reprompt.outputSpeech.verbose.values[]`           | [SpeechInfoObject](#CustomExtSpeechInfoObject) or [SpeechInfoObject](#CustomExtSpeechInfoObject) array | The object or object array that contains the detailed voice information to output from the client device. | Required |
-| `response.shouldEndSession`              | boolean      | Session end flag A field that indicates that a user has finished using a specific extension. Used when the extension notifies the end of use first before receiving the request message of [`SessionEndedRequest`](#CustomExtSessionEndedRequest) type.<ul><li>true: End of use</li><li>false: Continue use. A multi-turn dialogue with the user is attempted.</li></ul> | Required |
+| `response.shouldEndSession`              | boolean      | Session end flag A field that indicates that a user has finished using a specific extension. Used when the extension notifies the end of use first before receiving the request message of [`SessionEndedRequest`](#CustomExtSessionEndedRequest) type.<ul><li>true: End of use</li><li>false: Continuation of use. A multi-turn dialogue with the user is attempted.</li></ul> | Required |
 | `sessionAttributes`                      | object       | The object that stores information necessary for a multi-turn dialogue with the user. A custom extension sends intermediate information to CEK using the `sessionAttributes` field and receives the corresponding information to the `session.sessionAttributes` field of the [request message](#CustomExtRequestMessage) when receiving additional user requests. `sessionAttributes` The object must be configured as a key-value pair and can be defined arbitrarily when implementing the custom extension. If there is no value to store, enter an empty object. | Required |
 | `version`                                | string       | Version of message format (CEK version).                        | Required |
 
@@ -633,7 +633,7 @@ SpeechInfoObject is an object reused in the `response.outputSpeech` of a respons
         {
           "type": "URL",
           "lang": "" ,
-          "value": "https://tts.com/song.mp3"
+          "value": "https://tts.example.com/song.mp3"
         }
       ]
     },
@@ -843,23 +843,21 @@ Based on the policy of music service providers, certain information required for
         "audioItemId": "90b77646-93ab-444f-acd9-60f9f278ca38",
         "episodeId": 22346122,
         "stream": {
-          "beginAtInMilliseconds": 0,
-          "episodeId": 22346122,
-          "playType": "NONE",
-          "podcastId": 12548,
+          "beginAtInMilliseconds": 419704,
           "progressReport": {
             "progressReportDelayInMilliseconds": null,
             "progressReportIntervalInMilliseconds": 60000,
             "progressReportPositionInMilliseconds": null
           },
-          "url": "https://streaming.example.com/1212334548/2231122",
+          "token": "eyJ1cmwiOiJodHRwczovL2FwaS1leC5wb2RiYmFuZy5jb20vY2xvdmEvZmlsZS8xMjU0OC8yMjYxODcwMSIsInBsYXlUeXBlIjoiTk9ORSIsInBvZGNhc3RJZCI6MTI1NDgsImVwaXNvZGVJZCI6MjI2MTg3MDF9",
+          "url": "https://streaming.example.com/clova/file/12548/22618701",
           "urlPlayable": true
         },
         "type": "podcast"
       },
       "source": {
         "name": "Potbbang",
-        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png"
+        "logoUrl": "https://img.musicservice.example.net/logo_180125.png"
       },
       "playBehavior": "REPLACE_ALL"
     }
@@ -903,7 +901,7 @@ Based on the policy of music service providers, certain information required for
       },
       "source": {
         "name": "Sample Music Provider",
-        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png"
+        "logoUrl": "https://img.musicservice.example.net/logo_180125.png"
       },
       "playBehavior": "REPLACE_ALL"
     }
@@ -1260,7 +1258,7 @@ Some contents of the `AudioStreamInfoObject` object provided by the `StreamDeliv
         "audioItemId": "5313c879-25bb-461c-93fc-f85d95edf2a0",
         "stream": {
             "token": "b767313e-6790-4c28-ac18-5d9f8e432248",
-            "url": "https://sample.musicservice.net/b767313e.mp3"
+            "url": "https://musicservice.example.net/b767313e.mp3"
         }
     }
   }
@@ -1417,11 +1415,11 @@ Instructs the client to display the sent playback metadata such as a playlist, a
 | `playableItems[].artImageUrl`  | string    | The URL of the image on the media content. This URL is the location of the album cover image or other relevant icons.      | Conditional |
 | `playableItems[].controls[]`                | object array  | The object array of button information that must be displayed when playing a specific media content. This object array is omissible.  | Conditional |
 | `playableItems[].controls[].enabled`        | boolean      | Indicates whether the buttons specified in the `playableItems[].controls[].name` must be enabled from the media player.<ul><li><code>true</code>: Enable</li><li><code>false</code>: Disable</li></ul>  | Always  |
-| `playableItems[].controls[].name`           | string       | The button name. Available values are:<ul><li><code>"NEXT"</code>: Next</li><li><code>"PLAY_PAUSE"</code>: Play/Pause</li><li><code>"PREVIOUS"</code>: Previous</li></ul>  | Always  |
+| `playableItems[].controls[].name`           | string       | The name of a button or a control UI. Available values are:<ul><li><code>"BACKWARD_15S"</code>: Rewind 15 seconds</li><li><code>"BACKWARD_30S"</code>: Rewind 30 seconds</li><li><code>"BACKWARD_60S"</code>: Rewind 60 seconds</li><li><code>"FORWARD_15S"</code>: Fast forward 15 seconds</li><li><code>"FORWARD_30S"</code>: Fast forward 30 seconds</li><li><code>"FORWARD_60S"</code>: Fast forward 60 seconds</li><li><code>"NEXT"</code>: Next</li><li><code>"PLAY_PAUSE"</code>: Play/Pause</li><li><code>"PREVIOUS"</code>: Previous</li><li><code>"PROGRESS_BAR"</code>: Progress Bar</li><li><code>"REPEAT"</code>: Repeat</li><li><code>"SUBSCRIBE_UNSUBSCRIBE"</code>: Subscribe/Unsubscribe</li></ul>  | Always  |
 | `playableItems[].controls[].selected`       | boolean      | Indicates whether the media content is selected. This value can be used for displaying user preferences. For example, if this value is set as `true`, the content must be expressed on the relevant UI of the media player since the user has selected it as a preference. <ul><li><code>true</code>: Selected</li><li><code>false</code>: Not selected</li></ul> | Always  |
 | `playableItems[].controls[].type`           | string       | The type of button. Currently, only the `"BUTTON"` value is available.  | Always |
 | `playableItems[].headerText`       | string        | The text field used mainly to indicate the title of current play list.                                                | Conditional  |
-| `playableItems[].isLive`           | boolean       | Whether the content is a real-time content or not.<ul><li><code>true</code>: Real-time content</li><li><code>false</code>: Non-real-time content</li></ul><div class="note"><p><strong>Note!</strong></p><p>If the content is a real-time content, you must display an icon to indicate its state (e.g. A live icon).</p></div>  | Conditional  |
+| `playableItems[].isLive`           | boolean       | Indicates whether the content is a real-time content.<ul><li><code>true</code>: Real-time content</li><li><code>false</code>: Not a real-time content</li></ul><div class="note"><p><strong>Note!</strong></p><p>If the content is a real-time content, you must display an icon to indicate its state (e.g. A live icon).</p></div>  | Conditional  |
 | `playableItems[].lyrics[]`         | object array  | The object array containing the lyrics information.                                                            | Conditional  |
 | `playableItems[].lyrics[].data`    | string        | The lyrics data. Either this field or the `playableItems[].lyrics[].url` field exists.              | Conditional  |
 | `playableItems[].lyrics[].format`  | string        | The format of the lyrics data.<ul><li><code>"LRC"</code>: <a href="https://en.wikipedia.org/wiki/LRC_(file_format)" target="_blank">LRC format</a></li><li><code>"PLAIN"</code>: Plain text format</li></ul>  | Always  |
@@ -1472,7 +1470,7 @@ Instructs the client to display the sent playback metadata such as a playlist, a
       "displayType": "list",
       "playableItems": [
         {
-          "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/662058.jpg",
+          "artImageUrl": "http://musicmeta.musicservice.example.com/example/album/662058.jpg",
           "controls": [
             {
               "enabled": true,
@@ -1497,7 +1495,7 @@ Instructs the client to display the sent playback metadata such as a playlist, a
           "token": "eJyr5lIqSSyITy4tKs4vUrJSUE="
         },
         {
-          "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/202646.jpg",
+          "artImageUrl": "http://musicmeta.musicservice.example.com/example/album/202646.jpg",
           "controls": [
             {
               "enabled": true,
@@ -1524,9 +1522,9 @@ Instructs the client to display the sent playback metadata such as a playlist, a
         ...
       ],
       "provider": {
-        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png",
+        "logoUrl": "https://img.musicservice.example.net/logo_180125.png",
         "name": "SampleMusicProvider",
-        "smallLogoUrl": "https://img.musicproviderdomain.net/smallLogo_180125.png"
+        "smallLogoUrl": "https://img.musicservice.example.net/smallLogo_180125.png"
       }
     }
   }
@@ -1586,6 +1584,7 @@ The object containing streaming details of an audio stream. This object is used 
 | `beginAtInMilliseconds`  | number | The playback start point. The unit is in milliseconds. If this field is specified, play the audio stream from the specified point of the stream. If set to 0, play the audio stream from the beginning.          | Required/Always |
 | `customData`             | string | The metadata on the current audio in a random format. Any streaming information that cannot be classified into a specific category or defined must be included or entered in this field. Streaming service providers can add custom values to the context of audio stream playback.<div class="danger"><p><strong>Caution!</strong></p><p>Clients must not use the value of this field, as it can cause problems. Make sure to insert these field values in the `stream` field of the <a href="/CIC/References/Context_Objects.html#PlaybackState">PlaybackState context</a> without any changes, when reporting the playback state to CIC.</p></div> | Optional/Conditional  |
 | `durationInMilliseconds` | number | The length of the audio stream. The client can play and navigate audio from the playback time specified in the `beginAtInMilliseconds` field by the amount of time defined in this field. For example, if the value of `beginAtInMilliseconds` field is `10000` and the value of this field is `60000`, you can play and navigate within 10-70 seconds of the audio track. The unit is in milliseconds.   | Optional/Conditional  |
+| `format`                 | string  | The media format (MIME type). This field can be used to identify whether the content uses the HTTP Live Streaming (HLS) protocol. Available values are: The default value is `"audio/mpeg"`.<ul><li><code>"audio/mpeg"</code></li><li><code>"audio/mpegurl"</code></li><li><code> "audio/aac"</code></li><li><code>"application/vnd.apple.mpegurl"</code></li></ul> <div class="note"><p><strong>Note!</strong></p><p>If you want to develop an extension that provides content using the HLS protocol, email <a href="mailto:{{ book.ExtensionAdminEmail }}">{{ book.ExtensionAdminEmail }}</a>.</p></div>   | Optional/Conditional  |
 | `progressReport`         | object  | The time specified to receive the playback state after the audio starts.                                                  | Optional/Conditional |
 | `progressReport.progressReportDelayInMilliseconds`    | number | The duration of time specified to receive the playback state after the audio starts. The unit is in milliseconds. This field can have a null value.  | Optional/Conditional |
 | `progressReport.progressReportIntervalInMilliseconds` | number | The interval specified to receive the playback state while audio is playing. The unit is in milliseconds. This field can have a null value.        | Optional/Conditional |
@@ -1612,7 +1611,7 @@ The object containing streaming details of an audio stream. This object is used 
     "progressReportIntervalInMilliseconds": 60000,
     "progressReportPositionInMilliseconds": null
   },
-  "url": "https://api-ex.podbbang.com/file/12548/22346122",
+  "url": "https://streaming.example.com/file/12548/22346122",
   "urlPlayable": true
 }
 
