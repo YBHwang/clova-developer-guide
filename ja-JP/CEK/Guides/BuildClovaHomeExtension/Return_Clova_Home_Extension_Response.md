@@ -1,6 +1,5 @@
----
-tags: ClovaHome
----
+<!-- tags: ClovaHome -->
+
 ## Clova Home Extensionレスポンスを返す {#ReturnClovaHomeExtensionResponse}
 
 Clova Home Extensionは、処理結果をCEKに返す必要があります(HTTPレスポンス)。Clova Home Extensionレスポンスには、次のような特徴があります。

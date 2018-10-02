@@ -1,6 +1,5 @@
----
-tags: ClovaHome
----
+<!-- tags: ClovaHome -->
+
 ## 準備事項 {#Preparation}
 Custom Home Extensionの開発者は、次の項目を事前に準備する必要があります。
 
