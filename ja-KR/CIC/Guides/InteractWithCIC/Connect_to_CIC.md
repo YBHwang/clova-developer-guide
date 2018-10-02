@@ -43,7 +43,7 @@ Clovaアクセストークンは、次の順で取得できます。
     <p>もし、<a href="/CIC/References/Clova_Auth_API.html#RequestAuthorizationCode">認可コードのリクエスト</a>に対するレスポンスとして、<code>451 Unavailable For Legal Reasons</code>ステータスコードを受信した場合、レスポンスメッセージボディの<code>redirect_uri</code>フィールドに記載されているURIを使用して、ユーザーに利用規約への同意ページを表示する必要があります。次は、ステータスコードが<code>451 Unavailable For Legal Reasons</code>の場合、受信するレスポンスメッセージボディのサンプルです。</p>
     <pre><code>{
   "code": "4mrklvwoC_KNgDlvmslka",
-  "redirect_uri": "https://ssl.pstatic.net/static/clova/service/terms/place/terms_3rd.html?code=4mrklvwoC_KNgDlvmslka&grant_type=code&state=FKjaJfMlakjdfTVbES5ccZ",
+  "redirect_uri": "https://ssl.pstatic.example.net/static/clova/service/terms/place/terms_3rd.html?code=4mrklvwoC_KNgDlvmslka&grant_type=code&state=FKjaJfMlakjdfTVbES5ccZ",
   "state": "FKjaJfMlakjdfTVbES5ccZ"
 }
 </code></pre>

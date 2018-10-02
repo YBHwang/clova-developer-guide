@@ -84,7 +84,7 @@ GET|POST /authorize
 //サンプル2：HTTPレスポンスメッセージが451 Unavailable For Legal Reasonsのステータスコードを持つサンプル
 {
   "code":"4mrklvwoC_KNgDlvmslka",
-  "redirect_uri":"https://ssl.pstatic.net/static/clova/service/terms/place/terms_3rd.html?code=4mrklvwoC_KNgDlvmslka&grant_type=code&state=FKjaJfMlakjdfTVbES5ccZ",
+  "redirect_uri":"https://ssl.pstatic.example.net/static/clova/service/terms/place/terms_3rd.html?code=4mrklvwoC_KNgDlvmslka&grant_type=code&state=FKjaJfMlakjdfTVbES5ccZ",
   "state":"FKjaJfMlakjdfTVbES5ccZ"
 }
 ```
