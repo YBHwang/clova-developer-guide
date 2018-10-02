@@ -21,12 +21,29 @@
   </thead>
   <tbody>
     <tr>
+      <td>v3.40.0</td><td>未適用</td><td>2018/09/21</td>
+      <td>
+        <ul>
+          <li>[CIC] コンテンツのMIMEタイプを表すために、<a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a> <a href="/CIC/References/CICInterface/AudioPlayer.html#AudioStreamInfoObject">AudioStreamInfoObject</a>のpayloadにformatフィールドを追加</li>
+          <li>[CIC] コンテンツを再生するときに、「いいね」および購読機能を処理するために、<a href="/CIC/References/CICInterface/TemplateRuntime">TemplateRuntime</a>名前空間にSubscribeCommandIssued、UnsubscribeCommandIssuedイベントとUpdateLike、UpdateSubscribeディレクティブを追加</li>
+          <li>[CIC] コンテンツを再生するときに表示するボタンやコントロールUIの種類を<a href="/CIC/References/CICInterface/TemplateRuntime.html#RenderPlayerInfo">TemplateRuntime.RenderPlayerInfo</a>ディレクティブに追加</li>
+          <li>[CEK] Clova Home Extension APIの<a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">対応デバイス</a>の説明のうち、Actions項目に抜けていたアクション(GetCleaningCycle、GetOpenState、ReleaseMode)を追加</li>
+          <li>[CEK] Clovaから送信されるメッセージの検証のために、<a href="/CEK/References/CEK_API.html#HTTPHeader">HTTPヘッダー</a>にSignatureCEKフィールドの説明を追加し、<a href="/CEK/Guides/Build_Custom_Extension.html">Custom Extensionを作成する</a>ドキュメントと<a href="/CEK/Guides/Build_Clova_Home_Extension.html">Clova Home Extensionを作成する</a>ドキュメントに、それぞれリクエストメッセージの検証セクションを追加</li>
+          <li>[CEK] Clova Home Extension APIの<a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html">エラーメッセージ(Error)</a>に<a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ActionTemporarilyBlockedError">ActionTemporarilyBlockedError</a>と<a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ValueNotSupportedError">ValueNotSupportedError</a>エラーメッセージを追加</li>
+          <li>[CEK] Clova Home Extension APIの<a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">共有オブジェクト</a>に<a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#RatioInfoObject">RatioInfoObject</a>オブジェクトを追加</li>
+          <li>[Common] 誤りがあった一部のサンプールコードを訂正</li>
+          <li>[Common] 誤りがあった一部のリンクを訂正</li>
+          <li>[Common] ユーザータッチポイントにある一部のExtensionの表記をスキルに変更(UIのキャプチャ画像を一緒に更新)</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.39.0</td><td>未適用</td><td>2018/09/07</td>
       <td>
         <ul>
           <li>[Design] Extensionのデザインガイドラインの<a href="/Design/Design_Guideline_For_Extension.html#SupportedAudioCompressionFormat">プラットフォームでサポートされるオーディオ圧縮形式</a>に、オーディオコンテンツごとのオーディオ属性とラウドネスに関する推奨事項を追加</li>
-          <li>[共通] サンプルの説明で、「yourdomain.com」になっているサンプルをドキュメント作成用のドメイン名である「example.com」に変更</li>
-          <li>[CIC] <a href="/CIC/Guides/ImplementClientFeatures/Handle_Alerts.html">アラームを処理する</a>セクションのリンクの誤り、サンプルコードの表記の誤りを訂正</li>
+          <li>[CIC] <a href="/CIC/Guides/Implement_Client_Features.html#HandleAlerts">アラームを処理する</a>セクションのリンクの誤り、サンプルコードの表記の誤りを訂正</li>
+          <li>[Common] サンプルの説明で、「yourdomain.com」になっていたサンプルを、ドキュメント作成用のドメイン名である「example.com」に変更</li>
         </ul>
       </td>
     </tr>
@@ -62,7 +79,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.37.0</td><td>未適用</td><td>2018/07/23</td>
+      <td>v3.37.0</td><td>未適用</td><td>2018/07/23</td>
       <td>
         <ul>
           <li>[Design] <a href="/Design/Design_Guideline_For_Client_Hardware.html">クライアントデバイスのデザインガイドライン</a>の<a href="/Design/Design_Guideline_For_Client_Hardware.html#SoundEffect">効果音</a>のうち、Attending状態への遷移に対する効果音を更新</li>
@@ -74,10 +91,10 @@
       </td>
     </tr>
     <tr>
-      <td>v3.36.0</td><td>未適用</td><td>2018/07/09</td>
+      <td>v3.36.0</td><td>未適用</td><td>2018/07/09</td>
       <td>
         <ul>
-          <li>[Design] Extensionの<a href="/Design/Design_Guideline_For_Extension.html#DefineExtensionName">名前を定義する</a>のガイドラインを追加</li>
+          <li>[Design] Extensionの<a href="/Design/Design_Guideline_For_Extension.html#DefineInvocationName">名前を定義する</a>のガイドラインを追加</li>
           <li>[Design] Extensionの<a href="/Design/Design_Guideline_For_Extension.html#ContentGuideline">コンテンツ提供時の遵守事項</a>に関するガイドラインを追加</li>
           <li>[CIC] クライアントデバイスの設定を更新および同期するために、<a href="/CIC/References/CICInterface/Settings.html">Settings</a>名前空間を追加</li>
         </ul>
@@ -126,7 +143,7 @@
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/Clova.html#LaunchURI">LaunchURI</a>ディレクティブをDeviceControl名前空間から<a href="/CIC/References/CICInterface/Clova.html">Clova</a>名前空間に移動</li>
-          <li>[CEK] HTTPリクエストメッセージにヘッダー(SignatureCEK、SignatureCEKCertChainUrl)を追加および<a href="/CEK/References/CEK_API.html#RequestMessageValidation">リクエストメッセージを検証する</a>セクションを追加</li>
+          <li>[CEK] HTTPリクエストメッセージにヘッダー(SignatureCEK、SignatureCEKCertChainUrl)を追加およびリクエストメッセージを検証するセクションを追加</li>
         </ul>
       </td>
     </tr>
@@ -301,7 +318,7 @@
       <td>
         <ul>
           <li>[Design] プラットフォームの実装状況に合わせて<a href="/Design/Design_Guideline_For_Extension.html#DefineInteractionModel">ビルトインインテント</a>の説明を修正</li>
-          <li>[CIC] <a href="/CIC/Guides/Interact_with_CIC.html#HandleDelegation">委任されたユーザーのリクエストを処理する</a>セクションを追加および<a href="/CIC/References/CICInterface/Clova.html#HandleDelegatedEvent">Clova.HandleDelegatedEvent</a>ディレクティブと<a href="/CIC/References/CICInterface/Clova.html#ProcessDelegatedEvent">Clova.ProcessDelegatedEvent</a>イベントを追加</li>
+          <li>[CIC] <a href="/CIC/Guides/Implement_Client_Features.html#HandleDelegation">委任されたユーザーのリクエストを処理する</a>セクションを追加および<a href="/CIC/References/CICInterface/Clova.html#HandleDelegatedEvent">Clova.HandleDelegatedEvent</a>ディレクティブと<a href="/CIC/References/CICInterface/Clova.html#ProcessDelegatedEvent">Clova.ProcessDelegatedEvent</a>イベントを追加</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/PlaybackController.html#NextCommandIssued">PlaybackController.NextCommandIssued</a>と<a href="/CIC/References/CICInterface/PlaybackController.html#PreviousCommandIssued">PlaybackController.PreviousCommandIssued</a>イベントに<a href="/CIC/References/Context_Objects.html#PlaybackState">AudioPlayer.PlaybackState</a>コンテキストを含めるように説明を追加</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/Alerts.html">Alerts</a> APIの仕組みの説明を改善</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> APIの<a href="/CIC/References/CICInterface/DeviceControl.html#DeviceContorlWorkFlow">仕組み</a>の説明を追加</li>

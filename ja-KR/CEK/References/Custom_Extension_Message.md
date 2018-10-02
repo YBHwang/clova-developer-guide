@@ -294,7 +294,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
 * [`AudioPlayer.ProgressReportIntervalPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportIntervalPassed)
 * [`AudioPlayer.ProgressReportPositionPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportPositionPassed)
 * [`AudioPlayer.StreamRequested`](/CIC/References/CICInterface/AudioPlayer.md#StreamRequested)
-* [`TemplateRuntime.RequestPlayerInfo`](/CIC/References/CICInterface/AudioPlayer.md#RequestPlayerInfo)
+* [`TemplateRuntime.RequestPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#RequestPlayerInfo)
 {% elif book.TargetCountryCode == "JP" %}
 `EventRequest`タイプは、クライアントの状態の変化や、それに伴うリクエストをExtensionに渡すために使用されるリクエストタイプです。CEKは、`EventRequest`のリクエストタイプを使用して、ユーザーが特定のスキルを有効または無効にした結果を渡したり、クライアントの[オーディオ再生状態をExtensionにレポート](/CEK/Guides/Build_Custom_Extension.md#CollectPlaybackStatusAndProgress)したり、また[オーディオ再生に関する付加情報をExtensionにリクエスト](/CEK/Guides/Build_Custom_Extension.md#ProvidingMetaDataForDisplay)したりします。Extensionの開発者は、スキルの有効化/無効化、オーディオ再生状態のレポートまたは付加情報のリクエストに適切な作業を処理する必要があります。
 
@@ -369,7 +369,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
 ```
 {% elif book.TargetCountryCode == "JP" %}
 ```json
-// サンプル1. スキルを有効にしたとき
+// サンプル1. ユーザーがスキルを有効にしたとき
 "request": {
   "type": "EventRequest",
   "requestId": "f09874hiudf-sdf-4wku-flksdjfo4hjsdf",
@@ -381,7 +381,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
   }
 }
 
-// サンプル2. スキルを無効にしたとき
+// サンプル2. ユーザーがスキルを無効にしたとき
 "request": {
   "type": "EventRequest",
   "requestId": "f09874hiudf-sdf-4wku-flksdjfo4hjsdf",
@@ -554,7 +554,7 @@ Extensionは、リクエストメッセージを処理して、レスポンス�
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `response`                               | object       | Extensionのレスポンス情報を含むオブジェクト                            |  |
-| `response.card`                          | object       | コンテンツテンプレート形式のデータで、クライアントの画面に表示するコンテンツをこのフィールドで渡すことができます。このフィールドにデータがある場合、CICはクライアントに[Clova.RenderTemplate](/CIC/References/CICInterface/Clova.md#RenderTemplate)ディレクティブを送信します。空のオブジェクトの場合、CICはクライアントに[Clova.RenderText](/CIC/References/CICInterface/Clova.md#RenderText)ディレクティブを送信し、`response.outputSpeech.values`フィールドの値を表示するようにします。        |  |
+| `response.card`                          | object       | [コンテンツテンプレート](/CIC/References/Content_Templates.md) 形式のデータで、クライアントの画面に表示するコンテンツをこのフィールドで渡すことができます。このフィールドにデータがある場合、CICはクライアントに[Clova.RenderTemplate](/CIC/References/CICInterface/Clova.md#RenderTemplate)ディレクティブを送信します。空のオブジェクトの場合、CICはクライアントに[Clova.RenderText](/CIC/References/CICInterface/Clova.md#RenderText)ディレクティブを送信し、`response.outputSpeech.values`フィールドの値を表示するようにします。        |  |
 | `response.directives[]`                  | object array | ExtensionがCEKに渡すディレクティブです。`response.directives`フィールドは、主にオーディオコンテンツを提供するために使用されます。以下の{{ "[CIC API](/CIC/References/CIC_API.md)" if book.TargetCountryCode == "KR" else "[CIC API](#CICAPIforAudioPlayback)" }} ディレクティブをサポートしています。<ul><li><code>AudioPlayer.Play</code></li><li><code>AudioPlayer.StreamDeliver</code></li><li><code>PlaybackController.Pause</code></li><li><code>PlaybackController.Resume</code></li><li><code>PlaybackController.Stop</code></li><li><code>TemplateRuntime.RenderPlayerInfo</code></li></ul> |  |
 | `response.directives[].header`           | object       | ディレクティブのヘッダー                                          |  |
 | `response.directives[].header.messageId` | string       | メッセージID(UUID)。メッセージを区別するための識別子です。   |  |
@@ -633,7 +633,7 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
         {
           "type": "URL",
           "lang": "" ,
-          "value": "https://tts.com/song.mp3"
+          "value": "https://tts.example.com/song.mp3"
         }
       ]
     },
@@ -843,23 +843,21 @@ CIC APIは、ユーザーのクライアントデバイスがClovaと通信を�
         "audioItemId": "90b77646-93ab-444f-acd9-60f9f278ca38",
         "episodeId": 22346122,
         "stream": {
-          "beginAtInMilliseconds": 0,
-          "episodeId": 22346122,
-          "playType": "NONE",
-          "podcastId": 12548,
+          "beginAtInMilliseconds": 419704,
           "progressReport": {
             "progressReportDelayInMilliseconds": null,
             "progressReportIntervalInMilliseconds": 60000,
             "progressReportPositionInMilliseconds": null
           },
-          "url": "https://streaming.example.com/1212334548/2231122",
+          "token": "eyJ1cmwiOiJodHRwczovL2FwaS1leC5wb2RiYmFuZy5jb20vY2xvdmEvZmlsZS8xMjU0OC8yMjYxODcwMSIsInBsYXlUeXBlIjoiTk9ORSIsInBvZGNhc3RJZCI6MTI1NDgsImVwaXNvZGVJZCI6MjI2MTg3MDF9",
+          "url": "https://streaming.example.com/clova/file/12548/22618701",
           "urlPlayable": true
         },
         "type": "podcast"
       },
       "source": {
         "name": "Potbbang",
-        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png"
+        "logoUrl": "https://img.musicservice.example.net/logo_180125.png"
       },
       "playBehavior": "REPLACE_ALL"
     }
@@ -903,7 +901,7 @@ CIC APIは、ユーザーのクライアントデバイスがClovaと通信を�
       },
       "source": {
         "name": "Sample Music Provider",
-        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png"
+        "logoUrl": "https://img.musicservice.example.net/logo_180125.png"
       },
       "playBehavior": "REPLACE_ALL"
     }
@@ -1260,7 +1258,7 @@ CIC APIは、ユーザーのクライアントデバイスがClovaと通信を�
         "audioItemId": "5313c879-25bb-461c-93fc-f85d95edf2a0",
         "stream": {
             "token": "b767313e-6790-4c28-ac18-5d9f8e432248",
-            "url": "https://sample.musicservice.net/b767313e.mp3"
+            "url": "https://musicservice.example.net/b767313e.mp3"
         }
     }
   }
@@ -1417,7 +1415,7 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
 | `playableItems[].artImageUrl`  | string    | メディアコンテンツ関連画像のURL。アルバムのジャケット画像や関連アイコンなどの画像があるURLです。      | 条件付き |
 | `playableItems[].controls[]`                | object array  | 特定のメディアコンテンツを再生するとき、表示すべきボタンの情報を持つオブジェクト配列です。このオブジェクト配列は省略できます。  | 条件付き |
 | `playableItems[].controls[].enabled`        | boolean      | `playableItems[].controls[].name`で設定されたボタンを、メディアプレーヤーで有効にするかを示します。<ul><li><code>true</code>：有効にする</li><li><code>false</code>：無効にする</li></ul>  |   |
-| `playableItems[].controls[].name`           | string       | ボタンの名前。次のいずれかになります。<ul><li><code>"NEXT"</code>：「次」ボタン</li><li><code>"PLAY_PAUSE"</code>：「再生/一時停止」ボタン</li><li><code>"PREVIOUS"</code>：「前」ボタン</li></ul>  |   |
+| `playableItems[].controls[].name`           | string       | ボタンまたはコントロールUIの名前。次のいずれかになります。<ul><li><code>"BACKWARD_15S"</code>：「15秒巻き戻しする」ボタン</li><li><code>"BACKWARD_30S"</code>：「30秒巻き戻しする」ボタン</li><li><code>"BACKWARD_60S"</code>：「60秒巻き戻しする」ボタン</li><li><code>"FORWARD_15S"</code>：「15秒早送りする」ボタン</li><li><code>"FORWARD_30S"</code>：「30秒早送りする」ボタン</li><li><code>"FORWARD_60S"</code>：「60秒早送りする」ボタン</li><li><code>"NEXT"</code>：「次へ」ボタン</li><li><code>"PLAY_PAUSE"</code>：「再生/一時停止」ボタン</li><li><code>"PREVIOUS"</code>：「前へ」ボタン</li><li><code>"PROGRESS_BAR"</code>：進行状況バー</li><li><code>"REPEAT"</code>：「リピート」ボタン</li><li><code>"SUBSCRIBE_UNSUBSCRIBE"</code>：「購読/購読解除」ボタン</li></ul>  |   |
 | `playableItems[].controls[].selected`       | boolean      | メディアコンテンツが選択されているかを示します。この値は、ユーザーの「好き」という概念を表す際に使用することができます。この値が`true`に設定されていたら、ユーザーが好きなアイテムとして登録したコンテンツであることを示します。メディアプレーヤーの関連するUIで、そのことを表す必要があります。<ul><li><code>true</code>：選択済み</li><li><code>false</code>：未選択</li></ul> |   |
 | `playableItems[].controls[].type`           | string       | ボタンのタイプ。現在、`"BUTTON"`のみ使用します。  |  |
 | `playableItems[].headerText`       | string        | 主に、現在の再生リストのタイトルを表すテキストフィールド                                                | 条件付き  |
@@ -1472,7 +1470,7 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
       "displayType": "list",
       "playableItems": [
         {
-          "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/662058.jpg",
+          "artImageUrl": "http://musicmeta.musicservice.example.com/example/album/662058.jpg",
           "controls": [
             {
               "enabled": true,
@@ -1497,7 +1495,7 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
           "token": "eJyr5lIqSSyITy4tKs4vUrJSUE="
         },
         {
-          "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/202646.jpg",
+          "artImageUrl": "http://musicmeta.musicservice.example.com/example/album/202646.jpg",
           "controls": [
             {
               "enabled": true,
@@ -1524,9 +1522,9 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
         ...
       ],
       "provider": {
-        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png",
+        "logoUrl": "https://img.musicservice.example.net/logo_180125.png",
         "name": "SampleMusicProvider",
-        "smallLogoUrl": "https://img.musicproviderdomain.net/smallLogo_180125.png"
+        "smallLogoUrl": "https://img.musicservice.example.net/smallLogo_180125.png"
       }
     }
   }
@@ -1586,6 +1584,7 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
 | `beginAtInMilliseconds`  | number | 再生を開始するオフセット。ミリ秒単位で、この値が指定されている場合、クライアントは、そのオーディオストリームを指定されたオフセットから再生する必要があります。この値が0に設定されている場合、ストリームを最初から再生します。          |  |
 | `customData`             | string | 現在のストリームに関連して、任意の形式を持つメタデータ情報。特定のカテゴリに分類されたり、定義されないストリーミング情報は、このフィールドに含まれるか、または入力される必要があります。オーディオストリーム再生のコンテキストに必要な追加の値を、サービスプロバイダーがカスタムで追加できます。<div class="danger"><p><strong>注意</strong></p><p>クライアントは、このフィールドの値を任意に使用してはなりません。問題が発生する恐れがあります。また、このフィールドの値はストリームの再生状態を送信する際、<a href="/CIC/References/Context_Objects.html#PlaybackState">PlaybackStateコンテキスト</a>の`stream`フィールドにそのまま含まれる必要があります。</p></div> | 任意/条件付き  |
 | `durationInMilliseconds` | number | オーディオストリームの再生時間。クライアントは、`beginAtInMilliseconds`フィールドに指定されている再生のオフセットから、このフィールドに指定されている再生時間だけ、そのオーディオストリームをシークおよび再生できます。例えば、`beginAtInMilliseconds`フィールドの値が`10000`で、このフィールドの値が`60000`の場合、そのオーディオストリームの10秒から70秒までの区間を再生およびシークすることができます。ミリ秒単位です。   | 任意/条件付き  |
+| `format`                 | string  | メディア形式(MIMEタイプ)このフィールドから、HLS(HTTP Live Streaming)コンテンツかどうかを確認できます。次の値を持ちます。デフォルト値は`"audio/mpeg"`です。<ul><li><code>"audio/mpeg"</code></li><li><code>"audio/mpegurl"</code></li><li><code> "audio/aac"</code></li><li><code>"application/vnd.apple.mpegurl"</code></li></ul><div class="note"><p><strong>メモ</strong></p><p>HLSでコンテンツを提供するExtensionの開発者は、<a href="mailto:{{ book.ExtensionAdminEmail }}">{{ book.ExtensionAdminEmail }}</a>までご連絡ください。</p></div>   | 任意/条件付き  |
 | `progressReport`         | object  | 再生が開始してから、再生状態をレポートするタイミングを指定するオブジェクト                                                  | 任意/条件付き |
 | `progressReport.progressReportDelayInMilliseconds`    | number | 再生が開始してから、指定された時間が経過した後に、再生状態をレポートするように指定する値です。ミリ秒単位で、このフィールドの値はnullの場合があります。  | 任意/条件付き |
 | `progressReport.progressReportIntervalInMilliseconds` | number | 再生中に、指定された間隔ごとに再生状態をレポートするように指定する値です。ミリ秒単位で、このフィールドの値はnullの場合があります。        | 任意/条件付き |
@@ -1612,7 +1611,7 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
     "progressReportIntervalInMilliseconds": 60000,
     "progressReportPositionInMilliseconds": null
   },
-  "url": "https://api-ex.podbbang.com/file/12548/22346122",
+  "url": "https://streaming.example.com/file/12548/22346122",
   "urlPlayable": true
 }
 

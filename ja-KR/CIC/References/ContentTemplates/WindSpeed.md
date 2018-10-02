@@ -22,6 +22,8 @@
 | `windDirection` | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | 風向き情報を持つオブジェクト。 |
 | `windSpeed`     | [NumberObject](/CIC/References/ContentTemplates/Shared_Objects.md#NumberObject) | 風速情報を持つオブジェクト。 |
 
+{% include "/CIC/References/ContentTemplates/Shared_Weather_Code.md" %}
+
 ## Template example
 
 {% raw %}
@@ -29,7 +31,7 @@
 {
   "bgImageUrl": {
     "type": "url",
-    "value": "https://ssl.pstatic.net/static/clova/service/weather/bg_cloud_night.mp4"
+    "value": "https://ssl.pstatic.example.net/static/clova/service/weather/bg_cloud_night.mp4"
   },
   "location": {
     "type": "string",
@@ -53,7 +55,7 @@
   },
   "referenceUrl" : {
     "type" : "url",
-    "value" : "http://weather.contentproviderdomain.com/"
+    "value" : "http://weather.contentservice.example.com/"
   },
   "type": "WindSpeed",
   "windDirection": {
