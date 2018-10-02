@@ -2,7 +2,7 @@
 
 DeviceControlインターフェースは、クライアントデバイスをコントロールしたり、クライアントデバイスをのコントロールした結果をCICにレポートするときに使用する名前空間です。
 
-ユーザーからのリクエストには、クライアントデバイスをコントロールするためのものがあります。解析されたユーザーのリクエストが、クライアントをコントロールするものなら、`DeviceControl`名前空間を持つディレクティブが送信されます。クライアントは、受信したディレクティブに応じてクライアントデバイスをコントロールする必要があります。また、デバイスをコントロールした結果を、イベントを使用してCICに送信する必要があります。詳細については、[クライアントデバイスコントロールの仕組み](#DeviceContorlWorkFlow)を参照してください。
+ユーザーからのリクエストには、クライアントデバイスをコントロールするためのものがあります。解析されたユーザーのリクエストがクライアントをコントロールするものなら、`DeviceControl`名前空間を持つディレクティブが送信されます。クライアントは、受信したディレクティブに応じてクライアントデバイスをコントロールする必要があります。また、デバイスをコントロールした結果を、イベントを使用してCICに送信する必要があります。詳細については、[クライアントデバイスコントロールの仕組み](#DeviceContorlWorkFlow)を参照してください。
 
 クライアントデバイスは、`DeviceControl`で提供されるメッセージを使って、外部のBluetoothスピーカーと接続することができます。CICはクライアントにディレクティブを送信して、外部のBluetoothデバイスと接続するように指示します。クライアントは[`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState)コンテキストの[`BluetoothInfoObject`](/CIC/References/Context_Objects.md#BluetoothInfoObject)で、ペアリングしたデバイスの情報など、Bluetoothデバイスに関連する情報をCICに随時レポートします。接続方法の詳細については、それぞれのディレクティブとイベントの説明を参照してください。
 
@@ -288,7 +288,7 @@ CICは、このイベントを受信すると、ユーザーのアカウント�
 * [`DeviceControl.ActionFailed`](#ActionFailed)
 * [`DeviceControl.BtConnect`](#BtConnect)
 * [`DeviceControl.BtRequestForPINCode`](#BtRequestForPINCode)
-* [`DeviceControl.ReportState`](/CIC/References/Context_Objects.md#ReportState)
+* [`DeviceControl.ReportState`](#ReportState)
 
 ## BtDisconnectディレクティブ {#BtDisconnect}
 
