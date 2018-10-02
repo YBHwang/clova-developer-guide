@@ -21,6 +21,14 @@
   </thead>
   <tbody>
     <tr>
+      <td>v3.40.1</td><td>미적용</td><td>2018-10-05</td>
+      <td>
+        <ul>
+          <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#DecrementFanSpeedRequest">DecrementFanSpeedRequest</a>와 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#IncrementFanSpeedRequest">IncrementFanSpeedRequest</a>에서 불필요한 설명 제거</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.40.0</td><td>미적용</td><td>2018-09-21</td>
       <td>
         <ul>
