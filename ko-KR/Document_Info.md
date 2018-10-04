@@ -24,6 +24,7 @@
       <td>v3.40.1</td><td>미적용</td><td>2018-10-05</td>
       <td>
         <ul>
+          <li>[CIC] <a href="/CIC/References/CIC_API.html#Error">CIC 오류 메시지</a>의 구조 및 예제를 실제 구현에 맞게 교정</li>
           <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#DecrementFanSpeedRequest">DecrementFanSpeedRequest</a>와 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#IncrementFanSpeedRequest">IncrementFanSpeedRequest</a>에서 불필요한 설명 제거</li>
         </ul>
       </td>
