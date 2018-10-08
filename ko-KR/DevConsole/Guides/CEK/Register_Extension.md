@@ -36,7 +36,7 @@ Extension을 등록하는 과정에서 가장 먼저 할 일은 등록할 extens
     <ol>
       <li><strong>{{ book.DevConsole.cek_id }}</strong>: Extension의 고유 ID입니다. Reverse domain name 표기 형식(예: com.example.extension.pizzabot)으로 입력합니다.</li>
       <li><strong>{{ book.DevConsole.cek_name }}</strong>: Extension의 이름입니다. 추후 Clova Skill Store에 노출됩니다.</li>
-      <li><strong>{{ book.DevConsole.cek_invocation_name }}</strong>: 사용자가 extension을 호출할 때 부르는 이름입니다. 일반적으로 보유하고 있는 서비스, 회사 또는 조직의 이름이 될 수 있으나 사용자의 편의 등을 위해 간결하고 특색있는 단어를 지정하는 것이 좋습니다. 범용적인 단어나 타사의 이름이나 서비스에 해당하는 용어는 사용할 수 없습니다. <strong>{{ book.DevConsole.cek_invocation_name }}</strong>은 extension 심사 시 검수받게 됩니다.</li>
+      <li><strong>{{ book.DevConsole.cek_invocation_name }}</strong>: 사용자가 extension을 호출할 때 부르는 이름입니다. 한 개 이상 최대 세 개까지 {{ book.DevConsole.cek_invocation_name }}을 등록할 수 있습니다. 일반적으로 보유하고 있는 서비스, 회사 또는 조직의 이름이 될 수 있으나 사용자의 편의 등을 위해 간결하고 특색있는 단어를 지정하는 것이 좋습니다. 범용적인 단어나 타사의 이름이나 서비스에 해당하는 용어는 사용할 수 없습니다. <strong>{{ book.DevConsole.cek_invocation_name }}</strong>은 extension 심사 시 검수받게 됩니다.</li>
       <li><strong>{{ book.DevConsole.cek_provider }}</strong>: Extension의 제작 주체(회사나 개인)의 이름 또는 별칭을 입력합니다. 추후 Skill Store에 노출되며, extension 승인 과정에서 심사를 받게 됩니다.</li>
     </ol>
   </li>

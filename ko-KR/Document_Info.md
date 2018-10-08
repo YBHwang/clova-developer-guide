@@ -21,6 +21,14 @@
   </thead>
   <tbody>
     <tr>
+      <td>v3.40.2</td><td>미적용</td><td>2018-10-13</td>
+      <td>
+        <ul>
+          <li>[Dev. Console] <a href="/DevConsole/Guides/CEK/Register_Extension.html#InputExtensionInfo">Extension 기본 정보 입력</a>에 호출 이름을 한 개 이상 최대 세 개까지 등록할 수 있음을 명시</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.40.1</td><td>미적용</td><td>2018-10-05</td>
       <td>
         <ul>
