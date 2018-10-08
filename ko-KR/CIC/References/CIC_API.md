@@ -208,14 +208,16 @@ Content-Disposition: form-data; name="exception-bde71903-dab4-46c5-9714-416cf12d
 Content-Type: application/json; charset=utf-8
 
 {
-  "header": {
-    "namespace": "System",
-    "name": "Exception",
-    "messageId": "369b362b-258c-4104-bdf8-dc276548fe51"
-  },
-  "payload": {
-    "code": 400,
-    "description": "Could not decode multipart"
+  "directive": {
+    "header": {
+      "namespace": "System",
+      "name": "Exception",
+      "messageId": "369b362b-258c-4104-bdf8-dc276548fe51"
+    },
+    "payload": {
+      "code": 400,
+      "description": "Could not decode multipart"
+    }
   }
 }
 --883fd3b825c9b883f99b9ffb4d2a2cbd7a24c9c61bfa69d70c51140f34ca--
@@ -351,7 +353,7 @@ CIC는 HTTP 응답으로 클라이언트에게 동작을 수행하도록 명세�
 |---------------|-------------------------|
 | 200 OK                    | 클라이언트가 보낸 이벤트 메시지를 CIC가 정상적으로 수신했고, 클라이언트가 수행해야 할 지시 메시지가 1개 이상 응답에 포함되어 있을 때 이 상태 코드가 반환됩니다. |
 | 204 No Content            | 클라이언트가 보낸 이벤트 메시지를 CIC가 정상적으로 수신했고, 클라이언트가 수행해야 할 지시 메시지가 없을 때 이 상태 코드가 반환됩니다.                    |
-| 400 Bad Request           | 사용자 요청이 잘못된 형식으로 전달되었을 때 이 상태 코드가 반환됩니다.                                                                        |
+| 400 Bad Request           | 이벤트 메시지가 잘못된 방법이나 올바르지 않은 형식으로 전달되었을 때 이 상태 코드가 반환됩니다.                                                  |
 | 401 Unauthorized          | 사용자 인증에 실패했을 때 이 상태 코드가 반환됩니다. 이때 [사용자 인증](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken)을 다시 시도해야합니다.                        |
 | 412 Precondition Failed   | 사용자 요청을 전송하기 위해 필요한 사전 조건(pre-condition)이 만족되지 않은 상황입니다. 주로 클라이언트가 [downchannel을 구성](#EstablishDownchannel)하지 않았거나 [downchannel을 구성할 때 만든 연결](/CIC/Guides/Interact_with_CIC.md#CreateConnection)로 이벤트 메시지를 전송하지 않았을 때 발생합니다.  |
 | 500 Internal Server Error | 서버 내부 오류이면 이 상태 코드가 반환됩니다.                                                                                       |
@@ -424,14 +426,16 @@ Content-Disposition: form-data; name="exception-bde71903-dab4-46c5-9714-416cf12d
 Content-Type: application/json; charset=utf-8
 
 {
-  "header": {
-    "namespace": "System",
-    "name": "Exception",
-    "messageId": "369b362b-258c-4104-bdf8-dc276548fe51"
-  },
-  "payload": {
-    "code": 400,
-    "description": "Could not decode multipart"
+  "directive": {
+    "header": {
+      "namespace": "System",
+      "name": "Exception",
+      "messageId": "369b362b-258c-4104-bdf8-dc276548fe51"
+    },
+    "payload": {
+      "code": 400,
+      "description": "Could not decode multipart"
+    }
   }
 }
 --883fd3b825c9b883f99b9ffb4d2a2cbd7a24c9c61bfa69d70c51140f34ca--
@@ -584,7 +588,7 @@ CIC API에서 사용되는 메시지는 다음과 같이 구분되며, 각각 �
 
 | 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
 |---------------|---------|-----------------------------|:---------:|
-| `directive`                        | object | 지시 메시지의 헤더와 필요한 데이터(`payload`)를 가지고 있는 객체                                                                 | 항상     |
+| `directive`                        | object | 지시 메시지의 헤더와 필요한 데이터(`payload`)를 가지고 있는 객체                                                           | 항상     |
 | `directive.header`                 | object | 지시 메시지의 헤더                                                                                                 | 항상     |
 | `directive.header.dialogRequestId` | string | 대화 ID(Dialogue ID). 클라이언트 쪽에서 어떤 대화의 응답인지 파악하기 위해 사용됩니다. 지시 메시지가 [`SpeechRecognizer.Regcognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize) 이벤트 메시지에 대한 응답이 아니면 이 필드가 지시 메시지에 포함되어 있지 않을 수도 있습니다.  | 조건부  |
 | `directive.header.messageId`       | string | 메시지 ID. 개별 메시지를 구분하기 위해 사용하는 식별자입니다.                                                                | 항상     |
@@ -619,63 +623,72 @@ CIC API에서 사용되는 메시지는 다음과 같이 구분되며, 각각 �
 * [인터페이스](#CICInterface)
 
 ### 오류 메시지 {#Error}
-잘못된 방법이나 형식으로 이벤트 메시지를 전송하거나 서버측 내부 오류 등의 이유로 Clova가 제대로 서비스를 제공할 수 없을 수 있습니다. 이때 CIC는 오류 메시지를 클라이언트로 전송합니다. 클라이언트는 오류 메시지를 보고 그에 상응하는 UX/UI를 제공해야 합니다.
+잘못된 방법이나 올바르지 않은 형식으로 [이벤트 메시지](#Event)를 전송하거나 서버측 내부 오류 등의 이유로 Clova가 제대로 서비스를 제공할 수 없을 수 있습니다. 이때 CIC는 오류 메시지를 클라이언트로 전송합니다. 클라이언트는 오류 메시지를 보고 그에 상응하는 UX/UI를 제공해야 합니다.
 
 #### Message structure
 {% raw %}
 ```json
 {
-  "header": {
-    "namespace": "System",
-    "name": "Exception",
-    "messageId": {{string}}
-  },
-  "payload": {
-    "code": {{number}},
-    "description": {{string}}
+  "directive": {
+    "header": {
+      "namespace": "System",
+      "name": "Exception",
+      "messageId": {{string}}
+    },
+    "payload": {
+      "code": {{number}},
+      "description": {{string}}
+    }
   }
 }
 ```
 {% endraw %}
 
+<div class="note">
+  <p><strong>Note!</strong></p>
+  <p>오류 메시지는 <a href="Directive">지시 메시지</a>와 비슷한 구조의 메시지로 구성됩니다.</p>
+</div>
 
 #### Message fields
 
 | 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
 |---------------|---------|-----------------------------|:---------:|
-| `header`                 | object | 오류 메시지의 헤더                                             | 항상 |
-| `header.messageId`       | string | 메시지 ID. 개별 메시지를 구분하기 위해 사용하는 식별자입니다.            | 항상 |
-| `header.name`            | string | 오류 메시지의 이름. `"Exception"`으로 고정됩니다.                | 항상 |
-| `header.namespace`       | string | 오류 메시지의 네임스페이스. `"System"`으로 고정됩니다.             | 항상 |
-| `payload`                | object | 오류와 관련된 정보를 담고 있는 객체                                | 항상 |
-| `payload.code`           | number | 오류 코드. 해당 메시지의 HTTP 응답 코드와 같은 값을 가집니다.           | 항상 |
-| `payload.description`    | string | 오류 메시지                                                  | 항상 |
+| `directive`                        | object | 오류 메시지의 헤더와 필요한 데이터(`payload`)를 가지고 있는 객체       | 항상 |
+| `directive.header`                 | object | 오류 메시지의 헤더                                             | 항상 |
+| `directive.header.messageId`       | string | 메시지 ID. 개별 메시지를 구분하기 위해 사용하는 식별자입니다.            | 항상 |
+| `directive.header.name`            | string | 오류 메시지의 이름. `"Exception"`으로 고정됩니다.                | 항상 |
+| `directive.header.namespace`       | string | 오류 메시지의 네임스페이스. `"System"`으로 고정됩니다.             | 항상 |
+| `directive.payload`                | object | 오류와 관련된 정보를 담고 있는 객체                                | 항상 |
+| `directive.payload.code`           | number | 오류 코드. 해당 메시지의 HTTP 응답 코드와 같은 값을 가집니다.           | 항상 |
+| `directive.payload.description`    | string | 오류 메시지                                                  | 항상 |
 
 #### Error code reference
 
 | 오류 코드 | 설명                             |
 |---------|---------------------------------|
-| 400     | 사용자 요청이 잘못된 형식으로 전달되었을 때 발생하는 오류입니다.                                                 |
+| 400     | [이벤트 메시지](#Event)가 잘못된 방법이나 올바르지 않은 형식으로 전달되었을 때 발생하는 오류입니다.                                                |
 | 401     | 사용자 인증에 실패했을 때 발생하는 오류입니다. 이때 [사용자 인증](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken)을 다시 시도해야합니다. |
 | 500     | 서버 내부 오류입니다.                                                                                |
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>오류 코드는 계속 추가될 예정입니다.</p>
+  <p>위 오류 코드는 응답 메시지의 HTTP 상태 코드(status codes)와 같습니다. 또한, 오류 코드는 계속 추가될 수 있습니다.</p>
 </div>
 
 ### Message example
 {% raw %}
 ```json
 {
-  "header": {
-    "namespace": "System",
-    "name": "Exception",
-    "messageId": "369b362b-258c-4104-bdf8-dc276548fe51"
-  },
-  "payload": {
-    "code": 400,
-    "description": "Could not decode multipart"
+  "directive": {
+    "header": {
+      "namespace": "System",
+      "name": "Exception",
+      "messageId": "369b362b-258c-4104-bdf8-dc276548fe51"
+    },
+    "payload": {
+      "code": 400,
+      "description": "Could not decode multipart"
+    }
   }
 }
 ```
