@@ -40,10 +40,10 @@ Obtain a Clova access token by following the instructions provided below:
 }
 </code></pre></li>
   <li>
-    <p>If the client receives the <code>451 Unavailable For Legal Reasons</code> status code as a response to the <a href="/CIC/References/Clova_Auth_API.html#RequestAuthorizationCode">request for an authorization code</a>, the client must display the Terms and Conditions page to the user using the URI in the <code>redirect_uri</code> field of the response message body. See the following example of a response message body for the status code, <code>451 Unavailable For Legal Reasons</code>.</p>
+    <p>If the client receives the <code>451 Unavailable For Legal Reasons</code> status code as a response to the <a href="/CIC/References/Clova_Auth_API.html#RequestAuthorizationCode"> request for an authorization code</a>, the client must display the Terms and Conditions page to the user using the URI in the <code>redirect_uri</code> field of the response message body. See the following example of a response message body for the status code, <code>451 Unavailable For Legal Reasons</code>.</p>
     <pre><code>{
   "code": "4mrklvwoC_KNgDlvmslka",
-  "redirect_uri": "https://ssl.pstatic.net/static/clova/service/terms/place/terms_3rd.html?code=4mrklvwoC_KNgDlvmslka&grant_type=code&state=FKjaJfMlakjdfTVbES5ccZ",
+  "redirect_uri": "https://ssl.pstatic.example.net/static/clova/service/terms/place/terms_3rd.html?code=4mrklvwoC_KNgDlvmslka&grant_type=code&state=FKjaJfMlakjdfTVbES5ccZ",
   "state": "FKjaJfMlakjdfTVbES5ccZ"
 }
 </code></pre>
@@ -54,7 +54,7 @@ Obtain a Clova access token by following the instructions provided below:
     </ul>
   </li>
   <li>
-    <p>For clients without GUI, send the authorization code to the actual client device.</p>
+    <p>For clients without a GUI, send the authorization code to the actual client device.</p>
   </li>
   <li>
     <p><a href="/CIC/References/Clova_Auth_API.html#RequestClovaAccessToken">Request for the Clova access token</a> using the obtained authorization code and <a href="#ClientAuthInfo">client credentials</a> as parameters. The following is an example of requesting a Clova access token.</p>

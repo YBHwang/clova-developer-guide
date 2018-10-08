@@ -288,7 +288,7 @@ Instructs the client to connect to the Bluetooth speaker that has requested a PI
 * [`DeviceControl.ActionFailed`](#ActionFailed)
 * [`DeviceControl.BtConnect`](#BtConnect)
 * [`DeviceControl.BtRequestForPINCode`](#BtRequestForPINCode)
-* [`DeviceControl.ReportState`](/CIC/References/Context_Objects.md#ReportState)
+* [`DeviceControl.ReportState`](#ReportState)
 
 ## BtDisconnect directive {#BtDisconnect}
 

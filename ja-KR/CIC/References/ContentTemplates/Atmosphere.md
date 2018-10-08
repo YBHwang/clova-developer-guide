@@ -27,6 +27,8 @@
 | `type`          | string | コンテンツテンプレートのタイプを示す値。`"Atmosphere"`を持ちます。 |
 | `valueOfAtmosphere`         | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | 現在の大気の数値を持つオブジェクト。数値の単位が含まれています。このオブジェクトの`value`フィールドは、空文字列(`""`)を持つ場合があります。 |
 
+{% include "/CIC/References/ContentTemplates/Shared_Weather_Code.md" %}
+
 ## Template example
 
 {% raw %}
@@ -39,7 +41,7 @@
   },
   "bgClipUrl": {
     "type": "url",
-    "value": "https://ssl.pstatic.net/static/clova/service/weather/bg_clean_daytime.mp4"
+    "value": "https://ssl.pstatic.example.net/static/clova/service/weather/bg_clean_daytime.mp4"
   },
   "concentrationOfAtmosphere": {
     "type": "string",
@@ -57,7 +59,7 @@
     {
       "atmosphereImageUrl": {
         "type": "url",
-        "value": "http://static.contentproviderdomain.net/clova/service/weather/air_icon_02.png"
+        "value": "http://static.contentservice.example.net/clova/service/weather/air_icon_02.png"
       },
       "concentrationOfAtmosphere": {
         "type": "string",
@@ -71,7 +73,7 @@
     {
       "atmosphereImageUrl": {
         "type": "url",
-        "value": "http://static.contentproviderdomain.net/clova/service/weather/air_icon_02.png"
+        "value": "http://static.contentservice.example.net/clova/service/weather/air_icon_02.png"
       },
       "concentrationOfAtmosphere": {
         "type": "string",
@@ -85,7 +87,7 @@
     {
       "atmosphereImageUrl": {
         "type": "url",
-        "value": "http://static.contentproviderdomain.net/clova/service/weather/air_icon_02.png"
+        "value": "http://static.contentservice.example.net/clova/service/weather/air_icon_02.png"
       },
       "concentrationOfAtmosphere": {
         "type": "string",
@@ -99,7 +101,7 @@
     {
       "atmosphereImageUrl": {
         "type": "url",
-        "value": "http://static.contentproviderdomain.net/clova/service/weather/air_icon_02.png"
+        "value": "http://static.contentservice.example.net/clova/service/weather/air_icon_02.png"
       },
       "concentrationOfAtmosphere": {
         "type": "string",
@@ -131,7 +133,7 @@
   },
   "referenceUrl" : {
     "type" : "url",
-    "value" : "http://weather.contentproviderdomain.com/"
+    "value" : "http://weather.contentservice.example.com/"
   },
   "temperatureCode": {
     "type": "string",
@@ -152,7 +154,7 @@
   },
   "bgClipUrl": {
     "type": "url",
-    "value": "https://ssl.pstatic.net/static/clova/service/weather/bg_cloud_daytime.mp4"
+    "value": "https://ssl.pstatic.example.net/static/clova/service/weather/bg_cloud_daytime.mp4"
   },
   "concentrationOfAtmosphere": {
     "type": "string",
@@ -166,7 +168,7 @@
     {
       "atmosphereImageUrl": {
         "type": "url",
-        "value": "http://static.contentproviderdomain.net/clova/service/weather/air_icon_02.png"
+        "value": "http://static.contentservice.example.net/clova/service/weather/air_icon_02.png"
       },
       "concentrationOfAtmosphere": {
         "type": "string",
@@ -180,7 +182,7 @@
     {
       "atmosphereImageUrl": {
         "type": "url",
-        "value": "http://static.contentproviderdomain.net/clova/service/weather/air_icon_02.png"
+        "value": "http://static.contentservice.example.net/clova/service/weather/air_icon_02.png"
       },
       "concentrationOfAtmosphere": {
         "type": "string",
@@ -194,7 +196,7 @@
     {
       "atmosphereImageUrl": {
         "type": "url",
-        "value": "http://static.contentproviderdomain.net/clova/service/weather/air_icon_02.png"
+        "value": "http://static.contentservice.example.net/clova/service/weather/air_icon_02.png"
       },
       "concentrationOfAtmosphere": {
         "type": "string",
@@ -208,7 +210,7 @@
     {
       "atmosphereImageUrl": {
         "type": "url",
-        "value": "http://static.contentproviderdomain.net/clova/service/weather/air_icon_02.png"
+        "value": "http://static.contentservice.example.net/clova/service/weather/air_icon_02.png"
       },
       "concentrationOfAtmosphere": {
         "type": "string",

@@ -1,5 +1,5 @@
 ## Returning a custom extension response {#ReturnCustomExtensionResponse}
-After [handling the request message](#HandleCustomExtensionRequest), you must return the HTTP [response message](/CEK/References/CEK_API.md#CustomExtResponseMessage) to the CEK again. The details of the response may vary depending on the type of request message, but the structure of the response message does not vary much. Below is a response message sent after handling a LaunchRequest type request, where a user says "Start Pizzabot."
+After [handling the request message](#HandleCustomExtensionRequest), you must return the HTTP [response message](/CEK/References/CEK_API.md#CustomExtResponseMessage) to CEK again. The details of the response may vary depending on the type of request message, but the structure of the response message does not vary much. Below is a response message sent after handling a LaunchRequest type request, where a user says "Start Pizzabot."
 
 {% raw %}
 ```json
@@ -35,7 +35,7 @@ The fields represent the following information:
   The <p><code>sessionAttributes</code> field is reserved for future use and the <code>response.directives</code> field is a directive message returned by the extension to CEK. The directive message API for the <code>response.directives</code> field will be provided in the future.</p>
 </div>
 
-The response message can be written to output multiple sentences based on the circumstances or to play audio or music files on the Internet as shown below.
+The response message can be written to output multiple sentences based on the circumstances or to play audio or music files on the internet as shown below.
 
 {% raw %}
 ```json
@@ -54,7 +54,7 @@ The response message can be written to output multiple sentences based on the ci
         {
           "type": "URL",
           "lang": "" ,
-          "value": "https://tts.com/song.mp3"
+          "value": "https://tts.example.com/song.mp3"
         }
       ]
     },
@@ -74,7 +74,7 @@ The `response.outputSpeech` fields represent the following information:
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>In addition to simple or complex sentence type of audio data, we support a combined format (SpeechSet) for client devices with limitations for expressing detailed GUIs, such as devices without a display. For more information, see <a href="/CEK/References/CEK_API.md#CustomExtResponseMessage">Response message</a> in the custom extension message format.</p>
+  <p>In addition to simple or complex sentence type of audio data, we support a combined format (SpeechSet) for client devices with limitations for expressing detailed GUIs such as devices without a display. For more information, see <a href="/CEK/References/CEK_API.md#CustomExtResponseMessage">Response message</a> in the custom extension message format.</p>
 </div>
 
 To display data on the screen of a client device or client app in addition to outputting audio, fill in the content in the `response.card` field in accordance with the [content template](/CIC/References/Content_Templates.md).
@@ -105,11 +105,11 @@ To display data on the screen of a client device or client app in addition to ou
       },
       "referenceText": {
         "type": "string",
-        "value": "NAVER search result"
+        "value": "search result"
       },
       "referenceUrl": {
         "type": "url",
-        "value": "https://m.search.naver.com/search.naver?where=m&sm=mob_lic&query=%eb%a6%ac%ec%98%a4%eb%84%ac+%eb%a9%94%ec%8b%9c+%ec%86%8c%ec%86%8d%ed%8c%80"
+        "value": "https://m.search.example.com/search.naver?where=m&sm=mob_lic&query=%eb%a6%ac%ec%98%a4%eb%84%ac+%eb%a9%94%ec%8b%9c+%ec%86%8c%ec%86%8d%ed%8c%80"
       },
       "subTextList": [
         {
@@ -123,7 +123,7 @@ To display data on the screen of a client device or client app in addition to ou
       },
       "thumbImageUrl": {
         "type": "url",
-        "value": "http://sstatic.naver.net/people/3/201607071816066361.jpg"
+        "value": "http://sstatic.example.net/people/3/201607071816066361.jpg"
       }
     },
     "directives": [],

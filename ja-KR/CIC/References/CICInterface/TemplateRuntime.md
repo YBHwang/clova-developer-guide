@@ -4,11 +4,15 @@ TemplateRuntimeインターフェースは、クライアントまたはCICが�
 
 | メッセージ         | タイプ  | 説明                                   |
 |------------------|---------|---------------------------------------------|
-| [`ExpectRequestPlayerInfo`](#ExpectRequestPlayerInfo)  | ディレクティブ | クライアントに、再生メタデータをリクエストするように指示します。クライアントはこのディレクティブを受信すると、[`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo)イベントをCICに送信する必要があります。 |
-| [`LikeCommandIssued`](#LikeCommandIssued)              | イベント     | ユーザーがクライアントデバイスのメディアプレーヤーで、特定のメディアに対して「いいね」ボタン(Like)を押した場合、クライアントはこのイベントをCICに送信する必要があります。 |
-| [`RenderPlayerInfo`](#RenderPlayerInfo)                | ディレクティブ | CICから、メディアプレーヤーに表示する再生リスト、アルバムの画像、歌詞のような再生メタデータをクライアントに送信し、表示するように指示します。 |
-| [`RequestPlayerInfo`](#RequestPlayerInfo)              | イベント     | クライアントから、メディアプレーヤーに表示する再生リスト、アルバムの画像、歌詞のような再生メタデータをCICにリクエストします。 |
-| [`UnlikeCommandIssued`](#UnlikeCommandIssued)          | イベント     | ユーザーがクライアントデバイスのメディアプレーヤーで、特定のメディアに対して「いいね」を取り消すボタン(Unlike)を押した場合、クライアントはこのイベントをCICに送信する必要があります。 |
+| [`ExpectRequestPlayerInfo`](#ExpectRequestPlayerInfo)   | ディレクティブ | クライアントに、再生メタデータをリクエストするように指示します。クライアントはこのディレクティブを受信すると、[`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo)イベントをCICに送信する必要があります。 |
+| [`LikeCommandIssued`](#LikeCommandIssued)               | イベント     | ユーザーがクライアントデバイスのメディアプレーヤーで、特定のメディアに対して「いいね」ボタン(Like)を押した場合、クライアントはこのイベントをCICに送信する必要があります。 |
+| [`RenderPlayerInfo`](#RenderPlayerInfo)                 | ディレクティブ | CICから、メディアプレーヤーに表示する再生リスト、アルバムの画像、歌詞のような再生メタデータをクライアントに送信し、表示するように指示します。 |
+| [`RequestPlayerInfo`](#RequestPlayerInfo)               | イベント     | クライアントから、メディアプレーヤーに表示する再生リスト、アルバムの画像、歌詞のような再生メタデータをCICにリクエストします。 |
+| [`SubscribeCommandIssued`](#SubscribeCommandIssued)     | イベント     | ユーザーがクライアントデバイスのメディアプレーヤーで購読ボタン(Subscribe)を押した場合、クライアントはこのイベントをCICに送信する必要があります。  |
+| [`UnlikeCommandIssued`](#UnlikeCommandIssued)           | イベント     | ユーザーがクライアントデバイスのメディアプレーヤーで、特定のメディアに対して「いいね」を取り消すボタン(Unlike)を押した場合、クライアントはこのイベントをCICに送信する必要があります。 |
+| [`UnsubscribeCommandIssued`](#UnsubscribeCommandIssued) | イベント     | ユーザーがクライアントデバイスのメディアプレーヤーで購読解除ボタン(Unsubscribe)を押した場合、クライアントはこのイベントをCICに送信する必要があります。 |
+| [`UpdateLike`](#UpdateLike)                             | ディレクティブ | クライアントに、メディアプレーヤー上で、特定のコンテンツに対するユーザーの「いいね」(like)の有無によって「いいね」の表示を指定された値に更新するように指示します。  |
+| [`UpdateSubscribe`](#UpdateSubscribe)                   | ディレクティブ | クライアントに、メディアプレーヤー上で、特定のコンテンツに対するユーザーの購読(subscribe)有無によって購読の表示を指定された値に更新するように指示します。  |
 
 ## ExpectRequestPlayerInfoディレクティブ {#ExpectRequestPlayerInfo}
 
@@ -90,6 +94,7 @@ TemplateRuntimeインターフェースは、クライアントまたはCICが�
 ### 次の項目も参照してください。
 * [`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo)
 * [`TemplateRuntime.UnlikeCommandIssued`](#UnlikeCommandIssued)
+* [`TemplateRuntime.UpdateLike`](#UpdateLike)
 
 ## RenderPlayerInfoディレクティブ {#RenderPlayerInfo}
 
@@ -108,7 +113,7 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
 | `playableItems[].artImageUrl`  | string    | メディアコンテンツ関連画像のURL。アルバムのジャケット画像や関連アイコンなどの画像があるURLです。      | 条件付き |
 | `playableItems[].controls[]`                | object array  | 特定のメディアコンテンツを再生するとき、表示すべきボタンの情報を持つオブジェクト配列です。このオブジェクト配列は省略できます。  | 条件付き |
 | `playableItems[].controls[].enabled`        | boolean      | `playableItems[].controls[].name`で設定されたボタンを、メディアプレーヤーで有効にするかを示します。<ul><li><code>true</code>：有効にする</li><li><code>false</code>：無効にする</li></ul>  | 常時  |
-| `playableItems[].controls[].name`           | string       | ボタンの名前。次のいずれかになります。<ul><li><code>"NEXT"</code>：「次」ボタン</li><li><code>"PLAY_PAUSE"</code>：「再生/一時停止」ボタン</li><li><code>"PREVIOUS"</code>：「前」ボタン</li></ul>  | 常時  |
+| `playableItems[].controls[].name`           | string       | ボタンまたはコントロールUIの名前。次のいずれかになります。<ul><li><code>"BACKWARD_15S"</code>：「15秒巻き戻しする」ボタン</li><li><code>"BACKWARD_30S"</code>：「30秒巻き戻しする」ボタン</li><li><code>"BACKWARD_60S"</code>：「60秒巻き戻しする」ボタン</li><li><code>"FORWARD_15S"</code>：「15秒早送りする」ボタン</li><li><code>"FORWARD_30S"</code>：「30秒早送りする」ボタン</li><li><code>"FORWARD_60S"</code>：「60秒早送りする」ボタン</li><li><code>"NEXT"</code>：「次へ」ボタン</li><li><code>"PLAY_PAUSE"</code>：「再生/一時停止」ボタン</li><li><code>"PREVIOUS"</code>：「前へ」ボタン</li><li><code>"PROGRESS_BAR"</code>：進行状況バー</li><li><code>"REPEAT"</code>：「リピート」ボタン</li><li><code>"SUBSCRIBE_UNSUBSCRIBE"</code>：「購読/購読解除」ボタン</li></ul>  | 常時  |
 | `playableItems[].controls[].selected`       | boolean      | メディアコンテンツが選択されているかを示します。この値は、ユーザーの「好き」という概念を表す際に使用することができます。この値が`true`に設定されていたら、ユーザーが好きなアイテムとして登録したコンテンツであることを示します。メディアプレーヤーの関連するUIで、そのことを表す必要があります。<ul><li><code>true</code>：選択済み</li><li><code>false</code>：未選択</li></ul> | 常時  |
 | `playableItems[].controls[].type`           | string       | ボタンのタイプ。現在、`"BUTTON"`のみ使用します。  | 常時 |
 | `playableItems[].headerText`       | string        | 主に、現在の再生リストのタイトルを表すテキストフィールド                                                | 条件付き  |
@@ -163,7 +168,7 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
       "displayType": "list",
       "playableItems": [
         {
-          "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/662058.jpg",
+          "artImageUrl": "http://musicmeta.musicservice.example.com/example/album/662058.jpg",
           "controls": [
             {
               "enabled": true,
@@ -188,7 +193,7 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
           "token": "eJyr5lIqSSyITy4tKs4vUrJSUE="
         },
         {
-          "artImageUrl": "http://musicmeta.musicproviderdomain.com/example/album/202646.jpg",
+          "artImageUrl": "http://musicmeta.musicservice.example.com/example/album/202646.jpg",
           "controls": [
             {
               "enabled": true,
@@ -215,9 +220,9 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
         ...
       ],
       "provider": {
-        "logoUrl": "https://img.musicproviderdomain.net/logo_180125.png",
+        "logoUrl": "https://img.musicservice.example.net/logo_180125.png",
         "name": "SampleMusicProvider",
-        "smallLogoUrl": "https://img.musicproviderdomain.net/smallLogo_180125.png"
+        "smallLogoUrl": "https://img.musicservice.example.net/smallLogo_180125.png"
       }
     }
   }
@@ -230,7 +235,9 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
 * [`AudioPlayer.Play`](#Play)
 * [`TemplateRuntime.LikeCommandIssued`](#LikeCommandIssued)
 * [`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo)
+* [`TemplateRuntime.SubscribeCommandIssued`](#SubscribeCommandIssued)
 * [`TemplateRuntime.UnlikeCommandIssued`](#UnlikeCommandIssued)
+* [`TemplateRuntime.UnsubscribeCommandIssued`](#UnsubscribeCommandIssued)
 
 ## RequestPlayerInfo event {#RequestPlayerInfo}
 クライアントから、メディアプレーヤーに表示する再生リスト、アルバムの画像、歌詞のような再生メタデータをCICにリクエストします。CICはこのイベントを受信すると、[`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo)ディレクティブをクライアントに送信します。
@@ -282,6 +289,57 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
 * [`TemplateRuntime.ExpectRequestPlayerInfo`](#ExpectRequestPlayerInfo)
 * [`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo)
 
+## SubscribeCommandIssuedイベント {#SubscribeCommandIssued}
+ユーザーがクライアントデバイスのメディアプレーヤーで購読ボタン(Subscribe)を押した場合、クライアントはこのイベントをCICに送信する必要があります。CICはこのイベントを受信すると、適切なディレクティブをクライアントに送信します。
+
+### Context fields
+
+{% include "/CIC/References/CICInterface/Context_Objects_List.md" %}
+
+### Payload fields
+
+| フィールド名       | データ型    | 説明                     | 必須/任意 |
+|---------------|---------|-----------------------------|:---------:|
+| `token`    | string  | メディアコンテンツのトークン。[`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo)ディレクティブの`playableItems[].token`フィールドで提供されたトークンが入力される必要があります。 |  |
+
+### 備考
+* クライアントデバイスのボタンは、ハードウェア方式の物理ボタンの場合もあり、オーディオプレーヤーウィジェットのボタンのようなソフトウェア方式のボタンの場合もあります。
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "context": [
+    {{Alerts.AlertsState}},
+    {{AudioPlayer.PlayerState}},
+    {{Device.DeviceState}},
+    {{Device.Display}},
+    {{Clova.Location}},
+    {{Clova.SavedPlace}},
+    {{Speaker.VolumeState}},
+    {{SpeechSynthesizer.SpeechState}}
+  ],
+  "event": {
+    "header": {
+      "namespace": "TemplateRuntime",
+      "name": "SubscribeCommandIssued",
+      "messageId": "ec3deb51-2ed8-47ae-ac17-d2ce24370f8f"
+    },
+    "payload": {
+      "token": "SSyITy4teJyr5lIqKs4vUrJSUE"
+    }
+  }
+}
+```
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo)
+* [`TemplateRuntime.UnsubscribeCommandIssued`](#UnsubscribeCommandIssued)
+* [`TemplateRuntime.UpdateSubscribe`](#UpdateSubscribe)
+
 ## UnlikeCommandIssuedイベント {#UnlikeCommandIssued}
 ユーザーがクライアントデバイスのメディアプレーヤーで、特定のメディアに対して「いいね」を取り消すボタン(Unlike)を押した場合、クライアントはこのイベントをCICに送信する必要があります。CICはこのイベントを受信すると、適切なディレクティブをクライアントに送信します。
 
@@ -332,3 +390,139 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
 ### 次の項目も参照してください。
 * [`TemplateRuntime.LikeCommandIssued`](#LikeCommandIssued)
 * [`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo)
+* [`TemplateRuntime.UpdateLike`](#UpdateLike)
+
+## UnsubscribeCommandIssuedイベント {#UnsubscribeCommandIssued}
+ユーザーがクライアントデバイスのメディアプレーヤーで購読解除ボタン(Unsubscribe)を押した場合、クライアントはこのイベントをCICに送信する必要があります。CICはこのイベントを受信すると、適切なディレクティブをクライアントに送信します。
+
+### Context fields
+
+{% include "/CIC/References/CICInterface/Context_Objects_List.md" %}
+
+### Payload fields
+
+| フィールド名       | データ型    | 説明                     | 必須/任意 |
+|---------------|---------|-----------------------------|:---------:|
+| `token`    | string  | メディアコンテンツのトークン。[`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo)ディレクティブの`playableItems[].token`フィールドで提供されたトークンが入力される必要があります。 |  |
+
+### 備考
+* クライアントデバイスのボタンは、ハードウェア方式の物理ボタンの場合もあり、オーディオプレーヤーウィジェットのボタンのようなソフトウェア方式のボタンの場合もあります。
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "context": [
+    {{Alerts.AlertsState}},
+    {{AudioPlayer.PlayerState}},
+    {{Device.DeviceState}},
+    {{Device.Display}},
+    {{Clova.Location}},
+    {{Clova.SavedPlace}},
+    {{Speaker.VolumeState}},
+    {{SpeechSynthesizer.SpeechState}}
+  ],
+  "event": {
+    "header": {
+      "namespace": "TemplateRuntime",
+      "name": "UnsubscribeCommandIssued",
+      "messageId": "04deb09e-54cc-4525-9e97-4ff4168872b5"
+    },
+    "payload": {
+      "token": "r5lIqKs4vUSSyITy4teJyrJSUE"
+    }
+  }
+}
+```
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo)
+* [`TemplateRuntime.SubscribeCommandIssued`](#SubscribeCommandIssued)
+* [`TemplateRuntime.UpdateSubscribe`](#UpdateSubscribe)
+
+## UpdateLikeディレクティブ {#UpdateLike}
+
+クライアントに、メディアプレーヤー上で、特定のコンテンツに対するユーザーの「いいね」(like)の有無によって「いいね」の表示を指定された値に更新するように指示します。ユーザーの発話や「いいね」ボタン([`TemplateRuntime.LikeCommandIssued`](#LikeCommandIssued))、「いいね」を取り消すボタン([`TemplateRuntime.UnlikeCommandIssued`](#UnlikeCommandIssued))を押すアクションに対するレスポンスとして、またはユーザーが他のデバイスで「いいね」に関連するアクションを行った場合、そのことを同期するために送信されます。
+
+### Payload fields
+
+| フィールド名       | データ型    | 説明                     | 任意 |
+|---------------|---------|-----------------------------|:---------:|
+| `like`        | boolean | 「いいね」を表示するかどうか。<ul><li><code>true</code>：「いいね」を表示する</li><li><code>false</code>：「いいね」を表示しない</li></ul>             | 常時 |
+| `token`       | string  | メディアコンテンツのトークン。[`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo)ディレクティブの`playableItems[].token`フィールドに該当する値が含まれます。      | 常時 |
+
+## 備考
+
+同期のため、このディレクティブはイベントに対する応答ではなく、[ダウンチャネル](/CIC/Guides/Interact_with_CIC.md#CreateConnection)で送信されます。
+
+### Message example
+{% raw %}
+
+```json
+{
+  "directive": {
+    "header": {
+      "namespace": "TemplateRuntime",
+      "name": "UpdateLike",
+      "messageId": "fb65457e-bd2e-4876-b739-2b8cc5b67486",
+      "dialogRequestId": "94e045dd-78c7-415e-b73b-f0cb9cbfd75d"
+    },
+    "payload": {
+      "token": "r5lIqKs4vUSSyITy4teJyrJSUE",
+      "like": true
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`TemplateRuntime.LikeCommandIssued`](#LikeCommandIssued)
+* [`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo)
+* [`TemplateRuntime.UnlikeCommandIssued`](#UnlikeCommandIssued)
+
+## UpdateSubscribeディレクティブ {#UpdateSubscribe}
+
+クライアントに、メディアプレーヤー上で、特定のコンテンツに対するユーザーの購読有無によって購読(subscribe)の表示を指定された値に更新するように指示します。ユーザーの発話や購読ボタン([`TemplateRuntime.SubscribeCommandIssued`](#SubscribeCommandIssued))、購読解除ボタン([`TemplateRuntime.UnsubscribeCommandIssued`](#UnsubscribeCommandIssued))を押すアクションに対するレスポンスとして、またはユーザーが他のデバイスで購読に関連するアクションを行った場合、そのことを同期するために送信されます。
+
+### Payload fields
+
+| フィールド名       | データ型    | 説明                     | 任意 |
+|---------------|---------|-----------------------------|:---------:|
+| `subscribe`   | boolean | 購読しているかどうか。<ul><li><code>true</code>：購読している</li><li><code>false</code>：購読していない</li></ul>             | 常時 |
+| `token`       | string  | メディアコンテンツのトークン。[`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo)ディレクティブの`playableItems[].token`フィールドに該当する値が含まれます。      | 常時 |
+
+## 備考
+
+同期のため、このディレクティブはイベントに対する応答ではなく、[ダウンチャネル](/CIC/Guides/Interact_with_CIC.md#CreateConnection)で送信されます。
+
+### Message example
+{% raw %}
+
+```json
+{
+  "directive": {
+    "header": {
+      "namespace": "TemplateRuntime",
+      "name": "UpdateSubscribe",
+      "messageId": "fb65457e-bd2e-4876-b739-2b8cc5b67486",
+      "dialogRequestId": "94e045dd-78c7-415e-b73b-f0cb9cbfd75d"
+    },
+    "payload": {
+      "token": "r5lIqKs4vUSSyITy4teJyrJSUE",
+      "subscribe": true
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`TemplateRuntime.SubscribeCommandIssued`](#SubscribeCommandIssued)
+* [`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo)
+* [`TemplateRuntime.UnsubscribeCommandIssued`](#UnsubscribeCommandIssued)

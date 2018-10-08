@@ -44,7 +44,7 @@
   },
   "referenceUrl": {
     "type": "url",
-    "value": "https://m.search.contentproviderdomain.com/search?where=m&sm=mob_lic&query=%eb%a6%ac%ec%98%a4%eb%84%ac+%eb%a9%94%ec%8b%9c+%ec%86%8c%ec%86%8d%ed%8c%80"
+    "value": "https://m.search.contentservice.example.com/search?where=m&sm=mob_lic&query=%eb%a6%ac%ec%98%a4%eb%84%ac+%eb%a9%94%ec%8b%9c+%ec%86%8c%ec%86%8d%ed%8c%80"
   },
   "subTextList": [
     {
@@ -58,7 +58,7 @@
   },
   "thumbImageUrl": {
     "type": "url",
-    "value": "http://sstatic.contentproviderdomain.net/people/3/201607071816066361.jpg"
+    "value": "http://sstatic.contentservice.example.net/people/3/201607071816066361.jpg"
   }
 }
 
@@ -67,15 +67,15 @@
 {
   "appLinkUrl": {
     "type": "url",
-    "value": "nmap://map?lat=37.3594589&lng=127.1047745&level=13&mode=1&traffic=false&bicycle=false&cadastral=false&appname=com.contentproviderdomain.clova"
+    "value": "nmap://map?lat=37.3594589&lng=127.1047745&level=13&mode=1&traffic=false&bicycle=false&cadastral=false&appname=com.contentservice.clova"
   },
   "imageUrl": {
     "type": "url",
-    "value": "https://simg.pstatic.net/static.map/image?caller=mw_search&crs=EPSG:4326&scale=2&format=jpg&dataversion=163.2&version=1.1&baselayer=default&center=127.1047745,37.3594589&markers=type,default2_s,127.1047745,37.3594589&level=10&h=402&w=515"
+    "value": "https://simg.pstatic.example.net/static.map/image?caller=mw_search&crs=EPSG:4326&scale=2&format=jpg&dataversion=163.2&version=1.1&baselayer=default&center=127.1047745,37.3594589&markers=type,default2_s,127.1047745,37.3594589&level=10&h=402&w=515"
   },
   "linkUrl": {
     "type": "url",
-    "value": "https://m.map.contentproviderdomain.com/map.nhn?lat=37.3594589&lng=127.1047745&dlevel=&mapMode=&pinTitle=&boundary=&traffic="
+    "value": "https://m.map.contentservice.example.com/map.nhn?lat=37.3594589&lng=127.1047745&dlevel=&mapMode=&pinTitle=&boundary=&traffic="
   },
   "mainText": {
     "type": "string",
@@ -93,7 +93,7 @@
   },
   "referenceUrl": {
     "type": "url",
-    "value": "https://m.search.contentproviderdomain.com/search?where=m&sm=mob_lic&query=%ed%98%84%ec%9e%ac+%ec%9c%84%ec%b9%98"
+    "value": "https://m.search.contentservice.example.com/search?where=m&sm=mob_lic&query=%ed%98%84%ec%9e%ac+%ec%9c%84%ec%b9%98"
   },
   "subTextList": [
     {

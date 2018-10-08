@@ -11,15 +11,17 @@ The Humidity template is used in providing humidity information for the client t
 | Field name       | Data type    | Description                     |
 |---------------|---------|-----------------------------|
 | `bgClipUrl`     | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject) | The URL of the video file to play in the background. <div class="danger"><p><strong>Caution!</strong></p><p>Due to a license issue, you are not permitted to use this URL.</p></div> |
-| `contentProviderText`       | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information of the content provider. An empty string (`""`) indicates that no content is to be displayed.  |
+| `contentProviderText`       | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information of the content provider. The `value` field of this object can have an empty string (`""`).  |
 | `humidity`      | [PercentageObject](/CIC/References/ContentTemplates/Shared_Objects.md#PercentageObject) | The information on humidity. |
-| `lastUpdate`                | [DateTimeObject](/CIC/References/ContentTemplates/Shared_Objects.md#DateTimeObject) | The last update time of the weather information. An empty string (`""`) indicates that no content is to be displayed. |
-| `linkUrl`       | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject) | The URL of the content. An empty string (`""`) indicates that no content is to be displayed.  |
+| `lastUpdate`                | [DateTimeObject](/CIC/References/ContentTemplates/Shared_Objects.md#DateTimeObject) | The last update time of the weather information. The `value` field of this object can have an empty string (`""`). |
+| `linkUrl`       | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject) | The URL of the content. The `value` field of this object can have an empty string (`""`).  |
 | `location`      | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information on the region. |
-| `referenceText`             | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information of the referred service. An empty string (`""`) indicates that no content is to be displayed.  |
-| `referenceUrl`              | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | The information on the usage result URL of the referred service. An empty string (`""`) indicates that no content is to be displayed.   |
-| `temperatureCode`      | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information on the [weather code](#WeatherCode). An empty string (`""`) indicates that no content is to be displayed.  |
+| `referenceText`             | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information of the referred service. The `value` field of this object can have an empty string (`""`).  |
+| `referenceUrl`              | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | The information on the usage result URL of the referred service. The `value` field of this object can have an empty string (`""`).   |
+| `temperatureCode`      | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information on the [weather code](#WeatherCode). The `value` field of this object can have an empty string (`""`).  |
 | `type`          | string | The type of this template. The value is always `"Humidity"`. |
+
+{% include "/CIC/References/ContentTemplates/Shared_Weather_Code.md" %}
 
 ## Template example
 
@@ -28,7 +30,7 @@ The Humidity template is used in providing humidity information for the client t
 {
   "bgImageUrl": {
     "type": "url",
-    "value": "https://ssl.pstatic.net/static/clova/service/weather/bg_cloud_night.mp4"
+    "value": "https://ssl.pstatic.example.net/static/clova/service/weather/bg_cloud_night.mp4"
   },
   "humidity": {
     "type": "percentage",
@@ -52,11 +54,11 @@ The Humidity template is used in providing humidity information for the client t
   },
   "referenceText" : {
     "type" : "string",
-    "value": "NAVER weather"
+    "value": "Weather"
   },
   "referenceUrl" : {
     "type" : "url",
-    "value" : "http://weather.contentproviderdomain.com/"
+    "value" : "http://weather.contentservice.example.com/"
   },
   "type": "Humidity"
 }

@@ -11,19 +11,19 @@ The WeeklyWeather template is used in providing weekly weather information for t
 | Field name       | Data type    | Description                     |
 |---------------|---------|-----------------------------|
 | `bgClipUrl`                       | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject) | The URL of the video file to play in the background. <div class="danger"><p><strong>Caution!</strong></p><p>Due to a license issue, you are not permitted to use this URL.</p></div> |
-| `contentProviderText`       | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information of the content provider. An empty string (`""`) indicates that no content is to be displayed.  |
+| `contentProviderText`       | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information of the content provider. The `value` field of this object can have an empty string (`""`).  |
 | `dailyWeatherList[]`              | object array | The object array of daily forecasts. |
 | `dailyWeatherList[].date`         | [DateObject](/CIC/References/ContentTemplates/Shared_Objects.md#DateObject) | The date information. |
 | `dailyWeatherList[].highTemperature` | [TemperatureCObject](/CIC/References/ContentTemplates/Shared_Objects.md#TemperatureCObject) | The highest temperature for the day. |
 | `dailyWeatherList[].iconImageCode` | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The [weather code](#WeatherCode) for the forecast. |
-| `dailyWeatherList[].iconImageUrl` | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject) | The URL of the icon to represent the forecast.  |
+| `dailyWeatherList[].iconImageUrl` | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject) | The URL of the icon to represent the forecast. |
 | `dailyWeatherList[].lowTemperature`  | [TemperatureCObject](/CIC/References/ContentTemplates/Shared_Objects.md#TemperatureCObject) | The lowest temperature for the day. |
 | `description`               | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | A statement to describe that weekly forecasts are being displayed.  |
-| `lastUpdate`                | [DateTimeObject](/CIC/References/ContentTemplates/Shared_Objects.md#DateTimeObject) | The last update time of the weather information. An empty string (`""`) indicates that no content is to be displayed. |
-| `linkUrl`                   | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject) | The URL of the content. An empty string (`""`) indicates that no content is to be displayed.   |
+| `lastUpdate`                | [DateTimeObject](/CIC/References/ContentTemplates/Shared_Objects.md#DateTimeObject) | The last update time of the weather information. The `value` field of this object can have an empty string (`""`). |
+| `linkUrl`                   | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject) | The URL of the content. The `value` field of this object can have an empty string (`""`).   |
 | `location`                  | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information on the region. |
-| `referenceText`             | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information of the referred service. An empty string (`""`) indicates that no content is to be displayed.  |
-| `referenceUrl`              | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | The information on the usage result URL of the referred service. An empty string (`""`) indicates that no content is to be displayed.   |
+| `referenceText`             | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information of the referred service. The `value` field of this object can have an empty string (`""`).  |
+| `referenceUrl`              | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | The information on the usage result URL of the referred service. The `value` field of this object can have an empty string (`""`).   |
 | `type`                      | string | The type of this template. The value is always `"WeeklyWeather"`. |
 
 {% include "/CIC/References/ContentTemplates/Shared_Weather_Code.md" %}
@@ -35,7 +35,7 @@ The WeeklyWeather template is used in providing weekly weather information for t
 {
   "bgImageUrl": {
     "type": "url",
-    "value": "https://ssl.pstatic.net/static/clova/service/weather/bg_cloud_daytime.mp4"
+    "value": "https://ssl.pstatic.example.net/static/clova/service/weather/bg_cloud_daytime.mp4"
   },
   "dailyWeatherList": [
     {
@@ -53,7 +53,7 @@ The WeeklyWeather template is used in providing weekly weather information for t
       },
       "iconImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_03.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_03.png"
       },
       "lowTemperature": {
         "type": "temperature-c",
@@ -75,7 +75,7 @@ The WeeklyWeather template is used in providing weekly weather information for t
       },
       "iconImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       },
       "lowTemperature": {
         "type": "temperature-c",
@@ -97,7 +97,7 @@ The WeeklyWeather template is used in providing weekly weather information for t
       },
       "iconImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_09.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_09.png"
       },
       "lowTemperature": {
         "type": "temperature-c",
@@ -119,7 +119,7 @@ The WeeklyWeather template is used in providing weekly weather information for t
       },
       "iconImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_22.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_22.png"
       },
       "lowTemperature": {
         "type": "temperature-c",
@@ -141,7 +141,7 @@ The WeeklyWeather template is used in providing weekly weather information for t
       },
       "iconImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       },
       "lowTemperature": {
         "type": "temperature-c",
@@ -163,7 +163,7 @@ The WeeklyWeather template is used in providing weekly weather information for t
       },
       "iconImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       },
       "lowTemperature": {
         "type": "temperature-c",
@@ -185,7 +185,7 @@ The WeeklyWeather template is used in providing weekly weather information for t
       },
       "iconImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       },
       "lowTemperature": {
         "type": "temperature-c",
@@ -211,11 +211,11 @@ The WeeklyWeather template is used in providing weekly weather information for t
   },
   "referenceText" : {
     "type" : "string",
-    "value": "NAVER weather"
+    "value": "Weather"
   },
   "referenceUrl" : {
     "type" : "url",
-    "value" : "http://weather.contentproviderdomain.com/"
+    "value" : "http://weather.contentservice.example.com/"
   },
   "type": "WeeklyWeather"
 }

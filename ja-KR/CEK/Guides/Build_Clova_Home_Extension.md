@@ -8,15 +8,18 @@ Clova Home Extensionを作成する際の事前準備と、Custom ExtensionがCE
 
 Clova Home Extensionの開発者は、次の内容を知っておく必要があります。
 
-1. [準備事項](#Preparation)
-2. [Discovery機能を提供する](#ProvideDeviceDiscovery)
-3. [Clova Home Extensionリクエストを処理する](#HandleClovaHomeExtensionRequest)
-4. [Clova Home Extensionレスポンスを返す](#ReturnClovaHomeExtensionResponse)
+* [準備事項](#Preparation)
+* [Discovery機能を提供する](#ProvideDeviceDiscovery)
+* [Clova Home Extensionリクエストを処理する](#HandleClovaHomeExtensionRequest)
+  * [リクエストメッセージを検証する](#RequestMessageValidation)
+* [Clova Home Extensionレスポンスを返す](#ReturnClovaHomeExtensionResponse)
 
 {% include "/CEK/Guides/BuildClovaHomeExtension/Preparation.md" %}
 
 {% include "/CEK/Guides/BuildClovaHomeExtension/Provide_Device_Discovery.md" %}
 
 {% include "/CEK/Guides/BuildClovaHomeExtension/Handle_Clova_Home_Extension_Request.md" %}
+
+{% include "/CEK/Guides/BuildCustomExtension/Handle_Custom_Extension_Request.md" %}
 
 {% include "/CEK/Guides/BuildClovaHomeExtension/Return_Clova_Home_Extension_Response.md" %}

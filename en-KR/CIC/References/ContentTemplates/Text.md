@@ -10,22 +10,22 @@ The Text template is used in providing text for the client to display on the cli
 
 | Field name       | Data type    | Description                     |
 |---------------|---------|-----------------------------|
-| `bgUrl`                  | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | The URL of the image to display in the background. An empty string (`""`) indicates that no content is to be displayed.               |
-| `emotionCode`            | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The code of Clova emotions for the client to "express." You can display the emotions predefined on the client device using emotion code. If the client does not support emotional expression, ignore this field. <div class="note"><p><strong>Note!</strong></p><p>For more information on the specification of the emotion codes, contact your Clova representative.</p></div> |
-| `highlightText`          | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) or [NumberObject](/CIC/References/ContentTemplates/Shared_Objects.md#NumberObject) | The text or a number to be displayed with an emphasis. The number may contain commas as thousand separators. The `value` field of this object array element may have an empty string (`""`) or a `null` value. |
-| `imageUrl`               | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | The URL of the image. An empty string (`""`) indicates that no content is to be displayed.                              |
-| `linkUrl`                | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | The URL to a web map, if a map image is included. An empty string (`""`) indicates that no content is to be displayed. |
-| `mainText`               | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The main text to display. An empty string (`""`) indicates that no content is to be displayed.                                     |
-| `motionCode`             | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The code for the action of the client to perform. You can make the client perform predefined actions using the action codes. If the client does not support an action feature, ignore this field. <div class="note"><p><strong>Note!</strong></p><p> For more information on the specification of the action codes, your Clova representative.</p></div> |
-| `paragraphText`          | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The text to display in a paragraph format. An empty string (`""`) indicates that no content is to be displayed.                                |
-| `referenceText`          | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information of the referred service. An empty string (`""`) indicates that no content is to be displayed.  |
-| `referenceUrl`           | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | The information on the usage result URL of the referred service. An empty string (`""`) indicates that no content is to be displayed.   |
-| `sentenceText`           | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The text to display in a sentence format. An empty string (`""`) indicates that no content is to be displayed.                                |
-| `subText`                | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The supplementary text to display. An empty string (`""`) indicates that no content is to be displayed.                                     |
+| `bgUrl`                  | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | The URL of the image to display in the background. The `value` field of this object can have an empty string (`""`).               |
+| `emotionCode`            | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The code of Clova emotions for the client to "express." You can display the emotions predefined on the client device using emotion code. If the client does not support emotional expression, ignore this field. <div class="note"><p><strong>Note!</strong></p><p>For more information on the specification of the emotion codes, contact your Partnership Manager.</p></div> |
+| `highlightText`          | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) or [NumberObject](/CIC/References/ContentTemplates/Shared_Objects.md#NumberObject) | The text or a number to be highlighted. When the value is a number, it may contain commas as separators. The `value` field of this object array element may have an empty string (`""`) or a `null` value. |
+| `imageUrl`               | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | The URL of the image. The `value` field of this object can have an empty string (`""`).                              |
+| `linkUrl`                | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | The URL to a web map, if a map image is included. The `value` field of this object can have an empty string (`""`). |
+| `mainText`               | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The main text to display. The `value` field of this object can have an empty string (`""`).                                     |
+| `motionCode`             | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The code for the action of the client to perform. You can make the client perform predefined actions using the action codes. If the client does not support an action feature, ignore this field. <div class="note"><p><strong>Note!</strong></p><p> For more information on the specification of the action codes, contact your Partnership Manager.</p></div> |
+| `paragraphText`          | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The text to display in a paragraph format. The `value` field of this object can have an empty string (`""`).                                |
+| `referenceText`          | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information of the referred service. The `value` field of this object can have an empty string (`""`).  |
+| `referenceUrl`           | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | The information on the usage result URL of the referred service. The `value` field of this object can have an empty string (`""`).   |
+| `sentenceText`           | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The text to display in a sentence format. The `value` field of this object can have an empty string (`""`).                                |
+| `subText`                | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The supplementary text to display. The `value` field of this object can have an empty string (`""`).                                     |
 | `tableList[]`           | object array                                                                    | The text to display in a table format. All tables consist of a single column and two or three rows.     |
-| `tableList[].item1`     | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The text to display in the first row. An empty string (`""`) indicates that no content is to be displayed.                    |
-| `tableList[].item2`     | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The text to display in the second row. An empty string (`""`) indicates that no content is to be displayed.                    |
-| `tableList[].item2Link` | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject) or [PhoneNumberObject](/CIC/References/ContentTemplates/Shared_Objects.md#PhoneNumberObject) | The URL link for the text displayed in the second row or phone number. An empty string (`""`) indicates that no content is to be displayed. |
+| `tableList[].item1`     | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The text to display in the first row. The `value` field of this object can have an empty string (`""`).                    |
+| `tableList[].item2`     | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The text to display in the second row. The `value` field of this object can have an empty string (`""`).                    |
+| `tableList[].item2Link` | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject) or [PhoneNumberObject](/CIC/References/ContentTemplates/Shared_Objects.md#PhoneNumberObject) | The URL link for the text displayed in the second row or phone number. The `value` field of this object can have an empty string (`""`). |
 | `tableList[].item3`     | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The text to display in the third row. This field is omissible. |
 | `type`                   | string                                                                          | The type of this template. The value is always `"Text"`.             |
 
@@ -35,7 +35,7 @@ The Text template is used in providing text for the client to display on the cli
 
 ```json
 // Example 1.
-// User request: How much is one dollar worth now? (The text is to be displayed as emphasized)
+// User request: How much does one dollar worth now? (The text is to be displayed as emphasized)
 {
   "actionList": [
     {
@@ -65,7 +65,7 @@ The Text template is used in providing text for the client to display on the cli
   },
   "referenceUrl": {
     "type": "url",
-    "value": "https://m.search.contentproviderdomain.com/search?where=m&sm=mob_lic&query=1%eb%8b%ac%eb%9f%ac+%ed%99%98%ec%9c%a8"
+    "value": "https://m.search.contentservice.example.com/search?where=m&sm=mob_lic&query=1%eb%8b%ac%eb%9f%ac+%ed%99%98%ec%9c%a8"
   },
   "sentenceText": {
     "type": "string",
@@ -129,11 +129,11 @@ The Text template is used in providing text for the client to display on the cli
   },
   "referenceText": {
     "type": "string",
-    "value": "NAVER search result"
+    "value": "search result"
   },
   "referenceUrl": {
     "type": "url",
-    "value": "https://m.search.contentproviderdomain.com/search?where=m&sm=mob_lic&query=%ed%86%a0%ed%8a%b8%eb%84%98+%ea%b0%90%eb%8f%85%ec%9d%b4+%eb%88%84%ea%b5%ac%ec%95%bc?"
+    "value": "https://m.search.contentservice.example.com/search?where=m&sm=mob_lic&query=%ed%86%a0%ed%8a%b8%eb%84%98+%ea%b0%90%eb%8f%85%ec%9d%b4+%eb%88%84%ea%b5%ac%ec%95%bc?"
   },
   "sentenceText": {
     "type": "string",
@@ -197,11 +197,11 @@ The Text template is used in providing text for the client to display on the cli
   },
   "referenceText": {
     "type": "string",
-    "value": "NAVER search result"
+    "value": "search result"
   },
   "referenceUrl": {
     "type": "url",
-    "value": "https://m.search.contentproviderdomain.com/search?where=m&sm=mob_lic&query=%ea%bd%83%ec%a7%91"
+    "value": "https://m.search.contentservice.example.com/search?where=m&sm=mob_lic&query=%ea%bd%83%ec%a7%91"
   },
   "sentenceText": {
     "type": "string",

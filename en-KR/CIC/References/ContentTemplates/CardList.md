@@ -20,7 +20,7 @@ The Cardlist template has standardized the data to be displayed on the screen as
 | Field name       | Data type    | Description                     |
 |---------------|---------|-----------------------------|
 | `cardList[]`                | object array | The object array that has a list of information units to be displayed as cards. |
-| `cardList[].contentProviderText`  | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information of the content provider. An empty string (`""`) indicates that no content is to be displayed.  |
+| `cardList[].contentProviderText`  | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information of the content provider. The `value` field of this object can have an empty string (`""`).  |
 | `cardList[].description[]`    | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) array | The object array that has the information about the content this card is to display.                    |
 | `cardList[].description[]`    | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) array | The object array that has the information about the content this card is to display.          |
 | `cardList[].imageUrl`       | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)             | The URL of the image to display. The `value` field of this object may have an empty string (`""`) depending on the card type.  |
@@ -28,8 +28,8 @@ The Cardlist template has standardized the data to be displayed on the screen as
 | `cardList[].press`          | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)       | The name of the news press. The `value` field of this object may have an empty string (`""`) depending on the card type.             |
 | `cardList[].pressIconUrl`   | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)             | The URL to the news press icon. The `value` field of this object may have an empty string (`""`) depending on the card type.    |
 | `cardList[].publishDate`    | [DateObject](/CIC/References/ContentTemplates/Shared_Objects.md#DateObject)           | The published date of the associated article. The `value` field of this object may have an empty string (`""`) depending on the card type.            |
-| `cardList[].referenceText`  | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)       | The information of the referred service. An empty string (`""`) indicates that no content is to be displayed.  |
-| `cardList[].referenceUrl`   | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)             | The information on the usage result URL of the referred service. An empty string (`""`) indicates that no content is to be displayed.   |
+| `cardList[].referenceText`  | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)       | The information of the referred service. The `value` field of this object can have an empty string (`""`).  |
+| `cardList[].referenceUrl`   | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)             | The information on the usage result URL of the referred service. The `value` field of this object can have an empty string (`""`).   |
 | `cardList[].title`          | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)       | The title of the content.             |
 | `cardList[].videoUrl`       | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)             | The URL of the video or audio to play. The `value` field of this object may have an empty string (`""`) depending on the card type.    |
 | `subType`                   | string  | The type of this card. Available types are: <ul><li><code>Type1</code></li><li><code>Type2</code></li><li><code>Type3</code></li><li><code>Type4</code></li></ul><div class="note"><p><strong>Note!</strong></p><p><code>Type1</code>, <code>Type2</code>, <code>Type3</code>, <code>Type5</code>, and <code>Type6</code> are displayed as an <strong>empty string</strong>. You must determine the type by checking the fields of the <code>card</code> object.</p></div>                                                    |
@@ -49,7 +49,7 @@ The Cardlist template has standardized the data to be displayed on the screen as
     {
       "contentProviderText" : {
         "type" : "string",
-        "value": "NAVER movie"
+        "value": "movie"
       },
       "description": [
         {
@@ -67,11 +67,11 @@ The Cardlist template has standardized the data to be displayed on the screen as
       ],
       "imageUrl": {
         "type": "url",
-        "value": "http://movie.phinf.contentproviderdomain.net/20170410_12/1491786049305s4W0n_JPEG/movie_image.jpg?type=w640_2"
+        "value": "http://movie.phinf.contentservice.example.net/20170410_12/1491786049305s4W0n_JPEG/movie_image.jpg?type=w640_2"
       },
       "linkUrl": {
         "type": "url",
-        "value": "http://movie.contentproviderdomain.com/movie/bi/mi/basic.nhn?code=118965"
+        "value": "http://movie.contentservice.example.com/movie/bi/mi/basic.nhn?code=118965"
       },
       "press": {
         "type": "string",
@@ -83,11 +83,11 @@ The Cardlist template has standardized the data to be displayed on the screen as
       },
       "referenceText": {
         "type": "string",
-        "value": "NAVER search result"
+        "value": "search result"
       },
       "referenceUrl": {
         "type": "url",
-        "value": "https://m.search.contentproviderdomain.com/search?where=m&sm=mob_lic&query=+%ec%98%81%ed%99%94"
+        "value": "https://m.search.contentservice.example.com/search?where=m&sm=mob_lic&query=+%ec%98%81%ed%99%94"
       },
       "title": {
         "type": "string",
@@ -101,7 +101,7 @@ The Cardlist template has standardized the data to be displayed on the screen as
     {
       "contentProviderText" : {
         "type" : "string",
-        "value": "NAVER movie"
+        "value": "movie"
       },
       "description": [
         {
@@ -119,11 +119,11 @@ The Cardlist template has standardized the data to be displayed on the screen as
       ],
       "imageUrl": {
         "type": "url",
-        "value": "http://movie.phinf.contentproviderdomain.net/20170317_53/1489741954272MquSW_JPEG/movie_image.jpg?type=w640_2"
+        "value": "http://movie.phinf.contentservice.example.net/20170317_53/1489741954272MquSW_JPEG/movie_image.jpg?type=w640_2"
       },
       "linkUrl": {
         "type": "url",
-        "value": "http://movie.contentproviderdomain.com/movie/bi/mi/basic.nhn?code=137909"
+        "value": "http://movie.contentservice.example.com/movie/bi/mi/basic.nhn?code=137909"
       },
       "press": {
         "type": "string",
@@ -135,11 +135,11 @@ The Cardlist template has standardized the data to be displayed on the screen as
       },
       "referenceText": {
         "type": "string",
-        "value": "NAVER search result"
+        "value": "search result"
       },
       "referenceUrl": {
         "type": "url",
-        "value": "https://m.search.contentproviderdomain.com/search?where=m&sm=mob_lic&query=+%ec%98%81%ed%99%94"
+        "value": "https://m.search.contentservice.example.com/search?where=m&sm=mob_lic&query=+%ec%98%81%ed%99%94"
       },
       "title": {
         "type": "string",
@@ -163,7 +163,7 @@ The Cardlist template has standardized the data to be displayed on the screen as
     {
       "contentProviderText" : {
         "type" : "string",
-        "value": "NAVER TV"
+        "value" : "TV"
       },
       "description": [
         {
@@ -181,7 +181,7 @@ The Cardlist template has standardized the data to be displayed on the screen as
       ],
       "imageUrl": {
         "type": "url",
-        "value": "http://hol.phinf.contentproviderdomain.net/00/587/820/58782072_0.jpg"
+        "value": "http://hol.phinf.contentservice.example.net/00/587/820/58782072_0.jpg"
       },
       "linkUrl": {
         "type": "url",
@@ -197,11 +197,11 @@ The Cardlist template has standardized the data to be displayed on the screen as
       },
       "referenceText": {
         "type": "string",
-        "value": "NAVER search result"
+        "value": "search result"
       },
       "referenceUrl": {
         "type": "url",
-        "value": "https://m.search.contentproviderdomain.com/search?where=m&sm=mob_lic&query=%ec%b6%95%ea%b5%ac+%eb%8f%99%ec%98%81%ec%83%81+%eb%b3%b4%ec%97%ac%ec%a4%98"
+        "value": "https://m.search.contentservice.example.com/search?where=m&sm=mob_lic&query=%ec%b6%95%ea%b5%ac+%eb%8f%99%ec%98%81%ec%83%81+%eb%b3%b4%ec%97%ac%ec%a4%98"
       },
       "title": {
         "type": "string",
@@ -209,13 +209,13 @@ The Cardlist template has standardized the data to be displayed on the screen as
       },
       "videoUrl": {
         "type": "url",
-        "value": "http://m.tv.contentproviderdomain.com/v/1720910"
+        "value": "http://m.tv.contentservice.example.com/v/1720910"
       }
     },
     {
       "contentProviderText" : {
         "type" : "string",
-        "value": "NAVER TV"
+        "value" : "TV"
       },
       "description": [
         {
@@ -233,7 +233,7 @@ The Cardlist template has standardized the data to be displayed on the screen as
       ],
       "imageUrl": {
         "type": "url",
-        "value": "http://hol.phinf.contentproviderdomain.net/00/587/815/58781581_0.jpg"
+        "value": "http://hol.phinf.contentservice.example.net/00/587/815/58781581_0.jpg"
       },
       "linkUrl": {
         "type": "url",
@@ -249,11 +249,11 @@ The Cardlist template has standardized the data to be displayed on the screen as
       },
       "referenceText": {
         "type": "string",
-        "value": "NAVER search result"
+        "value": "search result"
       },
       "referenceUrl": {
         "type": "url",
-        "value": "https://m.search.contentproviderdomain.com/search?where=m&sm=mob_lic&query=%ec%b6%95%ea%b5%ac+%eb%8f%99%ec%98%81%ec%83%81+%eb%b3%b4%ec%97%ac%ec%a4%98"
+        "value": "https://m.search.contentservice.example.com/search?where=m&sm=mob_lic&query=%ec%b6%95%ea%b5%ac+%eb%8f%99%ec%98%81%ec%83%81+%eb%b3%b4%ec%97%ac%ec%a4%98"
       },
       "title": {
         "type": "string",
@@ -261,7 +261,7 @@ The Cardlist template has standardized the data to be displayed on the screen as
       },
       "videoUrl": {
         "type": "url",
-        "value": "http://m.sports.contentproviderdomain.com/video.nhn?id=310230"
+        "value": "http://m.sports.contentservice.example.com/video.nhn?id=310230"
       }
     },
     ...
@@ -278,7 +278,7 @@ The Cardlist template has standardized the data to be displayed on the screen as
     {
       "contentProviderText" : {
         "type" : "string",
-        "value": "NAVER news"
+        "value": "news"
       },
       "description": [
         {
@@ -300,7 +300,7 @@ The Cardlist template has standardized the data to be displayed on the screen as
       },
       "linkUrl": {
         "type": "url",
-        "value": "http://news.contentproviderdomain.com/main/read.nhn?mode=LSD&mid=sec&sid1=001&oid=025&aid=0002720454"
+        "value": "http://news.contentservice.example.com/main/read.nhn?mode=LSD&mid=sec&sid1=001&oid=025&aid=0002720454"
       },
       "press": {
         "type": "string",
@@ -330,7 +330,7 @@ The Cardlist template has standardized the data to be displayed on the screen as
     {
       "contentProviderText" : {
         "type" : "string",
-        "value": "NAVER news"
+        "value": "news"
       },
       "description": [
         {
@@ -352,7 +352,7 @@ The Cardlist template has standardized the data to be displayed on the screen as
       },
       "linkUrl": {
         "type": "url",
-        "value": "http://news.contentproviderdomain.com/main/read.nhn?mode=LSD&mid=sec&sid1=001&oid=001&aid=0009297247"
+        "value": "http://news.contentservice.example.com/main/read.nhn?mode=LSD&mid=sec&sid1=001&oid=001&aid=0009297247"
       },
       "press": {
         "type": "string",
@@ -390,7 +390,7 @@ The Cardlist template has standardized the data to be displayed on the screen as
     {
       "contentProviderText" : {
         "type" : "string",
-        "value": "NAVER music"
+        "value": "music"
       },
       "description": [
         {
@@ -408,7 +408,7 @@ The Cardlist template has standardized the data to be displayed on the screen as
       ],
       "imageUrl": {
         "type": "url",
-        "value": "http://tvcast1.phinf.contentproviderdomain.net/20180105_40/rYaFz_1515134168871cxwhn_JPEG/1515134043644.jpg"
+        "value": "http://tvcast1.phinf.contentservice.example.net/20180105_40/rYaFz_1515134168871cxwhn_JPEG/1515134043644.jpg"
       },
       "linkUrl": {
         "type": "url",
@@ -424,11 +424,11 @@ The Cardlist template has standardized the data to be displayed on the screen as
       },
       "referenceText": {
         "type": "string",
-        "value": "NAVER search result"
+        "value": "search result"
       },
       "referenceUrl": {
         "type": "url",
-        "value": "https://m.search.contentproviderdomain.com/search?where=m&sm=mob_lic&query=asmr+%ec%b0%be%ea%b8%b0"
+        "value": "https://m.search.contentservice.example.com/search?where=m&sm=mob_lic&query=asmr+%ec%b0%be%ea%b8%b0"
       },
       "title": {
         "type": "string",
@@ -436,13 +436,13 @@ The Cardlist template has standardized the data to be displayed on the screen as
       },
       "videoUrl": {
         "type": "url",
-        "value": "http://m.tv.contentproviderdomain.com/v/2509121"
+        "value": "http://m.tv.contentservice.example.com/v/2509121"
       }
     },
     {
       "contentProviderText" : {
         "type" : "string",
-        "value": "NAVER music"
+        "value": "music"
       },
       "description": [
         {
@@ -460,7 +460,7 @@ The Cardlist template has standardized the data to be displayed on the screen as
       ],
       "imageUrl": {
         "type": "url",
-        "value": "http://tvcast2.phinf.contentproviderdomain.net/20180104_140/7QzKq_15150467287668gEkL_JPEG/1515046724731.jpg"
+        "value": "http://tvcast2.phinf.contentservice.example.net/20180104_140/7QzKq_15150467287668gEkL_JPEG/1515046724731.jpg"
       },
       "linkUrl": {
         "type": "url",
@@ -476,11 +476,11 @@ The Cardlist template has standardized the data to be displayed on the screen as
       },
       "referenceText": {
         "type": "string",
-        "value": "NAVER search result"
+        "value": "search result"
       },
       "referenceUrl": {
         "type": "url",
-        "value": "https://m.search.contentproviderdomain.com/search?where=m&sm=mob_lic&query=asmr+%ec%b0%be%ea%b8%b0"
+        "value": "https://m.search.contentservice.example.com/search?where=m&sm=mob_lic&query=asmr+%ec%b0%be%ea%b8%b0"
       },
       "title": {
         "type": "string",
@@ -488,7 +488,7 @@ The Cardlist template has standardized the data to be displayed on the screen as
       },
       "videoUrl": {
         "type": "url",
-        "value": "http://m.tv.contentproviderdomain.com/v/2503662"
+        "value": "http://m.tv.contentservice.example.com/v/2503662"
       }
     },
     ...

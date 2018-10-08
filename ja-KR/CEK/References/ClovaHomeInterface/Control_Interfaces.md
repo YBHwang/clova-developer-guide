@@ -1183,7 +1183,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 {% endraw %}
 
 ### 次の項目も参照してください。
-* [`GetCleaningCycleRequest`](#GetGetCleaningCycleRequest)
+* [`GetCleaningCycleRequest`](#GetCleaningCycleRequest)
 
 ## GetCloseTimeRequest {#GetCloseTimeRequest}
 開閉センサーで検知された開閉状況のうち、検知対象が最後に閉まったときの日時情報をClova Home Extensionにリクエストします。このリクエストに対するレスポンスとして、[`GetCloseTimeResponse`](#GetCloseTimeResponse)メッセージを使用する必要があります。

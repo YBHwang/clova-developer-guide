@@ -20,7 +20,7 @@
     "flashLight" {{FlashLightInfoObject}},
     "gps": {{GPSInfoObject}},
     "localTime": {{string}},
-    "power": {{{PowerInfobject}},
+    "power": {{{PowerInfoObject}},
     "screenBrightness": {{ScreenBrightnessInfoObject}},
     "soundMode": {{SoundModeInfoObject}},
     "soundOutput": {{SoundOutputInfoObject}},

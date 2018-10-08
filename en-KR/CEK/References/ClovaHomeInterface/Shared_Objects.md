@@ -3,7 +3,7 @@ These shared objects are used in the message `payload` when sending [Clova Home 
 
 | Object name            | Description                                            |
 |--------------------|---------------------------------------------------|
-| [ActionInfobject](#ActionInfobject)                   | Object containing information on appliance control actions.  |
+| [ActionInfoObject](#ActionInfoObject)                   | Object containing information on appliance control actions.  |
 | [AirQualityInfoObject](#AirQualityInfoObject)             | Object containing information on air quality.            |
 | [ApplianceInfoObject](#ApplianceInfoObject)               | Object containing information on an IoT appliance.        |
 | [BatteryInfoObject](#BatteryInfoObject)                   | Object containing information on battery.            |
@@ -13,7 +13,7 @@ These shared objects are used in the message `payload` when sending [Clova Home 
 | [ColorTemperatureInfoObject](#ColorTemperatureInfoObject) | Object containing information on the color temperature of lights, screens, or lamps of the target appliance.  |
 | [ConsumptionInfoObject](#ConsumptionInfoObject)           | Object containing information on energy consumption.       |
 | [CustomCommandInfoObject](#CustomCommandInfoObject)       | Object containing information on custom commands.   |
-| [CustomInfoObject](#CustomInfoObject)                     | Object containing information directly entered by the user, such as an customized name, required units, or figures. |
+| [CustomInfoObject](#CustomInfoObject)                     | Object containing information directly entered by the user such as an customized name, required units, or figures. |
 | [EndpointInfoObject](#EndpointInfoObject)                 | Object containing information on the endpoint, which the target appliance must ultimately control.  |
 | [ExpendableInfoObject](#ExpendableInfoObject)             | Object containing information on usage or remaining lifespan of appliance parts.  |
 | [FineDustInfoObject](#FineDustInfoObject)                 | Object containing information on fine dust.          |
@@ -21,8 +21,9 @@ These shared objects are used in the message `payload` when sending [Clova Home 
 | [ModeInfoObject](#ModeInfoObject)                         | Object containing information on the operation mode.          |
 | [HumidityInfoObject](#HumidityInfoObject)                 | Object containing information on humidity.              |
 | [PeriodInfoObject](#PeriodInfoObject)                     | Object containing information on the period.          |
-| [PhaseInfoObject](#PhaseInfoObject)                       | Object containing information on the phase of appliance actions.
-| [ProgressiveTaxBracketInfoObject](#ProgressiveTaxBracketInfoObject)  | Object containing information on progressive tax brackets.       |
+| [PhaseInfoObject](#PhaseInfoObject)                       | Object containing information on the phase of appliance actions.     |
+| [ProgressiveTaxBracketInfoObject](#ProgressiveTaxBracketInfoObject)  | Object containing information on progressive tax brackets. |
+| [RatioInfoObject](#RatioInfoObject)                       | Object containing information on the ratio.          |
 | [SittingStateInfoObject](#SittingStateInfoObject)         | Object containing the sit-down information of the user on appliances such as a smart chair.  |
 | [SleepScoreInfoObject](#SleepScoreInfoObject)             | Object containing information on sleep score.          |
 | [SpeedInfoObject](#SpeedInfoObject)                       | Object containing information on speed.              |
@@ -32,7 +33,7 @@ These shared objects are used in the message `payload` when sending [Clova Home 
 | [UltraFineDustInfoObject](#UltraFineDustInfoObject)       | Object containing information on ultrafine dust.         |
 | [VolumeInfoObject](#VolumeInfoObject)                     | Object containing information on volume.          |
 
-## ActionInfobject {#ActionInfobject}
+## ActionInfoObject {#ActionInfoObject}
 ActionInforObject contains information on appliance control actions and expresses a command for an action to be performed on an appliance.
 
 ### Object fields
@@ -178,7 +179,7 @@ AirQualityInfoObject contains information on air quality. This is used to indica
 ## ApplianceInfoObject {#ApplianceInfoObject}
 ApplianceInfoObject contains the information on IoT appliances. This is used to send a list of appliances registered in the user account to CEK or to request the Clova Home extension to control a specific appliance.
 
-### Object fields used in reqeusts
+### Object fields used in requests
 | Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:-------------:|
 | `additionalApplianceDetails` | object        | Additional information provided by the manufacturer or IoT service.                                 | Conditional    |
@@ -200,7 +201,7 @@ ApplianceInfoObject contains the information on IoT appliances. This is used to 
 | `modelName`                  | string        | The name of the appliance model.                                                                   | Optional    |
 | `version`                    | string        | The software version of the manufacturer.                                                            | Optional    |
 | `location`                   | string        | The location of the appliance installation. Enter the code value in the [Locations](#Locations) field. The Korean text that corresponds to the inputted code value is added to the `tags` field.            | Optional    |
-| `tags`                       | string array  | The list of tags added to the appliance by the user. The user can add various attributes as tags such as location of installation, purpose of use, or product brand to the appliance from the Clova app or the IoT service. Appliances with the same attributes (tags) are grouped together, and simultaneous control is possible if the appliances in the same group have identical permitted actions.  | Optional  |
+| `tags[]`                     | string array  | The list of tags added to the appliance by the user. The user can add various attributes as tags such as location of installation, purpose of use, or product brand to the appliance from the Clova app or the IoT service. Appliances with the same attributes (tags) are grouped together, and simultaneous control is possible if the appliances in the same group have identical permitted actions.  | Optional  |
 
 ### Remarks
 If the user requests the appliance list using the [`DiscoverAppliancesRequest`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesRequest) message, the Clova Home extension must fill out all the fields except the `additionalApplianceDetails` field, and deliver the information. Here, the value of the `actions` field is normally determined by the `applianceTypes` field and may have the following values depending on the value of the `applianceTypes` field:
@@ -274,10 +275,11 @@ The table below lists the [interfaces](/CEK/References/CEK_API.md#ClovaHomeExtIn
 | GetAsleepDuration              | [`GetAsleepDurationRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetAsleepDurationRequest), [`GetAsleepDurationResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetAsleepDurationResponse) |
 | GetAwakeDuration              | [`GetAwakeDurationRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetAwakeDurationRequest), [`GetAwakeDurationResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetAwakeDurationResponse) |
 | GetBatteryInfo              | [`GetBatteryInfoRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetBatteryInfoRequest), [`GetBatteryInfoResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetBatteryInfoResponse) |
+| GetCleaningCycle                | [`GetCleaningCycleRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCleaningCycleRequest), [`GetCleaningCycleResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCleaningCycleResponse)  |
 | GetCloseTime                | [`GetCloseTimeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCloseTimeRequest), [`GetCloseTimeResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCloseTimeResponse)  |
 | GetConsumption              | [`GetConsumptionRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetConsumptionRequest), [`GetConsumptionResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetConsumptionResponse)  |
 | GetCurrentBill              | [`GetCurrentBillRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentBillRequest), [`GetCurrentBillResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentBillResponse)  |
-| GetCurrtentSittingState     | [`GetCurrtentSittingStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrtentSittingStateRequest), [`GetCurrtentSittingStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrtentSittingStateResponse) |
+| GetCurrtentSittingState     | [`GetCurrentSittingStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentSittingStateRequest), [`GetCurrentSittingStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentSittingStateResponse) |
 | GetCurrentTemperature       | [`GetCurrentTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentTemperatureRequest), [`GetCurrentTemperatureResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentTemperatureResponse) |
 | GetDeviceState             | [`GetDeviceStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateRequest), [`GetDeviceStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateResponse)  |
 | GetEstimateBill            | [`GetEstimateBillRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateBillRequest), [`GetEstimateBillResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateBillResponse)  |
@@ -286,6 +288,7 @@ The table below lists the [interfaces](/CEK/References/CEK_API.md#ClovaHomeExtIn
 | GetHumidity                | [`GetHumidityRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetHumidityRequest), [`GetHumidityResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetHumidityResponse) |
 | GetKeepWarmTime            | [`GetKeepWarmTimeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetKeepWarmTimeRequest), [`GetKeepWarmTimeResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetKeepWarmTimeResponse) |
 | GetLockState               | [`GetLockStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetLockStateRequest), [`GetLockStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetLockStateResponse) |
+| GetOpenState                | [`GetOpenStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetOpenStateRequest), [`GetOpenStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetOpenStateResponse)  |
 | GetOpenTime                | [`GetOpenTimeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetOpenTimeRequest), [`GetOpenTimeResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetOpenTimeResponse)  |
 | GetPhase                   | [`GetPhaseRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetPhaseRequest), [`GetPhaseResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetPhaseResponse)  |
 | GetProgressiveTaxBracket   | [`GetProgressiveTaxBracketRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetProgressiveTaxBracketRequest), [`GetProgressiveTaxBracketResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetProgressiveTaxBracketResponse) |
@@ -307,6 +310,7 @@ The table below lists the [interfaces](/CEK/References/CEK_API.md#ClovaHomeExtIn
 | Mute                       | [`MuteConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#MuteConfirmation), [`MuteRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#MuteRequest) |
 | Open                       | [`OpenConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#OpenConfirmation), [`OpenRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#OpenRequest)  |
 | Raise                      | [`RaiseConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#RaiseConfirmation), [`RaiseRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#RaiseRequest)  |
+| ReleaseMode              | [`ReleaseModeConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#ReleaseModeConfirmation), [`ReleaseModeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#ReleaseModeRequest)  |
 | SetBrightness              | [`SetBrightnessConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetBrightnessConfirmation), [`SetBrightnessRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetBrightnessRequest)  |
 | SetChannel                 | [`SetChannelConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetChannelConfirmation), [`SetChannelRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetChannelRequest) |
 | SetChannelByName           | [`SetChannelByNameConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetChannelByNameConfirmation), [`SetChannelByNameRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetChannelByNameRequest) |
@@ -698,14 +702,14 @@ ConsumptionInfoObject contains information on energy or resource measured by the
 
 ## CustomCommandInfoObject {#CustomCommandInfoObject}
 
-CustomCommandInfoObject contains information on custom commands. The object contains information on the command that the user registered via the Clova app. The commands registered to the user account are returned with the appliance information retrieval results of the [`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DiscoverAppliancesResponse) message. This object includes an appliance's control actions performed when custom command is invoked.
+CustomCommandInfoObject contains information on custom commands. The object contains information on the command that the user registered via the Clova app. The commands registered to the user account are returned with the appliance information retrieval results of the [`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesResponse) message. This object includes the control actions of an appliance that is performed when custom command is invoked.
 
 ### Object fields
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:-------------:|
 | `name`        | string  | The name of the custom command.             | Required      |
-| `actions[]`   | [ActionInfobject](#ActionInfobject) array | The list of appliance control actions to perform through the custom command.  | Required  |
+| `actions[]`   | [ActionInfoObject](#ActionInfoObject) array | The list of appliance control actions to perform through the custom command.  | Required  |
 
 ### Object Example
 {% raw %}
@@ -804,8 +808,8 @@ CustomCommandInfoObject contains information on custom commands. The object cont
 {% endraw %}
 
 ### See also
-* [ActionInfobject](#ActionInfobject)
-* [`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DiscoverAppliancesResponse)
+* [ActionInfoObject](#ActionInfoObject)
+* [`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesResponse)
 
 ## CustomInfoObject {#CustomInfoObject}
 
@@ -1401,6 +1405,46 @@ ProgressiveTaxBracketInfoObject contains information on progressive tax brackets
 
 ### See also
 * [`GetProgressiveTaxBracketResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetProgressiveTaxBracketResponse)
+
+## RatioInfoObject {#RatioInfoObject}
+
+RatioInfoObject contains information on the ratio.
+
+### Object fields
+
+| Field name       | Data type    | Description                     | Required |
+|---------------|---------|-----------------------------|:-------------:|
+| `value`       | number  | The ratio value. The unit is a percentage (%).   | Required      |
+
+### Object Example
+{% raw %}
+
+```json
+// Example: An example used in the GetCurrentSittingStateResponse message
+{
+  "header": {
+    "messageId": "33da6561-0149-4532-a30b-e0de8f75c4cf",
+    "name": "GetCurrentSittingStateResponse",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "sittingState": {
+      "value": true
+    },
+    "recentlySittingPeriod": {
+      "start": "2018-03-28T00:10:00+09:00",
+      "end": "2018-03-28T23:59:59+09:00"
+    },
+    "applianceResponseTimestamp": "2018-03-29T14:32:13+09:00"
+  }
+}
+```
+
+{% endraw %}
+
+### See also
+* [`GetCurrentSittingStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentSittingStateResponse)
 
 ## SittingStateInfoObject {#SittingStateInfoObject}
 SittingStateInfoObject contains the sit-down information of the user on appliances such as a smart chair.

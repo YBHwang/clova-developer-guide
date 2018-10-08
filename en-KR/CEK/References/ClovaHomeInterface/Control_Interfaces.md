@@ -24,8 +24,8 @@ These control interfaces are used to check IoT device information and carry out 
 | [`GetAirQualityResponse`](#GetAirQualityResponse)                             | Response | Sends the air quality information measured by the target appliance to CEK as a response to the [`GetAirQualityRequest`](#GetAirQualityRequest) message. |
 | [`GetAsleepDurationRequest`](#GetAsleepDurationRequest)                       | Request  | Mainly used to check information measured from a sleep sensor. Requests the Clova Home extension for the sleep time of the user measured by the target appliance.  |
 | [`GetAsleepDurationResponse`](#GetAsleepDurationResponse)                     | Response | Sends the sleep time of the user measured by the target appliance to CEK as a response to the [`GetAsleepDurationRequest`](#GetAsleepDurationRequest) message.  |
-| [`GetAwakeDurationRequest`](#GetAwakeDurationRequest)                         | Request  | Mainly used to check information measured from a sleep sensor. Requests the Clova Home extension for the awake time of the user after going to bed measured by the target appliance – in other words, the amount of time from going to bed until falling asleep.  |
-| [`GetAwakeDurationResponse`](#GetAwakeDurationResponse)                       | Response | Sends the awake time of the user after going to bed measured by the target appliance – in other words, the amount of time from going to bed until falling asleep, to CEK as a response to the [`GetAwakeDurationRequest`](#GetAwakeDurationRequest) message.  |
+| [`GetAwakeDurationRequest`](#GetAwakeDurationRequest)                         | Request  | Mainly used to check information measured from a sleep sensor. Requests the Clova Home extension for the awake time of the user after going to bed measured by the target appliance–in other words, the amount of time from going to bed until falling asleep.  |
+| [`GetAwakeDurationResponse`](#GetAwakeDurationResponse)                       | Response | Sends the awake time of the user after going to bed measured by the target appliance–in other words, the amount of time from going to bed until falling asleep, to CEK as a response to the [`GetAwakeDurationRequest`](#GetAwakeDurationRequest) message.  |
 | [`GetBatteryInfoRequest`](#GetBatteryInfoRequest)                             | Request  | Requests the Clova Home extension for the battery information of the target appliance. |
 | [`GetBatteryInfoResponse`](#GetBatteryInfoResponse)                           | Response | Sends the battery information of the target appliance to CEK as a response to the [`GetBatteryInfoRequest`](#GetBatteryInfoRequest) message. |
 | [`GetCleaningCycleRequest`](#GetCleaningCycleRequest)                                                   | Request  | Used to check the cleaning cycle of an appliance. Requests the Clova Home extension for the information on the remaining time until the next cleaning cycle of the target appliance.  |
@@ -912,7 +912,7 @@ Sends the sleep time of the user measured by the target appliance to CEK as a re
 * [`GetAsleepDurationRequest`](#GetAsleepDurationRequest)
 
 ## GetAwakeDurationRequest {#GetAwakeDurationRequest}
-Mainly used to check information measured from a sleep sensor. Requests the Clova Home extension for the awake time of the user after going to bed measured by the target appliance – in other words, the amount of time from going to bed until falling asleep. The extension must use the [`GetAwakeDurationResponse`](#GetAwakeDurationResponse) message as a response to this request.
+Mainly used to check information measured from a sleep sensor. Requests the Clova Home extension for the awake time of the user after going to bed measured by the target appliance–in other words, the amount of time from going to bed until falling asleep. The extension must use the [`GetAwakeDurationResponse`](#GetAwakeDurationResponse) message as a response to this request.
 
 | Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:---------:|
@@ -951,7 +951,7 @@ Mainly used to check information measured from a sleep sensor. Requests the Clov
 * [`GetAwakeDurationResponse`](#GetAwakeDurationResponse)
 
 ## GetAwakeDurationResponse {#GetAwakeDurationResponse}
-Sends the awake time of the user after going to bed measured by the target appliance – in other words, the amount of time from going to bed until falling asleep, to CEK as a response to the [`GetAwakeDurationRequest`](#GetAwakeDurationRequest) message.
+Sends the awake time of the user after going to bed measured by the target appliance–in other words, the amount of time from going to bed until falling asleep, to CEK as a response to the [`GetAwakeDurationRequest`](#GetAwakeDurationRequest) message.
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
@@ -1183,7 +1183,7 @@ Sends the information on the time remaining until the next cleaning cycle of the
 {% endraw %}
 
 ### See also
-* [`GetCleaningCycleRequest`](#GetGetCleaningCycleRequest)
+* [`GetCleaningCycleRequest`](#GetCleaningCycleRequest)
 
 ## GetCloseTimeRequest {#GetCloseTimeRequest}
 Requests the Clova Home extension for the recent close time of the target, mainly from the detection details of the open-close sensor. The extension must use the [`GetCloseTimeResponse`](#GetCloseTimeResponse) message as a response to this request.

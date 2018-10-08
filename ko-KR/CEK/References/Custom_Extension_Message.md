@@ -127,12 +127,12 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
   },
   "request": {
     "type": "EventRequest",
-    "requestId": "f09874hiudf-sdf-4wku-flksdjfo4hjsdf",
-    "timestamp": "2018-06-11T09:19:23Z",
-    "event" : {
-      "namespace":"ClovaSkill",
-      "name":"SkillEnabled",
-      "payload": null
+    "requestId": "e5464288-50ff-4e99-928d-4a301e083d41",
+    "timestamp": "2017-09-05T05:41:21Z",
+    "event": {
+      "namespace": "AudioPlayer",
+      "name": "PlayStopped",
+      "payload": {}
     }
   }
 }

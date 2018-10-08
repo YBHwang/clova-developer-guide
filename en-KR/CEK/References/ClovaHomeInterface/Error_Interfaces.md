@@ -4,22 +4,55 @@ These error interfaces are used when the Clova Home extension returns errors to 
 
 | Message name         | Type  | Description                                   |
 |------------------|-----------|---------------------------------------------|
+| [`ActionTemporarilyBlockedError`](#ActionTemporarilyBlockedError)  | Error response | Sent to CEK as a response if an unprocessable amount of actions are requested to the target device in a short period of time or if a request has been canceled due to safety issues of a uses device. |
 | [`ConditionsNotMetError`](#ConditionsNotMetError)          | Error response | Sent to CEK as a response if a certain condition (state) required for operating the target appliance is not satisfied. |
 | [`DeviceFailureError`](#DeviceFailureError)                | Error response | Sent to CEK as a response if a defect occurs in the target appliance.              |
 | [`DriverInternalError`](#DriverInternalError)              | Error response | Sent to CEK as a response if an internal error occurs.                |
 | [`ExpiredAccessTokenError`](#ExpiredAccessTokenError)      | Error response | Sent to CEK as a response if the access token received from the [authorization server](/CEK/Guides/Link_User_Account.md#BuildAuthServer) during the [account linking](/CEK/Guides/Link_User_Account.md) process is expired.  |
 | [`InvalidAccessTokenError`](#InvalidAccessTokenError)      | Error response | Sent to CEK as a response if the user has disabled permissions on the access token being used.         |
 | [`NoSuchTargetError`](#NoSuchTargetError)                  | Error response | Sent to CEK as a response if the target device is not found.                            |
-| [`NotSupportedInCurrentModeError`](#NotSupportedInCurrentModeError) | Error response | Sent to CEK as a response if the directed action cannot be performed on the current mode of the target device.  |
+| [`NotSupportedInCurrentModeError`](#NotSupportedInCurrentModeError) | Error response | Sent to CEK as a response if the requested action cannot be performed on the current mode of the target device.  |
 | [`TargetOfflineError`](#TargetOfflineError)                | Error response | Sent to CEK as a response if the target device is offline and cannot be connected. |
 | [`UnsupportedOperationError`](#UnsupportedOperationError)  | Error response | Sent to CEK as a response if an action unsupported by the target appliance is requested.   |
 | [`ValueNotFoundError`](#ValueNotFoundError)                | Error response | Sent to CEK as a response if the requested value cannot be provided because the target device has failed to measure or store the measurement value or the state value.  |
+| [`ValueNotSupportedError`](#ValueNotSupportedError)        | Error response | Sent to CEK as a response if an action unsupported by the target appliance is requested.  |
 | [`ValueOutOfRangeError`](#ValueOutOfRangeError)            | Error response | Sent to CEK as a response if the requested action is outside of the range that can be processed by the target device. |
 
 <div class="note">
 <p><strong>Note!</strong></p>
 <p>More error message types will be added soon.</p>
 </div>
+
+## ActionTemporarilyBlockedError {#ActionTemporarilyBlockedError}
+Sent to CEK as a response if unprocessable amount of actions have been requested to the target device in a short period of time or the request has been canceled due to the safety issues of the device of user. When CEK receives this message, a predefined error message is sent to the client.
+
+### Payload fields
+
+None
+
+### Remarks
+* The extension must send the error messages to CEK as a normal HTTP response (200 OK).
+* A separate `payload` is not required because the names of the error messages provide information on the situation.
+
+### Message example
+
+{% raw %}
+```json
+{
+  "header": {
+    "messageId": "63788c00-5b27-4ce7-b1f4-4f56bc12d3f4",
+    "namespace": "ClovaHome",
+    "name": "ActionTemporarilyBlockedError",
+    "payloadVersion": "1.0"
+  },
+  "payload": {}
+}
+```
+{% endraw %}
+
+### See also
+
+None
 
 ## ConditionsNotMetError {#ConditionsNotMetError}
 Sent to CEK as a response if a certain condition (state) required for operating the target appliance is not satisfied. When CEK receives this message, a predefined error message is sent to the client.
@@ -208,7 +241,7 @@ None
 * [`TargetOfflineError`](#TargetOfflineError)
 
 ## NotSupportedInCurrentModeError {#NotSupportedInCurrentModeError}
-Sent to CEK as a response if the directed action cannot be performed on the current mode of the target device. For example, template-related controls may be restricted for some air conditioners operating in dehumidifier mode. This message must be sent to users of those products if a control request for temperature is made in dehumidifier mode. When CEK receives this message, a predefined error message is sent to the client.
+Sent to CEK as a response if the requested action cannot be performed on the current mode of the target device. For example, template-related controls may be restricted for some air conditioners operating in dehumidifier mode. This message must be sent to users of those products if an unprocessable request is made such as a control request for temperature in dehumidifier mode. When CEK receives this message, a predefined error message is sent to the client.
 
 ### Payload fields
 
@@ -272,7 +305,7 @@ None
 
 Sent to CEK as a response if an action unsupported by the target appliance is requested. If the user requests an action that is unsupported by default, CEK informs the user immediately that the request is not within the permitted range. However, the permitted range of actions, such as `SetMode`, cannot be checked until the Clova Home extension receives the [SetModeRequest](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetModeRequest) message and checks the `mode` field value. When the Clova Home extension sends a message and the action is not supported, an error response must be sent. The `UnsupportedOperationError` message can be used to send to CEK.
 
-For example, let us assume that the user’s thermostat (`"THERMOSTAT"` type) can perform the `SetMode` action and it supports `"sleep"` and `"away"` modes. If the user requests to set the `"cool"` mode on the appliance, the Clova Home extension must send an `UnsupportedOperationError` message to CEK.
+For example, let us assume that the thermostat (`"THERMOSTAT"` type) of a user can perform the `SetMode` action and supports `"sleep"` and `"away"` modes. If the user requests to set the `"cool"` mode on the appliance, the Clova Home extension must send an `UnsupportedOperationError` message to CEK.
 
 ### Payload fields
 
@@ -328,10 +361,44 @@ None
 {% endraw %}
 
 ### See also
+
+* [`ValueNotSupportedError`](#ValueNotSupportedError)
+* [`ValueOutOfRangeError`](#ValueOutOfRangeError)
+
+## ValueNotSupportedError {#ValueNotSupportedError}
+Sent to CEK as a response if an action unsupported by the target appliance is requested. When CEK receives this message, a predefined error message is sent to the client.
+
+### Payload fields
+
+None
+
+### Remarks
+* The extension must send the error messages to CEK as a normal HTTP response (200 OK).
+* A separate `payload` is not required because the names of the error messages provide information on the situation.
+
+### Message example
+
+{% raw %}
+```json
+{
+  "header": {
+    "messageId": "9bfd7a41-2a4a-428a-b429-823cc6ae4813",
+    "namespace": "ClovaHome",
+    "name": "ValueNotSupportedError",
+    "payloadVersion": "1.0"
+  },
+  "payload": {}
+}
+```
+{% endraw %}
+
+### See also
+
+* [`ValueNotFoundError`](#ValueNotFoundError)
 * [`ValueOutOfRangeError`](#ValueOutOfRangeError)
 
 ## ValueOutOfRangeError {#ValueOutOfRangeError}
-Sent to CEK as a response if the requested action is outside of the range that can be processed by the target device. For example, this message can be sent if a user requests to set a temperature, such as 16 or 30 on the air conditioning when the available setting is 18-28. The `payload` field must deliver the maximum and minimum values that can be processed by the target appliance.
+Sent to CEK as a response if the requested action is outside of the range that can be processed by the target device. For example, this message can be sent if a user requests to set a temperature such as 16 or 30 on the air conditioning when the available setting is 18-28. The `payload` field must deliver the maximum and minimum values that can be processed by the target appliance.
 
 ### Payload fields
 
@@ -364,4 +431,6 @@ Sent to CEK as a response if the requested action is outside of the range that c
 {% endraw %}
 
 ### See also
+
 * [`ValueNotFoundError`](#ValueNotFoundError)
+* [`ValueNotSupportedError`](#ValueNotSupportedError)

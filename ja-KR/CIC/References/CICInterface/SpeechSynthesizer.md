@@ -22,8 +22,8 @@ CICに、特定のテキストを音声に合成するようにリクエスト�
 ### Payload fields
 | フィールド名       | データ型    | 説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:---------:|
-| `text`  | string | 音声合成をリクエストする対象となるテキスト           |     |
-| `lang`  | string | 音声合成に使用する言語。<ul><li><code>"en"</code>：英語</li><li><code>"ja"</code>：日本語</li><li><code>"ko"</code>：韓国語</li><li><code>"zh"</code>：中国語</li></ul> |     |
+| `text`  | string | 音声合成をリクエストする対象となるテキスト           | 必須    |
+| `lang`  | string | 音声合成に使用する言語。<ul><li><code>"en"</code>：英語</li><li><code>"ja"</code>：日本語</li><li><code>"ko"</code>：韓国語</li><li><code>"zh"</code>：中国語</li></ul> | 必須    |
 
 ### Message example
 {% raw %}
@@ -129,7 +129,7 @@ Content-Type: application/octet-stream
     "payload": {
       "format": "AUDIO_MPEG",
       "token": "64ffeb07-4b86-4659-9f59-07a77b363a0b",
-      "url": "https://ssl.pstatic.net/static/clova/service/clova_song/1.mp3"
+      "url": "https://ssl.pstatic.example.net/static/clova/service/clova_song/1.mp3"
     }
   }
 }

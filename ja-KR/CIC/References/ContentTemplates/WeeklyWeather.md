@@ -35,7 +35,7 @@
 {
   "bgImageUrl": {
     "type": "url",
-    "value": "https://ssl.pstatic.net/static/clova/service/weather/bg_cloud_daytime.mp4"
+    "value": "https://ssl.pstatic.example.net/static/clova/service/weather/bg_cloud_daytime.mp4"
   },
   "dailyWeatherList": [
     {
@@ -53,7 +53,7 @@
       },
       "iconImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_03.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_03.png"
       },
       "lowTemperature": {
         "type": "temperature-c",
@@ -75,7 +75,7 @@
       },
       "iconImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       },
       "lowTemperature": {
         "type": "temperature-c",
@@ -97,7 +97,7 @@
       },
       "iconImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_09.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_09.png"
       },
       "lowTemperature": {
         "type": "temperature-c",
@@ -119,7 +119,7 @@
       },
       "iconImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_22.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_22.png"
       },
       "lowTemperature": {
         "type": "temperature-c",
@@ -141,7 +141,7 @@
       },
       "iconImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       },
       "lowTemperature": {
         "type": "temperature-c",
@@ -163,7 +163,7 @@
       },
       "iconImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       },
       "lowTemperature": {
         "type": "temperature-c",
@@ -185,7 +185,7 @@
       },
       "iconImageUrl": {
         "type": "url",
-        "value": "https://ssl.pstatic.net/static/clova/service/weather/icon_05.png"
+        "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
       },
       "lowTemperature": {
         "type": "temperature-c",
@@ -215,7 +215,7 @@
   },
   "referenceUrl" : {
     "type" : "url",
-    "value" : "http://weather.contentproviderdomain.com/"
+    "value" : "http://weather.contentservice.example.com/"
   },
   "type": "WeeklyWeather"
 }

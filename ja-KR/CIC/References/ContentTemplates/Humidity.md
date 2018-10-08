@@ -21,6 +21,8 @@
 | `temperatureCode`      | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | [天気コード](#WeatherCode)を持つオブジェクト。このオブジェクトの`value`フィールドは、空文字列(`""`)を持つ場合があります。  |
 | `type`          | string | コンテンツテンプレートのタイプを示す値。`"Humidity"`を持ちます。 |
 
+{% include "/CIC/References/ContentTemplates/Shared_Weather_Code.md" %}
+
 ## Template example
 
 {% raw %}
@@ -28,7 +30,7 @@
 {
   "bgImageUrl": {
     "type": "url",
-    "value": "https://ssl.pstatic.net/static/clova/service/weather/bg_cloud_night.mp4"
+    "value": "https://ssl.pstatic.example.net/static/clova/service/weather/bg_cloud_night.mp4"
   },
   "humidity": {
     "type": "percentage",
@@ -56,7 +58,7 @@
   },
   "referenceUrl" : {
     "type" : "url",
-    "value" : "http://weather.contentproviderdomain.com/"
+    "value" : "http://weather.contentservice.example.com/"
   },
   "type": "Humidity"
 }

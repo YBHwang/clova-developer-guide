@@ -7,22 +7,51 @@ Clova Home ExtensionがCEKにエラーを返す際に使用されるインター
 
 | メッセージ         | タイプ     | 説明                                        |
 |------------------|-----------|---------------------------------------------|
-| [`ConditionsNotMetError`](#ConditionsNotMetError)         | Error Response | エンドポイントが動作するための特定の条件(ステータス)が満たされていない場合、CEKにこのメッセージをレスポンスとして返します。 |
-| [`DeviceFailureError`](#DeviceFailureError)               | Error Response | エンドポイントに障害が発生した場合、CEKにこのメッセージをレスポンスとして返します。              |
-| [`DriverInternalError`](#DriverInternalError)             | Error Response | 内部エラーが発生した場合、CEKにこのメッセージをレスポンスとして返します。                |
-| [`ExpiredAccessTokenError`](#ExpiredAccessTokenError)     | Error Response | [アカウント連携](/CEK/Guides/Link_User_Account.md)の際、[認可サーバー](/CEK/Guides/Link_User_Account.md#BuildAuthServer)から発行されたアクセストークンが期限切れである場合、CEKにこのメッセージをレスポンスとして返します。  |
-| [`InvalidAccessTokenError`](#InvalidAccessTokenError)     | Error Response | ユーザーが使用中のアクセストークンに対する権限を解除した場合、CEKにこのメッセージをレスポンスとして返します。         |
-| [`NoSuchTargetError`](#NoSuchTargetError)                 | Error Response | エンドポイントが存在しない場合、CEKにこのメッセージをレスポンスとして返します。                            |
+| [`ActionTemporarilyBlockedError`](#ActionTemporarilyBlockedError)  | Error Response | リクエストが短時間に複数回行われた際など、機器およびユーザ安全のためリクエストをキャンセルした場合、CEKにこのメッセージをレスポンスをとして返します。 |
+| [`ConditionsNotMetError`](#ConditionsNotMetError)          | Error Response | エンドポイントが動作するための特定の条件(ステータス)が満たされていない場合、CEKにこのメッセージをレスポンスとして返します。 |
+| [`DeviceFailureError`](#DeviceFailureError)                | Error Response | エンドポイントに障害が発生した場合、CEKにこのメッセージをレスポンスとして返します。              |
+| [`DriverInternalError`](#DriverInternalError)              | Error Response | 内部エラーが発生した場合、CEKにこのメッセージをレスポンスとして返します。                |
+| [`ExpiredAccessTokenError`](#ExpiredAccessTokenError)      | Error Response | [アカウント連携](/CEK/Guides/Link_User_Account.md)の際、[認可サーバー](/CEK/Guides/Link_User_Account.md#BuildAuthServer)から発行されたアクセストークンが期限切れである場合、CEKにこのメッセージをレスポンスとして返します。  |
+| [`InvalidAccessTokenError`](#InvalidAccessTokenError)      | Error Response | ユーザーが使用中のアクセストークンに対する権限を解除した場合、CEKにこのメッセージをレスポンスとして返します。         |
+| [`NoSuchTargetError`](#NoSuchTargetError)                  | Error Response | エンドポイントが存在しない場合、このメッセージをレスポンスとして返します。                            |
 | [`NotSupportedInCurrentModeError`](#NotSupportedInCurrentModeError) | Error Response | エンドポイントの現在のモードでサポートされていないディレクティブを受信した場合、CEKにこのメッセージをレスポンスとして返します。  |
-| [`TargetOfflineError`](#TargetOfflineError)               | Error Response | エンドポイントがオフラインになっているため、アクセスできなかったことを示します。 |
-| [`UnsupportedOperationError`](#UnsupportedOperationError) | Error Response | エンドポイントでサポートされないリクエストを示します。   |
-| [`ValueNotFoundError`](#ValueNotFoundError)               | Error Response | エンドポイントが測定値や状態値を測定したりまたは保存したりすることができず、リクエストされた値を提供できない場合、CEKにこのメッセージをレスポンスとして返します。  |
-| [`ValueOutOfRangeError`](#ValueOutOfRangeError)           | Error Response | エンドポイントが処理できる範囲外の値を設定しようとするリクエストを示します。 |
+| [`TargetOfflineError`](#TargetOfflineError)                | Error Response | エンドポイントがオフラインになっているため、アクセスできなかったことを示します。 |
+| [`UnsupportedOperationError`](#UnsupportedOperationError)  | Error Response | エンドポイントでサポートされないリクエストを示します。   |
+| [`ValueNotFoundError`](#ValueNotFoundError)                | Error Response | エンドポイントが測定値や状態値を測定したりまたは保存したりすることができず、リクエストされた値を提供できない場合、CEKにこのメッセージをレスポンスとして返します。  |
+| [`ValueNotSupportedError`](#ValueNotSupportedError)        | Error Response | エンドポイントが対応していない値の設定がリクエストされた場合に、CEKにこのメッセージをレスポンスとして返します。  |
+| [`ValueOutOfRangeError`](#ValueOutOfRangeError)            | Error Response | エンドポイントが処理できる範囲外の値を設定しようとするリクエストを示します。 |
 
 <div class="note">
 <p><strong>メモ</strong></p>
 <p>エラーメッセージの種類は追加される予定です。</p>
 </div>
+
+## ActionTemporarilyBlockedError {#ActionTemporarilyBlockedError}
+リクエストが短時間に複数回行われた際など、機器およびユーザ安全のためリクエストをキャンセルした場合、CEKにこのメッセージをレスポンスをとして返します。CEKはこのメッセージを受け取ると、あらかじめ用意されたエラーメッセージをクライアントに送信します。
+
+### Payload fields
+
+なし
+
+### 備考
+* エラーが発生した場合にも、エラーメッセージはリクエスト成功のHTTPレスポンス(200 OK)でCEKに返す必要があります。
+* エラーメッセージの名前で状況を判断するため、`payload`は必要ありません。
+
+### Message example
+
+{% raw %}
+```json
+{
+  "header": {
+    "messageId": "4ea1e527-7be3-4b54-b531-93d245b97303",
+    "namespace": "ClovaHome",
+    "name": "ActionTemporarilyBlockedError",
+    "payloadVersion": "1.0"
+  },
+  "payload": {}
+}
+```
+{% endraw %}
 
 ## ConditionsNotMetError {#ConditionsNotMetError}
 エンドポイントが動作するための特定の条件(ステータス)が満たされていない場合、CEKにこのメッセージをレスポンスとして返します。CEKはこのメッセージを受け取ると、あらかじめ用意されたエラーメッセージをクライアントに送信します。
@@ -332,6 +361,38 @@ Clova Home ExtensionがCEKにエラーを返す際に使用されるインター
 
 ### 次の項目も参照してください。
 * [`ValueOutOfRangeError`](#ValueOutOfRangeError)
+
+
+## ValueNotSupportedError {#ValueNotSupportedError}
+エンドポイントが対応していない値の設定がリクエストされた場合に、CEKにこのメッセージをレスポンスとして返します。
+例えば、1℃単位の温度設定しか対応していないエアコンに対して「26.5℃にして」のような1℃未満の単位での温度設定がリクエストされた場合や、テレビについて、設定されていないチャンネルがリクエストされた場合なおで使用できます。
+
+### Payload fields
+なし
+
+### 備考
+* エラーが発生した場合にも、エラーメッセージはリクエスト成功のHTTPレスポンス(200 OK)でCEKに返す必要があります。
+* エラーメッセージの名前で状況を判断するため、`payload`は必要ありません。
+
+### Message example
+
+{% raw %}
+```json
+{
+  "header": {
+    "messageId": "57109b11-ee04-45df-9dd2-c979bc8608ea",
+    "namespace": "ClovaHome",
+    "name": "ValueNotSupportedError",
+    "payloadVersion": "1.0"
+  },
+  "payload": {}
+}
+```
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`ValueOutOfRangeError`](#ValueOutOfRangeError)
+
 
 ## ValueOutOfRangeError {#ValueOutOfRangeError}
 エンドポイントが処理できる範囲外の値を設定しようとするリクエストを受け取った場合、CEKにこのメッセージをレスポンスとして返します。例えば、エアコンが18から28までの設定温度の値をサポートしていて、ユーザーが16や30などの値を設定するようにリクエストした場合、このメッセージが返されます。`payload`にエンドポイントが処理できる最大値と最小値を含める必要があります。

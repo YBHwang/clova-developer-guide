@@ -84,7 +84,7 @@ Typically, user authentication is processed on the pair app. However, transferri
 // Example 2: Example of the HTTP response message having 451 Unavailable For Legal Reasons
 {
   "code":"4mrklvwoC_KNgDlvmslka",
-  "redirect_uri":"https://ssl.pstatic.net/static/clova/service/terms/place/terms_3rd.html?code=4mrklvwoC_KNgDlvmslka&grant_type=code&state=FKjaJfMlakjdfTVbES5ccZ",
+  "redirect_uri":"https://ssl.pstatic.example.net/static/clova/service/terms/place/terms_3rd.html?code=4mrklvwoC_KNgDlvmslka&grant_type=code&state=FKjaJfMlakjdfTVbES5ccZ",
   "state":"FKjaJfMlakjdfTVbES5ccZ"
 }
 ```
