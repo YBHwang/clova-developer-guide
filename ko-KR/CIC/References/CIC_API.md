@@ -646,7 +646,7 @@ CIC API에서 사용되는 메시지는 다음과 같이 구분되며, 각각 �
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>오류 메시지는 <a href="Directive">지시 메시지</a>와 비슷한 구조의 메시지로 구성됩니다.</p>
+  <p>오류 메시지는 <a href="#Directive">지시 메시지</a>와 비슷한 구조의 메시지로 구성됩니다.</p>
 </div>
 
 #### Message fields
