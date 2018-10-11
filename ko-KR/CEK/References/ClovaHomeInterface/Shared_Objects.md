@@ -209,49 +209,49 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 | applianceTypes | 설명         | 허용되는 actions                                  |
 |----------------|-------------|-------------------------------------------------|
 | `"AIRCONDITIONER"`  | 냉난방기 타입         | DecrementFanSpeed, DecrementTargetTemperature, GetCurrentTemperature, GetTargetTemperature, HealthCheck, IncrementFanSpeed, IncrementTargetTemperature, SetFanSpeed, SetMode, SetTargetTemperature, TurnOff, TurnOn               |
-| `"AIRPURIFIER"`     | 공기청정기 타입        | DecrementFanSpeed, GetAirQuality, GetFineDust, GetUltraFineDust, HealthCheck, IncrementFanSpeed, SetFanSpeed, TurnOff, TurnOn    |
+| `"AIRPURIFIER"`     | 공기청정기 타입        | DecrementFanSpeed, GetAirQuality, GetFineDust, GetUltraFineDust, HealthCheck, IncrementFanSpeed, ReleaseMode, SetFanSpeed, SetFanSpeed, SetMode, TurnOff, TurnOn    |
 | `"AIRSENSOR"`       | 공기질 측정기 타입     | GetAirQuality, GetCurrentTemperature, GetFineDust, GetHumidity, GetUltraFineDust, HealthCheck                                     |
-| `"BIDET"`           | 비데 타입            | Close, GetDeviceState, GetExpendableState, HealthCheck, Open, TurnOff, TurnOn                                                         |
-| `"BODYWEIGHTSCALE"` | 체중계 타입          | GetDeviceState, HealthCheck                                                                                                             |
-| `"CLOTHESCAREMACHINE"` | 의류 관리기 타입    | GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                                     |
-| `"CLOTHESDRYER"`    | 의류 건조기 타입       | GetDeviceState, HealthCheck, TurnOff, TurnOn                                                                                           |
-| `"CLOTHESWASHER"`   | 의류 세탁기 타입       | GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                           |
-| `"DEHUMIDIFIER"`    | 제습기 타입           | GetCurrentTemperature, GetHumidity, HealthCheck, SetFanSpeed, TurnOff, TurnOn                                                    |
-| `"DISHWASHER"`      | 식기 세척기 타입       | GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                           |
-| `"ELECTRICKETTLE"`  | 전기 주전자 타입       | GetCurrentTemperature, HealthCheck, TurnOff, TurnOn                                                                              |
-| `"ELECTRICTOOTHBRUSH"` | 전동 칫솔 타입     | GetDeviceState, HealthCheck                                                                                                            |
-| `"FAN"`             | 선풍기 타입           | HealthCheck, SetMode, TurnOff, TurnOn                                                                                            |
-| `"HEATER"`          | 히터 타입            | DecrementTargetTemperature, GetCurrentTemperature, GetTargetTemperature, HealthCheck, IncrementTargetTemperature, TurnOff, TurnOn                      |
-| `"HUMIDIFIER"`      | 가습기 타입           | GetCurrentTemperature, GetHumidity, HealthCheck, SetFanSpeed, TurnOff, TurnOn                                                    |
-| `"KIMCHIREFRIGERATOR"` | 김치 냉장고 타입    | GetDeviceState, HealthCheck                                                                                                            |
+| `"BIDET"`           | 비데 타입            | Close, GetDeviceState, GetExpendableState, HealthCheck, Open, TurnOff, TurnOn                                                     |
+| `"BODYWEIGHTSCALE"` | 체중계 타입           | GetDeviceState, HealthCheck                                                                                                        |
+| `"CLOTHESCAREMACHINE"` | 의류 관리기 타입    | GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                                    |
+| `"CLOTHESDRYER"`    | 의류 건조기 타입       | GetDeviceState, HealthCheck, TurnOff, TurnOn                                                                                      |
+| `"CLOTHESWASHER"`   | 의류 세탁기 타입       | GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                          |
+| `"DEHUMIDIFIER"`    | 제습기 타입           | GetCurrentTemperature, GetHumidity, HealthCheck, SetFanSpeed, TurnOff, TurnOn                                                     |
+| `"DISHWASHER"`      | 식기 세척기 타입       | GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                          |
+| `"ELECTRICKETTLE"`  | 전기 주전자 타입       | GetCurrentTemperature, HealthCheck, TurnOff, TurnOn                                                                               |
+| `"ELECTRICTOOTHBRUSH"` | 전동 칫솔 타입     | GetDeviceState, HealthCheck                                                                                                       |
+| `"FAN"`             | 선풍기 타입           | HealthCheck, SetMode, TurnOff, TurnOn                                                                                             |
+| `"HEATER"`          | 히터 타입            | DecrementTargetTemperature, GetCurrentTemperature, GetTargetTemperature, HealthCheck, IncrementTargetTemperature, TurnOff, TurnOn |
+| `"HUMIDIFIER"`      | 가습기 타입           | GetCurrentTemperature, GetHumidity, HealthCheck, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn                               |
+| `"KIMCHIREFRIGERATOR"` | 김치 냉장고 타입    | GetDeviceState, HealthCheck                                                                                                       |
 | `"LIGHT"`           | 스마트 조명 기기 타입   | DecrementBrightness, DecrementVolume HealthCheck, IncrementBrightness, IncrementVolume SetBrightness, SetColor, SetColorTemperature, SetMode, TurnOff, TurnOn            |
 | `"MASSAGECHAIR"`    | 안마 의자 타입        | DecrementIntensityLevel, HealthCheck, IncrementIntensityLevel, TurnOff, TurnOn                                                     |
 | `"MICROWAVE"`       | 전자 레인지 타입      | GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                                      |
-| `"MOTIONSENSOR"`    | 동작 감지 센서 타입    | GetDeviceState, HealthCheck                                                                                                             |
-| `"OPENCLOSESENSOR"` | 열림 감지 센서 타입    | GetCloseTime, GetDeviceState, GetOpenState, GetOpenTime, HealthCheck                                                                                   |
-| `"OVEN"`            | 오븐 타입            | GetDeviceState, HealthCheck                                                                                                             |
-| `"POWERSTRIP"`      | 멀티 탭 타입         | GetConsumption, GetEstimateBill, GetProgressiveTaxBracket, HealthCheck, TurnOff, TurnOn                                                                     |
-| `"PURIFIER"`        | 정수기 타입          | GetDeviceState, GetExpendableState, HealthCheck, ReleaseMode, SetMode, SetTargetTemperature                                                     |
-| `"RANGE"`           | 레인지 타입          | GetDeviceState, HealthCheck                                                                                                             |
-| `"RANGEHOOD"`       | 레인지 후드 타입      | HealthCheck, TurnOff, TurnOn                                                                                                      |
-| `"REFRIGERATOR"`    | 냉장고 타입          | GetDeviceState, HealthCheck, SetTargetTemperature, SetMode                |
+| `"MOTIONSENSOR"`    | 동작 감지 센서 타입    | GetDeviceState, HealthCheck                                                                                                         |
+| `"OPENCLOSESENSOR"` | 열림 감지 센서 타입    | GetCloseTime, GetDeviceState, GetOpenState, GetOpenTime, HealthCheck                                                                |
+| `"OVEN"`            | 오븐 타입            | GetDeviceState, HealthCheck                                                                                                         |
+| `"POWERSTRIP"`      | 멀티 탭 타입         | GetConsumption, GetEstimateBill, GetProgressiveTaxBracket, HealthCheck, TurnOff, TurnOn                                             |
+| `"PURIFIER"`        | 정수기 타입          | GetDeviceState, GetExpendableState, HealthCheck, ReleaseMode, SetMode, SetTargetTemperature                                         |
+| `"RANGE"`           | 레인지 타입          | GetDeviceState, HealthCheck                                                                                                         |
+| `"RANGEHOOD"`       | 레인지 후드 타입      | HealthCheck, TurnOff, TurnOn                                                                                                        |
+| `"REFRIGERATOR"`    | 냉장고 타입          | GetDeviceState, HealthCheck, SetTargetTemperature, SetMode                                                                          |
 | `"RICECOOKER"`      | 전기 밥솥 타입        | GetCleaningCycle, GetDeviceState, GetExpendableState, GetKeepWarmTime, GetPhase, GetRemainingTime, HealthCheck, ReleaseMode, SetMode, Stop, TurnOff, TurnOn          |
-| `"ROBOTVACUUM"`     | 로봇 청소기 타입       | Charge, GetBatteryInfo, HealthCheck, TurnOff, TurnOn                                                                             |
+| `"ROBOTVACUUM"`     | 로봇 청소기 타입       | Charge, GetBatteryInfo, HealthCheck, TurnOff, TurnOn                                                                               |
 | `"SETTOPBOX"`       | TV 셋톱 박스 타입     | DecrementChannel, DecrementVolume, HealthCheck, IncrementChannel, IncrementVolume, Mute, SetChannel, SetChannelByName, TurnOff, TurnOn, Unmute |
-| `"SLEEPINGMONITOR"` | 수면 센서 타입        | GetAsleepDuration, GetAwakeDuration, GetDeviceState, GetSleepScore, GetSleepStartTime, HealthCheck, TurnOff, TurnOn              |
-| `"SMARTBED"`        | 스마트 침대 타입      | HealthCheck, Lower, Raise, Stop                                                                                                   |
-| `"SMARTCHAIR"`      | 스마트 의자 타입      | GetCurrentSittingState, GetRightPostureRatio, GetUsageTime, HealthCheck                                                                                       |
-| `"SMARTCURTAIN"`    | 스마트 커튼 타입      | Close, HealthCheck, Open, Stop                                                                                                    |
-| `"SMARTHUB"`        | 스마트 허브 타입      | GetCurrentTemperature, GetHumidity, GetTargetTemperature, HealthCheck, SetMode                                                    |
-| `"SMARTMETER"`      | 전기 계량기 타입      | GetConsumption, GetCurrentBill, GetEstimateBill, GetProgressiveTaxBracket, HealthCheck                                            |
-| `"SMARTPLUG"`       | 스마트 플러그 타입     | GetConsumption, GetEstimateBill, HealthCheck, TurnOff, TurnOn                                                                                                     |
+| `"SLEEPINGMONITOR"` | 수면 센서 타입        | GetAsleepDuration, GetAwakeDuration, GetDeviceState, GetSleepScore, GetSleepStartTime, HealthCheck, TurnOff, TurnOn                |
+| `"SMARTBED"`        | 스마트 침대 타입      | HealthCheck, Lower, Raise, Stop                                                                                                     |
+| `"SMARTCHAIR"`      | 스마트 의자 타입      | GetCurrentSittingState, GetDeviceState, GetRightPostureRatio, GetUsageTime, HealthCheck                                             |
+| `"SMARTCURTAIN"`    | 스마트 커튼 타입      | Close, HealthCheck, Open, Stop                                                                                                      |
+| `"SMARTHUB"`        | 스마트 허브 타입      | GetCurrentTemperature, GetHumidity, GetTargetTemperature, HealthCheck, SetMode                                                      |
+| `"SMARTMETER"`      | 전기 계량기 타입      | GetConsumption, GetCurrentBill, GetEstimateBill, GetProgressiveTaxBracket, HealthCheck                                              |
+| `"SMARTPLUG"`       | 스마트 플러그 타입     | GetConsumption, GetEstimateBill, HealthCheck, TurnOff, TurnOn                                                                       |
 | `"SMARTTV"`         | 스마트 TV 타입       | DecrementChannel, DecrementVolume, HealthCheck, IncrementChannel, IncrementVolume, Mute, SetChannel, SetChannelByName, TurnOff, TurnOn, Unmute |
-| `"SMARTVALVE"`      | 스마트 밸브 타입      | GetLockState, SetLockState                                                                                                        |
-| `"SMOKESENSOR"`     | 연기 센서 타입       | GetDeviceState, HealthCheck                                                                                                             |
-| `"SWITCH"`          | 가정 내 콘센트 전원을 제어하는 스위치 타입 | HealthCheck, TurnOff, TurnOn                                                                                       |
-| `"THERMOSTAT"`      | 온도 조절 기기 타입   | DecrementTargetTemperature, GetCurrentTemperature, GetTargetTemperature, HealthCheck, IncrementTargetTemperature, SetMode, SetTargetTemperature TurnOff, TurnOn       |
-| `"VENTILATOR"`      | 환풍기 타입          | GetDeviceState, HealthCheck, SetFanSpeed, TurnOff, TurnOn                                                                         |
-| `"WATERBOILER"`     | 온수기 타입          | HealthCheck, SetMode, TurnOff, TurnOn                                                                                             |
+| `"SMARTVALVE"`      | 스마트 밸브 타입      | GetLockState, SetLockState                                                                                                           |
+| `"SMOKESENSOR"`     | 연기 센서 타입       | GetDeviceState, HealthCheck                                                                                                          |
+| `"SWITCH"`          | 가정 내 콘센트 전원을 제어하는 스위치 타입 | HealthCheck, TurnOff, TurnOn                                                                                          |
+| `"THERMOSTAT"`      | 온도 조절 기기 타입   | DecrementTargetTemperature, GetConsumption, GetCurrentTemperature, GetDeviceState, GetEstimateConsumption, GetTargetTemperature, HealthCheck, IncrementTargetTemperature, SetMode, SetTargetTemperature TurnOff, TurnOn       |
+| `"VENTILATOR"`      | 환풍기 타입          | GetAirQuality, GetDeviceState, GetHumidity, GetTargetTemperature, HealthCheck, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn    |
+| `"WATERBOILER"`     | 온수기 타입          | HealthCheck, SetMode, TurnOff, TurnOn                                                                                                |
 
 <div class="note">
 <p><strong>Note!</strong></p>
@@ -697,8 +697,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 {% endraw %}
 
 ### See also
-* [`GetCurrentBillResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentBillResponse)
-* [`GetEstimateBillResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateBillResponse)
+* [`GetConsumptionResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetConsumptionResponse)
 
 ## CustomCommandInfoObject {#CustomCommandInfoObject}
 
@@ -1099,7 +1098,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
       <td><code>"AIRCONDITIONER"</code></td>
       <td>
         <ul>
-          <li><code>"auto"</code>: 자동 모드. 주로 에어컨 기기에서 사용되는 모드입니다.</li>
+          <li><code>"auto"</code>: 자동 운전 모드. 주로 에어컨 기기에서 사용되는 모드입니다.</li>
           <li><code>"cool"</code>: 냉방 모드. 주로 에어컨 기기에서 사용되는 모드입니다.</li>
           <li><code>"dehumidify"</code>: 제습 모드. 주로 에어컨이나 제습기와 같은 기기에서 사용되는 모드입니다.</li>
           {% if book.TargetCountryCode == "JP" %}
@@ -1110,12 +1109,31 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
       </td>
     </tr>
     <tr>
+      <td><code>"AIRPURIFIER"</code></td>
+      <td>
+        <ul>
+          <li><code>"auto"</code>: 자동 운전 모드</li>
+          <li><code>"autohumidify"</code>: 자동 가습 모드</li>
+          <li><code>"infant"</code>: 유아 모드</li>
+          <li><code>"roomcare"</code>: 룸케어(room care) 모드</li>
+          <li><code>"yellowsand"</code>: 황사 모드</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td><code>"FAN"</code></td>
       <td>
         <ul>
-          <li><code>"auto"</code>: 자동 모드</li>
+          <li><code>"auto"</code>: 자동 운전 모드</li>
           <li><code>"baby"</code>: 아기 수면용 모드</li>
           <li><code>"sleep"</code>: 취침 모드</li>
+      </td>
+    </tr>
+    <tr>
+      <td><code>"HUMIDIFIER"</code></td>
+      <td>
+        <ul>
+          <li><code>"light"</code>: 조명 모드</li>
       </td>
     </tr>
     <tr>
@@ -1186,6 +1204,17 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
       </td>
     </tr>
     <tr>
+      <td><code>"VENTILATOR"</code></td>
+      <td>
+        <ul>
+          <li><code>"auto"</code>: 자동 운전 모드</li>
+          <li><code>"dehumidify"</code>: 제습 모드</li>
+          <li><code>"dry"</code>: 건조 모드</li>
+          <li><code>"warmwind"</code>: 온풍 모드</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td><code>"WATERBOILER"</code></td>
       <td>
         <ul>
@@ -1196,6 +1225,11 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
     </tr>
   </tdoby>
 </table>
+
+<div class="note">
+<p><strong>Note!</strong></p>
+<p>제조사나 제품에 따라 위에서 언급한 모드가 없거나 지원하는 방식이 다를 수 있습니다. 이 경우 기기가 가지고 있는 유사한 기능이나 운전 모드를 제공할 것을 권장합니다.</p>
+</div>
 
 ### Object Example
 {% raw %}
@@ -1258,6 +1292,8 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 {% endraw %}
 
 ### See also
+* [`ReleaseModeConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#ReleaseModeConfirmation)
+* [`ReleaseModeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#ReleaseModeRequest)
 * [`SetModeConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetModeConfirmation)
 * [`SetModeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetModeRequest)
 
@@ -1296,14 +1332,23 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 
 ## PeriodInfoObject {#PeriodInfoObject}
 
-사용량, 예상 요금 등을 측정 데이터를 조회할 때 조회 기간이 되는 정보를 담고 있는 객체입니다.
+사용량, 예상 요금 등을 측정 데이터를 조회할 때 조회 기간이 되는 정보를 담고 있는 객체입니다. 특정 기간 동안 정보의 누적된 통계 데이터나 변화 추이 등을 사용자가 요구할 때 `period`와 같은 이름의 필드를 통해 정보가 전달됩니다. Extension은 사용자가 지정한 기간에 맞춰 정보를 수집 및 계산하여 결과를 전달해야 합니다.
 
 ### Object fields
 
 | 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
 |---------------|---------|-----------------------------|:-------------:|
-| `end`         | string  | 기간의 종료 시간(Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    | 항상      |
-| `start`       | string  | 기간의 시작 시간(Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    | 항상      |
+| `end`         | string  | 기간의 종료 시점(Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    | 항상      |
+| `start`       | string  | 기간의 시작 시점(Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    | 항상      |
+
+### Remarks
+"오늘", "이번 주", "이번 달"와 같은 사용자의 표현이 있는데, 이런 표현은 다음과 같은 범위로 시작 시점과 종료 시점이 지정됩니다.
+
+* "오늘": 시작 시점은 현재 날짜의 0시이고 종료 시점은 현재 날짜의 23시 59분 59초입니다.
+* "이번 주": 시작 시점은 현재 날짜가 속한 주의 {{ book.FirstDayOfWeek }} 0시이고, 종료 시점은 현재 날짜가 속한 주의 {{ book.LastDayOfWeek }} 23시 59분 59초입니다.
+* "이번 달": 시작 시점은 현재 날짜가 속한 달의 1일 0시, 종료 시점은 현재 날짜가 속한 달의 말일 23시 59분 59초입니다.
+
+위와 같은 특수 표현의 기간 종료 시점(`end`)은 요청을 처리하는 시점 기준으로 볼 때 아직 도래하지 않는 미래의 시점일 수 있으며, 상황에 따라 처리 시점을 종료 시점으로 생각하고 데이터를 처리해야 합니다.
 
 ### Object Example
 {% raw %}
@@ -1333,6 +1378,13 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 {% endraw %}
 
 ### See also
+* [`GetAsleepDurationRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetAsleepDurationRequest)
+* [`GetAwakeDurationRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetAwakeDurationRequest)
+* [`GetCurrentSittingStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentSittingStateResponse)
+* [`GetDeviceStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateRequest)
+* [`GetRightPostureRatioRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetRightPostureRatioRequest)
+* [`GetSleepScoreRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetSleepScoreRequest)
+* [`GetSleepStartTimeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetSleepStartTimeRequest)
 * [`GetUsageTimeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetUsageTimeRequest)
 
 ## PhaseInfoObject {#PhaseInfoObject}
@@ -1420,23 +1472,19 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 {% raw %}
 
 ```json
-// 예제: GetCurrentSittingStateResponse 메시지에서 사용된 예
+// 예제: GetRightPostureRatioResponse 메시지에서 사용된 예
 {
   "header": {
-    "messageId": "33da6561-0149-4532-a30b-e0de8f75c4cf",
-    "name": "GetCurrentSittingStateResponse",
+    "messageId": "b502dd42-b698-4d3b-9ddb-bbdda70f254f",
+    "name": "GetRightPostureRatioResponse",
     "namespace": "ClovaHome",
     "payloadVersion": "1.0"
   },
   "payload": {
-    "sittingState": {
-      "value": true
+    "rightPostureRatio": {
+      "value": 80
     },
-    "recentlySittingPeriod": {
-      "start": "2018-03-28T00:10:00+09:00",
-      "end": "2018-03-28T23:59:59+09:00"
-    },
-    "applianceResponseTimestamp": "2018-03-29T14:32:13+09:00"
+    "applianceResponseTimestamp": "2017-11-23T20:30:19+09:00"
   }
 }
 ```
@@ -1444,7 +1492,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 {% endraw %}
 
 ### See also
-* [`GetCurrentSittingStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentSittingStateResponse)
+* [`GetRightPostureRatioResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetRightPostureRatioResponse)
 
 ## SittingStateInfoObject {#SittingStateInfoObject}
 스마트 의자와 같은 기기에 대한 사용자의 착성 정보가 담긴 객체입니다.
@@ -1637,9 +1685,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 ### See also
 * [`DecrementTargetTemperatureConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementTargetTemperatureConfirmation)
 * [`DecrementTargetTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DecrementTargetTemperatureRequest)
-* [`GetCurrentTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentTemperatureRequest)
 * [`GetCurrentTemperatureResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentTemperatureResponse)
-* [`GetTargetTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetTargetTemperatureRequest)
 * [`GetTargetTemperatureResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetTargetTemperatureResponse)
 * [`IncrementTargetTemperatureConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#IncrementTargetTemperatureConfirmation)
 * [`IncrementTargetTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#IncrementTargetTemperatureRequest)

@@ -21,9 +21,12 @@
   </thead>
   <tbody>
     <tr>
-      <td>v3.40.2</td><td>미적용</td><td>2018-10-13</td>
+      <td>v3.41.0</td><td>미적용</td><td>2018-10-13</td>
       <td>
         <ul>
+          <li>[CEK] Clova Home extension API에 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetEstimateConsumptionRequest">GetEstimateConsumptionRequest</a>, <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetEstimateConsumptionResponse">GetEstimateConsumptionResponse</a> 추가</li>
+          <li>[CEK] Clova Home extension 메시지의 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">공유 객체</a> <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ModeInfoObject">ModeInfoObject</a>에 AIRPURIFIER, HUMIDIFIER, VENTILATOR 타입 기기의 모드 추가</li>
+          <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetCurrentSittingStateRequest에서">GetCurrentSittingStateRequest</a>에 period 필드 추가</li>
           <li>[Dev. Console] <a href="/DevConsole/Guides/CEK/Register_Extension.html#InputExtensionInfo">Extension 기본 정보 입력</a>에 호출 이름을 한 개 이상 최대 세 개까지 등록할 수 있음을 명시</li>
         </ul>
       </td>
