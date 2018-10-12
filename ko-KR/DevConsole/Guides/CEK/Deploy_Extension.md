@@ -81,8 +81,8 @@ Extension의 [배포 정보](#InputDeploymentInfo)와 [개인 정보 보호 및 
 
 ![](/DevConsole/Resources/Images/DevConsole-Submission_Request_Message.png)
 
-<div class="note">
-  <p><strong>Note!</strong></p>
+<div class="danger">
+  <p><strong>Caution!</strong></p>
   <p>심사 중에는 extension의 정보와 interaction 모델을 수정할 수 없습니다.</p>
 </div>
 
