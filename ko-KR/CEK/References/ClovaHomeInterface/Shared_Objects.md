@@ -209,7 +209,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 | applianceTypes | 설명         | 허용되는 actions                                  |
 |----------------|-------------|-------------------------------------------------|
 | `"AIRCONDITIONER"`  | 냉난방기 타입         | DecrementFanSpeed, DecrementTargetTemperature, GetCurrentTemperature, GetTargetTemperature, HealthCheck, IncrementFanSpeed, IncrementTargetTemperature, SetFanSpeed, SetMode, SetTargetTemperature, TurnOff, TurnOn               |
-| `"AIRPURIFIER"`     | 공기청정기 타입        | DecrementFanSpeed, GetAirQuality, GetFineDust, GetUltraFineDust, HealthCheck, IncrementFanSpeed, ReleaseMode, SetFanSpeed, SetFanSpeed, SetMode, TurnOff, TurnOn    |
+| `"AIRPURIFIER"`     | 공기청정기 타입        | DecrementFanSpeed, GetAirQuality, GetFineDust, GetUltraFineDust, HealthCheck, IncrementFanSpeed, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn    |
 | `"AIRSENSOR"`       | 공기질 측정기 타입     | GetAirQuality, GetCurrentTemperature, GetFineDust, GetHumidity, GetUltraFineDust, HealthCheck                                     |
 | `"BIDET"`           | 비데 타입            | Close, GetDeviceState, GetExpendableState, HealthCheck, Open, TurnOff, TurnOn                                                     |
 | `"BODYWEIGHTSCALE"` | 체중계 타입           | GetDeviceState, HealthCheck                                                                                                        |
@@ -1098,7 +1098,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
       <td><code>"AIRCONDITIONER"</code></td>
       <td>
         <ul>
-          <li><code>"auto"</code>: 자동 운전 모드. 주로 에어컨 기기에서 사용되는 모드입니다.</li>
+          <li><code>"auto"</code>: 자동 모드. 주로 에어컨 기기에서 사용되는 모드입니다.</li>
           <li><code>"cool"</code>: 냉방 모드. 주로 에어컨 기기에서 사용되는 모드입니다.</li>
           <li><code>"dehumidify"</code>: 제습 모드. 주로 에어컨이나 제습기와 같은 기기에서 사용되는 모드입니다.</li>
           {% if book.L10N.TargetCountryCode == "JP" %}
@@ -1112,7 +1112,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
       <td><code>"AIRPURIFIER"</code></td>
       <td>
         <ul>
-          <li><code>"auto"</code>: 자동 운전 모드</li>
+          <li><code>"auto"</code>: 자동 모드</li>
           <li><code>"autohumidify"</code>: 자동 가습 모드</li>
           <li><code>"infant"</code>: 유아 모드</li>
           <li><code>"roomcare"</code>: 룸케어(room care) 모드</li>
@@ -1124,7 +1124,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
       <td><code>"FAN"</code></td>
       <td>
         <ul>
-          <li><code>"auto"</code>: 자동 운전 모드</li>
+          <li><code>"auto"</code>: 자동 모드</li>
           <li><code>"baby"</code>: 아기 수면용 모드</li>
           <li><code>"sleep"</code>: 취침 모드</li>
       </td>
@@ -1207,7 +1207,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
       <td><code>"VENTILATOR"</code></td>
       <td>
         <ul>
-          <li><code>"auto"</code>: 자동 운전 모드</li>
+          <li><code>"auto"</code>: 자동 모드</li>
           <li><code>"dehumidify"</code>: 제습 모드</li>
           <li><code>"dry"</code>: 건조 모드</li>
           <li><code>"warmwind"</code>: 온풍 모드</li>
@@ -1349,6 +1349,12 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 * "이번 달": 시작 시점은 현재 날짜가 속한 달의 1일 0시, 종료 시점은 현재 날짜가 속한 달의 말일 23시 59분 59초입니다.
 
 위와 같은 특수 표현의 기간 종료 시점(`end`)은 요청을 처리하는 시점 기준으로 볼 때 아직 도래하지 않는 미래의 시점일 수 있으며, 상황에 따라 처리 시점을 종료 시점으로 생각하고 데이터를 처리해야 합니다.
+
+"내일", "다음 주", "다음 달"과 같이 시작 시점(`start`)과 종료 시점(`end`)이 모두 미래 시점일 수도 있으며, 이는 예상되는 정보를 사용자가 요구할 때 지정될 수 있습니다.
+
+* "내일": 시작 시점은 현재 날짜 기준 내일 0시이고 종료 시점은 현재 날짜 기준 내일 23시 59분 59초입니다.
+* "다음 주": 시작 시점은 현재 날짜 기준 다음 주의 {{ book.ServiceEnv.FirstDayOfWeekInClovaHome }} 0시이고, 종료 시점은 현재 날짜 기준 다음 주의 {{ book.ServiceEnv.LastDayOfWeekInClovaHome }} 23시 59분 59초입니다.
+* "다음 달": 시작 시점은 현재 날짜 기준 다음 달의 1일 0시, 종료 시점은 현재 날짜 기준 다음 달의 말일 23시 59분 59초입니다.
 
 ### Object Example
 {% raw %}
