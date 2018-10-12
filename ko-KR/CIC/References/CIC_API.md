@@ -14,7 +14,7 @@ CIC API를 사용하기 전에 기본적으로 알아야 할 정보는 다음과
 ### Base URL {#BaseURL}
 CIC API의 base URL은 다음과 같습니다.
 
-<pre><code>{{ book.CICBaseURL }}
+<pre><code>{{ book.ServiceEnv.CICBaseURL }}
 </code></pre>
 
 ### Multipart 메시지 {#MultipartMessage}
@@ -139,7 +139,7 @@ GET /v1/directives
 ### Request example
 
 <pre><code>GET /v1/directives HTTP/2
-Host: {{ book.CICBaseURL }}
+Host: {{ book.ServiceEnv.CICBaseURL }}
 User-Agent: MyOrganizationName/MyAppName/2.1.2-release (Android 7.0;SettopBox;target=KR;other=sample)
 Authorization: Bearer XHapQasdfsdfFsdfasdflQQ7w
 </code></pre>
@@ -253,7 +253,7 @@ POST /v1/events
 ### Request example
 
 <pre><code>POST /v1/events HTTP/2
-Host: {{ book.CICBaseURL }}
+Host: {{ book.ServiceEnv.CICBaseURL }}
 Accept: */*
 User-Agent: MyOrganizationName/MyAppName/2.1.2-release (Android 7.0;SettopBox;target=KR;other=sample)
 Authorization: Bearer XHapQasdfsdfFsdfasdflQQ7w

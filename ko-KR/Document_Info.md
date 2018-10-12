@@ -7,7 +7,7 @@
 </div>
 
 ## 연락처
-문서와 관련하여 궁금한 사항은 지정된 Clova 제휴 담당자나 <a href="{{ book.DeveloperCenterForumURL }}" target="_blank">{{ book.DeveloperCenterName }} 포럼</a>에 문의합니다.
+문서와 관련하여 궁금한 사항은 지정된 Clova 제휴 담당자나 <a href="{{ book.ServiceEnv.DeveloperCenterForumURL }}" target="_blank">{{ book.ServiceEnv.DeveloperCenterName }} 포럼</a>에 문의합니다.
 
 ## 문서 변경 이력
 
@@ -218,7 +218,7 @@
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a> 네임스페이스에 메시지 스펙 추가 및 일부 필드 업데이트
             <ul>
-              <li><a href="/CIC/References/CICInterface/AudioPlayer.html#ExpectReportPlaybackState">AudioPlayer.ExpectReportPlaybackState</a> 지시 메시지, <a href="/CIC/References/CICInterface/AudioPlayer.html#ReportPlaybackState">AudioPlayer.ReportPlaybackState 이벤트 메시지</a>{% if book.TargetReaderType == "Internal" %}, <a href="/CIC/References/CICInterface/AudioPlayer.html#RequestPlaybackState">AudioPlayer.RequestPlaybackState</a> 이벤트 메시지, <a href="/CIC/References/CICInterface/AudioPlayer.html#SynchronizePlaybackState">SynchronizePlaybackState 지시 메시지</a>{% endif %} 추가</li>
+              <li><a href="/CIC/References/CICInterface/AudioPlayer.html#ExpectReportPlaybackState">AudioPlayer.ExpectReportPlaybackState</a> 지시 메시지, <a href="/CIC/References/CICInterface/AudioPlayer.html#ReportPlaybackState">AudioPlayer.ReportPlaybackState 이벤트 메시지</a>{% if book.DocMeta.TargetReaderType == "Internal" %}, <a href="/CIC/References/CICInterface/AudioPlayer.html#RequestPlaybackState">AudioPlayer.RequestPlaybackState</a> 이벤트 메시지, <a href="/CIC/References/CICInterface/AudioPlayer.html#SynchronizePlaybackState">SynchronizePlaybackState 지시 메시지</a>{% endif %} 추가</li>
               <li><a href="/CIC/References/CICInterface/AudioPlayer.html#Play">AudioPlayer.Play</a> 지시 메시지의 payload 필드 내용 업데이트</li>
               <li>ProgressReportXXX, PlayXXX 형식의 이름을 가진 이벤트 필드에 token 필드 값 필수로 추가</li>
             </ul>

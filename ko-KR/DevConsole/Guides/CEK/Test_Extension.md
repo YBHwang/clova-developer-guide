@@ -43,7 +43,7 @@ Custom extension을 배포하려면 [interaction 모델이 등록](/DevConsole/G
 
 ## Clova 앱으로 extension 테스트하기 {#TestOnClovaApp}
 
-Extension을 실제 클라이언트인 Clova 앱에서 테스트해볼 수 있습니다. 이를 위해 extension 기본 정보를 등록하는 페이지의 **{{ book.DevConsole.cek_tester }}** 필드에 개발자 본인이나 extension을 테스트할 사람의 <strong>{{ book.OrientedService }} 계정</strong>을 입력해야 합니다. 계정을 추가한 후 **{{ book.DevConsole.cek_save }}** 버튼을 클릭하면 입력한 계정이 인증된 Clova 앱에서 개발 중인 extension을 테스트할 수 있습니다. Clova 앱에서 테스트를 중지하려면 입력한 계정 정보를 삭제하면 됩니다.
+Extension을 실제 클라이언트인 Clova 앱에서 테스트해볼 수 있습니다. 이를 위해 extension 기본 정보를 등록하는 페이지의 **{{ book.DevConsole.cek_tester }}** 필드에 개발자 본인이나 extension을 테스트할 사람의 <strong>{{ book.ServiceEnv.OrientedService }} 계정</strong>을 입력해야 합니다. 계정을 추가한 후 **{{ book.DevConsole.cek_save }}** 버튼을 클릭하면 입력한 계정이 인증된 Clova 앱에서 개발 중인 extension을 테스트할 수 있습니다. Clova 앱에서 테스트를 중지하려면 입력한 계정 정보를 삭제하면 됩니다.
 
 ![](/DevConsole/Resources/Images/DevConsole-Add_Tester_ID.png)
 

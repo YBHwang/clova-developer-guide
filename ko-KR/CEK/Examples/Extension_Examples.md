@@ -17,7 +17,7 @@ Clova를 통해 서비스되고 있는 일부 extension을 소개합니다. 간�
 * Go 언어로 구현되어 있습니다.
 
 ### GitHub 저장소
-{{ book.GitHubBaseURLforExtensionExample }}/clova-extension-sample-magicball
+{{ book.ServiceEnv.GitHubBaseURLforExtensionExample }}/clova-extension-sample-magicball
 
 ## 빗소리(Rain sound) {#RainSound}
 
@@ -29,7 +29,7 @@ Clova를 통해 서비스되고 있는 일부 extension을 소개합니다. 간�
 * Node.js로 구현되어 있습니다.
 
 ### GitHub 저장소
-{{ book.GitHubBaseURLforExtensionExample }}/clova-extension-sample-rainsound
+{{ book.ServiceEnv.GitHubBaseURLforExtensionExample }}/clova-extension-sample-rainsound
 
 ## 주사위 놀이(Dice drawer) {#DiceDrawer}
 
@@ -41,7 +41,7 @@ Clova를 통해 서비스되고 있는 일부 extension을 소개합니다. 간�
 * Node.js로 구현되어 있습니다.
 
 ### GitHub 저장소
-{{ book.GitHubBaseURLforExtensionExample }}/clova-extension-sample-dice
+{{ book.ServiceEnv.GitHubBaseURLforExtensionExample }}/clova-extension-sample-dice
 
 ## 코인 헬퍼(Coin helper) {#CoinHelper}
 
@@ -55,4 +55,4 @@ Clova를 통해 서비스되고 있는 일부 extension을 소개합니다. 간�
 
 ### GitHub 저장소
 
-{{ book.GitHubBaseURLforExtensionExample }}/clova-extension-sample-coinhelper
+{{ book.ServiceEnv.GitHubBaseURLforExtensionExample }}/clova-extension-sample-coinhelper

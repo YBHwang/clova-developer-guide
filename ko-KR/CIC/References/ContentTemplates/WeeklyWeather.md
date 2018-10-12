@@ -223,7 +223,7 @@
 {% endraw %}
 
 ## UI example {#UIExample}
-다음은 {{ book.OrientedService }}가 배포한 모바일용 Clova 앱에서 WeeklyWeather 템플릿의 내용을 표현한 UI 예제입니다.
+다음은 {{ book.ServiceEnv.OrientedService }}가 배포한 모바일용 Clova 앱에서 WeeklyWeather 템플릿의 내용을 표현한 UI 예제입니다.
 
 ![WeeklyWeather](/CIC/Resources/Images/Content-Template-WeeklyWeather.png)
 

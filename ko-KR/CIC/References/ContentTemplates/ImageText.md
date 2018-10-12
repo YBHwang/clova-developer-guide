@@ -10,7 +10,7 @@
 
 | 필드 이름       | 자료형    | 필드 설명                     |
 |---------------|---------|-----------------------------|
-| `appLinkUrl`     | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)             | 지도 이미지가 포함되었을 때 {{ book.OrientedService }} 지도 앱으로 이동하는 URL 정보가 담긴 객체. 이 객체의 `value` 필드는 빈 문자열(`""`)을 가질 수도 있습니다.  |
+| `appLinkUrl`     | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)             | 지도 이미지가 포함되었을 때 {{ book.ServiceEnv.OrientedService }} 지도 앱으로 이동하는 URL 정보가 담긴 객체. 이 객체의 `value` 필드는 빈 문자열(`""`)을 가질 수도 있습니다.  |
 | `imageUrl`       | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)             | 이미지의 URL 정보가 담긴 객체. 이 객체의 `value` 필드는 빈 문자열(`""`)을 가질 수도 있습니다.                                |
 | `linkUrl`        | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)             | 지도 이미지가 포함되었을 때 웹 지도로 이동하는 URL 정보가 담긴 객체. 이 객체의 `value` 필드는 빈 문자열(`""`)을 가질 수도 있습니다.   |
 | `mainText`       | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)       | 메인 문구가 담긴 객체. 이 객체의 `value` 필드는 빈 문자열(`""`)을 가질 수도 있습니다.                                       |
@@ -116,7 +116,7 @@
 {% endraw %}
 
 ## UI example {#UIExample}
-다음은 {{ book.OrientedService }}가 배포한 모바일용 Clova 앱에서 ImageText 템플릿의 내용을 표현한 UI 예제입니다.
+다음은 {{ book.ServiceEnv.OrientedService }}가 배포한 모바일용 Clova 앱에서 ImageText 템플릿의 내용을 표현한 UI 예제입니다.
 
 | 썸네일 이미지와 텍스트 | 지도 이미지와 텍스트 |
 |-------|-------|

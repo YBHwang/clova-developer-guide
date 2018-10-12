@@ -4453,7 +4453,7 @@ IoT 기기 정보 확인 및 기기 제어와 관련된 요청 및 응답을 수
 
 | 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:---------:|
-| `endpoint`     | [EndpointInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#EndpointInfoObject)    | 희망 온도가 적용된 최종 대상. 대상 기기가 온도를 적용할 최종 대상(endpoint)이 지정될 수 있으며, 최종 대상은 기기의 특정 부분, 구동 방식이나 이를 적용할 영역 등을 의미합니다. 예를 들어 사용자는 냉장고 온도를 조절할 때 냉동실의 온도를 변경할지 냉장실의 온도를 변경할지 추가로 지정할 수 있습니다. {{ "또, 난방 기능이 있는 에어컨을 조절할 때는 냉방 모드로 동작할 때의 온도와 난방 모드로 동작할 때의 온도를 구분하여 제어할 수 있습니다." if book.TargetCountryCode == "JP" }}  | 선택  |
+| `endpoint`     | [EndpointInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#EndpointInfoObject)    | 희망 온도가 적용된 최종 대상. 대상 기기가 온도를 적용할 최종 대상(endpoint)이 지정될 수 있으며, 최종 대상은 기기의 특정 부분, 구동 방식이나 이를 적용할 영역 등을 의미합니다. 예를 들어 사용자는 냉장고 온도를 조절할 때 냉동실의 온도를 변경할지 냉장실의 온도를 변경할지 추가로 지정할 수 있습니다. {{ "또, 난방 기능이 있는 에어컨을 조절할 때는 냉방 모드로 동작할 때의 온도와 난방 모드로 동작할 때의 온도를 구분하여 제어할 수 있습니다." if book.L10N.TargetCountryCode == "JP" }}  | 선택  |
 | `targetTemperature`               | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | 대상 기기에 설정되었거나 extension이 대상 기기에게 설정하도록 요청한 희망 온도 정보를 담고 있는 객체                                | 선택    |
 
 ### Remarks
@@ -4497,7 +4497,7 @@ IoT 기기 정보 확인 및 기기 제어와 관련된 요청 및 응답을 수
 |---------------|---------|-----------------------------|:---------:|
 | `accessToken`   | string | IoT 서비스의 사용자 계정의 access token. CEK는 외부 서비스의 인증 서버로부터 획득한 사용자 계정의 access token을 전달합니다. 자세한 설명은 [사용자 계정 연결하기](/CEK/Guides/Link_User_Account.md)를 참조합니다.                          | 항상    |
 | `appliance`     | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) | 대상 기기 정보를 담고 있는 객체. `applianceId` 필드는 필수입니다. | 항상    |
-| `endpoint`     | [EndpointInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#EndpointInfoObject)    | 희망 온도를 적용할 최종 대상. 대상 기기가 온도를 적용할 최종 대상(endpoint)이 지정될 수 있으며, 최종 대상은 기기의 특정 부분, 구동 방식이나 이를 적용할 영역 등을 의미합니다. 예를 들어 사용자는 냉장고 온도를 조절할 때 냉동실의 온도를 변경할지 냉장실의 온도를 변경할지 추가로 지정할 수 있습니다. {{ "또, 난방 기능이 있는 에어컨을 조절할 때는 냉방 모드로 동작할 때의 온도와 난방 모드로 동작할 때의 온도를 구분하여 제어할 수 있습니다." if book.TargetCountryCode == "JP" }}  | 조건부  |
+| `endpoint`     | [EndpointInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#EndpointInfoObject)    | 희망 온도를 적용할 최종 대상. 대상 기기가 온도를 적용할 최종 대상(endpoint)이 지정될 수 있으며, 최종 대상은 기기의 특정 부분, 구동 방식이나 이를 적용할 영역 등을 의미합니다. 예를 들어 사용자는 냉장고 온도를 조절할 때 냉동실의 온도를 변경할지 냉장실의 온도를 변경할지 추가로 지정할 수 있습니다. {{ "또, 난방 기능이 있는 에어컨을 조절할 때는 냉방 모드로 동작할 때의 온도와 난방 모드로 동작할 때의 온도를 구분하여 제어할 수 있습니다." if book.L10N.TargetCountryCode == "JP" }}  | 조건부  |
 | `targetTemperature`       | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | 대상 기기에 설정해야 할 희망 온도 정보를 담고 있는 객체                | 항상    |
 
 ### Message example
