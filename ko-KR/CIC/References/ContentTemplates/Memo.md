@@ -45,7 +45,7 @@ CIC는 사용자가 메모를 생성하면 생성한 메모의 정보를 Memo �
 
 ## UI example {#UIExample}
 
-다음은 {{ book.OrientedService }}가 배포한 모바일용 Clova 앱에서 Memo 템플릿의 내용을 표현한 UI 예제입니다.
+다음은 {{ book.ServiceEnv.OrientedService }}가 배포한 모바일용 Clova 앱에서 Memo 템플릿의 내용을 표현한 UI 예제입니다.
 
 ![](/CIC/Resources/Images/Content_Template-Memo.png)
 

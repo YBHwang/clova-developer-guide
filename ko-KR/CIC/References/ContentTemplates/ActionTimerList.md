@@ -113,7 +113,7 @@ CIC는 사용자가 액션 타이머의 목록을 요청하면 사용자에게 �
 
 ## UI example {#UIExample}
 
-다음은 {{ book.OrientedService }}가 배포한 모바일용 Clova 앱에서 ActionTimerList 템플릿의 내용을 표현한 UI 예제입니다.
+다음은 {{ book.ServiceEnv.OrientedService }}가 배포한 모바일용 Clova 앱에서 ActionTimerList 템플릿의 내용을 표현한 UI 예제입니다.
 
 ![](/CIC/Resources/Images/Content_Template-ActionTimerList.png)
 

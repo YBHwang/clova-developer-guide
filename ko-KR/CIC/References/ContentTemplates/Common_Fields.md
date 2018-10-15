@@ -51,8 +51,8 @@
 | [clova://audio-repeat](#AudioRepeat)                                | 오디오 출력을 수행하는 동작     |
 | [clova://device-control](#DeviceControl)                            | 기기 제어를 수행하는 동작       |
 | [clova://guide/talking](#GuideTalking)     | 명령 도우미를 제공하는 동작                              |
-| [clova://{{ book.OrientedServiceWithLowerCase }}Search](#NaverSearch)        | {{ book.OrientedService }} 앱에서 특정 키워드를 검색하는 동작                    |
-| [clova://{{ book.OrientedServiceWithLowerCase }}-maps](#NaverMaps)           | {{ book.OrientedService }} 지도 앱을 실행하는 동작                            |
+| [clova://{{ book.ServiceEnv.OrientedServiceWithLowerCase }}Search](#NaverSearch)        | {{ book.ServiceEnv.OrientedService }} 앱에서 특정 키워드를 검색하는 동작                    |
+| [clova://{{ book.ServiceEnv.OrientedServiceWithLowerCase }}-maps](#NaverMaps)           | {{ book.ServiceEnv.OrientedService }} 지도 앱을 실행하는 동작                            |
 | [clova://ttsRepeat](#TTSRepeat)            | Text to speech 발화를 수행하는 동작                     |
 | [clova://webview](#WebView)                | WebView로 웹 페이지를 여는 동작                          |
 
@@ -141,32 +141,32 @@ clova://device-control?command=TurnOn&target=flashlight
 clova://guide/talking
 ```
 
-### clova://{{ book.OrientedServiceWithLowerCase }}Search {#NaverSearch}
+### clova://{{ book.ServiceEnv.OrientedServiceWithLowerCase }}Search {#NaverSearch}
 
-클라이언트는 이 스키마에 대응하여 {{ book.OrientedService }} 앱을 실행하고 검색을 수행해야 합니다.
+클라이언트는 이 스키마에 대응하여 {{ book.ServiceEnv.OrientedService }} 앱을 실행하고 검색을 수행해야 합니다.
 
 | 파라미터 이름    | 설명                         | 포홤 여부 |
 |---------------|-----------------------------|:---------:|
-| url           | {{ book.OrientedService }} 앱을 통해 열려는 페이지의 URL | 항상 |
+| url           | {{ book.ServiceEnv.OrientedService }} 앱을 통해 열려는 페이지의 URL | 항상 |
 
 이 action URL scheme의 예는 다음과 같습니다.
 
 ```
-clova://{{ book.OrientedServiceWithLowerCase }}Search?url=http://target.page.url
+clova://{{ book.ServiceEnv.OrientedServiceWithLowerCase }}Search?url=http://target.page.url
 ```
 
-### clova://{{ book.OrientedServiceWithLowerCase }}-maps {#NaverMaps}
+### clova://{{ book.ServiceEnv.OrientedServiceWithLowerCase }}-maps {#NaverMaps}
 
-클라이언트는 이 스키마에 대응하여 {{ book.OrientedService }} 지도 앱을 실행하고 길찾기 기능을 수행해야 합니다.
+클라이언트는 이 스키마에 대응하여 {{ book.ServiceEnv.OrientedService }} 지도 앱을 실행하고 길찾기 기능을 수행해야 합니다.
 
 | 파라미터 이름    | 설명                         | 포함 여부 |
 |---------------|-----------------------------|:---------:|
-| url           | {{ book.OrientedService }} 지도 앱을 통해 열려는 URL   | 항상 |
+| url           | {{ book.ServiceEnv.OrientedService }} 지도 앱을 통해 열려는 URL   | 항상 |
 
 이 action URL scheme의 예는 다음과 같습니다.
 
 ```
-clova://{{ book.OrientedServiceWithLowerCase }}-maps?url=http://target.map.url
+clova://{{ book.ServiceEnv.OrientedServiceWithLowerCase }}-maps?url=http://target.map.url
 ```
 
 ### clova://ttsRepeat {#TTSRepeat}

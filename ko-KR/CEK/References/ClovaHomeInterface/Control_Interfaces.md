@@ -32,8 +32,8 @@ IoT 기기 정보 확인 및 기기 제어와 관련된 요청 및 응답을 수
 | [`GetCleaningCycleResponse`](#GetCleaningCycleResponse)                                                  | Response | [`GetCleaningCycleRequest`](#GetCleaningCycleRequest) 메시지에 대한 응답으로 대상 기기의 다음 세척 주기까지 남은 시간을 CEK에게 전달합니다.  |
 | [`GetCloseTimeRequest`](#GetCloseTimeRequest)                                 | Request  | 주로 열림 감지 센서가 감지한 내용 중 감지 대상이 마지막으로 닫혔던 시점의 시간 정보를 Clova Home extension에게 요청합니다. |
 | [`GetCloseTimeResponse`](#GetCloseTimeResponse)                               | Response | [`GetCloseTimeRequest`](#GetCloseTimeRequest) 메시지에 대한 응답으로 대상 기기가 감지한 내용 중 감지 대상이 마지막으로 닫혔던 시점의 시간 정보를 CEK에게 전달합니다.  |
-| [`GetConsumptionRequest`](#GetConsumptionRequest)                             | Request  | 주로 스마트 플러그나 스마트 멀티탭과 같은 기기에서 현재까지 측정된 에너지 또는 자원을 확인할 때 사용되며, 대상 기기가 측정한 에너지 또는 자원 정보를 Clova Home extension에게 요청합니다.  |
-| [`GetConsumptionResponse`](#GetConsumptionResponse)                           | Response | [`GetConsumptionRequest`](#GetConsumptionRequest) 메시지에 대한 응답으로 대상 기기가 현재까지 측정한 에너지 또는 자원 정보를 CEK에게 전달합니다.  |
+| [`GetConsumptionRequest`](#GetConsumptionRequest)                             | Request  | 주로 스마트 플러그나 스마트 멀티탭과 같은 기기에서 현재까지 측정된 에너지 또는 자원 사용량을 확인할 때 사용되며, 대상 기기가 측정한 에너지 또는 자원 사용량 정보를 Clova Home extension에게 요청합니다.  |
+| [`GetConsumptionResponse`](#GetConsumptionResponse)                           | Response | [`GetConsumptionRequest`](#GetConsumptionRequest) 메시지에 대한 응답으로 대상 기기가 현재까지 측정한 에너지 또는 자원 사용량 정보를 CEK에게 전달합니다.  |
 | [`GetCurrentBillRequest`](#GetCurrentBillRequest)                             | Request  | 주로 스마트 플러그나 스마트 멀티탭과 같은 기기에서 측정된 현재까지의 사용량의 기반으로 요금을 확인할 때 사용되며, 대상 기기가 측정한 요금 정보를 Clova Home extension에게 요청합니다.  |
 | [`GetCurrentBillResponse`](#GetCurrentBillResponse)                           | Response | [`GetCurrentBillRequest`](#GetCurrentBillRequest) 메시지에 대한 응답으로 대상 기기가 현재까지 측정한 요금 정보를 CEK에게 전달합니다.   |
 | [`GetCurrentTemperatureRequest`](#GetCurrentTemperatureRequest)               | Request  | 대상 기기가 측정한 현재 온도 정보를 Clova Home extension에게 요청합니다. |
@@ -42,6 +42,8 @@ IoT 기기 정보 확인 및 기기 제어와 관련된 요청 및 응답을 수
 | [`GetDeviceStateResponse`](#GetDeviceStateResponse)                           | Response | [`GetDeviceStateRequest`](#GetDeviceStateRequest) 메시지에 대한 응답으로 대상 기기가 제공하는 모든 상태 정보를 CEK에게 전달합니다.  |
 | [`GetEstimateBillRequest`](#GetEstimateBillRequest)                           | Request  | 주로 스마트 플러그나 스마트 멀티탭과 같은 기기에서 측정된 사용량의 기반으로 예상 요금을 확인할 때 사용되며, 대상 기기가 예측한 요금 정보를 Clova Home extension에게 요청합니다.  |
 | [`GetEstimateBillResponse`](#GetEstimateBillResponse)                         | Response | [`GetEstimateBillRequest`](#GetEstimateBillRequest) 메시지에 대한 응답으로 대상 기기가 예측한 요금 정보를 CEK에게 전달합니다.  |
+| [`GetEstimateConsumptionRequest`](#GetEstimateConsumptionRequest)             | Request  | 주로 스마트 플러그나 스마트 멀티탭과 같은 기기에서 예상되는 에너지 또는 자원 사용량을 확인할 때 사용되며, 대상 기기가 예측한 에너지 또는 자원 사용량 정보를 Clova Home extension에게 요청합니다.  |
+| [`GetEstimateConsumptionResponse`](#GetEstimateConsumptionResponse)           | Response | [`GetEstimateConsumptionRequest`](#GetEstimateConsumptionRequest) 메시지에 대한 응답으로 대상 기기가 현재까지 측정한 에너지 또는 자원 정보를 CEK에게 전달합니다.  |
 | [`GetExpendableStateRequest`](#GetExpendableStateRequest)                     | Request  | 기기의 필터나 소모품의 사용량이나 남은 수명을 확인할 때 사용되며, 대상 기기가 보유하고 있는 소모품의 사용량이나 수명 정보를 Clova extension에게 요청합니다.  |
 | [`GetExpendableStateResponse`](#GetExpendableStateResponse)                   | Response | [`GetExpendableStateRequest`](#GetExpendableStateRequest) 메시지에 대한 응답으로 대상 기기가 제공하는 모든 소모품의 사용량이나 수명 정보를 CEK에게 전달합니다. |
 | [`GetFineDustRequest`](#GetFineDustRequest)                                   | Request  | 대상 기기가 측정한 미세 먼지(PM10) 정보를 Clova Home extension에게 요청합니다. |
@@ -1253,7 +1255,7 @@ IoT 기기 정보 확인 및 기기 제어와 관련된 요청 및 응답을 수
 * [`GetCloseTimeRequest`](#GetCloseTimeRequest)
 
 ## GetConsumptionRequest {#GetConsumptionRequest}
-주로 스마트 플러그나 스마트 멀티탭과 같은 기기에서 현재까지 측정된 에너지 또는 자원을 확인할 때 사용되며, 대상 기기가 측정한 에너지 또는 자원 정보를 Clova Home extension에게 요청합니다. 이 요청에 대한 응답으로 [`GetConsumptionResponse`](#GetConsumptionResponse) 메시지를 사용해야 합니다.
+주로 스마트 플러그나 스마트 멀티탭과 같은 기기에서 현재까지 측정된 에너지 또는 자원 사용량을 확인할 때 사용되며, 대상 기기가 측정한 에너지 또는 자원 사용량 정보를 Clova Home extension에게 요청합니다. 이 요청에 대한 응답으로 [`GetConsumptionResponse`](#GetConsumptionResponse) 메시지를 사용해야 합니다.
 
 | 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
 |---------------|---------|-----------------------------|:---------:|
@@ -1287,12 +1289,12 @@ IoT 기기 정보 확인 및 기기 제어와 관련된 요청 및 응답을 수
 * [`GetConsumptionResponse`](#GetConsumptionResponse)
 
 ## GetConsumptionResponse {#GetConsumptionResponse}
-[`GetConsumptionRequest`](#GetConsumptionRequest) 메시지에 대한 응답으로 대상 기기가 현재까지 측정한 에너지 또는 자원 정보를 CEK에게 전달합니다.
+[`GetConsumptionRequest`](#GetConsumptionRequest) 메시지에 대한 응답으로 대상 기기가 현재까지 측정한 에너지 또는 자원 사용량 정보를 CEK에게 전달합니다.
 
 | 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:---------:|
 | `applianceResponseTimestamp` | string | 기기에서 요청한 정보를 확인한 시간(Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | 선택    |
-| `consumption[]`              | [ConsumptionInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ConsumptionInfoObject) array | 기기가 현재까지 측정한 에너지 또는 자원 정보를 담고 있는 객체   | 필수    |
+| `consumption[]`              | [ConsumptionInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ConsumptionInfoObject) array | 기기가 현재까지 측정한 에너지 또는 자원 사용량 정보를 담고 있는 객체   | 필수    |
 
 ### Message example
 
@@ -1619,6 +1621,78 @@ IoT 기기 정보 확인 및 기기 제어와 관련된 요청 및 응답을 수
 
 ### See also
 * [GetEstimateBillRequest](#GetEstimateBillRequest)
+
+## GetEstimateConsumptionRequest {#GetEstimateConsumptionRequest}
+주로 스마트 플러그나 스마트 멀티탭과 같은 기기에서 현재까지 측정된 에너지 또는 자원 사용량을 확인할 때 사용되며, 대상 기기가 측정한 에너지 또는 자원 사용량 정보를 Clova Home extension에게 요청합니다. 이 요청에 대한 응답으로 [`GetConsumptionResponse`](#GetConsumptionResponse) 메시지를 사용해야 합니다.
+
+| 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `accessToken`      | string                                  | IoT 서비스의 사용자 계정의 access token. CEK는 외부 서비스의 인증 서버로부터 획득한 사용자 계정의 access token을 전달합니다. 자세한 설명은 [사용자 계정 연결하기](/CEK/Guides/Link_User_Account.md)를 참조합니다.                          | 항상    |
+| `appliance`        | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject)     | 대상 기기 정보를 담고 있는 객체. `applianceId` 필드는 항상 포함됩니다.     | 항상    |
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "2d8b8c3b-5905-4355-b4bb-fa359c46c308",
+    "name": "GetEstimateConsumptionRequest",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "accessToken": "92ebcb67fe33",
+    "appliance": {
+      "applianceId": "device-019"
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### See also
+* [`GetEstimateConsumptionResponse`](#GetEstimateConsumptionResponse)
+
+## GetEstimateConsumptionResponse {#GetEstimateConsumptionResponse}
+[`GetEstimateConsumptionRequest`](#GetEstimateConsumptionRequest) 메시지에 대한 응답으로 대상 기기가 현재까지 측정한 에너지 또는 자원 사용량 정보를 CEK에게 전달합니다.
+
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `applianceResponseTimestamp` | string | 기기에서 요청한 정보를 확인한 시간(Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | 선택    |
+| `consumption[]`              | [ConsumptionInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ConsumptionInfoObject) array | 기기가 현재까지 측정한 에너지 또는 자원 사용량 정보를 담고 있는 객체   | 필수    |
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "33da6561-0149-4532-a30b-e0de8f75c4cf",
+    "name": "GetEstimateConsumptionResponse",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "consumption": [
+      {
+        "name": "전기사용량",
+        "value": 79.7,
+        "unit": "kW"
+      }
+    ],
+    "applianceResponseTimestamp": "2017-11-23T20:30:54+09:00"
+  }
+}
+```
+
+{% endraw %}
+
+### See also
+* [GetEstimateConsumptionRequest](#GetEstimateConsumptionRequest)
 
 ## GetExpendableStateRequest {#GetExpendableStateRequest}
 
@@ -2389,6 +2463,7 @@ IoT 기기 정보 확인 및 기기 제어와 관련된 요청 및 응답을 수
 |---------------|---------|-----------------------------|:---------:|
 | `accessToken`      | string                                  | IoT 서비스의 사용자 계정의 access token. CEK는 외부 서비스의 인증 서버로부터 획득한 사용자 계정의 access token을 전달합니다. 자세한 설명은 [사용자 계정 연결하기](/CEK/Guides/Link_User_Account.md)를 참조합니다.                          | 항상    |
 | `appliance`        | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject)     | 대상 기기 정보를 담고 있는 객체. `applianceId` 필드는 항상 포함됩니다.     | 항상    |
+| `period`           | [PeriodInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#PeriodInfoObject)           | 기간 정보를 담고 있는 객체                                          | 조건부   |
 
 ### Message example
 
@@ -4378,7 +4453,7 @@ IoT 기기 정보 확인 및 기기 제어와 관련된 요청 및 응답을 수
 
 | 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:---------:|
-| `endpoint`     | [EndpointInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#EndpointInfoObject)    | 희망 온도가 적용된 최종 대상. 대상 기기가 온도를 적용할 최종 대상(endpoint)이 지정될 수 있으며, 최종 대상은 기기의 특정 부분, 구동 방식이나 이를 적용할 영역 등을 의미합니다. 예를 들어 사용자는 냉장고 온도를 조절할 때 냉동실의 온도를 변경할지 냉장실의 온도를 변경할지 추가로 지정할 수 있습니다. {{ "또, 난방 기능이 있는 에어컨을 조절할 때는 냉방 모드로 동작할 때의 온도와 난방 모드로 동작할 때의 온도를 구분하여 제어할 수 있습니다." if book.TargetCountryCode == "JP" }}  | 선택  |
+| `endpoint`     | [EndpointInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#EndpointInfoObject)    | 희망 온도가 적용된 최종 대상. 대상 기기가 온도를 적용할 최종 대상(endpoint)이 지정될 수 있으며, 최종 대상은 기기의 특정 부분, 구동 방식이나 이를 적용할 영역 등을 의미합니다. 예를 들어 사용자는 냉장고 온도를 조절할 때 냉동실의 온도를 변경할지 냉장실의 온도를 변경할지 추가로 지정할 수 있습니다. {{ "또, 난방 기능이 있는 에어컨을 조절할 때는 냉방 모드로 동작할 때의 온도와 난방 모드로 동작할 때의 온도를 구분하여 제어할 수 있습니다." if book.L10N.TargetCountryCode == "JP" }}  | 선택  |
 | `targetTemperature`               | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | 대상 기기에 설정되었거나 extension이 대상 기기에게 설정하도록 요청한 희망 온도 정보를 담고 있는 객체                                | 선택    |
 
 ### Remarks
@@ -4422,7 +4497,7 @@ IoT 기기 정보 확인 및 기기 제어와 관련된 요청 및 응답을 수
 |---------------|---------|-----------------------------|:---------:|
 | `accessToken`   | string | IoT 서비스의 사용자 계정의 access token. CEK는 외부 서비스의 인증 서버로부터 획득한 사용자 계정의 access token을 전달합니다. 자세한 설명은 [사용자 계정 연결하기](/CEK/Guides/Link_User_Account.md)를 참조합니다.                          | 항상    |
 | `appliance`     | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) | 대상 기기 정보를 담고 있는 객체. `applianceId` 필드는 필수입니다. | 항상    |
-| `endpoint`     | [EndpointInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#EndpointInfoObject)    | 희망 온도를 적용할 최종 대상. 대상 기기가 온도를 적용할 최종 대상(endpoint)이 지정될 수 있으며, 최종 대상은 기기의 특정 부분, 구동 방식이나 이를 적용할 영역 등을 의미합니다. 예를 들어 사용자는 냉장고 온도를 조절할 때 냉동실의 온도를 변경할지 냉장실의 온도를 변경할지 추가로 지정할 수 있습니다. {{ "또, 난방 기능이 있는 에어컨을 조절할 때는 냉방 모드로 동작할 때의 온도와 난방 모드로 동작할 때의 온도를 구분하여 제어할 수 있습니다." if book.TargetCountryCode == "JP" }}  | 조건부  |
+| `endpoint`     | [EndpointInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#EndpointInfoObject)    | 희망 온도를 적용할 최종 대상. 대상 기기가 온도를 적용할 최종 대상(endpoint)이 지정될 수 있으며, 최종 대상은 기기의 특정 부분, 구동 방식이나 이를 적용할 영역 등을 의미합니다. 예를 들어 사용자는 냉장고 온도를 조절할 때 냉동실의 온도를 변경할지 냉장실의 온도를 변경할지 추가로 지정할 수 있습니다. {{ "또, 난방 기능이 있는 에어컨을 조절할 때는 냉방 모드로 동작할 때의 온도와 난방 모드로 동작할 때의 온도를 구분하여 제어할 수 있습니다." if book.L10N.TargetCountryCode == "JP" }}  | 조건부  |
 | `targetTemperature`       | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | 대상 기기에 설정해야 할 희망 온도 정보를 담고 있는 객체                | 항상    |
 
 ### Message example

@@ -13,7 +13,7 @@ SpeechRecognizer가 제공하는 이벤트 메시지와 지시 메시지는 다�
 | [`ExpectSpeech`](#ExpectSpeech)                 | Directive | 클라이언트에게 사용자의 음성 입력을 받도록 지시합니다.                  |
 | [`KeepRecording`](#KeepRecording)               | Directive | 클라이언트에게 음성 입력을 계속 받도록 지시합니다.                     |
 | [`Recognize`](#Recognize)                       | Event     | 입력되는 사용자의 음성을 전달하여 음성 인식을 CIC에 요청합니다.          |
-{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}| [`ShowRecognizedText`](#ShowRecognizedText)     | Directive | 클라이언트에게 인식된 사용자 음성을 실시간으로 전달합니다.              |
+{% if book.DocMeta.TargetReaderType == "Internal" or book.DocMeta.TargetReaderType == "Uplus" %}| [`ShowRecognizedText`](#ShowRecognizedText)     | Directive | 클라이언트에게 인식된 사용자 음성을 실시간으로 전달합니다.              |
 | [`StopCapture`](#StopCapture)                   | Directive | 클라이언트에게 사용자의 음성 입력 수신을 중지하도록 지시합니다.           |{% else %}| [`StopCapture`](#StopCapture)                   | Directive | 클라이언트에게 사용자의 음성 입력 수신을 중지하도록 지시합니다.           |{% endif %}
 
 ## ExpectSpeech directive {#ExpectSpeech}
@@ -114,7 +114,7 @@ SpeechRecognizer가 제공하는 이벤트 메시지와 지시 메시지는 다�
 | `initiator`                                              | object   | Clova를 호출 시 사용된 방법, 음성 입력 경로, 호출어(wake word)에 대한 정보를 담는 객체<div class="note"><p><strong>Note!</strong></p><p>이 필드를 사용하면 음성 인식 성능을 높일 수 있습니다. 따라서, 이 필드를 사용할 것을 권장합니다.</p></div>                      | 선택    |
 | `initiator.inputSource`                                  | string   | 사용자의 음성이 유입된 경로 정보(source). 다음과 같은 값을 입력해야 합니다.<ul><li><code>SELF</code>: <code>SpeechRecognizer.Recognize</code> 이벤트 메시지를 전송한 클라이언트 기기가 직접 사용자의 음성을 입력받았다면 이 값을 지정합니다.</li><li><code>CUSTOM_{Source_ID}</code>: <code>SpeechRecognizer.Recognize</code> 이벤트 메시지를 전송한 클라이언트 기기가 아닌 리모컨과 같이 다른 기기가 음성 입력을 받았다면 해당 기기의 ID를 지정합니다.</li></ul><div class="note"><p><strong>Note!</strong></p><p>기기의 ID는 사전에 제휴 담당자와 논의된 값을 사용해야 합니다.</p></div>  | 필수 |
 | `initiator.payload`                                      | object   | `initiator` 필드에서 상세한 정보를 담는 객체                                                        | 선택 |
-| `initiator.payload.deviceUUID`                           | string   | 기기에서 임의로 생성한 UUID. 한 번 생성된 UUID를 계속 사용해야 하며, Clova에서 특정 사용자의 정보를 식별할 수 없는 값이어야 합니다. 즉 이 필드의 값으로 {{ book.TargetServiceForClientAuth }} access token 값, Clova access token 값이나 클라이언트 ID 또는 이들을 조합하여 만든 값을 사용하면 안됩니다.   | 필수 |
+| `initiator.payload.deviceUUID`                           | string   | 기기에서 임의로 생성한 UUID. 한 번 생성된 UUID를 계속 사용해야 하며, Clova에서 특정 사용자의 정보를 식별할 수 없는 값이어야 합니다. 즉 이 필드의 값으로 {{ book.ServiceEnv.TargetServiceForClientAuth }} access token 값, Clova access token 값이나 클라이언트 ID 또는 이들을 조합하여 만든 값을 사용하면 안됩니다.   | 필수 |
 | `initiator.payload.wakeWord`                             | object   | 클라이언트에서 인식된 호출어 정보를 담는 객체. 호출어 인식 성능을 향상시키기 위해 사용됩니다.       | 선택 |
 | `initiator.payload.wakeWord.confidence`                  | number   | 기기에서 호출어 인식을 확신하는 정도(confidence)를 나타내는 값. 0에서 1사이의 실수(float) 형태의 값으로 입력합니다. 현재 이 필드는 유효하지 않으며 나중을 위해 예약해둔 필드입니다.                 | 선택 |
 | `initiator.payload.wakeWord.indices`                      | object   | 사용자 음성 입력을 담은 오디오 스트림에서 호출어 부분이 포함된 구간 정보를 담는 객체                                           | 필수 |
@@ -219,7 +219,7 @@ Content-Type: application/octet-stream
 ### See also
 * [`SpeechRecognizer.ExpectSpeech`](#ExpectSpeech)
 * [`SpeechRecognizer.StopCapture`](#StopCapture)
-{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}
+{% if book.DocMeta.TargetReaderType == "Internal" or book.DocMeta.TargetReaderType == "Uplus" %}
 ## ShowRecognizedText directive {#ShowRecognizedText}
 
 Clova 음성 인식 시스템은 [`SpeechRecognizer.Recognize`](#Recognize) 이벤트 메시지로 전달받고 있는 사용자의 음성 입력을 분석하여 인식 결과를 제공합니다. CIC는 `SpeechRecognizer.ShowRecognizedText` 지시 메시지로 사용자 음성 인식의 중간 처리 결과를 클라이언트로 전달합니다. 클라이언트는 이를 바탕으로 처리 과정을 사용자에게 실시간으로 보여 줄 수 있습니다.
@@ -300,7 +300,7 @@ CIC가 [`SpeechRecognizer.Recognize`](#Recognize) 이벤트 메시지를 받은 
 
 ### Payload fields
 
-{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}
+{% if book.DocMeta.TargetReaderType == "Internal" or book.DocMeta.TargetReaderType == "Uplus" %}
 | 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
 |---------------|---------|-----------------------------|:---------:|
 | `recognizedText` | string | 입력된 사용자 음성이 어떻게 인식이 되었는지 그 결과를 담고 있습니다. 기본적으로 이 필드는 `SpeechRecognizer.StopCapture` 지시 메시지에 포함되지 않으며, 일부 특수한 조건에 이 필드가 포함됩니다. | 조건부 |
@@ -313,7 +313,7 @@ CIC가 [`SpeechRecognizer.Recognize`](#Recognize) 이벤트 메시지를 받은 
 
 ### Message example
 
-{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}
+{% if book.DocMeta.TargetReaderType == "Internal" or book.DocMeta.TargetReaderType == "Uplus" %}
 ```json
 {
   "directive": {
@@ -346,7 +346,7 @@ CIC가 [`SpeechRecognizer.Recognize`](#Recognize) 이벤트 메시지를 받은 
 {% endif %}
 
 ### See also
-{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}
+{% if book.DocMeta.TargetReaderType == "Internal" or book.DocMeta.TargetReaderType == "Uplus" %}
 * [`SpeechRecognizer.Recognize`](#Recognize)
 * [`SpeechRecognizer.ShowRecognizedText`](#ShowRecognizedText)
 {% else %}

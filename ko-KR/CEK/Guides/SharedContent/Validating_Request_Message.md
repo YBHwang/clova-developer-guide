@@ -4,7 +4,7 @@ Extension이 CEK로부터 HTTP 요청을 받을 때, 해당 요청이 제 3자�
 
 <ol>
   <li><p>Clova의 서명용 RSA 공개 키를 아래 URL에서 다운로드 합니다.</p>
-<p>{{ book.PublicKeyURLforCEKMessageValidation }}</p></li>
+<p>{{ book.ServiceEnv.PublicKeyURLforCEKMessageValidation }}</p></li>
   <li><p><a href="/CEK/References/CEK_API.html#HTTPHeader">HTTP 헤더</a>에서 `SignatureCEK` 필드의 값을 확보합니다.</p><p>`SignatureCEK` 필드의 값은 HTTP 요청 메시지의 본문을 Base64로 인코딩한 <a href="https://tools.ietf.org/html/rfc3447" target="_blank">RSA PKCS#1 v1.5</a> 서명 값(signature)입니다.</p></li>
   <li>1번 항목에서 다운로드한 RSA 공개 키와 2번 항목에서 획득한 `SignatureCEK` 헤더 값을 이용하여 다음과 같이 <a href="https://tools.ietf.org/html/rfc3447#section-5.2" target="_blank">검증(verify)</a>합니다.</li>
 </ol>

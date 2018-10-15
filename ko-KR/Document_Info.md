@@ -7,7 +7,7 @@
 </div>
 
 ## 연락처
-문서와 관련하여 궁금한 사항은 지정된 Clova 제휴 담당자나 <a href="{{ book.DeveloperCenterForumURL }}" target="_blank">{{ book.DeveloperCenterName }} 포럼</a>에 문의합니다.
+문서와 관련하여 궁금한 사항은 지정된 Clova 제휴 담당자나 <a href="{{ book.ServiceEnv.DeveloperCenterForumURL }}" target="_blank">{{ book.ServiceEnv.DeveloperCenterName }} 포럼</a>에 문의합니다.
 
 ## 문서 변경 이력
 
@@ -20,6 +20,17 @@
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>v3.41.0</td><td>미적용</td><td>2018-10-13</td>
+      <td>
+        <ul>
+          <li>[CEK] Clova Home extension API에 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetEstimateConsumptionRequest">GetEstimateConsumptionRequest</a>, <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetEstimateConsumptionResponse">GetEstimateConsumptionResponse</a> 추가</li>
+          <li>[CEK] Clova Home extension 메시지의 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">공유 객체</a> <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ModeInfoObject">ModeInfoObject</a>에 AIRPURIFIER, HUMIDIFIER, VENTILATOR 타입 기기의 모드 추가</li>
+          <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetCurrentSittingStateRequest에서">GetCurrentSittingStateRequest</a>에 period 필드 추가</li>
+          <li>[Dev. Console] <a href="/DevConsole/Guides/CEK/Register_Extension.html#InputExtensionInfo">Extension 기본 정보 입력</a>에 호출 이름을 한 개 이상 최대 세 개까지 등록할 수 있음을 명시</li>
+        </ul>
+      </td>
+    </tr>
     <tr>
       <td>v3.40.1</td><td>미적용</td><td>2018-10-05</td>
       <td>
@@ -207,7 +218,7 @@
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a> 네임스페이스에 메시지 스펙 추가 및 일부 필드 업데이트
             <ul>
-              <li><a href="/CIC/References/CICInterface/AudioPlayer.html#ExpectReportPlaybackState">AudioPlayer.ExpectReportPlaybackState</a> 지시 메시지, <a href="/CIC/References/CICInterface/AudioPlayer.html#ReportPlaybackState">AudioPlayer.ReportPlaybackState 이벤트 메시지</a>{% if book.TargetReaderType == "Internal" %}, <a href="/CIC/References/CICInterface/AudioPlayer.html#RequestPlaybackState">AudioPlayer.RequestPlaybackState</a> 이벤트 메시지, <a href="/CIC/References/CICInterface/AudioPlayer.html#SynchronizePlaybackState">SynchronizePlaybackState 지시 메시지</a>{% endif %} 추가</li>
+              <li><a href="/CIC/References/CICInterface/AudioPlayer.html#ExpectReportPlaybackState">AudioPlayer.ExpectReportPlaybackState</a> 지시 메시지, <a href="/CIC/References/CICInterface/AudioPlayer.html#ReportPlaybackState">AudioPlayer.ReportPlaybackState 이벤트 메시지</a>{% if book.DocMeta.TargetReaderType == "Internal" %}, <a href="/CIC/References/CICInterface/AudioPlayer.html#RequestPlaybackState">AudioPlayer.RequestPlaybackState</a> 이벤트 메시지, <a href="/CIC/References/CICInterface/AudioPlayer.html#SynchronizePlaybackState">SynchronizePlaybackState 지시 메시지</a>{% endif %} 추가</li>
               <li><a href="/CIC/References/CICInterface/AudioPlayer.html#Play">AudioPlayer.Play</a> 지시 메시지의 payload 필드 내용 업데이트</li>
               <li>ProgressReportXXX, PlayXXX 형식의 이름을 가진 이벤트 필드에 token 필드 값 필수로 추가</li>
             </ul>
@@ -295,7 +306,7 @@
         <ul>
           <li>[Design] <a href="/Design/Design_Guideline_For_Client_Hardware.html">클라이언트 기기 디자인 가이드라인</a>에 <a href="/Design/Design_Guideline_For_Client_Hardware.html#SoundEffect">Reminder용 효과음</a> 추가</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/Notifier.html">Notifier</a> 네임스페이스에 <a href="/CIC/References/CICInterface/Notifier.html#Notify">Notifier.Notify</a> 이벤트 메시지 추가 및 해당 네임스페이스 메시지의 payload 필드 업데이트</li>
-          <li>[CIC] <a href="/CIC/References/ContextObjects/SpeechState.html">SpeechSynthesizer.SpeechState</a> 및 <a href="/CIC/References/CICInterface/SpeechSynthesizer.html">SpeechSynthesizer</a> 네임스페이스에 <a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechFinished">SpeechFinished</a>, <a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechStarted">SpeechStarted</a>, <a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechStopped">SpeechStopped</a> 이벤트 메시지 추가</li>
+          <li>[CIC] <a href="/CIC/References/Context_Objects.html#SpeechState">SpeechSynthesizer.SpeechState</a> 및 <a href="/CIC/References/CICInterface/SpeechSynthesizer.html">SpeechSynthesizer</a> 네임스페이스에 <a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechFinished">SpeechFinished</a>, <a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechStarted">SpeechStarted</a>, <a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechStopped">SpeechStopped</a> 이벤트 메시지 추가</li>
           <li>[CIC] Multi-turn 대화를 위해 <a href="/CIC/References/CICInterface/TextRecognizer.html">TextRecognizer.Recognize</a> 이벤트 메시지에 speechId, explicit 필드 추가</li>
           <li>[CEK] Clova Home extension 메시지 레퍼런스 중 <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html">Error 인터페이스</a>에 <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#NoSuchTargetError">NoSuchTargetError</a>, <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#NotSupportedInCurrentModeError">NotSupportedInCurrentModeError</a>, <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#UnsupportedOperationError">UnsupportedOperationError</a> 그리고 <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ValueOutOfRangeError">ValueOutOfRangeError</a> 추가</li>
           <li>[Dev. Console] <a href="/DevConsole/Guides/CEK/Register_Extension.html#SetServerConnection">Extension 서버 연동 설정</a> 전 연결 확인하는 방법 추가 및 <a href="/DevConsole/Guides/CEK/Test_Extension.html#TestOnClovaApp">테스터 ID 적용 자동화</a>에 대한 안내 추가</li>

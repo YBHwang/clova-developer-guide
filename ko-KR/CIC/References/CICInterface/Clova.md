@@ -3,8 +3,8 @@
 Clova 인터페이스는 CIC가 사용자 요청이 인식된 결과를 클라이언트로 전달할 때 사용하는 네임스페이스입니다. 사용자의 요청이 [`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize) 이벤트 메시지로 전달되면 Clova에서 그 의미를 분석합니다. CIC는 인식된 결과에 따라 아래 지시 메시지를 클라이언트에게 전달합니다. 클라이언트는 아래 지시 메시지들을 처리하여 Clova에서 제공하는 기능을 사용자에게 제공해야 합니다.
 
 | 메시지 이름         | 메시지 타입  | 메시지 설명                                   |
-{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}|------------------|-----------|---------------------------------------------|
-| [`ExpectLogin`](#ExpectLogin)                    | Directive | 클라이언트에게 사용자로부터 {{ book.OrientedService }} 계정 인증(login)을 받도록 지시합니다. |{% else %}|------------------|-----------|---------------------------------------------|{% endif %}
+{% if book.DocMeta.TargetReaderType == "Internal" or book.DocMeta.TargetReaderType == "Uplus" %}|------------------|-----------|---------------------------------------------|
+| [`ExpectLogin`](#ExpectLogin)                    | Directive | 클라이언트에게 사용자로부터 {{ book.ServiceEnv.OrientedService }} 계정 인증(login)을 받도록 지시합니다. |{% else %}|------------------|-----------|---------------------------------------------|{% endif %}
 | [`FinishExtension`](#FinishExtension)            | Directive | 클라이언트에게 특정 Extension을 종료하도록 지시합니다.             |
 | [`HandleDelegatedEvent`](#HandleDelegatedEvent)  | Directive | 클라이언트에게 Clova 앱으로부터 [위임된 사용자의 요청을 처리](/CIC/Guides/Implement_Client_Features.md#HandleDelegation)하도록 지시합니다.   |
 | [`Hello`](#Hello)                                | Directive | 클라이언트에게 downchannel 연결 설정이 완료되었음을 알립니다.       |
@@ -15,10 +15,10 @@ Clova 인터페이스는 CIC가 사용자 요청이 인식된 결과를 클라�
 | [`RenderText`](#RenderText)                      | Directive | 클라이언트에게 텍스트를 표시하도록 지시합니다.                     |
 | [`StartExtension`](#StartExtension)              | Directive | 클라이언트에게 특정 Extension을 시작하도록 지시합니다.            |
 
-{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}
+{% if book.DocMeta.TargetReaderType == "Internal" or book.DocMeta.TargetReaderType == "Uplus" %}
 ## ExpectLogin directive {#ExpectLogin}
 
-클라이언트에게 사용자로부터 {{ book.OrientedService }} 계정 인증(login)을 받도록 지시합니다. 클라이언트가 [guest 모드](/CIC/References/Clova_Auth_API.md#GuestMode)로 동작하는 중에 {{ book.OrientedService }} 계정 인증이 필요한 서비스를 사용자에게 제공해야 할 때 CIC는 클라이언트에게 이 지시 메시지를 전달합니다.
+클라이언트에게 사용자로부터 {{ book.ServiceEnv.OrientedService }} 계정 인증(login)을 받도록 지시합니다. 클라이언트가 [guest 모드](/CIC/References/Clova_Auth_API.md#GuestMode)로 동작하는 중에 {{ book.ServiceEnv.OrientedService }} 계정 인증이 필요한 서비스를 사용자에게 제공해야 할 때 CIC는 클라이언트에게 이 지시 메시지를 전달합니다.
 
 ### Payload fields
 
