@@ -280,7 +280,7 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
 * [`SessionEndedRequest`](#CustomExtSessionEndedRequest)
 
 #### EventRequest {#CustomExtEventRequest}
-{% if book.TargetCountryCode == "KR" %}
+{% if book.L10N.TargetCountryCode == "KR" %}
 `EventRequest` 타입은 클라이언트의 상태 변화나 그와 관련된 부수적인 요청을 extension에 전달해야 할 때 사용되는 요청 타입입니다. CEK는 `EventRequest` 요청 타입을 사용하여 클라이언트의 [오디오 재생 상태를 extension에게 보고](/CEK/Guides/Build_Custom_Extension.md#CollectPlaybackStatusAndProgress)하거나 [오디오 재생 관련 부가 정보를 extension에게 요청](/CEK/Guides/Build_Custom_Extension.md#ProvidingMetaDataForDisplay)하기도 합니다. Extension 개발자는 오디오 재생 상태 보고 또는 부가 정보 요청에 상응하는 작업을 처리해야 합니다.
 
 현재 `EventRequest` 요청 타입을 사용하여 오디오 재생 상태 보고나 부가 정보 요청 정보를 extension으로 전달할 때 다음과 같은 [CIC API](/CIC/References/CIC_API.md)의 [이벤트 메시지](/CIC/References/CIC_API.md#Event)를 이용합니다.
@@ -295,7 +295,7 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
 * [`AudioPlayer.ProgressReportPositionPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportPositionPassed)
 * [`AudioPlayer.StreamRequested`](/CIC/References/CICInterface/AudioPlayer.md#StreamRequested)
 * [`TemplateRuntime.RequestPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#RequestPlayerInfo)
-{% elif book.TargetCountryCode == "JP" %}
+{% elif book.L10N.TargetCountryCode == "JP" %}
 `EventRequest` 타입은 클라이언트의 상태 변화나 그와 관련된 부수적인 요청을 extension에 전달해야 할 때 사용되는 요청 타입입니다. CEK는 `EventRequest` 요청 타입을 사용하여 사용자가 특정 skill을 활성 또는 비활성화한 결과나 클라이언트의 [오디오 재생 상태를 extension에게 보고](/CEK/Guides/Build_Custom_Extension.md#CollectPlaybackStatusAndProgress)하거나 [오디오 재생 관련 부가 정보를 extension에게 요청](/CEK/Guides/Build_Custom_Extension.md#ProvidingMetaDataForDisplay)하기도 합니다. Extension 개발자는 skill의 활성/비활성화, 오디오 재생 상태 보고 또는 부가 정보 요청에 상응하는 작업을 처리해야 합니다.
 
 `EventRequest` 요청 타입을 사용하여 오디오 재생 상태 보고나 부가 정보 요청 정보를 extension으로 전달할 때 다음과 같은 [CIC API](#CICAPIforAudioPlayback)를 이용합니다.
@@ -332,16 +332,16 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
 | 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
 |---------------|---------|-----------------------------|:---------:|
 | `event`           | object  | 클라이언트가 Clova로 전달한 정보가 저장된 객체                                       | 항상   |
-| `event.name`      | string  | {{ "클라이언트가 Clova로 전달한 이벤트 메시지의 이름" if book.TargetCountryCode == "KR" else "클라이언트가 Clova로 전달한 이벤트 메시지의 이름이나 skill 활성 또는 비활성 동작을 구분하는 이름. Skill 활성 또는 비활성 동작을 구분하는 이름은 `SkillEnabled` 또는 `SkillDisabled`를 가집니다. Skill 활성 또는 비활성 동작을 나타내는 요청을 받게 되면 [요청 메시지](#CustomExtRequestMessage)의 `context.System.application.applicationId` 필드와 `context.System.user.userId` 필드를 활용하여 사용자 정보 수집하거나 사용자 정보를 폐기하도록 구현할 수 있습니다." }} | 항상   |
-| `event.namespace` | string  | {{ "클라이언트가 Clova로 전달한 이벤트 메시지의 네임스페이스" if book.TargetCountryCode == "KR" else "클라이언트가 Clova로 전달한 이벤트 메시지의 네임스페이스나 skill 활성/비활성 동작을 구분하는 네임스페이스. Skill 활성/비활성 동작을 구분하는 네임스페이스는 `ClovaSkill`로 고정됩니다." }}   | 항상  |
-| `event.payload`   | object  | {{ "클라이언트가 Clova로 전달한 이벤트 메시지의 `payload`나 `payload`의 일부 정보. 일부 이벤트 메시지의 `EventRequest` 요청 타입은 `payload`가 빈 객체일 수 있습니다." if book.TargetCountryCode == "KR" else "클라이언트가 Clova로 전달한 이벤트 메시지의 `payload`나 `payload`의 일부 정보. 일부 이벤트 메시지나 skill 활성/비활성 동작을 구분하기 위한 `EventRequest` 요청 타입은 `payload`가 빈 객체일 수 있습니다." }}  | 항상  |
+| `event.name`      | string  | {{ "클라이언트가 Clova로 전달한 이벤트 메시지의 이름" if book.L10N.TargetCountryCode == "KR" else "클라이언트가 Clova로 전달한 이벤트 메시지의 이름이나 skill 활성 또는 비활성 동작을 구분하는 이름. Skill 활성 또는 비활성 동작을 구분하는 이름은 `SkillEnabled` 또는 `SkillDisabled`를 가집니다. Skill 활성 또는 비활성 동작을 나타내는 요청을 받게 되면 [요청 메시지](#CustomExtRequestMessage)의 `context.System.application.applicationId` 필드와 `context.System.user.userId` 필드를 활용하여 사용자 정보 수집하거나 사용자 정보를 폐기하도록 구현할 수 있습니다." }} | 항상   |
+| `event.namespace` | string  | {{ "클라이언트가 Clova로 전달한 이벤트 메시지의 네임스페이스" if book.L10N.TargetCountryCode == "KR" else "클라이언트가 Clova로 전달한 이벤트 메시지의 네임스페이스나 skill 활성/비활성 동작을 구분하는 네임스페이스. Skill 활성/비활성 동작을 구분하는 네임스페이스는 `ClovaSkill`로 고정됩니다." }}   | 항상  |
+| `event.payload`   | object  | {{ "클라이언트가 Clova로 전달한 이벤트 메시지의 `payload`나 `payload`의 일부 정보. 일부 이벤트 메시지의 `EventRequest` 요청 타입은 `payload`가 빈 객체일 수 있습니다." if book.L10N.TargetCountryCode == "KR" else "클라이언트가 Clova로 전달한 이벤트 메시지의 `payload`나 `payload`의 일부 정보. 일부 이벤트 메시지나 skill 활성/비활성 동작을 구분하기 위한 `EventRequest` 요청 타입은 `payload`가 빈 객체일 수 있습니다." }}  | 항상  |
 | `requestId`       | string  | 클라이언트가 Clova로 정보를 전달할 때 생성된 대화 ID(`event.header.dialogRequestId`)    | 항상   |
 | `timestamp`       | string  | 클라이언트가 Clova로 정보를 전달한 시간(Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)<div class="note"><p><strong>Note!</strong></p><p>CEK는 <code>EventRequest</code> 타입 요청 간의 순서를 보장하지 않기 때문에 이 필드 값을 활용하여 클라이언트의 요청의 순서를 파악할 수 있습니다.</p></div>                    |   |
 | `type`            | string  | 요청 메시지의 타입. `"EventRequest"` 값으로 고정됩니다.         | 항상 |
 
 다음은 `EventRequest` 타입 메시지 `request` 객체 필드의 예제입니다.
 
-{% if book.TargetCountryCode == "KR" %}
+{% if book.L10N.TargetCountryCode == "KR" %}
 ```json
 // 예제 1. 음악에 대한 메타 정보를 요청했을 때
 "event": {
@@ -367,7 +367,7 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
   }
 }
 ```
-{% elif book.TargetCountryCode == "JP" %}
+{% elif book.L10N.TargetCountryCode == "JP" %}
 ```json
 // 예제 1. 사용자가 skill을 활성화했을 때
 "request": {
@@ -555,7 +555,7 @@ Extension은 요청 메시지를 처리한 후 응답 메시지를 전달해야 
 |---------------|---------|-----------------------------|:---------:|
 | `response`                               | object       | Extension의 응답 정보가 담긴 객체                            | 필수 |
 | `response.card`                          | object       | [Content template](/CIC/References/Content_Templates.md) 형태의 데이터이며, 클라이언트 화면에 표시할 콘텐트를 이 필드를 통해 전달할 수 있습니다. 이 필드에 데이터가 있으면 CIC는 클라이언트에게 [Clova.RenderTemplate](/CIC/References/CICInterface/Clova.md#RenderTemplate) 지시 메시지를 전달하게 되며, 빈 객체이면 CIC는 클라이언트에게 [Clova.RenderText](/CIC/References/CICInterface/Clova.md#RenderText) 지시 메시지를 전달하여 `response.outputSpeech.values` 필드의 값을 표시하게 합니다.        | 필수 |
-| `response.directives[]`                  | object array | Extension이 CEK로 전달하는 지시 메시지입니다. `response.directives` 필드는 주로 오디오 콘텐츠 제공을 위해 사용되며, 다음과 같은 {{ "[CIC API](/CIC/References/CIC_API.md)" if book.TargetCountryCode == "KR" else "[CIC API](#CICAPIforAudioPlayback)" }} 지시 메시지를 지원합니다.<ul><li><code>AudioPlayer.Play</code></li><li><code>AudioPlayer.StreamDeliver</code></li><li><code>PlaybackController.Pause</code></li><li><code>PlaybackController.Resume</code></li><li><code>PlaybackController.Stop</code></li><li><code>TemplateRuntime.RenderPlayerInfo</code></li></ul> | 필수 |
+| `response.directives[]`                  | object array | Extension이 CEK로 전달하는 지시 메시지입니다. `response.directives` 필드는 주로 오디오 콘텐츠 제공을 위해 사용되며, 다음과 같은 {{ "[CIC API](/CIC/References/CIC_API.md)" if book.L10N.TargetCountryCode == "KR" else "[CIC API](#CICAPIforAudioPlayback)" }} 지시 메시지를 지원합니다.<ul><li><code>AudioPlayer.Play</code></li><li><code>AudioPlayer.StreamDeliver</code></li><li><code>PlaybackController.Pause</code></li><li><code>PlaybackController.Resume</code></li><li><code>PlaybackController.Stop</code></li><li><code>TemplateRuntime.RenderPlayerInfo</code></li></ul> | 필수 |
 | `response.directives[].header`           | object       | 지시 메시지의 헤더                                          | 필수 |
 | `response.directives[].header.messageId` | string       | 메시지 ID(UUID). 개별 메시지를 구분하기 위해 사용하는 식별자입니다.   | 필수 |
 | `response.directives[].header.name`      | string       | 지시 메시지의 API 이름                                      | 필수 |
@@ -775,7 +775,7 @@ SpeechInfoObject 객체는 응답 메시지의 `response.outputSpeech`에서 재
 * [Custom extension 응답 반환하기](/CEK/Guides/Build_Custom_Extension.md#ReturnCustomExtensionResponse)
 * [Content template](/CIC/References/Content_Templates.md)
 
-{% if book.TargetCountryCode == "JP" %}
+{% if book.L10N.TargetCountryCode == "JP" %}
 ## 오디오 콘텐츠 재생 관련 CIC API {#CICAPIforAudioPlayback}
 
 CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 받는 메시지 규격입니다. 여기서 설명하는 CIC API는 custom extension의 [오디오 콘텐츠 제공](/CEK/Guides/Build_Custom_Extension.md#ProvideAudioContent)과 관련하여 CEK에서 지원하는 CIC API입니다. CEK는 클라이언트가 Clova에게 전달한 이벤트 메시지를 [`EventRequest`](#CustomExtEventRequest) 타입 메시지의 `event` 필드에 채워 보냅니다. 또한, Custom extension은 사용자에게 오디오 콘텐츠를 제공하기 위해 오디오 콘텐츠 재생 제어와 관련된 지시 메시지를 [`응답 메시지`](#CustomExtResponseMessage)의 `response.directives[]` 필드에 채워 보내야 합니다.
@@ -1584,7 +1584,7 @@ CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 
 | `beginAtInMilliseconds`  | number | 재생을 시작할 지점. 단위는 밀리초이며, 이 값이 지정되면 클라이언트는 해당 오디오 스트림을 지정된 위치부터 재생해야 합니다. 이 값이 0이면 해당 스트림을 처음부터 재생해야 합니다.          | 필수/항상 |
 | `customData`             | string | 현재 음원과 관련하여 임의의 형식을 가지는 메타 데이터 정보. 특정 범주로 분류되거나 정의될 수 없는 스트리밍 정보는 이 필드에 포함되거나 입력되어야 합니다. 오디오 스트림 재생 문맥에 추가로 필요한 값을 서비스 제공자 임의대로 추가할 수 있습니다.<div class="danger"><p><strong>Caution!</strong></p><p>이 필드의 값을 클라이언트가 임의로 이용해서는 안되며 이는 문제를 발생시킬 수 있습니다. 또한, 이 필드 값은 오디오 재생 상태를 전달할 때 <a href="/CIC/References/Context_Objects.md#PlaybackState">PlaybackState 문맥 정보</a>의 `stream` 필드에 그대로 첨부되어야 합니다.</p></div> | 선택/조건부  |
 | `durationInMilliseconds` | number | 오디오 스트림의 재생 시간. 클라이언트는 `beginAtInMilliseconds` 필드에 지정된 재생 시작 시점부터 이 필드에 지정된 재생 시간만큼 해당 오디오 스트림을 탐색 및 재생할 수 있습니다. 예를 들면, `beginAtInMilliseconds` 필드의 값이 `10000`이고, 이 필드의 값이 `60000`이면 해당 오디오 스트림의 10초부터 70초까지의 구간을 재생 및 탐색할 수 있게 됩니다. 단위는 밀리 초입니다.   | 선택/조건부  |
-| `format`                 | string  | 미디어 포맷(MIME 타입). 이 필드를 통해 HLS(HTTP Live Streaming) 방식의 콘텐츠인지 구분할 수 있습니다. 다음과 같은 값을 가질 수 있습니다. 기본 값은 `"audio/mpeg"`입니다.<ul><li><code>"audio/mpeg"</code></li><li><code>"audio/mpegurl"</code></li><li><code> "audio/aac"</code></li><li><code>"application/vnd.apple.mpegurl"</code></li></ul> <div class="note"><p><strong>Note!</strong></p><p>HLS 방식으로 콘텐츠를 제공하려는 extension 개발자는 <a href="mailto:{{ book.ExtensionAdminEmail }}">{{ book.ExtensionAdminEmail }}</a>로 연락합니다.</p></div>   | 선택/조건부  |
+| `format`                 | string  | 미디어 포맷(MIME 타입). 이 필드를 통해 HLS(HTTP Live Streaming) 방식의 콘텐츠인지 구분할 수 있습니다. 다음과 같은 값을 가질 수 있습니다. 기본 값은 `"audio/mpeg"`입니다.<ul><li><code>"audio/mpeg"</code></li><li><code>"audio/mpegurl"</code></li><li><code> "audio/aac"</code></li><li><code>"application/vnd.apple.mpegurl"</code></li></ul> <div class="note"><p><strong>Note!</strong></p><p>HLS 방식으로 콘텐츠를 제공하려는 extension 개발자는 <a href="mailto:{{ book.ServiceEnv.ExtensionAdminEmail }}">{{ book.ServiceEnv.ExtensionAdminEmail }}</a>로 연락합니다.</p></div>   | 선택/조건부  |
 | `progressReport`         | object  | 재생 후 재생 상태 정보를 보고 받기 위해 보고 시간을 정해둔 객체                                                  | 선택/조건부 |
 | `progressReport.progressReportDelayInMilliseconds`    | number | 재생 시작 후 지정된 시간이 지났을 때 재생 상태 정보를 보고받기 위해 지정되는 값입니다. 단위는 밀리 초이며, 이 필드는 null 값을 가질 수 있습니다.  | 선택/조건부 |
 | `progressReport.progressReportIntervalInMilliseconds` | number | 재생 중 지정된 시간 간격으로 재생 상태 정보를 보고받기 위해 지정되는 값입니다. 단위는 밀리 초이며, 이 필드는 null 값을 가질 수 있습니다.        | 선택/조건부 |

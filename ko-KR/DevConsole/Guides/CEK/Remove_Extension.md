@@ -17,5 +17,5 @@
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>서비스를 중지할 때 Clova 운영팀의 확인이 필요합니다. 따라서, extension을 중지하려면 <a href="mailto:{{ book.ExtensionAdminEmail }}">{{ book.ExtensionAdminEmail }}</a>로 연락합니다.</p>
+  <p>서비스를 중지할 때 Clova 운영팀의 확인이 필요합니다. 따라서, extension을 중지하려면 <a href="mailto:{{ book.ServiceEnv.ExtensionAdminEmail }}">{{ book.ServiceEnv.ExtensionAdminEmail }}</a>로 연락합니다.</p>
 </div>

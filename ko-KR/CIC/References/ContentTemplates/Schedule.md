@@ -142,7 +142,7 @@ CIC는 사용자가 캘린더에 일정을 생성하면 생성한 일정의 정�
 
 ## UI example {#UIExample}
 
-다음은 {{ book.OrientedService }}가 배포한 모바일용 Clova 앱에서 Schedule 템플릿의 내용을 표현한 UI 예제입니다.
+다음은 {{ book.ServiceEnv.OrientedService }}가 배포한 모바일용 Clova 앱에서 Schedule 템플릿의 내용을 표현한 UI 예제입니다.
 
 ![](/CIC/Resources/Images/Content_Template-Schedule.png)
 

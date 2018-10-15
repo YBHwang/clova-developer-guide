@@ -36,13 +36,13 @@ Extension을 등록하는 과정에서 가장 먼저 할 일은 등록할 extens
     <ol>
       <li><strong>{{ book.DevConsole.cek_id }}</strong>: Extension의 고유 ID입니다. Reverse domain name 표기 형식(예: com.example.extension.pizzabot)으로 입력합니다.</li>
       <li><strong>{{ book.DevConsole.cek_name }}</strong>: Extension의 이름입니다. 추후 Clova Skill Store에 노출됩니다.</li>
-      <li><strong>{{ book.DevConsole.cek_invocation_name }}</strong>: 사용자가 extension을 호출할 때 부르는 이름입니다. 일반적으로 보유하고 있는 서비스, 회사 또는 조직의 이름이 될 수 있으나 사용자의 편의 등을 위해 간결하고 특색있는 단어를 지정하는 것이 좋습니다. 범용적인 단어나 타사의 이름이나 서비스에 해당하는 용어는 사용할 수 없습니다. <strong>{{ book.DevConsole.cek_invocation_name }}</strong>은 extension 심사 시 검수받게 됩니다.</li>
+      <li><strong>{{ book.DevConsole.cek_invocation_name }}</strong>: 사용자가 extension을 호출할 때 부르는 이름입니다. 한 개 이상 최대 세 개까지 {{ book.DevConsole.cek_invocation_name }}을 등록할 수 있습니다. 일반적으로 보유하고 있는 서비스, 회사 또는 조직의 이름이 될 수 있으나 사용자의 편의 등을 위해 간결하고 특색있는 단어를 지정하는 것이 좋습니다. 범용적인 단어나 타사의 이름이나 서비스에 해당하는 용어는 사용할 수 없습니다. <strong>{{ book.DevConsole.cek_invocation_name }}</strong>은 extension 심사 시 검수받게 됩니다.</li>
       <li><strong>{{ book.DevConsole.cek_provider }}</strong>: Extension의 제작 주체(회사나 개인)의 이름 또는 별칭을 입력합니다. 추후 Skill Store에 노출되며, extension 승인 과정에서 심사를 받게 됩니다.</li>
     </ol>
   </li>
   <li>(Extension이 <a href="/CIC/References/CICInterface/AudioPlayer.md">AudioPlayer</a> 지시 메시지를 이용한다면)<strong>{{ book.DevConsole.cek_audioplayer }}</strong> 항목을 <strong>{{ book.DevConsole.cek_yes }}</strong>로 선택합니다. Extension이 음악 스트리밍 서비스를 제공할 때 사용됩니다.</li>
   <li><strong>{{ book.DevConsole.cek_email }}</strong> 항목에 연락 가능한 이메일 주소를 입력합니다.</li>
-  <li><strong>{{ book.DevConsole.cek_tester }}</strong> 항목에 개발 중인 extension을 테스트할 때 이용할 {{ book.OrientedService }} 계정을 입력하면 됩니다. 당장 입력하지 않아도 되며 추후 <a href="/DevConsole/Guides/CEK/Test_Extension.md">extension을 테스트</a>해야 할 때 이 필드에 값을 입력할 수 있습니다.</li>
+  <li><strong>{{ book.DevConsole.cek_tester }}</strong> 항목에 개발 중인 extension을 테스트할 때 이용할 {{ book.ServiceEnv.OrientedService }} 계정을 입력하면 됩니다. 당장 입력하지 않아도 되며 추후 <a href="/DevConsole/Guides/CEK/Test_Extension.md">extension을 테스트</a>해야 할 때 이 필드에 값을 입력할 수 있습니다.</li>
   <li>Extension 기본 정보를 모두 입력한 후 <strong>{{ book.DevConsole.cek_create }}</strong> 버튼을 클릭합니다.</li>
 </ol>
 
@@ -108,6 +108,6 @@ Extension으로 제공하려는 서비스의 사용자 계정이 Clova의 사용
 
 <div id="RedirectURI" class="note">
   <p><strong>Note!</strong></p>
-  <p>계정 인증 후 클라이언트가 이동할 URL(redirect URL)은 <code>{{ book.RedirectURLforAccountLinking }}</code>이며, <strong>{{ book.DevConsole.cek_redirect_urls }}</strong> 항목에서 확인할 수 있습니다.</strong></p>
+  <p>계정 인증 후 클라이언트가 이동할 URL(redirect URL)은 <code>{{ book.ServiceEnv.RedirectURLforAccountLinking }}</code>이며, <strong>{{ book.DevConsole.cek_redirect_urls }}</strong> 항목에서 확인할 수 있습니다.</strong></p>
   <img src="/DevConsole/Resources/Images/DevConsole-Redirect_URL_for_Extension_Accoun_Linking.png" />
 </div>

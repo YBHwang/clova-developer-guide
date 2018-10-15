@@ -31,7 +31,7 @@ Content template은 일부 반복되는 데이터 타입을 표현하기 위해 
 ```json
 {
   "type": "action",
-  "value": "clova://{{ book.OrientedServiceWithLowerCase }}Search?query=이태원맛집"
+  "value": "clova://{{ book.ServiceEnv.OrientedServiceWithLowerCase }}Search?query=이태원맛집"
 }
 ```
 

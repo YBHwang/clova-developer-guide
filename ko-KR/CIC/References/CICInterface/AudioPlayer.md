@@ -16,10 +16,10 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 | [`ProgressReportIntervalPassed`](#ProgressReportPositionPassed)| Event | 오디오 스트림 재생이 시작된 후 지정된 간격마다 현재 재생 상태([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState))를 CIC로 보고하기 위해 사용됩니다. 각 오디오 스트림의 보고 간격은 [`AudioPlayer.Play`](#Play) 지시 메시지가 클라이언트로 전달될 때 확인할 수 있습니다.|
 | [`ProgressReportPositionPassed`](#ProgressReportPositionPassed) | Event | 오디오 스트림 재생이 시작된 후 지정된 보고 시점에 현재 재생 상태([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState))를 CIC로 보고하기 위해 사용됩니다. 각 오디오 스트림의 보고 시점은 [`AudioPlayer.Play`](#Play) 지시 메시지가 클라이언트로 전달될 때 확인할 수 있습니다.|
 | [`ReportPlaybackState`](#ReportPlaybackState)           | Event  | 클라이언트의 현재 음원 재생 상태를 CIC로 보고합니다. 클라이언트가 CIC로부터 [`AudioPlayer.ExpectReportPlaybackState`](#ExpectReportPlaybackState) 지시 메시지를 받았을 때 `AudioPlayer.ReportPlaybackState` 이벤트 메시지를 CIC로 전송해야 합니다.  |
-{% if book.TargetReaderType == "Internal" %}| [`RequestPlaybackState`](#RequestPlaybackState)         | Event  | 클라이언트의 음원 재생 상태를 CIC에게 요청합니다. CIC는 `AudioPlayer.RequestPlaybackState` 이벤트 메시지를 전달받으면 사용자 계정에 등록된 모든 또는 특정 클라이언트에게 [`ExpectReportPlaybackState`](#ExpectReportPlaybackState) 지시 메시지를 전송합니다.  |
+{% if book.DocMeta.TargetReaderType == "Internal" %}| [`RequestPlaybackState`](#RequestPlaybackState)         | Event  | 클라이언트의 음원 재생 상태를 CIC에게 요청합니다. CIC는 `AudioPlayer.RequestPlaybackState` 이벤트 메시지를 전달받으면 사용자 계정에 등록된 모든 또는 특정 클라이언트에게 [`ExpectReportPlaybackState`](#ExpectReportPlaybackState) 지시 메시지를 전송합니다.  |
 | [`StreamDeliver`](#StreamDeliver)     | Directive | [`AudioPlayer.StreamRequested`](#StreamRequested) 이벤트 메시지의 응답이며, 실제 음악 재생이 가능한 오디오 스트림 정보를 수신해야 할 때 사용합니다. |{% else %}| [`StreamDeliver`](#StreamDeliver)     | Directive | [`AudioPlayer.StreamRequested`](#StreamRequested) 이벤트 메시지의 응답이며, 실제 음악 재생이 가능한 오디오 스트림 정보를 수신해야 할 때 사용합니다. |{% endif %}
 | [`StreamRequested`](#StreamRequested) | Event     | 오디오 스트림 재생을 위해 CIC로 스트리밍 URL과 같은 추가 정보를 요청하는 이벤트 메시지입니다.               |
-{% if book.TargetReaderType == "Internal" %}| [`SynchronizePlaybackState`](#SynchronizePlaybackState) | Directive | 클라이언트의 음원 재생 상태를 동기화하도록 지시합니다. `AudioPlayer.RequestPlaybackState` 이벤트 메시지를 전송했던 클라이언트는 `AudioPlayer.SynchronizePlaybackState` 지시 메시지를 수신하게 됩니다. |{% endif %}
+{% if book.DocMeta.TargetReaderType == "Internal" %}| [`SynchronizePlaybackState`](#SynchronizePlaybackState) | Directive | 클라이언트의 음원 재생 상태를 동기화하도록 지시합니다. `AudioPlayer.RequestPlaybackState` 이벤트 메시지를 전송했던 클라이언트는 `AudioPlayer.SynchronizePlaybackState` 지시 메시지를 수신하게 됩니다. |{% endif %}
 
 ## 음원 재생 상태 공유 {#SharePlaybackState}
 
@@ -27,10 +27,10 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 
 ![](/CIC/Resources/Images/CIC_Playback_State_Sync_Work_Flow.png)
 
-1. Clova 앱은 {{ "[`AudioPlayer.RequestPlaybackState`](#RequestPlaybackState) 이벤트 메시지를 사용하여 " if book.TargetReaderType == "Internal" }}CIC에게 사용자 계정에 등록된 모든 클라이언트 또는 특정 클라이언트의 음원 재생 상태 정보를 요청합니다.
+1. Clova 앱은 {{ "[`AudioPlayer.RequestPlaybackState`](#RequestPlaybackState) 이벤트 메시지를 사용하여 " if book.DocMeta.TargetReaderType == "Internal" }}CIC에게 사용자 계정에 등록된 모든 클라이언트 또는 특정 클라이언트의 음원 재생 상태 정보를 요청합니다.
 2. CIC는 [`AudioPlayer.ExpectReportPlaybackState`](#ExpectReportPlaybackState)사용자 계정에 등록된 모든 클라이언트 또는 특정 클라이언트에게 현재 음원 재생 상태를 보고하도록 지시합니다.
 3. 음원 재생 상태 보고 요청을 받은 클라이언트는 [`AudioPlayer.ReportPlaybackState`](#ReportPlaybackState) 이벤트 메시지를 사용하여 CIC에게 현재 음원 재생 상태를 보고합니다.
-4. CIC는 {{ "[`AudioPlayer.SynchronizePlaybackState`](#SynchronizePlaybackState)를 사용하여 " if book.TargetReaderType == "Internal" }}다른 클라이언트의 음원 재생 상태를 요청했던 클라이언트에게 상태 정보를 전달하여 정보를 동기화하도록 지시합니다.
+4. CIC는 {{ "[`AudioPlayer.SynchronizePlaybackState`](#SynchronizePlaybackState)를 사용하여 " if book.DocMeta.TargetReaderType == "Internal" }}다른 클라이언트의 음원 재생 상태를 요청했던 클라이언트에게 상태 정보를 전달하여 정보를 동기화하도록 지시합니다.
 
 
 ## ClearQueue directive {#ClearQueue}
@@ -689,7 +689,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 * [`AudioPlayer.Play`](#Play)
 * [음원 재생 상태 공유](#SharePlaybackState)
 
-{% if book.TargetReaderType == "Internal" %}
+{% if book.DocMeta.TargetReaderType == "Internal" %}
 ## RequestPlaybackState event {#RequestPlaybackState}
 
 클라이언트의 음원 재생 상태를 CIC에게 요청합니다. CIC는 `AudioPlayer.RequestPlaybackState` 이벤트 메시지를 전달받으면 사용자 계정에 등록된 모든 또는 특정 클라이언트에게 [`AudioPlayer.ExpectReportPlaybackState`](#ExpectReportPlaybackState) 지시 메시지를 전송합니다.
@@ -841,7 +841,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.StreamDeliver`](#StreamDeliver)
 
-{% if book.TargetReaderType == "Internal" %}
+{% if book.DocMeta.TargetReaderType == "Internal" %}
 ## SynchronizePlaybackState directive {#SynchronizePlaybackState}
 
 클라이언트의 음원 재생 상태를 동기화하도록 지시합니다. `AudioPlayer.RequestPlaybackState` 이벤트 메시지를 전송했던 클라이언트는 `AudioPlayer.SynchronizePlaybackState` 지시 메시지를 수신하게 됩니다.
@@ -906,7 +906,7 @@ AudioPlayer API를 이용하여 이벤트 메시지나 지시 메시지를 보�
 | `beginAtInMilliseconds`  | number | 재생을 시작할 지점. 단위는 밀리초이며, 이 값이 지정되면 클라이언트는 해당 오디오 스트림을 지정된 위치부터 재생해야 합니다. 이 값이 0이면 해당 스트림을 처음부터 재생해야 합니다.          | 필수/항상 |
 | `customData`             | string | 현재 음원과 관련하여 임의의 형식을 가지는 메타 데이터 정보. 특정 범주로 분류되거나 정의될 수 없는 스트리밍 정보는 이 필드에 포함되거나 입력되어야 합니다. 오디오 스트림 재생 문맥에 추가로 필요한 값을 서비스 제공자 임의대로 추가할 수 있습니다.<div class="danger"><p><strong>Caution!</strong></p><p>이 필드의 값을 클라이언트가 임의로 이용해서는 안되며 이는 문제를 발생시킬 수 있습니다. 또한, 이 필드 값은 오디오 재생 상태를 전달할 때 <a href="/CIC/References/Context_Objects.md#PlaybackState">PlaybackState 문맥 정보</a>의 <code>stream</code> 필드에 그대로 첨부되어야 합니다.</p></div> | 선택/조건부  |
 | `durationInMilliseconds` | number | 오디오 스트림의 재생 시간. 클라이언트는 `beginAtInMilliseconds` 필드에 지정된 재생 시작 시점부터 이 필드에 지정된 재생 시간만큼 해당 오디오 스트림을 탐색 및 재생할 수 있습니다. 예를 들면, `beginAtInMilliseconds` 필드의 값이 `10000`이고, 이 필드의 값이 `60000`이면 해당 오디오 스트림의 10초부터 70초까지의 구간을 재생 및 탐색할 수 있게 됩니다. 단위는 밀리 초입니다.   | 선택/조건부  |
-| `format`                 | string  | 미디어 포맷(MIME 타입). 이 필드를 통해 HLS(HTTP Live Streaming) 방식의 콘텐츠인지 구분할 수 있습니다. 다음과 같은 값을 가질 수 있습니다. 기본 값은 `"audio/mpeg"`입니다.<ul><li><code>"audio/mpeg"</code></li><li><code>"audio/mpegurl"</code></li><li><code> "audio/aac"</code></li><li><code>"application/vnd.apple.mpegurl"</code></li></ul> <div class="note"><p><strong>Note!</strong></p><p>HLS 방식으로 콘텐츠를 제공하려는 extension 개발자는 <a href="mailto:{{ book.ExtensionAdminEmail }}">{{ book.ExtensionAdminEmail }}</a>로 연락합니다.</p></div>   | 선택/조건부  |
+| `format`                 | string  | 미디어 포맷(MIME 타입). 이 필드를 통해 HLS(HTTP Live Streaming) 방식의 콘텐츠인지 구분할 수 있습니다. 다음과 같은 값을 가질 수 있습니다. 기본 값은 `"audio/mpeg"`입니다.<ul><li><code>"audio/mpeg"</code></li><li><code>"audio/mpegurl"</code></li><li><code> "audio/aac"</code></li><li><code>"application/vnd.apple.mpegurl"</code></li></ul> <div class="note"><p><strong>Note!</strong></p><p>HLS 방식으로 콘텐츠를 제공하려는 extension 개발자는 <a href="mailto:{{ book.ServiceEnv.ExtensionAdminEmail }}">{{ book.ServiceEnv.ExtensionAdminEmail }}</a>로 연락합니다.</p></div>   | 선택/조건부  |
 | `progressReport`         | object  | 재생 후 재생 상태 정보를 보고 받기 위해 보고 시간을 정해둔 객체                                                  | 선택/조건부 |
 | `progressReport.progressReportDelayInMilliseconds`    | number | 재생 시작 후 지정된 시간이 지났을 때 재생 상태 정보를 보고받기 위해 지정되는 값입니다. 단위는 밀리 초이며, 이 필드는 null 값을 가질 수 있습니다.  | 선택/조건부 |
 | `progressReport.progressReportIntervalInMilliseconds` | number | 재생 중 지정된 시간 간격으로 재생 상태 정보를 보고받기 위해 지정되는 값입니다. 단위는 밀리 초이며, 이 필드는 null 값을 가질 수 있습니다.        | 선택/조건부 |
