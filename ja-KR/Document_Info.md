@@ -321,7 +321,7 @@
           <li>[CIC] <a href="/CIC/Guides/Implement_Client_Features.html#HandleDelegation">委任されたユーザーのリクエストを処理する</a>セクションを追加および<a href="/CIC/References/CICInterface/Clova.html#HandleDelegatedEvent">Clova.HandleDelegatedEvent</a>ディレクティブと<a href="/CIC/References/CICInterface/Clova.html#ProcessDelegatedEvent">Clova.ProcessDelegatedEvent</a>イベントを追加</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/PlaybackController.html#NextCommandIssued">PlaybackController.NextCommandIssued</a>と<a href="/CIC/References/CICInterface/PlaybackController.html#PreviousCommandIssued">PlaybackController.PreviousCommandIssued</a>イベントに<a href="/CIC/References/Context_Objects.html#PlaybackState">AudioPlayer.PlaybackState</a>コンテキストを含めるように説明を追加</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/Alerts.html">Alerts</a> APIの仕組みの説明を改善</li>
-          <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> APIの<a href="/CIC/References/CICInterface/DeviceControl.html#DeviceContorlWorkFlow">仕組み</a>の説明を追加</li>
+          <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> APIの<a href="/CIC/References/CICInterface/DeviceControl.html#DeviceControlWorkFlow">仕組み</a>の説明を追加</li>
           <li>[CIC] 一部のコンテンツテンプレートおよび共有オブジェクトの誤りの訂正内容を修正</li>
           <li>[CEK] <a href="/CEK/Examples/Extension_Examples.html">Extensionのサンプル</a>ページを追加</li>
           <li>[Dev.Console] <strong>テスターID</strong>フィールドの追加による<a href="/DevConsole/Guides/CEK/Test_Extension.html">Extensionをテストする</a>の説明を更新</li>

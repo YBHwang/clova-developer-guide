@@ -341,7 +341,7 @@
           <li>[CIC] <a href="/CIC/Guides/Implement_Client_Features.html#HandleDelegation">위임된 사용자 요청 처리하기</a> 절 추가 및 <a href="/CIC/References/CICInterface/Clova.html#HandleDelegatedEvent">Clova.HandleDelegatedEvent</a> 지시 메시지와 <a href="/CIC/References/CICInterface/Clova.html#ProcessDelegatedEvent">Clova.ProcessDelegatedEvent</a> 이벤트 메시지 추가</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/PlaybackController.html#NextCommandIssued">PlaybackController.NextCommandIssued</a>와 <a href="/CIC/References/CICInterface/PlaybackController.html#PreviousCommandIssued">PlaybackController.PreviousCommandIssued</a> 이벤트 메시지에 <a href="/CIC/References/Context_Objects.html#PlaybackState">AudioPlayer.PlaybackState</a> 맥락 정보를 포함하도록 설명 추가</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/Alerts.html">Alerts</a> API의 동작 구조에 대한 설명 개선</li>
-          <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> API의 <a href="/CIC/References/CICInterface/DeviceControl.html#DeviceContorlWorkFlow">동작 구조</a>에 대한 설명 추가</li>
+          <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> API의 <a href="/CIC/References/CICInterface/DeviceControl.html#DeviceControlWorkFlow">동작 구조</a>에 대한 설명 추가</li>
           <li>[CIC] 일부 content template 및 공유 객체에 대한 오류 교정 내용 수정</li>
           <li>[CEK] <a href="/CEK/Examples/Extension_Examples.html">Extension 예제</a> 페이지 추가</li>
           <li>[Dev. Console] <strong>테스터 ID</strong> 필드 추가에 따른 <a href="/DevConsole/Guides/CEK/Test_Extension.html">Extension 테스트하기</a> 설명 업데이트</li>
