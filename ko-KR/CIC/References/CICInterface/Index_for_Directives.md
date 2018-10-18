@@ -23,6 +23,9 @@
 | DeviceControl      | [`BtConnect`](/CIC/References/CICInterface/DeviceControl.md#BtConnect)          | 클라이언트에게 특정 블루투스 기기와 연결을 설정하도록 지시합니다.                                       |
 | DeviceControl      | [`BtConnectByPINCode`](/CIC/References/CICInterface/DeviceControl.md#BtConnectByPINCode) | 클라이언트에게 PIN 코드를 요청한 블루투스 기기와 연결하도록 지시합니다.                      |
 | DeviceControl      | [`BtDisconnect`](/CIC/References/CICInterface/DeviceControl.md#BtDisconnect)    | 클라이언트에게 특정 블루투스 기기와 연결을 해제하도록 지시합니다.                                       |
+| DeviceControl      | [`BtDelete`](/CIC/References/CICInterface/DeviceControl.md#BtDelete)            | 클라이언트에게 블루투스 페어링 목록에서 특정 기기를 제거하도록 지시합니다.                        |
+| DeviceControl      | [`BtPlay`](/CIC/References/CICInterface/DeviceControl.md#BtPlay)                | 클라이언트에게 연결된 블루투스 기기를 통해 음악을 재생하도록 지시합니다.                          |
+| DeviceControl      | [`BtRescan`](/CIC/References/CICInterface/DeviceControl.md#BtRescan)            | 클라이언트에게 블루투스 기기를 재탐지(rescan)하도록 지시합니다.                               |
 | DeviceControl      | [`BtStartPairing`](/CIC/References/CICInterface/DeviceControl.md#BtStartPairing) | 클라이언트에게 블루투스 페어링을 시작하도록 지시합니다.                                              |
 | DeviceControl      | [`BtStopPairing`](/CIC/References/CICInterface/DeviceControl.md#BtStopPairing)   | 클라이언트에게 블루투스 페어링을 중지하도록 지시합니다.                                              |
 | DeviceControl      | [`Decrease`](/CIC/References/CICInterface/DeviceControl.md#Decrease)             | 클라이언트에게 스피커 볼륨 또는 화면 밝기를 기본 단위만큼 줄이도록 지시합니다.                            |

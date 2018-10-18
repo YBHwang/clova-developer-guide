@@ -200,16 +200,24 @@
 | 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:---------:|
 | `actions[]`          | string array | 블루투스 연결과 관련하여 수행할 수 있는 [`DeviceControl`](/CIC/References/CICInterface/DeviceControl.md) API 목록. 다음 동작 목록 중 클라이언트 기기가 실제로 수행할 수 있는 동작을 입력합니다. <ul><li><code>"TurnOff"</code></li><li><code>"TurnOn"</code></li><li><code>"BtConnect"</code></li><li><code>"BtConnectByPINCode"</code></li><li><code>"BtDisconnect"</code></li><li><code>"BtStartPairing"</code></li><li><code>"BtStopPairing"</code></li></ul> | 필수 |
-| `btlist[]`           | object array | 페이링된 적이 있는 블루투스 기기 정보를 가지는 객체 배열         | 필수 |
-| `btlist[].name`      | string       | 블루투스 기기의 이름                      | 필수 |
-| `btlist[].address`   | string       | 블루투스 기기의 장치 주소                  | 필수 |
-| `btlist[].connected` | boolean      | 블루투스 기기와의 연결 여부. <ul><li><code>true</code>: 연결된 상태</li><li><code>false</code>: 연결되어 있지 않은 상태</li></ul> | 필수 |
-| `btlist[].role`      | string       | 블루투스 기기의 역할 <ul><li><code>"sink"</code></li><li><code>"source"</code></li></ul>  | 필수 |
-| `scanlist[]`         | object array | 스캔된 블루투스 기기 정보를 가지는 객체 배열   | 필수 |
-| `scanlist[].name`    | string       | 블루투스 기기의 이름                      | 필수 |
-| `scanlist[].address` | string       | 블루투스 기기의 장치 주소                  | 필수 |
-| `scanlist[].role`    | string       | 블루투스 기기의 역할 <ul><li><code>"sink"</code></li><li><code>"source"</code></li></ul>  | 필수 |
-| `state`              | string       | 블루투스 활성화 상태 <ul><li><code>"off"</code>: 꺼짐</li><li><code>"on"</code>: 켜짐</li></ul> | 필수 |
+| `btlist[]`              | object array | 페이링된 적이 있는 블루투스 기기 정보를 가지는 객체 배열         | 필수 |
+| `btlist[].name`         | string       | 블루투스 기기의 이름                      | 필수 |
+| `btlist[].address`      | string       | 블루투스 기기의 장치 주소                  | 필수 |
+| `btlist[].connected`    | boolean      | 블루투스 기기와의 연결 여부. <ul><li><code>true</code>: 연결된 상태</li><li><code>false</code>: 연결되어 있지 않은 상태</li></ul> | 필수 |
+| `btlist[].role`         | string       | 해당 블루투스 기기와 연결 시 클라이언트의 역할.<ul><li><code>"sink"</code>: 오디오 스트림을 수신하는 역할(주로 스피커)</li><li><code>"source"</code>: 오디오 스트림을 송신하는 역할(음원 데이터 전달자)</li></ul> | 필수 |
+| `connecting`            | string       | 블루투스 기기와 연결 중인지 여부. <ul><li><code>"on"</code>: 연결 중</li><li><code>"off"</code>: 연결 중이지 않음</li></ul> | 필수 |
+| `pairing`               | string       | 블루투스 페어링 모드 켜짐 여부. <ul><li><code>"on"</code>: 페어링 모드 켜짐</li><li><code>"off"</code>: 페어링 모드 꺼짐</li></ul> | 필수 |
+| `playerInfo`            | object       | 블루투스 연결을 통해 재생되고 있는 음악의 정보를 가지는 객체  | 선택 |
+| `playerInfo.albumTitle` | string       | 블루투스로 재생되고 있는 음악의 앨범 제목                 | 선택 |
+| `playerInfo.artistName` | string       | 블루투스로 재생되고 있는 음악의 가수 이름                 | 선택 |
+| `playerInfo.state`      | string       | 블루투스로 재생되고 있는 음악의 재생 상태. <ul><li><code>"paused"</code>: 재생 일시 정지 상태</li><li><code>"playing"</code>: 재생 중인 상태</li><li><code>"stopped"</code>: 재생 중지 상태</li></ul>                  | 선택 |
+| `playerInfo.trackTitle` | string       | 블루투스로 재생되고 있는 음악의 이름                     | 선택 |
+| `scanlist[]`            | object array | 스캔된 블루투스 기기 정보를 가지는 객체 배열   | 필수 |
+| `scanlist[].name`       | string       | 블루투스 기기의 이름                      | 필수 |
+| `scanlist[].address`    | string       | 블루투스 기기의 장치 주소                  | 필수 |
+| `scanlist[].role`       | string       | 해당 블루투스 기기와 연결 시 클라이언트의 역할.<ul><li><code>"sink"</code>: 오디오 스트림을 수신하는 역할(주로 스피커)</li><li><code>"source"</code>: 오디오 스트림을 송신하는 역할(음원 데이터 전달자)</li></ul> | 필수 |
+| `scanning`              | string       | 블루투스 스캐닝 모드 켜짐 여부. <ul><li><code>"on"</code>: 스캐닝 모드 켜짐</li><li><code>"off"</code>: 스캐닝 모드 꺼짐</li></ul> | 필수 |
+| `state`                 | string       | 블루투스 활성화 상태 <ul><li><code>"off"</code>: 꺼짐</li><li><code>"on"</code>: 켜짐</li></ul> | 필수 |
 
 #### Object example
 
@@ -258,7 +266,10 @@
                 "role": "source"
             }
         ],
-        "state": "on"
+        "state": "on",
+        "pairing": "on",
+        "scanning": "on",
+        "connecting": "off"
     },
     ...
   }
