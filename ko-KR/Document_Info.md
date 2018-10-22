@@ -21,12 +21,23 @@
   </thead>
   <tbody>
     <tr>
+      <td>v3.42.0</td><td>미적용</td><td>2018-10-20</td>
+      <td>
+        <ul>
+          <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.md">DeviceControl</a> 네임스페이스에 블루투스 기기를 재탐지(rescan)하거나 블루투스 기기의 제거하게 하는 <a href="/CIC/References/CICInterface/DeviceControl.md#BtDelete">DeviceControl.BtDelete</a>와 <a href="/CIC/References/CICInterface/DeviceControl.mdBtRescan">DeviceControl.BtRescan</a> 지시 메시지 추가</li>
+          <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.md">DeviceControl</a> 네임스페이스에 블루투스 기기를 통해 음악을 재생하도록 하는 <a href="/CIC/References/CICInterface/DeviceControl.md#BtPlay">DeviceControl.BtPlay</a> 지시 메시지 추가</li>
+          <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.md">DeviceControl</a> 네임스페이스의 <a href="/CIC/References/CICInterface/DeviceControl.md#BtConnect">DeviceControl.BtConnect</a>와 <a href="/CIC/References/CICInterface/DeviceControl.md#BtDisconnect">DeviceControl.BtDisconnect</a> 지시 메시지에 필드를 추가하여 특정 역할을 가진 기기나 특정 기기를 연결하거나 연결 해지할 수 있게 함</li>
+          <li>[CIC] <a href="/CIC/References/Context_Objects.md#DeviceState">Device.DeviceState</a> 맥락 객체의 <a href="/CIC/References/Context_Objects.md#BluetoothInfoObject">BluetoothInfoObject</a>에 connecting, pairing, playerinfo, scanning 필드를 추가하여 클라이언트의 블루투스 관련 상태 정보를 추가함</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.41.0</td><td>미적용</td><td>2018-10-13</td>
       <td>
         <ul>
           <li>[CEK] Clova Home extension API에 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateConsumptionRequest">GetEstimateConsumptionRequest</a>, <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateConsumptionResponse">GetEstimateConsumptionResponse</a> 추가</li>
           <li>[CEK] Clova Home extension 메시지의 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.md">공유 객체</a> <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.md#ModeInfoObject">ModeInfoObject</a>에 AIRPURIFIER, HUMIDIFIER, VENTILATOR 타입 기기의 모드 추가</li>
-          <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentSittingStateRequest에서">GetCurrentSittingStateRequest</a>에 period 필드 추가</li>
+          <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentSittingStateRequest">GetCurrentSittingStateRequest</a>에 period 필드 추가</li>
           <li>[Dev. Console] <a href="/DevConsole/Guides/CEK/Register_Extension.md#InputExtensionInfo">Extension 기본 정보 입력</a>에 호출 이름을 한 개 이상 최대 세 개까지 등록할 수 있음을 명시</li>
         </ul>
       </td>
@@ -337,11 +348,19 @@
       <td>v3.19.0</td><td>v2.7</td><td>2018-01-08</td>
       <td>
         <ul>
+<<<<<<< HEAD
           <li>[Design] 플랫폼 구현 상황에 맞게 <a href="/Design/Design_Guideline_For_Extension.md#DefineInteractionModel">built-in intent</a>에 대한 설명 수정</li>
           <li>[CIC] <a href="/CIC/Guides/Implement_Client_Features.md#HandleDelegation">위임된 사용자 요청 처리하기</a> 절 추가 및 <a href="/CIC/References/CICInterface/Clova.md#HandleDelegatedEvent">Clova.HandleDelegatedEvent</a> 지시 메시지와 <a href="/CIC/References/CICInterface/Clova.md#ProcessDelegatedEvent">Clova.ProcessDelegatedEvent</a> 이벤트 메시지 추가</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/PlaybackController.md#NextCommandIssued">PlaybackController.NextCommandIssued</a>와 <a href="/CIC/References/CICInterface/PlaybackController.md#PreviousCommandIssued">PlaybackController.PreviousCommandIssued</a> 이벤트 메시지에 <a href="/CIC/References/Context_Objects.md#PlaybackState">AudioPlayer.PlaybackState</a> 맥락 정보를 포함하도록 설명 추가</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/Alerts.md">Alerts</a> API의 동작 구조에 대한 설명 개선</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.md">DeviceControl</a> API의 <a href="/CIC/References/CICInterface/DeviceControl.md#DeviceContorlWorkFlow">동작 구조</a>에 대한 설명 추가</li>
+=======
+          <li>[Design] 플랫폼 구현 상황에 맞게 <a href="/Design/Design_Guideline_For_Extension.md#DefineInteractionModel">built-in intent</a>에 대한 설명 수정</li>
+          <li>[CIC] <a href="/CIC/Guides/Implement_Client_Features.md#HandleDelegation">위임된 사용자 요청 처리하기</a> 절 추가 및 <a href="/CIC/References/CICInterface/Clova.md#HandleDelegatedEvent">Clova.HandleDelegatedEvent</a> 지시 메시지와 <a href="/CIC/References/CICInterface/Clova.md#ProcessDelegatedEvent">Clova.ProcessDelegatedEvent</a> 이벤트 메시지 추가</li>
+          <li>[CIC] <a href="/CIC/References/CICInterface/PlaybackController.md#NextCommandIssued">PlaybackController.NextCommandIssued</a>와 <a href="/CIC/References/CICInterface/PlaybackController.md#PreviousCommandIssued">PlaybackController.PreviousCommandIssued</a> 이벤트 메시지에 <a href="/CIC/References/Context_Objects.md#PlaybackState">AudioPlayer.PlaybackState</a> 맥락 정보를 포함하도록 설명 추가</li>
+          <li>[CIC] <a href="/CIC/References/CICInterface/Alerts.md">Alerts</a> API의 동작 구조에 대한 설명 개선</li>
+          <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.md">DeviceControl</a> API의 <a href="/CIC/References/CICInterface/DeviceControl.md#DeviceControlWorkFlow">동작 구조</a>에 대한 설명 추가</li>
+>>>>>>> doc-KR-Partner
           <li>[CIC] 일부 content template 및 공유 객체에 대한 오류 교정 내용 수정</li>
           <li>[CEK] <a href="/CEK/Examples/Extension_Examples.md">Extension 예제</a> 페이지 추가</li>
           <li>[Dev. Console] <strong>테스터 ID</strong> 필드 추가에 따른 <a href="/DevConsole/Guides/CEK/Test_Extension.md">Extension 테스트하기</a> 설명 업데이트</li>
