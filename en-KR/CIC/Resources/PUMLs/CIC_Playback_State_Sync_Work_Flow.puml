@@ -1,49 +1,49 @@
 !include ../../../styles/PlantUML_StyleSheet.puml
 
-participant "Clova 앱" as ca #9EA0CA
-participant "클라이언트 기기 1" as cli1 #9EA0CA
-participant "클라이언트 기기 2" as cli2 #9EA0CA
+participant "Clova app" as ca #9EA0CA
+participant "Client device 1" as cli1 #9EA0CA
+participant "Client device 2" as cli2 #9EA0CA
 participant CIC as cic #05D686
 
 activate ca
-  ca ->> cic : 클라이언트 음원 재생 상태 업데이트 요청
+  ca ->> cic : Request playback state of clients
 deactivate ca
 
 group Request state report
 
   activate cic
 
-    cic ->> cli1 : AudioPlayer.ExpectReportPlaybackState 지시 메시지 전달\n(Downchannel 이용)
+    cic ->> cli1 : Forward AudioPlayer.ExpectReportPlaybackState directive\n(via downchannel)
     activate cli1
 
-    cic ->> cli2 : AudioPlayer.ExpectReportPlaybackState 지시 메시지 전달\n(Downchannel 이용)
+    cic ->> cli2 : Forward AudioPlayer.ExpectReportPlaybackState directive\n(via downchannel)
     activate cli2
 
   deactivate cic
 
 end
 
-...클라이언트 음원 재생 상태 수집 후...
+...After collecting playback state from clients...
 
 group Report state
 
-    cli2 ->> cic : AudioPlayer.ReportPlaybackState 이벤트 메시지 전송\n(음원 재생 상태 보고)
+    cli2 ->> cic : Send AudioPlayer.ReportPlaybackState event\n(Reporting playback state)
     deactivate cli2
   activate cic
 
-    cli1 ->> cic : AudioPlayer.ReportPlaybackState 이벤트 메시지 전송\n(음원 재생 상태 보고)
+    cli1 ->> cic : Send AudioPlayer.ReportPlaybackState event\n(Reporting playback state)
     deactivate cli1
 
 end
 
-    cic -> cic : 수집된 상태 정리
+    cic -> cic : Refine collected state
 
 group Synchronize state
 
-    cic ->> ca : 음원 재생 상태 정보 공유
+    cic ->> ca : Share playback state
     activate ca
 
-    ca -> ca : 클라이언트 음원 재생 상태 업데이트
+    ca -> ca : Update playback state of clients
 
   deactivate cic
 

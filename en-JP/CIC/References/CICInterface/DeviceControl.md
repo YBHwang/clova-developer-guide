@@ -2,7 +2,7 @@
 
 The DeviceControl namespace provides interfaces for controlling client devices or reporting to CIC the result of changing client device settings.
 
-Users may request to manipulate their client devices. If the user request is for controlling the client device, the client will receive a directive of this namespace, `DeviceControl`. The client has to perform the task instructed by the directive and then send the result to CIC. For more information, see the [Client device control workflow](#DeviceContorlWorkFlow).
+Users may request to manipulate their client devices. If the user request is for controlling the client device, the client will receive a directive of this namespace, `DeviceControl`. The client has to perform the task instructed by the directive and then send the result to CIC. For more information, see the [Client device control workflow](#DeviceControlWorkFlow).
 
 The client device can be connected to a third-party Bluetooth speaker using the `DeviceControl` message. CIC controls the connection to a third-party Bluetooth device by sending a directive for Bluetooth pairing and connection to the client. Then the client will frequently report the information related to the paired Bluetooth speaker using the [`BluetoothInfoObject`](/CIC/References/Context_Objects.md#BluetoothInfoObject) of the [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) context. For more information on creating a connection, refer to each directive and event.
 
@@ -32,7 +32,7 @@ The DeviceControl namespace provides the following events and directives.
 | [`TurnOff`](#TurnOff)                     | Directive | Instructs the client to turn off or disable a specified feature or mode.                           |
 | [`TurnOn`](#TurnOn)                       | Directive | Instructs the client to turn on or enable a specified feature or mode.                                   |
 
-## Client device control workflow {#DeviceContorlWorkFlow}
+## Client device control workflow {#DeviceControlWorkFlow}
 
 The general process of controlling a client device is as follows:
 
