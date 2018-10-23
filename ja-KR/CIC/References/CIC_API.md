@@ -14,7 +14,7 @@ CIC APIを使用する前に、次の内容を知っておく必要がありま�
 ### Base URL {#BaseURL}
 CIC APIのベースURLは、次の通りです。
 
-<pre><code>{{ book.CICBaseURL }}
+<pre><code>{{ book.ServiceEnv.CICBaseURL }}
 </code></pre>
 
 ### マルチパートのメッセージ {#MultipartMessage}
@@ -139,7 +139,7 @@ GET /v1/directives
 ### Request example
 
 <pre><code>GET /v1/directives HTTP/2
-Host: {{ book.CICBaseURL }}
+Host: {{ book.ServiceEnv.CICBaseURL }}
 User-Agent: MyOrganizationName/MyAppName/2.1.2-release (Android 7.0;SettopBox;target=KR;other=sample)
 Authorization: Bearer XHapQasdfsdfFsdfasdflQQ7w
 </code></pre>
@@ -208,14 +208,16 @@ Content-Disposition: form-data; name="exception-bde71903-dab4-46c5-9714-416cf12d
 Content-Type: application/json; charset=utf-8
 
 {
-  "header": {
-    "namespace": "System",
-    "name": "Exception",
-    "messageId": "369b362b-258c-4104-bdf8-dc276548fe51"
-  },
-  "payload": {
-    "code": 400,
-    "description": "Could not decode multipart"
+  "directive": {
+    "header": {
+      "namespace": "System",
+      "name": "Exception",
+      "messageId": "369b362b-258c-4104-bdf8-dc276548fe51"
+    },
+    "payload": {
+      "code": 400,
+      "description": "Could not decode multipart"
+    }
   }
 }
 --883fd3b825c9b883f99b9ffb4d2a2cbd7a24c9c61bfa69d70c51140f34ca--
@@ -251,7 +253,7 @@ POST /v1/events
 ### Request example
 
 <pre><code>POST /v1/events HTTP/2
-Host: {{ book.CICBaseURL }}
+Host: {{ book.ServiceEnv.CICBaseURL }}
 Accept: */*
 User-Agent: MyOrganizationName/MyAppName/2.1.2-release (Android 7.0;SettopBox;target=KR;other=sample)
 Authorization: Bearer XHapQasdfsdfFsdfasdflQQ7w
@@ -351,7 +353,7 @@ CICはHTTPレスポンスで、クライアントに動作を実行するよう�
 |---------------|-------------------------|
 | 200 OK                    | クライアントから送信したイベントがCICで正常に受信され、レスポンスにクライアントが実行するディレクティブが1つ以上含まれていることを示します。 |
 | 204 No Content            | クライアントから送信したイベントがCICで正常に受信され、レスポンスにクライアントが実行するディレクティブが含まれていないことを示します。                    |
-| 400 Bad Request           | リクエストに誤りがあったことを示します。                                                                        |
+| 400 Bad Request           | イベントに誤りがあったことを示します。                                                  |
 | 401 Unauthorized          | ユーザー認証に失敗したことを示します。[ユーザー認証](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken)を再度行う必要があります。                        |
 | 412 Precondition Failed   | リクエストを送信するための前提条件が満たされていないことを示します。主に、クライアントが[ダウンチャネルを確立](#EstablishDownchannel)していないか、または[ダウンチャネルを確立するときに構成した接続](/CIC/Guides/Interact_with_CIC.md#CreateConnection)でイベントを送信していない場合に発生します。  |
 | 500 Internal Server Error | サーバー内部にエラーが発生したことを示します。                                                                                       |
@@ -424,14 +426,16 @@ Content-Disposition: form-data; name="exception-bde71903-dab4-46c5-9714-416cf12d
 Content-Type: application/json; charset=utf-8
 
 {
-  "header": {
-    "namespace": "System",
-    "name": "Exception",
-    "messageId": "369b362b-258c-4104-bdf8-dc276548fe51"
-  },
-  "payload": {
-    "code": 400,
-    "description": "Could not decode multipart"
+  "directive": {
+    "header": {
+      "namespace": "System",
+      "name": "Exception",
+      "messageId": "369b362b-258c-4104-bdf8-dc276548fe51"
+    },
+    "payload": {
+      "code": 400,
+      "description": "Could not decode multipart"
+    }
   }
 }
 --883fd3b825c9b883f99b9ffb4d2a2cbd7a24c9c61bfa69d70c51140f34ca--
@@ -478,14 +482,14 @@ CIC APIで使用されるメッセージは、次のようなものがあり、�
 
 | フィールド名       | データ型    | 説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:---------:|
-| `context[]`                      | object array | CICに送るクライアントのステータス情報を持つオブジェクト。次のような[コンテキスト](/CIC/References/Context_Objects.md)オブジェクトをこの配列の要素として含めることができます。状況に応じて、必要なコンテキストをイベントに含めます。<ul><li><a href="/CIC/References/Context_Objects.html#AlertsState"><code>Alerts.AlertsState</code></a>：アラームまたはタイマーのステータス情報</li><li><a href="/CIC/References/Context_Objects.html#PlaybackState"><code>AudioPlayer.PlaybackState</code></a>：最近の再生情報</li><li><a href="/CIC/References/Context_Objects.html#DeviceState"><code>Device.DeviceState</code></a>：クライアントのデバイス情報</li><li><a href="/CIC/References/Context_Objects.html#Display"><code>Device.Display</code></a>：クライアントのディスプレイ情報</li><li><a href="/CIC/References/Context_Objects.html#Location"><code>Clova.Location</code></a>：クライアントの位置情報</li><li><a href="/CIC/References/Context_Objects.html#SavedPlace"><code>Clova.SavedPlace</code></a>：事前定義された位置情報</li><li><a href="/CIC/References/Context_Objects.html#VolumeState"><code>Speaker.VolumeState</code></a>：スピーカーの情報</li></ul> |  |
-| `event`                        | object       | イベントのヘッダーと必要なデータ(payload)を持つオブジェクト                                                                 |  |
-| `event.header`                 | object       | イベントのヘッダー                                                                                                 |  |
+| `context[]`                      | object array | CICに送るクライアントのステータス情報を持つオブジェクト。次のような[コンテキスト](/CIC/References/Context_Objects.md)オブジェクトをこの配列の要素として含めることができます。状況に応じて、必要なコンテキストをイベントに含めます。<ul><li><a href="/CIC/References/Context_Objects.html#AlertsState"><code>Alerts.AlertsState</code></a>：アラームまたはタイマーのステータス情報</li><li><a href="/CIC/References/Context_Objects.html#PlaybackState"><code>AudioPlayer.PlaybackState</code></a>：最近の再生情報</li><li><a href="/CIC/References/Context_Objects.html#DeviceState"><code>Device.DeviceState</code></a>：クライアントのデバイス情報</li><li><a href="/CIC/References/Context_Objects.html#Display"><code>Device.Display</code></a>：クライアントのディスプレイ情報</li><li><a href="/CIC/References/Context_Objects.html#Location"><code>Clova.Location</code></a>：クライアントの位置情報</li><li><a href="/CIC/References/Context_Objects.html#SavedPlace"><code>Clova.SavedPlace</code></a>：事前定義された位置情報</li><li><a href="/CIC/References/Context_Objects.html#VolumeState"><code>Speaker.VolumeState</code></a>：スピーカーの情報</li></ul> | 必須 |
+| `event`                        | object       | イベントのヘッダーと必要なデータ(payload)を持つオブジェクト                                                                 | 必須 |
+| `event.header`                 | object       | イベントのヘッダー                                                                                                 | 必須 |
 | `event.header.dialogRequestId` | string       | ダイアログID(Dialog ID)。クライアントは、[`SpeechRecognizer.Regcognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)と[`TextRecognizer.Recognize`](/CIC/References/CICInterface/TextRecognizer.md#Recognize)イベントを送信する際、必ず[ダイアログID](/CIC/CIC_Overview.md#DialogIDandClientOP)を作成してこのフィールドに入力する必要があります。|任意 |
-| `event.header.messageId`       | string       | メッセージID。メッセージを区別するための識別子です。                                                                 |  |
-| `event.header.name`            | string       | イベントのAPI名                                                                                             |  |
-| `event.header.namespace`       | string       | イベントのAPI名前空間                                                                                       |  |
-| `event.payload`                | object       | イベントに関連する情報を持つオブジェクト。使用されている[CICメッセージインターフェース](#CICInterface)によって、ペイロードの構成とフィールド値が異なります。 |  |
+| `event.header.messageId`       | string       | メッセージID。メッセージを区別するための識別子です。                                                                 | 必須 |
+| `event.header.name`            | string       | イベントのAPI名                                                                                             | 必須 |
+| `event.header.namespace`       | string       | イベントのAPI名前空間                                                                                       | 必須 |
+| `event.payload`                | object       | イベントに関連する情報を持つオブジェクト。使用されている[CICメッセージインターフェース](#CICInterface)によって、ペイロードの構成とフィールド値が異なります。 | 必須 |
 
 #### Message example
 {% raw %}
@@ -584,7 +588,7 @@ CIC APIで使用されるメッセージは、次のようなものがあり、�
 
 | フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
-| `directive`                        | object | ディレクティブのヘッダーと必要なデータ(`payload`)を持つオブジェクト                                                                 | 常時     |
+| `directive`                        | object | ディレクティブのヘッダーと必要なデータ(`payload`)を持つオブジェクト                                                           | 常時     |
 | `directive.header`                 | object | ディレクティブのヘッダー                                                                                                 | 常時     |
 | `directive.header.dialogRequestId` | string | ダイアログID(Dialog ID)。クライアント側で、受信した応答がどの対話に対するものなのかを確認するために使用されます。ディレクティブが[`SpeechRecognizer.Regcognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)イベントに対する応答ではない場合、このフィールドがディレクティブに含まれないこともあります。  | 条件付き  |
 | `directive.header.messageId`       | string | メッセージID。メッセージを区別するための識別子です。                                                                | 常時     |
@@ -619,63 +623,72 @@ CIC APIで使用されるメッセージは、次のようなものがあり、�
 * [インターフェース](#CICInterface)
 
 ### エラーメッセージ {#Error}
-無効なメソッドや形式でイベントが送信されたり、サーバー内部のエラーなどの理由により、Clovaが正常にサービスを提供できない場合があります。その際、CICはエラーメッセージをクライアントに送信します。クライアントはエラーメッセージに応じて、適切なUX/UIを提供する必要があります。
+無効なメソッドや形式で[イベント](#Event)が送信されたり、サーバー内部のエラーなどの理由により、Clovaが正常にサービスを提供できない場合があります。その際、CICはエラーメッセージをクライアントに送信します。クライアントはエラーメッセージに応じて、適切なUX/UIを提供する必要があります。
 
 #### Message structure
 {% raw %}
 ```json
 {
-  "header": {
-    "namespace": "System",
-    "name": "Exception",
-    "messageId": {{string}}
-  },
-  "payload": {
-    "code": {{number}},
-    "description": {{string}}
+  "directive": {
+    "header": {
+      "namespace": "System",
+      "name": "Exception",
+      "messageId": {{string}}
+    },
+    "payload": {
+      "code": {{number}},
+      "description": {{string}}
+    }
   }
 }
 ```
 {% endraw %}
 
+<div class="note">
+  <p><strong>メモ</strong></p>
+  <p>エラーメッセージは、<a href="#Directive">ディレクティブ</a>と類似の構造を持ちます。</p>
+</div>
 
 #### Message fields
 
 | フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
-| `header`                 | object | エラーメッセージのヘッダー                                             | 常時 |
-| `header.messageId`       | string | メッセージID。メッセージを区別するための識別子です。            | 常時 |
-| `header.name`            | string | エラーメッセージの名前。`"Exception"`に固定されています。                | 常時 |
-| `header.namespace`       | string | エラーメッセージの名前空間。`"System"`に固定されています。             | 常時 |
-| `payload`                | object | エラーに関連する情報を持つオブジェクト                                | 常時 |
-| `payload.code`           | number | エラーコード。メッセージが含まれたHTTPレスポンスのステータスコードと同じです。           | 常時 |
-| `payload.description`    | string | エラーメッセージ                                                  | 常時 |
+| `directive`                        | object | エラーメッセージのヘッダーと必要なデータ(`payload`)を持つオブジェクト       | 常時 |
+| `directive.header`                 | object | エラーメッセージのヘッダー                                             | 常時 |
+| `directive.header.messageId`       | string | メッセージID。メッセージを区別するための識別子です。            | 常時 |
+| `directive.header.name`            | string | エラーメッセージの名前。`"Exception"`に固定されています。                | 常時 |
+| `directive.header.namespace`       | string | エラーメッセージの名前空間。`"System"`に固定されています。             | 常時 |
+| `directive.payload`                | object | エラーに関連する情報を持つオブジェクト                                | 常時 |
+| `directive.payload.code`           | number | エラーコード。メッセージが含まれたHTTPレスポンスのステータスコードと同じです。           | 常時 |
+| `directive.payload.description`    | string | エラーメッセージ                                                  | 常時 |
 
 #### Error code reference
 
 | エラーコード | 説明                             |
 |---------|---------------------------------|
-| 400     | リクエストに誤りがあったことを示します。                                                 |
+| 400     | [イベント](#Event)に誤りがあったことを示します。                                                |
 | 401     | ユーザー認証に失敗したことを示します。[ユーザー認証](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken)を再度行う必要があります。 |
 | 500     | サーバー内部にエラーが発生したことを示します。                                                                                |
 
 <div class="note">
   <p><strong>メモ</strong></p>
-  <p>エラーコードは追加される予定です。</p>
+  <p>上記のエラーコードは、レスポンスメッセージのHTTPステータスコードと同じです。なお、エラーコードは追加される可能性があります。</p>
 </div>
 
 ### Message example
 {% raw %}
 ```json
 {
-  "header": {
-    "namespace": "System",
-    "name": "Exception",
-    "messageId": "369b362b-258c-4104-bdf8-dc276548fe51"
-  },
-  "payload": {
-    "code": 400,
-    "description": "Could not decode multipart"
+  "directive": {
+    "header": {
+      "namespace": "System",
+      "name": "Exception",
+      "messageId": "369b362b-258c-4104-bdf8-dc276548fe51"
+    },
+    "payload": {
+      "code": 400,
+      "description": "Could not decode multipart"
+    }
   }
 }
 ```
