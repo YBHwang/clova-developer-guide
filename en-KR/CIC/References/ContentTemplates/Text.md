@@ -395,7 +395,7 @@ The Text template is used in providing text for the client to display on the cli
 {% endraw %}
 
 ## UI example {#UIExample}
-The following examples show how the Text template is used on the Clova app distributed by {{ book.OrientedService }}.
+The following examples show how the Text template is used on the Clova app distributed by {{ book.ServiceEnv.OrientedService }}.
 
 | Text with emphasis | Text in paragraphs | Text in a table |
 |-------|-------|-------|

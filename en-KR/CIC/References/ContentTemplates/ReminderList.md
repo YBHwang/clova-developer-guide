@@ -126,7 +126,7 @@ The ReminderList template is used in providing information about multiple remind
 
 ## UI example {#UIExample}
 
-The following example shows how the ReminderList template is used on the Clova app distributed by {{ book.OrientedService }}.
+The following example shows how the ReminderList template is used on the Clova app distributed by {{ book.ServiceEnv.OrientedService }}.
 
 ![](/CIC/Resources/Images/Content_Template-ReminderList.png)
 

@@ -13,7 +13,7 @@ The SpeechRecognizer namespace provides the following events and directives.
 | [`ExpectSpeech`](#ExpectSpeech)                 | Directive | Instructs the client to receive user voice input.                  |
 | [`KeepRecording`](#KeepRecording)               | Directive | Instructs the client to continually receive voice input.                     |
 | [`Recognize`](#Recognize)                       | Event     | Requests CIC for speech recognition on the user audio request.          |
-{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}| [`ShowRecognizedText`](#ShowRecognizedText)     | Directive | Returns the recognition result of a user voice request in real-time.              |
+{% if book.DocMeta.TargetReaderType == "Internal" or book.DocMeta.TargetReaderType == "Uplus" %}| [`ShowRecognizedText`](#ShowRecognizedText)     | Directive | Returns the recognition result of a user voice request in real-time.              |
 | [`StopCapture`](#StopCapture)                   | Directive | Instructs the client to stop receiving voice input from the user.           |{% else %}| [`StopCapture`](#StopCapture)                   | Directive | Instructs the client to stop receiving voice input from the user.           |{% endif %}
 
 ## ExpectSpeech directive {#ExpectSpeech}
@@ -114,7 +114,7 @@ CIC can process the following audio formats:
 | `initiator`                                              | object   | The information on the Clova call method used, voice input source, and wake word.<div class="note"><p><strong>Note!</strong></p><p>The use of this field will improve the performance of speech recognition. Therefore, we recommend that you use this field.</p></div>                      | Optional    |
 | `initiator.inputSource`                                  | string   | The source of the voice input from the user. You must enter the following values:<ul><li><code>SELF</code>: Specify this value if the client device that has sent the <code>SpeechRecognizer.Recognize</code> event receives the voice input from the user directly.</li><li><code>CUSTOM_{Source_ID}</code>: Specify the ID of the device if another device, such as a remote control that is not the client device, that has sent the <code>SpeechRecognizer.Recognize</code> event, receives the voice input.</li></ul><div class="note"><p><strong>Note!</strong></p><p>You must use the value arranged with the Clova partnership team in advance for the device ID.</p></div>  | Required |
 | `initiator.payload`                                      | object   | The detailed information of the `initiator` field.                                                        | Optional |
-| `initiator.payload.deviceUUID`                           | string   | The UUID randomly created from the device. Once the UUID is created, this must be used continuously and must be a value that cannot used to identify a user from Clova.  In other words, you must not use the {{ book.TargetServiceForClientAuth }} access token value, Clova access token value, client ID or a combination of these values.   | Required |
+| `initiator.payload.deviceUUID`                           | string   | The UUID randomly created from the device. Once created, the UUID must not be changed and it must not be a value that reveals information about a specific user from Clova. In other words, you must not use the {{ book.ServiceEnv.TargetServiceForClientAuth }} access token value, Clova access token value, client ID, or a combination of these values.   | Required |
 | `initiator.payload.wakeWord`                             | object   | Object containing the wake word information recognized from the client. This object is used to improve the wake word recognition.       | Optional |
 | `initiator.payload.wakeWord.confidence`                  | number   | The value indicating the confidence level of wake word recognition from the device. Enter a float value between 0 and 1. This field is invalid at this time and reserved for later.                 | Optional |
 | `initiator.payload.wakeWord.indices`                      | object   | The section containing the wake word from the audio stream of a user voice input.                                           | Required |
@@ -219,7 +219,7 @@ Content-Type: application/octet-stream
 ### See also
 * [`SpeechRecognizer.ExpectSpeech`](#ExpectSpeech)
 * [`SpeechRecognizer.StopCapture`](#StopCapture)
-{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}
+{% if book.DocMeta.TargetReaderType == "Internal" or book.DocMeta.TargetReaderType == "Uplus" %}
 ## ShowRecognizedText directive {#ShowRecognizedText}
 
 This directive returns recognition results to the client in real time. The speech recognition system of Clova analyzes and returns the user voice request in real time while receiving the voice request through the [`SpeechRecognizer.Recognize`](#Recognize) event. During the recognition process, CIC returns partial recognition result to the client with the `SpeechRecognizer.ShowRecognizedText` directive. The client has an option to display the recognition progress in real time.
@@ -300,7 +300,7 @@ This directive returns the last recognition result and instructs the client to s
 
 ### Payload fields
 
-{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}
+{% if book.DocMeta.TargetReaderType == "Internal" or book.DocMeta.TargetReaderType == "Uplus" %}
 | Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:---------:|
 | `recognizedText` | string | The last recognition result of the user voice request. This field is included only under special conditions. | Conditional |
@@ -313,7 +313,7 @@ This directive is sent through a [downchannel](/CIC/Guides/Interact_with_CIC.md#
 
 ### Message example
 
-{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}
+{% if book.DocMeta.TargetReaderType == "Internal" or book.DocMeta.TargetReaderType == "Uplus" %}
 ```json
 {
   "directive": {
@@ -346,7 +346,7 @@ This directive is sent through a [downchannel](/CIC/Guides/Interact_with_CIC.md#
 {% endif %}
 
 ### See also
-{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}
+{% if book.DocMeta.TargetReaderType == "Internal" or book.DocMeta.TargetReaderType == "Uplus" %}
 * [`SpeechRecognizer.Recognize`](#Recognize)
 * [`SpeechRecognizer.ShowRecognizedText`](#ShowRecognizedText)
 {% else %}

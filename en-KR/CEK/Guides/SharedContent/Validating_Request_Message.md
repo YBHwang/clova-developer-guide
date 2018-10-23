@@ -4,7 +4,7 @@ When the extension receives an HTTP request from CEK, you need to validate the i
 
 <ol>
   <li><p>Download the RSA public key for Clova signature from the URL below.</p>
-<p>{{ book.PublicKeyURLforCEKMessageValidation }}</p></li>
+<p>{{ book.ServiceEnv.PublicKeyURLforCEKMessageValidation }}</p></li>
   <li><p>Obtain the `SignatureCEK` field value from the <a href="/CEK/References/CEK_API.html#HTTPHeader">HTTP header</a>.</p><p>`SignatureCEK` The field value is the <a href="https://tools.ietf.org/html/rfc3447" target="_blank">RSA PKCS#1 v1.5</a> signature value that has encoded the body of the HTTP request message in Base64.</p></li>
   <li><a href="https://tools.ietf.org/html/rfc3447#section-5.2" target="_blank">Verify</a> as follows using the RSA public key downloaded in step 1 and the `SignatureCEK` header value acquired in step 2.</li>
 </ol>

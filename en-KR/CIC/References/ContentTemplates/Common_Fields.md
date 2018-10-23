@@ -51,8 +51,8 @@ Among the common fields, the following action URL scheme values are included in 
 | [clova://audio-repeat](#AudioRepeat)                                | Output audio     |
 | [clova://device-control](#DeviceControl)                            | Control the device       |
 | [clova://guide/talking](#GuideTalking)     | Provide a guide on commands                              |
-| [clova://{{ book.OrientedServiceWithLowerCase }}Search](#NaverSearch)        | Search a specific keyword on the {{ book.OrientedService }} app                    |
-| [clova://{{ book.OrientedServiceWithLowerCase }}-maps](#NaverMaps)           | Launch the {{ book.OrientedService }} map app                            |
+| [clova://{{ book.ServiceEnv.OrientedServiceWithLowerCase }}Search](#NaverSearch)        | Search a specific keyword on the {{ book.ServiceEnv.OrientedService }} app                    |
+| [clova://{{ book.ServiceEnv.OrientedServiceWithLowerCase }}-maps](#NaverMaps)           | Launch the {{ book.ServiceEnv.OrientedService }} map app                            |
 | [clova://ttsRepeat](#TTSRepeat)            | Start TTS                     |
 | [clova://webview](#WebView)                | Open a webpage in a WebView                          |
 
@@ -141,32 +141,32 @@ The client must provide a command helper in response to this scheme. The followi
 clova://guide/talking
 ```
 
-### clova://{{ book.OrientedServiceWithLowerCase }}Search {#NaverSearch}
+### clova://{{ book.ServiceEnv.OrientedServiceWithLowerCase }}Search {#NaverSearch}
 
-The client must run the {{ book.OrientedService }} app and perform search in response to this scheme.
+The client must run the {{ book.ServiceEnv.OrientedService }} app and perform search in response to this scheme.
 
 | Parameter name    | Description                         | Included |
 |---------------|-----------------------------|:---------:|
-| url           | The URL page to open in the {{ book.OrientedService }} app. | Always |
+| url           | The URL page to open in the {{ book.ServiceEnv.OrientedService }} app. | Always |
 
 The following is an example of the action URL scheme.
 
 ```
-clova://{{ book.OrientedServiceWithLowerCase }}Search?url=http://target.page.url
+clova://{{ book.ServiceEnv.OrientedServiceWithLowerCase }}Search?url=http://target.page.url
 ```
 
-### clova://{{ book.OrientedServiceWithLowerCase }}-maps {#NaverMaps}
+### clova://{{ book.ServiceEnv.OrientedServiceWithLowerCase }}-maps {#NaverMaps}
 
-The client must run the {{ book.OrientedService }} map app and find routes in response to this scheme.
+The client must run the {{ book.ServiceEnv.OrientedService }} map app and find routes in response to this scheme.
 
 | Parameter name    | Description                         | Included |
 |---------------|-----------------------------|:---------:|
-| url           | The URL to open with the {{ book.OrientedService }} map app.   | Always |
+| url           | The URL to open with the {{ book.ServiceEnv.OrientedService }} map app.   | Always |
 
 The following is an example of the action URL scheme.
 
 ```
-clova://{{ book.OrientedServiceWithLowerCase }}-maps?url=http://target.map.url
+clova://{{ book.ServiceEnv.OrientedServiceWithLowerCase }}-maps?url=http://target.map.url
 ```
 
 ### clova://ttsRepeat {#TTSRepeat}

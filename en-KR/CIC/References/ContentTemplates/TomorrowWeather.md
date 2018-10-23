@@ -304,7 +304,7 @@ The TomorrowWeather template is used in providing tomorrow's weather forecast fo
 {% endraw %}
 
 ## UI example {#UIExample}
-The following example shows how the TomorrowWeather template is used on the Clova app distributed by {{ book.OrientedService }}.
+The following example shows how the TomorrowWeather template is used on the Clova app distributed by {{ book.ServiceEnv.OrientedService }}.
 
 ![TomorrowWeather](/CIC/Resources/Images/Content-Template-TomorrowWeather.png)
 

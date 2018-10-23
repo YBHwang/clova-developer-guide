@@ -223,7 +223,7 @@ The WeeklyWeather template is used in providing weekly weather information for t
 {% endraw %}
 
 ## UI example {#UIExample}
-The following example shows how the WeeklyWeather template is used on the Clova app distributed by {{ book.OrientedService }}.
+The following example shows how the WeeklyWeather template is used on the Clova app distributed by {{ book.ServiceEnv.OrientedService }}.
 
 ![WeeklyWeather](/CIC/Resources/Images/Content-Template-WeeklyWeather.png)
 

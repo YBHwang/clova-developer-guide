@@ -17,17 +17,17 @@ The Popup template is used in providing information on texts or buttons to displ
 
 | Field name       | Data type    | Description                     |
 |---------------|---------|-----------------------------|
-| `alertText`        | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The warning message for an alert. An empty string (`""`) indicates that no content is to be displayed. |
+| `alertText`        | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The warning message for an alert. The `value` field of this object can have an empty string (`""`). |
 | `displayType`      | string                                                                          | The type of information to display. Available values are:<ul><li><code>"POPUP"</code></li><li><code>"ALERT"</code></li><li><code>"TOAST"</code></li></ul>  |
-| `negativeButtonText`   | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | For popups, the button label that carries a negative meaning such as **No**. An empty string (`""`) indicates that no content is to be displayed. |
-| `negativeButtonUrl`    | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | For popups, the URL information to connect to the button label that carries a negative meaning such as **No**. An empty string (`""`) indicates that no content is to be displayed. |
-| `mainText`        | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The text to display on the popup. An empty string (`""`) indicates that no content is to be displayed. |
-| `positiveButtonText`  | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | For popups, the button label that carries a positive meaning, such as **Yes**. For popups with a single button, this object is used as text to display on the button with a meaning such as **Confirmation**. An empty string (`""`) indicates that no content is to be displayed. |
-| `positiveButtonUrl`   | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | For popups, the URL information to connect to the button label that carries a positive meaning such as **Yes**. For popups with a single button, this object is used as URL to connect to the button with a meaning such as **Confirmation**. An empty string (`""`) indicates that no content is to be displayed. |
-| `title`            | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The title of this popup. An empty string (`""`) indicates that no content is to be displayed. |
-| `toastLinkText`    | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The link text to display on the toast. An empty string (`""`) indicates that no content is to be displayed. |
-| `toastLinkUrl`     | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | The URL of the link to display on the toast. An empty string (`""`) indicates that no content is to be displayed. |
-| `toastText`        | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The text to display on the toast. An empty string (`""`) indicates that no content is to be displayed. |
+| `negativeButtonText`   | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | For popups, the button label that carries a negative meaning such as **No**. The `value` field of this object can have an empty string (`""`). |
+| `negativeButtonUrl`    | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | For popups, the URL information to connect to the button label that carries a negative meaning such as **No**. The `value` field of this object can have an empty string (`""`). |
+| `mainText`        | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The text to display on the popup. The `value` field of this object can have an empty string (`""`). |
+| `positiveButtonText`  | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | For popups, the button label that carries a positive meaning, such as **Yes**. For popups with a single button, this object is used as text to display on the button with a meaning such as **Confirmation**. The `value` field of this object can have an empty string (`""`). |
+| `positiveButtonUrl`   | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | For popups, the URL information to connect to the button label that carries a positive meaning such as **Yes**. For popups with a single button, this object is used as the URL to connect to the button with a meaning such as **Confirmation**. The `value` field of this object can have an empty string (`""`). |
+| `title`            | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The title of this popup. The `value` field of this object can have an empty string (`""`). |
+| `toastLinkText`    | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The link text to display on the toast. The `value` field of this object can have an empty string (`""`). |
+| `toastLinkUrl`     | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | The URL of the link to display on the toast. The `value` field of this object can have an empty string (`""`). |
+| `toastText`        | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The text to display on the toast. The `value` field of this object can have an empty string (`""`). |
 | `type`             | string                                                                          | The type of this template. The value is always `"Popup"`.     |
 
 ## Template example
@@ -40,7 +40,7 @@ The Popup template is used in providing information on texts or buttons to displ
   "displayType": "TOAST",
   "toastText": {
     "type": "string",
-    "value": "You are currently listening to the one minute preview. Teach Clova about your music taste and get a coupon for 100 songs on NAVER Music!"
+    "value": "You are currently listening to the one minute preview. Teach Clova about your taste in music and get a coupon for 100 songs on Music!"
   },
   "toastLinkText": {
     "type": "string",
@@ -152,7 +152,7 @@ The Popup template is used in providing information on texts or buttons to displ
   },
   "mainText": {
     "type": "string",
-    "value": "Enjoy Clova's recommendations with the NAVER Music coupon for 100 free songs!"
+    "value": "Enjoy Clova's recommendations with a free Music coupon for 100 songs!"
   },
   "negativeButtonText": {
     "type": "string",
@@ -221,7 +221,7 @@ The Popup template is used in providing information on texts or buttons to displ
 {% endraw %}
 
 ## UI example {#UIExample}
-The following examples show how the Popup template is used on the Clova app distributed by {{ book.OrientedService }}.
+The following examples show how the Popup template is used on the Clova app distributed by {{ book.ServiceEnv.OrientedService }}.
 
 | Toast type | Alert type |
 |-----------|-----------|

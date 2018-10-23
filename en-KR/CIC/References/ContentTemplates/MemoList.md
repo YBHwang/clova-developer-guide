@@ -78,7 +78,7 @@ The MemoList template is used in providing a list of memos for the client to dis
 
 ## UI example {#UIExample}
 
-The following example shows how the MemoList template is used on the Clova app distributed by {{ book.OrientedService }}.
+The following example shows how the MemoList template is used on the Clova app distributed by {{ book.ServiceEnv.OrientedService }}.
 
 ![](/CIC/Resources/Images/Content_Template-MemoList.png)
 

@@ -142,7 +142,7 @@ The **skill name** and **invocation name** must satisfy the following conditions
       <td>No name that could be easily misunderstood</td>
       <td>The following names may be misleading and are not allowed:
         <ul>
-          <li>Names that can be mistaken for a third party {{ book.OrientedService }} or affiliated company (e.g. Naver fishing master)</li>
+          <li>Names that can be mistaken for a third party {{ book.ServiceEnv.OrientedService }} or affiliated company (e.g. Naver fishing master)</li>
           <li>The <strong>skill name</strong> and <strong>invocation name</strong> are very different to the point of having contradicting meanings (e.g. The skill name is "Cat meowing" and the invocation name is "Dog barking")</li>
           <li>The name and the provided content are different (e.g. The name is "Cat meowing" but the provided content is a dog barking)</li>
         </ul>
@@ -435,7 +435,7 @@ When writing responses as speech output type, you must conform to the following 
 * Use relatively short audio content for sound effects.
 * The sound effect must be configured to play only once at the very beginning of the response.
   * Correct example: Sound effect (.mp3) > Speech output (TTS) > Speech output (TTS) > ...
-  * Incorrect example 1: Speech output(TTS) > Sound effect (.mp3) > Speech output (TTS) > ...
+  * Incorrect example 1: Speech output (TTS) > Sound effect (.mp3) > Speech output (TTS) > ...
   * Incorrect example 2: Sound effect (.mp3) > Speech output (TTS) > Sound effect (.mp3) > Speech output (TTS) > ...
 * We recommend that a response is comprised of less than 10 speech output.
 
@@ -471,14 +471,14 @@ This sound type outputs audio content such as music for a long period of time an
 Below is a simple usage scenario of audio content play type.
 
 > <p class="ldiag">"Start Classical Box"</p>
-> <p class="rdiag">"Which classical music should I turn on?"(TTS)</p>
+> <p class="rdiag">"Which classical music should I turn on?" (TTS)</p>
 > <p class="ldiag">"Play Vivaldi's Four Seasons."</p>
-> <p class="rdiag">"Okay. Here is the first movement of Vivaldi's Four Seasons."(TTS)</p>
-> <p class="rdiag">AudioPlayer.Play:  First movement of Vivaldi's Four Seasons</p>
+> <p class="rdiag">"Okay. Here is the first movement of Vivaldi's Four Seasons." (TTS)</p>
+> <p class="rdiag">AudioPlayer.Play: First movement of Vivaldi's Four Seasons</p>
 > <p class="ldiag">"Clova, pause for a moment."</p>
-> <p class="rdiag">AudioPlayer.Pause:  Cancel play</p>
+> <p class="rdiag">AudioPlayer.Pause: Cancel play</p>
 > <p class="ldiag">"Clova, play again."</p>
-> <p class="rdiag">AudioPlayer.Resume:  Resume play</p>
+> <p class="rdiag">AudioPlayer.Resume: Resume play</p>
 > <p class="ldiag">"Next"</p>
 > <p class="rdiag">AudioPlayer.Play: Second movement of Vivaldi's Four Seasons</p>
 
@@ -513,15 +513,15 @@ Skills must comply with the following guidelines to guarantee user safety:
 
 * Your skill must not induce or encourage any actions that may endanger human life or compromise physical safety.
 * Your skill must not induce or encourage any actions that could raise safety concerns for underage persons such as running away or rebelling.
-* Your skill must not interfere with the use of {{ book.DocOwner }} or third-party devices, equipment, or systems, or cause operational disruptions.
-* Your skill must not illegally change or remove the information accumulated in the equipment of {{ book.DocOwner }} or a third party.
+* Your skill must not interfere with the use of {{ book.DocMeta.DocOwner }} or third-party devices, equipment, or systems, or cause operational disruptions.
+* Your skill must not illegally change or remove the information accumulated in the equipment of {{ book.DocMeta.DocOwner }} or a third party.
 * Your skill must not contain or send harmful programs such as a virus.
 
 ### Protection of rights and legal compliances {#RightAndLegal}
 
 Skills must comply with the following to protect rights and obligate to respect relevant laws:
 
-* Your skill must not infringe on the rights of {{ book.DocOwner }} or a third party (copyrights, intellectual property rights, portrait rights, naming rights, human rights, reputation rights, or other rights).
+* Your skill must not infringe on the rights of {{ book.DocMeta.DocOwner }} or a third party (copyrights, intellectual property rights, portrait rights, naming rights, human rights, reputation rights, or other rights).
 * Your skill must not provide content with unclear rights (e.g. Secondary creation).
 * Your skill must not provide content without permission or without proof of receiving permission from the rights holder.
 * Your skill must not provide content that induces or encourages illegal behavior such as gambling.
@@ -540,8 +540,8 @@ Skills must comply with the following ethical guidelines:
 * Your skill must not cause users to scrutinize, curse, attack, or create negative feelings against a specific individual, group, corporation, or country.
 * Your skill must not cause users to attack a specific religion, culture, ethnicity, or national character, or create a negative feeling against it.
 * Your skill must not include antisocial content or cause discomfort.
-* Your skill must clearly indicate that it is not developed or provided by {{ book.DocOwner }}.
-* Your skill must not unjustly discriminate against or criticize {{ book.DocOwner }} or a third party or induce or encourage such actions from users.
+* Your skill must clearly indicate that it is not developed or provided by {{ book.DocMeta.DocOwner }}.
+* Your skill must not unjustly discriminate against or criticize {{ book.DocMeta.DocOwner }} or a third party or induce or encourage such actions from users.
 
 ### Privacy {#Privacy}
 

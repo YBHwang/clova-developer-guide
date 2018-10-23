@@ -2,11 +2,11 @@
 To connect a client with CIC, complete the following steps.
 * [Creating Clova access tokens](#CreateClovaAccessToken)
 * [Creating connections](#CreateConnection)
-* [Getting authentications](#Authorization)
+* [Getting authorizations](#Authorization)
 * [Managing connections](#ManageConnection)
 
 ### Creating Clova access tokens {#CreateClovaAccessToken}
-To use Clova, users must authenticate their {{ book.TargetServiceForClientAuth }} account on a client, whether it is a device or an app. Clova access tokens with {{ book.TargetServiceForClientAuth }} credentials must be obtained from the Clova authorization server for the client to connect and make a request to CIC. For this process, you must use the [Clova auth API](/CIC/References/Clova_Auth_API.md).
+To use Clova, users must authenticate their {{ book.ServiceEnv.TargetServiceForClientAuth }} account on a client, whether it is a device or an app. Clova access tokens with {{ book.ServiceEnv.TargetServiceForClientAuth }} credentials must be obtained from the Clova authorization server for the client to connect and make a request to CIC. For this process, you must use the [Clova auth API](/CIC/References/Clova_Auth_API.md).
 
 The following diagram illustrates the process of a client obtaining a Clova access token. Note that the process differs for each client type. Clova defines the following two types of clients for providing Clova services:
 * **Client without GUI**: Clients without a display embedded in devices like speakers or home appliances. Since users cannot enter their credentials on this type of device for account authentication and it can be frustrating, the client should provide a companion app or be linked to the Clova app.
@@ -18,15 +18,15 @@ Obtain a Clova access token by following the instructions provided below:
 
 <ol>
   <li>
-    <p>The client provides an interface for a user to authenticate the {{ book.TargetServiceForClientAuth }} account. (Log in using the <a href="{{ book.LoginAPIofTargetService }}" target="_blank">{{ book.TargetServiceForClientAuth }} ID</a>). As voice biometric cannot be the sole method of account authentication, make sure to use the Clova app or the companion app for <strong>clients without GUI</strong>.</p>
+    <p>The client provides an interface for a user to authenticate the {{ book.ServiceEnv.TargetServiceForClientAuth }} account. (Log in using the <a href="{{ book.ServiceEnv.LoginAPIofTargetService }}" target="_blank">{{ book.ServiceEnv.TargetServiceForClientAuth }} ID</a>). As voice biometric cannot be the sole method of account authentication, make sure to use the Clova app or the companion app for <strong>clients without GUI</strong>.</p>
   </li>
   <li>
-    <p>Obtain the {{ "authorization code" if book.TargetCountryCode == "JP" else "access token" }} for the {{ book.TargetServiceForClientAuth }} account using the {{ book.TargetServiceForClientAuth }} account information entered by the user.</p>
+    <p>Obtain the {{ "authorization code" if book.L10N.TargetCountryCode == "JP" else "access token" }} for the {{ book.ServiceEnv.TargetServiceForClientAuth }} account using the {{ book.ServiceEnv.TargetServiceForClientAuth }} account information entered by the user.</p>
   </li>
   <li>
-    <p><a href="/CIC/References/Clova_Auth_API.html#RequestAuthorizationCode">Request an authorization code</a> using the obtained {{ "authorization code" if book.TargetCountryCode == "JP" else "access token" }} for the {{ book.TargetServiceForClientAuth }} account and <a href="#ClientAuthInfo">client credentials</a>. Define the <code>device_id</code> field either with the client MAC address or with the UUID hash value you generated. The following is an example of requesting an authorization code.</p>
+    <p><a href="/CIC/References/Clova_Auth_API.html#RequestAuthorizationCode">Request an authorization code</a> using the obtained {{ "authorization code" if book.L10N.TargetCountryCode == "JP" else "access token" }} for the {{ book.ServiceEnv.TargetServiceForClientAuth }} account and <a href="#ClientAuthInfo">client credentials</a>. Define the <code>device_id</code> field either with the client MAC address or with the UUID hash value you generated. The following is an example of requesting an authorization code.</p>
     <pre><code>$ curl -H "Authorization: Bearer QHSDAKLFJASlk12jlkf+asldkjasdf=sldkjf123dsalsdflkvpasdFMrjvi23scjaf123klv"
-    {{ book.AuthServerBaseURL }}authorize \
+    {{ book.ServiceEnv.AuthServerBaseURL }}authorize \
     --data-urlencode "client_id=c2Rmc2Rmc2FkZ2Fasdkjh234zZnNhZGZ" \
     --data-urlencode "device_id=aa123123d6-d900-48a1-b73b-aa6c156353206" \
     --data-urlencode "model_id=test_model" \
@@ -58,7 +58,7 @@ Obtain a Clova access token by following the instructions provided below:
   </li>
   <li>
     <p><a href="/CIC/References/Clova_Auth_API.html#RequestClovaAccessToken">Request for the Clova access token</a> using the obtained authorization code and <a href="#ClientAuthInfo">client credentials</a> as parameters. The following is an example of requesting a Clova access token.</p>
-    <pre><code>$ curl {{ book.AuthServerBaseURL }}token?grant_type=authorization_code \
+    <pre><code>$ curl {{ book.ServiceEnv.AuthServerBaseURL }}token?grant_type=authorization_code \
     --data-urlencode "client_id=c2Rmc2Rmc2FkZ2Fasdkjh234zZnNhZGZ" \
     --data-urlencode "client_secret=66qo65asdfasdfaA7JasdfasfOqwnOq1rOyfgeydtCDrvYasfasf%3D" \
     --data-urlencode "code=cnl__eCSTdsdlkjfweyuxXvnlA" \
@@ -176,7 +176,7 @@ Authorization: Bearer [YOUR_ACCESS_TOKEN]
 
 The client can get the expiration time of a Clova access token using the `expires_in` field of the obtained token. If the client receives an expired token or receives an "HTTP 401 Unauthorized" [error status code](/CIC/References/CIC_API.md#Error) for using the token, the access token must be renewed. As shown below, you can [refresh the Clova access token](/CIC/References/Clova_Auth_API.md#RefreshClovaAccessToken) by providing the `refresh_token` received with the [granted Clova access token](/CIC/References/Clova_Auth_API.md#RequestClovaAccessToken) and providing other required parameters.
 
-<pre><code>$ curl {{ book.AuthServerBaseURL }}token?grant_type=refresh_token \
+<pre><code>$ curl {{ book.ServiceEnv.AuthServerBaseURL }}token?grant_type=refresh_token \
        --data-urlencode "client_id=c2Rmc2Rmc2FkZ2FzZnNhZGZ" \
        --data-urlencode "client_secret=66qo65asdfasdfaA7JasdfasfOqwnOq1rOyfgeydtCDrvYasfasf%3D" \
        --data-urlencode "refresh_token=GW-Ipsdfasdfdfs3IbHFBA" \

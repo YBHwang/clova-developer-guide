@@ -10,7 +10,7 @@ The ImageText template is used in providing an image and description for the cli
 
 | Field name       | Data type    | Description                     |
 |---------------|---------|-----------------------------|
-| `appLinkUrl`     | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)             | The URL to the {{ book.OrientedService }} map app, if a map image is included. The `value` field of this object can have an empty string (`""`).  |
+| `appLinkUrl`     | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)             | The URL to the {{ book.ServiceEnv.OrientedService }} map app, if a map image is included. The `value` field of this object can have an empty string (`""`).  |
 | `imageUrl`       | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)             | The URL of the image. The `value` field of this object can have an empty string (`""`).                                |
 | `linkUrl`        | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)             | The URL to a web map, if a map image is included. The `value` field of this object can have an empty string (`""`).   |
 | `mainText`       | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)       | The main text to display. The `value` field of this object can have an empty string (`""`).                                       |
@@ -18,7 +18,7 @@ The ImageText template is used in providing an image and description for the cli
 | `referenceUrl`   | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)             | The information on the usage result URL of the referred service. The `value` field of this object can have an empty string (`""`).   |
 | `subTextList[]`    | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) array | The object array that has the sub-texts. The `value` field of this object array can have an empty string (`""`).                               |
 | `thumbImageUrl`  | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)             | The URL of the thumbnail image. The `value` field of this object can have an empty string (`""`).                           |
-| `thumbImageType` | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)       | The category of thumbnail content. <ul><li><code>"People"</code>: On people</li><li><code>"Book"</code>: On book information</li><li><code>"Album"</code>: On music albums</li><li>Empty string(<code>""</code>): No thumbnail information</li></ul> |
+| `thumbImageType` | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)       | The category of thumbnail content. <ul><li><code>"People"</code>: On people</li><li><code>"Book"</code>: On book information</li><li><code>"Album"</code>: On music albums</li><li>Empty string (<code>""</code>): No thumbnail information</li></ul> |
 | `type`           | string  | The type of this template. The value is always `"ImageText"`.      |
 
 ## Template example
@@ -116,7 +116,7 @@ The ImageText template is used in providing an image and description for the cli
 {% endraw %}
 
 ## UI example {#UIExample}
-The following example shows how the ImageText template is used on the Clova app distributed by {{ book.OrientedService }}.
+The following example shows how the ImageText template is used on the Clova app distributed by {{ book.ServiceEnv.OrientedService }}.
 
 | Thumbnail image and text | Map image and text |
 |-------|-------|

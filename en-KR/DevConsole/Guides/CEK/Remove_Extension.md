@@ -17,5 +17,5 @@ If the extension is in service after passing the review, you can delete it after
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>A check from the Clova operations team is required to cancel a service. To stop the service of an extension, contact the operations team at <a href="mailto:{{ book.ExtensionAdminEmail }}">{{ book.ExtensionAdminEmail }}</a>.</p>
+  <p>A check from the Clova operations team is required to cancel a service. To stop the service of an extension, contact the operations team at <a href="mailto:{{ book.ServiceEnv.ExtensionAdminEmail }}">{{ book.ServiceEnv.ExtensionAdminEmail }}</a>.</p>
 </div>

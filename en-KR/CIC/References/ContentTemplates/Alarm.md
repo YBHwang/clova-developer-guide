@@ -14,7 +14,7 @@ The Alarm template is used in providing alarm information for the client to disp
 
 | Field name       | Data type    | Description                     |
 |---------------|---------|-----------------------------|
-| `repeatDay[]`     | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) array | The object array that has the repeat day(s) for a weekly action timer.     |
+| `repeatDay[]`     | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) array | The object array that has the repeat day(s) for a weekly alarm.     |
 | `repeatPeriod`  | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)     | The repeat cycle. Available values are: <ul><li>Empty String (<code>""</code>): One-time alarm </li><li><code>"daily"</code>: Daily alarm</li><li><code>"weekly"</code>: Weekly alarm</li></ul> |
 | `scheduledTime` | [DateTimeObject](/CIC/References/ContentTemplates/Shared_Objects.md#DateTimeObject) | The date and time at which this alarm is to ring.                         |
 | `token`         | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)     | The ID of this alarm.                            |
@@ -90,7 +90,7 @@ The Alarm template is used in providing alarm information for the client to disp
 
 ## UI example {#UIExample}
 
-The following example shows how the Alarm template is used on the Clova app distributed by {{ book.OrientedService }}.
+The following example shows how the Alarm template is used on the Clova app distributed by {{ book.ServiceEnv.OrientedService }}.
 
 ![](/CIC/Resources/Images/Content_Template-Alarm.png)
 

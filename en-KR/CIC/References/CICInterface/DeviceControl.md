@@ -2,7 +2,7 @@
 
 The DeviceControl namespace provides interfaces for controlling client devices or reporting to CIC the result of changing client device settings.
 
-Users may request to manipulate their client devices. If the user request is for controlling the client device, the client will receive a directive of this namespace, `DeviceControl`. The client has to perform the task instructed by the directive and then send the result to CIC. For more information, see the [Client device control workflow](#DeviceControlWorkFlow).
+Users may request to manipulate their client devices. If the user request is for controlling the client device, the client will receive a directive of this namespace, `DeviceControl`. The client has to perform the task instructed by the directive and then send the result to CIC. For more information, see the [Client device control workflow](#DeviceContorlWorkFlow).
 
 The client device can be connected to a third-party Bluetooth speaker using the `DeviceControl` message. CIC controls the connection to a third-party Bluetooth device by sending a directive for Bluetooth pairing and connection to the client. Then the client will frequently report the information related to the paired Bluetooth speaker using the [`BluetoothInfoObject`](/CIC/References/Context_Objects.md#BluetoothInfoObject) of the [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) context. For more information on creating a connection, refer to each directive and event.
 
@@ -32,7 +32,7 @@ The DeviceControl namespace provides the following events and directives.
 | [`TurnOff`](#TurnOff)                     | Directive | Instructs the client to turn off or disable a specified feature or mode.                           |
 | [`TurnOn`](#TurnOn)                       | Directive | Instructs the client to turn on or enable a specified feature or mode.                                   |
 
-## Client device control workflow {#DeviceControlWorkFlow}
+## Client device control workflow {#DeviceContorlWorkFlow}
 
 The general process of controlling a client device is as follows:
 
@@ -661,7 +661,7 @@ Instructs the client to turn up the speaker volume or increase the screen bright
 
 | Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:---------:|
-| `target`      | string  | The target app to launch. The app can be specified in one of the following ways: <ul><li>Custom URL scheme: A custom URL scheme of the target app. (e.g. <code>"{{ book.OrientedServiceWithLowerCase }}searchapp://..."</code>)</li><li>Relay page URL: A relay page URL that executes the app if the app is already installed. (e.g. App name: <code>"http://{{ book.OrientedServiceWithLowerCase }}app.{{ book.OrientedServiceWithLowerCase }}.com/..."</code>)</li><li>App name: The name of the app recognized from user speech. (e.g. <code>"{{ book.OrientedService }}App"</code>)</li></ul> | Always     |
+| `target`      | string  | The target app to launch. The app can be specified in one of the following ways: <ul><li>Custom URL scheme: A custom URL scheme of the target app. (e.g. <code>"{{ book.ServiceEnv.OrientedServiceWithLowerCase }}searchapp://..."</code>)</li><li>Relay page URL: A relay page URL that executes the app if the app is already installed. (e.g. App name: <code>"http://{{ book.ServiceEnv.OrientedServiceWithLowerCase }}app.{{ book.ServiceEnv.OrientedServiceWithLowerCase }}.com/..."</code>)</li><li>App name: The name of the app recognized from user speech. (e.g. <code>"{{ book.ServiceEnv.OrientedService }}App"</code>)</li></ul> | Always     |
 
 ### Remarks
 
@@ -679,7 +679,7 @@ Instructs the client to turn up the speaker volume or increase the screen bright
       "dialogRequestId": "3c6eef8b-8427-4b46-a367-0a7a46432519"
     },
     "payload": {
-      "target": "{{ book.OrientedServiceWithLowerCase }}searchapp://..."
+      "target": "{{ book.ServiceEnv.OrientedServiceWithLowerCase }}searchapp://..."
     }
   }
 }

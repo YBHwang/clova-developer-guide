@@ -299,7 +299,7 @@ The TodayWeather template is used in providing today's weather for the client to
 {% endraw %}
 
 ## UI example {#UIExample}
-The following example shows how the TodayWeather template is used on the Clova app distributed by {{ book.OrientedService }}.
+The following example shows how the TodayWeather template is used on the Clova app distributed by {{ book.ServiceEnv.OrientedService }}.
 
 ![TodayWeather](/CIC/Resources/Images/Content-Template-TodayWeather.png)
 

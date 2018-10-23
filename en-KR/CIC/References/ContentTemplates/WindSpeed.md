@@ -71,7 +71,7 @@ The WindSpeed template is used in providing wind speed information for the clien
 {% endraw %}
 
 ## UI example {#UIExample}
-The following example shows how the WindSpeed template is used on the Clova app distributed by {{ book.OrientedService }}.
+The following example shows how the WindSpeed template is used on the Clova app distributed by {{ book.ServiceEnv.OrientedService }}.
 
 ![WindSpeed](/CIC/Resources/Images/Content-Template-WindSpeed.png)
 

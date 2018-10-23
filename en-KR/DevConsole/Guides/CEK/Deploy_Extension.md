@@ -73,16 +73,16 @@ You can request for a review by clicking the **{{ book.DevConsole.cek_request_su
 
 ![](/DevConsole/Resources/Images/DevConsole-Submit_Extension_1.png)
 
-Or, click the **{{ book.DevConsole.cek_request_submit }}** button at the bottom of the screen for entering [privacy and compliance information](#InputComplianceInfo).
+Or, click **{{ book.DevConsole.cek_request_submit }}** at the bottom of the screen for entering [privacy and compliance information](#InputComplianceInfo).
 
 ![](/DevConsole/Resources/Images/DevConsole-Submit_Extension_2.png)
 
-If you click on the **{{ book.DevConsole.cek_request_submit }}** button, you can leave information on the review request for the administrator. If it is your first review request for the extension, you can mention that and describe the extension. If it is your second review request for the extension due to updates on functions or the interaction model, enter the improved details. Or, if it is your second review request due to rejections, enter whether the issues have been corrected.
+If you click **{{ book.DevConsole.cek_request_submit }}**, you can leave information on the review request for the administrator. If it is your first review request for the extension, you can mention that and describe the extension. If it is your second review request for the extension due to updates on functions or the interaction model, enter the improved details. Or, if it is your second review request due to rejections, enter whether the issues have been corrected.
 
 ![](/DevConsole/Resources/Images/DevConsole-Submission_Request_Message.png)
 
-<div class="note">
-  <p><strong>Note!</strong></p>
+<div class="danger">
+  <p><strong>Caution!</strong></p>
   <p>You cannot edit the extension information and interaction model during the review stage.</p>
 </div>
 

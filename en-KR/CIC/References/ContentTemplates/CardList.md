@@ -507,7 +507,7 @@ The Cardlist template has standardized the data to be displayed on the screen as
 {% endraw %}
 
 ## UI example {#UIExample}
-The following examples show how each card type is used to present information on the Clova app distributed by {{ book.OrientedService }}.
+The following examples show how each card type is used to present information on the Clova app distributed by {{ book.ServiceEnv.OrientedService }}.
 
 | `Type1` | `Type2` |
 |-------|-------|
@@ -519,7 +519,7 @@ The following examples show how each card type is used to present information on
 
 <div class="note">
 <p><strong>Note!</strong></p>
-<p>UI examples for <code>Type5</code> and <code>Type6</code> are in preparation.</p>
+<p>UI examples for <code>Type5</code> and <code>Type6</code> will be added soon.</p>
 </div>
 
 ## See also

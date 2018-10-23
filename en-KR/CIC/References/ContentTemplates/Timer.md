@@ -40,7 +40,7 @@ The Timer template is used in providing timer information for the client to disp
 
 ## UI example {#UIExample}
 
-The following example shows how the Timer template is used on the Clova app distributed by {{ book.OrientedService }}.
+The following example shows how the Timer template is used on the Clova app distributed by {{ book.ServiceEnv.OrientedService }}.
 
 ![](/CIC/Resources/Images/Content_Template-Timer.png)
 

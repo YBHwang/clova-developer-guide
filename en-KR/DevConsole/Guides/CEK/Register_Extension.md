@@ -1,5 +1,5 @@
 # Registering an extension
-If you are developing or have developed a [custom extension](/CEK/Guides/Build_Custom_Extension.md) or a [Clova Home extension](/CEK/Guides/Build_Clova_Home_Extension.md), you must register it on the Clova developer console. To register a new extension, click the **{{ book.DevConsole.cek_builder_new_extension_create }}** button at the bottom of the CEK menu page.
+If you are developing or have developed a [custom extension](/CEK/Guides/Build_Custom_Extension.md) or a [Clova Home extension](/CEK/Guides/Build_Clova_Home_Extension.md), you must register it on the Clova developer console. To register a new extension, click **{{ book.DevConsole.cek_builder_new_extension_create }}** at the bottom of the CEK menu page.
 
 ![](/DevConsole/Resources/Images/DevConsole-First_Look_of_Extension_List.png)
 
@@ -36,17 +36,17 @@ Follow the steps below to register the extension:
     <ol>
       <li><strong>{{ book.DevConsole.cek_id }}</strong>: Unique ID of the extension. Use the reverse domain name notation for the ID (e.g. com.example.extension.pizzabot).</li>
       <li><strong>{{ book.DevConsole.cek_name }}</strong>: Name of the extension. The name will be shown later on the Clova Skill Store.</li>
-      <li><strong>{{ book.DevConsole.cek_invocation_name }}</strong>: Name of the extension that can be used by users to call the extension. The name can be a general name of an owned service, company, or organization, but it is more preferable to use a concise and unique name to increase user convenience. A universal word, or names of another company or its service, cannot be used. The <strong>{{ book.DevConsole.cek_invocation_name }}</strong> will be evaluated during the extension review process.</li>
+      <li><strong>{{ book.DevConsole.cek_invocation_name }}</strong>: Name of the extension that can be used by users to call the extension. You can register at least one and up to three {{ book.DevConsole.cek_invocation_name }}. The name can be a general name of an owned service, company, or organization, but it is more preferable to use a concise and unique name to increase user convenience. A universal word, or names of another company or its service, cannot be used. The <strong>{{ book.DevConsole.cek_invocation_name }}</strong> will be evaluated during the extension review process.</li>
       <li><strong>{{ book.DevConsole.cek_provider }}</strong>: Enter the name or alias of the extension manufacturer (company or individual). This will be reviewed in the extension approval process and will be shown later in the skill store.</li>
     </ol>
   </li>
   <li>If the extension uses the <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a> directive, select <strong>{{ book.DevConsole.cek_yes }}</strong> from the <strong>{{ book.DevConsole.cek_audioplayer }}</strong> item. The extension uses the directive messages when it provides a music streaming service.</li>
   <li>Enter an email address for contact in the <strong>{{ book.DevConsole.cek_email }}</strong> item.</li>
-  <li>Enter the {{ book.OrientedService }} account for testing the extension under development in the <strong>{{ book.DevConsole.cek_tester }}</strong> item. You do not need to enter the account information when registering the extension, but can enter it in this field when <a href="/DevConsole/Guides/CEK/Test_Extension.html">testing the extension</a> later on.</li>
-  <li>After filling out the basic extension information, click the<strong>{{ book.DevConsole.cek_create }}</strong> button.</li>
+  <li>Enter the {{ book.ServiceEnv.OrientedService }} account for testing the extension under development in the <strong>{{ book.DevConsole.cek_tester }}</strong> item. You do not need to enter the account information when registering the extension, but can enter it in this field when <a href="/DevConsole/Guides/CEK/Test_Extension.html">testing the extension</a> later on.</li>
+  <li>After filling out the basic extension information, click <strong>{{ book.DevConsole.cek_create }}</strong>.</li>
 </ol>
 
-Once you complete entering the basic extension information, you will be directed to the screen to edit this information. From this point, you can click the **{{ book.DevConsole.cek_save }}** button at the bottom of the page anytime to save the changed details. You can also find the list of registered extensions in the CEK menu as shown below.
+Once you complete entering the basic extension information, you will be directed to the screen to edit this information. From this point, you can click **{{ book.DevConsole.cek_save }}** at the bottom of the page anytime to save the changed details. You can also find the list of registered extensions in the CEK menu as shown below.
 
 ![](/DevConsole/Resources/Images/DevConsole-Extension_List_After_Creation.png)
 
@@ -76,7 +76,7 @@ Follow the steps below to set up a connection with the server.
   </li>
   <li>If there is a need for linking the user account of the extension service and the Clova user account, select <strong>{{ book.DevConsole.cek_yes }}</strong> for the <strong>{{ book.DevConsole.cek_account_linking }}</strong> item. For more information on account linking, see <a href="#SetAccountLinking">setting up account linking</a>.</li>
   <li>Click the radio button of the <strong>{{ book.DevConsole.cek_ssl_certificate }}</strong> item. The extension server must use the certificate of an authorized certificate agency.  (Self-signed certificates cannot be used.)</li>
-  <li>Fill out the details for setting up the server connection and click the <strong>{{ book.DevConsole.cek_save }}</strong> button.</li>
+  <li>Fill out the details for setting up the server connection and click <strong>{{ book.DevConsole.cek_save }}</strong>.</li>
 </ol>
 
 ### Setting up account linking {#SetAccountLinking}
@@ -108,6 +108,6 @@ Follow the steps below to enter the [information required](/CEK/Guides/Link_User
 
 <div id="RedirectURI" class="note">
   <p><strong>Note!</strong></p>
-  <p>The client URL (redirect URL) to be redirected after account authentication is <code>{{ book.RedirectURLforAccountLinking }}</code> and this URL can be found in <strong>{{ book.DevConsole.cek_redirect_urls }}</strong>.</strong></p>
+  <p>The client URL (redirect URL) to be redirected after account authentication is <code>{{ book.ServiceEnv.RedirectURLforAccountLinking }}</code> and this URL can be found in <strong>{{ book.DevConsole.cek_redirect_urls }}</strong>.</strong></p>
   <img src="/DevConsole/Resources/Images/DevConsole-Redirect_URL_for_Extension_Accoun_Linking.png" />
 </div>

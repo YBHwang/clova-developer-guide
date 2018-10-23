@@ -4,7 +4,7 @@ To connect a client with CIC, you must [create a Clova access token](/CIC/Guides
 ## Base URL
 The base URL of the Clova authorization server is as follows.
 
-<pre><code>{{ book.AuthServerBaseURL }}
+<pre><code>{{ book.ServiceEnv.AuthServerBaseURL }}
 </code></pre>
 
 ## Requesting an authorization code {#RequestAuthorizationCode}
@@ -13,7 +13,7 @@ The base URL of the Clova authorization server is as follows.
 GET|POST /authorize
 ```
 
-This API requests an authorization code by using the {{ book.TargetServiceForClientAuth }} account access token and [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo) as parameters. The obtained authorization code will be used in generating a Clova access token.
+This API requests an authorization code by using the {{ book.ServiceEnv.TargetServiceForClientAuth }} account access token and [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo) as parameters. The obtained authorization code will be used in generating a Clova access token.
 
 Typically, user authentication is processed on the pair app. However, transferring a Clova access token from the pair app to the client may have a potential security issue. To avoid security issues, the app forwards the authorization code to the client instead of the Clova access token. Upon receiving an authorization code, the client is to pass the code to the Clova authorization server and [request a Clova access token](#RequestClovaAccessToken).
 
@@ -22,7 +22,7 @@ Typically, user authentication is processed on the pair app. However, transferri
 | Request header | Description                                                                |
 |----------------|--------------------------------------------------------------------|
 | Accept         | <p>Enter the following value:</p><p><pre><code>application/json</code></pre></p>  |
-| Authorization  | Enter the <p>obtained <a href="/CIC/Guides/Interact_with_CIC.html#CreateClovaAccessToken">{{ book.TargetServiceForClientAuth }} access token</a>:</p><p><pre><code>Bearer [{{ book.TargetServiceForClientAuth }} access token]</code></pre></p>  |
+| Authorization  | Enter the <p>obtained <a href="/CIC/Guides/Interact_with_CIC.html#CreateClovaAccessToken">{{ book.ServiceEnv.TargetServiceForClientAuth }} access token</a>:</p><p><pre><code>Bearer [{{ book.ServiceEnv.TargetServiceForClientAuth }} access token]</code></pre></p>  |
 
 ### Query parameter
 
@@ -32,12 +32,12 @@ Typically, user authentication is processed on the pair app. However, transferri
 | `device_id`     | string  | The MAC address or UUID of the client device.                                                              | Required |
 | `model_id`      | string  | The model ID of the client device.                                                                          | Optional |
 | `response_type` | string  | The response type. The value is always `"code"`.                                                             | Required |
-| `state`         | string  | The state of the token used by the client to prevent cross-site request forgery attacks. (URL encoded) | Required |
+| `state`         | string  | The state of the token (URL encoded) used by the client to prevent cross-site request forgery attacks. | Required |
 
 ### Request example
 
 <pre><code>$ curl -H "Authorization: Bearer QHSDAKLFJASlk12jlkf+asldkjasdf=sldkjf123dsalsdflkvpasdFMrjvi23scjaf123klv"
-       {{ book.AuthServerBaseURL }}authorize \
+       {{ book.ServiceEnv.AuthServerBaseURL }}authorize \
        --data-urlencode "client_id=c2Rmc2Rmc2FkZ2Fasdkjh234zZnNhZGZ" \
        --data-urlencode "device_id=aa123123d6-d900-48a1-b73b-aa6c156353206" \
        --data-urlencode "model_id=test_model" \
@@ -65,8 +65,8 @@ Typically, user authentication is processed on the pair app. However, transferri
 |---------------|-------------------------|
 | 200 OK           | The request has been successfully processed.                      |
 | 400 Bad Request  | Required parameters such as `client_id` are missing or invalid parameters have been used. |
-| 403 Forbidden    | The {{ book.TargetServiceForClientAuth }} access token specified in the header is invalid. |
-| 423 Locked       | Authentication attempted using the {{ book.TargetServiceForClientAuth }} account of a user who unsubscribed from the Clova membership less than one month ago. A user who has unsubscribed from Clova cannot use their account to use the Clova service for a month. <div class="note"><p><strong>Note!</strong></p><p>If the client receives a <code>423 Locked</code> status code, a guidance message saying "This account has been unsubscribed from the Clova service. You can use this account again if you log in to the account one month after the date of unsubscription." must be displayed.</p></div>  |
+| 403 Forbidden    | The {{ book.ServiceEnv.TargetServiceForClientAuth }} access token specified in the header is invalid. |
+| 423 Locked       | Authentication attempted using the {{ book.ServiceEnv.TargetServiceForClientAuth }} account of a user who unsubscribed from the Clova membership less than one month ago. A user who has unsubscribed from Clova cannot use their account to use the Clova service for a month. <div class="note"><p><strong>Note!</strong></p><p>If the client receives a <code>423 Locked</code> status code, a guidance message saying "This account has been unsubscribed from the Clova service. You can use this account again if you log in to the account one month after the date of unsubscription." must be displayed.</p></div>  |
 | 451 Unavailable For Legal Reasons | The user has not agreed to the Terms and Conditions. The client should go to the URI in the `redirect_uri` field and display the webpage. This URI points to the Terms and Conditions page.  |
 | 500 Server Internal Error | Failed to issue an authorization code due to an internal server error. |
 
@@ -125,7 +125,7 @@ This API requests for a Clova access token to the Clova authorization server wit
 
 ### Request example
 
-<pre><code>$ curl {{ book.AuthServerBaseURL }}token?grant_type=authorization_code \
+<pre><code>$ curl {{ book.ServiceEnv.AuthServerBaseURL }}token?grant_type=authorization_code \
        --data-urlencode "client_id=c2Rmc2Rmc2FkZ2Fasdkjh234zZnNhZGZ" \
        --data-urlencode "client_secret=66qo65asdfasdfaA7JasdfasfOqwnOq1rOyfgeydtCDrvYasfasf%3D" \
        --data-urlencode "code=cnl__eCSTdsdlkjfweyuxXvnlA" \
@@ -200,7 +200,7 @@ This API renews the Clova access token with a refresh token.
 
 ### Request example
 
-<pre><code>$ curl {{ book.AuthServerBaseURL }}token?grant_type=refresh_token \
+<pre><code>$ curl {{ book.ServiceEnv.AuthServerBaseURL }}token?grant_type=refresh_token \
        --data-urlencode "client_id=c2Rmc2Rmc2FkZ2FzZnNhZGZ" \
        --data-urlencode "client_secret=66qo65asdfasdfaA7JasdfasfOqwnOq1rOyfgeydtCDrvYasfasf%3D" \
        --data-urlencode "refresh_token=GW-Ipsdfasdfdfs3IbHFBA" \
@@ -274,7 +274,7 @@ This API deletes the [issued Clova access token](#RequestClovaAccessToken). The 
 
 ### Request example
 
-<pre><code>$ curl {{ book.AuthServerBaseURL }}token?grant_type=delete \
+<pre><code>$ curl {{ book.ServiceEnv.AuthServerBaseURL }}token?grant_type=delete \
        --data-urlencode "access_token=xFcH08vYQcahQWouqIzWOw" \
        --data-urlencode "client_id=c2Rmc2Rmc2FkZ2Fasdkjh234zZnNhZGZ" \
        --data-urlencode "client_secret=66qo65asdfasdfaA7JasdfasfOqwnOq1rOyfgeydtCDrvYasfasf%3D" \

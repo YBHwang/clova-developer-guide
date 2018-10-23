@@ -1,5 +1,5 @@
 # Memo Template
-The Memo template is used in providing memo information for the client to display on the client screen.  When the user creates a memo, CIC sends the memo to the client in the form of the Memo template.
+The Memo template is used in providing memo information for the client to display on the client screen. When the user creates a memo, CIC sends the memo to the client in the form of the Memo template.
 
 <div class="note">
 <p><strong>Note!</strong></p>
@@ -45,7 +45,7 @@ The Memo template is used in providing memo information for the client to displa
 
 ## UI example {#UIExample}
 
-The following example shows how the Memo template is used on the Clova app distributed by {{ book.OrientedService }}.
+The following example shows how the Memo template is used on the Clova app distributed by {{ book.ServiceEnv.OrientedService }}.
 
 ![](/CIC/Resources/Images/Content_Template-Memo.png)
 

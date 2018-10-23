@@ -15,13 +15,13 @@ The abbreviation of [Clova Interface Connect](#CIC).
 The REST API that CIC provides to clients. Clients use CIC API to exchange information with Clova.
 
 ### Clova {#Clova}
-[Clova](http://clova.ai) is an AI (artificial intelligence) platform developed and serviced by {{ book.TargetServiceForClientAuth }}. Clova recognizes user speech or images, analyzes them, and provides information or services that users have requested. Third-party developers, by leveraging the Clova technologies, can make a device or home appliance that provides an AI service. They can also offer their content or services to users through Clova.
+[Clova](http://clova.ai) is an AI (artificial intelligence) platform developed and serviced by {{ book.ServiceEnv.TargetServiceForClientAuth }}. Clova recognizes user speech or images, analyzes them, and provides information or services that users have requested. Third-party developers, by leveraging the Clova technologies, can make a device or home appliance that provides an AI service. They can also offer their content or services to users through Clova.
 
 ### Clova access token {#ClovaAccessToken}
 A means used by Clova to authorize a client when the client tries to send [events](#Event) to [Clova Interface Connect](#CIC). For more information, see [Creating Clova access tokens](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken).
 
 ### Clova developer console {#ClovaDeveloperConsole}
-A <a target="_blank" href="{{ book.DeveloperConsoleURL }}">[web tool]</a> that provides the following features to the [Clova extension](#ClovaExtension) developers or to client devices that interact with the Clova platform.
+A <a target="_blank" href="{{ book.ServiceEnv.DeveloperConsoleURL }}">[web tool]</a> that provides the following features to the [Clova extension](#ClovaExtension) developers or to client devices that interact with the Clova platform.
 * Registering a client device and obtaining client credentials for authentication (coming soon)
 * [Registering](/DevConsole/Guides/CEK/Register_Extension.md) and [deploying](/DevConsole/Guides/CEK/Deploy_Extension.md) a Clova extension
 * [Registering an interaction model](/DevConsole/Guides/CEK/Register_Interaction_Model.md)
@@ -46,7 +46,7 @@ A platform that serves as an interface between Clova and a client aiming to prov
 
 ### Clova app {#ClovaApp}
 
-A Clova app developed by {{ book.OrientedService }} and deployed to the iOS or Android platform. These apps can send commands to Clova and also register and manage client devices.
+A Clova app developed by {{ book.ServiceEnv.OrientedService }} and deployed to the iOS or Android platform. These apps can send commands to Clova and also register and manage client devices.
 
 ### Clova auth API {#ClovaAuthAPI}
 An API used by clients to obtain [Clova access tokens](#ClovaAccessToken). For more information, see [Clova auth API](/CIC/References/Clova_Auth_API.md).
