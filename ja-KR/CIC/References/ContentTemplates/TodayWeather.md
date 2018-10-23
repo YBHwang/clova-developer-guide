@@ -299,7 +299,7 @@
 {% endraw %}
 
 ## UI example {#UIExample}
-以下は、{{ book.OrientedService }}が配布したClovaのモバイルアプリで、TodayWeatherテンプレートの内容を表したUIサンプルです。
+以下は、{{ book.ServiceEnv.OrientedService }}が配布したClovaのモバイルアプリで、TodayWeatherテンプレートの内容を表したUIサンプルです。
 
 ![TodayWeather](/CIC/Resources/Images/Content-Template-TodayWeather.png)
 

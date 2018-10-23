@@ -66,7 +66,7 @@
 {% endraw %}
 
 ## UI example {#UIExample}
-以下は、{{ book.OrientedService }}が配布したClovaのモバイルアプリで、Humidityテンプレートの内容を表したUIサンプルです。
+以下は、{{ book.ServiceEnv.OrientedService }}が配布したClovaのモバイルアプリで、Humidityテンプレートの内容を表したUIサンプルです。
 
 ![Humidity](/CIC/Resources/Images/Content-Template-Humidity.png)
 

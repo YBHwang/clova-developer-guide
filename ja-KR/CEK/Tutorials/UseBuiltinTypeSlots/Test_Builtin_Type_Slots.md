@@ -3,7 +3,7 @@
 [1番目のチュートリアル](/CEK/Tutorials/Build_Simple_Extension.md)のように、2つのテスト方法があります。1つは、Clova Developer Centerで対話モデルの動作を確認する方法です。もう1つは、テスターIDを登録して、Clovaデバイスで実際の動作を確認する方法です。
 このチュートリアルでは、対話モデルの動作のみ確認します。
 
-<a href="{{ book.DeveloperConsoleURL }}/cek/#/list" target="_blank">Clova Developer Center</a>に接続し、次のようにサンプルサイコロExtensionがサイコロの数をうまく認識することを確認します。
+<a href="{{ book.ServiceEnv.DeveloperConsoleURL }}/cek/#/list" target="_blank">Clova Developer Center</a>に接続し、次のようにサンプルサイコロExtensionがサイコロの数をうまく認識することを確認します。
 1. サンプルサイコロの**{{ book.DevConsole.cek_interaction_model }}**項目の**{{ book.DevConsole.cek_edit}}**ボタンをクリックします。
 2. 画面左上の**{{ book.DevConsole.cek_builder_menu_build }}**ボタンをクリックして、対話モデルをビルドします。
 3. ビルドが終わったら、左側のメニューリストで**{{ book.DevConsole.cek_test }}**メニューを選択します。

@@ -4,7 +4,7 @@
 ## Base URL
 Clova認可サーバーのベースURLは、次の通りです。
 
-<pre><code>{{ book.AuthServerBaseURL }}
+<pre><code>{{ book.ServiceEnv.AuthServerBaseURL }}
 </code></pre>
 
 ## 認可コードをリクエストする {#RequestAuthorizationCode}
@@ -13,7 +13,7 @@ Clova認可サーバーのベースURLは、次の通りです。
 GET|POST /authorize
 ```
 
-{{ book.TargetServiceForClientAuth }}アカウントのアクセストークンおよび[クライアント認証情報](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo)などをパラメーターに渡して、認可コードをリクエストします。認可コードは、Clovaアクセストークンを取得する際に使用されます。
+{{ book.ServiceEnv.TargetServiceForClientAuth }}アカウントのアクセストークンおよび[クライアント認証情報](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo)などをパラメーターに渡して、認可コードをリクエストします。認可コードは、Clovaアクセストークンを取得する際に使用されます。
 
 通常、ユーザー認証は、クライアントデバイスとペアリングされたアプリで行われます。ですが、ペアリングされたアプリからクライアントにClovaアクセストークンを送信するのはセキュリティ上の問題があるため、代わりにこのコードをクライアントに渡します。クライアントは、渡された認可コードをClova認可サーバーに送信して、[Clovaアクセストークンをリクエスト](#RequestClovaAccessToken)します。
 
@@ -22,7 +22,7 @@ GET|POST /authorize
 | リクエストヘッダー | 説明                                                                |
 |----------------|--------------------------------------------------------------------|
 | Accept         | <p>次の値を入力します。</p><p><pre><code>application/json</code></pre></p>  |
-| Authorization  | <p><a href="/CIC/Guides/Interact_with_CIC.html#CreateClovaAccessToken">取得した{{ book.TargetServiceForClientAuth }}アクセストークン</a>を入力します：</p><p><pre><code>Bearer [{{ book.TargetServiceForClientAuth }} access token]</code></pre></p>  |
+| Authorization  | <p><a href="/CIC/Guides/Interact_with_CIC.html#CreateClovaAccessToken">取得した{{ book.ServiceEnv.TargetServiceForClientAuth }}アクセストークン</a>を入力します：</p><p><pre><code>Bearer [{{ book.ServiceEnv.TargetServiceForClientAuth }} access token]</code></pre></p>  |
 
 ### Query parameter
 
@@ -37,7 +37,7 @@ GET|POST /authorize
 ### Request example
 
 <pre><code>$ curl -H "Authorization: Bearer QHSDAKLFJASlk12jlkf+asldkjasdf=sldkjf123dsalsdflkvpasdFMrjvi23scjaf123klv"
-       {{ book.AuthServerBaseURL }}authorize \
+       {{ book.ServiceEnv.AuthServerBaseURL }}authorize \
        --data-urlencode "client_id=c2Rmc2Rmc2FkZ2Fasdkjh234zZnNhZGZ" \
        --data-urlencode "device_id=aa123123d6-d900-48a1-b73b-aa6c156353206" \
        --data-urlencode "model_id=test_model" \
@@ -65,8 +65,8 @@ GET|POST /authorize
 |---------------|-------------------------|
 | 200 OK           | リクエスト成功を示します。                      |
 | 400 Bad Request  | `client_id`などの必須パラメーターを入力しなかったか、パラメーターに無効なデータを入力したことを示します。 |
-| 403 Forbidden    | ヘッダーに含まれた{{ book.TargetServiceForClientAuth }}アクセストークンが無効なことを示します。 |
-| 423 Locked       | Clovaを退会してから1か月が経っていないユーザーの{{ book.TargetServiceForClientAuth }}アカウントで認証しようとしたことを示します。ユーザーはClovaサービスを退会すると、そのアカウントでは1か月間、Clovaサービスを利用できません。<div class="note"><p><strong>メモ</strong></p><p>クライアントが<code>423 Locked</code>ステータスコードを受信した場合、「Clovaサービスを退会したアカウントです。退会してから1か月後に再度ログインすると、Clovaサービスをご利用になれます」と案内する必要があります。</p></div>  |
+| 403 Forbidden    | ヘッダーに含まれた{{ book.ServiceEnv.TargetServiceForClientAuth }}アクセストークンが無効なことを示します。 |
+| 423 Locked       | Clovaを退会してから1か月が経過していないユーザーの{{ book.ServiceEnv.TargetServiceForClientAuth }}アカウントで認証しようとしたことを示します。ユーザーはClovaサービスを退会すると、そのアカウントでは1か月間、Clovaサービスを利用できません。<div class="note"><p><strong>メモ</strong></p><p>クライアントが<code>423 Locked</code>ステータスコードを受信した場合、「Clovaサービスを退会したアカウントです。退会してから1か月後に再度ログインすると、Clovaサービスをご利用になれます」と案内する必要があります。</p></div>  |
 | 451 Unavailable For Legal Reasons | ユーザーが利用規約に同意しなかったことを示します。クライアントはこのレスポンスを受信すると、`redirect_uri`フィールド内のURIにリダイレクトする必要があります。リダイレクトするURIは、ユーザーに利用規約への同意を求めるページです。  |
 | 500 Server Internal Error | サーバー内部にエラーが発生し、認可コードを取得できなかったことを示します。 |
 
@@ -125,7 +125,7 @@ GET|POST /token?grant_type=authorization_code
 
 ### Request example
 
-<pre><code>$ curl {{ book.AuthServerBaseURL }}token?grant_type=authorization_code \
+<pre><code>$ curl {{ book.ServiceEnv.AuthServerBaseURL }}token?grant_type=authorization_code \
        --data-urlencode "client_id=c2Rmc2Rmc2FkZ2Fasdkjh234zZnNhZGZ" \
        --data-urlencode "client_secret=66qo65asdfasdfaA7JasdfasfOqwnOq1rOyfgeydtCDrvYasfasf%3D" \
        --data-urlencode "code=cnl__eCSTdsdlkjfweyuxXvnlA" \
@@ -200,7 +200,7 @@ GET|POST /token?grant_type=refresh_token
 
 ### Request example
 
-<pre><code>$ curl {{ book.AuthServerBaseURL }}token?grant_type=refresh_token \
+<pre><code>$ curl {{ book.ServiceEnv.AuthServerBaseURL }}token?grant_type=refresh_token \
        --data-urlencode "client_id=c2Rmc2Rmc2FkZ2FzZnNhZGZ" \
        --data-urlencode "client_secret=66qo65asdfasdfaA7JasdfasfOqwnOq1rOyfgeydtCDrvYasfasf%3D" \
        --data-urlencode "refresh_token=GW-Ipsdfasdfdfs3IbHFBA" \
@@ -274,7 +274,7 @@ GET|POST /token?grant_type=delete
 
 ### Request example
 
-<pre><code>$ curl {{ book.AuthServerBaseURL }}token?grant_type=delete \
+<pre><code>$ curl {{ book.ServiceEnv.AuthServerBaseURL }}token?grant_type=delete \
        --data-urlencode "access_token=xFcH08vYQcahQWouqIzWOw" \
        --data-urlencode "client_id=c2Rmc2Rmc2FkZ2Fasdkjh234zZnNhZGZ" \
        --data-urlencode "client_secret=66qo65asdfasdfaA7JasdfasfOqwnOq1rOyfgeydtCDrvYasfasf%3D" \

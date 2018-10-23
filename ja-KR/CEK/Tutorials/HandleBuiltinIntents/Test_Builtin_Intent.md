@@ -10,7 +10,7 @@
 </div>
 
 次の順で、サンプルサイコロExtensionがヘルプのリクエストを正しく処理するか確認します。
-1. <a href="{{ book.DeveloperConsoleURL }}/cek/#/list" target="_blank">Clova Developer Center</a>に接続します。
+1. <a href="{{ book.ServiceEnv.DeveloperConsoleURL }}/cek/#/list" target="_blank">Clova Developer Center</a>に接続します。
 2. サンプルサイコロの**{{ book.DevConsole.cek_interaction_model }}**項目の**{{ book.DevConsole.cek_edit}}**ボタンをクリックします。
 3. 画面左上の**{{ book.DevConsole.cek_builder_menu_build }}**ボタンをクリックして、対話モデルをビルドします。
 4. ビルドが終わったら、左側のメニューリストで**{{ book.DevConsole.cek_test }}**メニューをクリックします。

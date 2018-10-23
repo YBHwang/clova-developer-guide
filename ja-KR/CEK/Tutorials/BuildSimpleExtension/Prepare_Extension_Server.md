@@ -9,19 +9,19 @@ Clovaがサービスする「サイコロ遊び」というExtensionは、ソー
 | 項目     | 説明                               | 必須/選択 |
 |---------|-----------------------------------|:-------:|
 | <a href="https://git-scm.com/" target="_blank">git</a>    | ソースコードをダウンロードするために必要です。          | 選択     |
-| <a href="https://nodejs.org/" target="_blank">node.js</a> | Extensionサーバーを実行するために必要です。          |      |
+| <a href="https://nodejs.org/" target="_blank">node.js</a> | Extensionサーバーを実行するために必要です。          | 必須     |
 | <a href="https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop" target="_blank">Google Chrome拡張機能「Postman - REST Client」</a> | Extensionサーバーが動作しているか確認するために必要です。 | 選択     |
 
 必要なソフトウェアをインストールして、次のようにサイコロ遊びExtensionのソースコードをダウンロードし、実行します。`tutorial1`ブランチを使用します。
 
 ```bash
-git clone {{ book.GitHubBaseURLforExtensionExample }}/clova-extension-sample-dice.git
+git clone {{ book.ServiceEnv.GitHubBaseURLforExtensionExample }}/clova-extension-sample-dice.git
 cd clova-extension-sample-dice
 git checkout tutorial1
 npm install
 node app.js
 ```
 
-こうやって実行したExtensionサーバーが正しく動作しているか確認するには、Postmanを使用してリクエストを送信します。詳細については、<a href="{{ book.GitHubBaseURLforExtensionExample }}/clova-extension-sample-dice" target="_blank">サイコロ遊びExtensionのgithubページ</a>で確認できます。
+こうやって実行したExtensionサーバーが正しく動作しているか確認するには、Postmanを使用してリクエストを送信します。詳細については、<a href="{{ book.ServiceEnv.GitHubBaseURLforExtensionExample }}/clova-extension-sample-dice" target="_blank">サイコロ遊びExtensionのgithubページ</a>で確認できます。
 
 上記どおりに正しく実行されることを確認したら、外部からアクセスできるサーバーに移して実行します。

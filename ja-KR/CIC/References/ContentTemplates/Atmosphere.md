@@ -242,7 +242,7 @@
 {% endraw %}
 
 ## UI example {#UIExample}
-以下は、{{ book.OrientedService }}が配布したClovaのモバイルアプリで、Atmosphereテンプレートの内容を表したUIサンプルです。
+以下は、{{ book.ServiceEnv.OrientedService }}が配布したClovaのモバイルアプリで、Atmosphereテンプレートの内容を表したUIサンプルです。
 
 | 現在の大気の状況 | 明日の大気の状況 |
 |-------------|------------|

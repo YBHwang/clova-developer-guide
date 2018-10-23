@@ -43,7 +43,7 @@ Custom Extensionを配布する場合、先に[対話モデルを登録](/DevCon
 
 ## ClovaアプリでExtensionをテストする {#TestOnClovaApp}
 
-実際のクライアントであるClovaアプリで、Extensionをテストすることができます。そのためには、Extensionの基本情報を登録するページの**{{ book.DevConsole.cek_tester }}**フィールドに、開発者またはExtensionをテストする人の<strong>{{ book.OrientedService }}アカウント</strong>を入力する必要があります。アカウントを追加して**{{ book.DevConsole.cek_save }}**ボタンをクリックすると、そのアカウントで認証されたClovaアプリで、開発中のExtensionをテストできます。Clovaアプリでテストを中止するには、入力したアカウント情報を削除します。
+実際のクライアントであるClovaアプリで、Extensionをテストすることができます。そのためには、Extensionの基本情報を登録するページの**{{ book.DevConsole.cek_tester }}**フィールドに、開発者またはExtensionをテストする人の<strong>{{ book.ServiceEnv.OrientedService }}アカウント</strong>を入力する必要があります。アカウントを追加して**{{ book.DevConsole.cek_save }}**ボタンをクリックすると、そのアカウントで認証されたClovaアプリで、開発中のExtensionをテストできます。Clovaアプリでテストを中止するには、入力したアカウント情報を削除します。
 
 ![](/DevConsole/Resources/Images/DevConsole-Add_Tester_ID.png)
 

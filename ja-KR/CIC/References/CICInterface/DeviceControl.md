@@ -2,7 +2,7 @@
 
 DeviceControlインターフェースは、クライアントデバイスをコントロールしたり、クライアントデバイスをのコントロールした結果をCICにレポートするときに使用する名前空間です。
 
-ユーザーからのリクエストには、クライアントデバイスをコントロールするためのものがあります。解析されたユーザーのリクエストがクライアントをコントロールするものなら、`DeviceControl`名前空間を持つディレクティブが送信されます。クライアントは、受信したディレクティブに応じてクライアントデバイスをコントロールする必要があります。また、デバイスをコントロールした結果を、イベントを使用してCICに送信する必要があります。詳細については、[クライアントデバイスコントロールの仕組み](#DeviceControlWorkFlow)を参照してください。
+ユーザーからのリクエストには、クライアントデバイスをコントロールするためのものがあります。解析されたユーザーのリクエストがクライアントをコントロールするものなら、`DeviceControl`名前空間を持つディレクティブが送信されます。クライアントは、受信したディレクティブに応じてクライアントデバイスをコントロールする必要があります。また、デバイスをコントロールした結果を、イベントを使用してCICに送信する必要があります。詳細については、[クライアントデバイスコントロールの仕組み](#DeviceContorlWorkFlow)を参照してください。
 
 クライアントデバイスは、`DeviceControl`で提供されるメッセージを使って、外部のBluetoothスピーカーと接続することができます。CICはクライアントにディレクティブを送信して、外部のBluetoothデバイスと接続するように指示します。クライアントは[`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState)コンテキストの[`BluetoothInfoObject`](/CIC/References/Context_Objects.md#BluetoothInfoObject)で、ペアリングしたデバイスの情報など、Bluetoothデバイスに関連する情報をCICに随時レポートします。接続方法の詳細については、それぞれのディレクティブとイベントの説明を参照してください。
 
@@ -32,7 +32,7 @@ DeviceControlでは、次のイベントとディレクティブを提供して�
 | [`TurnOff`](#TurnOff)                     | ディレクティブ | クライアントに、指定された機能やモードをオフにしたり、または無効にするように指示します。                           |
 | [`TurnOn`](#TurnOn)                       | ディレクティブ | クライアントに、指定された機能をオンにしたり、有効にしたりするように指示します。                                   |
 
-## クライアントデバイスコントロールの仕組み {#DeviceControlWorkFlow}
+## クライアントデバイスコントロールの仕組み {#DeviceContorlWorkFlow}
 
 通常、クライアントデバイスのコントロールは、次のように行われます。
 
@@ -661,7 +661,7 @@ CICは、このイベントを受信すると、ユーザーのアカウント�
 
 | フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
-| `target`      | string  | 対象となりアプリの情報。次のような情報を持ちます。<ul><li>カスタムURLスキーム：対象アプリのカスタムURLスキーム(例：<code>"{{ book.OrientedServiceWithLowerCase }}searchapp://..."</code>)</li><li>)リレーページのURL：インストールされている対象アプリがある場合、そのアプリを起動するリレーページのURL(例：<code>"http://{{ book.OrientedServiceWithLowerCase }}app.{{ book.OrientedServiceWithLowerCase }}.com/..."</code>)</li><li>アプリ名：ユーザーの発話から認識されたアプリの名前(例：<code>"{{ book.OrientedService }}アプリ"</code>)</li></ul> |      |
+| `target`      | string  | 対象となりアプリの情報。次のような情報を持ちます。<ul><li>カスタムURLスキーム：対象アプリのカスタムURLスキーム(例：<code>"{{ book.ServiceEnv.OrientedServiceWithLowerCase }}searchapp://..."</code>)</li><li>)リレーページのURL：インストールされている対象アプリがある場合、そのアプリを起動するリレーページのURL(例：<code>"http://{{ book.ServiceEnv.OrientedServiceWithLowerCase }}app.{{ book.ServiceEnv.OrientedServiceWithLowerCase }}.com/..."</code>)</li><li>アプリ名：ユーザーの発話から認識されたアプリの名前(例：<code>「{{ book.ServiceEnv.OrientedService }}アプリ」</code>)</li></ul> |      |
 
 ### 備考
 
@@ -679,7 +679,7 @@ CICは、このイベントを受信すると、ユーザーのアカウント�
       "dialogRequestId": "3c6eef8b-8427-4b46-a367-0a7a46432519"
     },
     "payload": {
-      "target": "{{ book.OrientedServiceWithLowerCase }}searchapp://..."
+      "target": "{{ book.ServiceEnv.OrientedServiceWithLowerCase }}searchapp://..."
     }
   }
 }

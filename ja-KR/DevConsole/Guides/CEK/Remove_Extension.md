@@ -17,5 +17,5 @@
 
 <div class="note">
   <p><strong>メモ</strong></p>
-  <p>サービスを中止する際には、Clova運営チームの確認が必要です。Extensionを中止するには、<a href="mailto:{{ book.ExtensionAdminEmail }}">{{ book.ExtensionAdminEmail }}</a>まで連絡してください。</p>
+  <p>サービスを中止する際には、Clova運営チームの確認が必要です。Extensionを中止するには、<a href="mailto:{{ book.ServiceEnv.ExtensionAdminEmail }}">{{ book.ServiceEnv.ExtensionAdminEmail }}</a>まで連絡してください。</p>
 </div>

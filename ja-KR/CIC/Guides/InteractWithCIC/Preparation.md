@@ -11,8 +11,8 @@ HTTP/2プロトコルで接続するために、クライアントを開発す�
 
 | 開発言語 | ライブラリ                            |
 |---------|------------------------------------|
-| C/C++   | [nghttp2](https://nghttp2.org/), [libcurl](https://curl.haxx.se/libcurl/) |
-| Java    | [OkHttp](http://square.github.io/okhttp/), [Netty](http://netty.io/), [Jetty](http://www.eclipse.org/jetty/) |
+| C/C++   | [nghttp2](https://nghttp2.org/)、[libcurl](https://curl.haxx.se/libcurl/) |
+| Java    | [OkHttp](http://square.github.io/okhttp/)、[Netty](http://netty.io/)、[Jetty](http://www.eclipse.org/jetty/) |
 
 
 ### User-Agent文字列 {#UserAgentString}
@@ -58,7 +58,7 @@ build      = safe_word
            | safe_word , ".", build ;
 release    = safe_word
            | safe_word , ".", release ;
-version    = number , "." , number , "." , "number"
+version    = number , ".", number , ".", "number"
            | number , ".", number , ".", "number" , "-" , release
            | number , ".", number , ".", "number" , "+" , build
            | number , ".", number , ".", "number" , "-" , release , "+" , build ;
@@ -94,10 +94,10 @@ MCN/SampleClient/1.7.0 (SampleIoTOS 2.1;SmartHub)
   <p>User-Agent文字列は、今後Clova Developer Centerで登録することになります。CICのためのClova Developer Centerは現在開発中のため、User-Agent文字列の登録は提携担当者までお問い合わせください。</p>
 </div>
 
-### クライアント認証情報 {#ClientAuthInfo}
-ユーザーは、クライアントが{{ book.TargetServiceForClientAuth }}アカウントを認証した後、Clovaが提供するサービスを利用できます。クライアントは、ユーザーから入力された{{ book.TargetServiceForClientAuth }}のアカウント情報に基づいて、{{ book.TargetServiceForClientAuth }}アカウントのアクセストークンを取得します。このアクセストークンを再びClova認可サーバーに送信して、[Clovaアクセストークンを取得](#CreateClovaAccessToken)します。
+### クライアントの認証情報 {#ClientAuthInfo}
+ユーザーは、クライアントが{{ book.ServiceEnv.TargetServiceForClientAuth }}アカウントを認証した後、Clovaが提供するサービスを利用できます。クライアントは、ユーザーから入力された{{ book.ServiceEnv.TargetServiceForClientAuth }}のアカウント情報に基づいて、{{ book.ServiceEnv.TargetServiceForClientAuth }}アカウントのアクセストークンを取得します。このアクセストークンを再びClova認可サーバーに送信して、[Clovaアクセストークンを取得](#CreateClovaAccessToken)します。
 
-その際、{{ book.TargetServiceForClientAuth }}アカウントのアクセストークンのみでなく、Clova Developer Centerから取得したクライアント認証情報も一緒に認可サーバーに送信する必要があります([Clova認証API](/CIC/References/Clova_Auth_API.md)を使用します)。従って、Clova Developer Centerからクライアント認証情報をあらかじめ取得しておく必要があります。クライアント認証情報は次の通りです。
+その際、{{ book.ServiceEnv.TargetServiceForClientAuth }}アカウントのアクセストークンのみでなく、Clova Developer Centerから取得したクライアント認証情報も一緒に認可サーバーに送信する必要があります([Clova認証API](/CIC/References/Clova_Auth_API.md)を使用します)。従って、Clova Developer Centerからクライアント認証情報をあらかじめ取得しておく必要があります。クライアント認証情報は次の通りです。
 
 | 認証情報                   | 説明                                              |
 |---------------------------|--------------------------------------------------|

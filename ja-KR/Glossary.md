@@ -15,20 +15,20 @@
 CICがクライアントに提供するREST APIです。クライアントは、CIC APIを使用してClovaと情報を交換します。
 
 ### Clova {#Clova}
-[Clova](http://clova.ai)は、{{ book.TargetServiceForClientAuth }}が開発およびサービスを提供しているAIプラットフォームです。ユーザーの音声やイメージを認識し、それを解析して、ユーザーの希望する情報やサービスを提供します。サードパーティの開発者は、Clovaの持つ技術を活用して、AIサービスを提供するデバイスまたは家電製品を制作できます。また、Clovaを利用して、保有しているコンテンツやサービスを提供することもできます。
+[Clova](http://clova.ai)は、{{ book.ServiceEnv.TargetServiceForClientAuth }}が開発およびサービスを提供しているAIプラットフォームです。ユーザーの音声やイメージを認識し、それを解析して、ユーザーの希望する情報やサービスを提供します。サードパーティの開発者は、Clovaの持つ技術を活用して、AIサービスを提供するデバイスまたは家電製品を制作できます。また、Clovaを利用して、保有しているコンテンツやサービスを提供することもできます。
 
 ### Clovaアクセストークン {#ClovaAccessToken}
 クライアントが[Clova Interface Connect](#CIC)で[イベント](#Event)を送る際、Clovaがクライアントを認証する手段です。詳細については、[Clovaアクセストークンを生成する](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken)ドキュメントを参照してください。
 
 ### Clova Developer Center {#ClovaDeveloperConsole}
-Clovaプラットフォームと連携するクライアントデバイス、または[Clova Extension](#ClovaExtension)を開発する開発者に次の内容を提供する<a target="_blank" href="{{ book.DeveloperConsoleURL }}">Webツール</a>です。
+Clovaプラットフォームと連携するクライアントデバイス、または[Clova Extension](#ClovaExtension)を開発する開発者に次の内容を提供する<a target="_blank" href="{{ book.ServiceEnv.DeveloperConsoleURL }}">Webツール</a>です。
 * クライアントデバイスの登録およびクライアントの認証情報を提供(今後サービス予定)
 * Clova Extensionの[登録](/DevConsole/Guides/CEK/Register_Extension.md)および[配布](/DevConsole/Guides/CEK/Deploy_Extension.md)
 * [対話モデルの登録](/DevConsole/Guides/CEK/Register_Interaction_Model.md)
 * Clovaサービスに関する統計資料の提供(今後サービス予定)
 
 ### Clova Extension {#ClovaExtension}
-音楽、ショッピング、金融などの外部のサービス(サードパーティサービス)、または家庭のIoTデバイスの制御など、Clovaの機能を拡張して、ユーザーに様々な経験を提供するWebアプリケーションです。通常、Extensionと呼ばれます。Clovaプラットフォームは、現在次の2種類のClova Extensionをサポートおよび提供しています。エンドユーザーには、「スキル」という表現で提供されます。
+音楽、ショッピング、金融などの外部のサービス(サードパーティサービス)、または家庭のIoTデバイスの制御など、Clovaの機能を拡張して、ユーザーに様々な経験を提供するWebアプリケーションです。通常、Extensionと呼ばれます。Clovaプラットフォームは、現在次の2種類のClova Extensionをサポートおよび提供しています。エンドユーザーには、「スキル」という名称で提供されます。
 * [Custom Extension](#CustomExtension)
 * [Clova Home Extension](#ClovaHomeExtension)
 
@@ -46,7 +46,7 @@ AIアシスタントサービスを提供するパソコン/モバイルアプ�
 
 ### Clovaアプリ {#ClovaApp}
 
-{{ book.OrientedService }}が開発し、iOSおよびAndroidプラットフォームで配布したClovaアプリです。Clovaに指示を与えるだけでなく、クライアントデバイスを登録し、管理できるアプリです。
+{{ book.ServiceEnv.OrientedService }}が開発し、iOSおよびAndroidプラットフォームで配布したClovaアプリです。Clovaに指示を与えるだけでなく、クライアントデバイスを登録し、管理できるアプリです。
 
 ### Clova認証API {#ClovaAuthAPI}
 クライアントが[Clovaアクセストークン](#ClovaAccessToken)を取得するために使用するAPIです。詳細については、[Clova認証API](/CIC/References/Clova_Auth_API.md)ドキュメントを参照してください。
@@ -71,14 +71,6 @@ CICから渡されるコンテンツ情報をスケジュールカテゴリに�
 
 ### Extension {#Extension}
 [Clova Extension](#ClovaExtension)の別の言い方
-
-### スキルストア {#SkillStore}
-
-スキルをユーザーに提供するために構築されたプラットフォームです。
-
-### スキルストアホーム {#SkillStoreHome}
-
-スキルストアに登録されたExtensionが表示されるページです。Clovaアプリの**スキルの管理**メニューを指す用語です。
 
 ### Extensionページ {#ExtensionPage}
 
@@ -108,7 +100,15 @@ Clova Extensionが処理するユーザーの意図を区分したカテゴリ�
 
 ### スキル {#Skill}
 
-Clovaが提供する拡張機能のことをいいます。スキルをユーザーに提供するには、[Clova Extension](#ClovaExtension)を開発する必要があります。
+Clovaがユーザーに提供する拡張機能やサービスなどをいいます。スキルをユーザーに提供するには、[Clova Extension](#ClovaExtension)を開発する必要があります。
+
+### スキルストア {#SkillStore}
+
+スキルをユーザーに提供するために構築されたプラットフォームです。
+
+### スキルストアホーム {#SkillStoreHome}
+
+スキルストアに登録されたスキルが表示されるページです。Clovaアプリの**スキルの管理**メニューを指す用語です。
 
 ### スロット {#Slot}
 [インテント(Intent)](#Intent)に宣言されたリクエストを処理する際に必要な情報です。インテントを定義するとき、共に定義する必要があります。Clovaはユーザーのリクエストを解析して、スロットに該当する情報を抽出します。詳細については、[対話モデルを定義する](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel)ドキュメントを参照してください。

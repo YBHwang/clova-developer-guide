@@ -17,7 +17,7 @@ Clovaでサービス提供中の一部のExtensionを紹介します。簡単な
 * Go言語で実装されています。
 
 ### GitHubリポジトリ
-{{ book.GitHubBaseURLforExtensionExample }}/clova-extension-sample-magicball
+{{ book.ServiceEnv.GitHubBaseURLforExtensionExample }}/clova-extension-sample-magicball
 
 ## 雨音(Rain sound) {#RainSound}
 
@@ -29,7 +29,7 @@ Clovaでサービス提供中の一部のExtensionを紹介します。簡単な
 * Node.jsで実装されています。
 
 ### GitHubリポジトリ
-{{ book.GitHubBaseURLforExtensionExample }}/clova-extension-sample-rainsound
+{{ book.ServiceEnv.GitHubBaseURLforExtensionExample }}/clova-extension-sample-rainsound
 
 ## サイコロ遊び(Dice drawer) {#DiceDrawer}
 
@@ -41,7 +41,7 @@ Clovaでサービス提供中の一部のExtensionを紹介します。簡単な
 * Node.jsで実装されています。
 
 ### GitHubリポジトリ
-{{ book.GitHubBaseURLforExtensionExample }}/clova-extension-sample-dice
+{{ book.ServiceEnv.GitHubBaseURLforExtensionExample }}/clova-extension-sample-dice
 
 ## コインヘルパー(Coin helper) {#CoinHelper}
 
@@ -55,4 +55,4 @@ Clovaでサービス提供中の一部のExtensionを紹介します。簡単な
 
 ### GitHubリポジトリ
 
-{{ book.GitHubBaseURLforExtensionExample }}/clova-extension-sample-coinhelper
+{{ book.ServiceEnv.GitHubBaseURLforExtensionExample }}/clova-extension-sample-coinhelper

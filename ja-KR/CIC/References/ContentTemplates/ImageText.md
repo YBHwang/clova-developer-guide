@@ -10,7 +10,7 @@
 
 | フィールド名       | データ型    | 説明                     |
 |---------------|---------|-----------------------------|
-| `appLinkUrl`     | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)             | 地図の画像が含まれた場合、{{ book.OrientedService }}マップアプリに移動するURLを持つオブジェクト。このオブジェクトの`value`フィールドは、空文字列(`""`)を持つ場合があります。  |
+| `appLinkUrl`     | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)             | 地図の画像が含まれた場合、{{ book.ServiceEnv.OrientedService }}マップアプリに移動するURLを持つオブジェクト。このオブジェクトの`value`フィールドは、空文字列(`""`)を持つ場合があります。  |
 | `imageUrl`       | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)             | 画像のURLを持つオブジェクト。このオブジェクトの`value`フィールドは、空文字列(`""`)を持つ場合があります。                                |
 | `linkUrl`        | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)             | 地図の画像が含まれた場合、ウェブの地図に移動するURLを持つオブジェクト。このオブジェクトの`value`フィールドは、空文字列(`""`)を持つ場合があります。   |
 | `mainText`       | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)       | メインテキストを持つオブジェクト。このオブジェクトの`value`フィールドは、空文字列(`""`)を持つ場合があります。                                       |
@@ -18,7 +18,7 @@
 | `referenceUrl`   | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)             | 参照したサービスの利用結果ページのURLを持つオブジェクト。このオブジェクトの`value`フィールドは、空文字列(`""`)を持つ場合があります。   |
 | `subTextList[]`    | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) array | サブテキストを持つオブジェクト配列。このオブジェクト配列の要素の`value`フィールドは、空文字列(`""`)を持つ場合があります。                               |
 | `thumbImageUrl`  | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)             | サムネイル画像のURLを持つオブジェクト。このオブジェクトの`value`フィールドは、空文字列(`""`)を持つ場合があります。                           |
-| `thumbImageType` | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)       | サムネイル画像のタイプを持つオブジェクトで、以下の値を持ちます。<ul><li><code>"人物"</code>：人物</li><li><code>"書籍"</code>：書籍</li><li><code>"アルバムジャケット"</code>：アルバムジャケット</li><li>空文字列(<code>""</code>)：サムネイル情報なし</li></ul> |
+| `thumbImageType` | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)       | サムネイル画像のタイプを持つオブジェクトで、以下の値を持ちます。<ul><li><code>"人物"</code>：人物情報タイプ</li><li><code>"本"</code>：情報タイプ</li><li><code>"アルバム"</code>：アルバム情報タイプ</li><li>空の文字列(<code>""</code>)サムネイル情報なし</li></ul> |
 | `type`           | string  | コンテンツテンプレートのタイプを示す値。`"ImageText"`を持ちます。      |
 
 ## Template example
@@ -116,7 +116,7 @@
 {% endraw %}
 
 ## UI example {#UIExample}
-以下は、{{ book.OrientedService }}が配布したClovaのモバイルアプリで、ImageTextテンプレートの内容を表したUIサンプルです。
+以下は、{{ book.ServiceEnv.OrientedService }}が配布したClovaのモバイルアプリで、ImageTextテンプレートの内容を表したUIサンプルです。
 
 | サムネイル画像とテキスト | 地図の画像とテキスト |
 |-------|-------|

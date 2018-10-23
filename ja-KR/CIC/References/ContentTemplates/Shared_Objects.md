@@ -31,7 +31,7 @@
 ```json
 {
   "type": "action",
-  "value": "clova://{{ book.OrientedServiceWithLowerCase }}Search?query=梨泰院のグルメ店"
+  "value": "clova://{{ book.ServiceEnv.OrientedServiceWithLowerCase }}Search?query=梨泰院のグルメ店"
 }
 ```
 

@@ -3,9 +3,9 @@
 ### テスターIDを登録する
 Extensionを特定のアカウントでのみ実行できるように、テスターIDを登録します。
 
-1. <a href="{{ book.DeveloperConsoleURL }}/cek/#/list" target="_blank">Clova Developer Center</a>に接続します。
+1. <a href="{{ book.ServiceEnv.DeveloperConsoleURL }}/cek/#/list" target="_blank">Clova Developer Center</a>に接続します。
 2. サンプルサイコロの**{{ book.DevConsole.cek_skill_info }}**項目の**{{ book.DevConsole.cek_edit }}**ボタンをクリックします。
-3. 表示された画面の**{{ book.DevConsole.cek_tester }}**項目に、あなたの{{ book.OrientedService }}アカウントIDを入力します。
+3. 表示された画面の**{{ book.DevConsole.cek_tester }}**項目に、あなたの{{ book.ServiceEnv.OrientedService }}アカウントIDを入力します。
 4. **{{ book.DevConsole.cek_save }}**ボタンをクリックします。
 
 <div class="note">
@@ -22,7 +22,7 @@ Extensionを特定のアカウントでのみ実行できるように、テス�
 ClovaアプリでサンプルサイコロExtensionを実行します。
 
 1. テストするデバイスにClovaアプリをインストールします。
-2. テスターIDとして入力した{{ book.OrientedService }}アカウントでログインします。
+2. テスターIDとして入力した{{ book.ServiceEnv.OrientedService }}アカウントでログインします。
 3. テスト用のExtensionの呼び出し名で、音声指示を出します。例えば、「ねぇClova、サンプルサイコロを起動して」と指示します。
 4. Clovaアプリが「サイコロを1つ振ります」と応答することを確認します。
 

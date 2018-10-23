@@ -91,7 +91,7 @@ CICは、ユーザーがアラームのリストをリクエストすると、�
 
 ## UI example {#UIExample}
 
-以下は、{{ book.OrientedService }}が配布したClovaのモバイルアプリで、AlarmListテンプレートの内容を表したUIサンプルです。
+以下は、{{ book.ServiceEnv.OrientedService }}が配布したClovaのモバイルアプリで、AlarmListテンプレートの内容を表したUIサンプルです。
 
 ![](/CIC/Resources/Images/Content_Template-AlarmList.png)
 
