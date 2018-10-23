@@ -7,7 +7,7 @@
 </div>
 
 ## お問い合わせ
-ドキュメントの内容に関するお問い合わせは、指定のClova提携担当者、または<a href="{{ book.DeveloperCenterForumURL }}" target="_blank">{{ book.DeveloperCenterName }}フォーラム</a>までお願いします。
+ドキュメントの内容に関するお問い合わせは、指定のClova提携担当者、または<a href="{{ book.ServiceEnv.DeveloperCenterForumURL }}" target="_blank">{{ book.ServiceEnv.DeveloperCenterName }}フォーラム</a>までお願いします。
 
 ## ドキュメントの変更履歴
 
@@ -21,11 +21,31 @@
   </thead>
   <tbody>
     <tr>
+      <td>v3.41.0</td><td>未適用</td><td>2018/10/13</td>
+      <td>
+        <ul>
+          <li>[CEK] Clova Home Extension APIに<a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetEstimateConsumptionRequest">GetEstimateConsumptionRequest</a>、<a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetEstimateConsumptionResponse">GetEstimateConsumptionResponse</a>を追加</li>
+          <li>[CEK] Clova Home Extensionメッセージで、<a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">共有オブジェクト</a>の<a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ModeInfoObject">ModeInfoObject</a>にAIRPURIFIER、HUMIDIFIER、VENTILATORタイプのデバイスのモードを追加</li>
+          <li>[CEK] Clova Home Extension APIの<a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetCurrentSittingStateRequest">GetCurrentSittingStateRequest</a>にperiodフィールドを追加</li>
+          <li>[Dev.Console] <a href="/DevConsole/Guides/CEK/Register_Extension.html#InputExtensionInfo">Extensionの基本情報を入力する</a>に呼び出し名を1つから最大3つまで登録できることを明記</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.40.1</td><td>未適用</td><td>2018/10/05</td>
+      <td>
+        <ul>
+          <li>[CIC] <a href="/CIC/References/CIC_API.html#Error">CICエラーメッセージ</a>の構造およびサンプルを実際の実装に合わせて訂正</li>
+          <li>[CEK] Clova Home Extension APIの<a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#DecrementFanSpeedRequest">DecrementFanSpeedRequest</a>と<a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#IncrementFanSpeedRequest">IncrementFanSpeedRequest</a>から不要な説明を削除</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.40.0</td><td>未適用</td><td>2018/09/21</td>
       <td>
         <ul>
           <li>[CIC] コンテンツのMIMEタイプを表すために、<a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a> <a href="/CIC/References/CICInterface/AudioPlayer.html#AudioStreamInfoObject">AudioStreamInfoObject</a>のpayloadにformatフィールドを追加</li>
-          <li>[CIC] コンテンツを再生するときに、「いいね」および購読機能を処理するために、<a href="/CIC/References/CICInterface/TemplateRuntime">TemplateRuntime</a>名前空間にSubscribeCommandIssued、UnsubscribeCommandIssuedイベントとUpdateLike、UpdateSubscribeディレクティブを追加</li>
+          <li>[CIC] コンテンツを再生するときに、「いいね」および購読機能を処理するために、<a href="/CIC/References/CICInterface/TemplateRuntime.html">TemplateRuntime</a>名前空間にSubscribeCommandIssued、UnsubscribeCommandIssuedイベントとUpdateLike、UpdateSubscribeディレクティブを追加</li>
           <li>[CIC] コンテンツを再生するときに表示するボタンやコントロールUIの種類を<a href="/CIC/References/CICInterface/TemplateRuntime.html#RenderPlayerInfo">TemplateRuntime.RenderPlayerInfo</a>ディレクティブに追加</li>
           <li>[CEK] Clova Home Extension APIの<a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">対応デバイス</a>の説明のうち、Actions項目に抜けていたアクション(GetCleaningCycle、GetOpenState、ReleaseMode)を追加</li>
           <li>[CEK] Clovaから送信されるメッセージの検証のために、<a href="/CEK/References/CEK_API.html#HTTPHeader">HTTPヘッダー</a>にSignatureCEKフィールドの説明を追加し、<a href="/CEK/Guides/Build_Custom_Extension.html">Custom Extensionを作成する</a>ドキュメントと<a href="/CEK/Guides/Build_Clova_Home_Extension.html">Clova Home Extensionを作成する</a>ドキュメントに、それぞれリクエストメッセージの検証セクションを追加</li>
@@ -198,7 +218,7 @@
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a>名前空間にメッセージ仕様を追加および一部のフィールドを更新
             <ul>
-              <li><a href="/CIC/References/CICInterface/AudioPlayer.html#ExpectReportPlaybackState">AudioPlayer.ExpectReportPlaybackState</a>ディレクティブ、<a href="/CIC/References/CICInterface/AudioPlayer.html#ReportPlaybackState">AudioPlayer.ReportPlaybackStateイベント</a>{% if book.TargetReaderType == "Internal" %}、<a href="/CIC/References/CICInterface/AudioPlayer.html#RequestPlaybackState">AudioPlayer.RequestPlaybackState</a>イベント、<a href="/CIC/References/CICInterface/AudioPlayer.html#SynchronizePlaybackState">SynchronizePlaybackStateディレクティブ</a>{% endif %}を追加</li>
+              <li><a href="/CIC/References/CICInterface/AudioPlayer.html#ExpectReportPlaybackState">AudioPlayer.ExpectReportPlaybackState</a>ディレクティブ、<a href="/CIC/References/CICInterface/AudioPlayer.html#ReportPlaybackState">AudioPlayer.ReportPlaybackStateイベント</a>{% if book.DocMeta.TargetReaderType == "Internal" %}、<a href="/CIC/References/CICInterface/AudioPlayer.html#RequestPlaybackState">AudioPlayer.RequestPlaybackState</a>イベント、<a href="/CIC/References/CICInterface/AudioPlayer.html#SynchronizePlaybackState">SynchronizePlaybackStateディレクティブ</a>{% endif %}を追加</li>
               <li><a href="/CIC/References/CICInterface/AudioPlayer.html#Play">AudioPlayer.Play</a>ディレクティブのpayloadフィールドの内容を更新</li>
               <li>ProgressReportXXX、PlayXXXの形式の名前を持っているイベントフィールドにtokenフィールド値を必須として追加</li>
             </ul>
@@ -286,7 +306,7 @@
         <ul>
           <li>[Design] <a href="/Design/Design_Guideline_For_Client_Hardware.html">クライアントデバイスのデザインガイドライン</a>に<a href="/Design/Design_Guideline_For_Client_Hardware.html#SoundEffect">リマインダーのための効果音</a>を追加</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/Notifier.html">Notifier</a>名前空間に<a href="/CIC/References/CICInterface/Notifier.html#Notify">Notifier.Notify</a>イベントを追加およびその名前空間で使用されるメッセージのpayloadフィールドを更新</li>
-          <li>[CIC] <a href="/CIC/References/ContextObjects/SpeechState.html">SpeechSynthesizer.SpeechState</a>および<a href="/CIC/References/CICInterface/SpeechSynthesizer.html">SpeechSynthesizer</a>名前空間に<a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechFinished">SpeechFinished</a>、<a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechStarted">SpeechStarted</a>、<a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechStopped">SpeechStopped</a>イベントを追加</li>
+          <li>[CIC] <a href="/CIC/References/Context_Objects.html#SpeechState">SpeechSynthesizer.SpeechState</a>および<a href="/CIC/References/CICInterface/SpeechSynthesizer.html">SpeechSynthesizer</a>名前空間に<a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechFinished">SpeechFinished</a>、<a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechStarted">SpeechStarted</a>、<a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechStopped">SpeechStopped</a>イベントを追加</li>
           <li>[CIC] マルチターン対話のため、<a href="/CIC/References/CICInterface/TextRecognizer.html">TextRecognizer.Recognize</a>イベントにspeechId、explicitフィールドを追加</li>
           <li>[CEK] Clova Home extensionメッセージリファレンスの<a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html">Errorインターフェース</a>に、<a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#NoSuchTargetError">NoSuchTargetError</a>、<a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#NotSupportedInCurrentModeError">NotSupportedInCurrentModeError</a>、<a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#UnsupportedOperationError">UnsupportedOperationError</a>および<a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ValueOutOfRangeError">ValueOutOfRangeError</a>を追加</li>
           <li>[Dev.Console] <a href="/DevConsole/Guides/CEK/Register_Extension.html#SetServerConnection">Extensionサーバーとの連携を設定する</a>前に接続を確認する方法および<a href="/DevConsole/Guides/CEK/Test_Extension.html#TestOnClovaApp">テスターID適用の自動化</a>の案内を追加</li>
@@ -321,7 +341,7 @@
           <li>[CIC] <a href="/CIC/Guides/Implement_Client_Features.html#HandleDelegation">委任されたユーザーのリクエストを処理する</a>セクションを追加および<a href="/CIC/References/CICInterface/Clova.html#HandleDelegatedEvent">Clova.HandleDelegatedEvent</a>ディレクティブと<a href="/CIC/References/CICInterface/Clova.html#ProcessDelegatedEvent">Clova.ProcessDelegatedEvent</a>イベントを追加</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/PlaybackController.html#NextCommandIssued">PlaybackController.NextCommandIssued</a>と<a href="/CIC/References/CICInterface/PlaybackController.html#PreviousCommandIssued">PlaybackController.PreviousCommandIssued</a>イベントに<a href="/CIC/References/Context_Objects.html#PlaybackState">AudioPlayer.PlaybackState</a>コンテキストを含めるように説明を追加</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/Alerts.html">Alerts</a> APIの仕組みの説明を改善</li>
-          <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> APIの<a href="/CIC/References/CICInterface/DeviceControl.html#DeviceControlWorkFlow">仕組み</a>の説明を追加</li>
+          <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> APIの<a href="/CIC/References/CICInterface/DeviceControl.html#DeviceContorlWorkFlow">仕組み</a>の説明を追加</li>
           <li>[CIC] 一部のコンテンツテンプレートおよび共有オブジェクトの誤りの訂正内容を修正</li>
           <li>[CEK] <a href="/CEK/Examples/Extension_Examples.html">Extensionのサンプル</a>ページを追加</li>
           <li>[Dev.Console] <strong>テスターID</strong>フィールドの追加による<a href="/DevConsole/Guides/CEK/Test_Extension.html">Extensionをテストする</a>の説明を更新</li>
