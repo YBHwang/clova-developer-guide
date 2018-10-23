@@ -1,5 +1,5 @@
 # Extensionを配布する
-[Custom Extension](/CEK/Guides/Build_Custom_Extension.md){% if book.EnableClovaHome == true %}またはClova Home Extension{% endif %} を[Clova Developer Centerに登録](/DevConsole/Guides/CEK/Register_Extension.md)すると、登録したExtensionをClovaサービスに配布できます。Extensionを配布すると、エンドユーザーが**{{ book.DevConsole.ManageExtensions }}**から選んで使用することができます。
+[Custom Extension](/CEK/Guides/Build_Custom_Extension.md){% if isClovaHome == "true" %}またはClova Home Extension{% endif %} を[Clova Developer Centerに登録](/DevConsole/Guides/CEK/Register_Extension.md)すると、登録したExtensionをClovaサービスに配布できます。配布されたExtensionは、エンドユーザーが**{{ book.DevConsole.ManageExtensions }}**メニュー(スキルストア)から選んで使用することができます。
 
 Extensionの配布は、通常、次の順で行われます。
 
@@ -9,7 +9,7 @@ Extensionの配布は、通常、次の順で行われます。
 
 ## 配布情報を入力する {#InputDeploymentInfo}
 
-Clova Developer Centerで[Extensionを登録](/DevConsole/Guides/CEK/Register_Extension.md)し、[対話モデルを登録](/DevConsole/Guides/CEK/Register_Interaction_Model.md)すると、配布情報の入力が可能になります。Extensionのメニュー画面で**{{ book.DevConsole.cek_publishing }}**を選択してください。
+Clova Developer Centerで[Extensionを登録](/DevConsole/Guides/CEK/Register_Extension.md)し、[対話モデルを登録](/DevConsole/Guides/CEK/Register_Interaction_Model.md)すると、配布情報の入力が可能になります。Extensionの登録メニューで**{{ book.DevConsole.cek_publishing }}**を選択します。
 
 ![](/DevConsole/Resources/Images/DevConsole-Deployment_Info_Menu.png)
 
@@ -17,7 +17,7 @@ Clova Developer Centerで[Extensionを登録](/DevConsole/Guides/CEK/Register_Ex
 
 ![](/DevConsole/Resources/Images/DevConsole-Input_Deployment_Info.png)
 
-Clovaアプリの**{{ book.DevConsole.ManageExtensions }}**に掲載する情報を以下の手順で登録してください。
+ユーザーにExtensionを説明するための情報です。Clovaアプリの**{{ book.DevConsole.ManageExtensions }}**メニュー(スキルストア)で提供されます。次の情報を入力する必要があります。
 
 * **{{ book.DevConsole.cek_category }}**：Extensionのカテゴリです。ユーザーがカテゴリごとにExtensionのリストを確認したり、検索する際に利用されます。
 * **{{ book.DevConsole.cek_test_instructions }}**：[Extensionの審査](#RequestExtensionSubmission)プロセスでClova事務局がExtensionを確認する際、必要とされる参考情報です。エンドユーザーには表示されません。案内に従って作成します。
@@ -81,12 +81,12 @@ Extensionの審査をリクエストするには、登録したExtensionのリ�
 
 ![](/DevConsole/Resources/Images/DevConsole-Submission_Request_Message.png)
 
-<div class="note">
-  <p><strong>メモ</strong></p>
+<div class="danger">
+  <p><strong>注意</strong></p>
   <p>審査中には、Extensionの情報と対話モデルを修正できません。</p>
 </div>
 
-スキル審査は、スキルストアへ反映する前に、Clova事務局にて実施します。もし、[ユーザーアカウントの連携](/CEK/Guides/Link_User_Account.md)が必要なサービスの場合は、[配布情報を入力](#InputDeploymentInfo)する際に、テスト用のアカウント名およびパスワードを**{{ book.DevConsole.cek_test_instructions }}**欄に入力していただく必要があります。
+スキルの審査は、スキルストアに登録される前に、Clova事務局にて実施します。もし、[ユーザーアカウントの連携](/CEK/Guides/Link_User_Account.md)が必要なサービスの場合は、[配布情報を入力](#InputDeploymentInfo)する際に、テスト用のアカウント名およびパスワードを**{{ book.DevConsole.cek_test_instructions }}**欄に入力していただく必要があります。
 
 Extensionを審査する際に確認する評価項目は次のとおりです。
 
@@ -95,13 +95,13 @@ Extensionを審査する際に確認する評価項目は次のとおりです�
   * シナリオで使用される発話データに、禁止用語や差別用語などが含まれていないか確認します。
   * [コンテンツの提供に関するガイドライン](/Design/Design_Guideline_For_Extension.md#ContentGuideline)を遵守しているか確認します。
   * Extensionが[ユーザーアカウントと連携](/CEK/Guides/Link_User_Account.md)する場合、サービスに特化した部分をさらに検討することがあります。
-* Extensionの動作の検証
+* スキルの動作の検証
   * Extensionがサービスに適切な用語を使用しているか確認します。
   * インテント、スロットなどの対話モデルを検証します。
-  * Extensionの[詳細な目標](/Design/Design_Guideline_For_Extension.md#SettingGoal)に合ったサービスを提供しているか確認します。
+  * スキルの[具体的な目標](/Design/Design_Guideline_For_Extension.md#SettingGoal)に合ったサービスを提供しているか確認します。
 * 配布情報の検証
   * Extensionの説明、カテゴリ、検索キーワードなどの配布情報が正しく入力されているか確認します。
-  * スキルが、配布情報に入力された利用規約やプライバシーポリシーに違反していないことを確認します。
+  * スキルが、プライバシーポリシーなど、登録されている規定に違反していないことを確認します。
 
 審査中に**{{ book.DevConsole.cek_cancel_review }}**メニューをクリックすると、いつでも審査のリクエストをキャンセルできます。審査のリクエストをキャンセルすると、前のステータスに戻ります。
 
