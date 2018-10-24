@@ -25,14 +25,14 @@ The information is provided for the Clova Home extension developers in the follo
 
 {% endif %}
 
-{% set targetFile = 'Preparation.md' if book.EnableClovaHome else 'Dummy.md' %}
+{% set targetFile = 'Preparation.md' if book.EnableClovaHome else book.DummyFile %}
 {% include "/CEK/Guides/BuildClovaHomeExtension/" + targetFile %}
 
-{% set targetFile = 'Provide_Device_Discovery.md' if book.EnableClovaHome else 'Dummy.md' %}
+{% set targetFile = 'Provide_Device_Discovery.md' if book.EnableClovaHome else book.DummyFile %}
 {% include "/CEK/Guides/BuildClovaHomeExtension/" + targetFile  %}
 
-{% set targetFile = 'Handle_Clova_Home_Extension_Request.md' if book.EnableClovaHome else 'Dummy.md' %}
+{% set targetFile = 'Handle_Clova_Home_Extension_Request.md' if book.EnableClovaHome else book.DummyFile %}
 {% include "/CEK/Guides/BuildClovaHomeExtension/" + targetFile  %}
 
-{% set targetFile = 'Return_Clova_Home_Extension_Response.md' if book.EnableClovaHome else 'Dummy.md' %}
+{% set targetFile = 'Return_Clova_Home_Extension_Response.md' if book.EnableClovaHome else book.DummyFile %}
 {% include "/CEK/Guides/BuildClovaHomeExtension/" + targetFile  %}
