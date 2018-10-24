@@ -7,7 +7,7 @@
   "variables": {
     "ClassifiedInfo": "Confidential",
     "DocVersion": "v0.3",
-    "language": "ja",
+    "language": "en",
     "TargetCountryCode": "JP",
     "TargetReaderType": "Internal",
     "ExtensionAdminEmail": "dl_clova_skill_support@linecorp.com",
