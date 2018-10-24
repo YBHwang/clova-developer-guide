@@ -4,6 +4,16 @@ The Clova Home extension provides remote control features for home IoT devices t
 
 ![](/CEK/Resources/Images/CEK_Clova_Home_Extension_Operation_Structure.png)
 
+{% if book.EnableClovaHome == false %}
+
+<div class="note">
+<p><strong>メモ</strong></p>
+<p>Clova Developer Centerでは Clova Home Extension の情報登録を受け付けておりません。Clova Home Extension を利用した連携に興味のある企業様は、<a href="https://partner.line.me/ja" target="_blank"> LINE Partner </a> よりお問い合わせください。　
+</p>
+</div>
+
+{% else %}
+
 This section explains the prerequisites for creating a Clova Home extension, the types of messages exchanged with CEK, and the method of operation.
 
 The information is provided for the Clova Home extension developers in the following order:
@@ -14,12 +24,16 @@ The information is provided for the Clova Home extension developers in the follo
   * [Validating a request message](#RequestMessageValidation)
 * [Returning a Clova Home extension response](#ReturnClovaHomeExtensionResponse)
 
-{% include "/CEK/Guides/BuildClovaHomeExtension/Preparation.md" %}
+{% endif %}
 
-{% include "/CEK/Guides/BuildClovaHomeExtension/Provide_Device_Discovery.md" %}
+{% set targetFile = '/CEK/Guides/BuildClovaHomeExtension/Preparation.md' if book.EnableClovaHome else book.DummyFile %}
+{% include targetFile %}
 
-{% include "/CEK/Guides/BuildClovaHomeExtension/Handle_Clova_Home_Extension_Request.md" %}
+{% set targetFile = '/CEK/Guides/BuildClovaHomeExtension/Provide_Device_Discovery.md' if book.EnableClovaHome else book.DummyFile %}
+{% include targetFile  %}
 
-{% include "/CEK/Guides/BuildCustomExtension/Handle_Custom_Extension_Request.md" %}
+{% set targetFile = '/CEK/Guides/BuildClovaHomeExtension/Handle_Clova_Home_Extension_Request.md' if book.EnableClovaHome else book.DummyFile %}
+{% include targetFile  %}
 
-{% include "/CEK/Guides/BuildClovaHomeExtension/Return_Clova_Home_Extension_Response.md" %}
+{% set targetFile = '/CEK/Guides/BuildClovaHomeExtension/Return_Clova_Home_Extension_Response.md' if book.EnableClovaHome else book.DummyFile %}
+{% include targetFile  %}
