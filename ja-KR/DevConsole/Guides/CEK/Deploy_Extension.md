@@ -1,5 +1,5 @@
 # Extensionを配布する
-[Custom Extension](/CEK/Guides/Build_Custom_Extension.md){% if isClovaHome == "true" %}またはClova Home Extension{% endif %} を[Clova Developer Centerに登録](/DevConsole/Guides/CEK/Register_Extension.md)すると、登録したExtensionをClovaサービスに配布できます。配布されたExtensionは、エンドユーザーが**{{ book.DevConsole.ManageExtensions }}**メニュー(スキルストア)から選んで使用することができます。
+[Custom Extension](/CEK/Guides/Build_Custom_Extension.md)またはClova Home Extensionを[Clova Developer Centerに登録](/DevConsole/Guides/CEK/Register_Extension.md)すると、登録したExtensionをClovaサービスに配布できます。配布されたExtensionは、エンドユーザーが**{{ book.DevConsole.ManageExtensions }}**メニュー(スキルストア)から選んで使用することができます。
 
 Extensionの配布は、通常、次の順で行われます。
 
