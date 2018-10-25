@@ -4263,7 +4263,7 @@ You do not have to enter the value if the information to enter for the payload c
   },
   "payload": {
     "targetTemperature": {
-      "value": 22
+      "value": -18
     }
   }
 }
@@ -4303,7 +4303,7 @@ Used to control appliances such as refrigerators. Requests the Clova Home extens
       "applianceId": "device-021"
     },
     "targetTemperature": {
-      "value": 22
+      "value": -18
     }
   }
 }
