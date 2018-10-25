@@ -2040,7 +2040,7 @@ Sends the current state information (open/close) of the detection target to CEK 
     "payloadVersion": "1.0"
   },
   "payload": {
-    "OpenState": "LOCKED",
+    "OpenState": "CLOSED",
     "applianceResponseTimestamp": "2017-11-23T20:31:08+09:00"
   }
 }
@@ -4341,7 +4341,7 @@ You do not have to enter the value if the information to enter for the payload c
   },
   "payload": {
     "targetTemperature": {
-      "value": 22
+      "value": 5
     }
   }
 }
@@ -4381,7 +4381,7 @@ Used to control appliances such as refrigerators. Requests the Clova Home extens
       "applianceId": "device-021"
     },
     "targetTemperature": {
-      "value": 22
+      "value": 5
     }
   }
 }
