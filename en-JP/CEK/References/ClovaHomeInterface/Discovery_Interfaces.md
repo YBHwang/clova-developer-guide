@@ -14,7 +14,7 @@ Requests the list of IoT devices registered by the user to the Clova Home extens
 
 | Field name       | Data type    | Field description                     | Optional |
 |---------------|---------|-----------------------------|:---------:|
-| `accessToken`   | string  | Access token of the Clova Home extension  |      |
+| `accessToken`   | string  | Access token of the Clova Home extension  |<!-- -->|
 
 ### Message example
 
@@ -44,8 +44,8 @@ Sends the list of IoT devices registered by the user to CEK as a response to the
 
 | Field name       | Data type    | Field description                     | Optional |
 |---------------|---------|-----------------------------|:---------:|
-| `customCommands[]`        | [CustomCommandInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#CustomCommandInfoObject) array  | An object array that contains the custom command list registered to the user account.   |      |
-| `discoveredAppliances[]`  | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) array          | An object array that expresses the device list registered to the user account.          |     |
+| `customCommands[]`        | [CustomCommandInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#CustomCommandInfoObject) array  | An object array that contains the custom command list registered to the user account.   |<!-- -->|
+| `discoveredAppliances[]`  | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) array          | An object array that expresses the device list registered to the user account.          |<!-- -->|
 
 ### Remarks
 You must provide the list of devices registered in each user account when you provide the IoT service.

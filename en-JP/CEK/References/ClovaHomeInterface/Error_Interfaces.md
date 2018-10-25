@@ -28,7 +28,7 @@ Sent to CEK as a response if a certain condition (state) required for operating 
 
 | Field name       | Data type    | Field description                     | Optional |
 |---------------|---------|-----------------------------|:---------:|
-| `state`       | string  | The value that explains the unsatisfied condition or state. This field must be written in a language comprehensible to users, as the value is sent to users as TTS. The value in this field is used in the following format to inform the user of the current situation:<pre><code>This feature is not supported when the {target device} is in {state}. Please check and try again.</code></pre>  |     |
+| `state`       | string  | The value that explains the unsatisfied condition or state. This field must be written in a language comprehensible to users, as the value is sent to users as TTS. The value in this field is used in the following format to inform the user of the current situation:<pre><code>This feature is not supported when the {target device} is in {state}. Please check and try again.</code></pre>  |<!-- -->|
 
 ### Remarks
 * The extension must send the error messages to CEK as a normal HTTP response (200 OK).
@@ -337,8 +337,8 @@ Sent to CEK as a response if the requested action is outside of the range that c
 
 | Field name       | Data type    | Field description                     | Optional |
 |---------------|---------|-----------------------------|:---------:|
-| `maximumValue` | number | Maximum setting value permitted on the target appliance. |     |
-| `minimumValue` | number | Minimum setting value permitted on the target appliance. |     |
+| `maximumValue` | number | Maximum setting value permitted on the target appliance. |<!-- -->|
+| `minimumValue` | number | Minimum setting value permitted on the target appliance. |<!-- -->|
 
 ### Remarks
 * The extension must send the error messages to CEK as a normal HTTP response (200 OK).

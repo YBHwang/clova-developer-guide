@@ -29,12 +29,12 @@ A Clova Home extension message consists of a `header` field and a `payload`. Thi
 #### Message fields
 | Field name       | Data type    | Field description                     | Optional |
 |---------------|---------|-----------------------------|:-------------:|
-| `header`                 | object | The header of the message.                                                                                            |      |
-| `header.messageId`       | string | The message ID (UUID). An identifier created by Clova to distinguish individual messages.                                         |      |
-| `header.name`            | string | The API name of the message.                                                                                        |      |
-| `header.namespace`       | string | The value is always `"ClovaHome"`.                                                                     |      |
-| `header.payloadVersion`  | string | The version of the Clova Home extension message specified in `header.name`. Configuration of the `payload` field may vary depending on this version.  |      |
-| `payload`                | object | Configuration of the payload object and its field values can vary depending on which [interface](#ClovaHomeExtInterface) is specified in `header.name`.       |      |
+| `header`                 | object | The header of the message.                                                                                            |<!-- -->|
+| `header.messageId`       | string | The message ID (UUID). An identifier created by Clova to distinguish individual messages.                                         |<!-- -->|
+| `header.name`            | string | The API name of the message.                                                                                        |<!-- -->|
+| `header.namespace`       | string | The value is always `"ClovaHome"`.                                                                     |<!-- -->|
+| `header.payloadVersion`  | string | The version of the Clova Home extension message specified in `header.name`. Configuration of the `payload` field may vary depending on this version.  |<!-- -->|
+| `payload`                | object | Configuration of the payload object and its field values can vary depending on which [interface](#ClovaHomeExtInterface) is specified in `header.name`.       |<!-- -->|
 
 #### Message example
 {% raw %}
