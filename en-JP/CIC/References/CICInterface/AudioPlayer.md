@@ -916,7 +916,7 @@ The object containing streaming details of an audio stream. This object is used 
 * The UI of a client must prevent users from navigating through the audio in times other than the section defined in `beginAtInMilliseconds` and `durationInMilliseconds` fields.
 * When reporting the current playback state to CIC, set the `totalInMilliseconds` field value of [`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState) as the combined value in `beginAtInMilliseconds` and `durationInMilliseconds` fields.
 
-#### Object Example
+#### Object example
 {% raw %}
 
 ```json

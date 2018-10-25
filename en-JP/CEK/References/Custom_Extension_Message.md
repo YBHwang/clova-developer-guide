@@ -1596,7 +1596,7 @@ The object containing streaming details of an audio stream. This object is used 
 #### Remarks
 * Once the audio section designated in `beginAtInMilliseconds` and `durationInMilliseconds` fields finishes playing, the client must send the [`AudioPlayer.PlayFinished`](#PlayFinished) event to CIC.
 
-#### Object Example
+#### Object example
 {% raw %}
 
 ```json

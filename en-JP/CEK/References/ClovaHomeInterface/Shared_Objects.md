@@ -42,7 +42,7 @@ ActionInforObject contains information on appliance control actions and expresse
 | `applianceId` | String  | Appliance ID.                      | Required/Always     |
 | `action`      | String  | For more information on the list of control actions on an appliance, see the [Actions](#Actions) table under the [ApplianceInfoObject](#ApplianceInfoObject) section.     | Required/Always     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -150,7 +150,7 @@ AirQualityInfoObject contains information on air quality. It indicates the air q
 |---------------|---------|-----------------------------|:-------------:|
 | `index`       | string  | Air quality level. Available values are:<ul><li><code>"good"</code> : Good</li><li><code>"normal"</code>: Normal</li><li><code>"bad"</code>: Bad</li><li><code>"verybad"</code>: Very bad</li></ul> | Required/Always     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -333,7 +333,7 @@ The table below shows the location information supported by `location` field. Th
 
 {% include "/CEK/References/ClovaHomeInterface/Location.md" %}
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -418,7 +418,7 @@ BatteryInfoObject contains information on the appliance battery. It indicates th
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | Remaining battery (%)                 | Required/Always     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -469,7 +469,7 @@ BillInfoObject contains the information on billing based on the power usage meas
 | `currency`    | string  | Currency unit (<a href="https://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO 4217</a>)  | Required/Always |
 | `value`       | number  | Amount of bill                    | Required/Always   |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -507,7 +507,7 @@ BrightnessInfoObject contains information on light or screen brightness. It indi
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | Brightness (%)                      | Required/Always     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -571,7 +571,7 @@ ColorInfoObject contains information on the color of lights, the screen, or the 
 | `hue`         | number  | Hue (0 - 360).                  | Required/Always |
 | `saturation`  | number  | Saturation (0 - 100).                  | Required/Always |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -611,7 +611,7 @@ ColorTemperatureInfoObject contains information on the color temperature of a li
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | The color temperature (K, Kelvin).             | Required/Always     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -651,7 +651,7 @@ ConsumptionInfoObject contains usage information on energy or resources measured
 | `unit`        | string  | Energy or resource consumption unit (e.g. Electricity: kW)        | Required/Always  |
 | `value`       | number  | Energy or resource consumption amount.                    | Required/Always   |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -693,7 +693,7 @@ CountInfoObject contains information on the number of count. It indicates specif
 |---------------|---------|-----------------------------|:-------------:|
 | `value`             | number  | The TV channel number.                      | Required/Always     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -733,7 +733,7 @@ CustomCommandInfoObject contains information on custom commands. It holds inform
 | `name`        | string  | The name of the custom command.             | Required/Always      |
 | `actions[]`   | [ActionInforObject](#ActionInforObject) array | The list of appliance control actions to be processed by the custom command.  | Required/Always  |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -844,7 +844,7 @@ CustomInfoObject contains information directly entered by the user such as custo
 | `value`       | number or string | The state value or measurement value.                                                                             | Required/Always |
 | `unit`        | string            | The value of the appliance state or the unit information of the measurement. This is omitted if the data type of the `value` field is a string and may have the following units if it is a numeric value.<ul><li><code>"celcius"</code> : Celsius</li><li><code>"percentage"</code>: Percentage</li></ul> | Optional/Conditional |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -895,7 +895,7 @@ ExpendableInfoObject contains information on usage or remaining lifespan of appl
 | `remainingTime` | string   | The remaining lifespan of the part. (Duration, <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>)    | Optional/Conditional |
 | `usage`         | [CustomInfoObject](#CustomInfoObject)          | The usage amount of the part (can be expressed as the number of uses or percentage of usage).      | Optional/Conditional |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -941,7 +941,7 @@ FineDustInfoObject contains information on fine dust. This is used to indicate t
 | `value`       | number  | PM10 air quality index.                  | Optional/Conditional    |
 | `index`       | string  | The PM10 level. Available values are:<ul><li><code>"good"</code> : Good</li><li><code>"normal"</code>: Normal</li><li><code>"bad"</code>: Bad</li><li><code>"verybad"</code>: Very bad</li></ul> | Required/Always     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -976,7 +976,7 @@ IntensityLevelInfoObject contains information on pressure or water pressure inte
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | Intensity of pressure or water pressure.            | Optional/Conditional    |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1131,7 +1131,7 @@ ModeInfoObject contains information on the operation mode. This is used to indic
   </tdoby>
 </table>
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1203,7 +1203,7 @@ HumidityInfoObject contains information on humidity. This is used to indicate th
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | The humidity (%).                      | Required/Always     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1240,7 +1240,7 @@ PeriodInfoObject contains information for periods used to retrieve measured data
 | `end`         | string  | The end time of the period. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    | Required/Always      |
 | `start`       | string  | The start time of the period. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    | Required/Always      |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1280,7 +1280,7 @@ PhaseInfoObject contains information on the phase of appliance actions. This is 
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | string  | The string to express the phase of action.        | Required/Always      |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1332,7 +1332,7 @@ ProgressiveTaxBracketInfoObject contains information on progressive tax brackets
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | Progressive tax bracket                    | Required/Always     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1367,7 +1367,7 @@ SittingStateInfoObject contains the sit-down information of the user on applianc
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | boolean | The sit-down state.<ul><li><code>true</code>: Seated</li><li><code>false</code>: Not seated</li></ul>       | Required/Always     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1406,7 +1406,7 @@ SleepScoreInfoObject contains information on sleep score. This object contains t
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | The sleep score.                     | Required/Always     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1441,7 +1441,7 @@ SpeedInfoObject contains information on speed. This is used to indicate the spee
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | Speed value                       | Required/Always     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1503,7 +1503,7 @@ TemperatureInfoObject contains information on temperature. This is used to indic
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | The temperature value.                       | Required/Always     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1573,7 +1573,7 @@ TVChannelNameInfoObject contains information on a TV channel name. This is used 
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | string  | The name of the TV channel.                  | Required/Always     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1626,7 +1626,7 @@ TVChannelInfoObject contains information on a TV channel number. This is used to
 |---------------|---------|-----------------------------|:-------------:|
 | `value`             | number  | The TV channel number.                      | Required/Always     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1689,7 +1689,7 @@ TVInputSourceNameInfoObject contains information on the TV input source name. Th
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | string  | The name of the TV input source.	                  | Required/Always     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1743,7 +1743,7 @@ UltraFineDustInfoObject contains information on ultrafine dust. This is used to 
 | `value`       | number  | PM2.5 air quality index.                | Optional/Conditional    |
 | `index`       | number  | The PM2.5 level. Available values are:<ul><li><code>"good"</code> : Good</li><li><code>"normal"</code>: Normal</li><li><code>"bad"</code>: Bad</li><li><code>"verybad"</code>: Very bad</li></ul> | Required/Always     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -1778,7 +1778,7 @@ VolumeInfoObject contains information on the speaker volume. This is used to ind
 |---------------|---------|-----------------------------|:-------------:|
 | `value`       | number  | The value of the volume.                       | Required/Always     |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
