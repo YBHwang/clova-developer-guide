@@ -18,10 +18,10 @@ This section explains the prerequisites for creating a Clova Home extension, the
 
 The information is provided for the Clova Home extension developers in the following order:
 
-1. [Prerequisites](#Preparation)
-2. [Providing device discovery](#ProvideDeviceDiscovery)
-3. [Handling a Clova Home extension request](#HandleClovaHomeExtensionRequest)
-4. [Returning a Clova Home extension response](#ReturnClovaHomeExtensionResponse)
+* [Prerequisites](#Preparation)
+* [Providing device discovery](#ProvideDeviceDiscovery)
+* [Handling a Clova Home extension request](#HandleClovaHomeExtensionRequest)
+* [Returning a Clova Home extension response](#ReturnClovaHomeExtensionResponse)
 
 {% endif %}
 
