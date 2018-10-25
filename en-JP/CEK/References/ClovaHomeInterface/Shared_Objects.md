@@ -483,8 +483,8 @@ BillInfoObject contains the information on billing based on the power usage meas
   },
   "payload": {
     "currentBill": {
-        "value": 29900,
-        "currency": "KRW"
+        "value": 2990,
+        "currency": "JPY"
     },
     "applianceResponseTimestamp": "2017-11-23T20:30:54+09:00"
   }

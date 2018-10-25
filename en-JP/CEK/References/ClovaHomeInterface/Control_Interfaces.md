@@ -1462,8 +1462,8 @@ Sends the information on billing measured by the target appliance to date to CEK
   },
   "payload": {
     "currentBill": {
-        "value": 29900,
-        "currency": "KRW"
+        "value": 2990,
+        "currency": "JPY"
     },
     "applianceResponseTimestamp": "2017-11-23T20:30:54+09:00"
   }
@@ -1689,8 +1689,8 @@ Sends the estimated billing information measure by the target appliance to CEK a
   },
   "payload": {
     "estimateBill": {
-        "value": 60000,
-        "currency": "KRW"
+        "value": 6000,
+        "currency": "JPY"
     },
     "applianceResponseTimestamp": "2017-11-23T20:30:54+09:00"
   }
