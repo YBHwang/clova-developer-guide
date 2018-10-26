@@ -28,7 +28,7 @@ Typically, user authentication is processed on the pair app. However, transferri
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `client_id`     | string  | The client ID. (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo).)          | Required |
+| `client_id`     | string  | The client ID (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo).).          | Required |
 | `device_id`     | string  | The MAC address or UUID of the client device.                                                              | Required |
 | `model_id`      | string  | The model ID of the client device.                                                                          | Optional |
 | `response_type` | string  | The response type. The value is always `"code"`.                                                             | Required |
@@ -57,7 +57,7 @@ Typically, user authentication is processed on the pair app. However, transferri
 |---------------|---------|-----------------------------|:---------:|
 | `code`          | string | The authorization code issued by the Clova authorization server. This field is returned in the body of the HTTP response message if the status code is `200` or `451`.      | Always      |
 | `redirect_uri`  | string | The URI of the Terms and Conditions page. The field is returned in the body of the HTTP response message if the status code is `451 Unavailable For Legal Reasons`. The client must go to the redirect URI and display the page. When the user submits the agreement, the client will receive a response containing the `302 Found`(URL redirection) status code along with either one of the following URLs. <ul><li><code>clova://agreement-success</code>: The user has successfully agreed to the Terms and Conditions. The client can continue to the next process to create a Clova access token.</li><li><code>clova://agreement-failure</code>: The processing of the user agreement has failed due to a server error. We recommend you to take appropriate actions regarding the failure.</li></ul> | Always      |
-| `state`         | string | The state of the token sent by the client to prevent cross-site request forgery attacks. (URL decoded) This field is returned in the body of the HTTP response message if the status code is `200` or `451`. | Always      |
+| `state`         | string | The state of the token sent by the client to prevent cross-site request forgery attacks (URL decoded). This field is returned in the body of the HTTP response message if the status code is `200` or `451`. | Always      |
 
 ### Status codes
 
@@ -117,8 +117,8 @@ This API requests for a Clova access token to the Clova authorization server wit
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `client_id`     | string  | The client ID. (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo).)                                  | Required |
-| `client_secret` | string  | The client secret. (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo))                              | Required |
+| `client_id`     | string  | The client ID (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo).).                                  | Required |
+| `client_secret` | string  | The client secret (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo)).                              | Required |
 | `code`          | string  | [The issued authorization code](#RequestAuthorizationCode)                                                               | Required |
 | `device_id`     | string  | The MAC address or UUID of the client device.                                                                                     | Required |
 | `model_id`      | string  | The model ID of the client device.                                                                                                 | Optional |
@@ -192,8 +192,8 @@ This API renews the Clova access token with a refresh token.
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `client_id`     | string  | The client ID. (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo).)                                  | Required |
-| `client_secret` | string  | The client secret. (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo))                              | Required |
+| `client_id`     | string  | The client ID (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo).).                                  | Required |
+| `client_secret` | string  | The client secret (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo)).                              | Required |
 | `device_id`     | string  | The MAC address or UUID of the client device.                                            | Optional |
 | `model_id`      | string  | The model of the client device.                                                           | Optional |
 | `refresh_token` | string  | The refresh token issued with the Clova access token.                                              | Required |
@@ -267,8 +267,8 @@ This API deletes the [issued Clova access token](#RequestClovaAccessToken). The 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
 | `access_token`  | string  | The Clova access token issued.                                                                                 | Required |
-| `client_id`     | string  | The client ID. (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo).)                                  | Required |
-| `client_secret` | string  | The client secret. (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo))                              | Required |
+| `client_id`     | string  | The client ID (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo).).                                  | Required |
+| `client_secret` | string  | The client secret (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo)).                              | Required |
 | `device_id`     | string  | The MAC address or UUID of the client device.                                            | Required |
 | `model_id`      | string  | The model of the client device.                                                           | Optional |
 

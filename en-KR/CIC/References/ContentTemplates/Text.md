@@ -35,7 +35,7 @@ The Text template is used in providing text for the client to display on the cli
 
 ```json
 // Example 1.
-// User request: How much does one dollar worth now? (The text is to be displayed as emphasized)
+// User request: How much is one dollar worth now? (The text is to be displayed as emphasized)
 {
   "actionList": [
     {
@@ -171,7 +171,7 @@ The Text template is used in providing text for the client to display on the cli
 }
 
 // Example 3.
-// User request: Tell me the phone numbers for flower shops. (The text is to be displayed tables)
+// User request: Tell me the phone numbers for flower shops (The text is to be displayed tables).
 {
   "actionList": [
     {
@@ -254,7 +254,7 @@ The Text template is used in providing text for the client to display on the cli
 }
 
 // Example 4.
-// User request: Sorry. (Client is to display the text and express emotion)
+// User request: Sorry (Client is to display the text and express emotion).
 
 {
   "actionList": [
@@ -323,7 +323,7 @@ The Text template is used in providing text for the client to display on the cli
 }
 
 // Example 5.
-// User request: Dance for me. (Motion)
+// User request: Dance for me (Motion).
 
 {
   "actionList": [

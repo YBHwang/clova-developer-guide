@@ -14,7 +14,7 @@ The main items are as follows:
 	    <p>An HTTP connection can be used for testing, but an HTTPS connection is required for the official service. The extension server must use ports 80 and 443 for HTTP and HTTPS connection respectively.</p>
 		</div>
 
-	* **{{ book.DevConsole.cek_account_linking }}**: Only use when connecting with the membership information of a third-party using an authorization server (based onOAuth 2.0).
+	* **{{ book.DevConsole.cek_account_linking }}**: Only use when connecting with the membership information of a third-party using an authorization server (based on OAuth 2.0).
 		Set the Sample Dice extension as **{{ book.DevConsole.cek_no }}**.
 * Deployment information and privacy and compliance information
 

@@ -34,10 +34,10 @@ Follow the steps below to register the extension:
   <li>Select a language supported from the <strong>{{ book.DevConsole.cek_lang }}</strong> item. Currently, only <strong>{{ book.DevConsole.ko_KR }}</strong> is supported.</li>
   <li>Enter extension ID, <strong>skill name</strong>, and <strong>invocation name</strong> in the following fields:
     <ol>
-      <li><strong>{{ book.DevConsole.cek_id }}</strong>: Unique ID of the extension. Use the reverse domain name notation for the ID (e.g. com.example.extension.pizzabot).</li>
+      <li><strong>{{ book.DevConsole.cek_id }}</strong>: Unique ID of the extension. Use the reverse domain name notation for the ID (e.g., com.example.extension.pizzabot).</li>
       <li><strong>{{ book.DevConsole.cek_name }}</strong>: Name of the extension. The name will be shown later on the Clova Skill Store.</li>
       <li><strong>{{ book.DevConsole.cek_invocation_name }}</strong>: Name of the extension that can be used by users to call the extension. You can register at least one and up to three {{ book.DevConsole.cek_invocation_name }}. The name can be a general name of an owned service, company, or organization, but it is more preferable to use a concise and unique name to increase user convenience. A universal word, or names of another company or its service, cannot be used. The <strong>{{ book.DevConsole.cek_invocation_name }}</strong> will be evaluated during the extension review process.</li>
-      <li><strong>{{ book.DevConsole.cek_provider }}</strong>: Enter the name or alias of the extension manufacturer (company or individual). This will be reviewed in the extension approval process and will be shown later in the skill store.</li>
+      <li><strong>{{ book.DevConsole.cek_provider }}</strong>: Enter the name or alias of the extension manufacturer (company or individual). This will be reviewed in the extension approval process and will be shown later in the Skill Store.</li>
     </ol>
   </li>
   <li>If the extension uses the <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a> directive, select <strong>{{ book.DevConsole.cek_yes }}</strong> from the <strong>{{ book.DevConsole.cek_audioplayer }}</strong> item. The extension uses the directive messages when it provides a music streaming service.</li>

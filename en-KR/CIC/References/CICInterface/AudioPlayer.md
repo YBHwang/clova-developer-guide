@@ -106,7 +106,7 @@ Instructs the client to either play or add to the playback queue the specified a
 | Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:---------:|
 | `audioItem`               | object | The metadata of an audio stream to play and audio stream information required for playback.                     | Always |
-| `audioItem.artImageUrl`   | string | The URL for the image on the audio (e.g. album image).                                                  | Conditional  |
+| `audioItem.artImageUrl`   | string | The URL for the image on the audio (e.g., album image).                                                  | Conditional  |
 | `audioItem.audioItemId`   | string | ID of an audio stream. Use this ID to remove redundant Play directives. | Always |
 | `audioItem.headerText`    | string | The text field used mainly to indicate the title of current play list.                                                | Conditional  |
 | `audioItem.stream`        | [AudioStreamInfoObject](#AudioStreamInfoObject) | The audio stream information required for playback.        | Always |
@@ -125,7 +125,7 @@ Instructs the client to either play or add to the playback queue the specified a
 </div>
 
 ### Remarks
-Based on the policy of music service providers, certain information required for playback (e.g. streaming URL) may have to be acquired right before playback. Whether additional information will be requested is specified in the `audioItem.stream.urlPlayable` field, as shown below:
+Based on the policy of music service providers, certain information required for playback (e.g., streaming URL) may have to be acquired right before playback. Whether additional information will be requested is specified in the `audioItem.stream.urlPlayable` field, as shown below:
 * `urlPlayable` is `true`: No additional information is required. You can play the audio stream only with the URL specified in the `audioItem.stream.url` field.
 * `urlPlayable` is `false`: Additional information is required for you to play the given audio stream with the URL specified in the `audioItem.stream.url` field. Make a request for additional information with the [`AudioPlayer.StreamRequested`](#StreamRequested) event.
 
@@ -794,7 +794,7 @@ Requests CIC for additional information needed for audio stream playback such as
 | `audioStream`   | [AudioStreamInfoObject](#AudioStreamInfoObject) | The `audioItem.stream` of the Play directive. | Required |
 
 ### Remarks
-Based on the policy of music service providers, certain information required for playback (e.g. streaming URL) may not be shared to clients until right before playback. This event is an API designed for such situations where you cannot get stream information in advance. Do not send this event any earlier than right before playing an audio stream.
+Based on the policy of music service providers, certain information required for playback (e.g., streaming URL) may not be shared to clients until right before playback. This event is an API designed for such situations where you cannot get stream information in advance. Do not send this event any earlier than right before playing an audio stream.
 
 ### Message example
 {% raw %}

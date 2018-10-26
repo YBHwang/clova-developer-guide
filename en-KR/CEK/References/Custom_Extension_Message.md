@@ -461,7 +461,7 @@ Here is an example of the `request` object field of the `IntentRequest` type mes
 ```
 
 #### LaunchRequest {#CustomExtLaunchRequest}
-`LaunchRequest` type is a request type that indicates that a user has started using a specific extension. For example, the user has declared they want to use a specific skill by saying "Start DiceDrawer." The [`IntentRequest`](#CustomExtIntentRequest) type message of the extension is received until the user declares they want to stop using the skill.
+`LaunchRequest` type is a request type that indicates that a user has started using a specific extension. For example, the user has declared they want to use a specific skill by saying "Start Dice Drawer." The [`IntentRequest`](#CustomExtIntentRequest) type message of the extension is received until the user declares they want to stop using the skill.
 
 The `request` object field configuration of the `LaunchRequest` type message is as follows:
 
@@ -808,7 +808,7 @@ Instructs the client to either play or add to the playback queue the specified a
 | Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:---------:|
 | `audioItem`               | object | The metadata of an audio stream to play and audio stream information required for playback.                     | Always |
-| `audioItem.artImageUrl`   | string | The URL for the image on the audio (e.g. album image).                                                  | Conditional  |
+| `audioItem.artImageUrl`   | string | The URL for the image on the audio (e.g., album image).                                                  | Conditional  |
 | `audioItem.audioItemId`   | string | ID of an audio stream. Use this ID to remove redundant Play directives. | Always |
 | `audioItem.headerText`    | string | The text field used mainly to indicate the title of current play list.                                                | Conditional  |
 | `audioItem.stream`        | [AudioStreamInfoObject](#AudioStreamInfoObject) | The audio stream information required for playback.        | Always |
@@ -821,7 +821,7 @@ Instructs the client to either play or add to the playback queue the specified a
 | `source.name`             | string | The text field containing the name of the audio streaming service.                                                        | Always |
 
 ### Remarks
-Based on the policy of music service providers, certain information required for playback (e.g. streaming URL) may have to be acquired right before playback. Whether additional information will be requested is specified in the `audioItem.stream.urlPlayable` field, as shown below:
+Based on the policy of music service providers, certain information required for playback (e.g., streaming URL) may have to be acquired right before playback. Whether additional information will be requested is specified in the `audioItem.stream.urlPlayable` field, as shown below:
 * `urlPlayable` is `true`: No additional information is required. You can play the audio stream only with the URL specified in the `audioItem.stream.url` field.
 * `urlPlayable` is `false`: Additional information is required for you to play the given audio stream with the URL specified in the `audioItem.stream.url` field. Make a request for additional information with the [`AudioPlayer.StreamRequested`](#StreamRequested) event.
 
@@ -1281,7 +1281,7 @@ Requests CIC for additional information needed for audio stream playback such as
 | `audioStream`   | [AudioStreamInfoObject](#AudioStreamInfoObject) | The `audioItem.stream` of the Play directive. | Required |
 
 #### Remarks
-Based on the policy of music service providers, certain information required for playback (e.g. streaming URL) may not be shared to clients until right before playback. This event is an API designed for such situations where you cannot get stream information in advance. Do not send this event any earlier than right before playing an audio stream.
+Based on the policy of music service providers, certain information required for playback (e.g., streaming URL) may not be shared to clients until right before playback. This event is an API designed for such situations where you cannot get stream information in advance. Do not send this event any earlier than right before playing an audio stream.
 
 #### Message example
 {% raw %}
@@ -1419,7 +1419,7 @@ Instructs the client to display the sent playback metadata such as a playlist, a
 | `playableItems[].controls[].selected`       | boolean      | Indicates whether the media content is selected. This value can be used for displaying user preferences. For example, if this value is set as `true`, the content must be expressed on the relevant UI of the media player since the user has selected it as a preference. <ul><li><code>true</code>: Selected</li><li><code>false</code>: Not selected</li></ul> | Always  |
 | `playableItems[].controls[].type`           | string       | The type of button. Currently, only the `"BUTTON"` value is available.  | Always |
 | `playableItems[].headerText`       | string        | The text field used mainly to indicate the title of current play list.                                                | Conditional  |
-| `playableItems[].isLive`           | boolean       | Indicates whether the content is a real-time content.<ul><li><code>true</code>: Real-time content</li><li><code>false</code>: Not a real-time content</li></ul><div class="note"><p><strong>Note!</strong></p><p>If the content is a real-time content, you must display an icon to indicate its state (e.g. A live icon).</p></div>  | Conditional  |
+| `playableItems[].isLive`           | boolean       | Indicates whether the content is a real-time content.<ul><li><code>true</code>: Real-time content</li><li><code>false</code>: Not a real-time content</li></ul><div class="note"><p><strong>Note!</strong></p><p>If the content is a real-time content, you must display an icon to indicate its state (e.g., A live icon).</p></div>  | Conditional  |
 | `playableItems[].lyrics[]`         | object array  | The object array containing the lyrics information.                                                            | Conditional  |
 | `playableItems[].lyrics[].data`    | string        | The lyrics data. Either this field or the `playableItems[].lyrics[].url` field exists.              | Conditional  |
 | `playableItems[].lyrics[].format`  | string        | The format of the lyrics data.<ul><li><code>"LRC"</code>: <a href="https://en.wikipedia.org/wiki/LRC_(file_format)" target="_blank">LRC format</a></li><li><code>"PLAIN"</code>: Plain text format</li></ul>  | Always  |

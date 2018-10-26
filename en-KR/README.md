@@ -10,7 +10,7 @@
   <p>A company or individual trying to develop an extension or client that includes monetary transactions or payments, or an extension or client that provides an IoT service, is required to be in a partnership with NAVER by visiting the <a target="_blank" href="https://www.navercorp.com/ko/company/proposalRegister.nhn">NAVER partnership suggestions</a> page in advance.</p>
 </div>
 
-For client and extension developers, Clova platform provides Clova interface connection (CIC), Clova extension kit (CEK), and Clova developer console. Developers can use the following documents when necessary:
+For client and extension developers, Clova platform provides Clova Interface Connection (CIC), Clova Extensions Kit (CEK), and Clova developer console. Developers can use the following documents when necessary:
 
 <table>
   <thead>
@@ -89,10 +89,10 @@ For client and extension developers, Clova platform provides Clova interface con
           </ul>
           <li>Example extensions</li>
           <ul>
-            <li><a href="/CEK/Examples/Extension_Examples.md#MagicBall">MagicBall</a></li>
-            <li><a href="/CEK/Examples/Extension_Examples.md#RainSound">RainSound</a></li>
-            <li><a href="/CEK/Examples/Extension_Examples.md#DiceDrawer">DiceDrawer</a></li>
-            <li><a href="/CEK/Examples/Extension_Examples.md#CoinHelper">CoinHelper</a></li>
+            <li><a href="/CEK/Examples/Extension_Examples.md#MagicBall">Magic Ball</a></li>
+            <li><a href="/CEK/Examples/Extension_Examples.mdRainSound">Rain Sound</a></li>
+            <li><a href="/CEK/Examples/Extension_Examples.md#DiceDrawer">Dice Drawer</a></li>
+            <li><a href="/CEK/Examples/Extension_Examples.md#CoinHelper">Coin Helper</a></li>
           </ul>
         </ul>
       </td>

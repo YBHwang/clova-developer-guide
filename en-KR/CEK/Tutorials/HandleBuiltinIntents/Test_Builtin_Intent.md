@@ -1,4 +1,4 @@
-You must test whether the Sample Dice extension handles the the help request built-in intent from the extension via an appropriate method.
+You must test whether the Sample Dice extension handles the help request built-in intent from the extension via an appropriate method.
 
 There are two test methods shown in the [first tutorial](/CEK/Tutorials/Build_Simple_Extension.md). One method is checking the operation of the interaction model on the Clova developer console and the other is checking the actual operation of the Clova app by registering a tester ID.
 This tutorial checks the operation of the interaction model only.

@@ -58,7 +58,7 @@ Among the common fields, the following action URL scheme values are included in 
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>The difference of an action URL scheme from a directive is that for a directive, the client must perform the corresponding action immediately when it receives a directive. But for an action URL scheme, the client must perform the corresponding action when a user interaction has taken place on UI that is provided as a screen or as other means. When providing an action for an action URL scheme, the client must provide the action that matches the purpose as defined in the table above and must not perform a random action.</p>
+  <p>The difference of an action URL scheme from a directive is that for a directive, the client must perform the corresponding action immediately when it receives a directive. But for an action URL scheme, the client must perform the corresponding action when a user interaction has taken place on UI that is provided on a screen or as other means. When providing an action for an action URL scheme, the client must provide the action that matches the purpose as defined in the table above and must not perform a random action.</p>
 </div>
 
 ### clova://app-launch/default-addressbook {#AppLaunchDefaultAddrBook}

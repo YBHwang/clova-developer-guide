@@ -1,6 +1,6 @@
 You can register the interaction model on the <a href="{{ book.ServiceEnv.DeveloperConsoleURL }}/cek/#/list" target="_blank">Clova developer console</a>.
 
-In this tutorial, the Sample Dice extension rolls one die by default if the user requests to dice without stating the number of dice. For this tutorial, we will create a simple interaction model to handle the command for throwing a die. Since the information on the number of dice is not collected, we can register one intent without a slot.
+In this tutorial, the Sample Dice extension rolls one die by default if the user requests to roll dice without stating the number of dice. For this tutorial, we will create a simple interaction model to handle the command for throwing a die. Since the information on the number of dice is not collected, we can register one intent without a slot.
 
 ### Creating a new custom intent
 Follow the steps below to make a simple intent to roll one die upon user request.

@@ -1,6 +1,6 @@
 ### Validating a request message {#RequestMessageValidation}
 
-When the extension receives an HTTP request from CEK, you need to validate the integrity of the request to check that the request was sent from Clova and not from a third party. Using `SignatureCEK` in the [HTTP header](#HTTPHeader) and the RSA public key, you can validate the request message as follows:
+When an extension receives an HTTP request from CEK, you need to validate the integrity of the request to check that the request was sent from Clova and not from a third party. Using `SignatureCEK` in the [HTTP header](#HTTPHeader) and the RSA public key, you can validate the request message as follows:
 
 <ol>
   <li><p>Download the RSA public key for Clova signature from the URL below.</p>

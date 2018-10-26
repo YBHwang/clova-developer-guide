@@ -1,5 +1,5 @@
 # Deploying an extension
-If the [custom extension](/CEK/Guides/Build_Custom_Extension.md) or Clova Home extension are registered on the [Clova developer console](/DevConsole/Guides/CEK/Register_Extension.md), it can be deployed to the Clova service. Once deployed, the general users can find the extension from the **{{ book.DevConsole.ManageExtensions }}** menu in the skill store.
+If the [custom extension](/CEK/Guides/Build_Custom_Extension.md) or Clova Home extension are registered on the [Clova developer console](/DevConsole/Guides/CEK/Register_Extension.md), it can be deployed to the Clova service. Once deployed, general users can find the extension from the **{{ book.DevConsole.ManageExtensions }}** menu in the Skill Store.
 
 To deploy an extension, you must typically complete the following steps:
 
@@ -17,7 +17,7 @@ Enter the deployment information following the example below.
 
 ![](/DevConsole/Resources/Images/DevConsole-Input_Deployment_Info.png)
 
-The information on the extension entered here is provided to users on the **{{ book.DevConsole.ManageExtensions }}** menu of the Clova app in the skill store. The details of the entered information are as follows:
+The information on the extension entered here is provided to users on the **{{ book.DevConsole.ManageExtensions }}** menu of the Clova app in the Skill Store. The details of the entered information are as follows:
 
 * **{{ book.DevConsole.cek_category }}**: The type of the extension. Users can use this information to check or search for extensions by their type.
 * **{{ book.DevConsole.cek_test_instructions }}**: The information used by the review team as a reference for the [Extension approval](#RequestExtensionSubmission) process where your extension is validated. It is not shown to regular users. Follow the instructions to fill in the information.
@@ -62,10 +62,10 @@ The URLs entered in **{{ book.DevConsole.cek_privacy_policy_url }}** and **{{ bo
 
 ## Requesting a review {#RequestExtensionSubmission}
 
-Once you have filled out the [deployment information](#InputDeploymentInfo) and the [privacy and compliance information](#InputComplianceInfo), you can request a review of your registerd extension as the last step. Then a Clova administrator reviews the extension such as its registered information, actual execution, and suitability.
+Once you have filled out the [deployment information](#InputDeploymentInfo) and the [privacy and compliance information](#InputComplianceInfo), you can request a review of your registered extension as the last step. Then a Clova administrator reviews the extension such as its registered information, actual execution, and suitability.
 
 * If the extension is functioning properly and no issues are found during the review, it will pass the review and you will be able to deploy the extension immediately.
-* If an execution error is found during the review or a critical issue is found within the user scenario, the request for deployment will be rejected by the administrator. Then the extension will go back to the previous status.
+* If an execution error is found during the review or a critical issue is found within potential user scenarios, the request for deployment will be rejected by the administrator. Then the extension will go back to the previous status.
 
 ![](/DevConsole/Resources/Images/DevConsole-Extension_Submission_Process.png)
 
@@ -86,7 +86,7 @@ If you click **{{ book.DevConsole.cek_request_submit }}**, you can leave informa
   <p>You cannot edit the extension information and interaction model during the review stage.</p>
 </div>
 
-The review will be carried out in a separate environment before publishing the skill to the skill store. If the service requires [account linking](/CEK/Guides/Link_User_Account.md), then you must input the account information for testing under the **{{ book.DevConsole.cek_test_instructions }}** when you [input the deployment information](#InputDeploymentInfo).
+The review will be carried out in a separate environment before publishing the skill to the Skill Store. If the service requires [account linking](/CEK/Guides/Link_User_Account.md), then you must input the account information for testing under the **{{ book.DevConsole.cek_test_instructions }}** when you [input the deployment information](#InputDeploymentInfo).
 
 The assessment tasks performed during the extension review are as follows:
 

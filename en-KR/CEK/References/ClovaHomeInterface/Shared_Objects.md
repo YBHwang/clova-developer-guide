@@ -666,7 +666,7 @@ ConsumptionInfoObject contains information on energy or resource measured by the
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:-------------:|
 | `name`        | string  | The name of item consuming energy or resource.                   | Required  |
-| `unit`        | string  | Energy or resource consumption unit (e.g. kW for electricity)        | Required  |
+| `unit`        | string  | Energy or resource consumption unit (e.g., kW for electricity)        | Required  |
 | `value`       | number  | Energy or resource consumption amount.                    | Required   |
 
 ### Object Example
@@ -942,7 +942,7 @@ ExpendableInfoObject contains information on usage or remaining lifespan of devi
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:-------------:|
 | `name`          | string  | The name of the part.                  | Required |
-| `remainingTime` | string   | The remaining lifespan of the part. (Duration, <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>)    | Optional |
+| `remainingTime` | string   | The remaining lifespan of the part (Duration, <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>).    | Optional |
 | `usage`         | [CustomInfoObject](#CustomInfoObject)          | The usage amount of the part (can be expressed as the number of uses or percentage of usage).      | Optional |
 
 ### Object Example
@@ -1338,14 +1338,14 @@ PeriodInfoObject contains information for periods used to retrieve measured data
 
 | Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:-------------:|
-| `end`         | string  | The end time of the period. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    | Always      |
-| `start`       | string  | The start time of the period. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    | Always      |
+| `end`         | string  | The end time of the period (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).    | Always      |
+| `start`       | string  | The start time of the period (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).    | Always      |
 
 ### Remarks
 Expressions such as "today," "this week," or "this month" used by the user are defined by the following range of time:
 
 * "Today": The time range begins at 00:00:00 of the current date and ends at 23:59:59 of the current date.
-* "This week": The time range begins at 00:00:00 of the {{ book.ServiceEnv.FirstDayOfWeekInClovaHome }}of the current week and ends at 23:59:59 of the {{ book.ServiceEnv.LastDayOfWeekInClovaHome }} of the current week.
+* "This week": The time range begins at 00:00:00 of the {{ book.ServiceEnv.FirstDayOfWeekInClovaHome }} of the current week and ends at 23:59:59 of the {{ book.ServiceEnv.LastDayOfWeekInClovaHome }} of the current week.
 * "This month": The time range begins at 00:00:00 of the first day of the current month and ends at 23:59:59 of the last day of the current month.
 
 At the time of processing a request, the end time (`end`) of the period used in special expressions like above can be a time in the future that is yet to come. Depending on the situation, data must be handled by considering the handling time as the end time.
