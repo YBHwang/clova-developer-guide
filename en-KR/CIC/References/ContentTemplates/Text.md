@@ -171,7 +171,7 @@ The Text template is used in providing text for the client to display on the cli
 }
 
 // Example 3.
-// User request: Tell me the phone numbers for flower shops (The text is to be displayed tables).
+// User request: Tell me the phone numbers for flower shops. (The text is to be displayed in tables.)
 {
   "actionList": [
     {
@@ -254,7 +254,7 @@ The Text template is used in providing text for the client to display on the cli
 }
 
 // Example 4.
-// User request: Sorry (Client is to display the text and express emotion).
+// User request: Sorry. (Client is to display the text and express emotion.)
 
 {
   "actionList": [

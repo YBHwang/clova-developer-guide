@@ -335,7 +335,7 @@ The Cardlist template has standardized the data to be displayed on the screen as
       "description": [
         {
           "type": "string",
-          "value": "Thousands more visit on the last weekend of May. Visitors cool down and enjoy the sand art (Busan=Yonhap News) Reporter Cho, Jeong-ho = With the arrival of early summer-like weather on 28th, visitors on the Haeundae beach are enjoying the sand festival and the 25 m wide and 5 m high sculpture. May 28, 2017 (National=Yonhap News). The weather on 28th, the last weekend of May, already feels like summer with..."
+          "value": "Thousands more visit on the last weekend of May. Visitors cool down and enjoy the sand art (Busan=Yonhap News). Reporter Cho, Jeong-ho = With the arrival of early summer-like weather on 28th, visitors on the Haeundae beach are enjoying the sand festival and the 25 m wide and 5 m high sculpture. May 28, 2017 (National=Yonhap News). The weather on 28th, the last weekend of May, already feels like summer with..."
         },
         {
           "type": "string",

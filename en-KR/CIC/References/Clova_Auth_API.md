@@ -28,7 +28,7 @@ Typically, user authentication is processed on the pair app. However, transferri
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `client_id`     | string  | The client ID (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo).).          | Required |
+| `client_id`     | string  | The client ID (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo)).          | Required |
 | `device_id`     | string  | The MAC address or UUID of the client device.                                                              | Required |
 | `model_id`      | string  | The model ID of the client device.                                                                          | Optional |
 | `response_type` | string  | The response type. The value is always `"code"`.                                                             | Required |
@@ -117,7 +117,7 @@ This API requests for a Clova access token to the Clova authorization server wit
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `client_id`     | string  | The client ID (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo).).                                  | Required |
+| `client_id`     | string  | The client ID (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo)).                                  | Required |
 | `client_secret` | string  | The client secret (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo)).                              | Required |
 | `code`          | string  | [The issued authorization code](#RequestAuthorizationCode)                                                               | Required |
 | `device_id`     | string  | The MAC address or UUID of the client device.                                                                                     | Required |
@@ -192,7 +192,7 @@ This API renews the Clova access token with a refresh token.
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `client_id`     | string  | The client ID (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo).).                                  | Required |
+| `client_id`     | string  | The client ID (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo)).                                  | Required |
 | `client_secret` | string  | The client secret (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo)).                              | Required |
 | `device_id`     | string  | The MAC address or UUID of the client device.                                            | Optional |
 | `model_id`      | string  | The model of the client device.                                                           | Optional |
@@ -267,7 +267,7 @@ This API deletes the [issued Clova access token](#RequestClovaAccessToken). The 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
 | `access_token`  | string  | The Clova access token issued.                                                                                 | Required |
-| `client_id`     | string  | The client ID (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo).).                                  | Required |
+| `client_id`     | string  | The client ID (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo)).                                  | Required |
 | `client_secret` | string  | The client secret (See [client credentials](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo)).                              | Required |
 | `device_id`     | string  | The MAC address or UUID of the client device.                                            | Required |
 | `model_id`      | string  | The model of the client device.                                                           | Optional |

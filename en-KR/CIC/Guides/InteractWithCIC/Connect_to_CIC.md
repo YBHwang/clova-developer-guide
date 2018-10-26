@@ -18,7 +18,7 @@ Obtain a Clova access token by following the instructions provided below:
 
 <ol>
   <li>
-    <p>The client provides an interface for a user to authenticate the {{ book.ServiceEnv.TargetServiceForClientAuth }} account (Log in using the <a href="{{ book.ServiceEnv.LoginAPIofTargetService }}" target="_blank">{{ book.ServiceEnv.TargetServiceForClientAuth }} ID</a>).. As voice biometric cannot be the sole method of account authentication, make sure to use the Clova app or the companion app for <strong>clients without GUI</strong>.</p>
+    <p>The client provides an interface for a user to authenticate the {{ book.ServiceEnv.TargetServiceForClientAuth }} account (Log in using the <a href="{{ book.ServiceEnv.LoginAPIofTargetService }}" target="_blank">{{ book.ServiceEnv.TargetServiceForClientAuth }} ID</a>). As voice biometric cannot be the sole method of account authentication, make sure to use the Clova app or the companion app for <strong>clients without GUI</strong>.</p>
   </li>
   <li>
     <p>Obtain the {{ "authorization code" if book.L10N.TargetCountryCode == "JP" else "access token" }} for the {{ book.ServiceEnv.TargetServiceForClientAuth }} account using the {{ book.ServiceEnv.TargetServiceForClientAuth }} account information entered by the user.</p>
