@@ -1211,6 +1211,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
           <li><code>"auto"</code>: 자동 모드</li>
           <li><code>"dehumidify"</code>: 제습 모드</li>
           <li><code>"dry"</code>: 건조 모드</li>
+          <li><code>"ventilating"</code>: 환기 모드</li>
           <li><code>"warmwind"</code>: 온풍 모드</li>
         </ul>
       </td>
