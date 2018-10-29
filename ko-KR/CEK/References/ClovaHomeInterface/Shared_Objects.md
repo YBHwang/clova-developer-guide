@@ -212,9 +212,9 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 | `"AIRPURIFIER"`     | 공기청정기 타입        | DecrementFanSpeed, GetAirQuality, GetFineDust, GetUltraFineDust, HealthCheck, IncrementFanSpeed, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn    |
 | `"AIRSENSOR"`       | 공기질 측정기 타입     | GetAirQuality, GetCurrentTemperature, GetFineDust, GetHumidity, GetUltraFineDust, HealthCheck                                     |
 | `"BIDET"`           | 비데 타입            | Close, GetDeviceState, GetExpendableState, HealthCheck, Open, TurnOff, TurnOn                                                     |
-| `"BODYWEIGHTSCALE"` | 체중계 타입           | GetDeviceState, HealthCheck                                                                                                        |
-| `"CLOTHESCAREMACHINE"` | 의류 관리기 타입    | GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                                    |
-| `"CLOTHESDRYER"`    | 의류 건조기 타입       | GetDeviceState, HealthCheck, TurnOff, TurnOn                                                                                      |
+| `"BODYWEIGHTSCALE"` | 체중계 타입           | GetDeviceState, HealthCheck                                                                                                       |
+| `"CLOTHESCAREMACHINE"` | 의류 관리기 타입    | GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                          |
+| `"CLOTHESDRYER"`    | 의류 건조기 타입       | GetDeviceState, GetPhase, HealthCheck, TurnOff, TurnOn                                                                            |
 | `"CLOTHESWASHER"`   | 의류 세탁기 타입       | GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                          |
 | `"DEHUMIDIFIER"`    | 제습기 타입           | GetCurrentTemperature, GetHumidity, HealthCheck, SetFanSpeed, TurnOff, TurnOn                                                     |
 | `"DISHWASHER"`      | 식기 세척기 타입       | GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                          |
@@ -234,7 +234,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 | `"PURIFIER"`        | 정수기 타입          | GetDeviceState, GetExpendableState, HealthCheck, ReleaseMode, SetMode, SetTargetTemperature                                         |
 | `"RANGE"`           | 레인지 타입          | GetDeviceState, HealthCheck                                                                                                         |
 | `"RANGEHOOD"`       | 레인지 후드 타입      | HealthCheck, TurnOff, TurnOn                                                                                                        |
-| `"REFRIGERATOR"`    | 냉장고 타입          | GetDeviceState, HealthCheck, SetTargetTemperature, SetMode                                                                          |
+| `"REFRIGERATOR"`    | 냉장고 타입          | GetDeviceState, HealthCheck, ReleaseMode, SetMode, SetTargetTemperature                                                             |
 | `"RICECOOKER"`      | 전기 밥솥 타입        | GetCleaningCycle, GetDeviceState, GetExpendableState, GetKeepWarmTime, GetPhase, GetRemainingTime, HealthCheck, ReleaseMode, SetMode, Stop, TurnOff, TurnOn          |
 | `"ROBOTVACUUM"`     | 로봇 청소기 타입       | Charge, GetBatteryInfo, HealthCheck, TurnOff, TurnOn                                                                               |
 | `"SETTOPBOX"`       | TV 셋톱 박스 타입     | DecrementChannel, DecrementVolume, HealthCheck, IncrementChannel, IncrementVolume, Mute, SetChannel, SetChannelByName, TurnOff, TurnOn, Unmute |
@@ -283,6 +283,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 | GetCurrentTemperature       | [`GetCurrentTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentTemperatureRequest), [`GetCurrentTemperatureResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentTemperatureResponse) |
 | GetDeviceState             | [`GetDeviceStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateRequest), [`GetDeviceStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateResponse)  |
 | GetEstimateBill            | [`GetEstimateBillRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateBillRequest), [`GetEstimateBillResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateBillResponse)  |
+| GetEstimateConsumption     | [`GetEstimateConsumptionRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateConsumptionRequest), [`GetEstimateConsumptionResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateConsumptionResponse)  |
 | GetExpendableState         | [`GetExpendableStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetExpendableStateRequest), [`GetExpendableStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetExpendableStateResponse)  |
 | GetFineDust                | [`GetFineDustRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetFineDustRequest), [`GetFineDustResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetFineDustResponse) |
 | GetHumidity                | [`GetHumidityRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetHumidityRequest), [`GetHumidityResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetHumidityResponse) |
@@ -1210,6 +1211,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
           <li><code>"auto"</code>: 자동 모드</li>
           <li><code>"dehumidify"</code>: 제습 모드</li>
           <li><code>"dry"</code>: 건조 모드</li>
+          <li><code>"ventilating"</code>: 환기 모드</li>
           <li><code>"warmwind"</code>: 온풍 모드</li>
         </ul>
       </td>
