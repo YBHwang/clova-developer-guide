@@ -1,13 +1,13 @@
-## Clova Home extension messages {#ClovaHomeExtMessage}
-A Clova Home extension message is a message specification used by your extension when it exchanges information with CEK to control IoT appliances. This section explains the [message formats](#ClovaHomeExtMessageFormat) and [interfaces](#ClovaHomeExtInterface) of a Clova Home extension message.
+## Clova Home Extension messages {#ClovaHomeExtMessage}
+A Clova Home Extension message is a message specification used by your extension when it exchanges information with CEK to control IoT appliances. This section explains the [message formats](#ClovaHomeExtMessageFormat) and [interfaces](#ClovaHomeExtInterface) of a Clova Home Extension message.
 
 ### Message format {#ClovaHomeExtMessageFormat}
 
-A Clova Home extension message consists of a `header` field and a `payload`. This is the same for both request messages and response messages. However, the configuration of the `payload` may vary depending on the [interface](#ClovaHomeExtInterface) used. The following explains the common format of a Clova Home extension message.
+A Clova Home Extension message consists of a `header` field and a `payload`. This is the same for both request messages and response messages. However, the configuration of the `payload` may vary depending on the [interface](#ClovaHomeExtInterface) used. The following explains the common format of a Clova Home Extension message.
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>A Clova Home extension message is divided into a request message and a response message. Request messages sent from CEK to an extension have a name format such as `XxxxRequest`. Response messages returned from an extension to CEK have a name format such as `XxxxConfirmation` or `XxxxResponse`. Also, when an error occurs, you must return a 200 OK HTTP response. Such response messages follow the `XxxxError` name format.</p>
+  <p>A Clova Home Extension message is divided into a request message and a response message. Request messages sent from CEK to an extension have a name format such as `XxxxRequest`. Response messages returned from an extension to CEK have a name format such as `XxxxConfirmation` or `XxxxResponse`. Also, when an error occurs, you must return a HTTP 200 OK response. Such response messages follow the `XxxxError` name format.</p>
 </div>
 
 #### Message structure
@@ -33,7 +33,7 @@ A Clova Home extension message consists of a `header` field and a `payload`. Thi
 | `header.messageId`       | string | The message ID (UUID). An identifier created by Clova to distinguish individual messages.                                         |<!-- -->|
 | `header.name`            | string | The API name of the message.                                                                                        |<!-- -->|
 | `header.namespace`       | string | The value is always `"ClovaHome"`.                                                                     |<!-- -->|
-| `header.payloadVersion`  | string | The version of the Clova Home extension message specified in `header.name`. Configuration of the `payload` field may vary depending on this version.  |<!-- -->|
+| `header.payloadVersion`  | string | The version of the Clova Home Extension message specified in `header.name`. Configuration of the `payload` field may vary depending on this version.  |<!-- -->|
 | `payload`                | object | Configuration of the payload object and its field values can vary depending on which [interface](#ClovaHomeExtInterface) is specified in `header.name`.       |<!-- -->|
 
 #### Message example
@@ -140,11 +140,11 @@ Example 4: TargetOffLineError - Error response message
 {% endraw %}
 
 #### See also
-* [Creating a Clova Home extension](/CEK/Guides/Build_Clova_Home_Extension.md)
+* [Creating a Clova Home Extension](/CEK/Guides/Build_Clova_Home_Extension.md)
 * [Interface](#ClovaHomeExtInterface)
 
 ### Interface {#ClovaHomeExtInterface}
-Clova Home extension messages are categorized into the following interfaces:
+Clova Home Extension messages are categorized into the following interfaces:
 
 * Interface
   * [Discovery interface](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md)

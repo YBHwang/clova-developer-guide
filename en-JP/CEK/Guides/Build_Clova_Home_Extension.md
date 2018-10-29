@@ -1,6 +1,6 @@
-# Creating a Clova Home extension
+# Creating a Clova Home Extension
 
-Clova Home extensions provide remote control features for home IoT devices through third-party IoT services. Clova Home extensions must provide CEK with the information of IoT devices which can be controlled by the user. Also, when Clova Home extensions receive a control request for an IoT device from CEK, it must perform an appropriate action and return the results. The diagram below shows the operation of the Clova Home extension.
+Clova Home Extensions provide remote control features for home IoT devices through third-party IoT services. Clova Home Extensions must provide CEK with the information of IoT devices which can be controlled by the user. Also, when Clova Home Extensions receive a control request for an IoT device from CEK, it must perform an appropriate action and return the results. The diagram below shows the operation of the Clova Home Extension.
 
 ![](/CEK/Resources/Images/CEK_Clova_Home_Extension_Operation_Structure.png)
 
@@ -8,20 +8,20 @@ Clova Home extensions provide remote control features for home IoT devices throu
 
 <div class="note">
 <p><strong>Note!</strong></p>
-<p>You cannot register a Clova Home extension on the Clova developer console. Should you be interested in linking your service with a Clova Home extension, contact us via <a href="https://partner.line.me/ja" target="_blank">LINE Partner</a>.
+<p>You cannot register a Clova Home Extension on the Clova Developer Center. Should you be interested in linking your service with a Clova Home Extension, contact us via <a href="https://partner.line.me/ja" target="_blank">LINE Partner</a>.
 </p>
 </div>
 
 {% else %}
 
-This section explains the prerequisites for creating a Clova Home extension, the types of messages exchanged with CEK, and the method of operation.
+This section explains the prerequisites for creating a Clova Home Extension, the types of messages exchanged with CEK, and the method of operation.
 
-The information is provided for the Clova Home extension developers in the following order:
+The information is provided for the Clova Home Extension developers in the following order:
 
 * [Prerequisites](#Preparation)
 * [Providing device discovery](#ProvideDeviceDiscovery)
-* [Handling a Clova Home extension request](#HandleClovaHomeExtensionRequest)
-* [Returning a Clova Home extension response](#ReturnClovaHomeExtensionResponse)
+* [Handling a Clova Home Extension request](#HandleClovaHomeExtensionRequest)
+* [Returning a Clova Home Extension response](#ReturnClovaHomeExtensionResponse)
 
 {% endif %}
 

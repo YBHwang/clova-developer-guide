@@ -1,6 +1,6 @@
-# Overview
+# Summary
 
-## README
+## About This Document
 
 * [Before getting started](/README.md)
 * [Terms and abbreviations](/Glossary.md)
@@ -69,7 +69,7 @@
     * [Base URL](/CIC/References/CIC_API.md#BaseURL)
     * [Multipart messages](/CIC/References/CIC_API.md#MultipartMessage)
   * [Establishing a downchannel](/CIC/References/CIC_API.md#EstablishDownchannel)
-  * [Sendding events](/CIC/References/CIC_API.md#SendEvent)
+  * [Sending events](/CIC/References/CIC_API.md#SendEvent)
   * [Message format](/CIC/References/CIC_API.md#CICMessageFormat)
     * [Event messages \(Event\)](/CIC/References/CIC_API.md#Event)
     * [Directive messages \(Directive\)](/CIC/References/CIC_API.md#Directive)
@@ -165,12 +165,12 @@
     * [Customizing playback control](/CEK/Guides/Build_Custom_Extension.md#CustomizePlaybackControl)
   * [Editing and testing extensions among multiple users](/CEK/Guides/Register_Collaborator.md)
     * [Role types](/CEK/Guides/Register_Collaborator.md#RoleType)
-    * [Manage connections](/CEK/Guides/Register_Collaborator.md#ManageRole)
-* [Creating a Clova Home extension](/CEK/Guides/Build_Clova_Home_Extension.md)
+    * [Manage rights](/CEK/Guides/Register_Collaborator.md#ManageRole)
+* [Creating a Clova Home Extension](/CEK/Guides/Build_Clova_Home_Extension.md)
   * [Prerequisites](/CEK/Guides/Build_Clova_Home_Extension.md#Preparation)
   * [Providing device discovery](/CEK/Guides/Build_Clova_Home_Extension.md#ProvideDeviceDiscovery)
-  * [Handling a Clova Home extension request](/CEK/Guides/Build_Clova_Home_Extension.md#HandleClovaHomeExtensionRequest)
-  * [Returning a Clova Home extension response](/CEK/Guides/Build_Clova_Home_Extension.md#ReturnClovaHomeExtensionResponse)
+  * [Handling a Clova Home Extension request](/CEK/Guides/Build_Clova_Home_Extension.md#HandleClovaHomeExtensionRequest)
+  * [Returning a Clova Home Extension response](/CEK/Guides/Build_Clova_Home_Extension.md#ReturnClovaHomeExtensionResponse)
 * [Linking user accounts](/CEK/Guides/Link_User_Account.md)
   * [Understanding account linking](/CEK/Guides/Link_User_Account.md#UnderstandAccountLinking)
     * [Setting up account linking](/CEK/Guides/Link_User_Account.md#SetupAccountLinking)
@@ -180,13 +180,12 @@
     * [Implementing account permissions verification](/CEK/Guides/Link_User_Account.md#AddValidationLogic)
     * [Registering account linking information](/CEK/Guides/Link_User_Account.md#RegisterAccountLinkingInfo)
 * [Linking custom extensions](/CEK/Guides/Link_Messaging_API.md)
-* [Software development kit of custom extensions](/CEK/Guides/Clova_CEK_SDK.md)
+* [Software development kit for Clova Extensions Kit (CEK SDK)](/CEK/Guides/Clova_CEK_SDK.md)
 * [Extension examples](/CEK/Examples/Extension_Examples.md)
 * [CEK API reference](/CEK/References/CEK_API.md)
   * [HTTP messages](/CEK/References/CEK_API.md#HTTPMessage)
     * [HTTP header](/CEK/References/CEK_API.md#HTTPHeader)
     * [HTTP body](/CEK/References/CEK_API.md#HTTPBody)
-    * [Validating request messages](/CEK/References/CEK_API.md#RequestMessageValidation)
   * [Validating signatures](/CEK/References/CEK_API.md#Signature)
   * [Custom extension messages](/CEK/References/CEK_API.md#CustomExtMessage)
     * [Request messages](/CEK/References/CEK_API.md#CustomExtRequestMessage)
@@ -196,7 +195,7 @@
       * [`LaunchRequest`](/CEK/References/CEK_API.md#CustomExtLaunchRequest)
       * [`SessionEndedRequest`](/CEK/References/CEK_API.md#CustomExtSessionEndedRequest)
     * [Response messages](/CEK/References/CEK_API.md#CustomExtResponseMessage)
-  * [Clova Home extension messages](/CEK/References/CEK_API.md#ClovaHomeExtMessage)
+  * [Clova Home Extension messages](/CEK/References/CEK_API.md#ClovaHomeExtMessage)
     * [Message format](/CEK/References/CEK_API.md#ClovaHomeExtMessageFormat)
     * [Interface](/CEK/References/CEK_API.md#ClovaHomeExtInterface)
       * [Control](/CEK/References/ClovaHomeInterface/Control_Interfaces.md)
@@ -206,10 +205,10 @@
 
 ## Clova Developer Center
 
-* [Clova developer console overview](/DevConsole/ClovaDevConsole_Overview.md)
+* [Clova Developer Center overview](/DevConsole/ClovaDevConsole_Overview.md)
 * [Using the CEK menu](/DevConsole/Guides/CEK/Using_CEK_Menu.md)
   * [Creating a channel](/DevConsole/Guides/CEK/Create_Channel.md)
-    * [Logging in to Clova developer console β](/DevConsole/Guides/CEK/Create_Channel.md#LoginClovaDevCenter)
+    * [Logging in to Clova Developer Center β](/DevConsole/Guides/CEK/Create_Channel.md#LoginClovaDevCenter)
     * [Creating channels with LINE developers console](/DevConsole/Guides/CEK/Create_Channel.md#CreateSkillChannel)
   * [Registering an extension](/DevConsole/Guides/CEK/Register_Extension.md)
     * [Agreeing to terms and conditions and LINE user data policy](/DevConsole/Guides/CEK/Register_Extension.md#AgreeTermsOfUse)
@@ -224,7 +223,7 @@
   * [Testing an extension](/DevConsole/Guides/CEK/Test_Extension.md)
     * [Building an interaction model](/DevConsole/Guides/CEK/Test_Extension.md#BuildInteractionModel)
     * [Testing an interaction model](/DevConsole/Guides/CEK/Test_Extension.md#TestInteractionModel)
-    * [Testing a Clova device](/DevConsole/Guides/CEK/Device_Test_Extension.md)
+    * [Testing with a Clova device](/DevConsole/Guides/CEK/Device_Test_Extension.md)
   * [Deploying an extension](/DevConsole/Guides/CEK/Deploy_Extension.md)
     * [Entering deployment information](/DevConsole/Guides/CEK/Deploy_Extension.md#InputDeploymentInfo)
     * [Entering privacy and compliance information](/DevConsole/Guides/CEK/Deploy_Extension.md#InputComplianceInfo)

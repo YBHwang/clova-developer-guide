@@ -420,7 +420,7 @@ Here is an example of the `request` object field of the `EventRequest` type mess
 {% endif %}
 
 #### IntentRequest {#CustomExtIntentRequest}
-`IntentRequest` type is a request type that delivers a user request in order to have its details executed. When developing the service, you must [define an interaction model](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel) for receiving user requests. The interaction model can be registered via the [Clova developer console](/DevConsole/ClovaDevConsole_Overview.md). In this process, the distinguished user request is defined as information type called an "intent." The analyzed utterance information of the user is converted to an intent and is delivered to the extension via the `intent` field.
+`IntentRequest` type is a request type that delivers a user request in order to have its details executed. When developing the service, you must [define an interaction model](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel) for receiving user requests. The interaction model can be registered via the [Clova Developer Center](/DevConsole/ClovaDevConsole_Overview.md). In this process, the distinguished user request is defined as information type called an "intent." The analyzed utterance information of the user is converted to an intent and is delivered to the extension via the `intent` field.
 
 The `request` object field configuration of the `IntentRequest` type message is as follows:
 

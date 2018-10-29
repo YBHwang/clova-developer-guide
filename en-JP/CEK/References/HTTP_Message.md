@@ -1,5 +1,5 @@
 ## HTTP messages {#HTTPMessage}
-CEK and the extensions communicate via the HTTP/1.1 protocol and exchange basic HTTPS requests and HTTPS responses. During this communication, a JSON format message is contained in the HTTP message body. This section explains the configuration of HTTP messages exchanged between CEK and the extension.
+The communication between CEK and the extension uses HTTP/1.1 protocol and exchange basic HTTPS requests and HTTPS responses. During this communication, a JSON format message is contained in the HTTP message body. This section explains the configuration of HTTP messages exchanged between CEK and the extension.
 
 * [HTTP header](#HTTPHeader)
 * [HTTP body](#HTTPBody)
@@ -36,14 +36,13 @@ Content-Type: application/json;charset-UTF-8
 * The data type of the body is in JSON format and uses UTF-8 encoding.
 
 ### HTTP body {#HTTPBody}
-Both the body of the HTTP request and response messages are in JSON format, and it contains the information about the user utterance analysis or the processed results of the extension. The configuration of each message varies depending on the extension type. For more information on message configurations, see [Custom extension messages](#CustomExtMessage) and [Clova Home extension messages](#ClovaHomeExtMessage).
+Both the body of the HTTP request and response messages are in JSON format, and it contains the information about the user utterance analysis or the processed results of the extension. The configuration of each message varies depending on the extension type. For more information on message configurations, see [Custom extension messages](#CustomExtMessage) and [Clova Home Extension messages](#ClovaHomeExtMessage).
 
 ### Validating request messages {#RequestMessageValidation}
-When the extension receives an HTTP request from CEK, you need to validate the integrity of the request meaning that the request was sent from Clova and not from a third party. Using the `SignatureCEK` field and RSA public key in the [HTTP header](#HTTPHeader), you can validate the request message as follows:
+When the extension receives an HTTP request from CEK, you need to validate the integrity of the request that the request was sent from Clova and not from a third party. Using the `SignatureCEK` field and RSA public key in the [HTTP header](#HTTPHeader), you can validate the request message as follows:
 
 **Validating a request messages with an RSA public key**
 <ol>
-<li><p>Make sure that `context.System.application.applicationId` is identical to the `ExtensionId`, which was set beforehand.</p></li>
 <li><p>Download the RSA public key for Clova signature from the URL below.</p>
 <p>https://clova-cek-requests.line.me/.well-known/signature-public-key.pem</p></li>
 <li><p>Obtain the <code>SignatureCEK</code> header value.</p>
@@ -70,5 +69,5 @@ boolean valid = sig.verify(signature);
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>If message verification fails, you must discard the extension.</p>
+  <p>If message verification fails, you must discard the request.</p>
 </div>

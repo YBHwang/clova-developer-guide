@@ -1,5 +1,5 @@
 # Registering an extension
-If you are developing or have developed a [custom extension](/CEK/Guides/Build_Custom_Extension.md) or a [Clova Home extension](/CEK/Guides/Build_Clova_Home_Extension.md), you must register it on the Clova developer console. To register a new extension, click the **{{ book.DevConsole.cek_builder_new_extension_create }}** button at the bottom of the CEK menu page.
+If you are developing or have developed a [custom extension](/CEK/Guides/Build_Custom_Extension.md) or a [Clova Home Extension](/CEK/Guides/Build_Clova_Home_Extension.md), you must register it on the Clova Developer Center. To register a new extension, click the **{{ book.DevConsole.cek_builder_new_extension_create }}** button at the bottom of the CEK menu page.
 
 ![](/DevConsole/Resources/Images/DevConsole-First_Look_of_Extension_List.png)
 
@@ -23,7 +23,7 @@ In order to register an extension, you must first agree to the terms and conditi
 
 ## Entering basic extension information {#InputExtensionInfo}
 
-The first thing to do when registering an extension is to enter the basic extension information. The basic information of the extension is the first and essential information required for creating the extension on the Clova developer console. After you enter the basic extension information, you can access or edit the created extension on the CEK menu at any time.
+The first thing to do when registering an extension is to enter the basic extension information. The basic information of the extension is the first and essential information required for creating the extension on the Clova Developer Center. After you enter the basic extension information, you can access or edit the created extension on the CEK menu at any time.
 
 Follow the steps below to register the extension:
 
@@ -52,7 +52,7 @@ Once you complete entering the basic extension information, you will be directed
 
 ## Setting up a server connection {#SetServerConnection}
 
-The extension will make an HTTPS connection to CEK. Here, CEK sends an HTTP request to the extension and the extension sends an HTTP response to CEK. In order for CEK to send an HTTP request to the extension, you must set up a server connection from the Clova developer console. You can set up a server connection after you [enter the basic extension information](#InputExtensionInfo) for the created extension.
+The extension will make an HTTPS connection to CEK. Here, CEK sends an HTTP request to the extension and the extension sends an HTTP response to CEK. In order for CEK to send an HTTP request to the extension, you must set up a server connection from the Clova Developer Center. You can set up a server connection after you [enter the basic extension information](#InputExtensionInfo) for the created extension.
 
 Make sure to check whether a connection with the extension server is available before registering the extension server. You can check the connection state using a simple curl command as shown in the example below.
 

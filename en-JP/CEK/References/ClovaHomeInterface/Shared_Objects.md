@@ -1,9 +1,9 @@
 # Shared objects {#SharedObjects}
-These shared objects are used in the message `payload` when sending [Clova Home extension messages](/CEK/References/CEK_API.md#ClovaHomeExtMessage):
+These shared objects are used in the message `payload` when sending [Clova Home Extension messages](/CEK/References/CEK_API.md#ClovaHomeExtMessage):
 
 | Object            | Description                                            |
 |--------------------|---------------------------------------------------|
-| [ActionInforObject](#ActionInforObject)                   | Object containing information on appliance control actions.  |
+| [ActionInfoObject](#ActionInfoObject)                   | Object containing information on appliance control actions.  |
 | [AirQualityInfoObject](#AirQualityInfoObject)             | Object containing information on air quality.            |
 | [ApplianceInfoObject](#ApplianceInfoObject)               | Object containing information on an IoT appliance.        |
 | [BatteryInfoObject](#BatteryInfoObject)                   | Object containing information on battery.            |
@@ -33,8 +33,8 @@ These shared objects are used in the message `payload` when sending [Clova Home 
 | [UltraFineDustInfoObject](#UltraFineDustInfoObject)       | Object containing information on ultrafine dust.         |
 | [VolumeInfoObject](#VolumeInfoObject)                     | Object containing information on volume.          |
 
-## ActionInforObject {#ActionInforObject}
-ActionInforObject contains information on appliance control actions and expresses a command for an action to be performed on an appliance.
+## ActionInfoObject {#ActionInfoObject}
+ActionInfoObject contains information on appliance control actions and expresses a command for an action to be performed on an appliance.
 
 ### Object fields
 | Field name       | Data type    | Field description                     | Required |
@@ -177,7 +177,7 @@ AirQualityInfoObject contains information on air quality. It indicates the air q
 * [`GetAirQualityResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetAirQualityResponse)
 
 ## ApplianceInfoObject {#ApplianceInfoObject}
-ApplianceInfoObject contains the information on IoT appliances. This object is used to send a list of appliances registered in the user account to CEK or to request the Clova Home extension to control a specific appliance.
+ApplianceInfoObject contains the information on IoT appliances. This object is used to send a list of appliances registered in the user account to CEK or to request the Clova Home Extension to control a specific appliance.
 
 ### Object fields
 | Field name       | Data type    | Field description                     | Required |
@@ -198,7 +198,7 @@ ApplianceInfoObject contains the information on IoT appliances. This object is u
 | `tags[]`                       | string array  | The list of tags added to the appliance by the user. The user can add various attributes as tags such as location of installation, purpose of use, or product brand to the appliance from the Clova app or the IoT service. Appliances with the same attributes (tags) are grouped together. Simultaneous control is possible if the appliances in the same group have identical permitted actions.  | Optional/Always  |
 
 ### Remarks
-If the user requests the appliance list using the [`DiscoverAppliancesRequest`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesRequest) message, the Clova Home extension must fill out all the fields except the `additionalApplianceDetails` field, and deliver the information. Here, the value of the `actions` field is normally determined by the `applianceTypes` field and may have the following values depending on the value of the `applianceTypes` field:
+If the user requests the appliance list using the [`DiscoverAppliancesRequest`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesRequest) message, the Clova Home Extension must fill out all the fields except the `additionalApplianceDetails` field, and deliver the information. Here, the value of the `actions` field is normally determined by the `applianceTypes` field and may have the following values depending on the value of the `applianceTypes` field:
 
 | applianceTypes | Description| Permitted actions                                  |
 |----------------|-------------|-------------------------------------------------|
@@ -212,10 +212,10 @@ If the user requests the appliance list using the [`DiscoverAppliancesRequest`](
 | `"CLOTHESWASHER"`   | Type of a washing machine       | GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                           |
 | `"DEHUMIDIFIER"`    | Type of a dehumidifier           | GetCurrentTemperature, GetHumidity, HealthCheck, SetFanSpeed, TurnOff, TurnOn                                                    |
 | `"DISHWASHER"`      | Type of a dishwasher       | GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                           |
-| `"ELECTRICKETTLE"`  | Type of a an electric kettle       | GetCurrentTemperature, HealthCheck, TurnOff, TurnOn                                                                              |
-| `"ELECTRICTOOTHBRUSH"` | Type of am electric toothbrush     | GetDeviceState, HealthCheck                                                                                                            |
+| `"ELECTRICKETTLE"`  | Type of an electric kettle       | GetCurrentTemperature, HealthCheck, TurnOff, TurnOn                                                                              |
+| `"ELECTRICTOOTHBRUSH"` | Type of an electric toothbrush     | GetDeviceState, HealthCheck                                                                                                            |
 | `"FAN"`             | Type of a fan           | HealthCheck, SetMode, TurnOff, TurnOn                                                                                            |
-| `"HEATER"`          | Type of a heater            | DecrementTargetTemperature、GetCurrentTemperature、HealthCheck、IncrementTargetTemperature、TurnOff、TurnOn                      |
+| `"HEATER"`          | Type of a heater            | DecrementTargetTemperature, GetCurrentTemperature, HealthCheck, IncrementTargetTemperature, TurnOff, TurnOn                      |
 | `"HUMIDIFIER"`      | Type of a humidifier           | GetCurrentTemperature, GetHumidity, HealthCheck, SetFanSpeed, TurnOff, TurnOn                                                    |
 | `"KIMCHIREFRIGERATOR"` | Type of a kimchi refrigerator    | GetDeviceState, HealthCheck                                                                                                            |
 | `"LIGHT"`           | Type of a smart lighting   | DecrementBrightness, DecrementVolume HealthCheck, IncrementBrightness, IncrementVolume SetBrightness, SetColor, SetColorTemperature, SetMode, TurnOff, TurnOn            |
@@ -228,10 +228,10 @@ If the user requests the appliance list using the [`DiscoverAppliancesRequest`](
 | `"PURIFIER"`        | Type of a water purifier          | GetDeviceState, GetExpendableState, HealthCheck, ReleaseMode, SetMode, SetTargetTemperature                                                     |
 | `"RANGE"`           | Type of an electric range          | GetDeviceState, HealthCheck                                                                                                             |
 | `"RANGEHOOD"`       | Type of a range hood      | HealthCheck, TurnOff, TurnOn                                                                                                      |
-| `"REFRIGERATOR"`    | Type of a refrigerator          | GetDeviceState、HealthCheck、SetFreezerTargetTemperature、SetFridgeTargetTemperature、SetMode                                           |
+| `"REFRIGERATOR"`    | Type of a refrigerator          | GetDeviceState, HealthCheck, SetFreezerTargetTemperature, SetFridgeTargetTemperature, SetMode                                           |
 | `"RICECOOKER"`      | Type of a rice cooker        | GetCleaningCycle, GetDeviceState, GetExpendableState, GetKeepWarmTime, GetPhase, GetRemainingTime, HealthCheck, ReleaseMode, SetMode, Stop, TurnOff, TurnOn          |
 | `"ROBOTVACUUM"`     | Type of a robot vacuum       | Charge, GetBatteryInfo, HealthCheck, TurnOff, TurnOn                                                                             |
-| `"SETTOPBOX"`       | Type of a set-top box     | ChangeInputSource、DecrementChannel、DecrementVolume、HealthCheck、IncrementChannel、IncrementVolume、Mute、SetChannel、SetChannelByName、SetInputSourceByName、StartRecording、StopRecording、TurnOff、TurnOn、Unmute |
+| `"SETTOPBOX"`       | Type of a set-top box     | ChangeInputSource, DecrementChannel, DecrementVolume, HealthCheck, IncrementChannel, IncrementVolume, Mute, SetChannel, SetChannelByName, SetInputSourceByName, StartRecording, StopRecording, TurnOff, TurnOn, Unmute |
 | `"SLEEPINGMONITOR"` | Type of a sleep sensor        | GetAsleepDuration, GetAwakeDuration, GetDeviceState, GetSleepScore, GetSleepStartTime, HealthCheck, TurnOff, TurnOn              |
 | `"SMARTBED"`        | Type of a smart bed      | HealthCheck, Lower, Raise, Stop                                                                                                   |
 | `"SMARTCHAIR"`      | Type of a smart chair      | GetCurrentSittingState, GetRightPostureRatio, GetUsageTime, HealthCheck                                                                                       |
@@ -239,7 +239,7 @@ If the user requests the appliance list using the [`DiscoverAppliancesRequest`](
 | `"SMARTHUB"`        | Type of a smart hub      | GetCurrentTemperature, GetHumidity, GetTargetTemperature, HealthCheck, SetMode                                                    |
 | `"SMARTMETER"`      | Type of a smart meter      | GetConsumption, GetCurrentBill, GetEstimateBill, GetProgressiveTaxBracket, HealthCheck                                            |
 | `"SMARTPLUG"`       | Type of a smart plug      | GetConsumption, GetEstimateBill, HealthCheck, TurnOff, TurnOn                                                                                                     |
-| `"SMARTTV"`         | Type of a smart TV      | ChangeInputSource、DecrementChannel、DecrementVolume、HealthCheck、IncrementChannel、IncrementVolume、Mute、SetChannel、SetChannelByName、SetInputSourceByName、StartRecording、StopRecording、TurnOff、TurnOn、Unmute |
+| `"SMARTTV"`         | Type of a smart TV      | ChangeInputSource, DecrementChannel, DecrementVolume, HealthCheck, IncrementChannel, IncrementVolume, Mute, SetChannel, SetChannelByName, SetInputSourceByName, StartRecording, StopRecording, TurnOff, TurnOn, Unmute |
 | `"SMARTVALVE"`      | Type of a smart valve      | GetLockState, SetLockState                                                                                                        |
 | `"SMOKESENSOR"`     | Type of a smoke sensor      | GetDeviceState, HealthCheck                                                                                                             |
 | `"SWITCH"`          | Type of a switch to control outlets in homes | HealthCheck, TurnOff, TurnOn                                                                                       |
@@ -441,7 +441,7 @@ BatteryInfoObject contains information on the appliance battery. It indicates th
   }
 }
 
-// Example 2: A example used in the GetBatteryInfoResponse message
+// Example 2: An example used in the GetBatteryInfoResponse message
 {
   "header": {
     "messageId": "4ec35000-88ce-4724-b7e4-7f52050558fd",
@@ -476,7 +476,7 @@ BillInfoObject contains the information on billing based on the power usage meas
 {% raw %}
 
 ```json
-// Example: An example used in the GetCurrentBillRespons message
+// Example: An example used in the GetCurrentBillResponse message
 {
   "header": {
     "messageId": "33da6561-0149-4532-a30b-e0de8f75c4cf",
@@ -689,12 +689,12 @@ ConsumptionInfoObject contains usage information on energy or resources measured
 
 
 ## CountInfoObject {#CountInfoObject}
-CountInfoObject contains information on the number of count. It indicates specified number of counts or specified number of requests to command.
+CountInfoObject contains information on the number of count. It indicates the specified number of times the user changes the command.
 
 ### Object fields
 | Field name       | Data type    | Field description                     | Required |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`             | number  | The TV channel number.                      | Required/Always     |
+| `value`             | number  | The number of count.                      | Required/Always     |
 
 ### Object example
 {% raw %}
@@ -734,7 +734,7 @@ CustomCommandInfoObject contains information on custom commands. It holds inform
 | Field name       | Data type    | Field description                     | Required |
 |---------------|---------|-----------------------------|:-------------:|
 | `name`        | string  | The name of the custom command.             | Required/Always      |
-| `actions[]`   | [ActionInforObject](#ActionInforObject) array | The list of appliance control actions to be processed by the custom command.  | Required/Always  |
+| `actions[]`   | [ActionInfoObject](#ActionInfoObject) array | The list of appliance control actions to be processed by the custom command.  | Required/Always  |
 
 ### Object example
 {% raw %}
@@ -833,7 +833,7 @@ CustomCommandInfoObject contains information on custom commands. It holds inform
 {% endraw %}
 
 ### See also
-* [ActionInforObject](#ActionInforObject)
+* [ActionInfoObject](#ActionInfoObject)
 * [`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DiscoverAppliancesResponse)
 
 ## CustomInfoObject {#CustomInfoObject}
@@ -1019,7 +1019,7 @@ ModeInfoObject contains information on the operation mode. This is used to indic
 ### Object fields
 | Field name       | Data type    | Field description                     | Required/Optional |
 |---------------|---------|-----------------------------|:-------------:|
-| `value`       | string  | The operation mode(#OperationModes).    | Required/Always     |
+| `value`       | string  | [The operation mode](#OperationModes).    | Required/Always     |
 
 ### Operation modes {#OperationModes}
 
