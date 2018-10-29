@@ -141,7 +141,7 @@ CICは、ユーザーがカレンダー上のスケジュールのリストを�
 
 ## UI example {#UIExample}
 
-以下は、{{ book.OrientedService }}が配布したClovaのモバイルアプリで、ScheduleListテンプレートの内容を表したUIサンプルです。
+以下は、{{ book.ServiceEnv.OrientedService }}が配布したClovaのモバイルアプリで、ScheduleListテンプレートの内容を表したUIサンプルです。
 
 ![](/CIC/Resources/Images/Content_Template-ScheduleList.png)
 

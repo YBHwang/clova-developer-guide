@@ -1,4 +1,4 @@
-<a href="{{ book.DeveloperConsoleURL }}/cek/#/list" target="_blank">Clova Developer Center</a>に接続して、Extensionの基本情報を登録します。
+<a href="{{ book.ServiceEnv.DeveloperConsoleURL }}/cek/#/list" target="_blank">Clova Developer Center</a>に接続して、Extensionの基本情報を登録します。
 主な項目は次のとおりです。
 
 * Extensionの情報

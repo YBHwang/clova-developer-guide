@@ -31,7 +31,7 @@
 | `places[].latitude`    | string       | The latitude of the location.                                                                          | Required |
 | `places[].longitude`   | string       | The longitude of the location.                                                                          | Required |
 | `places[].name`        | string       | The name of the location. Available values are: <ul><li><code>"Work"</code></li><li><code>"Home"</code></li></ul>       | Required |
-| `places[].refreshedAt` | string       | The time of saving the location in UTC. (<a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)  | Required |
+| `places[].refreshedAt` | string       | The time of saving the location in UTC (<a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).  | Required |
 
 
 ### Object example

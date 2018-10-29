@@ -4,7 +4,7 @@ These error interfaces are used when the Clova Home extension returns errors to 
 
 | Message name         | Type  | Description                                   |
 |------------------|-----------|---------------------------------------------|
-| [`ActionTemporarilyBlockedError`](#ActionTemporarilyBlockedError)  | Error response | Sent to CEK as a response if an unprocessable amount of actions are requested to the target device in a short period of time or if a request has been canceled due to safety issues of a uses device. |
+| [`ActionTemporarilyBlockedError`](#ActionTemporarilyBlockedError)  | Error response | Sent to CEK as a response if an unprocessable amount of actions are requested to the target device in a short period of time or if a request has been canceled due to safety issues of a user's device. |
 | [`ConditionsNotMetError`](#ConditionsNotMetError)          | Error response | Sent to CEK as a response if a certain condition (state) required for operating the target appliance is not satisfied. |
 | [`DeviceFailureError`](#DeviceFailureError)                | Error response | Sent to CEK as a response if a defect occurs in the target appliance.              |
 | [`DriverInternalError`](#DriverInternalError)              | Error response | Sent to CEK as a response if an internal error occurs.                |
@@ -24,7 +24,7 @@ These error interfaces are used when the Clova Home extension returns errors to 
 </div>
 
 ## ActionTemporarilyBlockedError {#ActionTemporarilyBlockedError}
-Sent to CEK as a response if unprocessable amount of actions have been requested to the target device in a short period of time or the request has been canceled due to the safety issues of the device of user. When CEK receives this message, a predefined error message is sent to the client.
+Sent to CEK as a response if an unprocessable amount of actions are requested to the target device in a short period of time or if a request has been canceled due to safety issues of a user's device. When CEK receives this message, a predefined error message is sent to the client.
 
 ### Payload fields
 

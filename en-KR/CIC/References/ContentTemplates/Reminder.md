@@ -128,7 +128,7 @@ The Reminder template is used for providing reminder information for the client 
 
 ## UI example {#UIExample}
 
-The following example shows how the Reminder template is used on the Clova app distributed by {{ book.OrientedService }}.
+The following example shows how the Reminder template is used on the Clova app distributed by {{ book.ServiceEnv.OrientedService }}.
 
 ![](/CIC/Resources/Images/Content_Template-Reminder.png)
 

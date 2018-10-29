@@ -20,7 +20,7 @@
     "flashLight" {{FlashLightInfoObject}},
     "gps": {{GPSInfoObject}},
     "localTime": {{string}},
-    "power": {{{PowerInfoObject}},
+    "power": {{PowerInfoObject}},
     "screenBrightness": {{ScreenBrightnessInfoObject}},
     "soundMode": {{SoundModeInfoObject}},
     "soundOutput": {{SoundOutputInfoObject}},
@@ -44,7 +44,7 @@
 | `energySavingMode` | [EnergySavingModeInfoObject](#EnergySavingModeInfoObject) | The energy saving mode of a client device.     | Optional |
 | `flashLight`      | [FlashLightInfoObject](#FlashLightInfoObject)           | The flash light settings of a client device.       | Optional |
 | `gps`             | [GPSInfoObject](#GPSInfoObject)                         | The GPS settings of a client device.            | Optional |
-| `localTime`       | string | The local time settings on a client device. (<a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)              | Optional |
+| `localTime`       | string | The local time settings on a client device (<a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).              | Optional |
 | `power`           | [PowerInfoObject](#PowerInfoObject)                     | The power status of a client device.            | Optional |
 | `screenBrightness` | [ScreenBrightnessInfoObject](#ScreenBrightnessInfoObject) | The screen brightness of a client device.         | Optional |
 | `soundMode`       | [SoundModeInfoObject](#SoundModeInfoObject)             | The sound mode of a client device.           | Optional |

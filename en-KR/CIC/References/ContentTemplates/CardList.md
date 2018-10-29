@@ -162,8 +162,8 @@ The Cardlist template has standardized the data to be displayed on the screen as
   "cardList": [
     {
       "contentProviderText" : {
-        "type" : "string",
-        "value" : "TV"
+        "type": "string",
+        "value": "TV"
       },
       "description": [
         {
@@ -214,8 +214,8 @@ The Cardlist template has standardized the data to be displayed on the screen as
     },
     {
       "contentProviderText" : {
-        "type" : "string",
-        "value" : "TV"
+        "type": "string",
+        "value": "TV"
       },
       "description": [
         {
@@ -335,7 +335,7 @@ The Cardlist template has standardized the data to be displayed on the screen as
       "description": [
         {
           "type": "string",
-          "value": "Thousands more visit on the last weekend of May. Visitors cool down and enjoy the sand art. (Busan=Yonhap News) Reporter Cho, Jeong-ho = With the arrival of early summer-like weather on 28th, visitors on the Haeundae beach are enjoying the sand festival and the 25 m wide and 5 m high sculpture. May 28, 2017 (National=Yonhap News) The weather on 28th, the last weekend of May, already feels like summer with..."
+          "value": "Thousands more visit on the last weekend of May. Visitors cool down and enjoy the sand art (Busan=Yonhap News). Reporter Cho, Jeong-ho = With the arrival of early summer-like weather on 28th, visitors on the Haeundae beach are enjoying the sand festival and the 25 m wide and 5 m high sculpture. May 28, 2017 (National=Yonhap News). The weather on 28th, the last weekend of May, already feels like summer with..."
         },
         {
           "type": "string",
@@ -507,7 +507,7 @@ The Cardlist template has standardized the data to be displayed on the screen as
 {% endraw %}
 
 ## UI example {#UIExample}
-The following examples show how each card type is used to present information on the Clova app distributed by {{ book.OrientedService }}.
+The following examples show how each card type is used to present information on the Clova app distributed by {{ book.ServiceEnv.OrientedService }}.
 
 | `Type1` | `Type2` |
 |-------|-------|
@@ -519,7 +519,7 @@ The following examples show how each card type is used to present information on
 
 <div class="note">
 <p><strong>Note!</strong></p>
-<p>UI examples for <code>Type5</code> and <code>Type6</code> are in preparation.</p>
+<p>UI examples for <code>Type5</code> and <code>Type6</code> will be added soon.</p>
 </div>
 
 ## See also

@@ -4,7 +4,7 @@ ExtensionがCEKからのHTTPリクエストを受信したとき、そのリク�
 
 <ol>
   <li><p>Clovaの署名用RSA公開鍵を以下のURLからダウンロードします。</p>
-<p>{{ book.PublicKeyURLforCEKMessageValidation }}</p></li>
+<p>{{ book.ServiceEnv.PublicKeyURLforCEKMessageValidation }}</p></li>
   <li><p><a href="/CEK/References/CEK_API.html#HTTPHeader">HTTPヘッダー</a>から`SignatureCEK`フィールドの値を取得します。</p><p>`SignatureCEK`フィールドの値は、HTTPリクエストメッセージのボディをBase64エンコードした<a href="https://tools.ietf.org/html/rfc3447" target="_blank">RSA PKCS#1 v1.5</a>署名(signature)です。</p></li>
   <li>ステップ1でダウンロードしたRSA公開鍵と、ステップ2で取得した`SignatureCEK`ヘッダーの値を使用して、以下のように<a href="https://tools.ietf.org/html/rfc3447#section-5.2" target="_blank">検証(verify)</a>します。</li>
 </ol>

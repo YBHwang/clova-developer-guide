@@ -2,7 +2,7 @@
 This document provides details on Clova Extensions Kit (hereinafter referred to as "CEK"). This document will help you understand how CEK operates, and provide CEK guides and references.
 
 ## What is CEK? {#WhatisCEK}
-CEK is a platform that provides tools and interfaces for developing and deploying a Clova extension (hereinafter referred to as "extension"). CEK supports communication between Clova and extensions. An extension is a web application that provides extended capabilities to Clova for a more diverse user experience, including the capability to control IoT appliances at home, or 3rd party services such as music, shopping, and banking services.
+CEK is a platform that provides tools and interfaces for developing and deploying a Clova extension (hereinafter referred to as "extension"). CEK supports communication between Clova and extensions. An extension is a web application that provides extended capabilities to Clova for a more diverse user experience, including the capability to control IoT appliances at home, or third-party services such as music, shopping, and banking services.
 
 ![](/CEK/Resources/Images/CEK_Concept_Diagram.png)
 
@@ -21,5 +21,5 @@ The diagram below shows the operating structure between the Clova platform and e
 ## Extension types {#ExtensionType}
 The Clova platform currently supports and provides two types of extensions as follows:
 
-* [Custom extension](/CEK/Guides/Build_Custom_Extension.md): An extension that provides tailored extended functions. A custom extension lets you provide 3rd party services, such as music, shopping, or banking services.
+* [Custom extension](/CEK/Guides/Build_Custom_Extension.md): An extension that provides tailored extended functions. A custom extension lets you provide third-party services, such as music, shopping, or banking services.
 * [Clova Home extension](/CEK/Guides/Build_Clova_Home_Extension.md): An extension that provides a service for controlling IoT appliances.

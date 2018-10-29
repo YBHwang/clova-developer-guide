@@ -6,7 +6,7 @@
 </div>
 
 ### CEK
-The abbreviation of [Clova Extension Kit](#CEK).
+The abbreviation of [Clova Extensions Kit](#CEK).
 
 ### CIC
 The abbreviation of [Clova Interface Connect](#CIC).
@@ -15,13 +15,13 @@ The abbreviation of [Clova Interface Connect](#CIC).
 The REST API that CIC provides to clients. Clients use CIC API to exchange information with Clova.
 
 ### Clova {#Clova}
-[Clova](http://clova.ai) is an AI (artificial intelligence) platform developed and serviced by {{ book.TargetServiceForClientAuth }}. Clova recognizes user speech or images, analyzes them, and provides information or services that users have requested. Third-party developers, by leveraging the Clova technologies, can make a device or home appliance that provides an AI service. They can also offer their content or services to users through Clova.
+[Clova](http://clova.ai) is an AI (artificial intelligence) platform developed and serviced by {{ book.ServiceEnv.TargetServiceForClientAuth }}. Clova recognizes user speech or images, analyzes them, and provides information or services that users have requested. Third-party developers, by leveraging the Clova technologies, can make a device or home appliance that provides an AI service. They can also offer their content or services to users through Clova.
 
 ### Clova access token {#ClovaAccessToken}
 A means used by Clova to authorize a client when the client tries to send [events](#Event) to [Clova Interface Connect](#CIC). For more information, see [Creating Clova access tokens](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken).
 
 ### Clova developer console {#ClovaDeveloperConsole}
-A <a target="_blank" href="{{ book.DeveloperConsoleURL }}">[web tool]</a> that provides the following features to the [Clova extension](#ClovaExtension) developers or to client devices that interact with the Clova platform.
+A <a target="_blank" href="{{ book.ServiceEnv.DeveloperConsoleURL }}">[web tool]</a> that provides the following features to the [Clova extension](#ClovaExtension) developers or to client devices that interact with the Clova platform.
 * Registering a client device and obtaining client credentials for authentication (coming soon)
 * [Registering](/DevConsole/Guides/CEK/Register_Extension.md) and [deploying](/DevConsole/Guides/CEK/Deploy_Extension.md) a Clova extension
 * [Registering an interaction model](/DevConsole/Guides/CEK/Register_Interaction_Model.md)
@@ -46,7 +46,7 @@ A platform that serves as an interface between Clova and a client aiming to prov
 
 ### Clova app {#ClovaApp}
 
-A Clova app developed by {{ book.OrientedService }} and deployed to the iOS or Android platform. These apps can send commands to Clova and also register and manage client devices.
+A Clova app developed by {{ book.ServiceEnv.OrientedService }} and deployed to the iOS or Android platform. These apps can send commands to Clova and also register and manage client devices.
 
 ### Clova auth API {#ClovaAuthAPI}
 An API used by clients to obtain [Clova access tokens](#ClovaAccessToken). For more information, see [Clova auth API](/CIC/References/Clova_Auth_API.md).
@@ -55,7 +55,7 @@ An API used by clients to obtain [Clova access tokens](#ClovaAccessToken). For m
 Standardized formats for displaying content returned from CIC. For more information, see [Content template](/CIC/References/Content_Templates.md).
 
 ### Context objects {#ContextObjects}
-Objects that express the current [context information] of a client(#Context). For more information, see [Context](/CIC/References/Context_Objects.md).
+Objects that express the current [context information](#Context) of a client. For more information, see [Context](/CIC/References/Context_Objects.md).
 
 ### Custom extension {#CustomExtension}
 An [extension](#ClovaExtension) that provides extended capabilities. A custom extension lets you provide third-party services such as music, shopping, or banking. For more information, see [Creating a custom extension](/CEK/Guides/Build_Custom_Extension.md).
@@ -74,10 +74,10 @@ Another name for a [Clova extension](#ClovaExtension)
 
 ### Extension page {#ExtensionPage}
 
-A page displayed when a specific extension is selected in the skill store Home (**extension service management** menu), and it provides a detailed description of the extension.
+A page displayed when a specific extension is selected in the Skill Store Home (**extension service management** menu), and it provides a detailed description of the extension.
 
 ### HTTP/2 {#HTTP2}
-The second version of the HTTP protocol. HTTP/2 is based on [SPDY](https://en.wikipedia.org/wiki/SPDY) and developed by the IETF (Internet Engineering Task Force). HTTP/2 is the enhanced version of HTTP 1.1, which was standardized in RFC 2068 in 1997 and was presented as a Proposed standard in December 2014 and approved by IESG on February 17, 2015. HTTP/2 was published as [<a href="https://tools.ietf.org/html/rfc7540" target="_blank">RFC 7540</a>] in May 2015.
+The second version of the HTTP protocol. HTTP/2 is based on [SPDY](https://en.wikipedia.org/wiki/SPDY) and developed by the IETF (Internet Engineering Task Force). HTTP/2 is the enhanced version of HTTP 1.1, which was standardized in RFC 2068 in 1997 and was presented as a proposed standard in December 2014 and approved by IESG on February 17, 2015. HTTP/2 was published as [<a href="https://tools.ietf.org/html/rfc7540" target="_blank">RFC 7540</a>] in May 2015.
 
 ### Intent {#Intent}
 An intent is a segment that distinguishes the user requests for a Clova extension to handle. The intent is divided into two: a custom intent and a built-in intent. Before implementing a [custom extension](#CustomExtension), an [interaction model](#InteractionModel) consisting of a set of intents has to be defined. For more information, see [Defining an interaction model](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel).
@@ -106,9 +106,9 @@ An extension or service provided to users by Clova. To provide a skill to users,
 
 A platform designed to provide skills to users.
 
-### Skill store home {#SkillStoreHome}
+### Skill Store home {#SkillStoreHome}
 
-A page to display skills registered in the skill store. It is a term used to refer to the **extension service management** menu in the Clova app.
+A page to display skills registered in the Skill Store. It is a term used to refer to the **extension service management** menu in the Clova app.
 
 ### Slot {#Slot}
 Information necessary for processing a request declared in an [intent](#Intent). It must be defined in pair with the intent. Clova analyzes a user request and extracts information specific to the slots. For more information, see [Defining an interaction model](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel).

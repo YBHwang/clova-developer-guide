@@ -55,7 +55,7 @@ The TimerList template is used in providing information of multiple timers for t
 
 ## UI example {#UIExample}
 
-The following example shows how the TimerList template is used on the Clova app distributed by {{ book.OrientedService }}.
+The following example shows how the TimerList template is used on the Clova app distributed by {{ book.ServiceEnv.OrientedService }}.
 
 ![](/CIC/Resources/Images/Content_Template-TimerList.png)
 

@@ -661,7 +661,7 @@ Instructs the client to turn up the speaker volume or increase the screen bright
 
 | Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:---------:|
-| `target`      | string  | The target app to launch. The app can be specified in one of the following ways: <ul><li>Custom URL scheme: A custom URL scheme of the target app. (e.g. <code>"{{ book.OrientedServiceWithLowerCase }}searchapp://..."</code>)</li><li>Relay page URL: A relay page URL that executes the app if the app is already installed. (e.g. App name: <code>"http://{{ book.OrientedServiceWithLowerCase }}app.{{ book.OrientedServiceWithLowerCase }}.com/..."</code>)</li><li>App name: The name of the app recognized from user speech. (e.g. <code>"{{ book.OrientedService }}App"</code>)</li></ul> | Always     |
+| `target`      | string  | The target app to launch. The app can be specified in one of the following ways: <ul><li>Custom URL scheme: A custom URL scheme of the target app (e.g., <code>"{{ book.ServiceEnv.OrientedServiceWithLowerCase }}searchapp://..."</code>)</li><li>Relay page URL: A relay page URL that executes the app if the app is already installed (e.g., App name: <code>"http://{{ book.ServiceEnv.OrientedServiceWithLowerCase }}app.{{ book.ServiceEnv.OrientedServiceWithLowerCase }}.com/..."</code>)</li><li>App name: The name of the app recognized from user speech. (e.g., <code>"{{ book.ServiceEnv.OrientedService }}App"</code>)..</li></ul> | Always     |
 
 ### Remarks
 
@@ -679,7 +679,7 @@ Instructs the client to turn up the speaker volume or increase the screen bright
       "dialogRequestId": "3c6eef8b-8427-4b46-a367-0a7a46432519"
     },
     "payload": {
-      "target": "{{ book.OrientedServiceWithLowerCase }}searchapp://..."
+      "target": "{{ book.ServiceEnv.OrientedServiceWithLowerCase }}searchapp://..."
     }
   }
 }

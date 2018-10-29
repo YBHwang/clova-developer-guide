@@ -3,8 +3,8 @@
 The Clova namespace provides interfaces that return the result for a user voice request. When the user request is sent to CIC as a [`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize) event, CIC analyzes the request. The directives below are returned to the client according to the analyzed result. The client needs to handle these directives and provide Clova services to users.
 
 | Message name         | Type  | Description                                   |
-{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}|------------------|-----------|---------------------------------------------|
-| [`ExpectLogin`](#ExpectLogin)                    | Directive | Instructs the client to prompt its user to authenticate their {{ book.OrientedService }} account. |{% else %}|------------------|--------------|---------------------------------------------|{% endif %}
+{% if book.DocMeta.TargetReaderType == "Internal" or book.DocMeta.TargetReaderType == "Uplus" %}|------------------|-----------|---------------------------------------------|
+| [`ExpectLogin`](#ExpectLogin)                    | Directive | Instructs the client to prompt its user to authenticate their {{ book.ServiceEnv.OrientedService }} account. |{% else %}|------------------|--------------|---------------------------------------------|{% endif %}
 | [`FinishExtension`](#FinishExtension)            | Directive | Instructs the client to end the specified extension.             |
 | [`HandleDelegatedEvent`](#HandleDelegatedEvent)  | Directive | Instructs the client to [handle the user request delegated](/CIC/Guides/Implement_Client_Features.md#HandleDelegation) from the Clova app.   |
 | [`Hello`](#Hello)                                | Directive | Notifies the client that a downchannel has been established between the client and CIC.       |
@@ -15,10 +15,10 @@ The Clova namespace provides interfaces that return the result for a user voice 
 | [`RenderText`](#RenderText)                      | Directive | Instructs the client to display the given text.                     |
 | [`StartExtension`](#StartExtension)              | Directive | Instructs the client to start the specified extension.            |
 
-{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}
+{% if book.DocMeta.TargetReaderType == "Internal" or book.DocMeta.TargetReaderType == "Uplus" %}
 ## ExpectLogin directive {#ExpectLogin}
 
-Instructs the client to prompt its user to authenticate their {{ book.OrientedService }} account. CIC sends this directive to a client to provide a service that requires the {{ book.OrientedService }} account authentication while running in [guest mode](/CIC/References/Clova_Auth_API.md#GuestMode).
+Instructs the client to prompt its user to authenticate their {{ book.ServiceEnv.OrientedService }} account. CIC sends this directive to a client to provide a service that requires the {{ book.ServiceEnv.OrientedService }} account authentication while running in [guest mode](/CIC/References/Clova_Auth_API.md#GuestMode).
 
 ### Payload fields
 
@@ -385,7 +385,7 @@ The format of the `payload` varies depending on the type of [content template](/
 
 ## RenderText directive {#RenderText}
 
-Instructs the client to display the given text message. The text message to display to the user is also sent.
+Instructs the client to display the given text message. The text message to display to the user is also sent with the directive.
 
 ### Payload fields
 

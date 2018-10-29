@@ -15,8 +15,8 @@ The AlarmList template is used in providing information of multiple alarms for t
 | Field name       | Data type    | Description                     |
 |---------------|---------|-----------------------------|
 | `alarmList[]`               | object array  | The object array that has the list of alarms registered by the user.                                                                                           |
-| `alarmList[].repeatDay[]`   | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) array | The object array that has the repeat day(s) for a weekly action timer.  |
-| `alarmList[].repeatPeriod`  | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)     | The repeat cycle. Available values are: <ul><li>Empty string(<code>""</code>): One-time alarm</li><li><code>"daily"</code>: Daily alarm</li><li><code>"weekly"</code>: Weekly alarm</li></ul> |
+| `alarmList[].repeatDay[]`   | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) array | The object array that has the repeat day(s) for a weekly alarm.  |
+| `alarmList[].repeatPeriod`  | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)     | The repeat cycle. Available values are: <ul><li>Empty string (<code>""</code>): One-time alarm</li><li><code>"daily"</code>: Daily alarm</li><li><code>"weekly"</code>: Weekly alarm</li></ul> |
 | `alarmList[].scheduledTime` | [DateTimeObject](/CIC/References/ContentTemplates/Shared_Objects.md#DateTimeObject) | The date and time at which this alarm is to ring.                       |
 | `alarmList[].token`         | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)     | The ID of this alarm.                               |
 | `type`                      | string                                                                              | The type of this template. The value is always `"AlarmList"`.             |
@@ -91,7 +91,7 @@ The AlarmList template is used in providing information of multiple alarms for t
 
 ## UI example {#UIExample}
 
-The following example shows how the AlarmList template is used on the Clova app distributed by {{ book.OrientedService }}.
+The following example shows how the AlarmList template is used on the Clova app distributed by {{ book.ServiceEnv.OrientedService }}.
 
 ![](/CIC/Resources/Images/Content_Template-AlarmList.png)
 

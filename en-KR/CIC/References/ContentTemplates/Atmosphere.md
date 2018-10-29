@@ -10,7 +10,7 @@ The Atmosphere template is used in providing atmosphere information for the clie
 
 | Field name       | Data type    | Description                     |
 |---------------|---------|-----------------------------|
-| `announcementOfAtmosphere`   | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | Contains a statement on the forecast. This field is omitted when showing the current atmosphere information. When omitted, the `value` field of this object has an empty string (`""`). |
+| `announcementOfAtmosphere`   | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The statement on the forecast. This field is omitted when showing the current atmosphere information. When omitted, the `value` field of this object has an empty string (`""`). |
 | `bgClipUrl`     | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject) | The URL of the video file to play in the background. <div class="danger"><p><strong>Caution!</strong></p><p>Due to a license issue, you are not permitted to use this URL.</p></div> |
 | `concentrationOfAtmosphere` | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The current level of air quality. This field is omitted when forecasting. When omitted, the `value` field of this object has an empty string (`""`). |
 | `contentProviderText`       | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information of the content provider. The `value` field of this object can have an empty string (`""`).  |
@@ -242,7 +242,7 @@ The Atmosphere template is used in providing atmosphere information for the clie
 {% endraw %}
 
 ## UI example {#UIExample}
-The following examples show how the Atmosphere template is used on the Clova app distributed by {{ book.OrientedService }}.
+The following examples show how the Atmosphere template is used on the Clova app distributed by {{ book.ServiceEnv.OrientedService }}.
 
 | Atmosphere state now | Atmosphere state tomorrow |
 |-------------|------------|

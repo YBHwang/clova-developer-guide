@@ -127,12 +127,12 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
   },
   "request": {
     "type": "EventRequest",
-    "requestId": "f09874hiudf-sdf-4wku-flksdjfo4hjsdf",
-    "timestamp": "2018-06-11T09:19:23Z",
-    "event" : {
-      "namespace":"ClovaSkill",
-      "name":"SkillEnabled",
-      "payload": null
+    "requestId": "e5464288-50ff-4e99-928d-4a301e083d41",
+    "timestamp": "2017-09-05T05:41:21Z",
+    "event": {
+      "namespace": "AudioPlayer",
+      "name": "PlayStopped",
+      "payload": {}
     }
   }
 }
@@ -280,7 +280,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
 * [`SessionEndedRequest`](#CustomExtSessionEndedRequest)
 
 #### EventRequest {#CustomExtEventRequest}
-{% if book.TargetCountryCode == "KR" %}
+{% if book.L10N.TargetCountryCode == "KR" %}
 `EventRequest`タイプは、クライアントの状態の変化や、それに伴うリクエストをExtensionに渡すために使用されるリクエストタイプです。CEKは、`EventRequest`リクエストタイプを使用して、クライアントの[オーディオ再生状態をExtensionにレポート](/CEK/Guides/Build_Custom_Extension.md#CollectPlaybackStatusAndProgress)したり、[オーディオ再生に関する付加情報をExtensionにリクエスト](/CEK/Guides/Build_Custom_Extension.md#ProvidingMetaDataForDisplay)したりします。Extensionの開発者は、オーディオ再生状態のレポートまたは付加情報のリクエストに適切な作業を処理する必要があります。
 
 現在、`EventRequest`リクエストタイプでオーディオ再生状態をレポートしたり、付加情報のリクエストをExtensionに送信するとき、以下の[CIC API](/CIC/References/CIC_API.md)の[イベント](/CIC/References/CIC_API.md#Event)を使用します。
@@ -295,7 +295,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
 * [`AudioPlayer.ProgressReportPositionPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportPositionPassed)
 * [`AudioPlayer.StreamRequested`](/CIC/References/CICInterface/AudioPlayer.md#StreamRequested)
 * [`TemplateRuntime.RequestPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#RequestPlayerInfo)
-{% elif book.TargetCountryCode == "JP" %}
+{% elif book.L10N.TargetCountryCode == "JP" %}
 `EventRequest`タイプは、クライアントの状態の変化や、それに伴うリクエストをExtensionに渡すために使用されるリクエストタイプです。CEKは、`EventRequest`のリクエストタイプを使用して、ユーザーが特定のスキルを有効または無効にした結果を渡したり、クライアントの[オーディオ再生状態をExtensionにレポート](/CEK/Guides/Build_Custom_Extension.md#CollectPlaybackStatusAndProgress)したり、また[オーディオ再生に関する付加情報をExtensionにリクエスト](/CEK/Guides/Build_Custom_Extension.md#ProvidingMetaDataForDisplay)したりします。Extensionの開発者は、スキルの有効化/無効化、オーディオ再生状態のレポートまたは付加情報のリクエストに適切な作業を処理する必要があります。
 
 `EventRequest`リクエストタイプでオーディオ再生状態をレポートしたり、付加情報のリクエストをExtensionに送信するとき、以下の[CIC API](#CICAPIforAudioPlayback)を使用します。
@@ -332,16 +332,16 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
 | フィールド名       | データ型    | フィールドの説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `event`           | object  | クライアントがClovaに渡した情報が保存されているオブジェクト                                       |    |
-| `event.name`      | string  | {{ "クライアントからClovaに送信したイベントの名前" if book.TargetCountryCode == "KR" else "クライアントからClovaに送信したイベントの名前、または、スキルの有効化/無効化を表す名前。スキルの有効化/無効化を表す名前は、`SkillEnabled`/`SkillDisabled`になります。スキルの有効化/無効化に関するリクエストを受信した場合、[リクエストメッセージ](#CustomExtRequestMessage)の`context.System.application.applicationId`フィールドと`context.System.user.userId`フィールドを使用して、ユーザーの情報を取得したり、ユーザーの情報を廃棄したりするように実装することができます。"}} |    |
-| `event.namespace` | string  | {{ "クライアントからClovaに送信したイベントの名前空間" if book.TargetCountryCode == "KR" else "クライアントからClovaに送信したイベントの名前空間、または、スキルの有効化/無効化を表す名前空間。スキルの有効化/無効化を表す名前空間は、`ClovaSkill`に固定されます。"}}   |   |
-| `event.payload`   | object  | {{ "クライアントからClovaに送信したイベントの`payload`、または`payload`の一部の情報。一部のイベントの`EventRequest`リクエストタイプは、`payload`が空のオブジェクトの場合があります。if book.TargetCountryCode == "KR" else "クライアントからClovaに送信したイベントの`payload`、または`payload`の一部の情報。一部のイベントや、スキルの有効化/無効化を表すための`EventRequest`リクエストタイプは、`payload`が空のオブジェクトの場合があります。"}}  |   |
+| `event.name`      | string  | {{ "クライアントからClovaに送信したイベントの名前" if book.L10N.TargetCountryCode == "KR" else "クライアントからClovaに送信したイベントの名前、または、スキルの有効化/無効化を表す名前。スキルの有効化/無効化を表す名前は、`SkillEnabled`/`SkillDisabled`になります。スキルの有効化/無効化に関するリクエストを受信した場合、[リクエストメッセージ](#CustomExtRequestMessage)の`context.System.application.applicationId`フィールドと`context.System.user.userId`フィールドを使用して、ユーザーの情報を取得したり、ユーザーの情報を廃棄したりするように実装することができます。"}} |    |
+| `event.namespace` | string  | {{ "クライアントからClovaに送信したイベントの名前空間" if book.L10N.TargetCountryCode == "KR" else "クライアントからClovaに送信したイベントの名前空間、または、スキルの有効化/無効化を表す名前空間。スキルの有効化/無効化を表す名前空間は、`ClovaSkill`に固定されます。"}}   |   |
+| `event.payload`   | object  | {{ "クライアントからClovaに送信したイベントの`payload`、または`payload`の一部の情報。一部のイベントの`EventRequest`リクエストタイプは、`payload`が空のオブジェクトの場合があります。if book.L10N.TargetCountryCode == "KR" else "クライアントからClovaに送信したイベントの`payload`、または`payload`の一部の情報。一部のイベントや、スキルの有効化/無効化を表すための`EventRequest`リクエストタイプは、`payload`が空のオブジェクトの場合があります。"}}  |   |
 | `requestId`       | string  | クライアントがClovaに情報を渡すときに作成されたダイアログID(`event.header.dialogRequestId`)    |    |
 | `timestamp`       | string  | クライアントがClovaに情報を渡した日時(タイムスタンプ、<a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)<div class="note"><p><strong>メモ</strong></p><p>CEKは<code>EventRequest</code>タイプのリクエストの順序を保証しません。クライアントからのリクエストの順序は、このフィールドの値から把握することができます。</p></div>                    |   |
 | `type`            | string  | リクエストメッセージのタイプ。`"EventRequest"`の値に固定されます。         |  |
 
 以下は、`EventRequest`タイプのメッセージの`request`オブジェクトフィールドのサンプルです。
 
-{% if book.TargetCountryCode == "KR" %}
+{% if book.L10N.TargetCountryCode == "KR" %}
 ```json
 // サンプル1. 音楽のメタデータをリクエストしたとき
 "event": {
@@ -367,7 +367,7 @@ CEKは、Clovaが解析したユーザーのリクエストをCustom Extension�
   }
 }
 ```
-{% elif book.TargetCountryCode == "JP" %}
+{% elif book.L10N.TargetCountryCode == "JP" %}
 ```json
 // サンプル1. ユーザーがスキルを有効にしたとき
 "request": {
@@ -555,7 +555,7 @@ Extensionは、リクエストメッセージを処理して、レスポンス�
 |---------------|---------|-----------------------------|:---------:|
 | `response`                               | object       | Extensionのレスポンス情報を含むオブジェクト                            |  |
 | `response.card`                          | object       | [コンテンツテンプレート](/CIC/References/Content_Templates.md) 形式のデータで、クライアントの画面に表示するコンテンツをこのフィールドで渡すことができます。このフィールドにデータがある場合、CICはクライアントに[Clova.RenderTemplate](/CIC/References/CICInterface/Clova.md#RenderTemplate)ディレクティブを送信します。空のオブジェクトの場合、CICはクライアントに[Clova.RenderText](/CIC/References/CICInterface/Clova.md#RenderText)ディレクティブを送信し、`response.outputSpeech.values`フィールドの値を表示するようにします。        |  |
-| `response.directives[]`                  | object array | ExtensionがCEKに渡すディレクティブです。`response.directives`フィールドは、主にオーディオコンテンツを提供するために使用されます。以下の{{ "[CIC API](/CIC/References/CIC_API.md)" if book.TargetCountryCode == "KR" else "[CIC API](#CICAPIforAudioPlayback)" }} ディレクティブをサポートしています。<ul><li><code>AudioPlayer.Play</code></li><li><code>AudioPlayer.StreamDeliver</code></li><li><code>PlaybackController.Pause</code></li><li><code>PlaybackController.Resume</code></li><li><code>PlaybackController.Stop</code></li><li><code>TemplateRuntime.RenderPlayerInfo</code></li></ul> |  |
+| `response.directives[]`                  | object array | ExtensionがCEKに渡すディレクティブです。`response.directives`フィールドは、主にオーディオコンテンツを提供するために使用されます。以下の{{ "[CIC API](/CIC/References/CIC_API.md)" if book.L10N.TargetCountryCode == "KR" else "[CIC API](#CICAPIforAudioPlayback)" }} ディレクティブをサポートしています。<ul><li><code>AudioPlayer.Play</code></li><li><code>AudioPlayer.StreamDeliver</code></li><li><code>PlaybackController.Pause</code></li><li><code>PlaybackController.Resume</code></li><li><code>PlaybackController.Stop</code></li><li><code>TemplateRuntime.RenderPlayerInfo</code></li></ul> |  |
 | `response.directives[].header`           | object       | ディレクティブのヘッダー                                          |  |
 | `response.directives[].header.messageId` | string       | メッセージID(UUID)。メッセージを区別するための識別子です。   |  |
 | `response.directives[].header.name`      | string       | ディレクティブのAPI名                                      |  |
@@ -775,10 +775,10 @@ SpeechInfoObjectオブジェクトはレスポンスメッセージの`response.
 * [Custom Extensionでレスポンスを返す](/CEK/Guides/Build_Custom_Extension.md#ReturnCustomExtensionResponse)
 * [コンテンツテンプレート](/CIC/References/Content_Templates.md)
 
-{% if book.TargetCountryCode == "JP" %}
+{% if book.L10N.TargetCountryCode == "JP" %}
 ## オーディオコンテンツ再生関連のCIC API {#CICAPIforAudioPlayback}
 
-CIC APIは、ユーザーのクライアントデバイスがClovaと通信を行うときにやり取りするメッセージの規格です。ここで説明されているCIC APIとは、Custom Extensionの[オーディオコンテンツの提供](/CEK/Guides/Build_Custom_Extension.md#ProvideAudioContent)に関連して、CEKでサポートしているCIC APIのことです。CEKは、クライアントがClovaに渡したイベントを、[`EventRequest`](#CustomExtEventRequest)タイプのメッセージの`event`フィールドに設定して送信します。また、Custom Extensionは、ユーザーにオーディオコンテンツを提供するために、オーディオコンテンツの再生コントロールに関連するディレクティブを[`レスポンスメッセージ`](#CustomExtResponseMessage)の`response.directives[]`フィールドに設定して送信する必要があります。
+CIC APIは、ユーザーのクライアントデバイスがClovaと通信を行うときにやり取りするメッセージの規格です。ここで説明されているCIC APIとは、Custom Extensionの[オーディオコンテンツの提供](/CEK/Guides/Build_Custom_Extension.md#ProvideAudioContent)に関連して、CEKでサポートしているCIC APIのことです。CEKは、クライアントがClovaに渡したイベントを、[`EventRequest`](#CustomExtEventRequest)タイプのメッセージの`event`フィールドに設定して送信します。また、Custom Extensionは、ユーザーにオーディオコンテンツを提供するために、オーディオコンテンツの再生コントロールに関連するディレクティブを、[レスポンスメッセージ](#CustomExtResponseMessage)の`response.directives[]`フィールドに設定して送信する必要があります。
 
 従って、Custom Extensionがオーディオコンテンツを提供する場合、以下のCIC APIを理解しておく必要があります。
 
@@ -1584,7 +1584,7 @@ CICから、メディアプレーヤーに表示する再生リスト、アル�
 | `beginAtInMilliseconds`  | number | 再生を開始するオフセット。ミリ秒単位で、この値が指定されている場合、クライアントは、そのオーディオストリームを指定されたオフセットから再生する必要があります。この値が0に設定されている場合、ストリームを最初から再生します。          |  |
 | `customData`             | string | 現在のストリームに関連して、任意の形式を持つメタデータ情報。特定のカテゴリに分類されたり、定義されないストリーミング情報は、このフィールドに含まれるか、または入力される必要があります。オーディオストリーム再生のコンテキストに必要な追加の値を、サービスプロバイダーがカスタムで追加できます。<div class="danger"><p><strong>注意</strong></p><p>クライアントは、このフィールドの値を任意に使用してはなりません。問題が発生する恐れがあります。また、このフィールドの値はストリームの再生状態を送信する際、<a href="/CIC/References/Context_Objects.html#PlaybackState">PlaybackStateコンテキスト</a>の`stream`フィールドにそのまま含まれる必要があります。</p></div> | 任意/条件付き  |
 | `durationInMilliseconds` | number | オーディオストリームの再生時間。クライアントは、`beginAtInMilliseconds`フィールドに指定されている再生のオフセットから、このフィールドに指定されている再生時間だけ、そのオーディオストリームをシークおよび再生できます。例えば、`beginAtInMilliseconds`フィールドの値が`10000`で、このフィールドの値が`60000`の場合、そのオーディオストリームの10秒から70秒までの区間を再生およびシークすることができます。ミリ秒単位です。   | 任意/条件付き  |
-| `format`                 | string  | メディア形式(MIMEタイプ)このフィールドから、HLS(HTTP Live Streaming)コンテンツかどうかを確認できます。次の値を持ちます。デフォルト値は`"audio/mpeg"`です。<ul><li><code>"audio/mpeg"</code></li><li><code>"audio/mpegurl"</code></li><li><code> "audio/aac"</code></li><li><code>"application/vnd.apple.mpegurl"</code></li></ul><div class="note"><p><strong>メモ</strong></p><p>HLSでコンテンツを提供するExtensionの開発者は、<a href="mailto:{{ book.ExtensionAdminEmail }}">{{ book.ExtensionAdminEmail }}</a>までご連絡ください。</p></div>   | 任意/条件付き  |
+| `format`                 | string  | メディア形式(MIMEタイプ)このフィールドから、HLS(HTTP Live Streaming)コンテンツかどうかを確認できます。次の値を持ちます。デフォルト値は`"audio/mpeg"`です。<ul><li><code>"audio/mpeg"</code></li><li><code>"audio/mpegurl"</code></li><li><code> "audio/aac"</code></li><li><code>"application/vnd.apple.mpegurl"</code></li></ul><div class="note"><p><strong>メモ</strong></p><p>HLSでコンテンツを提供するExtensionの開発者は、<a href="mailto:{{ book.ServiceEnv.ExtensionAdminEmail }}">{{ book.ServiceEnv.ExtensionAdminEmail }}</a>までご連絡ください。</p></div>   | 任意/条件付き  |
 | `progressReport`         | object  | 再生が開始してから、再生状態をレポートするタイミングを指定するオブジェクト                                                  | 任意/条件付き |
 | `progressReport.progressReportDelayInMilliseconds`    | number | 再生が開始してから、指定された時間が経過した後に、再生状態をレポートするように指定する値です。ミリ秒単位で、このフィールドの値はnullの場合があります。  | 任意/条件付き |
 | `progressReport.progressReportIntervalInMilliseconds` | number | 再生中に、指定された間隔ごとに再生状態をレポートするように指定する値です。ミリ秒単位で、このフィールドの値はnullの場合があります。        | 任意/条件付き |

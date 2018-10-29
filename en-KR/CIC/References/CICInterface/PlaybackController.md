@@ -42,7 +42,7 @@ Reports to CIC when the user presses one of the shortcut buttons on the client d
 ### Payload fields
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `button`      | string  | The name of the shortcut button on the client device. E.g. <code>"CUSTOM_BUTTON_2"</code> | Required |
+| `button`      | string  | The name of the shortcut button on the client device. e.g., <code>"CUSTOM_BUTTON_2"</code> | Required |
 
 ### Remarks
 * The button on the client device can either be a physical button or a software button like a widget button on a music player.

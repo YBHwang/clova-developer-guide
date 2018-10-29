@@ -30,7 +30,7 @@ When a user enables a custom extension or Clova Home extension that requires aut
 
 4. The client sends the received authorization code to Clova.
 
-5. Clova requests an access token and refresh token to **[Access token URI](#RegisterAccountLinkingInfo)**. Then, the authorization code is delivered and the acquired access tokens and refresh tokens are stored in the user’s Clova account information.
+5. Clova requests an access token and refresh token to **[Access token URI](#RegisterAccountLinkingInfo)**. Then, the authorization code is delivered and the acquired access tokens and refresh tokens are stored in the user's Clova account information.
 
 6. The user can now use the service that requires account authentication.
 
@@ -81,7 +81,7 @@ The URL of the page providing the login UI for user account authentication is re
 | `client_id`     | The ID used by Clova to get the access token for the third-party service. You must register `cliend_id` in advance on the Clova developer console.                                                                                                                                                     |
 | `response_type` | Parameter that has a defined OAuth 2.0 authorization type. Use the `"code"` type. You can specify the type on the Clova developer console. Currently, only `"code"` type is supported.              |
 | `scope`         | `scope` field of OAuth. You can define the access level. You must register the `scope` in advance on the Clova developer console.                                                                                                                                                                           |
-| `redirect_uri`  | The URL the user is directed to after authentication (redirect URL). The value of `redirect_uri` can be verified when [setting up account linking](/DevConsole/Guides/CEK/Register_Extension.md#SetAccountLinking) to register the extension on the Clova developer console. Currently, `{{ book.RedirectURLforAccountLinking }}` is used. |
+| `redirect_uri`  | The URL the user is directed to after authentication (redirect URL). The value of `redirect_uri` can be verified when [setting up account linking](/DevConsole/Guides/CEK/Register_Extension.md#SetAccountLinking) to register the extension on the Clova developer console. Currently, `{{ book.ServiceEnv.RedirectURLforAccountLinking }}` is used. |
 
 <div class="note">
   <p><strong>Note!</strong></p>
@@ -94,7 +94,7 @@ Here is an example of a URL when a client app or app paired with a client device
                             &client_id=clova-extension
                             &scope=listen_music%20basic_profile
                             &response_type=code
-                            &redirect_uri={{ book.RedirectURLforAccountLinking }}
+                            &redirect_uri={{ book.ServiceEnv.RedirectURLforAccountLinking }}
 </code></pre>
 
 
@@ -115,7 +115,7 @@ The URL to move after authentication (`redirect_uri`) must deliver the following
 
 Here is an example of a redirect URL the user is sent to once user account authentication is complete.
 
-<pre><code>{{ book.RedirectURLforAccountLinking }}?vendorId=YourServiceOrCompanyID
+<pre><code>{{ book.ServiceEnv.RedirectURLforAccountLinking }}?vendorId=YourServiceOrCompanyID
                                 &state=qwer123
                                 &code=nl__eCSTdsdlkjfweyuxXvnl
 </code></pre>

@@ -3,13 +3,13 @@
 Here is an explanation of some extensions that are currently provided by Clova. As these extensions perform simple actions, these examples will be helpful when implementing your own extension.
 
 * [Magic Ball](#MagicBall)
-* [Rain Sound](#RainSound)
+* [Rain Sound](RainSound)
 * [Dice Drawer](#DiceDrawer)
 * [Coin Helper](#CoinHelper)
 
 ## Magic Ball {#MagicBall}
 
-Magic Ball is an extension that returns a random response to a user’s question from 20 positive or negative predefined expressions.
+Magic Ball is an extension that returns a random response to a user's question from 20 positive or negative predefined expressions.
 
 ### Features
 * It has a simple interaction model, since a random response is given regardless of the user utterance.
@@ -17,9 +17,9 @@ Magic Ball is an extension that returns a random response to a user’s question
 * It is implemented in the Go programming language.
 
 ### GitHub repository
-{{ book.GitHubBaseURLforExtensionExample }}/clova-extension-sample-magicball
+{{ book.ServiceEnv.GitHubBaseURLforExtensionExample }}/clova-extension-sample-magicball
 
-## Rain Sound {#RainSound}
+## Rain Sound {RainSound}
 
 Rain Sound is an extension that responds by making the client play the pre-recorded audio file (.mp3) upon user request.
 
@@ -29,7 +29,7 @@ Rain Sound is an extension that responds by making the client play the pre-recor
 * It is implemented in Node.js.
 
 ### GitHub repository
-{{ book.GitHubBaseURLforExtensionExample }}/clova-extension-sample-rainsound
+{{ book.ServiceEnv.GitHubBaseURLforExtensionExample }}/clova-extension-sample-rainsound
 
 ## Dice Drawer {#DiceDrawer}
 
@@ -41,18 +41,18 @@ Dice Drawer is an extension that rolls a selected number of dice upon user reque
 * It is implemented in Node.js.
 
 ### GitHub repository
-{{ book.GitHubBaseURLforExtensionExample }}/clova-extension-sample-dice
+{{ book.ServiceEnv.GitHubBaseURLforExtensionExample }}/clova-extension-sample-dice
 
 ## Coin Helper {#CoinHelper}
 
-Coin Helper is an extension that returns the market price of cryptocurrencies. Upon a user’s request, the extension calls the REST API provided by an external cryptocurrency exchange and retrieves the market price information.
+Coin Helper is an extension that returns the market price of cryptocurrencies. Upon user request, the extension calls the REST API provided by a cryptocurrency exchange and retrieves the market price information.
 
 ### Features
-* The user can decide which cryptocurrency exchange information to use and which cryptocurrency market price to check. The interaction model of the extension defines the value from the cryptocurrency exchange and cryptocurrency type as a slot.
+* The user can decide which cryptocurrency exchange information to use and which cryptocurrency market price to check. The interaction model of the extension defines the value from the cryptocurrency exchange and cryptocurrency as a slot.
 * It uses REST API of external services to retrieve data from those services.
 * It has a slightly more complicated interaction model than other examples.
-* It is implemented by the Go programming language.
+* It is implemented in the Go programming language.
 
 ### GitHub repository
 
-{{ book.GitHubBaseURLforExtensionExample }}/clova-extension-sample-coinhelper
+{{ book.ServiceEnv.GitHubBaseURLforExtensionExample }}/clova-extension-sample-coinhelper

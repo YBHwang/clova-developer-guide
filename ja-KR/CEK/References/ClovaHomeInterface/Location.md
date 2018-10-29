@@ -1,4 +1,4 @@
-{% if book.TargetCountryCode == "KR" %}
+{% if book.L10N.TargetCountryCode == "KR" %}
 
 | `location`の値 | 位置情報          |
 |------------------|------------------|
@@ -48,9 +48,9 @@
 | `WAREHOUSE`                 | 倉庫 |
 | `YARD`                      | 庭 |
 
-{% elif book.TargetCountryCode == "JP" %}
+{% elif book.L10N.TargetCountryCode == "JP" %}
 
-{% if book.language == "en" %}
+{% if book.L10N.Language == "en" %}
 
 | `location` field value |    Location details       |    Location details(JP)      |
 |------------------|------------------|------------------|
@@ -76,7 +76,7 @@
 | `YARD`                      | Yard                       | 庭 |
 | `JAPANESE_STYLE_ROOM`       | Japanese Style Room        | 和室 |
 
-{% elif book.TargetCountryCode == "JP" %}
+{% elif book.L10N.TargetCountryCode == "JP" %}
 
 | `location`の値 | 位置情報(日本語)   |
 |------------------------|------------------------------|

@@ -12,9 +12,9 @@ Before using CIC, we recommend you take a look at the basics of the CIC API.
 * [Multipart messages](#MultipartMessage)
 
 ### Base URL {#BaseURL}
-The base URL of the CIC API is as follows.
+The base URL of the CIC API is as follows:
 
-<pre><code>{{ book.CICBaseURL }}
+<pre><code>{{ book.ServiceEnv.CICBaseURL }}
 </code></pre>
 
 ### Multipart messages {#MultipartMessage}
@@ -22,9 +22,9 @@ The client sends [events](#Event) to CIC as multipart messages over the HTTP/2 p
 
 ![](/CIC/Resources/Images/HTTP2_Structure.png)
 
-Suppose you are sending a user voice request to CIC. You need to send the [SpeechRecognizer.Recognize](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize) event to CIC, along with the audio recording, as a multipart message. To compose a multipart message for your event: Set the `Content-Type` to `multipart/form-data`. Fill in the first message part with the event information in JSON. Fill in the second message part with binary data containing the voice recording of the user.
+Suppose you are sending a user voice request to CIC. You need to send the [SpeechRecognizer.Recognize](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize) event to CIC, along with the audio recording, as a multipart message. To compose a multipart message for your event: set the `Content-Type` to `multipart/form-data`, fill in the first message part with the event information in JSON, then fill in the second message part with binary data containing the voice recording of the user.
 
-Specify a delimiter in the `boundary` field to distinguish message blocks. If a delimiter is used between message blocks, insert a double hyphen (--) on the left of delimiter. After the last message block, insert a double hyphen (--) on both sides of the delimiter. Make sure the delimiters are not contained inside a message part.
+Specify a delimiter in the `boundary` field to distinguish message blocks. When a delimiter is used between message blocks, insert a double hyphen (--) on the left of delimiter. After the last message block, insert a double hyphen (--) on both sides of the delimiter. Make sure the delimiters are not contained inside a message part.
 
 The following is a general example of a user request (event) to CIC as a multipart message.
 
@@ -139,7 +139,7 @@ The foremost task of a client is establishing a downchannel with CIC. A downchan
 ### Request example
 
 <pre><code>GET /v1/directives HTTP/2
-Host: {{ book.CICBaseURL }}
+Host: {{ book.ServiceEnv.CICBaseURL }}
 User-Agent: MyOrganizationName/MyAppName/2.1.2-release (Android 7.0;SettopBox;target=KR;other=sample)
 Authorization: Bearer XHapQasdfsdfFsdfasdflQQ7w
 </code></pre>
@@ -165,13 +165,13 @@ As a response to the client request, CIC returns an HTTP response containing the
 | Status code       | Description                     |
 |---------------|-------------------------|
 | 200 OK                    | Successful connection setup of a downchannel. This will be followed by a cloud-initiated directive.        |
-| 400 Bad Request           | User request is in the wrong format.                                                                       |
+| 400 Bad Request           | User request format is wrong.                                                                       |
 | 401 Unauthorized          | Failed to authenticate the user. Try [user authentication](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken) again.                       |
-| 429 Too Many Requests      | Client has requested more than two connections to <code>/v1/directives</code> simultaneously or in a very short period of time. The client should make one request for downchannel configuration.  |
-| 500 Internal Server Error | An internal server error.                                                                                                      |
+| 429 Too Many Requests      | Client has requested more than two connections to <code>/v1/directives</code> simultaneously or in a very short period of time. The client must make one request for downchannel configuration.  |
+| 500 Internal Server Error | An internal server error has occurred.                                                                                                      |
 
 ### Remarks
-The client must maintain one open downchannel with CIC at all times. When there is an open downchannel and an additional request to create a downchannel is made to <code>/v1/directives</code>, the existing downchannel will be closed. Also, if the client requests more than two connections to <code>/v1/directives</code>simultaneously or in a very short period of time, CIC will return the "429 Too Many Requests" error message to the client.
+The client must maintain one open downchannel with CIC at all times. When there is an open downchannel and an additional request to create a downchannel is made to <code>/v1/directives</code>, the existing downchannel will be closed. Also, if the client attempts more than two connections to <code>/v1/directives</code>simultaneously or in a very short period of time, CIC will return the "429 Too Many Requests" error message to the client.
 
 ### Response example
 
@@ -208,14 +208,16 @@ Content-Disposition: form-data; name="exception-bde71903-dab4-46c5-9714-416cf12d
 Content-Type: application/json; charset=utf-8
 
 {
-  "header": {
-    "namespace": "System",
-    "name": "Exception",
-    "messageId": "369b362b-258c-4104-bdf8-dc276548fe51"
-  },
-  "payload": {
-    "code": 400,
-    "description": "Could not decode multipart"
+  "directive": {
+    "header": {
+      "namespace": "System",
+      "name": "Exception",
+      "messageId": "369b362b-258c-4104-bdf8-dc276548fe51"
+    },
+    "payload": {
+      "code": 400,
+      "description": "Could not decode multipart"
+    }
   }
 }
 --883fd3b825c9b883f99b9ffb4d2a2cbd7a24c9c61bfa69d70c51140f34ca--
@@ -251,7 +253,7 @@ To send a user request or the client state to CIC, you need to send an [event](#
 ### Request example
 
 <pre><code>POST /v1/events HTTP/2
-Host: {{ book.CICBaseURL }}
+Host: {{ book.ServiceEnv.CICBaseURL }}
 Accept: */*
 User-Agent: MyOrganizationName/MyAppName/2.1.2-release (Android 7.0;SettopBox;target=KR;other=sample)
 Authorization: Bearer XHapQasdfsdfFsdfasdflQQ7w
@@ -339,7 +341,7 @@ Content-Type: application/octet-stream
 | Response message header | Description                                                                |
 |-------------------------|--------------------------------------------------------------------|
 | Content-disposition     | The content metadata for internal use.                                         |
-| Content-ID              | The message ID:<ul><li>UUID format</li><li>A client can identify the messages to process by the <code>cid:[UUID]</code> in the <code>payload</code> field of a directive.</li></ul> |
+| Content-ID              | The message ID.:<ul><li>UUID format</li><li>A client can identify the messages to process by the <code>cid:[UUID]</code> in the <code>payload</code> field of a directive</li></ul> |
 | Content-type            | <ul><li>JSON data: <code>application/json; charset=UTF-8</code></li><li>Binary audio data: <code>application/octet-stream</code></li></ul>                     |
 
 ### Response message
@@ -351,10 +353,10 @@ CIC returns an HTTP response containing the [directive](#Directive) telling a cl
 |---------------|-------------------------|
 | 200 OK                    | CIC has successfully received an event from a client and the response contains at least one directive for the client. |
 | 204 No Content            | CIC has successfully received an event from a client and contains no directive for the client.                    |
-| 400 Bad Request           | User request is in the wrong format.                                                                        |
+| 400 Bad Request           | Event message is delivered using an incorrect method or in an invalid format.                                                  |
 | 401 Unauthorized          | Failed to authenticate the user. Try [user authentication](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken) again.                        |
 | 412 Precondition Failed   | The pre-condition required to send user request is not satisfied. This error occurs when the client has not [established a downchannel](#EstablishDownchannel) or has not sent an event message via the [connection created when establishing a downchannel](/CIC/Guides/Interact_with_CIC.md#CreateConnection).  |
-| 500 Internal Server Error | An internal server error occurred.                                                                                       |
+| 500 Internal Server Error | An internal server error has occurred.                                                                                       |
 
 ### Response example
 
@@ -424,14 +426,16 @@ Content-Disposition: form-data; name="exception-bde71903-dab4-46c5-9714-416cf12d
 Content-Type: application/json; charset=utf-8
 
 {
-  "header": {
-    "namespace": "System",
-    "name": "Exception",
-    "messageId": "369b362b-258c-4104-bdf8-dc276548fe51"
-  },
-  "payload": {
-    "code": 400,
-    "description": "Could not decode multipart"
+  "directive": {
+    "header": {
+      "namespace": "System",
+      "name": "Exception",
+      "messageId": "369b362b-258c-4104-bdf8-dc276548fe51"
+    },
+    "payload": {
+      "code": 400,
+      "description": "Could not decode multipart"
+    }
   }
 }
 --883fd3b825c9b883f99b9ffb4d2a2cbd7a24c9c61bfa69d70c51140f34ca--
@@ -559,7 +563,7 @@ Directives are used when CIC returns responses to events from clients or when CI
 
 <div class="danger">
   <p><strong>Caution!</strong></p>
-  <p>The client must ignore any unsupported or unknown directives received. It is important to note that a client can receive many directives from CIC at once as a multipart message. Then a client must only ignore unsupported or unknown directives from this message.</p>
+  <p>The client must ignore any unsupported or unknown directives if they are received. Because the client can receive many directives from CIC at once as a multipart message, it is particularly important that the client only ignores the unsupported or unknown directives upon receipt.</p>
 </div>
 
 #### Message structure
@@ -584,9 +588,9 @@ Directives are used when CIC returns responses to events from clients or when CI
 
 | Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:---------:|
-| `directive`                        | object | The header and `payload` of the directive.                                                                 | Always     |
+| `directive`                        | object | The header and `payload` of the directive.                                                           | Always     |
 | `directive.header`                 | object | The header of the directive.                                                                                                 | Always     |
-| `directive.header.dialogRequestId` | string | The dialogue ID. Use this to identify the dialogue associated with this directive. This field may not be provided if this directive is not a response to the [`SpeechRecognizer.Regcognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize) event.  | Conditional  |
+| `directive.header.dialogRequestId` | string | The dialogue ID. The dialogue ID used to identify the dialogue associated with the directive. This field may not be provided if this directive is not a response to the [`SpeechRecognizer.Regcognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize) event.  | Conditional  |
 | `directive.header.messageId`       | string | The message ID. The message ID used to distinguish individual messages.                                                                | Always     |
 | `directive.header.name`            | string | The API name of the directive.                                                                                             | Always     |
 | `directive.header.namespace`       | string | The API namespace of the directive.                                                                                       | Always     |
@@ -619,63 +623,72 @@ Directives are used when CIC returns responses to events from clients or when CI
 * [Interface](#CICInterface)
 
 ### Error messages {#Error}
-Clova may not be able to provide its service properly if you send events in the wrong format or in invalid ways or if an internal server error occurs. In such cases, CIC returns error messages to clients. To handle errors, implement your client to provide corresponding UX or UI for the given error.
+Clova may not be able to provide its service properly if you send [events](#Event) in an invalid format or via incorrect methods, or if an internal server error occurs. In such cases, CIC returns corresponding error message to the client. To handle errors, implement your client to provide corresponding UX or UI for the given error.
 
 #### Message structure
 {% raw %}
 ```json
 {
-  "header": {
-    "namespace": "System",
-    "name": "Exception",
-    "messageId": {{string}}
-  },
-  "payload": {
-    "code": {{number}},
-    "description": {{string}}
+  "directive": {
+    "header": {
+      "namespace": "System",
+      "name": "Exception",
+      "messageId": {{string}}
+    },
+    "payload": {
+      "code": {{number}},
+      "description": {{string}}
+    }
   }
 }
 ```
 {% endraw %}
 
+<div class="note">
+  <p><strong>Note!</strong></p>
+  <p>Error messages are created in a similar message structure to the <a href="#Directive">directive messages</a>.</p>
+</div>
 
 #### Message fields
 
 | Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:---------:|
-| `header`                 | object | The header of the error message.                                             | Always |
-| `header.messageId`       | string | The message ID. The message ID used to distinguish individual messages.            | Always |
-| `header.name`            | string | The name of the error message. The value is always `"Exception"`.                | Always |
-| `header.namespace`       | string | The namespace of the error message. The value is always `"System"`.             | Always |
-| `payload`                | object | The information related to the error.                                | Always |
-| `payload.code`           | number | The error code. This has the same value as the HTTP response code of the message.           | Always |
-| `payload.description`    | string | The error message.                                                  | Always |
+| `directive`                        | object | The header and `payload` of the error message.       | Always |
+| `directive.header`                 | object | The header of the error message.                                             | Always |
+| `directive.header.messageId`       | string | The message ID. The message ID used to distinguish individual messages.            | Always |
+| `directive.header.name`            | string | The name of the error message. The value is always `"Exception"`.                | Always |
+| `directive.header.namespace`       | string | The namespace of the error message. The value is always `"System"`.             | Always |
+| `directive.payload`                | object | The information related to the error.                                | Always |
+| `directive.payload.code`           | number | The error code. This has the same value as the HTTP response code of the message.           | Always |
+| `directive.payload.description`    | string | The error message.                                                  | Always |
 
 #### Error code reference
 
 | Error code | Description                             |
 |---------|---------------------------------|
-| 400     | User request is in the wrong format.                                                 |
+| 400     | [Event message](#Event) is delivered using an incorrect method or in an invalid format.                                                |
 | 401     | Failed to authenticate the user. Try [user authentication](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken) again. |
-| 500     | An internal server error.                                                                                |
+| 500     | An internal server error has occurred.                                                                                |
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>More error codes are to be added.</p>
+  <p>The error code above is identical to the HTTP status codes of response messages. More error codes may be added in the future.</p>
 </div>
 
 ### Message example
 {% raw %}
 ```json
 {
-  "header": {
-    "namespace": "System",
-    "name": "Exception",
-    "messageId": "369b362b-258c-4104-bdf8-dc276548fe51"
-  },
-  "payload": {
-    "code": 400,
-    "description": "Could not decode multipart"
+  "directive": {
+    "header": {
+      "namespace": "System",
+      "name": "Exception",
+      "messageId": "369b362b-258c-4104-bdf8-dc276548fe51"
+    },
+    "payload": {
+      "code": 400,
+      "description": "Could not decode multipart"
+    }
   }
 }
 ```

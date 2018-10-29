@@ -7,7 +7,7 @@ This document is a developer guide and API reference for CIC and CEK platforms. 
 </div>
 
 ## Contacts
-For any inquiries about this document, contact the Clova partnership team or put your query in our <a href="{{ book.DeveloperCenterForumURL }}" target="_blank">{{ book.DeveloperCenterName }}forum</a>.
+For any inquiries about this document, contact the Clova partnership team or put your query in our <a href="{{ book.ServiceEnv.DeveloperCenterForumURL }}" target="_blank">{{ book.ServiceEnv.DeveloperCenterName }}forum</a>.
 
 ## Document revision history
 
@@ -21,11 +21,31 @@ The revision history of this document is as follows:
   </thead>
   <tbody>
     <tr>
+      <td>v3.41.0</td><td>Not applied</td><td>10/13/2018</td>
+      <td>
+        <ul>
+          <li>[CEK] Added <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetEstimateConsumptionRequest">GetEstimateConsumptionRequest</a> and <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetEstimateConsumptionResponse">GetEstimateConsumptionResponse</a> to the Clova Home extension API</li>
+          <li>[CEK] Added the modes of AIRPURIFIER, HUMIDIFIER and VENTILATOR type appliance to <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ModeInfoObject">ModeInfoObject</a> that is a <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">shared object</a> of the Clova Home extension message</li>
+          <li>[CEK] Added a period field to <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetCurrentSittingStateRequest">GetCurrentSittingStateRequest</a> of the Clova Home extension API</li>
+          <li>[Dev. Console] Specified that at least one and up to three invocation names can be registered when <a href="/DevConsole/Guides/CEK/Register_Extension.html#InputExtensionInfo">entering basic extension information</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.40.1</td><td>Not applied</td><td>2018-10-05</td>
+      <td>
+        <ul>
+          <li>[CIC] Emended the structure and examples of <a href="/CIC/References/CIC_API.html#Error">CIC error messages</a> according to the actual implementation</li>
+          <li>[CEK] Removed unnecessary description in the <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#DecrementFanSpeedRequest">DecrementFanSpeedRequest</a> and the <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#IncrementFanSpeedRequest">IncrementFanSpeedRequest</a> of Clova Home extension API</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.40.0</td><td>Not applied</td><td>2018-09-21</td>
       <td>
         <ul>
           <li>[CIC] Added the format field to the payload of <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a> <a href="/CIC/References/CICInterface/AudioPlayer.html#AudioStreamInfoObject">AudioStreamInfoObject</a> to specify the MIME type of contents</li>
-          <li>[CIC] Added SubscribeCommandIssued and UnsubscribeCommandIssued events, and UpdateLike and UpdateSubscribe directives to the <a href="/CIC/References/CICInterface/TemplateRuntime">TemplateRuntime</a> namespace to handle Like and Subscribe features when playing media contents</li>
+          <li>[CIC] Added SubscribeCommandIssued and UnsubscribeCommandIssued events, and UpdateLike and UpdateSubscribe directives to the <a href="/CIC/References/CICInterface/TemplateRuntime.html">TemplateRuntime</a> namespace to handle Like and Subscribe features when playing media contents</li>
           <li>[CIC] Added the button information that must be displayed when playing media contents or the type of UI control to the <a href="/CIC/References/CICInterface/TemplateRuntime.html#RenderPlayerInfo">TemplateRuntime.RenderPlayerInfo</a> directive</li>
           <li>[CEK] Added the actions missing in the Actions items under the description of <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">appliances that are supported</a> by the Clova Home extension API</li>
           <li>[CEK] Added the description of the SignatureCEK field added in the <a href="/CEK/References/CEK_API.html#HTTPHeader">HTTP header</a> to verify that the messages sent from Clova, and added a section on verifying each request message to <a href="/CEK/Guides/Build_Custom_Extension.html">Creating a custom extension</a> and <a href="/CEK/Guides/Build_Clova_Home_Extension.html">Creating a Clova Home extension</a></li>
@@ -198,7 +218,7 @@ The revision history of this document is as follows:
         <ul>
           <li>[CIC] Added message specifications to the <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a> namespace and updated some fields
             <ul>
-              <li>Added the <a href="/CIC/References/CICInterface/AudioPlayer.html#ExpectReportPlaybackState">AudioPlayer.ExpectReportPlaybackState</a> directive, <a href="/CIC/References/CICInterface/AudioPlayer.html#ReportPlaybackState">AudioPlayer.ReportPlaybackState event</a> {% if book.TargetReaderType == "Internal" %}, <a href="/CIC/References/CICInterface/AudioPlayer.html#RequestPlaybackState">AudioPlayer.RequestPlaybackState</a> event, and <a href="/CIC/References/CICInterface/AudioPlayer.html#SynchronizePlaybackState">SynchronizePlaybackState directive</a> {% endif %}</li>
+              <li>Added the <a href="/CIC/References/CICInterface/AudioPlayer.html#ExpectReportPlaybackState">AudioPlayer.ExpectReportPlaybackState</a> directive, <a href="/CIC/References/CICInterface/AudioPlayer.html#ReportPlaybackState">AudioPlayer.ReportPlaybackState event</a> {% if book.DocMeta.TargetReaderType == "Internal" %}, <a href="/CIC/References/CICInterface/AudioPlayer.html#RequestPlaybackState">AudioPlayer.RequestPlaybackState</a> event, and <a href="/CIC/References/CICInterface/AudioPlayer.html#SynchronizePlaybackState">SynchronizePlaybackState directive</a> {% endif %}</li>
               <li>Updated the payload field of the <a href="/CIC/References/CICInterface/AudioPlayer.html#Play">AudioPlayer.Play</a> directive</li>
               <li>Added a mandatory token field value to the event fields with name formats ProgressReportXXX and PlayXXX</li>
             </ul>
@@ -286,7 +306,7 @@ The revision history of this document is as follows:
         <ul>
           <li>[Design] Added <a href="/Design/Design_Guideline_For_Client_Hardware.html#SoundEffect">sound effects for reminders</a> in the <a href="/Design/Design_Guideline_For_Client_Hardware.html">Design guidelines for client devices</a></li>
           <li>[CIC] Added the <a href="/CIC/References/CICInterface/Notifier.html#Notify">Notifier.Notify</a> event to the <a href="/CIC/References/CICInterface/Notifier.html">Notifier</a> namespace and updated the payload field of the namespace</li>
-          <li>[CIC] Added <a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechFinished">SpeechFinished</a>, <a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechStarted">SpeechStarted</a>, and <a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechStopped">SpeechStopped</a> event messages to the <a href="/CIC/References/ContextObjects/SpeechState.html">SpeechSynthesizer.SpeechState</a> and <a href="/CIC/References/CICInterface/SpeechSynthesizer.html">SpeechSynthesizer</a> namespaces</li>
+          <li>[CIC] Added <a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechFinished">SpeechFinished</a>, <a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechStarted">SpeechStarted</a>, and <a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechStopped">SpeechStopped</a> event messages to the <a href="/CIC/References/Context_Objects.html#SpeechState">SpeechSynthesizer.SpeechState</a> and <a href="/CIC/References/CICInterface/SpeechSynthesizer.html">SpeechSynthesizer</a> namespaces</li>
           <li>[CIC] Added speechId and explicit fields to the <a href="/CIC/References/CICInterface/TextRecognizer.html">TextRecognizer.Recognize</a> event for multi-turn dialogues</li>
           <li>[CEK] Added <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#NoSuchTargetError">NoSuchTargetError</a>, <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#NotSupportedInCurrentModeError">NotSupportedInCurrentModeError</a>, <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#UnsupportedOperationError">UnsupportedOperationError</a>, and <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ValueOutOfRangeError">ValueOutOfRangeError</a> to the <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html">error interface</a> of the Clova Home extension message references</li>
           <li>[Dev. console] Added the method to check the connection before <a href="/DevConsole/Guides/CEK/Register_Extension.html#SetServerConnection">setting an extension server connection</a> and added a guide on the <a href="/DevConsole/Guides/CEK/Test_Extension.html#TestOnClovaApp">automated application of tester IDs</a></li>

@@ -1,4 +1,4 @@
-{% if book.TargetCountryCode == "KR" %}
+{% if book.L10N.TargetCountryCode == "KR" %}
 
 | `location` Field Value | Location          |
 |------------------|------------------|
@@ -12,14 +12,14 @@
 | `BATH_ROOM_IN_MAIN_ROOM`    | Master bathroom |
 | `BED_ROOM`                  | Bedroom |
 | `BIG_BATH_ROOM`             | Big bathroom  |
-| `BIG_CHILD_ROOM`            | Eldest child’s room  |
+| `BIG_CHILD_ROOM`            | Eldest child's room  |
 | `BIG_ROOM`                  | Big room  |
 | `BOILER_ROOM`               | Boiler room |
 | `DINING_ROOM`               | Dining room |
 | `DRESS_ROOM`                | Dress room |
 | `ENTRANCE`                  | Porch |
 | `FAMILY_ROOM`               | Family room  |
-| `FATHER_ROOM`               | Father’s room |
+| `FATHER_ROOM`               | Father's room |
 | `FIFTH_ROOM`                | Room 5  |
 | `FIRST_ROOM`                | Room 1 |
 | `FOURTH_ROOM`               | Room 4 |
@@ -29,14 +29,14 @@
 | `LIVING_ROOM`               | Living room |
 | `MAIN_GATE`                 | Main gate |
 | `MAIN_ROOM`                 | Master bedroom |
-| `MOTHER_ROOM`               | Mother’s room |
+| `MOTHER_ROOM`               | Mother's room |
 | `MY_ROOM`                   | My room  |
-| `PARENTS_ROOM`              | Parents’ room  |
+| `PARENTS_ROOM`              | Parents' room  |
 | `PLAY_ROOM`                 | Play room  |
 | `POWDER_ROOM`               | Powder room |
 | `ROOM`                      | Room  |
 | `SECOND_ROOM`               | Room 2 |
-| `SMALL_CHILD_ROOM`          | Youngest child’s room |
+| `SMALL_CHILD_ROOM`          | Youngest child's room |
 | `SMALL_LIVING_ROOM`         | Small living room  |
 | `SMALL_ROOM`                | Small room |
 | `SMALL_KITCHEN`             | Small kitchen  |
@@ -48,9 +48,9 @@
 | `WAREHOUSE`                 | Garage |
 | `YARD`                      | Yard |
 
-{% elif book.TargetCountryCode == "JP" %}
+{% elif book.L10N.TargetCountryCode == "JP" %}
 
-{% if book.language == "en" %}
+{% if book.L10N.Language == "en" %}
 
 | `location` field value |    Location details       |    Location details(JP)      |
 |------------------|------------------|------------------|
@@ -74,9 +74,9 @@
 | `THIRD_ROOM`                | Third room                 | 部屋3 |
 | `WAREHOUSE`                 | Warehouse                  | 倉庫 |
 | `YARD`                      | Yard                       | 庭 |
-| `JAPANESE_STYLE_ROOM`       | Japanese Style Room        | 和室 |
+| `JAPANESE_STYLE_ROOM`       | Japanese style room        | 和室 |
 
-{% elif book.TargetCountryCode == "JP" %}
+{% elif book.L10N.TargetCountryCode == "JP" %}
 
 | `location` field value | Location details(Japanese)   |
 |------------------------|------------------------------|

@@ -32,8 +32,8 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 | [`GetCleaningCycleResponse`](#GetCleaningCycleResponse)                                                  | Response | [`GetCleaningCycleRequest`](#GetCleaningCycleRequest)メッセージに対するレスポンスです。デバイスの次のクリーニング周期までの残り時間をCEKに返します。  |
 | [`GetCloseTimeRequest`](#GetCloseTimeRequest)                                 | Request  | 開閉センサーで検知された開閉状況のうち、検知対象が最後に閉まったときの日時情報をClova Home Extensionにリクエストします。 |
 | [`GetCloseTimeResponse`](#GetCloseTimeResponse)                               | Response | [`GetCloseTimeRequest`](#GetCloseTimeRequest)メッセージに対するレスポンスです。開閉センサーの検知対象が最後に閉まったときの日時情報をCEKに返します。  |
-| [`GetConsumptionRequest`](#GetConsumptionRequest)                             | Request  | 主にスマートプラグやスマートテーブルタップのようなデバイスで測定された、現在までのエネルギーまたはリソースを確認する際に使用します。測定されたエネルギーまたはリソースの情報をClova Home Extensionにリクエストします。  |
-| [`GetConsumptionResponse`](#GetConsumptionResponse)                           | Response | [`GetConsumptionRequest`](#GetConsumptionRequest)メッセージに対するレスポンスです。現在まで測定されたエネルギーまたはリソースの情報をCEKに返します。  |
+| [`GetConsumptionRequest`](#GetConsumptionRequest)                             | Request  | 主にスマートプラグやスマートテーブルタップのようなデバイスで測定された、現在までのエネルギーまたはリソースの使用量を確認する際に使用します。エネルギーまたはリソースの使用量情報をClova Home Extensionにリクエストします。  |
+| [`GetConsumptionResponse`](#GetConsumptionResponse)                           | Response | [`GetConsumptionRequest`](#GetConsumptionRequest)メッセージに対するレスポンスです。現在まで測定されたエネルギーまたはリソースの使用量情報をCEKに返します。  |
 | [`GetCurrentBillRequest`](#GetCurrentBillRequest)                             | Request  | 主にスマートプラグやスマートテーブルタップのようなデバイスで測定された、現在までのエネルギー使用量に基づいた利用料金を確認する際に使用します。測定された料金情報をClova Home Extensionにリクエストします。  |
 | [`GetCurrentBillResponse`](#GetCurrentBillResponse)                           | Response | [`GetCurrentBillRequest`](#GetCurrentBillRequest)メッセージに対するレスポンスです。現在まで測定された料金情報をCEKに返します。   |
 | [`GetCurrentTemperatureRequest`](#GetCurrentTemperatureRequest)               | Request  | 現在の温度をClova Home Extensionにリクエストします。 |
@@ -42,6 +42,8 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 | [`GetDeviceStateResponse`](#GetDeviceStateResponse)                           | Response | [`GetDeviceStateRequest`](#GetDeviceStateRequest)メッセージに対するレスポンスです。デバイスが提供するすべてのステータス情報をCEKに返します。  |
 | [`GetEstimateBillRequest`](#GetEstimateBillRequest)                           | Request  | 主にスマートプラグやスマートテーブルタップのようなデバイスで測定されたエネルギー使用量に基づいて、利用料金を推定する際に使用します。推定された料金情報をClova Home Extensionにリクエストします。  |
 | [`GetEstimateBillResponse`](#GetEstimateBillResponse)                         | Response | [`GetEstimateBillRequest`](#GetEstimateBillRequest)メッセージに対するレスポンスです。推定された料金情報をCEKに返します。  |
+| [`GetEstimateConsumptionRequest`](#GetEstimateConsumptionRequest)             | Request  | 主にスマートプラグやスマートテーブルタップのようなデバイスで、予想されるエネルギーまたはリソースの使用量を確認する際に使用します。デバイスで予測されたエネルギーまたはリソースの使用量情報をClova Home Extensionにリクエストします。  |
+| [`GetEstimateConsumptionResponse`](#GetEstimateConsumptionResponse)           | Response | [`GetEstimateConsumptionRequest`](#GetEstimateConsumptionRequest)メッセージに対するレスポンスです。現在まで測定されたエネルギーまたはリソースの情報をCEKに返します。  |
 | [`GetExpendableStateRequest`](#GetExpendableStateRequest)                     | Request  | フィルターなど、デバイスの消耗品の使用量や残り寿命を確認する際に使用します。デバイスが持つ消耗品の使用量や寿命情報をリクエストします。  |
 | [`GetExpendableStateResponse`](#GetExpendableStateResponse)                   | Response | [`GetExpendableStateRequest`](#GetExpendableStateRequest)メッセージに対するレスポンスです。デバイスが提供するすべての消耗品の使用量や寿命情報をCEKに返します。 |
 | [`GetFineDustRequest`](#GetFineDustRequest)                                   | Request  | デバイスで測定された微細粉塵(PM10)の情報をClova Home Extensionにリクエストします。 |
@@ -486,7 +488,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 |---------------|---------|-----------------------------|:---------:|
 | `accessToken`      | string                                  | IoTサービスのユーザーアカウントのアクセストークン。CEKは、外部サービスの認可サーバーから取得したユーザーアカウントのアクセストークンを渡します。詳細については、[ユーザーアカウントを連携する](/CEK/Guides/Link_User_Account.md)を参照してください。                          |     |
 | `appliance`        | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject)     | デバイスの情報を持つオブジェクト。`applianceId`フィールドは必須です。     |     |
-| `deltaFanSpeed`       | [SpeedInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SpeedInfoObject)             | 変更するファンの速度情報を持つオブジェクト。ファンの速度とは風速のことで、次のいずれかになります。<ul><li><code>1</code>：弱風(1段階)</li><li><code>2</code>：中風(2段階)</li><li><code>3</code>：強風(3段階)</li></ul> |     |
+| `deltaFanSpeed`       | [SpeedInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SpeedInfoObject)             | 変更するファンの速度情報を持つオブジェクト。 |     |
 
 ### Message example
 
@@ -1253,7 +1255,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`GetCloseTimeRequest`](#GetCloseTimeRequest)
 
 ## GetConsumptionRequest {#GetConsumptionRequest}
-主にスマートプラグやスマートテーブルタップのようなデバイスで測定された、現在までのエネルギーまたはリソースを確認する際に使用します。測定されたエネルギーまたはリソースの情報をClova Home Extensionにリクエストします。このリクエストに対するレスポンスとして、[`GetConsumptionResponse`](#GetConsumptionResponse)メッセージを使用する必要があります。
+主にスマートプラグやスマートテーブルタップのようなデバイスで測定された、現在までのエネルギーまたはリソースの使用量を確認する際に使用します。エネルギーまたはリソースの使用量情報をClova Home Extensionにリクエストします。このリクエストに対するレスポンスとして、[`GetConsumptionResponse`](#GetConsumptionResponse)メッセージを使用する必要があります。
 
 | フィールド名       | データ型    | フィールドの説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
@@ -1287,12 +1289,12 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 * [`GetConsumptionResponse`](#GetConsumptionResponse)
 
 ## GetConsumptionResponse {#GetConsumptionResponse}
-[`GetConsumptionRequest`](#GetConsumptionRequest)メッセージに対するレスポンスです。現在まで測定されたエネルギーまたはリソースの情報をCEKに返します。
+[`GetConsumptionRequest`](#GetConsumptionRequest)メッセージに対するレスポンスです。現在まで測定されたエネルギーまたはリソースの使用量情報をCEKに返します。
 
-| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
+| フィールド       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `applianceResponseTimestamp` | string | リクエストがデバイスで確認された日時(タイムスタンプ、<a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | 任意    |
-| `consumption[]`              | [ConsumptionInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ConsumptionInfoObject) array | デバイスで現在まで測定されたエネルギーまたはリソースの情報を持つオブジェクト   |     |
+| `consumption[]`              | [ConsumptionInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ConsumptionInfoObject) array | デバイスで現在まで測定された、エネルギーまたはリソースの使用量情報を持つオブジェクト   |     |
 
 ### Message example
 
@@ -1619,6 +1621,78 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 
 ### 次の項目も参照してください。
 * [GetEstimateBillRequest](#GetEstimateBillRequest)
+
+## GetEstimateConsumptionRequest {#GetEstimateConsumptionRequest}
+主にスマートプラグやスマートテーブルタップのようなデバイスで測定された、現在までのエネルギーまたはリソースの使用量を確認する際に使用します。エネルギーまたはリソースの使用量情報をClova Home Extensionにリクエストします。このリクエストに対するレスポンスとして、[`GetConsumptionResponse`](#GetConsumptionResponse)メッセージを使用する必要があります。
+
+| フィールド名       | データ型    | フィールドの説明                     | 任意 |
+|---------------|---------|-----------------------------|:---------:|
+| `accessToken`      | string                                  | IoTサービスのユーザーアカウントのアクセストークン。CEKは、外部サービスの認可サーバーから取得したユーザーアカウントのアクセストークンを渡します。詳細については、[ユーザーアカウントを連携する](/CEK/Guides/Link_User_Account.md)を参照してください。                          |     |
+| `appliance`        | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject)     | デバイスの情報を持つオブジェクト。`applianceId`フィールドは必須です。     |     |
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "2d8b8c3b-5905-4355-b4bb-fa359c46c308",
+    "name": "GetEstimateConsumptionRequest",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "accessToken": "92ebcb67fe33",
+    "appliance": {
+      "applianceId": "device-019"
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`GetEstimateConsumptionResponse`](#GetEstimateConsumptionResponse)
+
+## GetEstimateConsumptionResponse {#GetEstimateConsumptionResponse}
+[`GetEstimateConsumptionRequest`](#GetEstimateConsumptionRequest)メッセージに対するレスポンスです。現在まで測定されたエネルギーまたはリソースの使用量情報をCEKに返します。
+
+| フィールド       | データ型    | フィールドの説明                     | 必須/任意 |
+|---------------|---------|-----------------------------|:---------:|
+| `applianceResponseTimestamp` | string | リクエストがデバイスで確認された日時(タイムスタンプ、<a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | 任意    |
+| `consumption[]`              | [ConsumptionInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ConsumptionInfoObject) array | デバイスで現在まで測定された、エネルギーまたはリソースの使用量情報を持つオブジェクト   | 必須    |
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "33da6561-0149-4532-a30b-e0de8f75c4cf",
+    "name": "GetEstimateConsumptionResponse",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "consumption": [
+      {
+        "name": "電気使用量",
+        "value": 79.7,
+        "unit": "kW"
+      }
+    ],
+    "applianceResponseTimestamp": "2017-11-23T20:30:54+09:00"
+  }
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [GetEstimateConsumptionRequest](#GetEstimateConsumptionRequest)
 
 ## GetExpendableStateRequest {#GetExpendableStateRequest}
 
@@ -2389,6 +2463,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 |---------------|---------|-----------------------------|:---------:|
 | `accessToken`      | string                                  | IoTサービスのユーザーアカウントのアクセストークン。CEKは、外部サービスの認可サーバーから取得したユーザーアカウントのアクセストークンを渡します。詳細については、[ユーザーアカウントを連携する](/CEK/Guides/Link_User_Account.md)を参照してください。                          |     |
 | `appliance`        | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject)     | デバイスの情報を持つオブジェクト。`applianceId`フィールドは必須です。     |     |
+| `period`           | [PeriodInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#PeriodInfoObject)           | 期間情報を持つオブジェクト                                          | 条件付き   |
 
 ### Message example
 
@@ -3114,7 +3189,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 |---------------|---------|-----------------------------|:---------:|
 | `accessToken`      | string                                  | IoTサービスのユーザーアカウントのアクセストークン。CEKは、外部サービスの認可サーバーから取得したユーザーアカウントのアクセストークンを渡します。詳細については、[ユーザーアカウントを連携する](/CEK/Guides/Link_User_Account.md)を参照してください。                          |     |
 | `appliance`        | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject)     | デバイスの情報を持つオブジェクト。`applianceId`フィールドは必須です。 |     |
-| `deltaFanSpeed` | [SpeedInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SpeedInfoObject) | 変更する速度情報を持っているオブジェクト。ファンの速度とは風速のことで、次のいずれかになります。<ul><li><code>1</code>：弱風(1段階)</li><li><code>2</code>：中風(2段階)</li><li><code>3</code>：強風(3段階)</li></ul>  |     |
+| `deltaFanSpeed` | [SpeedInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SpeedInfoObject) | 変更する速度情報を持っているオブジェクト。  |     |
 
 ### Message example
 
@@ -4378,7 +4453,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:---------:|
-| `endpoint`     | [EndpointInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#EndpointInfoObject)    | 設定温度が適用されたエンドポイント。デバイスが温度を適用するエンドポイントが指定されます。エンドポイントとは、デバイスの特定部分、動作方法、またはそれを適用する領域などのことをいいます。例えば、ユーザーは冷蔵庫の温度を調節するとき、冷凍室の温度を変更するか、それとも冷蔵室の温度を変更するかを指定することができます。{{ "また、暖房機能があるエアコンを調節する場合には、冷房モードで動作するときの温度と、暖房モードで動作するときの温度を区分してコントロールできます。" if book.TargetCountryCode == "JP" }}  | 任意  |
+| `endpoint`     | [EndpointInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#EndpointInfoObject)    | 設定温度が適用されたエンドポイント。デバイスが温度を適用するエンドポイントが指定されます。エンドポイントとは、デバイスの特定部分、動作方法、またはそれを適用する領域などのことをいいます。例えば、ユーザーは冷蔵庫の温度を調節するとき、冷凍室の温度を変更するか、それとも冷蔵室の温度を変更するかを指定することができます。{{ "また、暖房機能があるエアコンを調節する場合には、冷房モードで動作するときの温度と、暖房モードで動作するときの温度を区分してコントロールできます。"if book.L10N.TargetCountryCode == "JP" }}  | 任意  |
 | `targetTemperature`               | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | デバイスに設定された温度、またはExtensionからリクエストされた設定温度の情報を持つオブジェクト                                | 任意    |
 
 ### 備考
@@ -4422,7 +4497,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 |---------------|---------|-----------------------------|:---------:|
 | `accessToken`   | string | IoTサービスのユーザーアカウントのアクセストークン。CEKは、外部サービスの認可サーバーから取得したユーザーアカウントのアクセストークンを渡します。詳細については、[ユーザーアカウントを連携する](/CEK/Guides/Link_User_Account.md)を参照してください。                          |     |
 | `appliance`     | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) | デバイスの情報を持つオブジェクト。`applianceId`フィールドは必須です。 |     |
-| `endpoint`     | [EndpointInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#EndpointInfoObject)    | 設定温度を適用するエンドポイント。デバイスが温度を適用するエンドポイントが指定されます。エンドポイントとは、デバイスの特定部分、動作方法、またはそれを適用する領域などのことをいいます。例えば、ユーザーは冷蔵庫の温度を調節するとき、冷凍室の温度を変更するか、それとも冷蔵室の温度を変更するかを指定することができます。{{ "また、暖房機能があるエアコンを調節する場合には、冷房モードで動作するときの温度と、暖房モードで動作するときの温度を区分してコントロールできます。"if book.TargetCountryCode == "JP" }}  | 条件付き  |
+| `endpoint`     | [EndpointInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#EndpointInfoObject)    | 設定温度を適用するエンドポイント。デバイスが温度を適用するエンドポイントが指定されます。エンドポイントとは、デバイスの特定部分、動作方法、またはそれを適用する領域などのことをいいます。例えば、ユーザーは冷蔵庫の温度を調節するとき、冷凍室の温度を変更するか、それとも冷蔵室の温度を変更するかを指定することができます。{{ "また、暖房機能があるエアコンを調節する場合には、冷房モードで動作するときの温度と、暖房モードで動作するときの温度を区分してコントロールできます。"if book.L10N.TargetCountryCode == "JP" }}  | 条件付き  |
 | `targetTemperature`       | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | 設定する温度情報を持つオブジェクト                |     |
 
 ### Message example

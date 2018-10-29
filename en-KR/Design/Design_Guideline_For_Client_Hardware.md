@@ -15,7 +15,7 @@ A consistent UI and UX must be provided to users of Clova client devices for a f
 
 ## Client states and events {#ClientStateAndEvent}
 
-You should design and implement the client devices for easy user recognition and operation such as for user voice inputs, Clova voice outputs, microphone states, or error occurrences (e.g. an error in the Clova service or network). For this, you need to understand the states of the client device and the actions and flow between states. The following diagram shows the client state cycle.
+You should design and implement the client devices for easy user recognition and operation such as for user voice inputs, Clova voice outputs, microphone states, or error occurrences (e.g., an error in the Clova service or network). For this, you need to understand the states of the client device and the actions and flow between states. The following diagram shows the client state cycle.
 
 ![](/Design/Resources/Images/Clova-Client-State_Diagram.png)
 
@@ -75,9 +75,9 @@ The following guidelines must be followed when providing buttons.
 * If there is new button input while a task is already in progress from a previous input, the feedback effect on the previous input must be stopped to provide the feedback effect on the latest input.
 * It is permitted to provide the play and pause button as GUIs for devices supporting UI screens.
 * The buttons may be provided via the following methods:
-  - An exclusive button for one type of function (e.g. a Bluetooth button)
-  - Long-press gesture on a button to provide a function (e.g. reset by long-pressing the Power button)
-  - Combination of multiple buttons to provide a function (e.g. reset by pressing the power and play buttons at the same time)
+  - An exclusive button for one type of function (e.g., a Bluetooth button)
+  - Long-press gesture on a button to provide a function (e.g., reset by long-pressing the Power button)
+  - Combination of multiple buttons to provide a function (e.g., reset by pressing the power and play buttons at the same time)
 
 ## LED {#Light}
 
@@ -160,7 +160,7 @@ A client may have to play other audio content during audio playback. In this cas
 | Content       | Audio content such as music, stories, news, and podcasts provided upon user request.                            |
 | Dialogue      | TTS audio content provided upon user request.                                                  |
 | Feedback      | Audio content such as reset sound, ring tone, and ringback tone.                              |
-| Notification  | Audio content such as Beep sound, system state utterance (e.g. notification for low battery or Bluetooth disconnection), notification sound, and notification utterance.         |
+| Notification  | Audio content such as Beep sound, system state utterance (e.g., notification for low battery or Bluetooth disconnection), notification sound, and notification utterance.         |
 
 <div class="note">
   <p><strong>Note!</strong></p>

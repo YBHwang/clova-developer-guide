@@ -51,8 +51,8 @@
 | [clova://audio-repeat](#AudioRepeat)                                | オーディオを再生する     |
 | [clova://device-control](#DeviceControl)                            | デバイスをコントロールする       |
 | [clova://guide/talking](#GuideTalking)     | コマンドのヘルプを提供する                              |
-| [clova://{{ book.OrientedServiceWithLowerCase }}Search](#NaverSearch)        | {{ book.OrientedService }}アプリで特定のキーワードを検索する                    |
-| [clova://{{ book.OrientedServiceWithLowerCase }}-maps](#NaverMaps)           | {{ book.OrientedService }}マップアプリを実行する                            |
+| [clova://{{ book.ServiceEnv.OrientedServiceWithLowerCase }}Search](#NaverSearch)        | {{ book.ServiceEnv.OrientedService }}アプリで特定のキーワードを検索する                    |
+| [clova://{{ book.ServiceEnv.OrientedServiceWithLowerCase }}-maps](#NaverMaps)           | {{ book.ServiceEnv.OrientedService }}マップアプリを実行する                            |
 | [clova://ttsRepeat](#TTSRepeat)            | Text to speech発話を出力する                     |
 | [clova://webview](#WebView)                | WebViewでウェブページを開く                          |
 
@@ -141,32 +141,32 @@ clova://device-control?command=TurnOn&target=flashlight
 clova://guide/talking
 ```
 
-### clova://{{ book.OrientedServiceWithLowerCase }}Search {#NaverSearch}
+### clova://{{ book.ServiceEnv.OrientedServiceWithLowerCase }}Search {#NaverSearch}
 
-クライアントは、このスキームに応じて、{{ book.OrientedService }}アプリを実行し、検索を開始する必要があります。
+クライアントは、このスキームに応じて、{{ book.ServiceEnv.OrientedService }}アプリを実行し、検索を開始する必要があります。
 
 | パラメーター    | 説明                         | 常時/条件付き |
 |---------------|-----------------------------|:---------:|
-| url           | {{ book.OrientedService }}アプリで開くページのURL | 常時 |
+| url           | {{ book.ServiceEnv.OrientedService }}アプリで開くページのURL | 常時 |
 
 このアクションURLスキームのサンプルは以下の通りです。
 
 ```
-clova://{{ book.OrientedServiceWithLowerCase }}Search?url=http://target.page.url
+clova://{{ book.ServiceEnv.OrientedServiceWithLowerCase }}Search?url=http://target.page.url
 ```
 
-### clova://{{ book.OrientedServiceWithLowerCase }}-maps {#NaverMaps}
+### clova://{{ book.ServiceEnv.OrientedServiceWithLowerCase }}-maps {#NaverMaps}
 
-クライアントは、このスキームに応じて、{{ book.OrientedService }}マップアプリを実行し、ルート検索を開始する必要があります。
+クライアントは、このスキームに応じて、{{ book.ServiceEnv.OrientedService }}マップアプリを実行し、ルート検索を開始する必要があります。
 
 | パラメーター    | 説明                         | 任意 |
 |---------------|-----------------------------|:---------:|
-| url           | {{ book.OrientedService }}マップアプリで開くURL   | 常時 |
+| url           | {{ book.ServiceEnv.OrientedService }}マップアプリで開くURL   | 常時 |
 
 このアクションURLスキームのサンプルは以下の通りです。
 
 ```
-clova://{{ book.OrientedServiceWithLowerCase }}-maps?url=http://target.map.url
+clova://{{ book.ServiceEnv.OrientedServiceWithLowerCase }}-maps?url=http://target.map.url
 ```
 
 ### clova://ttsRepeat {#TTSRepeat}

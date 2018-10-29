@@ -35,7 +35,7 @@ The ImageList template is used in providing a list of images plus additional inf
       },
       "imageTitle": {
         "type": "string",
-        "value":  "Chauffer at your service as fast as lightning"
+        "value": "Chauffeur at your service as fast as lightning"
       },
       "imageUrl": {
         "type": "url",
@@ -88,7 +88,7 @@ The ImageList template is used in providing a list of images plus additional inf
 {% endraw %}
 
 ## UI example {#UIExample}
-The following example shows how the ImageList template is used on the Clova app distributed by {{ book.OrientedService }}.
+The following example shows how the ImageList template is used on the Clova app distributed by {{ book.ServiceEnv.OrientedService }}.
 
 | Thumbnail list | Original image |
 |-------|-------|

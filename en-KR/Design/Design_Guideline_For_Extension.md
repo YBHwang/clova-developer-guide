@@ -27,8 +27,8 @@ This goal can be written again into a series of detailed, more specific goals. S
 * Include the details on the ways that the user will call the extension.
 * Include the prerequisites fulfilling the detailed goals and the outcomes that can be achieved. Prerequisites may include:
   - Actions or states required in advance
-  - Functions or resources (e.g. GPS, camera, or microphone) required by the extension
-  - Information on external services or platforms (e.g. contacts on a mobile device contacts or SNS account information)
+  - Functions or resources (e.g., GPS, camera, or microphone) required by the extension
+  - Information on external services or platforms (e.g., contacts on a mobile device contacts or social media account information)
 * Check that the collection of detailed goals meets the scope of extension goals.
 * Each detailed goal is recommended to be written on the level of a single user action, a unit that is classified and processed in the service.
 
@@ -93,9 +93,9 @@ Next is an example of writing a script by dividing the usage scenario into multi
 
 ## Defining the skill name {#DefineInvocationName}
 
-When creating a new extension, you must define the **skill name** and **invocation name**. The **skill name** is the name of the extension that is provided on the skill store. The **invocation name** is the name that the user says to Clova to start the extension.
+When creating a new extension, you must define the **skill name** and **invocation name**. The **skill name** is the name of the extension that is provided on the Skill Store. The **invocation name** is the name that the user says to Clova to start the extension.
 
-The **skill name** and **invocation name** do not have to be the same. However, it is preferable to use the same name or a similar names to reduce confusion.
+The **skill name** and **invocation name** do not have to be the same. However, it is preferable to use the same name or a similar name to reduce confusion.
 
 The **skill name** and **invocation name** must satisfy the following conditions:
 
@@ -108,7 +108,7 @@ The **skill name** and **invocation name** must satisfy the following conditions
   <tbody>
     <tr>
       <td>No one-word names or universally used words</td>
-      <td>One-word names are not permitted unless they are the names of private brands or services. Also, universally used words such as "sports news," are not permitted. It is recommended that you combine common words with another name such as the name of the developer, developer company, service, or brand. (e.g. "Taro's sports news")</td>
+      <td>One-word names are not permitted unless they are the names of private brands or services. Also, universally used words such as "sports news," are not permitted. It is recommended that you combine common words with another name such as the name of the developer, developer company, service, or brand (e.g., "Taro's sports news").</td>
     </tr>
     <tr>
       <td>No words that refer to the name of a person or place</td>
@@ -142,15 +142,15 @@ The **skill name** and **invocation name** must satisfy the following conditions
       <td>No name that could be easily misunderstood</td>
       <td>The following names may be misleading and are not allowed:
         <ul>
-          <li>Names that can be mistaken for a third party {{ book.OrientedService }} or affiliated company (e.g. Naver fishing master)</li>
-          <li>The <strong>skill name</strong> and <strong>invocation name</strong> are very different to the point of having contradicting meanings (e.g. The skill name is "Cat meowing" and the invocation name is "Dog barking")</li>
-          <li>The name and the provided content are different (e.g. The name is "Cat meowing" but the provided content is a dog barking)</li>
+          <li>Names that can be mistaken for a third party {{ book.ServiceEnv.OrientedService }} or affiliated company (e.g., Naver fishing master)</li>
+          <li>The <strong>skill name</strong> and <strong>invocation name</strong> are very different to the point of having contradicting meanings (e.g., The skill name is "Cat meowing" and the invocation name is "Dog barking")</li>
+          <li>The name and the provided content are different (e.g., The name is "Cat meowing" but the provided content is a dog barking)</li>
         </ul>
       </td>
     </tr>
     <tr>
       <td>No names that violate the Terms and Conditions</td>
-      <td>The names must comply with the [Clova extensions kit Terms and Conditions](https://developers.naver.com/console/clova/cek/#/terms). Names that infringe on the rights of a third party or use obscene expressions are not allowed.</td>
+      <td>The names must comply with the [Clova Extensions Kit Terms and Conditions](https://developers.naver.com/console/clova/cek/#/terms). Names that infringe on the rights of a third party or use obscene expressions are not allowed.</td>
     </tr>
     <tr>
       <td>Other precautions</td>
@@ -184,7 +184,7 @@ Before defining the interaction model in the Clova developer console, there is a
 
 ### Intent {#Intent}
 
-Intent is a category used for processing user requests. It is usually classified using the **verb** factor in the user speech. Then it is divided into a custom intent or built-in intent.
+Intent is a category used for processing user requests. It is usually classified using the **verb** factor in a user's speech. Then it is divided into a custom intent or built-in intent.
 
 * [Custom intent](#CustomIntent)
 * [Built-in intent](#BuiltinIntent)
@@ -219,12 +219,12 @@ The built-in intent is a specification declared by the Clova platform for shared
 | `Clova.CancelIntent`        | Undo action request        | "Cancel.", "Cancel please."                                          |
 | `Clova.GuideIntent`         | Help request          | "What can you do?", "Tell me how to use it."                           |
 | `Clova.NextIntent`          | Next content request      | "Next.", "Play the next song."                                       |
-| `Clova.NoIntent`            | Negative response (e.g. No.) | "No.", "No, thank you.", "Absolutely not."                                     |
+| `Clova.NoIntent`            | Negative response (e.g., No.) | "No.", "No, thank you.", "Absolutely not."                                     |
 | `Clova.PauseIntent`         | Pause request.   | "Pause for a moment.", "Pause."                                       |
 | `Clova.PreviousIntent`      | Previous content request      | "Previous.", "Play the previous song."                                      |
 | `Clova.ResumeIntent`        | Resume play request       | "Play again.", "Play the song again."                                  |
 | `Clova.StopIntent`          | Cancel play request       | "Stop."                                                 |
-| `Clova.YesIntent`           | Positive response (e.g. Yes.)   | "Yes.", "Sure.", "All right.", "Certainly.", "Okay."                   |
+| `Clova.YesIntent`           | Positive response (e.g., Yes.)   | "Yes.", "Sure.", "All right.", "Certainly.", "Okay."                   |
 
 ### Slot {#Slot}
 
@@ -241,17 +241,17 @@ The built-in slot type is an information type pre-defined by Clova which defines
 
 | Built-in slot type | Description                                            |
 | ----------------------|------------------------------------------------|
-| `CLOVA.DATETIME`      | Information indicating date and time. (E.g. "10 mins 30 secs," "9 am," "1 hour ago," "12 pm," "Noon," "August 4, 2017," "Last day of previous month") |
-| `CLOVA.DURATION`      | Information indicating a period of time. (E.g. "One day," "Overnight," "One month," "Next week," "Weekend") |
-| `CLOVA.NUMBER`        | Information indicating numbers. It includes quantity nouns. (E.g. "Once," "7 people," "One," "30 years old," "Around 8," "16 columns") |
-| `CLOVA.RELATIVETIME`  | Information indicating relative time expressions. (E.g. "From now on," "Later," "In a bit," "Just now," "Earlier") |
-| `CLOVA.UNIT`          | Information indicating unit expressions. (E.g. "374 square meters," "100 MB," "25 miles") |
-| `CLOVA.ORDER`        | Information indicating sequencing expressions. (E.g. "Next," "Front," "Before," "Last," "This," "Previous") |
+| `CLOVA.DATETIME`      | Information indicating date and time (e.g., "10 mins 30 secs," "9 am," "1 hour ago," "12 pm," "Noon," "August 4, 2017," "Last day of previous month"). |
+| `CLOVA.DURATION`      | Information indicating a period of time (e.g., "One day," "Overnight," "One month," "Next week," "Weekend"). |
+| `CLOVA.NUMBER`        | Information indicating numbers. It includes quantity nouns (e.g., "Once," "7 people," "One," "30 years old," "Around 8," "16 columns"). |
+| `CLOVA.RELATIVETIME`  | Information indicating relative time expressions (e.g., "From now on," "Later," "In a bit," "Just now," "Earlier"). |
+| `CLOVA.UNIT`          | Information indicating unit expressions (e.g., "374 square meters," "100 MB," "25 miles"). |
+| `CLOVA.ORDER`        | Information indicating sequencing expressions (e.g., "Next," "Front," "Before," "Last," "This," "Previous"). |
 | `CLOVA.KO_ADDRESS_[Unit for administrative district]` | This information indicates the place names that are called according to the domestic unit of administrative districts. You can find the unit of administrative districts provided by Clova in the Clova developer console. |
-| `CLOVA.WORLD_COUNTRY` | Information indicating worldwide country names. (E.g. "Ghana," "Japan," "Korea," "France") |
-| `CLOVA.WORLD_CITY`   | Information indicating worldwide city names. (E.g. "New York," "Paris," "London") |
-| `CLOVA.CURRENCY`      | Information indicating currency. (E.g. "Yuan," "Yen," "Dollar," "Russian money," "British currency") |
-| `CLOVA.OFFICIALDATE ` | Information indicating holidays, national holidays, and memorial days. (E.g. "Onset of Spring," "New Year's Day," "Buddha's Birthday," "Independence Day") |
+| `CLOVA.WORLD_COUNTRY` | Information indicating worldwide country names (e.g., "Ghana," "Japan," "Korea," "France"). |
+| `CLOVA.WORLD_CITY`   | Information indicating worldwide city names (e.g., "New York," "Paris," "London"). |
+| `CLOVA.CURRENCY`      | Information indicating currency (e.g., "Yuan," "Yen," "Dollar," "Russian money," "British currency"). |
+| `CLOVA.OFFICIALDATE ` | Information indicating holidays, national holidays, and memorial days (e.g., "Onset of Spring," "New Year's Day," "Buddha's Birthday," "Independence Day"). |
 
 #### Custom slot type {#CustomSlotType}
 
@@ -435,7 +435,7 @@ When writing responses as speech output type, you must conform to the following 
 * Use relatively short audio content for sound effects.
 * The sound effect must be configured to play only once at the very beginning of the response.
   * Correct example: Sound effect (.mp3) > Speech output (TTS) > Speech output (TTS) > ...
-  * Incorrect example 1: Speech output(TTS) > Sound effect (.mp3) > Speech output (TTS) > ...
+  * Incorrect example 1: Speech output (TTS) > Sound effect (.mp3) > Speech output (TTS) > ...
   * Incorrect example 2: Sound effect (.mp3) > Speech output (TTS) > Sound effect (.mp3) > Speech output (TTS) > ...
 * We recommend that a response is comprised of less than 10 speech output.
 
@@ -471,14 +471,14 @@ This sound type outputs audio content such as music for a long period of time an
 Below is a simple usage scenario of audio content play type.
 
 > <p class="ldiag">"Start Classical Box"</p>
-> <p class="rdiag">"Which classical music should I turn on?"(TTS)</p>
+> <p class="rdiag">"Which classical music should I turn on?" (TTS)</p>
 > <p class="ldiag">"Play Vivaldi's Four Seasons."</p>
-> <p class="rdiag">"Okay. Here is the first movement of Vivaldi's Four Seasons."(TTS)</p>
-> <p class="rdiag">AudioPlayer.Play:  First movement of Vivaldi's Four Seasons</p>
+> <p class="rdiag">"Okay. Here is the first movement of Vivaldi's Four Seasons." (TTS)</p>
+> <p class="rdiag">AudioPlayer.Play: First movement of Vivaldi's Four Seasons</p>
 > <p class="ldiag">"Clova, pause for a moment."</p>
-> <p class="rdiag">AudioPlayer.Pause:  Cancel play</p>
+> <p class="rdiag">AudioPlayer.Pause: Cancel play</p>
 > <p class="ldiag">"Clova, play again."</p>
-> <p class="rdiag">AudioPlayer.Resume:  Resume play</p>
+> <p class="rdiag">AudioPlayer.Resume: Resume play</p>
 > <p class="ldiag">"Next"</p>
 > <p class="rdiag">AudioPlayer.Play: Second movement of Vivaldi's Four Seasons</p>
 
@@ -489,7 +489,7 @@ Below is a simple usage scenario of audio content play type.
 
 ## Guidelines for providing content {#ContentGuideline}
 
-There are guidelines that must be observed when providing content to users via skills (extensions). A Clova administrator reviews for any guideline violations before [publishing the skill](/DevConsole/Guides/CEK/Deploy_Extension.md) to the skill store. If a skill is in violation of the guidelines or deemed acceptable, the publishing request may be rejected or an already published skill can be revoked. Therefore, you must make sure that your skill adheres to the following guidelines before [requesting a review](/DevConsole/Guides/CEK/Deploy_Extension.md#RequestExtensionSubmission).
+There are guidelines that must be observed when providing content to users via skills (extensions). A Clova administrator reviews for any guideline violations before [publishing the skill](/DevConsole/Guides/CEK/Deploy_Extension.md) to the Skill Store. If a skill is in violation of the guidelines or deemed acceptable, the publishing request may be rejected or an already published skill can be revoked. Therefore, you must make sure that your skill adheres to the following guidelines before [requesting a review](/DevConsole/Guides/CEK/Deploy_Extension.md#RequestExtensionSubmission).
 
 * [Completeness of skill](#SkillCompleteness)
 * [Security of skill](#SkillSecurity)
@@ -513,16 +513,16 @@ Skills must comply with the following guidelines to guarantee user safety:
 
 * Your skill must not induce or encourage any actions that may endanger human life or compromise physical safety.
 * Your skill must not induce or encourage any actions that could raise safety concerns for underage persons such as running away or rebelling.
-* Your skill must not interfere with the use of {{ book.DocOwner }} or third-party devices, equipment, or systems, or cause operational disruptions.
-* Your skill must not illegally change or remove the information accumulated in the equipment of {{ book.DocOwner }} or a third party.
+* Your skill must not interfere with the use of {{ book.DocMeta.DocOwner }} or third-party devices, equipment, or systems, or cause operational disruptions.
+* Your skill must not illegally change or remove the information accumulated in the equipment of {{ book.DocMeta.DocOwner }} or a third party.
 * Your skill must not contain or send harmful programs such as a virus.
 
 ### Protection of rights and legal compliances {#RightAndLegal}
 
 Skills must comply with the following to protect rights and obligate to respect relevant laws:
 
-* Your skill must not infringe on the rights of {{ book.DocOwner }} or a third party (copyrights, intellectual property rights, portrait rights, naming rights, human rights, reputation rights, or other rights).
-* Your skill must not provide content with unclear rights (e.g. Secondary creation).
+* Your skill must not infringe on the rights of {{ book.DocMeta.DocOwner }} or a third party (copyrights, intellectual property rights, portrait rights, naming rights, human rights, reputation rights, or other rights).
+* Your skill must not provide content with unclear rights (e.g., Secondary creation).
 * Your skill must not provide content without permission or without proof of receiving permission from the rights holder.
 * Your skill must not provide content that induces or encourages illegal behavior such as gambling.
 * Your skill must not provide content on sexual assaults, explicit expressions of sexual activity, child pornography, or child abuse, as well as any other brutal or obscene content, including any content with it.
@@ -540,8 +540,8 @@ Skills must comply with the following ethical guidelines:
 * Your skill must not cause users to scrutinize, curse, attack, or create negative feelings against a specific individual, group, corporation, or country.
 * Your skill must not cause users to attack a specific religion, culture, ethnicity, or national character, or create a negative feeling against it.
 * Your skill must not include antisocial content or cause discomfort.
-* Your skill must clearly indicate that it is not developed or provided by {{ book.DocOwner }}.
-* Your skill must not unjustly discriminate against or criticize {{ book.DocOwner }} or a third party or induce or encourage such actions from users.
+* Your skill must clearly indicate that it is not developed or provided by {{ book.DocMeta.DocOwner }}.
+* Your skill must not unjustly discriminate against or criticize {{ book.DocMeta.DocOwner }} or a third party or induce or encourage such actions from users.
 
 ### Privacy {#Privacy}
 
@@ -559,8 +559,8 @@ The skills must comply with the privacy responsibilities by following the guidel
 
 The following precautions apply when providing skill contents:
 
-* If the skill is linked to your device, Clova device, or a third-party device (e.g. an IoT device), the Clova administrator may ask for the device to be submitted for review.
-* Your skill must not be in violation of the [Clova extensions kit Terms and Conditions](https://developers.naver.com/console/clova/cek/#/terms) along with the details mentioned above.
+* If the skill is linked to your device, Clova device, or a third-party device (e.g., an IoT device), the Clova administrator may ask for the device to be submitted for review.
+* Your skill must not be in violation of the [Clova Extensions Kit Terms and Conditions](https://developers.naver.com/console/clova/cek/#/terms) along with the details mentioned above.
 
 <div class="note">
 <p><strong>Note!</strong></p>
@@ -582,7 +582,7 @@ It is recommended that you follow the sound attributes and loudness for each aud
 
 | Audio content type        | Sampling frequency, bit depth, and channel | Loudness  | Remark                                     |
 |-----------------------|-------------------------|--------------- |----------------------------------------|
-| Music                   | 44100 Hz, 16-bit, stereo  | -10(±1) LUFS  | -17(±1) LUFS for beat box music. |
+| Music                   | 44100 Hz, 16-bit, stereo  | -10(±1) LUFS  | -17(±1) LUFS for beatboxing. |
 | Sound effect       | 44100 Hz, 16-bit, stereo  | -18(±1) LUFS  |                                         |
 | Audio book               | 44100 Hz, 16-bit, stereo  | -12(±1) LUFS  |                                         |
 | Music or sound in the ambient genre  | 44100 Hz, 16-bit, stereo  | -25(±1) LUFS  | Examples of this type of audio content are wave sounds or rain sounds. The loudness must be adjusted according to the characteristics of each content. |

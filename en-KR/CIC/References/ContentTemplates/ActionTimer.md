@@ -14,13 +14,13 @@ The ActionTimer template is used in providing action timer information for the c
 
 | Field name       | Data type    | Description                     |
 |---------------|---------|-----------------------------|
-| `action`       | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)      | The action the user has set on this action timer. **The value is always an empty string(`""`). This field is reserved for future extension.** |
+| `action`       | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)      | The action the user has set on this action timer. **The value is always an empty string (`""`). This field is reserved for future extension.** |
 | `label`        | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)      | The action the user has entered. |
 | `repeatDay[]`     | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) array | The object array that has the repeat day(s) for a weekly action timer. |
-| `repeatPeriod`  | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)     | The repeat cycle. Available values are: <ul><li>Empty string(<code>""</code>): One-time action timer</li><li><code>"daily"</code>: Daily action timer</li><li><code>"weekly"</code>: Weekly action timer</li></ul> |
+| `repeatPeriod`  | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)     | The repeat cycle. Available values are: <ul><li>Empty string (<code>""</code>): One-time action timer</li><li><code>"daily"</code>: Daily action timer</li><li><code>"weekly"</code>: Weekly action timer</li></ul> |
 | `scheduledTime` | [DateTimeObject](/CIC/References/ContentTemplates/Shared_Objects.md#DateTimeObject) | The date and time at which this action timer is to go off.      |
 | `token`         | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)     | The ID of this action timer.  |
-| `type`          | string                                                                              | The type of this template. It has an `"ActionTimer"` value.  |
+| `type`          | string                                                                              | The type of this template. The value is always `"ActionTimer"`.  |
 
 ## Template example
 
@@ -115,7 +115,7 @@ The ActionTimer template is used in providing action timer information for the c
 
 ## UI example {#UIExample}
 
-The following example shows how the ActionTimer template is used on the Clova app distributed by {{ book.OrientedService }}.
+The following example shows how the ActionTimer template is used on the Clova app distributed by {{ book.ServiceEnv.OrientedService }}.
 
 ![](/CIC/Resources/Images/Content_Template-ActionTimer.png)
 

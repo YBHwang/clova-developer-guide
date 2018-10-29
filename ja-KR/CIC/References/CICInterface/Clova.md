@@ -3,8 +3,8 @@
 Clovaインターフェースは、CICからユーザーリクエストの認識結果をクライアントに送信する際に使用する名前空間です。ユーザーのリクエストを[`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)イベントで受信すると、Clovaはその意味を解析します。CICは認識された結果に応じて、以下のディレクティブをクライアントに送信します。クライアントは、以下のディレクティブを処理して、Clovaの機能をユーザーに提供する必要があります。
 
 | メッセージ         | タイプ  | 説明                                   |
-{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}|------------------|-----------|---------------------------------------------|
-| [`ExpectLogin`](#ExpectLogin)                    | ディレクティブ | クライアントに対して、ユーザーの{{ book.OrientedService }}アカウント認証(ログイン)を行うように指示します。|{% else %}|------------------|-----------|---------------------------------------------|{% endif %}
+{% if book.DocMeta.TargetReaderType == "Internal" or book.DocMeta.TargetReaderType == "Uplus" %}|------------------|-----------|---------------------------------------------|
+| [`ExpectLogin`](#ExpectLogin)                    | ディレクティブ | クライアントに対して、ユーザーの{{ book.ServiceEnv.OrientedService }}アカウント認証(ログイン)を行うように指示します。|{% else %}|------------------|-----------|---------------------------------------------|{% endif %}
 | [`FinishExtension`](#FinishExtension)            | ディレクティブ | クライアントに対して、特定のExtensionを終了するように指示します。             |
 | [`HandleDelegatedEvent`](#HandleDelegatedEvent)  | ディレクティブ | クライアントに対して、Clovaアプリから[委任されたユーザーのリクエストを処理する](/CIC/Guides/Implement_Client_Features.md#HandleDelegation)ように指示します。   |
 | [`Hello`](#Hello)                                | ディレクティブ | クライアントに対して、ダウンチャネルが確立したことを通知します。       |
@@ -15,10 +15,10 @@ Clovaインターフェースは、CICからユーザーリクエストの認識
 | [`RenderText`](#RenderText)                      | ディレクティブ | クライアントに対して、テキストを表示するように指示します。                     |
 | [`StartExtension`](#StartExtension)              | ディレクティブ | クライアントに対して、特定のExtensionを起動するように指示します。            |
 
-{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}
+{% if book.DocMeta.TargetReaderType == "Internal" or book.DocMeta.TargetReaderType == "Uplus" %}
 ## ExpectLoginディレクティブ {#ExpectLogin}
 
-クライアントに対して、ユーザーの{{ book.OrientedService }}アカウント認証(ログイン)を行うように指示します。クライアントが[ゲストモード](/CIC/References/Clova_Auth_API.md#GuestMode)で動作しているときに、{{ book.OrientedService }}アカウント認証を必要とするサービスをユーザーに提供しようとする場合、CICはクライアントにこのディレクティブを送信します。
+クライアントに対して、ユーザーの{{ book.ServiceEnv.OrientedService }}アカウント認証(ログイン)を行うように指示します。クライアントが[ゲストモード](/CIC/References/Clova_Auth_API.md#GuestMode)で動作しているときに、{{ book.ServiceEnv.OrientedService }}アカウント認証を必要とするサービスをユーザーに提供しようとする場合、CICはクライアントにこのディレクティブを送信します。
 
 ### Payload fields
 

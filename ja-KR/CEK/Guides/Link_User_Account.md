@@ -81,7 +81,7 @@ Extensionにアカウント連携を適用するには、ユーザーがアカ�
 | `client_id`     | Clovaが外部サービスのアクセストークンを取得するために使用するID開発者は、Clova Developer Centerであらかじめ`cliend_id`を登録しておく必要があります。                                                                                                                                                     |
 | `response_type` | OAuth 2.0認可グラントタイプを定義したパラメータ。`"code"`タイプを使用します。Clova Developer Centerで指定します。現在、`"code"`タイプのみサポートしています。              |
 | `scope`         | OAuthの`scope`フィールドアクセスレベルを定義できます。Clova Developer Centerであらかじめ`scope`を登録しておく必要があります。                                                                                                                                                                           |
-| `redirect_uri`  |アカウント認証後にリダイレクトするURLです。`redirect_uri`の値は、Clova Developer CenterでExtensionを登録するときに、[アカウント連携を設定する](/DevConsole/Guides/CEK/Register_Extension.md#SetAccountLinking)から確認できます。現在、`{{ book.RedirectURLforAccountLinking }}`が使用されています。 |
+| `redirect_uri`  |アカウント認証後にリダイレクトするURLです。`redirect_uri`の値は、Clova Developer CenterでExtensionを登録するときに、[アカウント連携を設定する](/DevConsole/Guides/CEK/Register_Extension.md#SetAccountLinking)から確認できます。現在、`{{ book.ServiceEnv.RedirectURLforAccountLinking }}`が使用されています。 |
 
 <div class="note">
   <p><strong>メモ</strong></p>
@@ -94,7 +94,7 @@ Extensionにアカウント連携を適用するには、ユーザーがアカ�
                             &client_id=clova-extension
                             &scope=listen_music%20basic_profile
                             &response_type=code
-                            &redirect_uri={{ book.RedirectURLforAccountLinking }}
+                            &redirect_uri={{ book.ServiceEnv.RedirectURLforAccountLinking }}
 </code></pre>
 
 
@@ -115,7 +115,7 @@ Extensionにアカウント連携を適用するには、ユーザーがアカ�
 
 次は、ユーザーのアカウント認証が完了してから移動されるリダイレクトURLの例です。
 
-<pre><code>{{ book.RedirectURLforAccountLinking }}?vendorId=YourServiceOrCompanyID
+<pre><code>{{ book.ServiceEnv.RedirectURLforAccountLinking }}?vendorId=YourServiceOrCompanyID
                                 &state=qwer123
                                 &code=nl__eCSTdsdlkjfweyuxXvnl
 </code></pre>

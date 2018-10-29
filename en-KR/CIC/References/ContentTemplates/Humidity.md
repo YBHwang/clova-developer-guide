@@ -66,7 +66,7 @@ The Humidity template is used in providing humidity information for the client t
 {% endraw %}
 
 ## UI example {#UIExample}
-The following example shows how the Humidity template is used on the Clova app distributed by {{ book.OrientedService }}.
+The following example shows how the Humidity template is used on the Clova app distributed by {{ book.ServiceEnv.OrientedService }}.
 
 ![Humidity](/CIC/Resources/Images/Content-Template-Humidity.png)
 

@@ -6,7 +6,7 @@
 * [接続を管理する](#ManageConnection)
 
 ### Clovaアクセストークンを作成する {#CreateClovaAccessToken}
-ユーザーがClovaを使用するには、{{ book.TargetServiceForClientAuth }}アカウントをクライアントデバイスまたはアプリで認証する必要があります。クライアントは、{{ book.TargetServiceForClientAuth }}アカウント認証情報まで処理されたClovaアクセストークンをClova認可サーバーから取得後、CICに接続してリクエストを送ることができるようになります。その際、[Clova認証API](/CIC/References/Clova_Auth_API.md)を使用します。
+ユーザーがClovaを使用するには、{{ book.ServiceEnv.TargetServiceForClientAuth }}アカウントをクライアントデバイスまたはアプリで認証する必要があります。クライアントは、{{ book.ServiceEnv.TargetServiceForClientAuth }}アカウント認証情報まで処理されたClovaアクセストークンをClova認可サーバーから取得後、CICに接続してリクエストを送ることができるようになります。その際、[Clova認証API](/CIC/References/Clova_Auth_API.md)を使用します。
 
 以下の図は、クライアントがClovaアクセストークンを取得するための流れを示しています。ちなみに、クライアントは2つのタイプがあり、タイプによってClovaアクセストークンを取得する方法が少し異なります。
 * **GUIを提供しないクライアント**：画面を持たないスピーカーや家電製品に埋め込まれた形で、Clovaサービスを提供するクライアントです。このタイプのクライアントは、ユーザーがアカウントを認証する際、デバイスから認証情報を入力することが容易ではありません。そのため、コンパニオンアプリを提供するか、Clovaアプリと連携する必要があります。
@@ -18,15 +18,15 @@ Clovaアクセストークンは、次の順で取得できます。
 
 <ol>
   <li>
-    <p>クライアントは、ユーザーが{{ book.TargetServiceForClientAuth }}アカウントを認証できるインターフェースを提供します(<a href="{{ book.LoginAPIofTargetService }}" target="_blank">{{ book.TargetServiceForClientAuth }}IDでログインする</a>)。<strong>GUIを提供しないクライアント</strong>は、ユーザーの音声入力だけではアカウントを認証できないため、必ずClovaアプリまたはコンパニオンアプリを使用する必要があります。</p>
+    <p>クライアントは、ユーザーが{{ book.ServiceEnv.TargetServiceForClientAuth }}アカウントを認証できるインターフェースを提供します(<a href="{{ book.ServiceEnv.LoginAPIofTargetService }}" target="_blank">{{ book.ServiceEnv.TargetServiceForClientAuth }}IDでログインする</a>)。<strong>GUIを提供しないクライアント</strong>は、ユーザーの音声入力だけではアカウントを認証できないため、必ずClovaアプリまたはコンパニオンアプリを使用する必要があります。</p>
   </li>
   <li>
-    <p>ユーザーが入力した{{ book.TargetServiceForClientAuth }}アカウント情報を使って、{{ book.TargetServiceForClientAuth }}アカウントの{{ "authorization code" if book.TargetCountryCode == "JP" else "access token" }}を取得します。.</p>
+    <p>ユーザーが入力した{{ book.ServiceEnv.TargetServiceForClientAuth }}アカウント情報を使って、{{ book.ServiceEnv.TargetServiceForClientAuth }}アカウントの{{ "authorization code" if book.L10N.TargetCountryCode == "JP" else "access token" }}を取得します。</p>
   </li>
   <li>
-    <p>取得した{{ book.TargetServiceForClientAuth }}アカウントの{{ "authorization code" if book.TargetCountryCode == "JP" else "access token" }}と<a href="#ClientAuthInfo">クライアント認証情報</a>を使って、<a href="/CIC/References/Clova_Auth_API.html#RequestAuthorizationCode">認可コードをリクエスト</a>します。その際、<code>device_id</code>フィールドの値は、クライアントのMACアドレスを使用するか、またはUUIDのハッシュ値を作成して使用します。次は、認可コードをリクエストするサンプルです。</p>
+    <p>取得した{{ book.ServiceEnv.TargetServiceForClientAuth }}アカウントの{{ "authorization code" if book.L10N.TargetCountryCode == "JP" else "access token" }}と<a href="#ClientAuthInfo">クライアント認証情報</a>を使って、<a href="/CIC/References/Clova_Auth_API.html#RequestAuthorizationCode">認可コードをリクエスト</a>します。その際、<code>device_id</code>フィールドの値は、クライアントのMACアドレスを使用するか、またはUUIDのハッシュ値を作成して使用します。次は、認可コードをリクエストするサンプルです。</p>
     <pre><code>$ curl -H "Authorization: Bearer QHSDAKLFJASlk12jlkf+asldkjasdf=sldkjf123dsalsdflkvpasdFMrjvi23scjaf123klv"
-    {{ book.AuthServerBaseURL }}authorize \
+    {{ book.ServiceEnv.AuthServerBaseURL }}authorize \
     --data-urlencode "client_id=c2Rmc2Rmc2FkZ2Fasdkjh234zZnNhZGZ" \
     --data-urlencode "device_id=aa123123d6-d900-48a1-b73b-aa6c156353206" \
     --data-urlencode "model_id=test_model" \
@@ -49,7 +49,7 @@ Clovaアクセストークンは、次の順で取得できます。
 </code></pre>
     <p>ちなみに、ユーザーが利用規約に同意しない場合、Clovaアクセストークンの発行をリクエストできません。ユーザーが利用規約に同意し、その結果をサーバーに送信すると、クライアントは<code>302 Found</code>(URL Redirection)ステータスコードを含むレスポンスと次のURLを受信します。</p>
     <ul>
-      <li><code>clova://agreement-success</code>：利用規約への同意に成功。クライアントは、続けてClovaアクセストークンの発行をリクエストすることができます。</li>
+      <li><code>clova://agreement-success</code>：ユーザーが利用規約に同意した場合。クライアントは、続けてClovaアクセストークンの発行をリクエストすることができます。</li>
       <li><code>clova://agreement-failure</code>：サーバーのエラーにより、利用規約への同意に失敗。クライアントは、適切な例外処理をする必要があります。</li>
     </ul>
   </li>
@@ -58,7 +58,7 @@ Clovaアクセストークンは、次の順で取得できます。
   </li>
   <li>
     <p>取得した認可コードと<a href="#ClientAuthInfo">クライアント認証情報</a>をパラメータに入力し、<a href="/CIC/References/Clova_Auth_API.html#RequestClovaAccessToken">Clovaアクセストークンをリクエスト</a>します。次は、Clovaアクセストークンをリクエストするサンプルです。</p>
-    <pre><code>$ curl {{ book.AuthServerBaseURL }}token?grant_type=authorization_code \
+    <pre><code>$ curl {{ book.ServiceEnv.AuthServerBaseURL }}token?grant_type=authorization_code \
     --data-urlencode "client_id=c2Rmc2Rmc2FkZ2Fasdkjh234zZnNhZGZ" \
     --data-urlencode "client_secret=66qo65asdfasdfaA7JasdfasfOqwnOq1rOyfgeydtCDrvYasfasf%3D" \
     --data-urlencode "code=cnl__eCSTdsdlkjfweyuxXvnlA" \
@@ -176,7 +176,7 @@ Authorization: Bearer [YOUR_ACCESS_TOKEN]
 
 クライアントは、アクセストークンを取得する際、`expires_in`フィールドから、そのアクセストークンがいつ期限切れになるのかを確認できます。有効期限が過ぎたり、期限切れになったアクセストークンを使って、HTTP 401 Unauthorizedステータスコードが含まれた[エラーメッセージ](/CIC/References/CIC_API.md#Error)を受信した場合、アクセストークンを更新する必要があります。次のように、[Clovaアクセストークンを取得](/CIC/References/Clova_Auth_API.md#RequestClovaAccessToken)する際に受け取ったリフレッシュトークン(`refresh_token`)と、必要なパラメータを送信すると、[Clovaアクセストークンを更新](/CIC/References/Clova_Auth_API.md#RefreshClovaAccessToken)することができます。
 
-<pre><code>$ curl {{ book.AuthServerBaseURL }}token?grant_type=refresh_token \
+<pre><code>$ curl {{ book.ServiceEnv.AuthServerBaseURL }}token?grant_type=refresh_token \
        --data-urlencode "client_id=c2Rmc2Rmc2FkZ2FzZnNhZGZ" \
        --data-urlencode "client_secret=66qo65asdfasdfaA7JasdfasfOqwnOq1rOyfgeydtCDrvYasfasf%3D" \
        --data-urlencode "refresh_token=GW-Ipsdfasdfdfs3IbHFBA" \

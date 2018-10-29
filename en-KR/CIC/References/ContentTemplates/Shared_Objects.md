@@ -31,7 +31,7 @@ This object contains the actions that the client must perform.
 ```json
 {
   "type": "action",
-  "value": "clova://{{ book.OrientedServiceWithLowerCase }}Search?query=Best restaurants in Itaewon"
+  "value": "clova://{{ book.ServiceEnv.OrientedServiceWithLowerCase }}Search?query=Best restaurants in Itaewon"
 }
 ```
 

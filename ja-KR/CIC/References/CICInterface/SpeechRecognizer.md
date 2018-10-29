@@ -13,7 +13,7 @@ SpeechRecognizerは、次のイベントとディレクティブを提供しま�
 | [`ExpectSpeech`](#ExpectSpeech)                 | ディレクティブ | クライアントに、ユーザーの音声の取得を開始するように指示します。                  |
 | [`KeepRecording`](#KeepRecording)               | ディレクティブ | クライアントに、ユーザーの音声の取得を続けるように指示します。                     |
 | [`Recognize`](#Recognize)                       | イベント     | 取得されるユーザーの音声を送信して、その音声を認識するようにCICにリクエストします。          |
-{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}| [`ShowRecognizedText`](#ShowRecognizedText)     | ディレクティブ | クライアントに、認識されたユーザーの音声をリアルタイムで送信します。              |
+{% if book.DocMeta.TargetReaderType == "Internal" or book.DocMeta.TargetReaderType == "Uplus" %}| [`ShowRecognizedText`](#ShowRecognizedText)     | ディレクティブ | クライアントに、認識されたユーザーの音声をリアルタイムで送信します。              |
 | [`StopCapture`](#StopCapture)                   | ディレクティブ | クライアントに、ユーザーの音声の取得を停止するように指示します。           |{% else %}| [`StopCapture`](#StopCapture)                   | ディレクティブ | クライアントに、ユーザーの音声の取得を停止するように指示します。           |{% endif %}
 
 ## ExpectSpeechディレクティブ {#ExpectSpeech}
@@ -114,7 +114,7 @@ SpeechRecognizerは、次のイベントとディレクティブを提供しま�
 | `initiator`                                              | object   | Clovaの呼び出し方、音声の取得経路、ウェイクワードに関する情報を持つオブジェクト<div class="note"><p><strong>メモ</strong></p><p>このフィールドを使用することで、音声認識の精度を上げることができます。従って、このフィールドを使用することを推奨します。</p></div>                      | 任意    |
 | `initiator.inputSource`                                  | string   | ユーザーの音声を取得した経路(source)。次のいずれかを指定します。<ul><li><code>SELF</code>：<code>SpeechRecognizer.Recognize</code>イベントを送信したクライアントで直接ユーザーの音声を取得した場合、この値を指定します。</li><li><code>CUSTOM_{Source_ID}</code>：<code>SpeechRecognizer.Recognize</code>イベントを送信したクライアントではなく、リモコンなどの別のデバイスでユーザーの音声を取得した場合、そのデバイスのIDを指定します。</li></ul><div class="note"><p><strong>メモ</strong></p><p>デバイスのIDは、あらかじめ提携担当者と協議済みの値を使用してください。</p></div>  |  |
 | `initiator.payload`                                      | object   | `initiator`フィールドで、詳細情報を持つオブジェクト                                                        | 任意 |
-| `initiator.payload.deviceUUID`                           | string   | デバイスで任意に作成したUUID。一度作成したUUIDを一貫して使用します。また、Clovaで特定のユーザーを識別できない値である必要があります。このフィールドの値として、{{ book.TargetServiceForClientAuth }}アクセストークン、ClovaアクセストークンやクライアントID、またはこれらを組み合わせた値を使用すべきではありません。   |  |
+| `initiator.payload.deviceUUID`                           | string   | デバイスで任意に作成したUUID。一度作成したUUIDを一貫して使用します。また、Clovaで特定のユーザーを識別できない値である必要があります。このフィールドの値として、{{ book.ServiceEnv.TargetServiceForClientAuth }}アクセストークン、ClovaアクセストークンやクライアントID、またはこれらを組み合わせた値を使用すべきではありません。   |  |
 | `initiator.payload.wakeWord`                             | object   | クライアントで認識されたウェイクワードを持つオブジェクト。ウェイクワード認識の精度を高めるために使用されます。       | 任意 |
 | `initiator.payload.wakeWord.confidence`                  | number   | デバイスで、ウェイクワードの認識を確信する程度(confidence)を示します。0から1までの実数(float)型の値を入力します。現在、このフィールドは有効ではありません。今後のために確保されているフィールドです。                 | 任意 |
 | `initiator.payload.wakeWord.indices`                      | object   | ユーザーの音声が含まれたオーディオストリームで、ウェイクワードに該当する区間の情報を持つオブジェクト                                           |  |
@@ -219,7 +219,7 @@ Content-Type: application/octet-stream
 ### 次の項目も参照してください。
 * [`SpeechRecognizer.ExpectSpeech`](#ExpectSpeech)
 * [`SpeechRecognizer.StopCapture`](#StopCapture)
-{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}
+{% if book.DocMeta.TargetReaderType == "Internal" or book.DocMeta.TargetReaderType == "Uplus" %}
 ## ShowRecognizedTextディレクティブ {#ShowRecognizedText}
 
 Clovaの音声認識システムは、[`SpeechRecognizer.Recognize`](#Recognize)イベントで送信されているユーザーの音声を解析して、その認識結果を提供します。CICは`SpeechRecognizer.ShowRecognizedText`ディレクティブで、ユーザーの音声認識の中間処理結果をクライアントに送信します。クライアントはそれに基づいて、処理過程をユーザーにリアルタイムで表示することができます。
@@ -300,7 +300,7 @@ CICが[`SpeechRecognizer.Recognize`](#Recognize)イベントを受信し、こ�
 
 ### Payload fields
 
-{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}
+{% if book.DocMeta.TargetReaderType == "Internal" or book.DocMeta.TargetReaderType == "Uplus" %}
 | フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `recognizedText` | string | 取得したユーザーの音声がどのように認識されたかという結果が含まれます。このフィールドは、基本的に`SpeechRecognizer.StopCapture`ディレクティブに含まれず、一部特殊な条件でのみ含まれます。 | 条件付き |
@@ -313,7 +313,7 @@ CICが[`SpeechRecognizer.Recognize`](#Recognize)イベントを受信し、こ�
 
 ### Message example
 
-{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}
+{% if book.DocMeta.TargetReaderType == "Internal" or book.DocMeta.TargetReaderType == "Uplus" %}
 ```json
 {
   "directive": {
@@ -346,7 +346,7 @@ CICが[`SpeechRecognizer.Recognize`](#Recognize)イベントを受信し、こ�
 {% endif %}
 
 ### 次の項目も参照してください。
-{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}
+{% if book.DocMeta.TargetReaderType == "Internal" or book.DocMeta.TargetReaderType == "Uplus" %}
 * [`SpeechRecognizer.Recognize`](#Recognize)
 * [`SpeechRecognizer.ShowRecognizedText`](#ShowRecognizedText)
 {% else %}

@@ -12,7 +12,7 @@ Clovaには、すべてのExtensionで汎用で使用できるように、一般
   <p>ビルトインスロットタイプとして定義されていない、Extension独自の情報のカテゴリーは、<a href="/Design/Design_Guideline_For_Extension.md#CustomSlotType">カスタムスロットタイプ</a>を定義して処理することができます。</p>
 </div>
 
-<a href="{{ book.DeveloperConsoleURL }}/cek/#/list" target="_blank">Clova Developer Center</a>に接続し、次のようにサンプルサイコロExtensionで使用するスロットタイプを宣言します。
+<a href="{{ book.ServiceEnv.DeveloperConsoleURL }}/cek/#/list" target="_blank">Clova Developer Center</a>に接続し、次のようにサンプルサイコロExtensionで使用するスロットタイプを宣言します。
 
 1. サンプルサイコロの**{{ book.DevConsole.cek_interaction_model }}**項目の**{{ book.DevConsole.cek_edit }}**ボタンをクリックします。
 2. **{{ book.DevConsole.cek_builder_list_title_slottype }}**の右側にある<img class="inlineImage" src="/CEK/Resources/Images/DevConsole_Plus_Button.png" />ボタンをクリックします。

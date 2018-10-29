@@ -127,12 +127,12 @@ CEK uses request messages (HTTP Requests) to send user intents analyzed by Clova
   },
   "request": {
     "type": "EventRequest",
-    "requestId": "f09874hiudf-sdf-4wku-flksdjfo4hjsdf",
-    "timestamp": "2018-06-11T09:19:23Z",
-    "event" : {
-      "namespace":"ClovaSkill",
-      "name":"SkillEnabled",
-      "payload": null
+    "requestId": "e5464288-50ff-4e99-928d-4a301e083d41",
+    "timestamp": "2017-09-05T05:41:21Z",
+    "event": {
+      "namespace": "AudioPlayer",
+      "name": "PlayStopped",
+      "payload": {}
     }
   }
 }
@@ -280,7 +280,7 @@ Request messages are classified into the following four types and the field conf
 * [`SessionEndedRequest`](#CustomExtSessionEndedRequest)
 
 #### EventRequest {#CustomExtEventRequest}
-{% if book.TargetCountryCode == "KR" %}
+{% if book.L10N.TargetCountryCode == "KR" %}
 `EventRequest` type is a request type used when changes in the client state or related requests need to be sent to the extension. CEK uses the `EventRequest` request type to [report the client audio playback state to the extension](/CEK/Guides/Build_Custom_Extension.md#CollectPlaybackStatusAndProgress) or to [request additional information about audio playback from the extension](/CEK/Guides/Build_Custom_Extension.md#ProvidingMetaDataForDisplay). You must develop the extension to handle the tasks of reporting the audio playback state or requesting additional information.
 
 Use the `EventRequest` request type and the following [event messages](/CIC/References/CIC_API.md#Event) of [CIC API](/CIC/References/CIC_API.md) when reporting the audio playback state or requesting additional information from the extension.
@@ -295,7 +295,7 @@ Use the `EventRequest` request type and the following [event messages](/CIC/Refe
 * [`AudioPlayer.ProgressReportPositionPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportPositionPassed)
 * [`AudioPlayer.StreamRequested`](/CIC/References/CICInterface/AudioPlayer.md#StreamRequested)
 * [`TemplateRuntime.RequestPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#RequestPlayerInfo)
-{% elif book.TargetCountryCode == "JP" %}
+{% elif book.L10N.TargetCountryCode == "JP" %}
 `EventRequest` type is a request type used when changes in the client state or related requests need to be sent to the extension. CEK uses the `EventRequest` request type to report the results of the user enabling or disabling specific skills, [report audio playback status of the client to the extension](/CEK/Guides/Build_Custom_Extension.md#CollectPlaybackStatusAndProgress), or [request additional information related to audio playback from the extension](/CEK/Guides/Build_Custom_Extension.md#ProvidingMetaDataForDisplay). You must develop the extension to handle the tasks of enabling or disabling skills, reporting the audio playback state, or requesting additional information.
 
 Use the `EventRequest` request type and the following [CIC API](#CICAPIforAudioPlayback) when reporting the audio playback state or requesting additional information from the extension.
@@ -332,16 +332,16 @@ The `request` object field configuration of the `EventRequest` type message is a
 | Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:---------:|
 | `event`           | object  | The object that stores the information sent by the client to Clova.                                       | Always   |
-| `event.name`      | string  | {{ "The name of the event sent to Clova by the client." if book.TargetCountryCode == "KR" else "The name of the event message sent to Clova by the client or the name that represents the active or non-active action of a skill. The name that represents the active or non-active action of a skill is either `SkillEnabled` or `SkillDisabled`. Once a request is received, which holds information about the active or non-active state of the skill, you can use the `context.System.application.applicationId` field and `context.System.user.userId` field of the [request message](#CustomExtRequestMessage) so that it collects or discards user information." }} | Always   |
-| `event.namespace` | string  | {{ "The namespace of the event sent to Clova by the client." if book.TargetCountryCode == "KR" else "The namespace of the event message sent to Clova by the client or the name that represents the active or non-active state of a skill. The namespace that represents the active or non-active state of a skill is always `ClovaSkill`." }}   | Always  |
-| `event.payload`   | object  | {{ "`payload` or part of the `payload` information of the event message sent to Clova by the client. Some `EventRequest` type of event message may have an empty `payload`." if book.TargetCountryCode == "KR" else "`payload` or part of the `payload` information of the event message sent to Clova by the client. Some event messages or `EventRequest` type event messages that represent the active or non-active state of a skill may have an empty `payload`." }}  | Always  |
+| `event.name`      | string  | {{ "The name of the event sent to Clova by the client." if book.L10N.TargetCountryCode == "KR" else "The name of the event message sent to Clova by the client or the name that represents the active or non-active action of a skill. The name that represents the active or non-active action of a skill is either `SkillEnabled` or `SkillDisabled`. Once a request is received, which holds information about the active or non-active state of the skill, you can use the `context.System.application.applicationId` field and `context.System.user.userId` field of the [request message](#CustomExtRequestMessage) so that it collects or discards user information." }} | Always   |
+| `event.namespace` | string  | {{ "The namespace of the event sent to Clova by the client." if book.L10N.TargetCountryCode == "KR" else "The namespace of the event message sent to Clova by the client or the name that represents the active or non-active state of a skill. The namespace that represents the active or non-active state of a skill is always `ClovaSkill`." }}   | Always  |
+| `event.payload`   | object  | {{ "`payload` or part of the `payload` information of the event message sent to Clova by the client. Some `EventRequest` type of event message may have an empty `payload`." if book.L10N.TargetCountryCode == "KR" else "`payload` or part of the `payload` information of the event message sent to Clova by the client. Some event messages or `EventRequest` type event messages that represent the active or non-active state of a skill may have an empty `payload`." }}  | Always  |
 | `requestId`       | string  | Dialogue ID (`event.header.dialogRequestId`) generated when the client sends information to Clova.    | Always   |
 | `timestamp`       | string  | The send time of when the client sends information to Clova (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)<div class="note"><p><strong>Note!</strong></p><p>Since CEK does not guarantee the correct order in <code>EventRequest</code> type requests, you can use this field value to determine the order of client requests.</p></div>                    |   |
 | `type`            | string  | The type of request message. The value is always set to `"EventRequest"`.         | Always |
 
 Here is an example of the `request` object field of the `EventRequest` type message.
 
-{% if book.TargetCountryCode == "KR" %}
+{% if book.L10N.TargetCountryCode == "KR" %}
 ```json
 // Example 1. When metadata on music is requested
 "event": {
@@ -367,7 +367,7 @@ Here is an example of the `request` object field of the `EventRequest` type mess
   }
 }
 ```
-{% elif book.TargetCountryCode == "JP" %}
+{% elif book.L10N.TargetCountryCode == "JP" %}
 ```json
 // Example 1. When the user has enabled a skill
 "request": {
@@ -461,7 +461,7 @@ Here is an example of the `request` object field of the `IntentRequest` type mes
 ```
 
 #### LaunchRequest {#CustomExtLaunchRequest}
-`LaunchRequest` type is a request type that indicates that a user has started using a specific extension. For example, the user has declared they want to use a specific skill by saying "Start DiceDrawer." The [`IntentRequest`](#CustomExtIntentRequest) type message of the extension is received until the user declares they want to stop using the skill.
+`LaunchRequest` type is a request type that indicates that a user has started using a specific extension. For example, the user has declared they want to use a specific skill by saying "Start Dice Drawer." The [`IntentRequest`](#CustomExtIntentRequest) type message of the extension is received until the user declares they want to stop using the skill.
 
 The `request` object field configuration of the `LaunchRequest` type message is as follows:
 
@@ -555,11 +555,11 @@ The extension must deliver a response message after handling a request message (
 |---------------|---------|-----------------------------|:---------:|
 | `response`                               | object       | The object containing the response information of the extension.                            | Required |
 | `response.card`                          | object       | The data is in the [content template](/CIC/References/Content_Templates.md) format and can be displayed on the client screen via this field. If data exists in this field, CIC sends the [Clova.RenderTemplate](/CIC/References/CICInterface/Clova.md#RenderTemplate) directive to the client. If the object is empty, CIC delivers the [Clova.RenderText](/CIC/References/CICInterface/Clova.md#RenderText) directive to the client to display the values in the `response.outputSpeech.values` field.        | Required |
-| `response.directives[]`                  | object array | The directive message that the extension delivers to CEK. The `response.directives` field is normally used to provide audio content and supports the following {{ "[CIC API](/CIC/References/CIC_API.md)" if book.TargetCountryCode == "KR" else "[CIC API](#CICAPIforAudioPlayback)" }} directive messages: <ul><li><code>AudioPlayer.Play</code></li><li><code>AudioPlayer.StreamDeliver</code></li><li><code>PlaybackController.Pause</code></li><li><code>PlaybackController.Resume</code></li><li><code>PlaybackController.Stop</code></li><li><code>TemplateRuntime.RenderPlayerInfo</code></li>.</ul> | Required |
+| `response.directives[]`                  | object array | The directive message that the extension delivers to CEK. The `response.directives` field is normally used to provide audio content and supports the following {{ "[CIC API](/CIC/References/CIC_API.md)" if book.L10N.TargetCountryCode == "KR" else "[CIC API](#CICAPIforAudioPlayback)" }} directive messages: <ul><li><code>AudioPlayer.Play</code></li><li><code>AudioPlayer.StreamDeliver</code></li><li><code>PlaybackController.Pause</code></li><li><code>PlaybackController.Resume</code></li><li><code>PlaybackController.Stop</code></li><li><code>TemplateRuntime.RenderPlayerInfo</code></li>.</ul> | Required |
 | `response.directives[].header`           | object       | The header of the directive.                                          | Required |
 | `response.directives[].header.messageId` | string       | The message ID (UUID). The message ID used to distinguish individual messages.   | Required |
-| `response.directives[].header.name`      | string       | The API name of directive.                                      | Required |
-| `response.directives[].header.namespace` | string       | The API namespace of the directive message.                                | Required |
+| `response.directives[].header.name`      | string       | The API name of the directive.                                      | Required |
+| `response.directives[].header.namespace` | string       | The API namespace of the directive.                                | Required |
 | `response.directives[].payload`          | object       | The object that contains information related to the directive. You can configure the payload object and the field values differently based on the directive message.         | Required |
 | `response.outputSpeech`                  | object       | The object that contains the information to be synthesized as a voice. The synthesized voice information is delivered to the client via CIC.              | Required |
 | `response.outputSpeech.brief`            | [SpeechInfoObject](#CustomExtSpeechInfoObject) | Summary information for voice output.                    | Optional |
@@ -775,7 +775,7 @@ SpeechInfoObject is an object reused in the `response.outputSpeech` of a respons
 * [Returning a custom extension response](/CEK/Guides/Build_Custom_Extension.md#ReturnCustomExtensionResponse)
 * [Content template](/CIC/References/Content_Templates.md)
 
-{% if book.TargetCountryCode == "JP" %}
+{% if book.L10N.TargetCountryCode == "JP" %}
 ## CIC API related to the audio content playback {#CICAPIforAudioPlayback}
 
 CIC API is the message specification exchanged when the client device of a user communicates with Clova. The CIC API explained here is supported by CEK to [provide audio content](/CEK/Guides/Build_Custom_Extension.md#ProvideAudioContent) for the custom extension. CEK sends by filling out the event message the client sent to Clova in the `event` field of the [`EventRequest`](#CustomExtEventRequest) type message. Also, the custom extension must send the directive message related to the audio content playback by filling out in the `response.directives[]` field of the [`Response messages`](#CustomExtResponseMessage) to provide audio content to the user.
@@ -808,7 +808,7 @@ Instructs the client to either play or add to the playback queue the specified a
 | Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:---------:|
 | `audioItem`               | object | The metadata of an audio stream to play and audio stream information required for playback.                     | Always |
-| `audioItem.artImageUrl`   | string | The URL for the image on the audio (e.g. album image).                                                  | Conditional  |
+| `audioItem.artImageUrl`   | string | The URL for the image on the audio (e.g., album image).                                                  | Conditional  |
 | `audioItem.audioItemId`   | string | ID of an audio stream. Use this ID to remove redundant Play directives. | Always |
 | `audioItem.headerText`    | string | The text field used mainly to indicate the title of current play list.                                                | Conditional  |
 | `audioItem.stream`        | [AudioStreamInfoObject](#AudioStreamInfoObject) | The audio stream information required for playback.        | Always |
@@ -821,9 +821,9 @@ Instructs the client to either play or add to the playback queue the specified a
 | `source.name`             | string | The text field containing the name of the audio streaming service.                                                        | Always |
 
 ### Remarks
-Based on the policy of music service providers, certain information required for playback (e.g. streaming URL) may have to be acquired right before playback. Whether additional information will be requested is specified in the `audioItem.stream.urlPlayable` field, as shown below:
+Based on the policy of music service providers, certain information required for playback (e.g., streaming URL) may have to be acquired right before playback. Whether additional information will be requested is specified in the `audioItem.stream.urlPlayable` field, as shown below:
 * `urlPlayable` is `true`: No additional information is required. You can play the audio stream only with the URL specified in the `audioItem.stream.url` field.
-* `urlPlayable` is `false`: Additional information is required for you to play the given audio stream. Make a request for additional information with the [`AudioPlayer.StreamRequested`](#StreamRequested) event.
+* `urlPlayable` is `false`: Additional information is required for you to play the given audio stream with the URL specified in the `audioItem.stream.url` field. Make a request for additional information with the [`AudioPlayer.StreamRequested`](#StreamRequested) event.
 
 ### Message example
 {% raw %}
@@ -1281,7 +1281,7 @@ Requests CIC for additional information needed for audio stream playback such as
 | `audioStream`   | [AudioStreamInfoObject](#AudioStreamInfoObject) | The `audioItem.stream` of the Play directive. | Required |
 
 #### Remarks
-Based on the policy of music service providers, certain information required for playback (e.g. streaming URL) may not be shared to clients until right before playback. This event is an API designed for such situations where you cannot get stream information in advance. Do not send this event any earlier than right before playing an audio stream.
+Based on the policy of music service providers, certain information required for playback (e.g., streaming URL) may not be shared to clients until right before playback. This event is an API designed for such situations where you cannot get stream information in advance. Do not send this event any earlier than right before playing an audio stream.
 
 #### Message example
 {% raw %}
@@ -1419,7 +1419,7 @@ Instructs the client to display the sent playback metadata such as a playlist, a
 | `playableItems[].controls[].selected`       | boolean      | Indicates whether the media content is selected. This value can be used for displaying user preferences. For example, if this value is set as `true`, the content must be expressed on the relevant UI of the media player since the user has selected it as a preference. <ul><li><code>true</code>: Selected</li><li><code>false</code>: Not selected</li></ul> | Always  |
 | `playableItems[].controls[].type`           | string       | The type of button. Currently, only the `"BUTTON"` value is available.  | Always |
 | `playableItems[].headerText`       | string        | The text field used mainly to indicate the title of current play list.                                                | Conditional  |
-| `playableItems[].isLive`           | boolean       | Indicates whether the content is a real-time content.<ul><li><code>true</code>: Real-time content</li><li><code>false</code>: Not a real-time content</li></ul><div class="note"><p><strong>Note!</strong></p><p>If the content is a real-time content, you must display an icon to indicate its state (e.g. A live icon).</p></div>  | Conditional  |
+| `playableItems[].isLive`           | boolean       | Indicates whether the content is a real-time content.<ul><li><code>true</code>: Real-time content</li><li><code>false</code>: Not a real-time content</li></ul><div class="note"><p><strong>Note!</strong></p><p>If the content is a real-time content, you must display an icon to indicate its state (e.g., A live icon).</p></div>  | Conditional  |
 | `playableItems[].lyrics[]`         | object array  | The object array containing the lyrics information.                                                            | Conditional  |
 | `playableItems[].lyrics[].data`    | string        | The lyrics data. Either this field or the `playableItems[].lyrics[].url` field exists.              | Conditional  |
 | `playableItems[].lyrics[].format`  | string        | The format of the lyrics data.<ul><li><code>"LRC"</code>: <a href="https://en.wikipedia.org/wiki/LRC_(file_format)" target="_blank">LRC format</a></li><li><code>"PLAIN"</code>: Plain text format</li></ul>  | Always  |
@@ -1584,7 +1584,7 @@ The object containing streaming details of an audio stream. This object is used 
 | `beginAtInMilliseconds`  | number | The playback start point. The unit is in milliseconds. If this field is specified, play the audio stream from the specified point of the stream. If set to 0, play the audio stream from the beginning.          | Required/Always |
 | `customData`             | string | The metadata on the current audio in a random format. Any streaming information that cannot be classified into a specific category or defined must be included or entered in this field. Streaming service providers can add custom values to the context of audio stream playback.<div class="danger"><p><strong>Caution!</strong></p><p>Clients must not use the value of this field, as it can cause problems. Make sure to insert these field values in the `stream` field of the <a href="/CIC/References/Context_Objects.html#PlaybackState">PlaybackState context</a> without any changes, when reporting the playback state to CIC.</p></div> | Optional/Conditional  |
 | `durationInMilliseconds` | number | The length of the audio stream. The client can play and navigate audio from the playback time specified in the `beginAtInMilliseconds` field by the amount of time defined in this field. For example, if the value of `beginAtInMilliseconds` field is `10000` and the value of this field is `60000`, you can play and navigate within 10-70 seconds of the audio track. The unit is in milliseconds.   | Optional/Conditional  |
-| `format`                 | string  | The media format (MIME type). This field can be used to identify whether the content uses the HTTP Live Streaming (HLS) protocol. Available values are: The default value is `"audio/mpeg"`.<ul><li><code>"audio/mpeg"</code></li><li><code>"audio/mpegurl"</code></li><li><code> "audio/aac"</code></li><li><code>"application/vnd.apple.mpegurl"</code></li></ul> <div class="note"><p><strong>Note!</strong></p><p>If you want to develop an extension that provides content using the HLS protocol, email <a href="mailto:{{ book.ExtensionAdminEmail }}">{{ book.ExtensionAdminEmail }}</a>.</p></div>   | Optional/Conditional  |
+| `format`                 | string  | The media format (MIME type). This field can be used to identify whether the content uses the HTTP Live Streaming (HLS) protocol. Available values are: The default value is `"audio/mpeg"`.<ul><li><code>"audio/mpeg"</code></li><li><code>"audio/mpegurl"</code></li><li><code> "audio/aac"</code></li><li><code>"application/vnd.apple.mpegurl"</code></li></ul> <div class="note"><p><strong>Note!</strong></p><p>If you want to develop an extension that provides content using the HLS protocol, email <a href="mailto:{{ book.ServiceEnv.ExtensionAdminEmail }}">{{ book.ServiceEnv.ExtensionAdminEmail }}</a>.</p></div>   | Optional/Conditional  |
 | `progressReport`         | object  | The time specified to receive the playback state after the audio starts.                                                  | Optional/Conditional |
 | `progressReport.progressReportDelayInMilliseconds`    | number | The duration of time specified to receive the playback state after the audio starts. The unit is in milliseconds. This field can have a null value.  | Optional/Conditional |
 | `progressReport.progressReportIntervalInMilliseconds` | number | The interval specified to receive the playback state while audio is playing. The unit is in milliseconds. This field can have a null value.        | Optional/Conditional |

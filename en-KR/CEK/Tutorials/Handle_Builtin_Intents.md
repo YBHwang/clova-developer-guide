@@ -7,8 +7,8 @@ Clova has frequently used basic intents predefined as [built-in intents](/Design
 |---------------------------|-------------------|----------------------------------------------------------|
 | Clova.GuideIntent         | Help request          | "What can you do?," "Tell me how to use it" |
 | Clova.CancelIntent        | Undo action request        | "Cancel," "Cancel please"                                          |
-| Clova.YesIntent           | Positive response (e.g. Yes)   | "Yes," "Sure," "All right," "Certainly," "Okay"                   |
-| Clova.NoIntent            | Negative response (e.g. No) | "No," "No, thank you," "Absolutely not"                                     |
+| Clova.YesIntent           | Positive response (e.g., Yes)   | "Yes," "Sure," "All right," "Certainly," "Okay"                   |
+| Clova.NoIntent            | Negative response (e.g., No) | "No," "No, thank you," "Absolutely not"                                     |
 
 To handle a help request or undo an action request from the user, you can use the built-in intents in the above table without registering intents and sample phrases, just like in the first tutorial.
 

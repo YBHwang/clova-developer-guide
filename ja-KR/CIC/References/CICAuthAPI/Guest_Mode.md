@@ -1,6 +1,6 @@
-{% if book.TargetReaderType == "Internal" or book.TargetReaderType == "Uplus" %}
+{% if book.DocMeta.TargetReaderType == "Internal" or book.DocMeta.TargetReaderType == "Uplus" %}
 ### 備考 {#GuestMode}
-ユーザーに、{{ book.TargetServiceForClientAuth }}アカウント認証なしにゲストモードでサービスを提供するには、以下の手順に従います。
+ユーザーに、{{ book.ServiceEnv.TargetServiceForClientAuth }}アカウント認証なしにゲストモードでサービスを提供するには、以下の手順に従います。
 
 1. [Clovaアクセストークンを作成する](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken)で説明されている手順のうち、ステップ1と2の説明を省略します。
 2. ステップ3で[認可コードをリクエスト](#RequestAuthorizationCode)する際、次の内容を適用します。
@@ -9,14 +9,14 @@
 
 <div class="note">
   <p><strong>メモ</strong></p>
-  <p><code>request_vu</code>のデフォルト値は<code>N</code>で、{{ book.TargetServiceForClientAuth }}アカウントを認証してから使用するのが基本ポリシーです。</p>
+  <p><code>request_vu</code>のデフォルト値は<code>N</code>で、{{ book.ServiceEnv.TargetServiceForClientAuth }}アカウントを認証してから使用するのが基本ポリシーです。</p>
 </div>
 
 上記の手順どおりにすると、ゲストモードのための認可コードを取得します。それを利用し[Clovaアクセストークンを作成する](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken)で説明されている続きの手順に従うと、ゲストモードのためのClovaアクセストークンを取得できます。
 
 次は、ゲストモードのための認可コードをリクエストするサンプルです。
 
-<pre><code>$ curl {{ book.AuthServerBaseURL }}authorize \
+<pre><code>$ curl {{ book.ServiceEnv.AuthServerBaseURL }}authorize \
        --data-urlencode "request_vu=Y" \
        --data-urlencode "client_id=c2Rmc2Rmc2FkZ2Fasdkjh234zZnNhZGZ" \
        --data-urlencode "device_id=aa123123d6-d900-48a1-b73b-aa6c156353206" \

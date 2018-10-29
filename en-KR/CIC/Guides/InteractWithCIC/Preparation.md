@@ -17,7 +17,7 @@ To support communication over the HTTP/2 protocol, you need to import the librar
 
 ### User-Agent string {#UserAgentString}
 
-Add a user-agent string in the HTTP header when using Clova or Clova-related Web services. Clients make HTTP connections for the following tasks and the user-agent string is required in all the tasks.
+Add a user-agent string in the HTTP header when using Clova or Clova-related Web services. Clients make HTTP connections for the following jobs and the user-agent string is required in all the tasks.
 
 * [Communicating with the CIC server](#ConnectToCIC)
 * Opening a page in a WebView on an app
@@ -26,7 +26,7 @@ Add a user-agent string in the HTTP header when using Clova or Clova-related Web
 
 <div class="danger">
   <p><strong>Caution!</strong></p>
-  <p>If you miss a user-agent string in an HTTP header or if your user-agent string is not written according to the notation, your request or connection attempt may be rejected.</p>
+  <p>If you omit the user-agent string in an HTTP header or if the user-agent string is not written according to the notation, your request or connection attempt may be rejected.</p>
 </div>
 
 Define your user-agent string based on the following [Backus-Naur form (BNF)](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form)).
@@ -95,9 +95,9 @@ MCN/SampleClient/1.7.0 (SampleIoTOS 2.1;SmartHub)
 </div>
 
 ### Client credentials {#ClientAuthInfo}
-To use the Clova service, a user needs to authenticate the {{ book.TargetServiceForClientAuth }} account from the client. The client can use the account information entered for the {{ book.TargetServiceForClientAuth }} to obtain the account access token for the {{ book.TargetServiceForClientAuth }}. The client must then pass the access token back to the Clova authorization server again to [obtain the Clova access token](#CreateClovaAccessToken).
+To use the Clova service, a user needs to authenticate the {{ book.ServiceEnv.TargetServiceForClientAuth }} account from the client. The client can use the account information entered for the {{ book.ServiceEnv.TargetServiceForClientAuth }} to obtain the account access token for the {{ book.ServiceEnv.TargetServiceForClientAuth }}. The client must then pass the access token back to the Clova authorization server again to [obtain the Clova access token](#CreateClovaAccessToken).
 
-In this process, client credentials obtained via the Clova developer console must also be sent together with the {{ book.TargetServiceForClientAuth }} account access token to the authorization server (using [Clova auth API](/CIC/References/Clova_Auth_API.md)). Therefore, you should have the client credentials from the Clova developer console ready in advance. Client credentials provide following information.
+In this process, client credentials obtained via the Clova developer console must also be sent together with the {{ book.ServiceEnv.TargetServiceForClientAuth }} account access token to the authorization server (using [Clova auth API](/CIC/References/Clova_Auth_API.md)). Therefore, you must have the client credentials from the Clova developer console ready in advance. Client credentials provide following information.
 
 | Credentials                   | Description                                              |
 |---------------------------|--------------------------------------------------|

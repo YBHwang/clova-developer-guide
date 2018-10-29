@@ -33,17 +33,17 @@ Extensionの基本情報は、Clova Developer CenterでExtensionを作成する�
 <ol>
   <li><strong>{{ book.DevConsole.cek_type }}</strong>項目で、登録するExtensionのタイプを選択します。Extensionのタイプを選択すると、該当する入力フィールドが表示されます。</li>
   <li><strong>{{ book.DevConsole.cek_lang }}</strong>項目で、Extensionで使用する言語を選択します。現在、<strong>{{ book.DevConsole.ko_KR }}</strong>のみサポートされています。</li>
-  <li>ExtensionのID、名前、呼び出し名を次の項目に入力します。
+  <li>ExtensionのID、<strong>スキル名</strong>、<strong>呼び出し名</strong>を次の項目に入力します。
     <ol>
       <li><strong>{{ book.DevConsole.cek_id }}</strong>Extensionの一意のIDです。リバースドメインネームの形式(例：com.yourdomain.extension.pizzabot)を入力します。</li>
-      <li><strong>{{ book.DevConsole.cek_name }}</strong>：Extensionの名前です。今後スキルストアで表示されます。</li>
-      <li><strong>{{ book.DevConsole.cek_invocation_name }}</strong>：ユーザーがExtensionを呼び出す際に呼ぶ名前です。保有しているサービス、会社および組織の名前を使用できますが、ユーザーにとって呼びやすい、シンプルな言葉を指定することをお勧めします。汎用的な言葉、他社の名前やサービスに該当する言葉は使用できません。<strong>{{ book.DevConsole.cek_invocation_name }}</strong>は、Extensionを審査する際にチェックされます。</li>
+      <li><strong>{{ book.DevConsole.cek_name }}</strong>：Extensionの名前です。後ほどClovaスキルストアで表示されます。</li>
+      <li><strong>{{ book.DevConsole.cek_invocation_name }}</strong>：ユーザーがExtensionを呼び出す際に呼ぶ名前です。1つから最大3つまで{{ book.DevConsole.cek_invocation_name }}を登録できます。保有しているサービス、会社および組織の名前を使用できますが、ユーザーにとって呼びやすい、シンプルな言葉を指定することをお勧めします。汎用的な言葉、他社の名前やサービスに該当する言葉は使用できません。<strong>{{ book.DevConsole.cek_invocation_name }}</strong>は、Extensionを審査する際にチェックされます。</li>
       <li><strong>{{ book.DevConsole.cek_provider }}</strong>：Extensionを作成した主体(会社や個人)の名前、またはニックネームを入力します。後ほどスキルストアで表示され、Extensionを審査する際にチェックされます。</li>
     </ol>
   </li>
   <li>Extensionが<a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a>ディレクティブを使用する場合、<strong>{{ book.DevConsole.cek_audioplayer }}</strong>項目で<strong>{{ book.DevConsole.cek_yes }}</strong>を選択します。Extensionがオーディオストリーミングサービスを提供する際に使用されます。</li>
   <li><strong>{{ book.DevConsole.cek_email }}</strong>項目に、連絡可能なメールアドレスを入力します。</li>
-  <li><strong>{{ book.DevConsole.cek_tester }}</strong>項目に、Extensionのテストに使用する{{ book.OrientedService }}アカウントを入力します。必須ではなく、後ほど<a href="/DevConsole/Guides/CEK/Test_Extension.html">のExtensionをテスト</a>する際に入力することもできます。</li>
+  <li><strong>{{ book.DevConsole.cek_tester }}</strong>項目に、Extensionのテストに使用する{{ book.ServiceEnv.OrientedService }}アカウントを入力します。必須ではなく、後ほど<a href="/DevConsole/Guides/CEK/Test_Extension.html">のExtensionをテスト</a>する際に入力することもできます。</li>
   <li>Extensionの基本情報をすべて入力したら、<strong>{{ book.DevConsole.cek_create }}</strong>ボタンをクリックします。</li>
 </ol>
 
@@ -109,6 +109,6 @@ Extensionで提供するサービスのアカウントがClovaのユーザーア
 
 <div id="RedirectURI" class="note">
   <p><strong>メモ</strong></p>
-  <p>アカウント認証を済ませた後、クライアントがリダイレクトされるURLは<code>{{ book.RedirectURLforAccountLinking }}</code>で、<strong>{{ book.DevConsole.cek_redirect_urls }}</strong>項目で確認できます。</strong></p>
+  <p>アカウント認証を済ませた後、クライアントがリダイレクトされるURLは<code>{{ book.ServiceEnv.RedirectURLforAccountLinking }}</code>で、<strong>{{ book.DevConsole.cek_redirect_urls }}</strong>項目で確認できます。</strong></p>
   <img src="/DevConsole/Resources/Images/DevConsole-Redirect_URL_for_Extension_Accoun_Linking.png" />
 </div>

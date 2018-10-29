@@ -12,9 +12,9 @@ Commonly used information types are predefined in Clova so that it can be univer
   <p>You can handle the information types unique to extension, which are not defined as built-in slot types, by defining them as <a href="/Design/Design_Guideline_For_Extension.md#CustomSlotType">custom slot types</a>.</p>
 </div>
 
-Connect to the <a href="{{ book.DeveloperConsoleURL }}/cek/#/list" target="_blank">Clova developer console</a> and declare the slot type to use in the Sample Dice extension as follows:
+Connect to the <a href="{{ book.ServiceEnv.DeveloperConsoleURL }}/cek/#/list" target="_blank">Clova developer console</a> and declare the slot type to use in the Sample Dice extension as follows:
 
-1. Click **{{ book.DevConsole.cek_edit }}** on the **{{ book.DevConsole.cek_interaction_model }}** items of the Sample Dice extension.
+1. Click **{{ book.DevConsole.cek_edit }}** on the **{{ book.DevConsole.cek_interaction_model }}** item of the Sample Dice extension.
 2. Click <img class="inlineImage" src="/CEK/Resources/Images/DevConsole_Plus_Button.png" /> next to **{{ book.DevConsole.cek_builder_list_title_slottype }}**.
 3. Select the `CLOVA.NUMBER` checkbox in the table below **{{ book.DevConsole.cek_builder_new_slottype_builtin_title }}**.
 
@@ -28,7 +28,7 @@ You can register the slot as follows on the same window that was previously used
 
 1. Select `ThrowDiceIntent`, a custom intent, below **{{ book.DevConsole.cek_builder_list_title_intent }}**.
 2. Type in "diceCount" in the input field below **{{ book.DevConsole.cek_builder_intent_slot_title }}**.
-3. Press the Enter key or click <img class="inlineImage" src="/CEK/Resources/Images/DevConsole_Plus_Button.png" /> next to the input field.
+3. Press Enter or click the <img class="inlineImage" src="/CEK/Resources/Images/DevConsole_Plus_Button.png" /> button next to the input field.
 4. Click the **{{ book.DevConsole.cek_builder_utterance_select_slot }}** combo box next to the registered "diceCount."
 5. On the displayed list, select `CLOVA.NUMBER` of the **{{ book.DevConsole.cek_builder_select_slottype_builtin }}** registered earlier.
 
@@ -45,9 +45,9 @@ On the same window used to register the slot, enter the sample utterance as foll
 
   <img src="/CEK/Resources/Images/CEK_Tutorial_Builtin_Type_Slots_Sample_Utterance.png" style="max-width:800px;"/>
 
-2. Press the Enter key or click <img class="inlineImage" src="/CEK/Resources/Images/DevConsole_Plus_Button.png" />.
+2. Press Enter click the <img class="inlineImage" src="/CEK/Resources/Images/DevConsole_Plus_Button.png" /> button.
 3. Drag-and-select the text "Two" with the mouse from the list of registered sentences.
 4. Select "diceCount" below **{{ book.DevConsole.cek_builder_slot_layer_select_slot }}**.
 
   <img src="/CEK/Resources/Images/CEK_Tutorial_Builtin_Type_Slots_Set_Slot.png" style="max-width:800px;"/>
-5. Repeat steps 1-4 with sentences "Throw one" and "Roll five dice".
+5. Repeat steps 1-4 with sentences "Throw one" and "Roll five dice."

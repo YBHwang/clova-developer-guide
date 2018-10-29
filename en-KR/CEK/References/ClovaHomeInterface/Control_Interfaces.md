@@ -24,16 +24,16 @@ These control interfaces are used to check IoT device information and carry out 
 | [`GetAirQualityResponse`](#GetAirQualityResponse)                             | Response | Sends the air quality information measured by the target appliance to CEK as a response to the [`GetAirQualityRequest`](#GetAirQualityRequest) message. |
 | [`GetAsleepDurationRequest`](#GetAsleepDurationRequest)                       | Request  | Mainly used to check information measured from a sleep sensor. Requests the Clova Home extension for the sleep time of the user measured by the target appliance.  |
 | [`GetAsleepDurationResponse`](#GetAsleepDurationResponse)                     | Response | Sends the sleep time of the user measured by the target appliance to CEK as a response to the [`GetAsleepDurationRequest`](#GetAsleepDurationRequest) message.  |
-| [`GetAwakeDurationRequest`](#GetAwakeDurationRequest)                         | Request  | Mainly used to check information measured from a sleep sensor. Requests the Clova Home extension for the awake time of the user after going to bed measured by the target appliance–in other words, the amount of time from going to bed until falling asleep.  |
-| [`GetAwakeDurationResponse`](#GetAwakeDurationResponse)                       | Response | Sends the awake time of the user after going to bed measured by the target appliance–in other words, the amount of time from going to bed until falling asleep, to CEK as a response to the [`GetAwakeDurationRequest`](#GetAwakeDurationRequest) message.  |
+| [`GetAwakeDurationRequest`](#GetAwakeDurationRequest)                         | Request  | Mainly used to check information measured from a sleep sensor. Requests the Clova Home extension for the awake time of the user after going to bed measured by the target appliance. In other words, the amount of time from going to bed until falling asleep.  |
+| [`GetAwakeDurationResponse`](#GetAwakeDurationResponse)                       | Response | Sends the awake time of the user after going to bed measured by the target appliance. In other words, the amount of time from going to bed until falling asleep, to CEK as a response to the [`GetAwakeDurationRequest`](#GetAwakeDurationRequest) message.  |
 | [`GetBatteryInfoRequest`](#GetBatteryInfoRequest)                             | Request  | Requests the Clova Home extension for the battery information of the target appliance. |
 | [`GetBatteryInfoResponse`](#GetBatteryInfoResponse)                           | Response | Sends the battery information of the target appliance to CEK as a response to the [`GetBatteryInfoRequest`](#GetBatteryInfoRequest) message. |
 | [`GetCleaningCycleRequest`](#GetCleaningCycleRequest)                                                   | Request  | Used to check the cleaning cycle of an appliance. Requests the Clova Home extension for the information on the remaining time until the next cleaning cycle of the target appliance.  |
 | [`GetCleaningCycleResponse`](#GetCleaningCycleResponse)                                                  | Response | Sends the information on the time remaining until the next cleaning cycle of the target appliance to CEK as a response to the [`GetCleaningCycleRequest`](#GetCleaningCycleRequest) message.  |
 | [`GetCloseTimeRequest`](#GetCloseTimeRequest)                                 | Request  | Requests the Clova Home extension for the recent close time of the target, mainly from the detection details of the open-close sensor. |
 | [`GetCloseTimeResponse`](#GetCloseTimeResponse)                               | Response | Sends the recent close time of the target from the detection details of the open-close sensor to CEK as a response to the [`GetCloseTimeRequest`](#GetCloseTimeRequest) message.  |
-| [`GetConsumptionRequest`](#GetConsumptionRequest)                             | Request  | Mainly used to check for energy consumption or resource information to date measured on appliances such as smart plugs or smart power strips. Requests the Clova Home extension for the energy consumption or resource information measured by the target appliance.  |
-| [`GetConsumptionResponse`](#GetConsumptionResponse)                           | Response | Sends the information on energy consumption or resource information measured by the target appliance to date to CEK as a response to the [`GetConsumptionRequest`](#GetConsumptionRequest) message.  |
+| [`GetConsumptionRequest`](#GetConsumptionRequest)                             | Request  | Mainly used to check for energy or resource consumption to date measured on appliances such as smart plugs or smart power strips. Requests the Clova Home extension for the energy or resource consumption information measured by the target appliance.  |
+| [`GetConsumptionResponse`](#GetConsumptionResponse)                           | Response | Sends the information on energy or resource consumption information measured by the target appliance to date to CEK as a response to the [`GetConsumptionRequest`](#GetConsumptionRequest) message.  |
 | [`GetCurrentBillRequest`](#GetCurrentBillRequest)                             | Request  | Mainly used to check for billing information based on energy consumption to date measured from appliances such as smart plugs or smart power strips. Requests the Clova Home extension for the billing information measured by the target appliance.  |
 | [`GetCurrentBillResponse`](#GetCurrentBillResponse)                           | Response | Sends the information on billing measured by the target appliance to date to CEK as a response to the [`GetCurrentBillRequest`](#GetCurrentBillRequest) message.   |
 | [`GetCurrentTemperatureRequest`](#GetCurrentTemperatureRequest)               | Request  | Requests the Clova Home extension for the current temperature measured by the target appliance. |
@@ -42,6 +42,8 @@ These control interfaces are used to check IoT device information and carry out 
 | [`GetDeviceStateResponse`](#GetDeviceStateResponse)                           | Response | Sends the information on all states provided by the target appliance to CEK as a response to the [`GetDeviceStateRequest`](#GetDeviceStateRequest) message.  |
 | [`GetEstimateBillRequest`](#GetEstimateBillRequest)                           | Request  | Mainly used to check estimated billing based on energy consumption to date measured from appliances such as smart plugs or smart power strips. Requests the Clova Home extension for the estimated billing information measured by the target appliance.  |
 | [`GetEstimateBillResponse`](#GetEstimateBillResponse)                         | Response | Sends the billing information estimated by the target appliance to CEK as a response to the [`GetEstimateBillRequest`](#GetEstimateBillRequest) message.  |
+| [`GetEstimateConsumptionRequest`](#GetEstimateConsumptionRequest)             | Request  | Mainly used to check for estimated energy or resource consumption on appliances such as smart plugs or smart power strips. Requests the Clova Home extension for the estimated energy or resource consumption information measured by the target appliance.  |
+| [`GetEstimateConsumptionResponse`](#GetEstimateConsumptionResponse)           | Response | Sends the information on energy consumption or resource information measured by the target appliance to date to CEK as a response to the [`GetEstimateConsumptionRequest`](#GetEstimateConsumptionRequest) message.  |
 | [`GetExpendableStateRequest`](#GetExpendableStateRequest)                     | Request  | Used to check the amount of usage or remaining lifespan on appliances such as filters or parts. Requests the Clova Home extension for information on usage and remaining lifespan on parts of the target appliance.  |
 | [`GetExpendableStateResponse`](#GetExpendableStateResponse)                   | Response | Sends the information on usage or remaining lifespan of all parts of the target appliance to CEK as a response to the [`GetExpendableStateRequest`](#GetExpendableStateRequest) message. |
 | [`GetFineDustRequest`](#GetFineDustRequest)                                   | Request  | Requests the Clova Home extension for the information on fine dust (PM10) measured by the target appliance. |
@@ -486,7 +488,7 @@ Mainly used to control appliances such as an air purifier. Requests the Clova Ho
 |---------------|---------|-----------------------------|:---------:|
 | `accessToken`      | string                                  | Access token of the user account for an IoT service. CEK sends the access token of a user account acquired from the authorization server of a third-party service. For more information, see [Linking user accounts](/CEK/Guides/Link_User_Account.md).                          | Always    |
 | `appliance`        | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject)     | Object containing target appliance information. The `applianceId` field is a required field.     | Always    |
-| `deltaFanSpeed`       | [SpeedInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SpeedInfoObject)             | Object containing information on the amount of fan speed to change. The fan speed represents wind speed and is limited to the following values.<ul><li><code>1</code>: Low wind (phase 1)</li><li><code>2</code>: Medium wind (phase 2)</li><li><code>3</code>: High wind (phase 3)</li></ul> | Always    |
+| `deltaFanSpeed`       | [SpeedInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SpeedInfoObject)             | Object containing information on the amount of fan speed to change. | Always    |
 
 ### Message example
 
@@ -812,7 +814,7 @@ Sends the air quality information measured by the target appliance to CEK as a r
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
 | `airQuality`                 | [AirQualityInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#AirQualityInfoObject) | Object containing information on the air quality measured by the current appliance.   | Required    |
-| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
 
 ### Message example
 
@@ -884,8 +886,8 @@ Sends the sleep time of the user measured by the target appliance to CEK as a re
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp`  | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
-| `asleepDuration`                    | string | The average sleep time. (Duration, <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>)   | Required    |
+| `applianceResponseTimestamp`  | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
+| `asleepDuration`                    | string | The average sleep time (Duration, <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>).   | Required    |
 
 ### Message example
 
@@ -912,7 +914,7 @@ Sends the sleep time of the user measured by the target appliance to CEK as a re
 * [`GetAsleepDurationRequest`](#GetAsleepDurationRequest)
 
 ## GetAwakeDurationRequest {#GetAwakeDurationRequest}
-Mainly used to check information measured from a sleep sensor. Requests the Clova Home extension for the awake time of the user after going to bed measured by the target appliance–in other words, the amount of time from going to bed until falling asleep. The extension must use the [`GetAwakeDurationResponse`](#GetAwakeDurationResponse) message as a response to this request.
+Mainly used to check information measured from a sleep sensor. Requests the Clova Home extension for the awake time of the user after going to bed measured by the target appliance. In other words, the amount of time from going to bed until falling asleep. The extension must use the [`GetAwakeDurationResponse`](#GetAwakeDurationResponse) message as a response to this request.
 
 | Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:---------:|
@@ -951,12 +953,12 @@ Mainly used to check information measured from a sleep sensor. Requests the Clov
 * [`GetAwakeDurationResponse`](#GetAwakeDurationResponse)
 
 ## GetAwakeDurationResponse {#GetAwakeDurationResponse}
-Sends the awake time of the user after going to bed measured by the target appliance–in other words, the amount of time from going to bed until falling asleep, to CEK as a response to the [`GetAwakeDurationRequest`](#GetAwakeDurationRequest) message.
+Sends the awake time of the user after going to bed measured by the target appliance. In other words, the amount of time from going to bed until falling asleep, to CEK as a response to the [`GetAwakeDurationRequest`](#GetAwakeDurationRequest) message.
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp`  | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
-| `awakeDuration`                    | string | The average awake time after going to bed. (Duration, <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>)   | Required    |
+| `applianceResponseTimestamp`  | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
+| `awakeDuration`                    | string | The average awake time after going to bed (Duration, <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>).   | Required    |
 
 ### Message example
 
@@ -1021,7 +1023,7 @@ Sends the battery information of the target appliance to CEK as a response to th
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
 | `batteryInfo`                 | [BatteryInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#BatteryInfoObject) | Object containing battery information of the current appliance.   | Required    |
 
 ### Message example
@@ -1089,7 +1091,7 @@ Sends the battery information of the target appliance to CEK as a response to th
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
 | `batteryInfo`                 | [BatteryInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#BatteryInfoObject) | Object containing battery information of the current appliance.   | Required    |
 
 ### Message example
@@ -1158,8 +1160,8 @@ Sends the information on the time remaining until the next cleaning cycle of the
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
-| `remainingTime`              | string | The time remaining until cleaning is required. (Duration, <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>)    | Required    |
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
+| `remainingTime`              | string | The time remaining until cleaning is required (Duration, <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>).    | Required    |
 
 ### Message example
 
@@ -1225,8 +1227,8 @@ Sends the recent close time of the target from the detection details of the open
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
-| `closeTimestamp`             | string | The recent close time of the detection target. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Required    |
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
+| `closeTimestamp`             | string | The recent close time of the detection target (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Required    |
 
 ### Message example
 
@@ -1253,7 +1255,7 @@ Sends the recent close time of the target from the detection details of the open
 * [`GetCloseTimeRequest`](#GetCloseTimeRequest)
 
 ## GetConsumptionRequest {#GetConsumptionRequest}
-Mainly used to check for energy consumption or resource information to date measured on appliances such as smart plugs or smart power strips. Requests the Clova Home extension for the energy consumption or resource information measured by the target appliance. The extension must use the [`GetConsumptionResponse`](#GetConsumptionResponse) message as a response to this request.
+Mainly used to check for energy or resource consumption to date measured on appliances such as smart plugs or smart power strips. Requests the Clova Home extension for the energy or resource consumption information measured by the target appliance. The extension must use the [`GetConsumptionResponse`](#GetConsumptionResponse) message as a response to this request.
 
 | Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:---------:|
@@ -1287,12 +1289,12 @@ Mainly used to check for energy consumption or resource information to date meas
 * [`GetConsumptionResponse`](#GetConsumptionResponse)
 
 ## GetConsumptionResponse {#GetConsumptionResponse}
-Sends the information on energy consumption or resource information measured by the target appliance to date to CEK as a response to the [`GetConsumptionRequest`](#GetConsumptionRequest) message.
+Sends the information on energy or resource consumption information measured by the target appliance to date to CEK as a response to the [`GetConsumptionRequest`](#GetConsumptionRequest) message.
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
-| `consumption[]`              | [ConsumptionInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ConsumptionInfoObject) array | Object containing the information on energy consumption or resource information to date measured by the appliance.   | Required    |
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
+| `consumption[]`              | [ConsumptionInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ConsumptionInfoObject) array | Object containing the information on energy or resource consumption to date measured by the appliance.   | Required    |
 
 ### Message example
 
@@ -1363,7 +1365,7 @@ Sends the information on billing measured by the target appliance to date to CEK
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
 | `currentBill`                 | [BillInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#BillInfoObject) | Object containing the billing information measured by the appliance to date.   | Required    |
 
 ### Message example
@@ -1433,7 +1435,7 @@ Sends the information on current temperature measured by the target appliance to
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
 | `currentTemperature`          | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | Object containing the information on the current temperature measured by the target appliance.  | Required    |
 
 ### Message example
@@ -1508,7 +1510,7 @@ Sends the information on all states provided by the target appliance to CEK as a
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
 | `states[]`                   | [CustomInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#CustomInfoObject) array  | Object containing information on all states provided by the appliance.                    | Required  |
 
 ### Message example
@@ -1590,7 +1592,7 @@ Sends the billing information estimated by the target appliance to CEK as a resp
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
 | `estimateBill`                 | [BillInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#BillInfoObject) | Object containing billing information estimated by the appliance.   | Required    |
 
 ### Message example
@@ -1619,6 +1621,78 @@ Sends the billing information estimated by the target appliance to CEK as a resp
 
 ### See also
 * [GetEstimateBillRequest](#GetEstimateBillRequest)
+
+## GetEstimateConsumptionRequest {#GetEstimateConsumptionRequest}
+Mainly used to check for energy or resource consumption to date measured on appliances such as smart plugs or smart power strips. Requests the Clova Home extension for the energy or resource consumption information measured by the target appliance. The extension must use the [`GetConsumptionResponse`](#GetConsumptionResponse) message as a response to this request.
+
+| Field name       | Data type    | Description                     | Included |
+|---------------|---------|-----------------------------|:---------:|
+| `accessToken`      | string                                  | Access token of the user account for an IoT service. CEK sends the access token of a user account acquired from the authorization server of a third-party service. For more information, see [Linking user accounts](/CEK/Guides/Link_User_Account.md).                          | Always    |
+| `appliance`        | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject)     | Object containing target appliance information. The `applianceId` field is always included.     | Always    |
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "2d8b8c3b-5905-4355-b4bb-fa359c46c308",
+    "name": "GetEstimateConsumptionRequest",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "accessToken": "92ebcb67fe33",
+    "appliance": {
+      "applianceId": "device-019"
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### See also
+* [`GetEstimateConsumptionResponse`](#GetEstimateConsumptionResponse)
+
+## GetEstimateConsumptionResponse {#GetEstimateConsumptionResponse}
+Sends the information on energy or resource consumption information measured by the target appliance to date to CEK as a response to the [`GetEstimateConsumptionRequest`](#GetEstimateConsumptionRequest) message.
+
+| Field name       | Data type    | Description                     | Required |
+|---------------|---------|-----------------------------|:---------:|
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
+| `consumption[]`              | [ConsumptionInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ConsumptionInfoObject) array | Object containing the information on energy or resource consumption to date measured by the appliance.   | Required    |
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "33da6561-0149-4532-a30b-e0de8f75c4cf",
+    "name": "GetEstimateConsumptionResponse",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "consumption": [
+      {
+        "name": "Electricity consumption",
+        "value": 79.7,
+        "unit": "kW"
+      }
+    ],
+    "applianceResponseTimestamp": "2017-11-23T20:30:54+09:00"
+  }
+}
+```
+
+{% endraw %}
+
+### See also
+* [GetEstimateConsumptionRequest](#GetEstimateConsumptionRequest)
 
 ## GetExpendableStateRequest {#GetExpendableStateRequest}
 
@@ -1660,7 +1734,7 @@ Sends the information on usage or remaining lifespan of all parts of the target 
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
 | `expendableInfo[]`           | [ExpendableInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ExpendableInfoObject) array  | Object containing information on usage or remaining lifespan of appliance parts.                    | Required  |
 
 ### Message example
@@ -1738,7 +1812,7 @@ Sends the information on fine dust (PM10) measured by the target appliance to CE
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
 | `fineDust`                 | [FineDustInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#FineDustInfoObject) | Object containing information on fine dust measured by the current appliance.   | Required    |
 
 ### Message example
@@ -1807,7 +1881,7 @@ Sends the information on humidity measured by the target appliance to CEK as a r
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
 | `humidity`                 | [HumidityInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#HumidityInfoObject) | Object containing information on humidity measured by the current appliance.   | Required    |
 
 ### Message example
@@ -1876,8 +1950,8 @@ Sends the information on the time spent on the warming mode of the target applia
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)        | Optional    |
-| `keepWarmTime`               | string | The time spent on the warming mode. (Duration, <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>)       | Required    |
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).        | Optional    |
+| `keepWarmTime`               | string | The time spent on the warming mode (Duration, <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>).       | Required    |
 
 ### Message example
 
@@ -1942,7 +2016,7 @@ Sends the information on the current lock state of the lock device on the target
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
 | `lockState`                  | string | The lock state of an appliance lock device. Available values are: <ul><li><code>"LOCKED"</code>: The device is locked</li><li><code>"UNLOCKED"</code>: The device is unlocked</li></ul> | Required    |
 
 
@@ -2009,7 +2083,7 @@ Mainly sends the current state information of the detection target (open or clos
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
 | `openState`                  | string | The detected state of a target such as a cover, door, or window.<ul><li><code>"CLOSED"</code>: The target is closed</li><li><code>"OPENED"</code>: The target is open</li></ul> | Required    |
 
 
@@ -2077,8 +2151,8 @@ Sends the recent open time of the target from the detection details of the open-
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
-| `openTimestamp`              | string | The recent open time of the detection target. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Required    |
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
+| `openTimestamp`              | string | The recent open time of the detection target (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Required    |
 
 ### Message example
 
@@ -2143,7 +2217,7 @@ Sends the current action phase of the target appliance to CEK as a response to t
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
 | `phase`                 | [PhaseInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#PhaseInfoObject) | Object containing information on the current action phase of the appliance.   | Required    |
 
 ### Message example
@@ -2212,7 +2286,7 @@ Sends the information on the progressive tax bracket determined by the target ap
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
 | `progressiveTaxBracket`      | [ProgressiveTaxBracketInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ProgressiveTaxBracketInfoObject) | Object containing information on progressive tax bracket.  | Required    |
 
 ### Message example
@@ -2281,8 +2355,8 @@ Sends the information on the time remaining until the end of the action of the t
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
-| `remainingTime`              | string | The time remaining until the end of action. (Duration, <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>)    | Required    |
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
+| `remainingTime`              | string | The time remaining until the end of action (Duration, <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>).    | Required    |
 
 ### Message example
 
@@ -2353,7 +2427,7 @@ Sends the information on the ratio of the user using the target appliance in goo
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
 | `rightPostureRatio`          | [RatioInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#RatioInfoObject) | Object containing information on the ratio of the user using the target appliance in good posture.   | Required    |
 
 ### Message example
@@ -2389,6 +2463,7 @@ Used to check the use states of the user in appliances such as a smart chair. Re
 |---------------|---------|-----------------------------|:---------:|
 | `accessToken`      | string                                  | Access token of the user account for an IoT service. CEK sends the access token of a user account acquired from the authorization server of a third-party service. For more information, see [Linking user accounts](/CEK/Guides/Link_User_Account.md).                          | Always    |
 | `appliance`        | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject)     | Object containing target appliance information. The `applianceId` field is always included.     | Always    |
+| `period`           | [PeriodInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#PeriodInfoObject)           | Object containing information on the period.                                          | Conditional   |
 
 ### Message example
 
@@ -2421,7 +2496,7 @@ Sends the sit-down information of the user detected by the target appliance and 
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string  | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
+| `applianceResponseTimestamp` | string  | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
 | `sittingState`               | [SittingStateInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SittingStateInfoObject) |  Object containing the sit-down information of the user on appliances such as a smart chair.              | Required    |
 | `recentlySittingPeriod`      | [PeriodInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#PeriodInfoObject) | Object containing information on the latest time of use.              | Optional    |
 
@@ -2499,7 +2574,7 @@ Sends the sleep score of the user assessed by the target appliance to CEK as a r
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string  | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
+| `applianceResponseTimestamp` | string  | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
 | `sleepScore`                 | [SleepScoreInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SleepScoreInfoObject)  | Object containing information on sleep score.                                                       | Required    |
 
 ### Message example
@@ -2572,7 +2647,7 @@ Sends the information on sleep start time of the user measured by the target app
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string  | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
+| `applianceResponseTimestamp` | string  | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
 | `startTimestampList[]`       | string  | The array of sleep start time in date order.                                      | Required    |
 
 ### Message example
@@ -2642,7 +2717,7 @@ Sends the information on the desired temperature set by the target appliance to 
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
 | `targetTemperature`          | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | Object containing the desired temperature information to set on the target appliance or that the extension has requested to be set on the target appliance.  | Required    |
 
 ### Message example
@@ -2710,7 +2785,7 @@ Sends the information on ultrafine dust (PM2.5) measured by the target appliance
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
 | `ultraFineDust`                 | [UltraFineDustInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#UltraFineDustInfoObject) | Object containing information on the ultrafine index dust measured by the current appliance.   | Required    |
 
 ### Message example
@@ -2785,8 +2860,8 @@ Sends the information on the usage time of the target appliance to CEK as a resp
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance. (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | Optional    |
-| `usageTime`                  | string | The usage time. (Duration, <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>)               | Required    |
+| `applianceResponseTimestamp` | string | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
+| `usageTime`                  | string | The usage time (Duration, <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>).               | Required    |
 
 ### Message example
 
@@ -3114,7 +3189,7 @@ Mainly used to control an appliance such as an air purifier. Requests the Clova 
 |---------------|---------|-----------------------------|:---------:|
 | `accessToken`      | string                                  | Access token of the user account for an IoT service. CEK sends the access token of a user account acquired from the authorization server of a third-party service. For more information, see [Linking user accounts](/CEK/Guides/Link_User_Account.md).                          | Always    |
 | `appliance`        | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject)     | Object containing target appliance information. The `applianceId` field is a required field. | Always    |
-| `deltaFanSpeed` | [SpeedInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SpeedInfoObject) | Object containing information on the amount of speed to change. The fan speed represents wind speed and is limited to the following values.<ul><li><code>1</code>: Low wind (phase 1)</li><li><code>2</code>: Medium wind (phase 2)</li><li><code>3</code>: High wind (phase 3)</li></ul>  | Always    |
+| `deltaFanSpeed` | [SpeedInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SpeedInfoObject) | Object containing information on the amount of speed to change.  | Always    |
 
 ### Message example
 
@@ -4378,8 +4453,7 @@ Sends the result of requesting the target appliance to change the desired temper
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `endpoint`     | [EndpointInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#EndpointInfoObject)    | Object containing the information on the final target (endpoint). A user can specify the endpoint for the target appliance to apply a specific setting value or temperature. An endpoint refers to a specific part of an appliance, the operation method, or area of application. For example, when a user controls the temperature of the refrigerator, the user can additionally specify whether to change the temperature of the freezer or the fridge. {{ "Also, when the user controls an air conditioner with a heating function, the user can separately specify the temperature of the cooling mode and the temperature of the heating mode for further control." if book.TargetCountryCode == "JP" }}
-  | Optional  |
+| `endpoint`     | [EndpointInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#EndpointInfoObject)    | Object containing the information on the final target (endpoint). A user can specify the endpoint for the target appliance to apply a specific setting value or temperature. An endpoint refers to a specific part of an appliance, the operation method, or area of application. For example, when a user controls the temperature of the refrigerator, the user can additionally specify whether to change the temperature of the freezer or the fridge. {{ "Also, when the user controls an air conditioner with a heating function, the user can separately specify the temperature of the cooling mode and the temperature of the heating mode for further control." if book.L10N.TargetCountryCode == "JP" }}  | Optional  |
 | `targetTemperature`               | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | Object containing the desired temperature information to set on the target appliance or that the extension has requested to be set on the target appliance.                                | Optional    |
 
 ### Remarks
@@ -4423,7 +4497,7 @@ Mainly used to control appliances such as air conditioners or thermostats. Reque
 |---------------|---------|-----------------------------|:---------:|
 | `accessToken`   | string | Access token of the user account for an IoT service. CEK sends the access token of a user account acquired from the authorization server of a third-party service. For more information, see [Linking user accounts](/CEK/Guides/Link_User_Account.md).                          | Always    |
 | `appliance`     | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) | Object containing target appliance information. The `applianceId` field is a required field. | Always    |
-| `endpoint`     | [EndpointInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#EndpointInfoObject)    | Object containing the information on the final target (endpoint). A user can specify the endpoint for the target appliance to apply a specific setting value or temperature. An endpoint refers to a specific part of an appliance, the operation method, or area of application. For example, when a user controls the temperature of the refrigerator, the user can additionally specify whether to change the temperature of the freezer or the fridge. {{ "Also, when the user controls an air conditioner with a heating function, the user can separately specify the temperature of the cooling mode and the temperature of the heating mode for further control." if book.TargetCountryCode == "JP" }}  | Conditional  |
+| `endpoint`     | [EndpointInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#EndpointInfoObject)    | Object containing the information on the final target (endpoint). A user can specify the endpoint for the target appliance to apply a specific setting value or temperature. An endpoint refers to a specific part of an appliance, the operation method, or area of application. For example, when a user controls the temperature of the refrigerator, the user can additionally specify whether to change the temperature of the freezer or the fridge. {{ "Also, when the user controls an air conditioner with a heating function, the user can separately specify the temperature of the cooling mode and the temperature of the heating mode for further control." if book.L10N.TargetCountryCode == "JP" }}  | Conditional  |
 | `targetTemperature`       | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | Object containing the desired temperature information to set on the target appliance.                | Always    |
 
 ### Message example

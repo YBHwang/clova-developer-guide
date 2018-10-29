@@ -20,7 +20,7 @@ The ScheduleList template is used in providing information about multiple schedu
 | `scheduleList[].end`           | [DateTimeObject](/CIC/References/ContentTemplates/Shared_Objects.md#DateTimeObject) or [DateObject](/CIC/References/ContentTemplates/Shared_Objects.md#DateObject)  | The end date and time of this schedule. For an all-day schedule, the object type is DateObject containing the date of the schedule only. |
 | `scheduleList[].start`         | [DateTimeObject](/CIC/References/ContentTemplates/Shared_Objects.md#DateTimeObject) or [DateObject](/CIC/References/ContentTemplates/Shared_Objects.md#DateObject)  | The start date and time of this schedule. For an all-day schedule, the object type is DateObject containing the date of the schedule only. |
 | `scheduleList[].repeatDay[]`     | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) array | The object array that has the repeat day(s) for a weekly schedule. |
-| `scheduleList[].repeatPeriod`  | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)     | The repeat cycle. Available values are: <ul><li>Empty String (<code>""</code>): One-time schedule </li><li><code>"daily"</code>: Daily schedule</li><li><code>"weekly"</code>: Weekly schedule</li></ul> |
+| `scheduleList[].repeatPeriod`  | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)     | The repeat cycle. Available values are: <ul><li>Empty string (<code>""</code>): One-time schedule </li><li><code>"daily"</code>: Daily schedule</li><li><code>"weekly"</code>: Weekly schedule</li></ul> |
 | `scheduleList[].token`         | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject)     | The ID of the schedule.  |
 | `type`        | string                                                                              | The type of this template. The value is always `"ScheduleList"`.             |
 
@@ -48,7 +48,7 @@ The ScheduleList template is used in providing information about multiple schedu
       },
       "content": {
         "type": "string",
-        "value": "Kim’s wedding"
+        "value": "Kim's wedding"
       },
       "repeatPeriod": {
         "type": "string",
@@ -141,7 +141,7 @@ The ScheduleList template is used in providing information about multiple schedu
 
 ## UI example {#UIExample}
 
-The following example shows how the ScheduleList template is used on the Clova app distributed by {{ book.OrientedService }}.
+The following example shows how the ScheduleList template is used on the Clova app distributed by {{ book.ServiceEnv.OrientedService }}.
 
 ![](/CIC/Resources/Images/Content_Template-ScheduleList.png)
 

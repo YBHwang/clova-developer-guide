@@ -221,7 +221,7 @@ Toast、alert、popupで表示するテキストやボタンの情報を提供�
 {% endraw %}
 
 ## UI example {#UIExample}
-以下は、{{ book.OrientedService }}が配布したClovaのモバイルアプリで、Popupテンプレートの内容を表したUIサンプルです。
+以下は、{{ book.ServiceEnv.OrientedService }}が配布したClovaのモバイルアプリで、Popupテンプレートの内容を表したUIサンプルです。
 
 | Toast形式 | Alert形式 |
 |-----------|-----------|
