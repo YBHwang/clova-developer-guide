@@ -186,7 +186,7 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
 | `actions[]`                  | string array  | エンドポイントでサポートされている動作のリスト。クライアントは、ユーザーがIoTデバイスを操作する際、エンドポイントでサポートされている動作の範囲内でリクエストするように案内する必要があります。 | 任意/常時    |
-| `actionsNeededUserConfirmation[]`  | string array  | ユーザーへの動作確認が必要な動作のリスト。`actions` フィールドに指定されている値のうち、`TurnOn`、`TurnOff`、`SetMode` を指定できます。ここに指定された動作のリクエストを行う前に、ユーザーに対して、例えば「エアコンをつけても良いですか？」のような確認を行います。 | 任意/条件付    |
+| `actionsNeededUserConfirmation[]`  | string array  | ユーザーへの動作確認が必要な動作のリスト。`actions` フィールドに指定されている値のうち、`TurnOn`、`TurnOff`、`SetMode`、`ReleaseModeRequest` を指定できます。ここに指定された動作のリクエストを行う前に、ユーザーに対して、例えば「エアコンをつけても良いですか？」のような確認を行います。 | 任意/条件付    |
 | `additionalApplianceDetails` | object        | メーカーまたはIoTサービスが提供する追加情報を持っているフィールド                                 | 任意/条件付き    |
 | `applianceId`                | string        | エンドポイントのID                                                                        | 必須/常時    |
 | `applianceTypes[]`           | string array  | エンドポイントのタイプ。`applicationType`によって、そのエンドポイントでサポートされている動作を示す`actions`フィールドの値が異なります。IoTサービスでユーザーアカウントに登録されているエンドポイントのタイプを、次のいずれかに指定する必要があります。備考を参考にして、エンドポイントのタイプを入力します。                                                                              | 必須/常時    |
@@ -205,7 +205,7 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 
 | applianceTypes | 説明         | サポートされる動作                                  |
 |----------------|-------------|-------------------------------------------------|
-| `"AIRCONDITIONER"`  | 冷暖房機         | DecrementFanSpeed、DecrementTargetTemperature、GetCurrentTemperature、GetDeviceState、GetTargetTemperature、HealthCheck、IncrementFanSpeed、IncrementTargetTemperature、SetFanSpeed、SetMode、SetTargetTemperature、TurnOff、TurnOn               |
+| `"AIRCONDITIONER"`  | 冷暖房機         | DecrementFanSpeed、DecrementTargetTemperature、GetCurrentTemperature、GetDeviceState、GetTargetTemperature、HealthCheck、IncrementFanSpeed、IncrementTargetTemperature、ReleaseMode、SetFanSpeed、SetMode、SetTargetTemperature、TurnOff、TurnOn               |
 | `"AIRPURIFIER"`     | 空気清浄機        | DecrementFanSpeed、GetAirQuality、GetDeviceState、GetHumidity、HealthCheck、IncrementFanSpeed、ReleaseMode、SetFanSpeed、SetMode、TurnOff、TurnOn    |
 | `"AIRSENSOR"`       | 空気質測定器     | GetAirQuality、GetCurrentTemperature、GetFineDust、GetHumidity、GetUltraFineDust、HealthCheck                                     |
 | `"BIDET"`           | 温水洗浄便座            | Close、GetDeviceState、GetExpendableState、HealthCheck、Open、TurnOff、TurnOn                                                         |
@@ -217,7 +217,7 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 | `"DISHWASHER"`      | 食器洗い機       | GetPhase、GetRemainingTime、HealthCheck、TurnOff、TurnOn                                                                           |
 | `"ELECTRICKETTLE"`  | 電気ポット       | GetCurrentTemperature、HealthCheck、TurnOff、TurnOn                                                                              |
 | `"ELECTRICTOOTHBRUSH"` | 電動歯ブラシ     | GetDeviceState、HealthCheck                                                                                                            |
-| `"FAN"`             | 扇風機           | DecrementFanSpeed、HealthCheck、IncrementFanSpeed、SetFanSpeed、SetMode、TurnOff、TurnOn                             |
+| `"FAN"`             | 扇風機           | DecrementFanSpeed、HealthCheck、IncrementFanSpeed、ReleaseMode、SetFanSpeed、SetMode、TurnOff、TurnOn                             |
 | `"HEATER"`          | ヒーター            | DecrementTargetTemperature、GetCurrentTemperature、GetDeviceState、GetTargetTemperature、HealthCheck、IncrementTargetTemperature、SetTargetTemperature、TurnOff、TurnOn                      |
 | `"HUMIDIFIER"`      | 加湿器           | GetCurrentTemperature、GetDeviceState、GetHumidity、HealthCheck、SetFanSpeed、TurnOff、TurnOn                                                    |
 | `"LIGHT"`           | スマート照明   | DecrementBrightness、DecrementVolume HealthCheck、IncrementBrightness、IncrementVolume SetBrightness、SetColor、SetColorTemperature、SetMode、TurnOff、TurnOn            |
@@ -229,7 +229,7 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 | `"POWERSTRIP"`      | テーブルタップ         | GetConsumption、GetEstimateBill、GetProgressiveTaxBracket、HealthCheck、TurnOff、TurnOn                                                                     |
 | `"PURIFIER"`        | 浄水器          | GetDeviceState、GetExpendableState、GetTargetTemperature、HealthCheck、ReleaseMode、SetMode、SetTargetTemperature                                                     |
 | `"RANGE"`           | クッキングヒーター・コンロ          | GetDeviceState、HealthCheck                                                                                                             |
-| `"RANGEHOOD"`       | レンジフード      | HealthCheck、TurnOff、TurnOn                                                                                                      |
+| `"RANGEHOOD"`       | レンジフード      | GetDeviceState、HealthCheck、TurnOff、TurnOn                                                                                                      |
 | `"REFRIGERATOR"`    | 冷蔵庫          | GetDeviceState、HealthCheck、SetFreezerTargetTemperature、SetFridgeTargetTemperature、SetMode                                           |
 | `"RICECOOKER"`      | 炊飯器        | GetCleaningCycle、GetDeviceState、GetExpendableState、GetKeepWarmTime、GetPhase、GetRemainingTime、HealthCheck、ReleaseMode、SetMode、Stop、TurnOff、TurnOn          |
 | `"ROBOTVACUUM"`     | ロボット掃除機       | Charge、GetBatteryInfo、GetDeviceState、HealthCheck、TurnOff、TurnOn                                                                             |
