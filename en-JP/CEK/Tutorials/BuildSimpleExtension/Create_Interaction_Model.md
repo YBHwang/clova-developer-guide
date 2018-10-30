@@ -1,4 +1,4 @@
-﻿You can register an interaction model on the <a href="https://developers.naver.com/console/clova/cek/#/list" target="_blank">Clova developer console</a>.
+﻿You can register an interaction model on the <a href="https://developers.naver.com/console/clova/cek/#/list" target="_blank">Clova Developer Center</a>.
 
 The information stored in the interaction model are [intent](/Design/Design_Guideline_For_Extension.md#Intent) and [slot](/Design/Design_Guideline_For_Extension.md#Slot). An intent is a command sent to the extension server after analyzing the input sentence and a slot is the information required for the intent.
 

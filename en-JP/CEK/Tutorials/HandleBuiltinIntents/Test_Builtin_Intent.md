@@ -1,6 +1,6 @@
 ﻿You must test whether the Sample Dice extension handles the help request built-in intent from the extension via an appropriate method.
 
-There are two test methods shown in the [first tutorial](/CEK/Tutorials/Build_Simple_Extension.md). One method is checking the operation of the interaction model on the Clova developer console and the other is checking the actual operation of the Clova app by registering a tester ID.
+There are two test methods shown in the [first tutorial](/CEK/Tutorials/Build_Simple_Extension.md). One method is checking the operation of the interaction model on the Clova Developer Center and the other is checking the actual operation of the Clova app by registering a tester ID.
 This tutorial checks the operation of the interaction model only.
 
 <div class="note">
@@ -10,7 +10,7 @@ This tutorial checks the operation of the interaction model only.
 </div>
 
 Follow the steps below to check whether the help request of the Sample Dice extension is operating properly:
-1. Access the <a href="https://developers.naver.com/console/clova/cek/#/list" target="_blank">Clova developer console</a>.
+1. Access the <a href="https://developers.naver.com/console/clova/cek/#/list" target="_blank">Clova Developer Center</a>.
 2. Click the **{{ book.DevConsole.cek_edit}}** button on the **{{ book.DevConsole.cek_interaction_model }}** item of the Sample Dice extension.
 3. Click the **{{ book.DevConsole.cek_test }}** menu on the left menu bar.
 4. Enter the sentence to request help in **{{ book.DevConsole.cek_builder_test_expression_title }}**. For example, enter "Give me the instructions."

@@ -336,7 +336,7 @@ The `request` object field configuration of the `EventRequest` type message is a
 | `event.namespace` | string  | {{ "Namespace of the event message sent by the client to Clova." if book.TargetCountryCode == "KR" else "Namespace of the event message sent by the client to Clova or a namespace that distinguishes whether a skill action is enabled or disabled. The namespace to distinguish the action state of a skill is always set to `ClovaSkill`." }}   | Always  |
 | `event.payload`   | object  | {{ "`payload` or partial information of the `payload` of the event message sent by the client to Clova. Some `EventRequest` type event messages may have an empty `payload`." if book.TargetCountryCode == "KR" else "`payload` or partial information of the `payload` of the event message sent by the client to Clova. Some event messages or `EventRequest` type event messages that distinguish whether a skill action is enabled or disabled may have an empty `payload`." }}  | Always  |
 | `requestId`       | string  | Dialogue ID (`event.header.dialogRequestId`) generated when the client sends information to Clova.    | Always   |
-| `timestamp`       | string  | The send time of when the client sends information to Clova (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)<div class="note"><p><strong>Note!</strong></p><p>Since CEK does not guarantee the correct order in <code>EventRequest</code> type requests, you can use this field value to determine the order of client requests.</p></div>                    |   |
+| `timestamp`       | string  | The send time of when the client sends information to Clova (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)<div class="note"><p><strong>Note!</strong></p><p>Since CEK does not guarantee the correct order in <code>EventRequest</code> type requests, you can use this field value to determine the order of client requests.</p></div>                    |<!-- -->|
 | `type`            | string  | The type of request message. The value is always set to `"EventRequest"`.         | Always |
 
 Here is an example of the `request` object field of the `EventRequest` type message.
@@ -420,7 +420,7 @@ Here is an example of the `request` object field of the `EventRequest` type mess
 {% endif %}
 
 #### IntentRequest {#CustomExtIntentRequest}
-`IntentRequest` type is a request type that delivers a user request in order to have its details executed. When developing the service, you must [define an interaction model](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel) for receiving user requests. The interaction model can be registered via the [Clova developer console](/DevConsole/ClovaDevConsole_Overview.md). In this process, the distinguished user request is defined as information type called an "intent." The analyzed utterance information of the user is converted to an intent and is delivered to the extension via the `intent` field.
+`IntentRequest` type is a request type that delivers a user request in order to have its details executed. When developing the service, you must [define an interaction model](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel) for receiving user requests. The interaction model can be registered via the [Clova Developer Center](/DevConsole/ClovaDevConsole_Overview.md). In this process, the distinguished user request is defined as information type called an "intent." The analyzed utterance information of the user is converted to an intent and is delivered to the extension via the `intent` field.
 
 The `request` object field configuration of the `IntentRequest` type message is as follows:
 
@@ -1596,7 +1596,7 @@ The object containing streaming details of an audio stream. This object is used 
 #### Remarks
 * Once the audio section designated in `beginAtInMilliseconds` and `durationInMilliseconds` fields finishes playing, the client must send the [`AudioPlayer.PlayFinished`](#PlayFinished) event to CIC.
 
-#### Object Example
+#### Object example
 {% raw %}
 
 ```json

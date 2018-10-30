@@ -1,10 +1,10 @@
-## Returning a Clova Home extension response {#ReturnClovaHomeExtensionResponse}
+## Returning a Clova Home Extension response {#ReturnClovaHomeExtensionResponse}
 
-A Clova Home extension developer must design the code to return the processed results to CEK (HTTP response). Responses from the Clova home extension have the following characteristics:
+A Clova Home Extension developer must design the code to return the processed results to CEK (HTTP response). Responses from the Clova Home Extension have the following characteristics:
 
 * When the device state information is received, the response may be different from the actual, up-to-date state of the device because the information is obtained from the IoT service.
 * When device control is requested, the response must be returned after checking the final state of the device.
-* When the request is processed successfully, the response must use an appropriate [interface](/CEK/References/CEK_API.md#ClovaHomeExtInterface) for the [Clova Home extension request](#HandleClovaHomeExtensionRequest) as shown below.
+* When the request is processed successfully, the response must use an appropriate [interface](/CEK/References/CEK_API.md#ClovaHomeExtInterface) for the [Clova Home Extension request](#HandleClovaHomeExtensionRequest) as shown below.
 
 When a control request, such as "Turn on the light", is sent to the IoT service using the [`TurnOnRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#TurnOnRequest) messages and the service returns that the request has been processed properly, the extension must send the result to CEK using the [`TurnOnConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#TurnOnConfirmation) message.
 
@@ -44,5 +44,5 @@ Below is an example of sending a `TargetOfflineError` error message due to faili
 
 <div class="note">
 <p><strong>Note!</strong></p>
-<p>You must use the 200 OK HTTP response even when sending an error message.</p>
+<p>You must use the HTTP 200 OK response even when sending an error message.</p>
 </div>

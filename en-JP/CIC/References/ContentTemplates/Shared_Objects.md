@@ -25,7 +25,7 @@ This object contains the actions that the client must perform.
 | `type`          | string  | The value is always `"action"`.  |
 | `value`         | string  | The value in the form of [action URL scheme](/CIC/References/ContentTemplates/Common_Fields.md#ActionURLScheme). |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -46,7 +46,7 @@ This object contains the amount and currency of money.
 | `type`          | string  | The value is always `"currency"`.  |
 | `value`         | string  | The information on the amount and currency of money.               |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -67,7 +67,7 @@ This object contains the date information.
 | `type`          | string  | The value is always `"date"`.  |
 | `value`         | string  | The information on date. The value is displayed as YYYY-MM-DD or YYYYMMDD format depending on the content template type.    |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -95,7 +95,7 @@ This object contains the date and time information.
 | `type`          | string  | The value is always `"datetime"`.   |
 | `value`         | string  | The information on date and time. The value is displayed as YYYY-MM-DDThh:mm:ssZ or YYYYMMDD hh:mm format depending on the content template type. |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -123,7 +123,7 @@ This object contains the number with thousands separators, or a measurement with
 | `type`          | string  | The value is always `"number"`.    |
 | `value`         | string  | The number with thousands separators, or a measurement with the number and unit. |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -151,7 +151,7 @@ This object contains the percentage information.
 | `type`          | string  | The value is always `"percentage"`. |
 | `value`         | number or string  | The percentage information. This may contain only a number or may also contain a percentage sign depending on the content template type.  |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -179,7 +179,7 @@ This object contains the phone number.
 | `type`          | string  | The value is always `"phoneNum"`. |
 | `value`         | string  | The phone number.                    |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -200,7 +200,7 @@ This object contains text.
 | `type`          | string  | The value is always `"string"`.  |
 | `value`         | string  | The text information.                      |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -228,7 +228,7 @@ This object contains temperature information in Celsius.
 | `type`          | string  | Available values are `"temperature-c"` or `"temperature"`. |
 | `value`         | number or string | The temperature in Celsius.                         |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -256,7 +256,7 @@ This object contains temperature in Fahrenheit.
 | `type`          | string  | The value is always `"temperature-f"`.   |
 | `value`         | number  | The temperature in Fahrenheit.                      |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json
@@ -277,7 +277,7 @@ This object contains the URL information.
 | `type`          | string  | The value is always `"url"`.   |
 | `value`         | string  | A URL                        |
 
-### Object Example
+### Object example
 {% raw %}
 
 ```json

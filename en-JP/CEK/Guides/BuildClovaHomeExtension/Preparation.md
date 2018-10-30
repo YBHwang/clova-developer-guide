@@ -1,5 +1,5 @@
 ## Prerequisites {#Preparation}
-A Clova Home extension developer must prepare the following in advance:
+A Clova Home Extension developer must prepare the following in advance:
 
 {% include "/CEK/Guides/RequiredComponents/Extension_Server.md" %}
 
@@ -7,5 +7,5 @@ A Clova Home extension developer must prepare the following in advance:
 
 <div class="danger">
   <p><strong>Caution!</strong></p>
-  <p>In order to provide a third-party IoT service via a Clova Home extension, an authorization server must be established to link the user account of the third-party IoT service. </p>
+  <p>In order to provide a third-party IoT service via a Clova Home Extension, an authorization server must be established to link the user account of the third-party IoT service. </p>
 </div>
