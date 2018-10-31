@@ -1033,13 +1033,33 @@ ModeInfoObject contains information on the operation mode. This is used to indic
         <ul>
           {% if book.TargetCountryCode == "JP" %}
           <li><code>"auto"</code>: Auto mode. A mode mainly used in air conditioners.</li>
+          <li><code>"away"</code>: Away mode.</li>
+          <li><code>"blower"</code>: Blower mode.</li>
           {% endif %}
           <li><code>"cool"</code>: Cooling mode. A mode mainly used in air conditioners.</li>
           <li><code>"dehumidify"</code>: Dehumidifier mode. A mode mainly used in appliances such as air conditioners or dehumidifiers.</li>
           {% if book.TargetCountryCode == "JP" %}
           <li><code>"heat"</code>: Heating mode. A mode mainly used in air conditioners.</li>
+          <li><code>"indoor"</code>: Indoor mode.</li>
           {% endif %}
           <li><code>"sleep"</code>: Sleep mode. A mode mainly used in appliances such as smart hubs.</li>
+          {% if book.TargetCountryCode == "JP" %}          
+          <li><code>"wakeup"</code>: Wake up mode.</li>
+          {% endif %}
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><code>"AIRPURIFIER"</code></td>
+      <td>
+        <ul>
+          {% if book.TargetCountryCode == "JP" %}
+          <li><code>"auto"</code>：Auto mode. A mode mainly used in air conditioners.</li>
+          <li><code>"dehumidify"</code>：Dehumidifier mode. A mode mainly used in appliances such as air conditioners or dehumidifiers.</li>
+          <li><code>"humidify"</code>：Humidifier mode. A mode mainly used in appliances such as air conditioners or humidifiers.</li>
+          <li><code>"removepollen"</code>：Remove pollen mode. A mode mainly used in appliances such as air purifier. </li>
+          <li><code>"sleep"</code>：Sleep mode. A mode mainly used in appliances such as smart hubs.</li>
+          {% endif %}
         </ul>
       </td>
     </tr>
@@ -1102,7 +1122,9 @@ ModeInfoObject contains information on the operation mode. This is used to indic
       <td>
         <ul>
           <li><code>"away"</code>: Away mode.</li>
+          {% if book.TargetCountryCode != "JP" %}
           <li><code>"hotwater"</code>: Hot water mode.</li>
+          {% endif %}
           <li><code>"indoor"</code>: Indoor mode.</li>
           <li><code>"sleep"</code>: Sleep mode.</li>
         </ul>
@@ -1113,7 +1135,9 @@ ModeInfoObject contains information on the operation mode. This is used to indic
       <td>
         <ul>
           <li><code>"away"</code>: Away mode.</li>
+          {% if book.TargetCountryCode != "JP" %}
           <li><code>"hotwater"</code>: Hot water mode.</li>
+          {% endif %}
           <li><code>"indoor"</code>: Indoor mode.</li>
           <li><code>"sleep"</code>: Sleep mode.</li>
         </ul>
