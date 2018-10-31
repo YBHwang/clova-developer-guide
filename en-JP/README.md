@@ -36,7 +36,7 @@ The current version of this document is {{ book.DocVersion }} and the revision h
       <ul>
         <li>[CIC] Added the isLive field to <a href="/CIC/References/CICInterface/TemplateRuntime.html#RenderPlayerInfo">TemplateRuntime.RenderPlayerInfo</a> to distinguish real-time broadcasting content</li>
         <li>[CEK] Added a subtitle field to the <a href="/CIC/References/ContentTemplates/Common_Fields.html">common field</a> of <a href="/CIC/References/Content_Templates.html">Content template</a></li>
-        <li>[CEK] Added isIr field to the <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a> of the Clova Home extension API for appliances controlled by infrared communication</li>
+        <li>[CEK] Added isIr field to the <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a> of the Clova Home Extension API for appliances controlled by infrared communication</li>
       </ul>
     </td>
   </tr>
@@ -44,8 +44,8 @@ The current version of this document is {{ book.DocVersion }} and the revision h
     <td>v4.4</td><td>2018-05-28</td>
     <td>
       <ul>
-        <li>[CEK] Added the state field description to the <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ConditionsNotMetError">ConditionsNotMetError</a> of the Clova Home extension API</li>
-        <li>[CEK] Added the subchannel information to the <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#TVChannelInfoObject">TVChannelInfoObject</a> of the Clova Home extension API</li>
+        <li>[CEK] Added the state field description to the <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ConditionsNotMetError">ConditionsNotMetError</a> of the Clova Home Extension API</li>
+        <li>[CEK] Added the subchannel information to the <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#TVChannelInfoObject">TVChannelInfoObject</a> of the Clova Home Extension API</li>
       </ul>
     </td>
   </tr>
@@ -54,7 +54,7 @@ The current version of this document is {{ book.DocVersion }} and the revision h
     <td>
       <ul>
         <li>[CIC] Added the field (btlist[].role) missing in the <a href="/CIC/References/Context_Objects.html#BluetoothInfoObject">BluetoothInfoObject</a> of the <a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a> context object</li>
-        <li>[CEK] Added the <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ValueNotFoundError">ValueNotFoundError</a> to the Clova Home extension API</li>
+        <li>[CEK] Added the <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ValueNotFoundError">ValueNotFoundError</a> to the Clova Home Extension API</li>
       </ul>
     </td>
   </tr>
@@ -80,7 +80,7 @@ The current version of this document is {{ book.DocVersion }} and the revision h
     <td>v4.0</td><td>2018-04-30</td>
     <td>
       <ul>
-        <li>[CEK] Added the <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetOpenStateRequest">GetOpenStateRequest</a> and the <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetOpenStateResponse">GetOpenStateResponse</a> to the Clova Home extension API</li>
+        <li>[CEK] Added the <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetOpenStateRequest">GetOpenStateRequest</a> and the <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetOpenStateResponse">GetOpenStateResponse</a> to the Clova Home Extension API</li>
       </ul>
     </td>
   </tr>
@@ -88,7 +88,7 @@ The current version of this document is {{ book.DocVersion }} and the revision h
     <td>v3.9</td><td>2018-04-23</td>
     <td>
       <ul>
-        <li>[CEK] Added the <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#ReleaseModeConfirmation">ReleaseModeConfirmation</a> and the <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#ReleaseModeRequest">ReleaseModeRequest</a> to the Clova Home extension API</li>
+        <li>[CEK] Added the <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#ReleaseModeConfirmation">ReleaseModeConfirmation</a> and the <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#ReleaseModeRequest">ReleaseModeRequest</a> to the Clova Home Extension API</li>
       </ul>
     </td>
   </tr>
@@ -98,8 +98,8 @@ The current version of this document is {{ book.DocVersion }} and the revision h
       <ul>
         <li>[CIC] Updated the description of the wakeWord field and Audio data of the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a> event</li>
         <li>[CIC] Added the <a href="/CIC/References/CICInterface/DeviceControl.html#Open">Open</a> directive to the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace</li>
-        <li>[CEK] Added the openState field description to the <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetLockStateResponse">GetLockStateResponse</a> of the Clova Home extension API</li>
-        <li>[CEK] Added the <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetCleaningCycleRequest">GetCleaningCycleRequest</a> and the <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetCleaningCycleResponse">GetCleaningCycleResponse</a> to the Clova Home extension API</li>
+        <li>[CEK] Added the openState field description to the <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetLockStateResponse">GetLockStateResponse</a> of the Clova Home Extension API</li>
+        <li>[CEK] Added the <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetCleaningCycleRequest">GetCleaningCycleRequest</a> and the <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetCleaningCycleResponse">GetCleaningCycleResponse</a> to the Clova Home Extension API</li>
       </ul>
     </td>
   </tr>
@@ -108,7 +108,7 @@ The current version of this document is {{ book.DocVersion }} and the revision h
     <td>
       <ul>
         <li>[CIC] Updated the description and example image for the <a href="Design/Design_Guideline_For_Client_Hardware.html#BootingScreen">bootscreen</a> in the design guidelines for client devices</li>
-        <li>[CEK] Changed the description of the brightness field and required/included states in the brightness field of the <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ColorInfoObject">ColorInfoObject</a> in the Clova Home extension API</li>
+        <li>[CEK] Changed the description of the brightness field and required/included states in the brightness field of the <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ColorInfoObject">ColorInfoObject</a> in the Clova Home Extension API</li>
       </ul>
     </td>
   </tr>
@@ -136,11 +136,11 @@ The current version of this document is {{ book.DocVersion }} and the revision h
           <li>[CIC] Added a scanlist field to the <a href="/CIC/References/Context_Objects.html#BluetoothInfoObject">BluetoothInfoObject</a> of <a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a></li>
           <li>[CIC] Added the <a href="/CIC/References/CICInterface/DeviceControl.html#BtConnectByPINCode">BtConnectByPINCode</a> directive message and <a href="/CIC/References/CICInterface/DeviceControl.html#BtRequestForPINCode">BtRequestForPINCode</a> and <a href="/CIC/References/CICInterface/DeviceControl.html#BtRequestToCancelPinCodeInput">BtRequestToCancelPinCodeInput</a> event messages to the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace to connect with third-party Bluetooth devices which use PIN codes</li>
           <li>[CIC] Added a payload to the <a href="/CIC/References/CICInterface/DeviceControl.html#BtConnect">BtConnect</a> directive message of the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace</li>
-          <li>[CEK] Added 10 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html">Control APIs</a>, including GetSleepStartTimeRequest and 4 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">shared objects</a> in the Clova Home extension API</li>
-          <li>[CEK] Added the <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#CustomCommandInfoObject">CustomCommandInfoObject</a> to the <a href="/CEK/References/ClovaHomeInterface/Discovery_Interfaces.html#DiscoverAppliancesResponse">DiscoverAppliancesResponse</a> of the Clova Home extension API</li>
-          <li>[CEK] Removed TimeAmountInfoObject <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">shared object</a> from the Clova Home extension API and revised some contents of the <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html">Control API</a></li>
-          <li>[CEK] Added a tags field and changed the description of the location field in the <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a> of the Clova Home extension API</li>
-          <li>[Dev. console] Updated some UIs on the Clova developer console</li>
+          <li>[CEK] Added 10 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html">Control APIs</a>, including GetSleepStartTimeRequest and 4 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">shared objects</a> in the Clova Home Extension API</li>
+          <li>[CEK] Added the <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#CustomCommandInfoObject">CustomCommandInfoObject</a> to the <a href="/CEK/References/ClovaHomeInterface/Discovery_Interfaces.html#DiscoverAppliancesResponse">DiscoverAppliancesResponse</a> of the Clova Home Extension API</li>
+          <li>[CEK] Removed TimeAmountInfoObject <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">shared object</a> from the Clova Home Extension API and revised some contents of the <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html">Control API</a></li>
+          <li>[CEK] Added a tags field and changed the description of the location field in the <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a> of the Clova Home Extension API</li>
+          <li>[Dev. console] Updated some UIs on the Clova Developer Center</li>
         </ul>
       </td>
     </tr>
@@ -208,9 +208,9 @@ The current version of this document is {{ book.DocVersion }} and the revision h
           <li>[CIC] Added a <a href="/CIC/References/CICInterface/Notifier.html#Notify">Notifier.Notify</a> event message to the <a href="/CIC/References/CICInterface/Notifier.html">Notifier</a> namespace and updated the payload field of the namespace</li>
           <li>[CIC] Added <a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechFinished">SpeechFinished</a>, <a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechStarted">SpeechStarted</a>, and <a href="/CIC/References/CICInterface/SpeechSynthesizer.html#SpeechStopped">SpeechStopped</a> event messages to the <a href="/CIC/References/ContextObjects/SpeechState.html">SpeechSynthesizer.SpeechState</a> and <a href="/CIC/References/CICInterface/SpeechSynthesizer.html">SpeechSynthesizer</a> namespaces</li>
           <li>[CIC] Added speechId and explicit fields to the <a href="/CIC/References/CICInterface/TextRecognizer.html">TextRecognizer.Recognize</a> event message for multi-turn dialogues</li>
-          <li>[CEK] Added <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#NoSuchTargetError">NoSuchTargetError</a>, <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#NotSupportedInCurrentModeError">NotSupportedInCurrentModeError</a>, <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#UnsupportedOperationError">UnsupportedOperationError</a>, and <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ValueOutOfRangeError">ValueOutOfRangeError</a> to the <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html">error interface</a> among the Clova Home extension message references</li>
+          <li>[CEK] Added <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#NoSuchTargetError">NoSuchTargetError</a>, <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#NotSupportedInCurrentModeError">NotSupportedInCurrentModeError</a>, <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#UnsupportedOperationError">UnsupportedOperationError</a>, and <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ValueOutOfRangeError">ValueOutOfRangeError</a> to the <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html">error interface</a> among the Clova Home Extension message references</li>
           <li>[Dev. console] Added the method to check the connection before <a href="/DevConsole/Guides/CEK/Register_Extension.html#SetServerConnection">setting an extension server connection</a> and added a guide on the <a href="/DevConsole/Guides/CEK/Test_Extension.html#TestOnClovaApp">automated application of tester IDs</a></li>
-          <li>[Dev. console] Updated some UIs on the Clova developer console</li>
+          <li>[Dev. console] Updated some UIs on the Clova Developer Center</li>
         </ul>
       </td>
     </tr>
@@ -300,9 +300,9 @@ The current version of this document is {{ book.DocVersion }} and the revision h
         <ul>
           <li>[Design] Added <a href="/Design/Design_Guideline_For_Client_Hardware.html">Design guidelines for client devices</a></li>
           <li>[CIC] Added Type5 and Type6 to the subType value of the <a href="/CIC/References/ContentTemplates/CardList.html">CardList template</a> to display audio content and image thumbnails</li>
-          <li>[CEK] Changed the name of a <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">shared object</a>, HeatingModeInfoObject of the Clova Home extension message to <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ModeInfoObject">ModeInfoObject</a> and modified the description as an object indicating the operation mode of universal devices</li>
-          <li>[CEK] Added the <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetCurrentTemperatureRequest">GetCurrentTemperatureRequest</a> message and the <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetCurrentTemperatureResponse">GetCurrentTemperatureResponse</a> message to the <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html">Control</a> interface of the Clova Home extension message</li>
-          <li>[CEK] Added the <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#UnsupportedOperationError">UnsupportedOperationError</a> message to the <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html">error</a> interface of the Clova Home extension message</li>
+          <li>[CEK] Changed the name of a <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">shared object</a>, HeatingModeInfoObject of the Clova Home Extension message to <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ModeInfoObject">ModeInfoObject</a> and modified the description as an object indicating the operation mode of universal devices</li>
+          <li>[CEK] Added the <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetCurrentTemperatureRequest">GetCurrentTemperatureRequest</a> message and the <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetCurrentTemperatureResponse">GetCurrentTemperatureResponse</a> message to the <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html">Control</a> interface of the Clova Home Extension message</li>
+          <li>[CEK] Added the <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#UnsupportedOperationError">UnsupportedOperationError</a> message to the <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html">error</a> interface of the Clova Home Extension message</li>
         </ul>
       </td>
     </tr>
@@ -330,7 +330,7 @@ The current version of this document is {{ book.DocVersion }} and the revision h
       <td>v1.9</td><td>2017-10-30</td>
       <td>
         <ul>
-          <li>[Dev. console] Added the description for the <a href="/DevConsole/ClovaDevConsole_Overview.html">Clova developer console overview</a></li>
+          <li>[Dev. console] Added the description for the <a href="/DevConsole/ClovaDevConsole_Overview.html">Clova Developer Center overview</a></li>
           <li>[Dev. console] Added the guide for <a href="/DevConsole/Guides/CEK/Register_Extension.html">Registering an extension</a></li>
           <li>[Dev. console] Added the guide for <a href="/DevConsole/Guides/CEK/Register_Interaction_Model.html">Registering an interaction model</a></li>
           <li>[Dev. console] Added the guide for <a href="/DevConsole/Guides/CEK/Deploy_Extension.html">Deploying an extension</a></li>

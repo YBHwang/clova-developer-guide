@@ -1,6 +1,6 @@
-## Handling a Clova Home extension request {#HandleClovaHomeExtensionRequest}
+## Handling a Clova Home Extension request {#HandleClovaHomeExtensionRequest}
 
-Users can make requests (HTTP request) to Clova in order to control an IoT device, with commands such as "Turn on the light." The client uses the [device discovery](#ProvideDeviceDiscovery) function to check the list of available devices and the permitted actions per device, and verify whether the control request can be carried out. Once verified, the user request is delivered to the Clova Home extension via CEK using the [Clova Home extension messages](/CEK/References/CEK_API.md#ClovaHomeExtMessage).
+Users can make requests (HTTP request) to Clova in order to control an IoT device, with commands such as "Turn on the light." The client uses the [device discovery](#ProvideDeviceDiscovery) function to check the list of available devices and the permitted actions per device, and verify whether the control request can be carried out. Once verified, the user request is delivered to the Clova Home Extension via CEK using the [Clova Home Extension messages](/CEK/References/CEK_API.md#ClovaHomeExtMessage).
 
 Requests, such as "Turn on the light", are sent using the [`TurnOnRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#TurnOnRequest) message as shown below.
 

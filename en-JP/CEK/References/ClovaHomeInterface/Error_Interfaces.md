@@ -1,5 +1,5 @@
 # Error
-Error interfaces are used when the Clova Home extension returns errors to CEK. You can use the error messages below.
+Error interfaces are used when the Clova Home Extension returns errors to CEK. You can use the error messages below.
 
 
 | Message name         | Type  | Description                                   |
@@ -7,7 +7,7 @@ Error interfaces are used when the Clova Home extension returns errors to CEK. Y
 | [`ConditionsNotMetError`](#ConditionsNotMetError)          | Error response | Sent to CEK as a response if a certain condition (state) required for operating the target appliance is not satisfied. |
 | [`DeviceFailureError`](#DeviceFailureError)                | Error response | Sent to CEK as a response if a defect occurs in the target appliance.              |
 | [`DriverInternalError`](#DriverInternalError)              | Error response | Sent to CEK as a response if an internal error occurs.                |
-| [`ExpiredAccessTokenError`](#ExpiredAccessTokenError)      | Error response | Sent to CEK as a response if the access token issued from the [authorization server](/CEK/Guides/Link_User_Account.md#BuildAuthServer) during the [account linking](/CEK/Guides/Link_User_Account.md) process is expired.  |
+| [`ExpiredAccessTokenError`](#ExpiredAccessTokenError)      | Error response | Sent to CEK as a response if the access token issued by the [authorization server](/CEK/Guides/Link_User_Account.md#BuildAuthServer) during the [account linking](/CEK/Guides/Link_User_Account.md) process is expired.  |
 | [`InvalidAccessTokenError`](#InvalidAccessTokenError)      | Error response | Sent to CEK as a response if the user has disabled permissions on the access token being used.         |
 | [`NoSuchTargetError`](#NoSuchTargetError)                  | Error response | Sent to CEK as a response if the target device is not found.                            |
 | [`NotSupportedInCurrentModeError`](#NotSupportedInCurrentModeError) | Error response | Sent to CEK as a response, if a directive that is not supported in the current mode of the appliance is received.  |
@@ -28,7 +28,7 @@ Sent to CEK as a response if a certain condition (state) required for operating 
 
 | Field name       | Data type    | Field description                     | Optional |
 |---------------|---------|-----------------------------|:---------:|
-| `state`       | string  | The value that explains the unsatisfied condition or state. This field must be written in a language comprehensible to users, as the value is sent to users as TTS. The value in this field is used in the following format to inform the user of the current situation:<pre><code>This feature is not supported when the {target device} is in {state}. Please check and try again.</code></pre>  |     |
+| `state`       | string  | The value that explains the unsatisfied condition or state. This field must be written in a language comprehensible to users, as the value is sent to users as TTS. The value in this field is used in the following format to inform the user of the current situation:<pre><code>This feature is not supported when the {target device} is in {state}. Please check and try again.</code></pre>  |<!-- -->|
 
 ### Remarks
 * The extension must send the error messages to CEK as a normal HTTP response (200 OK).
@@ -117,7 +117,7 @@ None
 * [`TargetOfflineError`](#TargetOfflineError)
 
 ## ExpiredAccessTokenError {#ExpiredAccessTokenError}
-Sent to CEK as a response if the access token issued from the [authorization server](/CEK/Guides/Link_User_Account.md#BuildAuthServer) during the [account linking](/CEK/Guides/Link_User_Account.md) process is expired. When CEK receives this message, a predefined error message is sent to the client.
+Sent to CEK as a response if the access token issued by the [authorization server](/CEK/Guides/Link_User_Account.md#BuildAuthServer) during the [account linking](/CEK/Guides/Link_User_Account.md) process is expired. When CEK receives this message, a predefined error message is sent to the client.
 
 ### Payload fields
 
@@ -270,9 +270,9 @@ None
 
 ## UnsupportedOperationError {#UnsupportedOperationError}
 
-Sent to CEK as a response if an action unsupported by the target appliance is requested. If the user requests an action that is unsupported by default, CEK informs the user immediately that the request is not within the permitted range. However, the permitted range of actions, such as `SetMode`, cannot be checked until the Clova Home extension receives the [SetModeRequest](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetModeRequest) message and checks the `mode` field value. When the Clova Home extension sends a message and the action is not supported, an error response must be sent. The `UnsupportedOperationError` message can be used to send to CEK.
+Sent to CEK as a response if an action unsupported by the target appliance is requested. If the user requests an action that is unsupported by default, CEK informs the user immediately that the request is not within the permitted range. However, the permitted range of actions, such as `SetMode`, cannot be checked until the Clova Home Extension receives the [SetModeRequest](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetModeRequest) message and checks the `mode` field value. When the Clova Home Extension sends a message and the action is not supported, an error response must be sent. The `UnsupportedOperationError` message can be used to send to CEK.
 
-For example, let us assume that the thermostat (`"THERMOSTAT"` type) of a user can perform the `SetMode` action and supports `"sleep"` and `"away"` modes. If the user requests to set the `"cool"` mode on the appliance, the Clova Home extension must send an `UnsupportedOperationError` message to CEK.
+For example, let us assume that the thermostat (`"THERMOSTAT"` type) of a user can perform the `SetMode` action and supports `"sleep"` and `"away"` modes. If the user requests to set the `"cool"` mode on the appliance, the Clova Home Extension must send an `UnsupportedOperationError` message to CEK.
 
 ### Payload fields
 
@@ -337,8 +337,8 @@ Sent to CEK as a response if the requested action is outside of the range that c
 
 | Field name       | Data type    | Field description                     | Optional |
 |---------------|---------|-----------------------------|:---------:|
-| `maximumValue` | number | Maximum setting value permitted on the target appliance. |     |
-| `minimumValue` | number | Minimum setting value permitted on the target appliance. |     |
+| `maximumValue` | number | Maximum setting value permitted on the target appliance. |<!-- -->|
+| `minimumValue` | number | Minimum setting value permitted on the target appliance. |<!-- -->|
 
 ### Remarks
 * The extension must send the error messages to CEK as a normal HTTP response (200 OK).

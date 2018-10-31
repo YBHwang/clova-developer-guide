@@ -25,7 +25,7 @@ A <a target="_blank" href="{{ book.DeveloperConsoleURL }}">[web tool]</a> that p
 * Registering a client device and obtaining client credentials for authentication (coming soon)
 * [Registering](/DevConsole/Guides/CEK/Register_Extension.md) and [deploying](/DevConsole/Guides/CEK/Deploy_Extension.md) a Clova extension
 * [Registering an interaction model](/DevConsole/Guides/CEK/Register_Interaction_Model.md)
-* Viewing statistics related to Clova services (coming soon)
+* Analysis data of Clova services
 
 ### Clova Extension {#ClovaExtension}
 A web application that provides extended capabilities to Clova for a more diverse user experience, including the capability of controlling IoT appliances at home or third-party services such as music, shopping, and banking. It is commonly referred to as an "extension." The Clova platform currently supports and provides two types of Clova extensions as shown below. To regular users, the extension is referred to as a "skill."
@@ -33,16 +33,16 @@ A web application that provides extended capabilities to Clova for a more divers
 * [Clova Home Extension](#ClovaHomeExtension)
 
 ### Clova Extensions Kit(CEK) {#CEK}
-A platform that provides tools and interfaces for development and deployment of a Clova extension. It supports [communication between Clova and extensions(/CEK/CEK_Overview.md).
+A platform that provides tools and interfaces for development and deployment of a Clova extension. It supports [communication between Clova and extensions](/CEK/CEK_Overview.md).
 
 ### Clova Home Extension {#ClovaHomeExtension}
-An extension that provides a service for controlling IoT appliances. For more information, see [Creating a Clova Home extension](/CEK/Guides/Build_Clova_Home_Extension.md).
+An extension that provides a service for controlling IoT appliances. For more information, see [Creating a Clova Home Extension](/CEK/Guides/Build_Clova_Home_Extension.md).
 
-### Clova Home extension messages {#ClovaHomeExtMessage}
-Messages used by [Clova Home extensions](#ClovaHomeExtension) when they exchange information with [Clova Extensions Kit](#CEK) to control IoT appliances. For more information, see [Clova Home extension messages](/CEK/References/CEK_API.md#ClovaHomeExtMessage).
+### Clova Home Extension messages {#ClovaHomeExtMessage}
+Messages used by [Clova Home Extensions](#ClovaHomeExtension) when they exchange information with [Clova Extensions Kit](#CEK) to control IoT appliances. For more information, see [Clova Home Extension messages](/CEK/References/CEK_API.md#ClovaHomeExtMessage).
 
 ### Clova Interface Connect(CIC) {#CIC}
-A platform that serves as an interface between Clova and a client aiming to provide AI assistant services such as PCs, mobile apps, mobile devices, or home appliances. For more information, see [CIC overview](/CIC/CIC_Overview.md).
+A platform that serves as an interface between Clova and a client aiming to provide AI assistant services such as computers, mobile apps, mobile devices, or home appliances. For more information, see [CIC overview](/CIC/CIC_Overview.md).
 
 ### Clova app {#ClovaApp}
 
@@ -72,7 +72,7 @@ An [HTTP/2](#HTTP2) stream through which clients receive directives from [CIC](#
 ### Extension {#Extension}
 An alias for [Clova extension](#ClovaExtension).
 
-### Extension store {#ExtensionStore}
+### Skill store {#ExtensionStore}
 
 A platform designed to provide the extensions to users.
 
@@ -85,7 +85,7 @@ A page to display the extensions registered in the extension store. It is a term
 A page displayed when a specific extension is selected in the skill store Home (**extension service management** menu). This page provides a detailed description of the extension.
 
 ### HTTP/2 {#HTTP2}
-A version of HTTP. HTTP/2 is based on [SPDY](https://en.wikipedia.org/wiki/SPDY) and developed by the IETF (Internet Engineering Task Force). HTTP/2 is the enhanced version of HTTP 1.1, which was standardized in RFC 2068 in 1997 and was presented as a Proposed standard in December 2014 and approved by IESG on February 17, 2015. HTTP/2 was published as [<a href="https://tools.ietf.org/html/rfc7540" target="_blank">RFC 7540</a>] in May 2015.
+A version of HTTP. HTTP/2 is based on <a href="https://en.wikipedia.org/wiki/SPDY" target="_blank">SPDY</a> and developed by the IETF (Internet Engineering Task Force). HTTP/2 is the enhanced version of HTTP 1.1, which was standardized in RFC 2068 in 1997 and was presented as a Proposed standard in December 2014 and approved by IESG on February 17, 2015. HTTP/2 was published as <a href="https://tools.ietf.org/html/rfc7540" target="_blank">RFC 7540</a> in May 2015.
 
 ### Intent {#Intent}
 A segment that identifies the user requests for a Clova extension to handle. There are two types of intents: a custom intent and a built-in intent. Before implementing a [custom extension](#CustomExtension), an [interaction model](#InteractionModel) consisting of a set of intents must be defined. For more information, see [Defining an interaction model](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel).
@@ -110,7 +110,7 @@ A type of request message that notifies that a user has requested to end a certa
 An extension provided by Clova. To provide a skill to users, you must develop a [Clova extension](#ClovaExtension).
 
 ### Built-in skill {#BuiltinSkill}
-A default skill on Clova devices such as LINE MUSIC, LINE Messages, LINE: Free Calls & Messages, Weather, News, and Alarm Timer. For more information, go to [Clova > Clova Skill] (https://clova.line.me/clova-ai/).
+A default skill on Clova devices such as LINE MUSIC, LINE: Free Calls & Messages, Weather, News, and Alarm Timer. For more information, go to [Clova > Clova Skill] (https://clova.line.me/clova-ai/).
 
 ### Slot {#Slot}
 The information required to process a request declared to an [Intent](#Intent). A slot must be defined in pair with an intent. Clova analyzes a user request and extracts information specific to the slots. For more information, see [Defining an interaction model](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel).
@@ -141,4 +141,4 @@ Messages that are sent from a client to [Clova Interface Connect](#CIC). Event m
 Messages that are sent from [CIC](#CIC) to a client to control client actions. Directive messages are used when CIC returns a response to events from a client or when CIC sends information to a client under certain conditions.
 
 ### Client credentials {#ClientCredentialInfo}
-Credentials obtained by registering a client in the [Clova developer console](#ClovaDeveloperConsole). The obtained credentials are used to generate a [Clova access token](#ClovaAccessToken). For more information, see [Creating Clova access tokens](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken).
+Credentials obtained by registering a client in the [Clova Developer Center](#ClovaDeveloperConsole). The obtained credentials are used to generate a [Clova access token](#ClovaAccessToken). For more information, see [Creating Clova access tokens](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken).

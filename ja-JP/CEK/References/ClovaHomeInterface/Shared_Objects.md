@@ -6,7 +6,7 @@ tags: ClovaHome
 
 | オブジェクト            | 説明                                            |
 |--------------------|---------------------------------------------------|
-| [ActionInforObject](#ActionInforObject)                   | エンドポイント制御動作の情報を持っています。  |
+| [ActionInfoObject](#ActionInfoObject)                   | エンドポイント制御動作の情報を持っています。  |
 | [AirQualityInfoObject](#AirQualityInfoObject)             | 空気質の情報を持っています。            |
 | [ApplianceInfoObject](#ApplianceInfoObject)               | IoTデバイスの情報を持っています。        |
 | [BatteryInfoObject](#BatteryInfoObject)                   | バッテリーの情報を持っています。            |
@@ -36,7 +36,7 @@ tags: ClovaHome
 | [UltraFineDustInfoObject](#UltraFineDustInfoObject)       | PM2.5の情報を持っています。         |
 | [VolumeInfoObject](#VolumeInfoObject)                     | 音量情報を持っています。          |
 
-## ActionInforObject {#ActionInforObject}
+## ActionInfoObject {#ActionInfoObject}
 エンドポイント制御動作の情報を持っているオブジェクトです。1つのデバイスに対して、1つの動作を指示するコマンドを表します。
 
 ### Object fields
@@ -737,7 +737,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
 | `name`        | string  | カスタムコマンドの名前             | 必須/常時      |
-| `actions[]`   | [ActionInforObject](#ActionInforObject) array | カスタムコマンドで処理するエンドポイント制御動作のリスト  | 必須/常時  |
+| `actions[]`   | [ActionInfoObject](#ActionInfoObject) array | カスタムコマンドで処理するエンドポイント制御動作のリスト  | 必須/常時  |
 
 ### Object example
 {% raw %}
@@ -836,7 +836,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 {% endraw %}
 
 ### 次の項目も参照してください。
-* [ActionInforObject](#ActionInforObject)
+* [ActionInfoObject](#ActionInfoObject)
 * [`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#DiscoverAppliancesResponse)
 
 ## CustomInfoObject {#CustomInfoObject}

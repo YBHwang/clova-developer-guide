@@ -1,4 +1,4 @@
-﻿Access the <a href="https://developers.naver.com/console/clova/cek/#/list" target="_blank">Clova developer console</a> and register the basic information of the extension.
+﻿Access the <a href="https://developers.naver.com/console/clova/cek/#/list" target="_blank">Clova Developer Center</a> and register the basic information of the extension.
 The main items are as follows:
 
 * Extension information
