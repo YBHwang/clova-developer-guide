@@ -4580,7 +4580,7 @@ Mainly used to control an appliance such as a smart valve. Requests the Clova Ho
 |---------------|---------|-----------------------------|:---------:|
 | `accessToken`   | string | Access token of the user account for an IoT service. CEK sends the access token of a user account acquired from the authorization server of a third-party service. For more information, see [Linking user accounts](/CEK/Guides/Link_User_Account.md).                          |     |
 | `appliance`     | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) | Object containing the appliance information. The `applianceId` field is always included. |     |
-| `lockState`       | string | The lock state of an appliance to set. Available values are: <ul><li><code>"LOCKED"</code></li><li><code>"UNLOCKED"</code></li></ul> |     |
+| `lockState`       | string | The lock state of an appliance to set. Available values are: <ul><li><code>"LOCKED"</code></li><li><code>"UNLOCKED"</code></li></ul><div class="note"><p><strong>Note!</strong></p><p>Can NOT set `"UNLOCKED"` even if the `applianceType` is ``"SMARTLOCK"`.</p></div> |     |
 
 ### Message example
 
