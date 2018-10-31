@@ -3,8 +3,6 @@
 
 문서에 대한 피드백은 [NAVER 개발자 센터 포럼](http://forum.developers.naver.com/)을 이용하거나 이 저장소에 대한 [이슈](https://github.com/naver/clova-developer-guide/issues)를 등록해주시면 됩니다.
 
-Clova 개발자 가이드에 대해 문의가 있을 경우 [jeongil.kang@linecorp.com](mailto://jeongil.kang@linecorp.com)로 연락바랍니다.
-
 ## 저작권
 
 ⓒ NAVER Corporation All Rights Reserved.
