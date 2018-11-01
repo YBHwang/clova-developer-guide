@@ -220,7 +220,7 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 | `"FAN"`             | 扇風機           | DecrementFanSpeed, HealthCheck, IncrementFanSpeed, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn                             |
 | `"HEATER"`          | ヒーター            | DecrementTargetTemperature, GetCurrentTemperature, GetDeviceState, GetTargetTemperature, HealthCheck, IncrementTargetTemperature, SetTargetTemperature, TurnOff, TurnOn                      |
 | `"HUMIDIFIER"`      | 加湿器           | GetCurrentTemperature, GetDeviceState, GetHumidity, HealthCheck, SetFanSpeed, TurnOff, TurnOn                                                    |
-| `"LIGHT"`           | スマート照明   | DecrementBrightness, DecrementVolume HealthCheck, IncrementBrightness, IncrementVolume SetBrightness, SetColor, SetColorTemperature, SetMode, TurnOff, TurnOn            |
+| `"LIGHT"`           | スマート照明   | DecrementBrightness, HealthCheck, IncrementBrightness, SetBrightness, SetColor, SetColorTemperature, SetMode, TurnOff, TurnOn            |
 | `"MASSAGECHAIR"`    | マッサージチェア        | DecrementIntensityLevel, HealthCheck, IncrementIntensityLevel, TurnOff, TurnOn                                                     |
 | `"MICROWAVE"`       | 電子レンジ      | GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                                      |
 | `"MOTIONSENSOR"`    | モーションセンサー    | GetDeviceState, HealthCheck                                                                                                             |
@@ -240,7 +240,7 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 | `"SMARTCURTAIN"`    | スマートカーテン      | Close, GetDeviceState, GetOpenState, HealthCheck, Open, Stop                                                                                                    |
 | `"SMARTHUB"`        | スマートハブ      | GetCurrentTemperature, GetDeviceState, GetHumidity, GetTargetTemperature, HealthCheck, SetMode                                                    |
 | `"SMARTLOCK"`      | スマートロック      | GetDeviceState, GetLockState, SetLockState                                            |
-| `"SMARTMETER"`      | 電力量計      | GetConsumption, GetDeviceState, GetCurrentBill, GetEstimateBill, GetProgressiveTaxBracket, HealthCheck                                            |
+| `"SMARTMETER"`      | 電力量計      | GetConsumption, GetDeviceState, GetCurrentBill, GetEstimateBill, HealthCheck                                            |
 | `"SMARTPLUG"`       | スマートプラグ     | GetConsumption, GetDeviceState, GetEstimateBill, HealthCheck, TurnOff, TurnOn                                                                                                     |
 | `"SMARTTV"`         | スマートテレビ       | ChangeInputSource, DecrementChannel, DecrementVolume, HealthCheck, IncrementChannel, IncrementVolume, Mute, SetChannel, SetChannelByName, SetInputSourceByName, StartRecording, StopRecording, TurnOff, TurnOn, Unmute |
 | `"SMARTVALVE"`      | スマートバルブ      | GetLockState, SetLockState                                                                                                        |

@@ -217,7 +217,7 @@ If the user requests the appliance list using the [`DiscoverAppliancesRequest`](
 | `"FAN"`             | Type of a fan           | DecrementFanSpeed, HealthCheck, IncrementFanSpeed, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn          |
 | `"HEATER"`          | Type of a heater            | DecrementTargetTemperature, GetCurrentTemperature, GetDeviceState, GetTargetTemperature, HealthCheck, IncrementTargetTemperature, SetTargetTemperature, TurnOff, TurnOn                      |
 | `"HUMIDIFIER"`      | Type of a humidifier           | GetCurrentTemperature, GetDeviceState, GetHumidity, HealthCheck, SetFanSpeed, TurnOff, TurnOn                                                     |
-| `"LIGHT"`           | Type of a smart lighting   | DecrementBrightness, DecrementVolume HealthCheck, IncrementBrightness, IncrementVolume SetBrightness, SetColor, SetColorTemperature, SetMode, TurnOff, TurnOn            |
+| `"LIGHT"`           | Type of a smart lighting   | DecrementBrightness, HealthCheck, IncrementBrightness, SetBrightness, SetColor, SetColorTemperature, SetMode, TurnOff, TurnOn            |
 | `"MASSAGECHAIR"`    | Type of a massage chair        | DecrementIntensityLevel, HealthCheck, IncrementIntensityLevel, TurnOff, TurnOn                                                     |
 | `"MICROWAVE"`       | Type of a microwave      | GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                                      |
 | `"MOTIONSENSOR"`    | Type of a motion detector    | GetDeviceState, HealthCheck                                                                                                             |
@@ -237,7 +237,7 @@ If the user requests the appliance list using the [`DiscoverAppliancesRequest`](
 | `"SMARTCURTAIN"`    | Type of a smart curtain      | Close, GetDeviceState, GetOpenState, HealthCheck, Open, Stop |
 | `"SMARTHUB"`        | Type of a smart hub      | GetCurrentTemperature, GetDeviceState, GetHumidity, GetTargetTemperature, HealthCheck, SetMode     |
 | `"SMARTLOCK"`      | Type of a smart lock     | GetDeviceState, GetLockState, SetLockState                                            |
-| `"SMARTMETER"`      | Type of a smart meter      | GetConsumption, GetDeviceState, GetCurrentBill, GetEstimateBill, GetProgressiveTaxBracket, HealthCheck  |
+| `"SMARTMETER"`      | Type of a smart meter      | GetConsumption, GetDeviceState, GetCurrentBill, GetEstimateBill, HealthCheck  |
 | `"SMARTPLUG"`       | Type of a smart plug      | GetConsumption, GetDeviceState, GetEstimateBill, HealthCheck, TurnOff, TurnOn    |
 | `"SMARTTV"`         | Type of a smart TV      | ChangeInputSource, DecrementChannel, DecrementVolume, HealthCheck, IncrementChannel, IncrementVolume, Mute, SetChannel, SetChannelByName, SetInputSourceByName, StartRecording, StopRecording, TurnOff, TurnOn, Unmute |
 | `"SMARTVALVE"`      | Type of a smart valve      | GetLockState, SetLockState                                                                                                        |
