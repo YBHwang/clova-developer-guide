@@ -183,7 +183,7 @@ ApplianceInfoObject contains the information on IoT appliances. This object is u
 | Field name       | Data type    | Field description                     | Required |
 |---------------|---------|-----------------------------|:-------------:|
 | `actions[]`                  | string array  | List of actions supported by an appliance. The client must restrict the user controlling the IoT device within the scope of actions supported by the appliance. | Optional/Always    |
-| `actionsNeededUserConfirmation[]`  | string array  | A list of actions for which an action check with the user is required. `TurnOn`, `TurnOff`, `SetMode` and `ReleaseMode` can be selected for this `actions` field. Before making a request for the operation specified here, a question such as "Are you sure you want to turn on the air conditioner?" is asked to the user to confirm the operation. | Optional/Conditional    |
+| `actionsNeededUserConfirmation[]`  | string array  | A list of actions for which an action check with the user is required. `ReleaseMode`, `SetMode`, `TurnOn` and `TurnOff` can be selected for this `actions` field. Before making a request for the operation specified here, a question such as "Are you sure you want to turn on the air conditioner?" is asked to the user to confirm the operation. | Optional/Conditional    |
 | `additionalApplianceDetails` | object        | A field that holds additional information provided by the manufacture or the IoT service provider                                 | Optional/Conditional    |
 | `applianceId`                | string        | Appliance ID.                                                                        | Required/Always    |
 | `applianceTypes[]`           | string array  | The type of appliance. By `applicationType`, the value of the `actions` field that indicates operations supported by the appliance may vary. You must designate the type of an appliance registered to the user account of the IoT service. Input a type of the appliance by referring to the Remarks.                                                                              | Required/Always    |
@@ -210,7 +210,7 @@ If the user requests the appliance list using the [`DiscoverAppliancesRequest`](
 | `"CLOTHESCAREMACHINE"` | Type of a clothing care machine    | GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                                     |
 | `"CLOTHESDRYER"`    | Type of a drying machine       | GetDeviceState, HealthCheck, TurnOff, TurnOn                                                                                           |
 | `"CLOTHESWASHER"`   | Type of a washing machine       | GetDeviceState, GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                           |
-| `"DEHUMIDIFIER"`    | Type of a dehumidifier           |  GetCurrentTemperature, GetDeviceState, GetHumidity, HealthCheck, SetFanSpeed, TurnOff, TurnOn                                                     |
+| `"DEHUMIDIFIER"`    | Type of a dehumidifier           | GetCurrentTemperature, GetDeviceState, GetHumidity, HealthCheck, SetFanSpeed, TurnOff, TurnOn                                                     |
 | `"DISHWASHER"`      | Type of a dishwasher       | GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                           |
 | `"ELECTRICKETTLE"`  | Type of a an electric kettle       | GetCurrentTemperature, HealthCheck, TurnOff, TurnOn                                                                              |
 | `"ELECTRICTOOTHBRUSH"` | Type of am electric toothbrush     | GetDeviceState, HealthCheck                                                                                                            |
@@ -229,7 +229,7 @@ If the user requests the appliance list using the [`DiscoverAppliancesRequest`](
 | `"RANGEHOOD"`       | Type of a range hood      | GetDeviceState, HealthCheck, TurnOff, TurnOn                                                                                                      |
 | `"REFRIGERATOR"`    | Type of a refrigerator          | GetDeviceState, HealthCheck, SetFreezerTargetTemperature, SetFridgeTargetTemperature, SetMode                                           |
 | `"RICECOOKER"`      | Type of a rice cooker        | GetCleaningCycle, GetDeviceState, GetExpendableState, GetKeepWarmTime, GetPhase, GetRemainingTime, HealthCheck, ReleaseMode, SetMode, Stop, TurnOff, TurnOn          |
-| `"ROBOTVACUUM"`     | Type of a robot vacuum       |Charge, GetBatteryInfo, GetDeviceState, HealthCheck, TurnOff, TurnOn           |
+| `"ROBOTVACUUM"`     | Type of a robot vacuum       | Charge, GetBatteryInfo, GetDeviceState, HealthCheck, TurnOff, TurnOn           |
 | `"SETTOPBOX"`       | Type of a set-top box     | ChangeInputSource, DecrementChannel, DecrementVolume, HealthCheck, IncrementChannel, IncrementVolume, Mute, SetChannel, SetChannelByName, SetInputSourceByName, StartRecording, StopRecording, TurnOff, TurnOn, Unmute |
 | `"SLEEPINGMONITOR"` | Type of a sleep sensor        | GetAsleepDuration, GetAwakeDuration, GetDeviceState, GetSleepScore, GetSleepStartTime, HealthCheck, TurnOff, TurnOn              |
 | `"SMARTBED"`        | Type of a smart bed      | HealthCheck, Lower, Raise, Stop                                                                                                   |
@@ -1060,8 +1060,8 @@ ModeInfoObject contains information on the operation mode. This is used to indic
           <li><code>"auto"</code>：Auto mode. A mode mainly used in air conditioners.</li>
           <li><code>"dehumidify"</code>：Dehumidifier mode. A mode mainly used in appliances such as air conditioners or dehumidifiers.</li>
           <li><code>"humidify"</code>：Humidifier mode. A mode mainly used in appliances such as air conditioners or humidifiers.</li>
-          <li><code>"removepollen"</code>：Remove pollen mode. A mode mainly used in appliances such as air purifier. </li>
-          <li><code>"sleep"</code>：Sleep mode. A mode mainly used in appliances such as smart hubs.</li>
+          <li><code>"removepollen"</code>：Remove pollen mode. A mode mainly used in appliances such as air purifiers.</li>
+          <li><code>"sleep"</code>：Sleep mode. A mode mainly used in appliances such as air conditioners or smart hubs.</li>
           {% endif %}
         </ul>
       </td>
