@@ -212,9 +212,9 @@ If the user requests the appliance list using the [`DiscoverAppliancesRequest`](
 | `"AIRPURIFIER"`     | Type of an air purifier        | DecrementFanSpeed, GetAirQuality, GetFineDust, GetUltraFineDust, HealthCheck, IncrementFanSpeed, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn    |
 | `"AIRSENSOR"`       | Type of an air sensor     | GetAirQuality, GetCurrentTemperature, GetFineDust, GetHumidity, GetUltraFineDust, HealthCheck                                     |
 | `"BIDET"`           | Type of a bidet            | Close, GetDeviceState, GetExpendableState, HealthCheck, Open, TurnOff, TurnOn                                                     |
-| `"BODYWEIGHTSCALE"` | Type of a weighing scale           | GetDeviceState, HealthCheck                                                                                                        |
-| `"CLOTHESCAREMACHINE"` | Type of a clothing care machine    | GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                                    |
-| `"CLOTHESDRYER"`    | Type of a drying machine       | GetDeviceState, HealthCheck, TurnOff, TurnOn                                                                                      |
+| `"BODYWEIGHTSCALE"` | Type of a weighing scale           | GetDeviceState, HealthCheck                                                                                                       |
+| `"CLOTHESCAREMACHINE"` | Type of a clothing care machine    | GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                          |
+| `"CLOTHESDRYER"`    | Type of a drying machine       | GetDeviceState, GetPhase, HealthCheck, TurnOff, TurnOn                                                                            |
 | `"CLOTHESWASHER"`   | Type of a washing machine       | GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                          |
 | `"DEHUMIDIFIER"`    | Type of a dehumidifier           | GetCurrentTemperature, GetHumidity, HealthCheck, SetFanSpeed, TurnOff, TurnOn                                                     |
 | `"DISHWASHER"`      | Type of a dishwasher       | GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                          |
@@ -234,7 +234,7 @@ If the user requests the appliance list using the [`DiscoverAppliancesRequest`](
 | `"PURIFIER"`        | Type of a water purifier          | GetDeviceState, GetExpendableState, HealthCheck, ReleaseMode, SetMode, SetTargetTemperature                                         |
 | `"RANGE"`           | Type of an electric range          | GetDeviceState, HealthCheck                                                                                                         |
 | `"RANGEHOOD"`       | Type of a range hood      | HealthCheck, TurnOff, TurnOn                                                                                                        |
-| `"REFRIGERATOR"`    | Type of a refrigerator          | GetDeviceState, HealthCheck, SetTargetTemperature, SetMode                                                                          |
+| `"REFRIGERATOR"`    | Type of a refrigerator          | GetDeviceState, HealthCheck, ReleaseMode, SetMode, SetTargetTemperature                                                             |
 | `"RICECOOKER"`      | Type of a rice cooker        | GetCleaningCycle, GetDeviceState, GetExpendableState, GetKeepWarmTime, GetPhase, GetRemainingTime, HealthCheck, ReleaseMode, SetMode, Stop, TurnOff, TurnOn          |
 | `"ROBOTVACUUM"`     | Type of a robot vacuum       | Charge, GetBatteryInfo, HealthCheck, TurnOff, TurnOn                                                                               |
 | `"SETTOPBOX"`       | Type of a set-top box     | DecrementChannel, DecrementVolume, HealthCheck, IncrementChannel, IncrementVolume, Mute, SetChannel, SetChannelByName, TurnOff, TurnOn, Unmute |
@@ -283,6 +283,7 @@ The table below lists the [interfaces](/CEK/References/CEK_API.md#ClovaHomeExtIn
 | GetCurrentTemperature       | [`GetCurrentTemperatureRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentTemperatureRequest), [`GetCurrentTemperatureResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentTemperatureResponse) |
 | GetDeviceState             | [`GetDeviceStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateRequest), [`GetDeviceStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateResponse)  |
 | GetEstimateBill            | [`GetEstimateBillRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateBillRequest), [`GetEstimateBillResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateBillResponse)  |
+| GetEstimateConsumption     | [`GetEstimateConsumptionRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateConsumptionRequest), [`GetEstimateConsumptionResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateConsumptionResponse)  |
 | GetExpendableState         | [`GetExpendableStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetExpendableStateRequest), [`GetExpendableStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetExpendableStateResponse)  |
 | GetFineDust                | [`GetFineDustRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetFineDustRequest), [`GetFineDustResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetFineDustResponse) |
 | GetHumidity                | [`GetHumidityRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetHumidityRequest), [`GetHumidityResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetHumidityResponse) |
@@ -666,7 +667,7 @@ ConsumptionInfoObject contains information on energy or resource measured by the
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:-------------:|
 | `name`        | string  | The name of item consuming energy or resource.                   | Required  |
-| `unit`        | string  | Energy or resource consumption unit (e.g., kW for electricity)        | Required  |
+| `unit`        | string  | Energy or resource consumption unit (e.g., kW for electricity).        | Required  |
 | `value`       | number  | Energy or resource consumption amount.                    | Required   |
 
 ### Object Example
@@ -1210,6 +1211,7 @@ ModeInfoObject contains information on the operation mode. This is used to indic
           <li><code>"auto"</code>: Auto mode.</li>
           <li><code>"dehumidify"</code>: Dehumidify mode.</li>
           <li><code>"dry"</code>: Dry mode.</li>
+          <li><code>"ventilating"</code>: Ventilating mode.</li>
           <li><code>"warmwind"</code>: Warm wind mode.</li>
         </ul>
       </td>
@@ -1345,7 +1347,7 @@ PeriodInfoObject contains information for periods used to retrieve measured data
 Expressions such as "today," "this week," or "this month" used by the user are defined by the following range of time:
 
 * "Today": The time range begins at 00:00:00 of the current date and ends at 23:59:59 of the current date.
-* "This week": The time range begins at 00:00:00 of the {{ book.ServiceEnv.FirstDayOfWeekInClovaHome }} of the current week and ends at 23:59:59 of the {{ book.ServiceEnv.LastDayOfWeekInClovaHome }} of the current week.
+* "This week": The time range begins at 00:00:00 of the {{ book.ServiceEnv.FirstDayOfWeekInClovaHome }}of the current week and ends at 23:59:59 of the {{ book.ServiceEnv.LastDayOfWeekInClovaHome }} of the current week.
 * "This month": The time range begins at 00:00:00 of the first day of the current month and ends at 23:59:59 of the last day of the current month.
 
 At the time of processing a request, the end time (`end`) of the period used in special expressions like above can be a time in the future that is yet to come. Depending on the situation, data must be handled by considering the handling time as the end time.

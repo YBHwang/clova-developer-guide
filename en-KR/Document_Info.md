@@ -21,13 +21,32 @@ The revision history of this document is as follows:
   </thead>
   <tbody>
     <tr>
-      <td>v3.41.0</td><td>Not applied</td><td>10/13/2018</td>
+      <td>v3.42.0</td><td>Not applied</td><td>2018-10-20</td>
+      <td>
+        <ul>
+          <li>[CIC] Added the <a href="/CIC/References/CICInterface/DeviceControl.html#BtDelete">DeviceControl.BtDelete</a> and <a href="/CIC/References/CICInterface/DeviceControl.htmlBtRescan">DeviceControl.BtRescan</a> directives to rescan or remove a Bluetooth device in the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace</li>
+          <li>[CIC] Added the <a href="/CIC/References/CICInterface/DeviceControl.html#BtPlay">DeviceControl.BtPlay</a> directive to play music through a Bluetooth device in the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace</li>
+          <li>[CIC] Added fields to the <a href="/CIC/References/CICInterface/DeviceControl.html#BtConnect">DeviceControl.BtConnect</a> and <a href="/CIC/References/CICInterface/DeviceControl.html#BtDisconnect">DeviceControl.BtDisconnect</a> directives of the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace to enable connection or disconnection of a specific device or a device with a specific role</li>
+          <li>[CIC] Added connecting, pairing, playerinfo, and scanning fields to <a href="/CIC/References/Context_Objects.html#BluetoothInfoObject">BluetoothInfoObject</a> of the <a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a> context object to add Bluetooth-related state information of the client</li>
+          <li>[CEK] Updated the following details to the Remarks of <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a> that is a <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">shared object</a> of Clova Home extension API:
+            <ul>
+              <li>Added GetPhase action to the CLOTHESCAREMACHINE type and the CLOTHESDRYER type</li>
+              <li>Added ReleaseMode action to the REFRIGERATOR type</li>
+              <li>Added GetEstimateConsumption action that was omitted in Actions</li>
+            </ul>
+          </li>
+          <li>[CEK] Added "ventilating" mode to the VENTILATOR type appliances to the Operation Modes of <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ModeInfoObject">ModeInfoObject</a> that is a <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">shared object</a> of the Clova Home extension API</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.41.0</td><td>Not applied</td><td>2018-10-13</td>
       <td>
         <ul>
           <li>[CEK] Added <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetEstimateConsumptionRequest">GetEstimateConsumptionRequest</a> and <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetEstimateConsumptionResponse">GetEstimateConsumptionResponse</a> to the Clova Home extension API</li>
           <li>[CEK] Added the modes of AIRPURIFIER, HUMIDIFIER and VENTILATOR type appliance to <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ModeInfoObject">ModeInfoObject</a> that is a <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">shared object</a> of the Clova Home extension message</li>
           <li>[CEK] Added a period field to <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetCurrentSittingStateRequest">GetCurrentSittingStateRequest</a> of the Clova Home extension API</li>
-          <li>[Dev. Console] Specified that at least one and up to three invocation names can be registered when <a href="/DevConsole/Guides/CEK/Register_Extension.html#InputExtensionInfo">entering basic extension information</a></li>
+          <li>[Dev. console] Specified that at least one and up to three invocation names can be registered when <a href="/DevConsole/Guides/CEK/Register_Extension.html#InputExtensionInfo">entering basic extension information</a></li>
         </ul>
       </td>
     </tr>
