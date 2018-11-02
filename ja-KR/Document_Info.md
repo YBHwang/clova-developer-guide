@@ -21,6 +21,25 @@
   </thead>
   <tbody>
     <tr>
+      <td>v3.42.0</td><td>未適用</td><td>2018/10/20</td>
+      <td>
+        <ul>
+          <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a>名前空間に、Bluetoothデバイスを再スキャンしたり、Bluetoothデバイスを削除する<a href="/CIC/References/CICInterface/DeviceControl.html#BtDelete">DeviceControl.BtDelete</a>と<a href="/CIC/References/CICInterface/DeviceControl.htmlBtRescan">DeviceControl.BtRescan</a>ディレクティブを追加</li>
+          <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a>名前空間に、Bluetoothデバイスで音楽を再生するように指示する<a href="/CIC/References/CICInterface/DeviceControl.html#BtPlay">DeviceControl.BtPlay</a>ディレクティブを追加</li>
+          <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a>名前空間の<a href="/CIC/References/CICInterface/DeviceControl.html#BtConnect">DeviceControl.BtConnect</a>と<a href="/CIC/References/CICInterface/DeviceControl.html#BtDisconnect">DeviceControl.BtDisconnect</a>ディレクティブにフィールドを追加し、特定の役割を持つデバイスまたは特定のデバイスと接続したり、接続解除する機能を追加</li>
+          <li>[CIC] <a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a>コンテキストオブジェクトの<a href="/CIC/References/Context_Objects.html#BluetoothInfoObject">BluetoothInfoObject</a>にconnecting、pairing、playerinfo、scanningフィールドを追加し、クライアントのBluetooth関連状態を追加</li>
+          <li>[CEK] Clova Home Extension APIの<a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">共有オブジェクト</a><a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a>の備考に以下の内容を更新
+            <ul>
+              <li>ホームクリーニング機タイプ(CLOTHESCAREMACHINE)と衣類乾燥機タイプ(CLOTHESDRYER)にGetPhaseアクションを追加</li>
+              <li>冷蔵庫タイプ(REFRIGERATOR)にReleaseModeアクションを追加</li>
+              <li>Actionsに抜け落ちていたGetEstimateConsumptionアクションを追加</li>
+            </ul>
+          </li>
+          <li>[CEK] Clova Home Extension APIの<a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">共有オブジェクト</a><a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ModeInfoObject">ModeInfoObject</a>のOperation Modesで換気扇(VENTILATOR)タイプのデバイスに「ventilating」モードを追加</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.41.0</td><td>未適用</td><td>2018/10/13</td>
       <td>
         <ul>
@@ -341,7 +360,7 @@
           <li>[CIC] <a href="/CIC/Guides/Implement_Client_Features.html#HandleDelegation">委任されたユーザーのリクエストを処理する</a>セクションを追加および<a href="/CIC/References/CICInterface/Clova.html#HandleDelegatedEvent">Clova.HandleDelegatedEvent</a>ディレクティブと<a href="/CIC/References/CICInterface/Clova.html#ProcessDelegatedEvent">Clova.ProcessDelegatedEvent</a>イベントを追加</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/PlaybackController.html#NextCommandIssued">PlaybackController.NextCommandIssued</a>と<a href="/CIC/References/CICInterface/PlaybackController.html#PreviousCommandIssued">PlaybackController.PreviousCommandIssued</a>イベントに<a href="/CIC/References/Context_Objects.html#PlaybackState">AudioPlayer.PlaybackState</a>コンテキストを含めるように説明を追加</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/Alerts.html">Alerts</a> APIの仕組みの説明を改善</li>
-          <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> APIの<a href="/CIC/References/CICInterface/DeviceControl.html#DeviceContorlWorkFlow">仕組み</a>の説明を追加</li>
+          <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> APIの<a href="/CIC/References/CICInterface/DeviceControl.html#DeviceControlWorkFlow">仕組み</a>の説明を追加</li>
           <li>[CIC] 一部のコンテンツテンプレートおよび共有オブジェクトの誤りの訂正内容を修正</li>
           <li>[CEK] <a href="/CEK/Examples/Extension_Examples.html">Extensionのサンプル</a>ページを追加</li>
           <li>[Dev.Console] <strong>テスターID</strong>フィールドの追加による<a href="/DevConsole/Guides/CEK/Test_Extension.html">Extensionをテストする</a>の説明を更新</li>
