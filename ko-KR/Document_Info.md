@@ -21,6 +21,20 @@
   </thead>
   <tbody>
     <tr>
+      <td>v3.43.0</td><td>미적용</td><td>2018-11-09</td>
+      <td>
+        <ul>
+          <li>[CEK] Clova Home extension API <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">공유 객체</a> <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a>의 Remarks에 다음의 내용을 업데이트함
+            <ul>
+              <li>모든 기기 타입에 GetDeviceState 동작 추가</li>
+              <li>오븐(OVEN) 타입에 GetRemainingTime 동작 추가</li>
+              <li>의류 건조기(CLOTHESDRYER) 타입에 빠져있던 GetRemainingTime 동작 추가</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.42.0</td><td>미적용</td><td>2018-10-20</td>
       <td>
         <ul>
