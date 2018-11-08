@@ -91,13 +91,10 @@ GET|POST /authorize
 
 {% endraw %}
 
-{% include "/CIC/References/CICAuthAPI/Guest_Mode.md" %}
-
 ### See also
 * [클라이언트 인증 정보](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo)
 * [Clova access token 생성하기](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken)
 * [Clova access token 요청](#RequestClovaAccessToken)
-
 
 ## Clova access token 요청 {#RequestClovaAccessToken}
 
