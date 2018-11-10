@@ -21,18 +21,6 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 | [`StreamRequested`](#StreamRequested) | Event     | 오디오 스트림 재생을 위해 CIC로 스트리밍 URL과 같은 추가 정보를 요청하는 이벤트 메시지입니다.               |
 {% if book.DocMeta.TargetReaderType == "Internal" %}| [`SynchronizePlaybackState`](#SynchronizePlaybackState) | Directive | 클라이언트의 음원 재생 상태를 동기화하도록 지시합니다. `AudioPlayer.RequestPlaybackState` 이벤트 메시지를 전송했던 클라이언트는 `AudioPlayer.SynchronizePlaybackState` 지시 메시지를 수신하게 됩니다. |{% endif %}
 
-## 음원 재생 상태 공유 {#SharePlaybackState}
-
-한 클라이언트는 사용자 계정에 등록된 다른 모든 클라이언트 또는 특정 클라이언트로부터 음원 재생 상태를 공유받을 수 있습니다. 음원 재생 상태를 공유 받는 동작의 흐름은 다음과 같습니다.
-
-![](/CIC/Resources/Images/CIC_Playback_State_Sync_Work_Flow.png)
-
-1. Clova 앱은 {{ "[`AudioPlayer.RequestPlaybackState`](#RequestPlaybackState) 이벤트 메시지를 사용하여 " if book.DocMeta.TargetReaderType == "Internal" }}CIC에게 사용자 계정에 등록된 모든 클라이언트 또는 특정 클라이언트의 음원 재생 상태 정보를 요청합니다.
-2. CIC는 [`AudioPlayer.ExpectReportPlaybackState`](#ExpectReportPlaybackState)사용자 계정에 등록된 모든 클라이언트 또는 특정 클라이언트에게 현재 음원 재생 상태를 보고하도록 지시합니다.
-3. 음원 재생 상태 보고 요청을 받은 클라이언트는 [`AudioPlayer.ReportPlaybackState`](#ReportPlaybackState) 이벤트 메시지를 사용하여 CIC에게 현재 음원 재생 상태를 보고합니다.
-4. CIC는 {{ "[`AudioPlayer.SynchronizePlaybackState`](#SynchronizePlaybackState)를 사용하여 " if book.DocMeta.TargetReaderType == "Internal" }}다른 클라이언트의 음원 재생 상태를 요청했던 클라이언트에게 상태 정보를 전달하여 정보를 동기화하도록 지시합니다.
-
-
 ## ClearQueue directive {#ClearQueue}
 클라이언트에게 오디오 스트림 재생 대기열(queue)을 초기화하도록 지시합니다. 이 지시 메시지의 `clearBehavior` 필드 값은 초기화 동작을 구분하며, 클라이언트가 재생 대기열을 초기화하면서 현재 재생 중인 오디오 스트림의 재생을 멈춰야 하는지를 결정합니다.
 
@@ -97,7 +85,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 
 ### See also
 * [`AudioPlayer.ReportPlaybackState`](#ReportPlaybackState)
-* [음원 재생 상태 공유](#SharePlaybackState)
+* [음원 재생 상태 공유하기](/CIC/Guides/Implement_Client_Features.md#ShareAuidoPlaybackState)
 
 ## Play directive {#Play}
 클라이언트에게 특정 오디오 스트림을 재생하거나 재생 대기열에 추가하도록 지시합니다.
@@ -224,6 +212,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 * [`AudioPlayer.ProgressReportIntervalPassed`](#ProgressReportIntervalPassed)
 * [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
 * [`AudioPlayer.StreamRequested`](#StreamRequested)
+* [음원 재생하기](/CIC/Guides/Implement_Client_Features.md#PlayAudioStream)
 
 ## PlayFinished event {#PlayFinished}
 클라이언트가 오디오 스트림 재생을 완료할 때 재생 완료된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다.
@@ -272,6 +261,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 
 ### See also
 * [`AudioPlayer.Play`](#Play)
+* [음원 재생 경과 보고하기](/CIC/Guides/Implement_Client_Features.md#ReportAudioPlaybackProgress)
 
 ## PlayPaused event {#PlayPaused}
 클라이언트가 오디오 스트림 재생을 일시 정지할 때 일시 정지된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다. 이 이벤트 메시지를 보내기 위해 필요한 사전 시나리오는 다음과 같습니다.
@@ -326,6 +316,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.PlayResumed`](#PlayResumed)
 * [`PlaybackController.Pause`](/CIC/References/CICInterface/PlaybackController.md#Pause)
+* [음원 재생 제어하기](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
 
 ## PlayResumed event {#PlayResumed}
 
@@ -381,6 +372,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.PlayPaused`](#PlayPaused)
 * [`PlaybackController.Resume`](/CIC/References/CICInterface/PlaybackController.md#Resume)
+* [음원 재생 제어하기](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
 
 ## PlayStarted event {#PlayStarted}
 클라이언트가 오디오 스트림 재생을 시작할 때 재생이 시작된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다.
@@ -430,6 +422,8 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 ### See also
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.PlayStopped`](#PlayStopped)
+* [음원 재생하기](/CIC/Guides/Implement_Client_Features.md#PlayAudioStream)
+* [음원 재생 제어하기](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
 
 ## PlayStopped event {#PlayStopped}
 클라이언트가 오디오 스트림 재생을 중지할 때 재생이 중지된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다. 이 이벤트 메시지를 보내기 위해 필요한 사전 시나리오는 다음과 같습니다.
@@ -484,6 +478,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.PlayStarted`](#PlayStarted)
 * [`PlaybackController.Stop`](/CIC/References/CICInterface/PlaybackController.md#Stop)
+* [음원 재생 제어하기](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
 
 ## ProgressReportDelayPassed event {#ProgressReportDelayPassed}
 오디오 스트림 재생이 시작된 후 지정된 지연 시간만큼 시간이 지났을 때 현재 재생 상태([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState))를 CIC로 보고하기 위해 사용됩니다. 각 오디오 스트림의 지연 시간은 [`AudioPlayer.Play`](#Play) 지시 메시지가 클라이언트로 전달될 때 확인할 수 있습니다.
@@ -534,6 +529,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.ProgressReportIntervalPassed`](#ProgressReportIntervalPassed)
 * [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
+* [음원 재생 경과 보고하기](/CIC/Guides/Implement_Client_Features.md#ReportAudioPlaybackProgress)
 
 ## ProgressReportIntervalPassed event {#ProgressReportIntervalPassed}
 오디오 스트림 재생이 시작된 후 지정된 간격마다 현재 재생 상태([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState))를 CIC로 보고하기 위해 사용됩니다. 각 오디오 스트림의 보고 간격은 [`AudioPlayer.Play`](#Play) 지시 메시지가 클라이언트로 전달될 때 확인할 수 있습니다.
@@ -584,6 +580,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.ProgressReportDelayPassed`](#ProgressReportDelayPassed)
 * [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
+* [음원 재생 경과 보고하기](/CIC/Guides/Implement_Client_Features.md#ReportAudioPlaybackProgress)
 
 ## ProgressReportPositionPassed event {#ProgressReportPositionPassed}
 오디오 스트림 재생이 시작된 후 지정된 보고 시점에 현재 재생 상태([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState))를 CIC로 보고하기 위해 사용됩니다. 각 오디오 스트림의 보고 시점은 [`AudioPlayer.Play`](#Play) 지시 메시지가 클라이언트로 전달될 때 확인할 수 있습니다.
@@ -634,6 +631,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.ProgressReportDelayPassed`](#ProgressReportDelayPassed)
 * [`AudioPlayer.ProgressReportIntervalPassed`](#ProgressReportIntervalPassed)
+* [음원 재생 경과 보고하기](/CIC/Guides/Implement_Client_Features.md#ReportAudioPlaybackProgress)
 
 ## ReportPlaybackState event {#ReportPlaybackState}
 
@@ -687,7 +685,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 ### See also
 * [`AudioPlayer.ExpectReportPlaybackState`](#ExpectReportPlaybackState)
 * [`AudioPlayer.Play`](#Play)
-* [음원 재생 상태 공유](#SharePlaybackState)
+* [음원 재생 상태 공유하기](/CIC/Guides/Implement_Client_Features.md#ShareAuidoPlaybackState)
 
 {% if book.DocMeta.TargetReaderType == "Internal" %}
 ## RequestPlaybackState event {#RequestPlaybackState}
@@ -736,7 +734,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 ### See also
 * [`AudioPlayer.ExpectReportPlaybackState`](#ExpectReportPlaybackState)
 * [`AudioPlayer.Play`](#Play)
-* [음원 재생 상태 공유](#SharePlaybackState)
+* [음원 재생 상태 공유하기](/CIC/Guides/Implement_Client_Features.md#ShareAuidoPlaybackState)
 {% endif %}
 
 ## StreamDeliver directive {#StreamDeliver}
@@ -764,11 +762,18 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
       "messageId": "4e4080d6-c440-498a-bb73-ae86c6312806"
     },
     "payload": {
-        "audioItemId": "5313c879-25bb-461c-93fc-f85d95edf2a0",
-        "stream": {
-            "token": "b767313e-6790-4c28-ac18-5d9f8e432248",
-            "url": "https://musicservice.example.net/b767313e.mp3"
-        }
+      "audioItemId": "9CPWU-8362fe7c-f75c-42c6-806b-6f3e00aba8f1-c1862201",
+      "audioStream": {
+          "format": "audio/mpeg",
+          "progressReport": {
+            "progressReportDelayInMilliseconds": null,
+            "progressReportIntervalInMilliseconds": null,
+            "progressReportPositionInMilliseconds": 60000
+          },
+          "token": "TR-NM-17716562",
+          "url": "https://musicservice.example.net/b767313e.mp3",
+          "urlPlayable": true
+      }
     }
   }
 }
@@ -779,6 +784,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 ### See also
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.StreamRequested`](#StreamRequested)
+* [음원 재생하기](/CIC/Guides/Implement_Client_Features.md#PlayAudioStream)
 
 ## StreamRequested event {#StreamRequested}
 오디오 스트림 재생을 위해 CIC로 스트리밍 URL과 같은 추가 정보를 요청하는 이벤트 메시지입니다.
@@ -818,17 +824,18 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
       "messageId": "198cf12-4020-b98a-b73b-1234ab312806"
     },
     "payload": {
-      "audioItemId": "ac192f4c-8f12-4a58-8ace-e3127eb297a4",
+      "audioItemId": "9CPWU-8362fe7c-f75c-42c6-806b-6f3e00aba8f1-c1862201",
       "audioStream": {
         "beginAtInMilliseconds": 0,
+        "durationInMilliseconds": 60000,
         "progressReport": {
-            "progressReportDelayInMilliseconds": null,
-            "progressReportIntervalInMilliseconds": null,
-            "progressReportPositionInMilliseconds": 60000
+          "progressReportDelayInMilliseconds": null,
+          "progressReportIntervalInMilliseconds": null,
+          "progressReportPositionInMilliseconds": 60000
         },
-        "token": "TR-NM-4435786",
-        "urlPlayable": false,
-        "url": "clova:TR-NM-4435786"
+        "token": "TR-NM-17716562",
+        "url": "clova:TR-NM-17716562",
+        "urlPlayable": false
       }
     }
   }
@@ -840,6 +847,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 ### See also
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.StreamDeliver`](#StreamDeliver)
+* [음원 재생하기](/CIC/Guides/Implement_Client_Features.md#PlayAudioStream)
 
 {% if book.DocMeta.TargetReaderType == "Internal" %}
 ## SynchronizePlaybackState directive {#SynchronizePlaybackState}
@@ -887,7 +895,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 
 ### See also
 * [`AudioPlayer.ReportPlaybackState`](#ReportPlaybackState)
-* [음원 재생 상태 공유](#SharePlaybackState)
+* [음원 재생 상태 공유하기](/CIC/Guides/Implement_Client_Features.md#ShareAuidoPlaybackState)
 {% endif %}
 
 ## Shared objects
@@ -904,15 +912,15 @@ AudioPlayer API를 이용하여 이벤트 메시지나 지시 메시지를 보�
 | 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |
 |---------------|---------|-----------------------------|:-------------:|
 | `beginAtInMilliseconds`  | number | 재생을 시작할 지점. 단위는 밀리초이며, 이 값이 지정되면 클라이언트는 해당 오디오 스트림을 지정된 위치부터 재생해야 합니다. 이 값이 0이면 해당 스트림을 처음부터 재생해야 합니다.          | 필수/항상 |
-| `customData`             | string | 현재 음원과 관련하여 임의의 형식을 가지는 메타 데이터 정보. 특정 범주로 분류되거나 정의될 수 없는 스트리밍 정보는 이 필드에 포함되거나 입력되어야 합니다. 오디오 스트림 재생 문맥에 추가로 필요한 값을 서비스 제공자 임의대로 추가할 수 있습니다.<div class="danger"><p><strong>Caution!</strong></p><p>이 필드의 값을 클라이언트가 임의로 이용해서는 안되며 이는 문제를 발생시킬 수 있습니다. 또한, 이 필드 값은 오디오 재생 상태를 전달할 때 <a href="/CIC/References/Context_Objects.html#PlaybackState">PlaybackState 문맥 정보</a>의 <code>stream</code> 필드에 그대로 첨부되어야 합니다.</p></div> | 선택/조건부  |
+| `customData`             | string | 현재 음원과 관련하여 임의의 형식을 가지는 메타 데이터 정보. 특정 범주로 분류되거나 정의될 수 없는 스트리밍 정보는 이 필드에 포함되거나 입력되어야 합니다. 오디오 스트림 재생 문맥에 추가로 필요한 값을 서비스 제공자 임의대로 추가할 수 있습니다.<div class="danger"><p><strong>Caution!</strong></p><p>이 필드의 값을 클라이언트가 임의로 이용해서는 안되며 이는 문제를 발생시킬 수 있습니다. 또한, 이 필드 값은 오디오 재생 상태를 전달할 때 <a href="/CIC/References/Context_Objects.md#PlaybackState">PlaybackState 문맥 정보</a>의 <code>stream</code> 필드에 그대로 첨부되어야 합니다.</p></div> | 선택/조건부  |
 | `durationInMilliseconds` | number | 오디오 스트림의 재생 시간. 클라이언트는 `beginAtInMilliseconds` 필드에 지정된 재생 시작 시점부터 이 필드에 지정된 재생 시간만큼 해당 오디오 스트림을 탐색 및 재생할 수 있습니다. 예를 들면, `beginAtInMilliseconds` 필드의 값이 `10000`이고, 이 필드의 값이 `60000`이면 해당 오디오 스트림의 10초부터 70초까지의 구간을 재생 및 탐색할 수 있게 됩니다. 단위는 밀리 초입니다.   | 선택/조건부  |
-| `format`                 | string  | 미디어 포맷(MIME 타입). 이 필드를 통해 HLS(HTTP Live Streaming) 방식의 콘텐츠인지 구분할 수 있습니다. 다음과 같은 값을 가질 수 있습니다. 기본 값은 `"audio/mpeg"`입니다.<ul><li><code>"audio/mpeg"</code></li><li><code>"audio/mpegurl"</code></li><li><code> "audio/aac"</code></li><li><code>"application/vnd.apple.mpegurl"</code></li></ul> <div class="note"><p><strong>Note!</strong></p><p>HLS 방식으로 콘텐츠를 제공하려는 extension 개발자는 <a href="mailto:{{ book.ServiceEnv.ExtensionAdminEmail }}">{{ book.ServiceEnv.ExtensionAdminEmail }}</a>로 연락합니다.</p></div>   | 선택/조건부  |
+| `format`                 | string  | 미디어 포맷(MIME 타입). 이 필드를 통해 HLS(HTTP Live Streaming) 방식의 콘텐츠인지 구분할 수 있습니다. 다음과 같은 값을 가질 수 있습니다. 기본 값은 `"audio/mpeg"`입니다.<ul><li><code>"audio/mpeg"</code></li><li><code>"audio/mpegurl"</code></li><li><code>"audio/aac"</code></li><li><code>"application/vnd.apple.mpegurl"</code></li></ul> <div class="note"><p><strong>Note!</strong></p><p>HLS 방식으로 콘텐츠를 제공하려는 extension 개발자는 <a href="mailto:{{ book.ServiceEnv.ExtensionAdminEmail }}">{{ book.ServiceEnv.ExtensionAdminEmail }}</a>로 연락합니다.</p></div>   | 선택/조건부  |
 | `progressReport`         | object  | 재생 후 재생 상태 정보를 보고 받기 위해 보고 시간을 정해둔 객체                                                  | 선택/조건부 |
 | `progressReport.progressReportDelayInMilliseconds`    | number | 재생 시작 후 지정된 시간이 지났을 때 재생 상태 정보를 보고받기 위해 지정되는 값입니다. 단위는 밀리 초이며, 이 필드는 null 값을 가질 수 있습니다.  | 선택/조건부 |
 | `progressReport.progressReportIntervalInMilliseconds` | number | 재생 중 지정된 시간 간격으로 재생 상태 정보를 보고받기 위해 지정되는 값입니다. 단위는 밀리 초이며, 이 필드는 null 값을 가질 수 있습니다.        | 선택/조건부 |
 | `progressReport.progressReportPositionInMilliseconds` | number | 재생 중 지정된 시점을 지날 때마다 재생 상태 정보를 보고받기 위해 지정되는 값입니다. 단위는 밀리 초이며, 이 필드는 null 값을 가질 수 있습니다.    | 선택/조건부 |
 | `token`                  | string  | 오디오 스트림 token                                                                                   | 필수/항상 |
-| `url`                    | string  | 오디오 스트림 URL<div class="note"><p><strong>Note!</strong></p><p>제공하려는 오디오 콘텐츠는 <a href="/Design/Design_Guideline_For_Client_Hardware.html#SupportedAudioCompressionFormat">플랫폼이 지원하는 오디오 압축 포맷</a>이어야 합니다.</p></div>  | 필수/항상 |
+| `url`                    | string  | 오디오 스트림 URL<div class="note"><p><strong>Note!</strong></p><p>제공하려는 오디오 콘텐츠는 <a href="/Design/Design_Guideline_For_Client_Hardware.md#SupportedAudioCompressionFormat">플랫폼이 지원하는 오디오 압축 포맷</a>이어야 합니다.</p></div>  | 필수/항상 |
 | `urlPlayable`            | boolean | `url` 필드의 오디오 스트림 URL이 바로 재생 가능한 형태인지 구분하는 값. <ul><li><code>true</code>: 바로 재생이 가능한 형태의 URL</li><li><code>false</code>: 바로 재생이 불가능한 형태의 URL. <a href="#StreamRequested"><code>AudioPlayer.StreamRequested</code></a> 이벤트 메시지를 사용하여 오디오 스트림 정보를 추가로 요청해야 합니다.</li></ul>        | 필수/항상 |
 
 #### Remarks

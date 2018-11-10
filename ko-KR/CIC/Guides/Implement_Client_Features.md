@@ -3,12 +3,15 @@ CIC와 연동된 클라이언트에서 사용자가 사용하고자 하는 서�
 
 이 문서는 클라이언트 개발자가 알아야 할 내용을 다음과 같이 전달하고 있습니다.
 
-1. [위임된 사용자 요청 처리하기](#HandleDelegation)
-2. [알람 처리하기](#HandleAlerts)
+* [위임된 사용자 요청 처리하기](#HandleDelegation)
+* [알람 처리하기](#HandleAlerts)
+* [음원 재생 처리하기](/CIC/Guides/Implement_Client_Features.md#HandleAudioPlayback)
 
 {% include "/CIC/Guides/ImplementClientFeatures/Handle_Delegation.md" %}
 
 {% include "/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md" %}
+
+{% include "/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md" %}
 
 <div class="note">
 <p><strong>Note!</strong></p>
