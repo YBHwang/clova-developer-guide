@@ -7,6 +7,11 @@ CIC와 연동된 클라이언트에서 사용자가 사용하고자 하는 서�
 * [알람 처리하기](#HandleAlerts)
 * [음원 재생 처리하기](/CIC/Guides/Implement_Client_Features.md#HandleAudioPlayback)
 
+<div class="note">
+<p><strong>Note!</strong></p>
+<p>CIC의 인터페이스를 사용하여 클라이언트의 기능을 구현하는 가이드를 계속 추가할 예정입니다.</p>
+</div>
+
 {% include "/CIC/Guides/ImplementClientFeatures/Handle_Delegation.md" %}
 
 {% include "/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md" %}
