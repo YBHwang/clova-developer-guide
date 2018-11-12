@@ -23,6 +23,9 @@
 | DeviceControl      | [`BtConnect`](/CIC/References/CICInterface/DeviceControl.md#BtConnect)          | クライアントに、特定のBluetoothデバイスと接続するように指示します。                                       |
 | DeviceControl      | [`BtConnectByPINCode`](/CIC/References/CICInterface/DeviceControl.md#BtConnectByPINCode) | クライアントに、PINコードを要求したBluetoothデバイスと接続するように指示します。                      |
 | DeviceControl      | [`BtDisconnect`](/CIC/References/CICInterface/DeviceControl.md#BtDisconnect)    | クライアントに、特定のBluetoothデバイスとの接続を解除するように指示します。                                       |
+| DeviceControl      | [`BtDelete`](/CIC/References/CICInterface/DeviceControl.md#BtDelete)            | クライアントに、Bluetoothペアリングリストから特定のデバイスを削除するように指示します。                        |
+| DeviceControl      | [`BtPlay`](/CIC/References/CICInterface/DeviceControl.md#BtPlay)                | クライアントに、接続しているBluetoothデバイスでストリームを再生するように指示します。                          |
+| DeviceControl      | [`BtRescan`](/CIC/References/CICInterface/DeviceControl.md#BtRescan)            | クライアントに、Bluetoothデバイスを再スキャンするように指示します。                               |
 | DeviceControl      | [`BtStartPairing`](/CIC/References/CICInterface/DeviceControl.md#BtStartPairing) | クライアントに、Bluetoothペアリングを開始するように指示します。                                              |
 | DeviceControl      | [`BtStopPairing`](/CIC/References/CICInterface/DeviceControl.md#BtStopPairing)   | クライアントに、Bluetoothペアリングを解除するように指示します。                                              |
 | DeviceControl      | [`Decrease`](/CIC/References/CICInterface/DeviceControl.md#Decrease)             | クライアントに、スピーカーの音量または画面の明るさを、基本値だけ下げるように指示します。                            |

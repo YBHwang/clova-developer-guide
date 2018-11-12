@@ -3,7 +3,7 @@
 Here is an explanation of some extensions that are currently provided by Clova. As these extensions perform simple actions, these examples will be helpful when implementing your own extension.
 
 * [Magic Ball](#MagicBall)
-* [Rain Sound](RainSound)
+* [Rain Sound](#RainSound)
 * [Dice Drawer](#DiceDrawer)
 * [Coin Helper](#CoinHelper)
 
@@ -19,7 +19,7 @@ Magic Ball is an extension that returns a random response to a user's question f
 ### GitHub repository
 {{ book.ServiceEnv.GitHubBaseURLforExtensionExample }}/clova-extension-sample-magicball
 
-## Rain Sound {RainSound}
+## Rain Sound {#RainSound}
 
 Rain Sound is an extension that responds by making the client play the pre-recorded audio file (.mp3) upon user request.
 

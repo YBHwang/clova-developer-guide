@@ -2,7 +2,7 @@
 
 When CEK sends user request information to the extension, you must [define the interaction model](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel) in advance on how to analyze user utterances and which format to use for sending them. The interaction model is a schema that has standardized the requests to be received by the [custom extension](/CEK/Guides/Build_Custom_Extension.md).
 
-You can register the interaction model after [registering the extension](/DevConsole/Guides/CEK/Register_Extension.md) on the Clova developer console. In the CEK menu, press the **{{ book.DevConsole.cek_edit }}** button of the extension to register an interaction model as shown below.
+You can register the interaction model after [registering the extension](/DevConsole/Guides/CEK/Register_Extension.md) on the Clova Developer Center. In the CEK menu, press the **{{ book.DevConsole.cek_edit }}** button of the extension to register an interaction model as shown below.
 
 ![](/DevConsole/Resources/Images/DevConsole-Interaction_Model_Menu.png)
 
@@ -19,7 +19,7 @@ Register the [interaction model predefined](/Design/Design_Guideline_For_Extensi
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>Although you can add the required slot type after adding a custom intent, it is better to add the intent after adding the slot type due to the UI characteristics of the Clova developer console.</p>
+  <p>Although you can add the required slot type after adding a custom intent, it is better to add the intent after adding the slot type due to the UI characteristics of the Clova Developer Center.</p>
 </div>
 
 ## Adding a built-in slot type {#AddBuiltinSlotType}
@@ -76,7 +76,7 @@ Vegetable     Vegetable pizza       Veggie pizza       Vegetarian pizza
 Shrimp golden crust    Shrimp golden crust pizza       Shrimp gold-crust pizza       Shrimp gold-crust
 ```
 
-On the Clova developer console, the **upload** and **download** buttons are provided as follows: Press the **upload** button to upload the custom slot type predefined in the TSV file and press the **download** button to download the custom slot type currently being written on the Clova developer console as a TSV file.
+On the Clova Developer Center, the **upload** and **download** buttons are provided as follows: Press the **upload** button to upload the custom slot type predefined in the TSV file and press the **download** button to download the custom slot type currently being written on the Clova Developer Center as a TSV file.
 
 ![](/DevConsole/Resources/Images/DevConsole-Custom_Slot_Upload_and_Download_Button.png)
 
@@ -132,7 +132,7 @@ Get <pizzaAmount>one</pizzaAmount> <pizzaType>shrimp gold-crust pizza</pizzaType
 ...
 ```
 
-On the Clova developer console, the **upload** and **download** buttons are provided as follows: Press the **upload** button to upload the custom intent predefined in the TSV file and press the **download** button to download the custom intent currently being written on the Clova developer console as a TSV file.
+On the Clova Developer Center, the **upload** and **download** buttons are provided as follows: Press the **upload** button to upload the custom intent predefined in the TSV file and press the **download** button to download the custom intent currently being written on the Clova Developer Center as a TSV file.
 
 ![](/DevConsole/Resources/Images/DevConsole-Utterance_Example_Upload_and_Download_Button.png)
 

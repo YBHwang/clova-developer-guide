@@ -129,7 +129,7 @@ This object contains the airplane mode settings of a client device.
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
 | `actions[]`     | string array | A list of the [`DeviceControl`](/CIC/References/CICInterface/DeviceControl.md) APIs the client can support for airplane mode. Enter the actions that can be performed by the client from the action list.<ul><li>"TurnOff"</li><li>"TurnOn"</li></ul> | Required |
-| `state`         | string | Indicates the state of the airplane mode:<ul><li><code>"off"</code>: Airplane mode is off</li><li><code>"on"</code>: Airplane mode is on</li></ul> | Required |
+| `state`         | string | Indicates the state of the airplane mode:<ul><li><code>"off"</code>: Airplane mode is turned off</li><li><code>"on"</code>: Airplane mode is turned on</li></ul> | Required |
 
 #### Object example
 
@@ -200,16 +200,24 @@ This object contains the Bluetooth information including Bluetooth status and pa
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
 | `actions[]`          | string array | A list of the [`DeviceControl`](/CIC/References/CICInterface/DeviceControl.md) APIs the client can support for Bluetooth. Enter the actions that can be performed by the client from the action list. <ul><li><code>"TurnOff"</code></li><li><code>"TurnOn"</code></li><li><code>"BtConnect"</code></li><li><code>"BtConnectByPINCode"</code></li><li><code>"BtDisconnect"</code></li><li><code>"BtStartPairing"</code></li><li><code>"BtStopPairing"</code></li></ul> | Required |
-| `btlist[]`           | object array | The object array of information on the Bluetooth device that has a pairing history with the client.         | Required |
-| `btlist[].name`      | string       | The name of the Bluetooth device.                      | Required |
-| `btlist[].address`   | string       | The address of the Bluetooth device.                  | Required |
-| `btlist[].connected` | boolean      | Indicates whether the Bluetooth device is connected to the client device or not. <ul><li><code>true</code>: Connected</li><li><code>false</code>: Not connected</li></ul> | Required |
-| `btlist[].role`      | string       | The role of the Bluetooth device. <ul><li><code>"sink"</code></li><li><code>"source"</code></li></ul>  | Required |
-| `scanlist[]`         | object array | The object array of information on scanned Bluetooth devices.   | Required |
-| `scanlist[].name`    | string       | The name of the Bluetooth device.                      | Required |
-| `scanlist[].address` | string       | The address of the Bluetooth device.                  | Required |
-| `scanlist[].role`    | string       | The role of the Bluetooth device. <ul><li><code>"sink"</code></li><li><code>"source"</code></li></ul>  | Required |
-| `state`              | string       | Indicates the Bluetooth status. <ul><li><code>"off"</code>: Bluetooth is turned off</li><li><code>"on"</code>: Bluetooth is turned on</li></ul> | Required |
+| `btlist[]`              | object array | The object array of information on the Bluetooth device that has a pairing history with the client.         | Required |
+| `btlist[].name`         | string       | The name of the Bluetooth device.                      | Required |
+| `btlist[].address`      | string       | The address of the Bluetooth device.                  | Required |
+| `btlist[].connected`    | boolean      | Indicates whether the Bluetooth device is connected to the client device or not. <ul><li><code>true</code>: Connected</li><li><code>false</code>: Not connected</li></ul> | Required |
+| `btlist[].role`         | string       | Role of a client when connecting to the Bluetooth device.<ul><li><code>"sink"</code>: Role of receiving audio stream (mainly a speaker)</li><li><code>"source"</code>: Role of transmitting audio stream (sender of audio data)</li></ul> | Required |
+| `connecting`            | string       | Indicates whether the client is connected to a Bluetooth device. <ul><li><code>"on"</code>: Connected</li><li><code>"off"</code>: Not connected</li></ul> | Required |
+| `pairing`               | string       | Indicates whether the Bluetooth pairing mode is turned on. <ul><li><code>"on"</code>: Pairing mode is on</li><li><code>"off"</code>: Pairing mode is off</li></ul> | Required |
+| `playerInfo`            | object       | Object containing the information of music being played through the Bluetooth connection.  | Optional |
+| `playerInfo.albumTitle` | string       | Album title of the music being played over Bluetooth.                 | Optional |
+| `playerInfo.artistName` | string       | Artist of the music being played over Bluetooth.                 | Optional |
+| `playerInfo.state`      | string       | Playback state of the music being played over Bluetooth. <ul><li><code>"paused"</code>: Paused</li><li><code>"playing"</code>: Playing</li><li><code>"stopped"</code>: Stopped</li></ul>:                  | Optional |
+| `playerInfo.trackTitle` | string       | Title of the music being played over Bluetooth.                     | Optional |
+| `scanlist[]`            | object array | The object array of information on scanned Bluetooth devices.   | Required |
+| `scanlist[].name`       | string       | The name of the Bluetooth device.                      | Required |
+| `scanlist[].address`    | string       | The address of the Bluetooth device.                  | Required |
+| `scanlist[].role`       | string       | Role of a client when connecting to the Bluetooth device.<ul><li><code>"sink"</code>: Role of receiving audio stream (mainly a speaker)</li><li><code>"source"</code>: Role of transmitting audio stream (sender of audio data)</li></ul> | Required |
+| `scanning`              | string       | Indicates whether the Bluetooth scanning mode is on. <ul><li><code>"on"</code>: Scanning mode is on</li><li><code>"off"</code>: Scanning mode is off</li></ul> | Required |
+| `state`                 | string       | Indicates the Bluetooth status. <ul><li><code>"off"</code>: Bluetooth is turned off</li><li><code>"on"</code>: Bluetooth is turned on</li></ul> | Required |
 
 #### Object example
 
@@ -258,7 +266,10 @@ This object contains the Bluetooth information including Bluetooth status and pa
                 "role": "source"
             }
         ],
-        "state": "on"
+        "state": "on",
+        "pairing": "on",
+        "scanning": "on",
+        "connecting": "off"
     },
     ...
   }
@@ -347,7 +358,7 @@ EnergySavingModeInfoObject contains the energy saving mode of a client device.
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
 | `actions[]`          | string array | A list of the [`DeviceControl`](/CIC/References/CICInterface/DeviceControl.md) APIs the client can support for power saving mode. Enter the actions that can be performed by the client from the action list. <ul><li><code>"TurnOff"</code></li><li><code>"TurnOn"</code></li></ul> | Required |
-| `state`              | string       | Indicates the state of the power saving mode. <ul><li><code>"off"</code>: The power saving mode is turned off</li><li><code>"on"</code>: The power saving mode is turned on</li></ul> | Required |
+| `state`              | string       | Indicates the state of the power saving mode. <ul><li><code>"off"</code>: Power saving mode is turned off</li><li><code>"on"</code>: Power saving mode is turned on</li></ul> | Required |
 
 #### Object example
 
@@ -384,7 +395,7 @@ This object contains the flashlight settings of a client device.
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
 | `actions[]`          | string array | A list of the [`DeviceControl`](/CIC/References/CICInterface/DeviceControl.md) APIs the client can support for the flashlight. Enter the actions that can be performed by the client from the action list. <ul><li><code>"TurnOff"</code></li><li><code>"TurnOn"</code></li></ul> | Required |
-| `state`              | string       | Indicates the state of the flashlight. <ul><li><code>"off"</code>: Flashlight is off</li><li><code>"on"</code>: Flashlight is on</li></ul> | Required |
+| `state`              | string       | Indicates the state of the flashlight. <ul><li><code>"off"</code>: Flashlight is turned off</li><li><code>"on"</code>: Flashlight is turned on</li></ul> | Required |
 
 #### Object example
 

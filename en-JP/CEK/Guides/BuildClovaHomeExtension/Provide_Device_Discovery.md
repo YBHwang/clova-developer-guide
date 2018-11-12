@@ -1,10 +1,10 @@
 ## Device discovery {#ProvideDeviceDiscovery}
 
-If the user sets to use the IoT service, a client app or an app paired with a client device must provide the IoT device list registered to the user account. Clova Home extension receives a [`DiscoverAppliancesRequest`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesRequest) message from CEK (HTTP request). Then the Clova Home extension must import the IoT device list registered to the user account from the IoT service using the access token of the user account and respond using the [`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesResponse) message (HTTP response). For more information on the messages exchanged between CEK and Clova Home extension, see [Clova Home extension messages](/CEK/References/CEK_API.md#ClovaHomeExtMessage).
+If the user sets to use the IoT service, a client app or an app paired with a client device must provide the IoT device list registered to the user account. Clova Home Extension receives a [`DiscoverAppliancesRequest`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesRequest) message from CEK (HTTP request). Then the Clova Home Extension must import the IoT device list registered to the user account from the IoT service using the access token of the user account and respond using the [`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesResponse) message (HTTP response). For more information on the messages exchanged between CEK and Clova Home Extension, see [Clova Home Extension messages](/CEK/References/CEK_API.md#ClovaHomeExtMessage).
 
 ![](/CEK/Resources/Images/CEK_Clova_Home_Extension_Sequence_Diagram.png)
 
-Below is an example of the [`DiscoverAppliancesRequest`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesRequest) message received by a Clova Home extension.
+Below is an example of the [`DiscoverAppliancesRequest`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesRequest) message received by a Clova Home Extension.
 {% raw %}
 ```json
 {
@@ -21,9 +21,9 @@ Below is an example of the [`DiscoverAppliancesRequest`](/CEK/References/ClovaHo
 ```
 {% endraw %}
 
-After receiving the above message, the Clova Home extension must identify the user account using the previously obtained access token and return the device list registered in that account using the [`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesResponse) message. The device list includes information, such as device identifier, name, type, availability (online/offline), and supported actions (`actions`) for each device.
+After receiving the above message, the Clova Home Extension must identify the user account using the previously obtained access token and return the device list registered in that account using the [`DiscoverAppliancesResponse`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesResponse) message. The device list includes information, such as device identifier, name, type, availability (online/offline), and supported actions (`actions`) for each device.
 
-Below is an example of the Clova Home extension responding to CEK using the `DiscoverAppliancesResponse` message.
+Below is an example of the Clova Home Extension responding to CEK using the `DiscoverAppliancesResponse` message.
 
 {% raw %}
 ```json

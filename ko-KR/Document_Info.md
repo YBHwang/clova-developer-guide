@@ -21,10 +21,32 @@
   </thead>
   <tbody>
     <tr>
+      <td>v3.43.0</td><td>미적용</td><td>2018-11-09</td>
+      <td>
+        <ul>
+          <li>[CIC] <a href="/CIC/Guides/Implement_Client_Features.html">클라이언트 기능 구현하기</a>에 음원 재생 및 재생 제어와 관련한 <a href="/CIC/Guides/Implement_Client_Features.html#HandleAudioPlayback">음원 재생 처리하기</a> 가이드 추가(다음과 같은 내용 포함)
+            <ul>
+              <li><a href="/CIC/Guides/Implement_Client_Features.html#PlayAudioStream">음원 재생하기</a></li>
+              <li><a href="/CIC/Guides/Implement_Client_Features.html#ReportAudioPlaybackProgress">음원 재생 경과 보고하기</a></li>
+              <li><a href="/CIC/Guides/Implement_Client_Features.html#ControlAudioPlayback">음원 재생 제어하기</a></li>
+              <li><a href="/CIC/Guides/Implement_Client_Features.html#ShareAuidoPlaybackState">음원 재생 상태 공유하기</a></li>
+            </ul>
+          </li>
+          <li>[CEK] Clova Home extension API <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">공유 객체</a> <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a>의 Remarks에 다음의 내용을 업데이트함
+            <ul>
+              <li>모든 기기 타입에 GetDeviceState 동작 추가</li>
+              <li>오븐(OVEN) 타입에 GetRemainingTime 동작 추가</li>
+              <li>의류 건조기(CLOTHESDRYER) 타입에 빠져있던 GetRemainingTime 동작 추가</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.42.0</td><td>미적용</td><td>2018-10-20</td>
       <td>
         <ul>
-          <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> 네임스페이스에 블루투스 기기를 재탐지(rescan)하거나 블루투스 기기의 제거하게 하는 <a href="/CIC/References/CICInterface/DeviceControl.html#BtDelete">DeviceControl.BtDelete</a>와 <a href="/CIC/References/CICInterface/DeviceControl.htmlBtRescan">DeviceControl.BtRescan</a> 지시 메시지 추가</li>
+          <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> 네임스페이스에 블루투스 기기를 재탐지(rescan)하거나 블루투스 기기의 제거하게 하는 <a href="/CIC/References/CICInterface/DeviceControl.html#BtDelete">DeviceControl.BtDelete</a>와 <a href="/CIC/References/CICInterface/DeviceControl.html#BtRescan">DeviceControl.BtRescan</a> 지시 메시지 추가</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> 네임스페이스에 블루투스 기기를 통해 음악을 재생하도록 하는 <a href="/CIC/References/CICInterface/DeviceControl.html#BtPlay">DeviceControl.BtPlay</a> 지시 메시지 추가</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> 네임스페이스의 <a href="/CIC/References/CICInterface/DeviceControl.html#BtConnect">DeviceControl.BtConnect</a>와 <a href="/CIC/References/CICInterface/DeviceControl.html#BtDisconnect">DeviceControl.BtDisconnect</a> 지시 메시지에 필드를 추가하여 특정 역할을 가진 기기나 특정 기기를 연결하거나 연결 해지할 수 있게 함</li>
           <li>[CIC] <a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a> 맥락 객체의 <a href="/CIC/References/Context_Objects.html#BluetoothInfoObject">BluetoothInfoObject</a>에 connecting, pairing, playerinfo, scanning 필드를 추가하여 클라이언트의 블루투스 관련 상태 정보를 추가함</li>

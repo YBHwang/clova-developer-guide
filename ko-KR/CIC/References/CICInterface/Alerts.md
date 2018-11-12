@@ -19,7 +19,7 @@ Alerts 인터페이스는 클라이언트에서 알람을 등록/수정/제거/�
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>알람이 등록/수정/제거/시작/중지되는 구조는 <a href="/CIC/Guides/Implement_Client_Features.md#HandleAlerts">알람 처라하기</a>를 참조합니다.</p>
+  <p>알람이 등록/수정/제거/시작/중지되는 구조는 <a href="/CIC/Guides/Implement_Client_Features.md#HandleAlerts">알람 처리하기</a>를 참조합니다.</p>
 </div>
 
 Alerts가 제공하는 이벤트 메시지와 지시 메시지는 다음과 같습니다.
@@ -99,6 +99,7 @@ Alerts가 제공하는 이벤트 메시지와 지시 메시지는 다음과 같�
 
 ### See also
 * [`Alerts.AlertStopped`](#AlertStopped)
+* [알람 시작하기](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#RingAlert)
 
 ## AlertStopped event {#AlertStopped}
 
@@ -150,6 +151,7 @@ Alerts가 제공하는 이벤트 메시지와 지시 메시지는 다음과 같�
 
 ### See also
 * [`Alerts.AlertStarted`](#AlertStarted)
+* [알람 중지하기](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#StopAlert)
 
 ## DeleteAlert directive {#DeleteAlert}
 
@@ -190,6 +192,7 @@ Alerts가 제공하는 이벤트 메시지와 지시 메시지는 다음과 같�
 ### See also
 * [`Alerts.DeleteAlertFailed`](#DeleteAlertFailed)
 * [`Alerts.DeleteAlertSucceeded`](#DeleteAlertSucceeded)
+* [알람 수정 또는 삭제하기](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#EditAlert)
 
 ## DeleteAlertFailed event {#DeleteAlertFailed}
 
@@ -240,6 +243,7 @@ Alerts가 제공하는 이벤트 메시지와 지시 메시지는 다음과 같�
 ### See also
 * [`Alerts.DeleteAlert`](#DeleteAlert)
 * [`Alerts.DeleteAlertSucceeded`](#DeleteAlertSucceeded)
+* [알람 수정 또는 삭제하기](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#EditAlert)
 
 ## DeleteAlertSucceeded event {#DeleteAlertSucceeded}
 
@@ -290,6 +294,7 @@ Alerts가 제공하는 이벤트 메시지와 지시 메시지는 다음과 같�
 ### See also
 * [`Alerts.DeleteAlert`](#DeleteAlert)
 * [`Alerts.DeleteAlertFailed`](#DeleteAlertFailed)
+* [알람 수정 또는 삭제하기](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#EditAlert)
 
 ## RequestAlertStop event {#RequestAlertStop}
 
@@ -342,6 +347,7 @@ Alerts가 제공하는 이벤트 메시지와 지시 메시지는 다음과 같�
 
 ### See also
 * [`Alerts.StopAlert`](#StopAlert)
+* [알람 중지하기](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#StopAlert)
 
 ## RequestSynchronizeAlert event {#RequestSynchronizeAlert}
 
@@ -383,6 +389,7 @@ Alerts가 제공하는 이벤트 메시지와 지시 메시지는 다음과 같�
 
 ### See also
 * [`System.SynchronizeAlert`](/CIC/References/CICInterface/Alerts.md#SynchronizeAlert)
+* [알람 동기화하기](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#SyncAlert)
 
 ## SetAlert directive {#SetAlert}
 
@@ -450,6 +457,8 @@ Alerts가 제공하는 이벤트 메시지와 지시 메시지는 다음과 같�
 ### See also
 * [`Alerts.SetAlertFailed`](#SetAlertFailed)
 * [`Alerts.SetAlertSucceeded`](#SetAlertSucceeded)
+* [알람 등록하기](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#RegisterAlert)
+* [알람 수정 또는 삭제하기](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#EditAlert)
 
 ## SetAlertFailed event {#SetAlertFailed}
 
@@ -500,7 +509,8 @@ Alerts가 제공하는 이벤트 메시지와 지시 메시지는 다음과 같�
 ### See also
 * [`Alerts.SetAlert`](#SetAlert)
 * [`Alerts.SetAlertSucceeded`](#SetAlertSucceeded)
-
+* [알람 등록하기](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#RegisterAlert)
+* [알람 수정 또는 삭제하기](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#EditAlert)
 
 ## SetAlertSucceeded event {#SetAlertSucceeded}
 
@@ -551,6 +561,8 @@ Alerts가 제공하는 이벤트 메시지와 지시 메시지는 다음과 같�
 ### See also
 * [`Alerts.SetAlert`](#SetAlert)
 * [`Alerts.SetAlertFailed`](#SetAlertFailed)
+* [알람 등록하기](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#RegisterAlert)
+* [알람 수정 또는 삭제하기](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#EditAlert)
 
 ## StopAlert directive {#StopAlert}
 
@@ -588,6 +600,7 @@ Alerts가 제공하는 이벤트 메시지와 지시 메시지는 다음과 같�
 
 ### See also
 * [`Alerts.AlertStopped`](#AlertStopped)
+* [알람 중지하기](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#StopAlert)
 
 ## SynchronizeAlert directive {#SynchronizeAlert}
 클라이언트에게 `payload`에 있는 사용자의 알람 데이터를 동기화하도록 지시합니다. 클라이언트는 CIC로부터 전달된 데이터에 맞게 클라이언트에 설정된 알람 값을 변경해야 합니다.
@@ -644,3 +657,4 @@ Alerts가 제공하는 이벤트 메시지와 지시 메시지는 다음과 같�
 
 ### See also
 * [`Alerts.RequestSynchronizeAlert`](#RequestSynchronizeAlert)
+* [알람 동기화하기](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#SyncAlert)

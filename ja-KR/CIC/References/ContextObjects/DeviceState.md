@@ -200,16 +200,24 @@
 | フィールド名       | データ型    | 説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `actions[]`          | string array | Bluetooth接続に関連して実行できる[`DeviceControl`](/CIC/References/CICInterface/DeviceControl.md)APIのリスト。次のリストのうち、クライアントデバイスが実際に実行できるアクションを入力します。<ul><li><code>"TurnOff"</code></li><li><code>"TurnOn"</code></li><li><code>"BtConnect"</code></li><li><code>"BtConnectByPINCode"</code></li><li><code>"BtDisconnect"</code></li><li><code>"BtStartPairing"</code></li><li><code>"BtStopPairing"</code></li></ul> |  |
-| `btlist[]`           | object array | ペアリングされたことがあるBluetoothデバイスの情報を持つオブジェクト配列         |  |
-| `btlist[].name`      | string       | Bluetoothデバイスの名前                      |  |
-| `btlist[].address`   | string       | Bluetoothデバイスのデバイスアドレス                  |  |
-| `btlist[].connected` | boolean      | Bluetoothデバイスとの接続状態。<ul><li><code>true</code>：接続している</li><li><code>false</code>：接続していない</li></ul> |  |
-| `btlist[].role`      | string       | Bluetoothデバイスのロール<ul><li><code>"sink"</code></li><li><code>"source"</code></li></ul>  |  |
-| `scanlist[]`         | object array | スキャンされたBluetoothデバイスの情報を持つオブジェクト配列   |  |
-| `scanlist[].name`    | string       | Bluetoothデバイスの名前                      |  |
-| `scanlist[].address` | string       | Bluetoothデバイスのデバイスアドレス                  |  |
-| `scanlist[].role`    | string       | Bluetoothデバイスのロール<ul><li><code>"sink"</code></li><li><code>"source"</code></li></ul>  |  |
-| `state`              | string       | Bluetoothのオン/オフ状態<ul><li><code>"off"</code>：オフになっている</li><li><code>"on"</code>：オンになっている</li></ul> |  |
+| `btlist[]`              | object array | ペアリングされたことがあるBluetoothデバイスの情報を持つオブジェクト配列         |  |
+| `btlist[].name`         | string       | Bluetoothデバイスの名前                      |  |
+| `btlist[].address`      | string       | Bluetoothデバイスのデバイスアドレス                  |  |
+| `btlist[].connected`    | boolean      | Bluetoothデバイスとの接続状態。<ul><li><code>true</code>：接続している</li><li><code>false</code>：接続していない</li></ul> |  |
+| `btlist[].role`         | string       | そのBluetoothデバイスと接続するときのクライアントの役割。<ul><li><code>"sink"</code>：オーディオストリームを受信する役割(主にスピーカー)</li><li><code>"source"</code>：オーディオストリームを送信する役割(ストリームデータの送信者)</li></ul> |  |
+| `connecting`            | string       | Bluetoothデバイスと接続しているかどうかを示す値。<ul><li><code>"on"</code>：接続している</li><li><code>"off"</code>：接続していない</li></ul> |  |
+| `pairing`               | string       | Bluetoothペアリングモードの状態を示します。<ul><li><code>"on"</code>：ペアリングモードがオンになっている</li><li><code>"off"</code>：ペアリングモードがオフになっている</li></ul> |  |
+| `playerInfo`            | object       | Bluetooth接続で再生されているストリームの情報を持つオブジェクト  | 任意 |
+| `playerInfo.albumTitle` | string       | Bluetoothで再生されているストリームのアルバムのタイトル                 | 任意 |
+| `playerInfo.artistName` | string       | Bluetoothで再生されているストリームのアーティスト名                 | 任意 |
+| `playerInfo.state`      | string       | Bluetoothで再生されているストリームの再生状態。<ul><li><code>"paused"</code>：再生が一時停止されている</li><li><code>"playing"</code>：再生中</li><li><code>"stopped"</code>：再生が停止されている</li></ul>                  | 任意 |
+| `playerInfo.trackTitle` | string       | Bluetoothで再生されているストリームの曲名                     | 任意 |
+| `scanlist[]`            | object array | スキャンされたBluetoothデバイスの情報を持つオブジェクト配列   |  |
+| `scanlist[].name`       | string       | Bluetoothデバイスの名前                      |  |
+| `scanlist[].address`    | string       | Bluetoothデバイスのデバイスアドレス                  |  |
+| `scanlist[].role`       | string       | そのBluetoothデバイスと接続するときのクライアントの役割。<ul><li><code>"sink"</code>：オーディオストリームを受信する役割(主にスピーカー)</li><li><code>"source"</code>：オーディオストリームを送信する役割(ストリームデータの送信者)</li></ul> |  |
+| `scanning`              | string       | Bluetoothスキャンモードの状態を示す値。<ul><li><code>"on"</code>：スキャンモードがオンになっている</li><li><code>"off"</code>：スキャンモードがオフになっている</li></ul> |  |
+| `state`                 | string       | Bluetoothのオン/オフ状態<ul><li><code>"off"</code>：オフになっている</li><li><code>"on"</code>：オンになっている</li></ul> |  |
 
 #### Object example
 
@@ -258,7 +266,10 @@
                 "role": "source"
             }
         ],
-        "state": "on"
+        "state": "on",
+        "pairing": "on",
+        "scanning": "on",
+        "connecting": "off"
     },
     ...
   }

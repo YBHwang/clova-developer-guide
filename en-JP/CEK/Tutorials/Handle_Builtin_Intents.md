@@ -14,7 +14,7 @@ To handle a help request or undo an action request from the user, you can use th
 
 The process of handling built-in intents is as follows:
 * Step 1. Implement built-in intent processing (on the extension server)
-* Step 2. Test the built-in intent operation (on the Clova developer console)
+* Step 2. Test the built-in intent operation (on the Clova Developer Center)
 
 ## Step 1. Implementing built-in intent processing {#Step1}
 {% include "/CEK/Tutorials/HandleBuiltinIntents/Implement_Builtin_Handler.md" %}

@@ -97,7 +97,7 @@ An interaction model in Clova is a set of rules to convert the voice user reques
 
 ![](/Design/Resources/Images/Extension_Design-Interaction_Model_Analysis_Diagram.png)
 
-Before defining the interaction model in the Clova developer console, there is a need to understand and design the model first. If the interaction model is registered in the Clova developer console without such a process, the task efficiency may drop or the user requests may not be carried out as intended. In order to make an interaction model that accurately identifies the real intention of users; you must first understand the following content before applying it into creating an interaction model.
+Before defining the interaction model in the Clova Developer Center, there is a need to understand and design the model first. If the interaction model is registered in the Clova Developer Center without such a process, the task efficiency may drop or the user requests may not be carried out as intended. In order to make an interaction model that accurately identifies the real intention of users; you must first understand the following content before applying it into creating an interaction model.
 
 * [Intent](#Intent)
 * [Slot](#Slot)
@@ -168,7 +168,7 @@ The built-in slot type is an information type pre-defined by Clova which defines
 | `CLOVA.RELATIVETIME`  | Information indicating relative time expressions. (e.g.: "From now on," "Later," "In a bit," "Just now," "Earlier") |
 | `CLOVA.UNIT`          | Information indicating unit expressions. (e.g.: "374 square meters," "100 MB," "25 miles") |
 | `CLOVA.ORDER`        | Information indicating sequencing expressions. (e.g.: "Next," "Front," "Before," "Last," "This," "Previous") |
-| `CLOVA.KO_ADDRESS_[Unit for administrative district]` | This information indicates the place names that are called according to the domestic unit of administrative districts. You can find the unit of administrative districts provided by Clova in the Clova developer console. |
+| `CLOVA.KO_ADDRESS_[Unit for administrative district]` | This information indicates the place names that are called according to the domestic unit of administrative districts. You can find the unit of administrative districts provided by Clova in the Clova Developer Center. |
 | `CLOVA.WORLD_COUNTRY` | Information indicating worldwide country names. (e.g.: "Ghana," "Japan," "Korea," "France") |
 | `CLOVA.WORLD_CITY`   | Information indicating worldwide city names. (e.g.: "New York," "Paris," "London") |
 | `CLOVA.CURRENCY`      | Information indicating currency. (e.g.: "Yuan," "Yen," "Dollar," "Russian money," "British currency") |
@@ -253,7 +253,7 @@ Please get <pizzaAmount>four</pizzaAmount> tasty <pizzaType>cheese pizzas</pizza
 </div>
 
 
-If you [register the interaction model] (/DevConsole/Guides/CEK/Register_Interaction_Model.md) as defined above using the [Clova developer console] (/DevConsole/ClovaDevConsole_Overview.md), the [registered custom extension] (/DevConsole/Guides/CEK/Register_Extension.md) will receive the following JSON message.
+If you [register the interaction model] (/DevConsole/Guides/CEK/Register_Interaction_Model.md) as defined above using the [Clova Developer Center] (/DevConsole/ClovaDevConsole_Overview.md), the [registered custom extension] (/DevConsole/Guides/CEK/Register_Extension.md) will receive the following JSON message.
 
 {% raw %}
 

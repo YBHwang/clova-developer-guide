@@ -56,6 +56,9 @@
           <li>가이드</li>
           <ul>
             <li><a href="/CIC/Guides/Interact_with_CIC.md">CIC 연동하기</a></li>
+            <li><a href="/CIC/Guides/Implement_Client_Features.md#HandleDelegation">위임된 사용자 요청 처리하기</a></li>
+            <li><a href="/CIC/Guides/Implement_Client_Features.md#HandleAlerts">알람 처리하기</a></li>
+            <li><a href="/CIC/Guides/Implement_Client_Features.md#PlayAudioStream">음원 재생 처리하기</a></li>
           </ul>
           <li>레퍼런스</li>
           <ul>
