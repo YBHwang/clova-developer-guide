@@ -208,50 +208,50 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 
 | applianceTypes | 설명         | 허용되는 actions                                  |
 |----------------|-------------|-------------------------------------------------|
-| `"AIRCONDITIONER"`  | 냉난방기 타입         | DecrementFanSpeed, DecrementTargetTemperature, GetCurrentTemperature, GetTargetTemperature, HealthCheck, IncrementFanSpeed, IncrementTargetTemperature, SetFanSpeed, SetMode, SetTargetTemperature, TurnOff, TurnOn               |
-| `"AIRPURIFIER"`     | 공기청정기 타입        | DecrementFanSpeed, GetAirQuality, GetFineDust, GetUltraFineDust, HealthCheck, IncrementFanSpeed, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn    |
-| `"AIRSENSOR"`       | 공기질 측정기 타입     | GetAirQuality, GetCurrentTemperature, GetFineDust, GetHumidity, GetUltraFineDust, HealthCheck                                     |
-| `"BIDET"`           | 비데 타입            | Close, GetDeviceState, GetExpendableState, HealthCheck, Open, TurnOff, TurnOn                                                     |
-| `"BODYWEIGHTSCALE"` | 체중계 타입           | GetDeviceState, HealthCheck                                                                                                       |
-| `"CLOTHESCAREMACHINE"` | 의류 관리기 타입    | GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                          |
-| `"CLOTHESDRYER"`    | 의류 건조기 타입       | GetDeviceState, GetPhase, HealthCheck, TurnOff, TurnOn                                                                            |
-| `"CLOTHESWASHER"`   | 의류 세탁기 타입       | GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                          |
-| `"DEHUMIDIFIER"`    | 제습기 타입           | GetCurrentTemperature, GetHumidity, HealthCheck, SetFanSpeed, TurnOff, TurnOn                                                     |
-| `"DISHWASHER"`      | 식기 세척기 타입       | GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                          |
-| `"ELECTRICKETTLE"`  | 전기 주전자 타입       | GetCurrentTemperature, HealthCheck, TurnOff, TurnOn                                                                               |
-| `"ELECTRICTOOTHBRUSH"` | 전동 칫솔 타입     | GetDeviceState, HealthCheck                                                                                                       |
-| `"FAN"`             | 선풍기 타입           | HealthCheck, SetMode, TurnOff, TurnOn                                                                                             |
-| `"HEATER"`          | 히터 타입            | DecrementTargetTemperature, GetCurrentTemperature, GetTargetTemperature, HealthCheck, IncrementTargetTemperature, TurnOff, TurnOn |
-| `"HUMIDIFIER"`      | 가습기 타입           | GetCurrentTemperature, GetHumidity, HealthCheck, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn                               |
-| `"KIMCHIREFRIGERATOR"` | 김치 냉장고 타입    | GetDeviceState, HealthCheck                                                                                                       |
-| `"LIGHT"`           | 스마트 조명 기기 타입   | DecrementBrightness, DecrementVolume HealthCheck, IncrementBrightness, IncrementVolume SetBrightness, SetColor, SetColorTemperature, SetMode, TurnOff, TurnOn            |
-| `"MASSAGECHAIR"`    | 안마 의자 타입        | DecrementIntensityLevel, HealthCheck, IncrementIntensityLevel, TurnOff, TurnOn                                                     |
-| `"MICROWAVE"`       | 전자 레인지 타입      | GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                                      |
-| `"MOTIONSENSOR"`    | 동작 감지 센서 타입    | GetDeviceState, HealthCheck                                                                                                         |
-| `"OPENCLOSESENSOR"` | 열림 감지 센서 타입    | GetCloseTime, GetDeviceState, GetOpenState, GetOpenTime, HealthCheck                                                                |
-| `"OVEN"`            | 오븐 타입            | GetDeviceState, HealthCheck                                                                                                         |
-| `"POWERSTRIP"`      | 멀티 탭 타입         | GetConsumption, GetEstimateBill, GetProgressiveTaxBracket, HealthCheck, TurnOff, TurnOn                                             |
-| `"PURIFIER"`        | 정수기 타입          | GetDeviceState, GetExpendableState, HealthCheck, ReleaseMode, SetMode, SetTargetTemperature                                         |
-| `"RANGE"`           | 레인지 타입          | GetDeviceState, HealthCheck                                                                                                         |
-| `"RANGEHOOD"`       | 레인지 후드 타입      | HealthCheck, TurnOff, TurnOn                                                                                                        |
-| `"REFRIGERATOR"`    | 냉장고 타입          | GetDeviceState, HealthCheck, ReleaseMode, SetMode, SetTargetTemperature                                                             |
+| `"AIRCONDITIONER"`  | 냉난방기 타입         | DecrementFanSpeed, DecrementTargetTemperature, GetCurrentTemperature, GetDeviceState, GetTargetTemperature, HealthCheck, IncrementFanSpeed, IncrementTargetTemperature, SetFanSpeed, SetMode, SetTargetTemperature, TurnOff, TurnOn               |
+| `"AIRPURIFIER"`     | 공기청정기 타입        | DecrementFanSpeed, GetAirQuality, GetDeviceState, GetFineDust, GetUltraFineDust, HealthCheck, IncrementFanSpeed, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn  |
+| `"AIRSENSOR"`       | 공기질 측정기 타입     | GetAirQuality, GetCurrentTemperature, GetDeviceState, GetFineDust, GetHumidity, GetUltraFineDust, HealthCheck                                     |
+| `"BIDET"`           | 비데 타입            | Close, GetDeviceState, GetExpendableState, HealthCheck, Open, TurnOff, TurnOn                                                                     |
+| `"BODYWEIGHTSCALE"` | 체중계 타입           | GetDeviceState, HealthCheck                                                                                                                       |
+| `"CLOTHESCAREMACHINE"` | 의류 관리기 타입    | GetDeviceState, GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                          |
+| `"CLOTHESDRYER"`    | 의류 건조기 타입       | GetDeviceState, GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                          |
+| `"CLOTHESWASHER"`   | 의류 세탁기 타입       | GetDeviceState, GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                          |
+| `"DEHUMIDIFIER"`    | 제습기 타입           | GetCurrentTemperature, GetDeviceState, GetHumidity, HealthCheck, SetFanSpeed, TurnOff, TurnOn                                                     |
+| `"DISHWASHER"`      | 식기 세척기 타입       | GetDeviceState, GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                          |
+| `"ELECTRICKETTLE"`  | 전기 주전자 타입       | GetCurrentTemperature, GetDeviceState, HealthCheck, TurnOff, TurnOn                                                                               |
+| `"ELECTRICTOOTHBRUSH"` | 전동 칫솔 타입     | GetDeviceState, HealthCheck                                                                                                                        |
+| `"FAN"`             | 선풍기 타입           | GetDeviceState, HealthCheck, SetMode, TurnOff, TurnOn                                                                                             |
+| `"HEATER"`          | 히터 타입            | DecrementTargetTemperature, GetCurrentTemperature, GetDeviceState, GetTargetTemperature, HealthCheck, IncrementTargetTemperature, TurnOff, TurnOn |
+| `"HUMIDIFIER"`      | 가습기 타입           | GetCurrentTemperature, GetDeviceState, GetHumidity, HealthCheck, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn                               |
+| `"KIMCHIREFRIGERATOR"` | 김치 냉장고 타입    | GetDeviceState, HealthCheck                                                                                                                       |
+| `"LIGHT"`           | 스마트 조명 기기 타입   | DecrementBrightness, DecrementVolume HealthCheck, GetDeviceState, IncrementBrightness, IncrementVolume SetBrightness, SetColor, SetColorTemperature, SetMode, TurnOff, TurnOn            |
+| `"MASSAGECHAIR"`    | 안마 의자 타입        | DecrementIntensityLevel, GetDeviceState, HealthCheck, IncrementIntensityLevel, TurnOff, TurnOn                                                     |
+| `"MICROWAVE"`       | 전자 레인지 타입      | GetDeviceState, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                                      |
+| `"MOTIONSENSOR"`    | 동작 감지 센서 타입    | GetDeviceState, HealthCheck                                                                                                                        |
+| `"OPENCLOSESENSOR"` | 열림 감지 센서 타입    | GetCloseTime, GetDeviceState, GetOpenState, GetOpenTime, HealthCheck                                                                               |
+| `"OVEN"`            | 오븐 타입            | GetDeviceState, GetRemainingTime, HealthCheck                                                                                                      |
+| `"POWERSTRIP"`      | 멀티 탭 타입         | GetConsumption, GetDeviceState, GetEstimateBill, GetProgressiveTaxBracket, HealthCheck, TurnOff, TurnOn                                             |
+| `"PURIFIER"`        | 정수기 타입          | GetDeviceState, GetExpendableState, HealthCheck, ReleaseMode, SetMode, SetTargetTemperature                                                         |
+| `"RANGE"`           | 레인지 타입          | GetDeviceState, HealthCheck                                                                                                                         |
+| `"RANGEHOOD"`       | 레인지 후드 타입      | GetDeviceState, HealthCheck, TurnOff, TurnOn                                                                                                        |
+| `"REFRIGERATOR"`    | 냉장고 타입          | GetDeviceState, HealthCheck, ReleaseMode, SetMode, SetTargetTemperature                                                                             |
 | `"RICECOOKER"`      | 전기 밥솥 타입        | GetCleaningCycle, GetDeviceState, GetExpendableState, GetKeepWarmTime, GetPhase, GetRemainingTime, HealthCheck, ReleaseMode, SetMode, Stop, TurnOff, TurnOn          |
-| `"ROBOTVACUUM"`     | 로봇 청소기 타입       | Charge, GetBatteryInfo, HealthCheck, TurnOff, TurnOn                                                                               |
-| `"SETTOPBOX"`       | TV 셋톱 박스 타입     | DecrementChannel, DecrementVolume, HealthCheck, IncrementChannel, IncrementVolume, Mute, SetChannel, SetChannelByName, TurnOff, TurnOn, Unmute |
-| `"SLEEPINGMONITOR"` | 수면 센서 타입        | GetAsleepDuration, GetAwakeDuration, GetDeviceState, GetSleepScore, GetSleepStartTime, HealthCheck, TurnOff, TurnOn                |
-| `"SMARTBED"`        | 스마트 침대 타입      | HealthCheck, Lower, Raise, Stop                                                                                                     |
-| `"SMARTCHAIR"`      | 스마트 의자 타입      | GetCurrentSittingState, GetDeviceState, GetRightPostureRatio, GetUsageTime, HealthCheck                                             |
-| `"SMARTCURTAIN"`    | 스마트 커튼 타입      | Close, HealthCheck, Open, Stop                                                                                                      |
-| `"SMARTHUB"`        | 스마트 허브 타입      | GetCurrentTemperature, GetHumidity, GetTargetTemperature, HealthCheck, SetMode                                                      |
-| `"SMARTMETER"`      | 전기 계량기 타입      | GetConsumption, GetCurrentBill, GetEstimateBill, GetProgressiveTaxBracket, HealthCheck                                              |
-| `"SMARTPLUG"`       | 스마트 플러그 타입     | GetConsumption, GetEstimateBill, HealthCheck, TurnOff, TurnOn                                                                       |
-| `"SMARTTV"`         | 스마트 TV 타입       | DecrementChannel, DecrementVolume, HealthCheck, IncrementChannel, IncrementVolume, Mute, SetChannel, SetChannelByName, TurnOff, TurnOn, Unmute |
-| `"SMARTVALVE"`      | 스마트 밸브 타입      | GetLockState, SetLockState                                                                                                           |
-| `"SMOKESENSOR"`     | 연기 센서 타입       | GetDeviceState, HealthCheck                                                                                                          |
-| `"SWITCH"`          | 가정 내 콘센트 전원을 제어하는 스위치 타입 | HealthCheck, TurnOff, TurnOn                                                                                          |
+| `"ROBOTVACUUM"`     | 로봇 청소기 타입       | Charge, GetBatteryInfo, GetDeviceState, HealthCheck, TurnOff, TurnOn                                                                               |
+| `"SETTOPBOX"`       | TV 셋톱 박스 타입     | DecrementChannel, DecrementVolume, GetDeviceState, HealthCheck, IncrementChannel, IncrementVolume, Mute, SetChannel, SetChannelByName, TurnOff, TurnOn, Unmute |
+| `"SLEEPINGMONITOR"` | 수면 센서 타입        | GetAsleepDuration, GetAwakeDuration, GetDeviceState, GetSleepScore, GetSleepStartTime, HealthCheck, TurnOff, TurnOn                                |
+| `"SMARTBED"`        | 스마트 침대 타입      | GetDeviceState, HealthCheck, Lower, Raise, Stop                                                                                                     |
+| `"SMARTCHAIR"`      | 스마트 의자 타입      | GetCurrentSittingState, GetDeviceState, GetRightPostureRatio, GetUsageTime, HealthCheck                                                             |
+| `"SMARTCURTAIN"`    | 스마트 커튼 타입      | Close, GetDeviceState, HealthCheck, Open, Stop                                                                                                      |
+| `"SMARTHUB"`        | 스마트 허브 타입      | GetCurrentTemperature, GetDeviceState, GetHumidity, GetTargetTemperature, HealthCheck, SetMode                                                      |
+| `"SMARTMETER"`      | 전기 계량기 타입      | GetConsumption, GetCurrentBill, GetDeviceState, GetEstimateBill, GetProgressiveTaxBracket, HealthCheck                                              |
+| `"SMARTPLUG"`       | 스마트 플러그 타입     | GetConsumption, GetDeviceState, GetEstimateBill, HealthCheck, TurnOff, TurnOn                                                                       |
+| `"SMARTTV"`         | 스마트 TV 타입       | DecrementChannel, DecrementVolume, GetDeviceState, HealthCheck, IncrementChannel, IncrementVolume, Mute, SetChannel, SetChannelByName, TurnOff, TurnOn, Unmute |
+| `"SMARTVALVE"`      | 스마트 밸브 타입      | GetDeviceState, GetLockState, SetLockState                                                                                                           |
+| `"SMOKESENSOR"`     | 연기 센서 타입        | GetDeviceState, HealthCheck                                                                                                                         |
+| `"SWITCH"`          | 가정 내 콘센트 전원을 제어하는 스위치 타입 | GetDeviceState, HealthCheck, TurnOff, TurnOn                                                                                          |
 | `"THERMOSTAT"`      | 온도 조절 기기 타입   | DecrementTargetTemperature, GetConsumption, GetCurrentTemperature, GetDeviceState, GetEstimateConsumption, GetTargetTemperature, HealthCheck, IncrementTargetTemperature, SetMode, SetTargetTemperature TurnOff, TurnOn       |
-| `"VENTILATOR"`      | 환풍기 타입          | GetAirQuality, GetDeviceState, GetHumidity, GetTargetTemperature, HealthCheck, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn    |
-| `"WATERBOILER"`     | 온수기 타입          | HealthCheck, SetMode, TurnOff, TurnOn                                                                                                |
+| `"VENTILATOR"`      | 환풍기 타입          | GetAirQuality, GetDeviceState, GetHumidity, GetTargetTemperature, HealthCheck, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn                    |
+| `"WATERBOILER"`     | 온수기 타입          | GetDeviceState, HealthCheck, SetMode, TurnOff, TurnOn                                                                                                |
 
 <div class="note">
 <p><strong>Note!</strong></p>
