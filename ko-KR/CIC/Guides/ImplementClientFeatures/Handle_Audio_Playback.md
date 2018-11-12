@@ -175,13 +175,13 @@ Clova가 사용자가 현재 음원 재생과 관련하여 어떤 상황에 있�
 
 위 동작 흐름과 같이 일부 재생 경과 보고는 [`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play) 지시 메시지의 `audioItem.stream.progressReport` 필드나 [`AudioPlayer.StreamDeliver`](/CIC/References/CICInterface/AudioPlayer.md#StreamDeliver) 지시 메시지의 `audioStream.progressReport` 필드에 설정된 값에 따라 보고 여부가 달라집니다. 다음 표는 재생 경과 보고를 해야하는 상황과 조건 그리고 사용해야 하는 이벤트 메시지를 나타냅니다.
 
-| 재생 시점                                 | 조건 | 보고를 위한 이벤트 메시지 |
-|-----------------------------------------|:---:|:---------------:|
-| 음원 재생 시작 직후                         | 항상 | [`AudioPlayer.PlayStarted`](/CIC/References/CICInterface/AudioPlayer.md#PlayStarted) 이벤트 메시지  |
+| 재생 시점                                 | 조건                         | 보고를 위한 이벤트 메시지 |
+|-----------------------------------------|----------------------------|----------------------|
+| 음원 재생 시작 직후                         | 항상                                                                      | [`AudioPlayer.PlayStarted`](/CIC/References/CICInterface/AudioPlayer.md#PlayStarted) 이벤트 메시지  |
 | 음원 재생 시작 후 지정된 시간을 지날 때          | `progressReport.progressReportDelayInMilliseconds` 필드가 `null`이 아닐 때   | [`AudioPlayer.ProgressReportDelayPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportDelayPassed) 이벤트 메시지  |
 | 음원 재생 시작 후 지정된 간격의 시간이 지날 때마다  | `progressReport.progressReportIntervalInMilliseconds` 필드가 `null`이 아닐 때  | [`AudioPlayer.ProgressReportIntervalPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportIntervalPassed) 이벤트 메시지  |
 | 음원 재생 시작 후 음원의 특정 재생 시점을 지날 때  | `progressReport.progressReportPositionInMilliseconds` 필드가 `null`이 아닐 때  | [`AudioPlayer.ProgressReportPositionPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportPositionPassed) 이벤트 메시지  |
-| 음원 재생 완료 직후                         | 항상  | [`AudioPlayer.PlayFinished`](/CIC/References/CICInterface/AudioPlayer.md#PlayFinished) 이벤트 메시지  |
+| 음원 재생 완료 직후                         | 항상                                                                      | [`AudioPlayer.PlayFinished`](/CIC/References/CICInterface/AudioPlayer.md#PlayFinished) 이벤트 메시지  |
 
 Clova는 위 이벤트 메시지를 통해 사용자가 현재 듣고 있는 음원과 해당 음원의 재생 시점을 파악하게 됩니다. 다음은 [`AudioPlayer.ProgressReportIntervalPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportIntervalPassed) 이벤트 메시지의 예입니다.
 
