@@ -5,6 +5,7 @@
 여기서 설명할 내용은 다음과 같습니다.
 * [알람 등록하기](#RegisterAlert)
 * [알람 시작하기](#RingAlert)
+* [알람 중지하기](#StopAlert)
 * [알람 수정 또는 삭제하기](#EditAlert)
 * [알람 동기화하기](#SyncAlert)
 
@@ -144,6 +145,8 @@ Clova는 알람이 등록된 결과를 사용자에게 알려주기 위해 [`Spe
 {% endraw %}
 
 알람이 시작되면 클라이언트는 CIC로 전송하는 모든 이벤트 메시지에 현재 울리고 있는 알람 정보를 채워 보내야 합니다. 이때, [`Alert.AlertsState`](/CIC/References/Context_Objects.md#AlertsState) 맥락 정보의 `activeAlerts` 필드를 사용해야 합니다.
+
+### 알람 중지하기 {#StopAlert}
 
 사용자는 발화([`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize))나 물리적 버튼(하드웨어 방식) 또는 GUI 버튼(소프트웨어 방식)으로 알람을 중지하도록 요청할 것입니다. 이때, 클라이언트는 사용자의 알람 중지 요청을 [`Alerts.RequestAlertStop`](/CIC/References/CICInterface/Alerts.md#RequestAlertStop) 이벤트 메시지로 CIC에게 보고해야 합니다.
 
