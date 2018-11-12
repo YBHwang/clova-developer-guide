@@ -5,7 +5,7 @@ Clova는 사용자 요청에 따라 음원을 재생하거나 재생과 관련�
 * [음원 재생하기](#PlayAudioStream)
 * [음원 재생 경과 보고하기](#ReportAudioPlaybackProgress)
 * [음원 재생 제어하기](#ControlAudioPlayback)
-* [음원 재생 상태 공유하기](#ShareAuidoPlaybackState)
+* [음원 재생 상태 공유하기](#ShareAudioPlaybackState)
 
 ### 음원 재생하기 {#PlayAudioStream}
 사용자가 음악 재생을 요청하면 Clova는 CIC를 통해 사용자가 요청한 음원을 재생하도록 클라이언트에게 지시합니다. 음원을 재생하는 동작의 흐름은 다음과 같습니다.
