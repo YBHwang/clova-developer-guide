@@ -29,7 +29,7 @@
               <li><a href="/CIC/Guides/Implement_Client_Features.md#PlayAudioStream">음원 재생하기</a></li>
               <li><a href="/CIC/Guides/Implement_Client_Features.md#ReportAudioPlaybackProgress">음원 재생 경과 보고하기</a></li>
               <li><a href="/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback">음원 재생 제어하기</a></li>
-              <li><a href="/CIC/Guides/Implement_Client_Features.md#ShareAuidoPlaybackState">음원 재생 상태 공유하기</a></li>
+              <li><a href="/CIC/Guides/Implement_Client_Features.md#ShareAudioPlaybackState">음원 재생 상태 공유하기</a></li>
             </ul>
           </li>
           <li>[CEK] Clova Home extension API <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.md">공유 객체</a> <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject">ApplianceInfoObject</a>의 Remarks에 다음의 내용을 업데이트함
