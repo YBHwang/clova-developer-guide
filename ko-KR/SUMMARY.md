@@ -80,7 +80,7 @@
     * [음원 재생하기](/CIC/Guides/Implement_Client_Features.md#PlayAudioStream)
     * [음원 재생 경과 보고하기](/CIC/Guides/Implement_Client_Features.md#ReportAudioPlaybackProgress)
     * [음원 재생 제어하기](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
-    * [음원 재생 상태 공유하기](/CIC/Guides/Implement_Client_Features.md#ShareAuidoPlaybackState)
+    * [음원 재생 상태 공유하기](/CIC/Guides/Implement_Client_Features.md#ShareAudioPlaybackState)
 * [CIC API 레퍼런스](/CIC/References/CIC_API.md)
   * [API 기본 정보](/CIC/References/CIC_API.md#BasicInfo)
     * [Base URL](/CIC/References/CIC_API.md#BaseURL)
