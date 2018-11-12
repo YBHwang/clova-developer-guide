@@ -17,8 +17,3 @@ CIC와 연동된 클라이언트에서 사용자가 사용하고자 하는 서�
 {% include "/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md" %}
 
 {% include "/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md" %}
-
-<div class="note">
-<p><strong>Note!</strong></p>
-<p>이 부분에는 추후 다른 인터페이스를 사용하는 클라이언트 기능의 구현 방법도 추가될 예정입니다.</p>
-</div>
