@@ -5,7 +5,8 @@ CIC와 연동된 클라이언트에서 사용자가 사용하고자 하는 서�
 
 * [위임된 사용자 요청 처리하기](#HandleDelegation)
 * [알람 처리하기](#HandleAlerts)
-* [음원 재생 처리하기](/CIC/Guides/Implement_Client_Features.md#HandleAudioPlayback)
+* [음원 재생 처리하기](#HandleAudioPlayback)
+* [설정 정보 처리하기](#HandleSettings)
 
 <div class="note">
 <p><strong>Note!</strong></p>
@@ -17,3 +18,5 @@ CIC와 연동된 클라이언트에서 사용자가 사용하고자 하는 서�
 {% include "/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md" %}
 
 {% include "/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md" %}
+
+{% include "/CIC/Guides/ImplementClientFeatures/Handle_Settings.md" %}
