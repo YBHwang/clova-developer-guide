@@ -7,7 +7,7 @@
     "DocMeta": {
       "ClassifiedInfo": "Confidential",
       "DocOwner": "NAVER",
-      "DocVersion": "v3.43.0",
+      "DocVersion": "v3.44.0",
       "ReleaseYear": "2018",
       "TargetReaderType": "Partner"
     },
@@ -144,5 +144,5 @@
     },
     "paperSize": "a3"
   },
-  "plugins": ["-search"]
+  "plugins": ["-search", "-lunr"]
 }
