@@ -59,6 +59,7 @@
             <li><a href="/CIC/Guides/Implement_Client_Features.md#HandleDelegation">위임된 사용자 요청 처리하기</a></li>
             <li><a href="/CIC/Guides/Implement_Client_Features.md#HandleAlerts">알람 처리하기</a></li>
             <li><a href="/CIC/Guides/Implement_Client_Features.md#PlayAudioStream">음원 재생 처리하기</a></li>
+            <li><a href="/CIC/Guides/Implement_Client_Features.md#HandleSettings">설정 정보 처리하기</a></li>
           </ul>
           <li>레퍼런스</li>
           <ul>

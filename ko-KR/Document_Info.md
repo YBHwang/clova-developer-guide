@@ -21,6 +21,14 @@
   </thead>
   <tbody>
     <tr>
+      <td>v3.44.0</td><td>미적용</td><td>2018-11-16</td>
+      <td>
+        <ul>
+          <li>[CIC] <a href="/CIC/Guides/Implement_Client_Features.md">클라이언트 기능 구현하기</a>에 설정 정보와 관련한 <a href="/CIC/Guides/Implement_Client_Features.md#HandleSettings">설정 정보 처리하기</a> 가이드 추가</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.43.0</td><td>미적용</td><td>2018-11-09</td>
       <td>
         <ul>
