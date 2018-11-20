@@ -1085,7 +1085,7 @@ CIC는 이 이벤트 메시지를 수신하면 사용자 계정에 등록된 모
 
 ### Remarks
 
-`DeviceControl.SynchronizeState` 지시 메시지는 [downchannel](/CIC/Guides/Interact_with_CIC.md#CreateConnection)을 통해 사용자 계정에 등록된 클라이언트 전체에 브로드캐스팅되며, [대화 ID(`dialogRequestId`)](/CIC/CIC_Overview.md#DialogModel)를 가지지 않습니다.
+`DeviceControl.SynchronizeState` 지시 메시지는 [downchannel](/CIC/Guides/Interact_with_CIC.md#CreateConnection)을 통해 사용자 계정에 등록된 클라이언트 전체에 브로드캐스팅되며, [대화 ID(`dialogRequestId`)](/CIC/Guides/Implement_Client_Features.md#HandleDirectivesByDialogueID)를 가지지 않습니다.
 
 ### Message example
 

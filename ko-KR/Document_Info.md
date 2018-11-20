@@ -21,6 +21,14 @@
   </thead>
   <tbody>
     <tr>
+      <td>v3.45.0</td><td>미적용</td><td>2018-11-23</td>
+      <td>
+        <ul>
+          <li>[CIC] 대화 모델의 설명을 <a href="">간접 대화 구조</a>와 <a href="/CIC/Guides/Implement_Client_Features.md#ManageDialogueIDAndHandleTasks">대화 ID 관리 및 작업 처리하기</a>로 설명을 나누고 내용을 보완함</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.44.0</td><td>미적용</td><td>2018-11-16</td>
       <td>
         <ul>
@@ -142,7 +150,7 @@
       <td>v3.37.1</td><td>미적용</td><td>2018-08-09</td>
       <td>
         <ul>
-          <li>[CIC] <a href="/CIC/CIC_Overview.html#DialogModel">대화 모델</a>에 대한 설명을 보완</li>
+          <li>[CIC] 대화 모델에 대한 설명을 보완</li>
           <li>[CEK] <a href="/CEK/Guides/Build_Custom_Extension.html#ProvidingMetaDataForDisplay">오디오 콘텐츠의 메타 정보 제공</a> 절에서 일부 오타 수정</li>
         </ul>
       </td>
@@ -595,7 +603,7 @@
       <td>v3.2.0</td><td>v0.9</td><td>2017-08-14</td>
       <td>
         <ul>
-          <li>[CIC] <a href="/CIC/CIC_Overview.html#DialogModel">대화 모델</a> 설명 추가</li>
+          <li>[CIC] 대화 모델 설명 추가</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> API 추가</li>
           <li>[CIC] <a href="/CIC/References/Context_Objects.html">Device.DeviceState</a> payload 필드 추가: airplane, battery, bluetooth, brightness, flashLight, gps, powerSavingMode, soundMode, volume, wifi</li>
           <li>[CEK] <a href="/CEK/Guides/Build_Custom_Extension.html#DoMultiturnDialog">Multi-turn 대화 수행하기</a>절 추가 및 sessionAttributes 필드 설명 업데이트</li>
