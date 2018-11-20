@@ -24,7 +24,7 @@ activate client
   
   note left: lastDialogueID: A
 
-  ... 요청 처리 후 ...
+  ... 요청 처리 중 ...
 
 user -->> client: "현재 날씨 알려줘"
 
@@ -38,9 +38,13 @@ user -->> client: "현재 날씨 알려줘"
   
     note left: lastDialogueID: B
 
+    client -> client: 이전 대화 ID(A)와 관련된 작업 처리 중지
+
+    client -> client: 대화 ID(A)와 관련된 지시 메시지 큐에서 폐기
+
   else 예외 상황 발생으로 인한 이벤트 메시지 전송 취소
 
-    client -> client: 예외 처리
+    client -> client: 대화 ID(A)에 관련된 작업 처리 (계속)
 
     note left: lastDialogueID: A
 
