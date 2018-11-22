@@ -99,6 +99,7 @@ Alertsが提供するイベントとディレクティブは、次の通りで�
 
 ### 次の項目も参照してください。
 * [`Alerts.AlertStopped`](#AlertStopped)
+* [アラームを鳴らす](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#RingAlert)
 
 ## AlertStoppedイベント {#AlertStopped}
 
@@ -150,6 +151,7 @@ Alertsが提供するイベントとディレクティブは、次の通りで�
 
 ### 次の項目も参照してください。
 * [`Alerts.AlertStarted`](#AlertStarted)
+* [アラームを停止する](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#StopAlert)
 
 ## DeleteAlertディレクティブ {#DeleteAlert}
 
@@ -190,6 +192,7 @@ Alertsが提供するイベントとディレクティブは、次の通りで�
 ### 次の項目も参照してください。
 * [`Alerts.DeleteAlertFailed`](#DeleteAlertFailed)
 * [`Alerts.DeleteAlertSucceeded`](#DeleteAlertSucceeded)
+* [アラームを編集および削除する](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#EditAlert)
 
 ## DeleteAlertFailedイベント {#DeleteAlertFailed}
 
@@ -240,6 +243,7 @@ Alertsが提供するイベントとディレクティブは、次の通りで�
 ### 次の項目も参照してください。
 * [`Alerts.DeleteAlert`](#DeleteAlert)
 * [`Alerts.DeleteAlertSucceeded`](#DeleteAlertSucceeded)
+* [アラームを編集および削除する](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#EditAlert)
 
 ## DeleteAlertSucceededイベント {#DeleteAlertSucceeded}
 
@@ -290,6 +294,7 @@ Alertsが提供するイベントとディレクティブは、次の通りで�
 ### 次の項目も参照してください。
 * [`Alerts.DeleteAlert`](#DeleteAlert)
 * [`Alerts.DeleteAlertFailed`](#DeleteAlertFailed)
+* [アラームを編集および削除する](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#EditAlert)
 
 ## RequestAlertStopイベント {#RequestAlertStop}
 
@@ -342,6 +347,7 @@ Alertsが提供するイベントとディレクティブは、次の通りで�
 
 ### 次の項目も参照してください。
 * [`Alerts.StopAlert`](#StopAlert)
+* [アラームを停止する](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#StopAlert)
 
 ## RequestSynchronizeAlertイベント {#RequestSynchronizeAlert}
 
@@ -383,6 +389,7 @@ Alertsが提供するイベントとディレクティブは、次の通りで�
 
 ### 次の項目も参照してください。
 * [`System.SynchronizeAlert`](/CIC/References/CICInterface/Alerts.md#SynchronizeAlert)
+* [アラームを同期する](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#SyncAlert)
 
 ## SetAlertディレクティブ {#SetAlert}
 
@@ -450,6 +457,8 @@ Alertsが提供するイベントとディレクティブは、次の通りで�
 ### 次の項目も参照してください。
 * [`Alerts.SetAlertFailed`](#SetAlertFailed)
 * [`Alerts.SetAlertSucceeded`](#SetAlertSucceeded)
+* [アラームを設定する](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#RegisterAlert)
+* [アラームを編集および削除する](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#EditAlert)
 
 ## SetAlertFailedイベント {#SetAlertFailed}
 
@@ -500,7 +509,8 @@ Alertsが提供するイベントとディレクティブは、次の通りで�
 ### 次の項目も参照してください。
 * [`Alerts.SetAlert`](#SetAlert)
 * [`Alerts.SetAlertSucceeded`](#SetAlertSucceeded)
-
+* [アラームを設定する](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#RegisterAlert)
+* [アラームを編集および削除する](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#EditAlert)
 
 ## SetAlertSucceededイベント {#SetAlertSucceeded}
 
@@ -551,6 +561,8 @@ Alertsが提供するイベントとディレクティブは、次の通りで�
 ### 次の項目も参照してください。
 * [`Alerts.SetAlert`](#SetAlert)
 * [`Alerts.SetAlertFailed`](#SetAlertFailed)
+* [アラームを設定する](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#RegisterAlert)
+* [アラームを編集および削除する](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#EditAlert)
 
 ## StopAlertディレクティブ {#StopAlert}
 
@@ -588,6 +600,7 @@ Alertsが提供するイベントとディレクティブは、次の通りで�
 
 ### 次の項目も参照してください。
 * [`Alerts.AlertStopped`](#AlertStopped)
+* [アラームを停止する](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#StopAlert)
 
 ## SynchronizeAlertディレクティブ {#SynchronizeAlert}
 クライアントに対して、`payload`内にあるユーザーのアラームデータを同期するように指示します。クライアントは、CICから受信したデータに応じて、クライアントに設定されているアラームの値を変更する必要があります。
@@ -644,3 +657,4 @@ Alertsが提供するイベントとディレクティブは、次の通りで�
 
 ### 次の項目も参照してください。
 * [`Alerts.RequestSynchronizeAlert`](#RequestSynchronizeAlert)
+* [アラームを同期する](/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md#SyncAlert)

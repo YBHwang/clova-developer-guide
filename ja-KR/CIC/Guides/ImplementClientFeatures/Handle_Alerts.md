@@ -5,6 +5,7 @@
 ここでは、以下の内容について説明します。
 * [アラームを設定する](#RegisterAlert)
 * [アラームを鳴らす](#RingAlert)
+* [アラームを停止する](#StopAlert)
 * [アラームを編集および削除する](#EditAlert)
 * [アラームを同期する](#SyncAlert)
 
@@ -72,18 +73,10 @@
 
 クライアントがアラームを設定して、その結果をCICに送信します。アラームを正常に設定した場合、[`Alerts.SetAlertSucceeded`](/CIC/References/CICInterface/Alerts.md#SetAlertSucceeded)イベントをCICに送信します。
 
-{% raw %}
 ```json
 {
   "context": [
-    {{Alerts.AlertsState}},
-    {{AudioPlayer.PlayerState}},
-    {{Device.DeviceState}},
-    {{Device.Display}},
-    {{Clova.Location}},
-    {{Clova.SavedPlace}},
-    {{Speaker.VolumeState}},
-    {{SpeechSynthesizer.SpeechState}}
+    ...
   ],
   "event": {
     "header": {
@@ -98,22 +91,13 @@
   }
 }
 ```
-{% endraw %}
 
 アラームの設定に失敗した場合には、[`Alerts.SetAlertFailed`](/CIC/References/CICInterface/Alerts.md#SetAlertFailed)イベントを送信します。
 
-{% raw %}
 ```json
 {
   "context": [
-    {{Alerts.AlertsState}},
-    {{AudioPlayer.PlayerState}},
-    {{Device.DeviceState}},
-    {{Device.Display}},
-    {{Clova.Location}},
-    {{Clova.SavedPlace}},
-    {{Speaker.VolumeState}},
-    {{SpeechSynthesizer.SpeechState}}
+    ...
   ],
   "event": {
     "header": {
@@ -128,7 +112,6 @@
   }
 }
 ```
-{% endraw %}
 
 Clovaは、アラームを設定した結果をユーザーに通知するために、[`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak)ディレクティブと[`Clova.RenderTemplate`](/CIC/References/CICInterface/Clova.md#RenderTemplate)ディレクティブをクライアントに送信します。クライアントは、そのディレクティブの内容をユーザーに通知する必要があります。
 
@@ -144,14 +127,7 @@ Clovaは、アラームを設定した結果をユーザーに通知するため
 ```json
 {
   "context": [
-    {{Alerts.AlertsState}},
-    {{AudioPlayer.PlayerState}},
-    {{Device.DeviceState}},
-    {{Device.Display}},
-    {{Clova.Location}},
-    {{Clova.SavedPlace}},
-    {{Speaker.VolumeState}},
-    {{SpeechSynthesizer.SpeechState}}
+    ...
   ],
   "event": {
     "header": {
@@ -170,20 +146,14 @@ Clovaは、アラームを設定した結果をユーザーに通知するため
 
 アラームが実行されると、クライアントは、CICに送信するすべてのイベントに、アクティブなアラームの情報を含める必要があります。そのとき、[`Alert.AlertsState`](/CIC/References/Context_Objects.md#AlertsState)コンテキストの`activeAlerts`フィールドを使用する必要があります。
 
+### アラームを停止する {#StopAlert}
+
 ユーザーは、発話([`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize))、物理ボタン(ハードウェア)、またはGUIボタン(ソフトウェア)でアラームを停止するようリクエストします。クライアントは、ユーザーからのアラーム停止のリクエストを、[`Alerts.RequestAlertStop`](/CIC/References/CICInterface/Alerts.md#RequestAlertStop)イベントでCICにレポートする必要があります。
 
-{% raw %}
 ```json
 {
   "context": [
-    {{Alerts.AlertsState}},
-    {{AudioPlayer.PlayerState}},
-    {{Device.DeviceState}},
-    {{Device.Display}},
-    {{Clova.Location}},
-    {{Clova.SavedPlace}},
-    {{Speaker.VolumeState}},
-    {{SpeechSynthesizer.SpeechState}}
+    ...
   ],
   "event": {
     "header": {
@@ -198,7 +168,6 @@ Clovaは、アラームを設定した結果をユーザーに通知するため
   }
 }
 ```
-{% endraw %}
 
 Clovaは、クライアントがアラームを停止するよう、クライアントに[`Alerts.StopAlert`](/CIC/References/CICInterface/Alerts.md#StopAlert)ディレクティブを送信します。
 
@@ -229,18 +198,10 @@ Clovaは、クライアントがアラームを停止するよう、クライア
 
 クライアントは、アラームを停止し、そのことを[`Alerts.AlertStopped`](/CIC/References/CICInterface/Alerts.md#AlertStopped)イベントでレポートする必要があります。
 
-{% raw %}
 ```json
 {
   "context": [
-    {{Alerts.AlertsState}},
-    {{AudioPlayer.PlayerState}},
-    {{Device.DeviceState}},
-    {{Device.Display}},
-    {{Clova.Location}},
-    {{Clova.SavedPlace}},
-    {{Speaker.VolumeState}},
-    {{SpeechSynthesizer.SpeechState}}
+    ...
   ],
   "event": {
     "header": {
@@ -255,7 +216,6 @@ Clovaは、クライアントがアラームを停止するよう、クライア
   }
 }
 ```
-{% endraw %}
 
 アクションタイマータイプのアラームが設定されている場合、Clovaはクライアントに対して、ユーザーが予約したアクションに該当するディレクティブを送信します。
 
@@ -306,14 +266,7 @@ Clovaは、クライアントがアラームを停止するよう、クライア
 ```json
 {
   "context": [
-    {{Alerts.AlertsState}},
-    {{AudioPlayer.PlayerState}},
-    {{Device.DeviceState}},
-    {{Device.Display}},
-    {{Clova.Location}},
-    {{Clova.SavedPlace}},
-    {{Speaker.VolumeState}},
-    {{SpeechSynthesizer.SpeechState}}
+    ...
   ],
   "event": {
     "header": {
@@ -336,14 +289,7 @@ Clovaは、クライアントがアラームを停止するよう、クライア
 ```json
 {
   "context": [
-    {{Alerts.AlertsState}},
-    {{AudioPlayer.PlayerState}},
-    {{Device.DeviceState}},
-    {{Device.Display}},
-    {{Clova.Location}},
-    {{Clova.SavedPlace}},
-    {{Speaker.VolumeState}},
-    {{SpeechSynthesizer.SpeechState}}
+    ...
   ],
   "event": {
     "header": {
