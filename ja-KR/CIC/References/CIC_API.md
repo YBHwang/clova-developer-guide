@@ -122,7 +122,7 @@ Content-Type: application/octet-stream
 GET /v1/directives
 ```
 
-クライアントは、最初にCICとダウンチャネルを確立する必要があります。ダウンチャネルは、特定の条件や必要に応じて、CICで開始される(Cloud-initiated)ディレクティブを受信する際に使用されます。ダウンチャネルの確立方法についての詳細は、[CICに接続する](/CIC/Guides/Interact_with_CIC.md#CreateConnection)を参照してください。
+クライアントは、最初にCICとのダウンチャネルを確立する必要があります。ダウンチャネルは、特定の条件や必要に応じて、CICで開始される(Cloud-initiated)ディレクティブを受信する際に使用されます。ダウンチャネルの確立方法についての詳細は、[CICに接続する](/CIC/Guides/Interact_with_CIC.md#CreateConnection)を参照してください。
 
 <div class="danger">
   <p><strong>注意</strong></p>
