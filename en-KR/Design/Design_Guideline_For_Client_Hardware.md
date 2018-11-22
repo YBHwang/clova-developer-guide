@@ -170,7 +170,7 @@ A client may have to play other audio content during audio playback. In this cas
 The rules for audio playback are as follows:
 
 * For physical buttons, the sound effects must be played instantly being output in the mixing method.
-* Audio contents must be played instantly. If an audio content is playing, it must be processed as background audio to play the new audio.
+* audio content must be played instantly. If an audio content is playing, it must be processed as background audio to play the new audio.
 * However, if the [Content type](#AudioInterruptionRule) of the audio playing and the new audio is the same, follow the process below.
   - **Alert, Content, Dialogue, Feedback type**: Cancel the audio content playing and play the new audio content.
   - For **Notification type**: Continue playing the audio content and keep the new audio content in the playback queue. After finishing the current audio content, play the following audio content in the queue order.
@@ -379,7 +379,7 @@ The bar-type voice agent must be expressed as follows for the corresponding situ
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>Note that the contents for bar-type UIs are scheduled to be updated in the future.</p>
+  <p>Note that content for bar-type UIs are scheduled to be updated in the future.</p>
 </div>
 
 #### A type Icon {#IconAType}

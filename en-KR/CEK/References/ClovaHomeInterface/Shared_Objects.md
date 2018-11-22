@@ -1347,7 +1347,7 @@ PeriodInfoObject contains information for periods used to retrieve measured data
 Expressions such as "today," "this week," or "this month" used by the user are defined by the following range of time:
 
 * "Today": The time range begins at 00:00:00 of the current date and ends at 23:59:59 of the current date.
-* "This week": The time range begins at 00:00:00 of the {{ book.ServiceEnv.FirstDayOfWeekInClovaHome }}of the current week and ends at 23:59:59 of the {{ book.ServiceEnv.LastDayOfWeekInClovaHome }} of the current week.
+* "This week": The time range begins at 00:00:00 of the {{ book.ServiceEnv.FirstDayOfWeekInClovaHome }} of the current week and ends at 23:59:59 of the {{ book.ServiceEnv.LastDayOfWeekInClovaHome }} of the current week.
 * "This month": The time range begins at 00:00:00 of the first day of the current month and ends at 23:59:59 of the last day of the current month.
 
 At the time of processing a request, the end time (`end`) of the period used in special expressions like above can be a time in the future that is yet to come. Depending on the situation, data must be handled by considering the handling time as the end time.

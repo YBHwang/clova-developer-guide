@@ -109,7 +109,7 @@ Instructs the client to display the sent playback metadata such as a playlist, a
 | `controls[].name`           | string       | The button name. Available values are:<ul><li><code>"NEXT"</code>: Next</li><li><code>"PLAY_PAUSE"</code>: Play/Pause</li><li><code>"PREVIOUS"</code>: Previous</li></ul>  | Always  |
 | `controls[].selected`       | boolean      | Indicates whether the media content is selected. This value can be used for displaying user preferences. For example, if this value is set as `true`, the content must be expressed on the relevant UI of the media player since the user has selected it as a preference. <ul><li><code>true</code>: Selected</li><li><code>false</code>: Not selected</li></ul> | Always  |
 | `controls[].type`           | string       | The type of button. Currently, only the `"BUTTON"` value is available.  | Always |
-| `playableItems[]`           | object array | The object containing the list of media contents that can be played. This field can be an empty array.  | Always |
+| `playableItems[]`           | object array | The object containing the list of media content that can be played. This field can be an empty array.  | Always |
 | `playableItems[].artImageUrl`  | string    | The URL of the image on the media content. This URL is the location of the album cover image or other relevant icons.      | Conditional |
 | `playableItems[].controls[]`                | object array  | The object array of button information that must be displayed when playing a specific media content. This object array is omissible.  | Conditional |
 | `playableItems[].controls[].enabled`        | boolean      | Indicates whether the buttons specified in the `playableItems[].controls[].name` must be enabled from the media player.<ul><li><code>true</code>: Enable</li><li><code>false</code>: Disable</li></ul>  | Always  |
@@ -253,7 +253,7 @@ Requests CIC for playback metadata such as a playlist, album image, and lyrics t
 | `token`        | string  | The token of the media content which becomes the starting standard when importing the playback metadata. Make sure to enter the token value provided in the `playableItems[].token` field of the [`TemplateRuntime.RenderPlayerInfo`](#RenderPlayerInfo) directive. | Required |
 | `range`        | object  | The scope of the playback metadata. If this field is empty, the client will receive a random number of metadata.   | Optional  |
 | `range.before` | number  | Requests n number of playback metadata included in the previous playlist from the base media content.  | Optional  |
-| `range.after`  | number  | Requests n number of playback metadata included in the next playlist from the existing media content. For example, if the value of `range.after` is set as `5` without specifying the value of `range.before` field, the playback metadata equivalent to a total of six media contents, including the base media content, is received. | Optional  |
+| `range.after`  | number  | Requests n number of playback metadata included in the next playlist from the existing media content. For example, if the value of `range.after` is set as `5` without specifying the value of `range.before` field, the playback metadata equivalent to a total of six media content, including the base media content, is received. | Optional  |
 
 ### Message example
 

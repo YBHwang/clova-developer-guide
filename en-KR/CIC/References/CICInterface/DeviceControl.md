@@ -2,7 +2,7 @@
 
 The DeviceControl namespace provides interfaces for controlling client devices or reporting to CIC the result of changing client device settings.
 
-Some user requests may be a control request of their client device. If the analyzed user request is for controlling the client device, the client will receive a directive of `DeviceControl` namespace. Then the client must to perform the task instructed by the directive and then send the result to CIC. For more information, see the [Client device control workflow](#DeviceControlWorkFlow).
+Some user requests may contain a control request of their client device. If the analyzed user request is for controlling the client device, the client will receive a directive of the `DeviceControl` namespace. Then the client must perform the task instructed by the directive and then send the result to CIC. For more information, see the [Client device control workflow](#DeviceControlWorkFlow).
 
 The client device can be connected to a third-party Bluetooth device using the `DeviceControl` message. CIC controls the connection to a third-party Bluetooth device by sending a directive for Bluetooth pairing and connection to the client. The client will frequently report the information related to the paired Bluetooth device using the [`BluetoothInfoObject`](/CIC/References/Context_Objects.md#BluetoothInfoObject) of the [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) context. For more information on creating a connection, refer to each directive and event.
 
@@ -15,8 +15,8 @@ The DeviceControl namespace provides the following events and directives.
 | [`BtConnect`](#BtConnect)                 | Directive | Instructs the client to connect to a Bluetooth speaker.                               |
 | [`BtConnectByPINCode`](#BtConnectByPINCode) | Directive | Instructs the client to connect to the Bluetooth speaker that has requested a PIN code.                        |
 | [`BtDisconnect`](#BtDisconnect)           | Directive | Instructs the client to disconnect from the Bluetooth speaker.                               |
-| [`BtDelete`](#BtDelete)                   | Directive | Instructs the client to remove a specific device from the Bluetooth pairing list.                        |
-| [`BtPlay`](#BtPlay)                       | Directive | Instructs the client to play audio contents through the connected Bluetooth device.                          |
+| [`BtDelete`](#BtDelete)                   | Directive | Instructs the client to remove a specific device from the list of paired Bluetooth devices.                        |
+| [`BtPlay`](#BtPlay)                       | Directive | Instructs the client to play audio content through the connected Bluetooth device.                          |
 | [`BtRequestForPINCode`](#BtRequestForPINCode) | Event | Sends the PIN code input request of the Bluetooth speaker to CIC.     |
 | [`BtRequestToCancelPinCodeInput`](#BtRequestToCancelPinCodeInput) | Event | Sends the cancellation request for the PIN code input from the Bluetooth speaker to CIC. |
 | [`BtRescan`](#BtRescan)                   | Directive | Instructs the client to rescan for Bluetooth devices.                               |
@@ -222,7 +222,7 @@ None
 ### Remarks
 
 * If the received directive does not contain the `payload`, the client must attempt connection with one of the paired Bluetooth devices.
-* If a message that contains only `role` field is received in the `payload`, connection must be attempted with one of the paired Bluetooth devices according to the client role.
+* If the received message only contains the `role` field in the `payload`, connection must be attempted with one of the paired Bluetooth devices according to the client role.
 * The client must send the result of handling this directive to CIC using the [`DeviceControl.ActionExecuted`](#ActionExecuted) or [`DeviceControl.ActionFailed`](#ActionFailed) event.
 * When reporting to CIC, the client must include the actual connection result in the [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) context of the [`DeviceControl.ReportState`](#ReportState) event.
 
@@ -306,7 +306,7 @@ Instructs the client to disconnect a Bluetooth speaker.
 
 ### Payload fields
 
-* When disconnecting with all connected devices
+* When disconnecting from all connected devices
 
 None
 
@@ -355,7 +355,7 @@ None
 
 ## BtDelete directive {#BtDelete}
 
-Instructs the client to remove a specific device from the Bluetooth pairing list.
+Instructs the client to remove a specific device from the list of paired Bluetooth devices.
 
 ### Payload fields
 
@@ -405,7 +405,7 @@ Instructs the client to remove a specific device from the Bluetooth pairing list
 
 ## BtPlay directive {#BtPlay}
 
-Instructs the client to play audio contents through the connected Bluetooth device. This directive is sent when the user makes a command like "Play music over Bluetooth." Upon connection with another device via Bluetooth, the client takes the role of receiving the audio stream (`"sink"`, mainly speaker) or the role of transmitting the audio stream (`"source"`, sender of audio data). The client must correctly handle this directive for each role (`role`).
+Instructs the client to play audio content through the connected Bluetooth device. This directive is sent when the user makes a command like "Play music over Bluetooth." Upon connection with another device via Bluetooth, the client takes the role of receiving the audio stream (`"sink"`, mainly speaker) or the role of transmitting the audio stream (`"source"`, sender of audio data). The client must correctly handle this directive for each role (`role`).
 
 * If the client role is `"sink"`, receive the audio stream to the Bluetooth device and output sound via the speaker.
 * If the client role is `"source"`, play the audio stream that was paused or previously played. If an audio cannot be specified, such as an audio that was played before, send the same event message as the user requesting "Play music" to CIC or send an audio content playback request that is suitable for the product UI/UX to CIC.

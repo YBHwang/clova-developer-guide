@@ -48,7 +48,7 @@ Instructs the client to send notification details to the user. The client must t
 
 | Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:---------:|
-| `assets[]`           | object array | The object array that has the audio contents related to notifications.                          | Always |
+| `assets[]`           | object array | The object array that has the audio content related to notifications.                          | Always |
 | `assets[].assetId`   | string       | The ID of audio.                                        | Always |
 | `assets[].url`       | string       | The URL of audio. The URL can be specified in the following ways:<ul><li><code>"clova://notifier/sound/default"</code>: A scheme used to refer to the default notification sound. The predefined default sound is played.</li><li>URL of audio (<code>"http(s)://~</code>): The URL of the audio that contains the notification details. The audio in the URL is played.</li></ul>    | Always |
 | `assetPlayOrder[]`   | string array | The string array that expresses the order of playing the notification sound registered in the `assets[]` field. Play the notification sound in the order of the audio content ID stored in the array.            | Always  |
@@ -103,7 +103,7 @@ Instructs the client to display that there is a notification that the user has n
 ### Payload fields
 | Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:---------:|
-| `assets[]`           | object array | The object array that has the audio contents related to notifications.                          | Always |
+| `assets[]`           | object array | The object array that has the audio content related to notifications.                          | Always |
 | `assets[].assetId`   | string       | The ID of audio.                                        | Always |
 | `assets[].url`       | string       | The URL of audio. The URL can be specified in the following ways:<ul><li><code>"clova://notifier/sound/default"</code>: A scheme used to refer to the default notification sound. The predefined default sound is played.</li><li>URL of audio (<code>"http(s)://~</code>): The URL of the audio that contains the notification details. The audio in the URL is played.</li></ul>    | Always |
 | `assetPlayOrder[]`   | string array | The string array that expresses the order of playing the notification sound registered in the `assets[]` field. Play the notification sound in the order of the audio content ID stored in the array.            | Always  |

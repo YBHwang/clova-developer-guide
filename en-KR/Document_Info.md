@@ -85,9 +85,9 @@ The revision history of this document is as follows:
       <td>v3.40.0</td><td>Not applied</td><td>2018-09-21</td>
       <td>
         <ul>
-          <li>[CIC] Added the format field to the payload of <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a> <a href="/CIC/References/CICInterface/AudioPlayer.html#AudioStreamInfoObject">AudioStreamInfoObject</a> to specify the MIME type of contents</li>
-          <li>[CIC] Added SubscribeCommandIssued and UnsubscribeCommandIssued events, and UpdateLike and UpdateSubscribe directives to the <a href="/CIC/References/CICInterface/TemplateRuntime.html">TemplateRuntime</a> namespace to handle Like and Subscribe features when playing media contents</li>
-          <li>[CIC] Added the button information that must be displayed when playing media contents or the type of UI control to the <a href="/CIC/References/CICInterface/TemplateRuntime.html#RenderPlayerInfo">TemplateRuntime.RenderPlayerInfo</a> directive</li>
+          <li>[CIC] Added the format field to the payload of <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a> <a href="/CIC/References/CICInterface/AudioPlayer.html#AudioStreamInfoObject">AudioStreamInfoObject</a> to specify the MIME type of content</li>
+          <li>[CIC] Added SubscribeCommandIssued and UnsubscribeCommandIssued events, and UpdateLike and UpdateSubscribe directives to the <a href="/CIC/References/CICInterface/TemplateRuntime.html">TemplateRuntime</a> namespace to handle Like and Subscribe features when playing media content</li>
+          <li>[CIC] Added the button information that must be displayed when playing media content or the type of UI control to the <a href="/CIC/References/CICInterface/TemplateRuntime.html#RenderPlayerInfo">TemplateRuntime.RenderPlayerInfo</a> directive</li>
           <li>[CEK] Added the actions missing in the Actions items under the description of <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">appliances that are supported</a> by the Clova Home extension API</li>
           <li>[CEK] Added the description of the SignatureCEK field added in the <a href="/CEK/References/CEK_API.html#HTTPHeader">HTTP header</a> to verify that the messages sent from Clova, and added a section on verifying each request message to <a href="/CEK/Guides/Build_Custom_Extension.html">Creating a custom extension</a> and <a href="/CEK/Guides/Build_Clova_Home_Extension.html">Creating a Clova Home extension</a></li>
           <li>[CEK] Added the <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ActionTemporarilyBlockedError">ActionTemporarilyBlockedError</a> and <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ValueNotSupportedError">ValueNotSupportedError</a> messages to the <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html">error messages</a> of the Clova Home extension API</li>
@@ -156,7 +156,7 @@ The revision history of this document is as follows:
       <td>
         <ul>
           <li>[Design] Added a guideline for <a href="/Design/Design_Guideline_For_Extension.html#DefineInvocationName">defining the name</a> of the extension</li>
-          <li>[Design] Added a guideline for <a href="/Design/Design_Guideline_For_Extension.html#ContentGuideline">providing contents</a> of the extension</li>
+          <li>[Design] Added a guideline for <a href="/Design/Design_Guideline_For_Extension.html#ContentGuideline">providing content</a> of the extension</li>
           <li>[CIC] Added the <a href="/CIC/References/CICInterface/Settings.html">Settings</a> namespace to update and synchronize the settings information of the client device</li>
         </ul>
       </td>

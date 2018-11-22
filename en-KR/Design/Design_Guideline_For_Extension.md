@@ -10,7 +10,7 @@ It is possible to create an extension for web service information lookup, shoppi
 * [Defining an interaction model](#DefineInteractionModel)
 * [Deciding the sound output type](#DecideSoundOutputType)
 * [Supported audio compression formats](#SupportedAudioCompressionFormat)
-* [Guidelines for providing contents](#ContentGuideline)
+* [Guidelines for providing content](#ContentGuideline)
 * [Continuous updates](#ContinuousUpdate)
 
 ## Setting goals {#SettingGoal}
@@ -557,7 +557,7 @@ The skills must comply with the privacy responsibilities by following the guidel
 
 ### Other precautions {#OtherPrecautions}
 
-The following precautions apply when providing skill contents:
+The following precautions apply when providing skill content:
 
 * If the skill is linked to your device, Clova device, or a third-party device (e.g., an IoT device), the Clova administrator may ask for the device to be submitted for review.
 * Your skill must not be in violation of the [Clova Extensions Kit Terms and Conditions](https://developers.naver.com/console/clova/cek/#/terms) along with the details mentioned above.

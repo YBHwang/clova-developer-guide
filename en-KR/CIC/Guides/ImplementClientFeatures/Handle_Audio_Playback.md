@@ -1,6 +1,6 @@
 ## Handling audio playback {#HandleAudioPlayback}
 
-Based on user request, Clova plays audio or sends directives related to playback to the client. The client must handle the messages related to audio playback sent from Clova and return the audio playback state of the client to CIC using events. It is particularly important to have Clova understand the playback state of the client by sending event messages to CIC, and this reporting must be done using event messages that are suitable to the situation or conditions. This section explains the following:
+Based on user request, Clova plays audio or sends directives related to playback to the client. The client must handle the messages related to audio playback sent from Clova and return the audio playback state of the client to CIC using event messages. It is particularly important to have Clova understand the playback state of the client by sending event messages to CIC, and this reporting process must be done using event messages that are suitable to the situation or conditions. This section explains the following:
 
 * [Playing audio stream](#PlayAudioStream)
 * [Reporting audio playback progress](#ReportAudioPlaybackProgress)
@@ -56,9 +56,9 @@ A simple description of the main fields of `payload` is shown below.
 * `audioItem.stream`: The object containing the audio stream information required for playback.
 * `source`: The source of the audio streaming service.
 
-The client plays audio using the information contained in the `audioItem.stream` field. The information contained in the `audioItem` and `source` fields can be displayed on UI of an audio player or can be used as reference information.
+The client plays audio using the information contained in the `audioItem.stream` field. The information contained in the `audioItem` and `source` fields can be displayed on the UI of an audio player or can be used as reference information.
 
-If the `audioItem.stream.urlPlayable` field value of the [`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play) directive is set to `false`, the audio cannot be played instantly using the `audioItem.stream` field information. This occurs in the situations where the actual audio information must be looked up once more before providing the audio to the user due issues such as for service billing issue or security issue. An example of an [`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play) directive that cannot be played instantly is shown below.
+If the `audioItem.stream.urlPlayable` field value of the [`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play) directive is set to `false`, the audio cannot be played instantly using the `audioItem.stream` field information. This occurs in situations where the actual audio information must be looked up once more before providing the audio to the user due to issues such as for service billing issue or security issue. An example of an [`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play) directive that cannot be played instantly is shown below.
 
 ```json
 {
@@ -212,7 +212,7 @@ Users can request Clova to pause, resume, stop, or replay the audio playback on 
 * User attempts playback control using buttons on client device
 * User attempts playback control of a specific client remotely from the Clova app
 
-However, the playback control on the audio is not conducted straightway on the client because Clova must first identify the audio playback stats of the user. All such playback controls are performed via Clova and the audio playback control must be mainly implemented via the [`PlaybackController`](/CIC/References/CICInterface/PlaybackController.md) interface. Also, the result must be reported through the events of the [`AudioPlayer`](/CIC/References/CICInterface/AudioPlayer.md) interface.
+However, the playback control on the audio is not conducted directly on the client because Clova must first identify the audio playback status of the user. All such playback controls are performed via Clova and the audio playback control must be mainly implemented via the [`PlaybackController`](/CIC/References/CICInterface/PlaybackController.md) interface. Also, the result must be reported through the event messages of the [`AudioPlayer`](/CIC/References/CICInterface/AudioPlayer.md) interface.
 
 The diagram below shows the action flow when pausing audio playback.
 

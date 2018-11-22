@@ -40,7 +40,7 @@
   * [Deciding the sound output type](/Design/Design_Guideline_For_Extension.md#DecideSoundOutputType)
     * [Speech output type](/Design/Design_Guideline_For_Extension.md#OutputSpeech)
     * [Audio content play type](/Design/Design_Guideline_For_Extension.md#AudioPlayer)
-  * [Guidelines for providing contents](/Design/Design_Guideline_For_Extension.md#ContentGuideline)
+  * [Guidelines for providing content](/Design/Design_Guideline_For_Extension.md#ContentGuideline)
     * [Completeness of skill](/Design/Design_Guideline_For_Extension.md#SkillCompleteness)
     * [Security of skill](/Design/Design_Guideline_For_Extension.md#SkillSecurity)
     * [Protection of rights and legal compliances](/Design/Design_Guideline_For_Extension.md#RightAndLegal)

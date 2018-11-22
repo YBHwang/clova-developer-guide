@@ -5,9 +5,9 @@ The Cardlist template has standardized the data to be displayed on the screen as
 |---------|-------------------------------------------------|---------------------------------------------------------------------------------|
 | `Type1` | Card that displays an image, title, and description.      | `description`, `imageUrl`, `referenceText`, `referenceUrl`, `title`             |
 | `Type2` | Card that displays an image, title, description, and link. | `description`, `imageUrl`, `linkUrl`, `referenceText`, `referenceUrl`, `title`  |
-| `Type3` | Card that displays video contents.                 | `imageUrl`, `referenceText`, `referenceUrl`, `title`, `videoUrl`                |
-| `Type4` | Card that displays news contents.                  | `description`, `press`, `pressIconUrl`, `publishDate`, `title`                  |
-| `Type5` | Card that displays audio contents.                 | `description`, `imageUrl`, `title`, `videoUrl`                                  |
+| `Type3` | Card that displays video content.                 | `imageUrl`, `referenceText`, `referenceUrl`, `title`, `videoUrl`                |
+| `Type4` | Card that displays news content.                  | `description`, `press`, `pressIconUrl`, `publishDate`, `title`                  |
+| `Type5` | Card that displays audio content.                 | `description`, `imageUrl`, `title`, `videoUrl`                                  |
 | `Type6` | Card that displays a media thumbnail.                   | `imageUrl`, `linkUrl`                                                      |
 
 <div class="note">
