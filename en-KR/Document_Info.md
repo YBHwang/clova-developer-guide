@@ -21,10 +21,32 @@ The revision history of this document is as follows:
   </thead>
   <tbody>
     <tr>
+      <td>v3.43.0</td><td>Not applied</td><td>2018-11-09</td>
+      <td>
+        <ul>
+          <li>[CIC] Added the guide for <a href="/CIC/Guides/Implement_Client_Features.html#HandleAudioPlayback">Handling audio playback</a> related to audio playback and playback control in <a href="/CIC/Guides/Implement_Client_Features.html">Implementing client features</a> (and includes the following content)
+            <ul>
+              <li><a href="/CIC/Guides/Implement_Client_Features.html#PlayAudioStream">Playing audio stream</a></li>
+              <li><a href="/CIC/Guides/Implement_Client_Features.html#ReportAudioPlaybackProgress">Reporting audio playback progress</a></li>
+              <li><a href="/CIC/Guides/Implement_Client_Features.html#ControlAudioPlayback">Controlling audio playback</a></li>
+              <li><a href="/CIC/Guides/Implement_Client_Features.html#ShareAudioPlaybackState">Sharing audio playback state</a></li>
+            </ul>
+          </li>
+          <li>[CEK] Updated the following details to the Remarks of <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a> that is a <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">shared object</a> of Clova Home extension API:
+            <ul>
+              <li>Added the GetDeviceState action to all appliance types</li>
+              <li>Added the GetRemainingTime action to the OVEN type</li>
+              <li>Added the GetRemainingTime action that was omitted in the CLOTHESDRYER type</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.42.0</td><td>Not applied</td><td>2018-10-20</td>
       <td>
         <ul>
-          <li>[CIC] Added the <a href="/CIC/References/CICInterface/DeviceControl.html#BtDelete">DeviceControl.BtDelete</a> and <a href="/CIC/References/CICInterface/DeviceControl.htmlBtRescan">DeviceControl.BtRescan</a> directives to rescan or remove a Bluetooth device in the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace</li>
+          <li>[CIC] Added the <a href="/CIC/References/CICInterface/DeviceControl.html#BtDelete">DeviceControl.BtDelete</a> and <a href="/CIC/References/CICInterface/DeviceControl.html#BtRescan">DeviceControl.BtRescan</a> directives to rescan or remove a Bluetooth device in the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace</li>
           <li>[CIC] Added the <a href="/CIC/References/CICInterface/DeviceControl.html#BtPlay">DeviceControl.BtPlay</a> directive to play music through a Bluetooth device in the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace</li>
           <li>[CIC] Added fields to the <a href="/CIC/References/CICInterface/DeviceControl.html#BtConnect">DeviceControl.BtConnect</a> and <a href="/CIC/References/CICInterface/DeviceControl.html#BtDisconnect">DeviceControl.BtDisconnect</a> directives of the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace to enable connection or disconnection of a specific device or a device with a specific role</li>
           <li>[CIC] Added connecting, pairing, playerinfo, and scanning fields to <a href="/CIC/References/Context_Objects.html#BluetoothInfoObject">BluetoothInfoObject</a> of the <a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a> context object to add Bluetooth-related state information of the client</li>

@@ -1186,7 +1186,7 @@ Instructs the client to turn on or enable a specified feature or mode. For examp
   "directive": {
     "header": {
       "namespace": "DeviceControl",
-      "name": "TurnOff",
+      "name": "TurnOn",
       "messageId": "23bdfff7-b655-46d4-8655-8bb473bf2bf5",
       "dialogRequestId": "3c6eef8b-8427-4b46-a367-0a7a46432519"
     },

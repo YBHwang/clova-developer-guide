@@ -1,10 +1,11 @@
-## Handling alerts {#HandleAlerts}
+## Handling alarms {#HandleAlerts}
 
 Users can make a voice request to ask Clova to add an alarm. Once Clova receives such request, Clova registers the alarm or sends a directive to the client to sound the alarm at the set time. And the client must be able to suitably handle all alarm-related messages sent by Clova for each situation.
 
 This section explains the following:
 * [Registering alarms](#RegisterAlert)
 * [Starting alarms](#RingAlert)
+* [Stopping alarms](#StopAlert)
 * [Editing or deleting alarms](#EditAlert)
 * [Synchronizing alarms](#SyncAlert)
 
@@ -72,18 +73,10 @@ The directive message above holds the information shown below. And the client mu
 
 The client attempts to register the alarm and then passes the result to CIC. If alarm registration was successful, the client sends an [`Alerts.SetAlertSucceeded`](/CIC/References/CICInterface/Alerts.md#SetAlertSucceeded) event to CIC.
 
-{% raw %}
 ```json
 {
   "context": [
-    {{Alerts.AlertsState}},
-    {{AudioPlayer.PlayerState}},
-    {{Device.DeviceState}},
-    {{Device.Display}},
-    {{Clova.Location}},
-    {{Clova.SavedPlace}},
-    {{Speaker.VolumeState}},
-    {{SpeechSynthesizer.SpeechState}}
+    ...
   ],
   "event": {
     "header": {
@@ -98,22 +91,13 @@ The client attempts to register the alarm and then passes the result to CIC. If 
   }
 }
 ```
-{% endraw %}
 
 If alarm registration failed, the client sends an [`Alerts.SetAlertFailed`](/CIC/References/CICInterface/Alerts.md#SetAlertFailed) event.
 
-{% raw %}
 ```json
 {
   "context": [
-    {{Alerts.AlertsState}},
-    {{AudioPlayer.PlayerState}},
-    {{Device.DeviceState}},
-    {{Device.Display}},
-    {{Clova.Location}},
-    {{Clova.SavedPlace}},
-    {{Speaker.VolumeState}},
-    {{SpeechSynthesizer.SpeechState}}
+    ...
   ],
   "event": {
     "header": {
@@ -128,7 +112,6 @@ If alarm registration failed, the client sends an [`Alerts.SetAlertFailed`](/CIC
   }
 }
 ```
-{% endraw %}
 
 To inform the user of the request result, Clova sends the [`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) directive and the [`Clova.RenderTemplate`](/CIC/References/CICInterface/Clova.md#RenderTemplate) directive to the client. The client must then send the details of this directive to the user.
 
@@ -144,14 +127,7 @@ The client sounds the alarm at the set time and reports to CIC that the client h
 ```json
 {
   "context": [
-    {{Alerts.AlertsState}},
-    {{AudioPlayer.PlayerState}},
-    {{Device.DeviceState}},
-    {{Device.Display}},
-    {{Clova.Location}},
-    {{Clova.SavedPlace}},
-    {{Speaker.VolumeState}},
-    {{SpeechSynthesizer.SpeechState}}
+    ...
   ],
   "event": {
     "header": {
@@ -170,20 +146,14 @@ The client sounds the alarm at the set time and reports to CIC that the client h
 
 Once the alarm sounds, the client must provide the details of the ringing alarm in all events sent to CIC at this time. For this process, you must use the `activeAlerts` field of the [`Alert.AlertsState`](/CIC/References/Context_Objects.md#AlertsState) context.
 
+### Stopping alarms {#StopAlert}
+
 The user then requests to stop the alarm via voice([`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)) or via pressing a button on the client device or client app. Upon user request, the client must report the alarm stop request of the user to CIC as an [`Alerts.RequestAlertStop`](/CIC/References/CICInterface/Alerts.md#RequestAlertStop) event.
 
-{% raw %}
 ```json
 {
   "context": [
-    {{Alerts.AlertsState}},
-    {{AudioPlayer.PlayerState}},
-    {{Device.DeviceState}},
-    {{Device.Display}},
-    {{Clova.Location}},
-    {{Clova.SavedPlace}},
-    {{Speaker.VolumeState}},
-    {{SpeechSynthesizer.SpeechState}}
+    ...
   ],
   "event": {
     "header": {
@@ -198,7 +168,6 @@ The user then requests to stop the alarm via voice([`SpeechRecognizer.Recognize`
   }
 }
 ```
-{% endraw %}
 
 Clova sends the [`Alerts.StopAlert`](/CIC/References/CICInterface/Alerts.md#StopAlert) directive to the client to stop the alarm.
 
@@ -229,18 +198,10 @@ The client must stop the alarm with the same `token` and `type` values specified
 
 Once the client stops the alarm, it must then send an [`Alerts.AlertStopped`](/CIC/References/CICInterface/Alerts.md#AlertStopped) event to CIC to report that the client has stopped the alarm.
 
-{% raw %}
 ```json
 {
   "context": [
-    {{Alerts.AlertsState}},
-    {{AudioPlayer.PlayerState}},
-    {{Device.DeviceState}},
-    {{Device.Display}},
-    {{Clova.Location}},
-    {{Clova.SavedPlace}},
-    {{Speaker.VolumeState}},
-    {{SpeechSynthesizer.SpeechState}}
+    ...
   ],
   "event": {
     "header": {
@@ -255,7 +216,6 @@ Once the client stops the alarm, it must then send an [`Alerts.AlertStopped`](/C
   }
 }
 ```
-{% endraw %}
 
 If the registered alarm is an action timer alarm, Clova sends a directive corresponding to the user scheduled action to the client.
 
@@ -306,14 +266,7 @@ The client performs alarm modification or deletion. If alarm deletion was succes
 ```json
 {
   "context": [
-    {{Alerts.AlertsState}},
-    {{AudioPlayer.PlayerState}},
-    {{Device.DeviceState}},
-    {{Device.Display}},
-    {{Clova.Location}},
-    {{Clova.SavedPlace}},
-    {{Speaker.VolumeState}},
-    {{SpeechSynthesizer.SpeechState}}
+    ...
   ],
   "event": {
     "header": {
@@ -336,14 +289,7 @@ If alarm deletion failed, the client sends an [`Alerts.DeleteAlertFailed`](/CIC/
 ```json
 {
   "context": [
-    {{Alerts.AlertsState}},
-    {{AudioPlayer.PlayerState}},
-    {{Device.DeviceState}},
-    {{Device.Display}},
-    {{Clova.Location}},
-    {{Clova.SavedPlace}},
-    {{Speaker.VolumeState}},
-    {{SpeechSynthesizer.SpeechState}}
+    ...
   ],
   "event": {
     "header": {

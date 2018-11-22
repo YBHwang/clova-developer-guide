@@ -56,10 +56,13 @@ For client and extension developers, Clova platform provides Clova Interface Con
           <li>Guide</li>
           <ul>
             <li><a href="/CIC/Guides/Interact_with_CIC.md">Interacting with CIC</a></li>
+            <li><a href="/CIC/Guides/Implement_Client_Features.md#HandleDelegation">Handling delegated user requests</a></li>
+            <li><a href="/CIC/Guides/Implement_Client_Features.md#HandleAlerts">Handling alarms</a></li>
+            <li><a href="/CIC/Guides/Implement_Client_Features.md#PlayAudioStream">Handling audio playback</a></li>
           </ul>
           <li>Reference</li>
           <ul>
-            <li><a href="/CIC/References/CIC_API.md">CIC API</a></li>
+            <li><a href="/CIC/References/CIC_API.md">CIC API reference</a></li>
             <li><a href="/CIC/References/CIC_API.md#CICInterface">CIC interface</a></li>
             <li><a href="/CIC/References/Content_Templates.md">Content template</a></li>
             <li><a href="/CIC/References/Clova_Auth_API.md">CIC auth API</a></li>
@@ -90,7 +93,7 @@ For client and extension developers, Clova platform provides Clova Interface Con
           <li>Example extensions</li>
           <ul>
             <li><a href="/CEK/Examples/Extension_Examples.md#MagicBall">Magic Ball</a></li>
-            <li><a href="/CEK/Examples/Extension_Examples.mdRainSound">Rain Sound</a></li>
+            <li><a href="/CEK/Examples/Extension_Examples.md#RainSound">Rain Sound</a></li>
             <li><a href="/CEK/Examples/Extension_Examples.md#DiceDrawer">Dice Drawer</a></li>
             <li><a href="/CEK/Examples/Extension_Examples.md#CoinHelper">Coin Helper</a></li>
           </ul>
