@@ -1,7 +1,5 @@
 !include ../../../styles/PlantUML_StyleSheet.puml
 
-@startuml
-
 start
 
 :수신한 지시 메시지의 대화 ID 확인;
@@ -25,5 +23,3 @@ else (아니오)
   :수신한 지시 메시지 내용 즉시 처리;
   stop
 endif
-
-@enduml
