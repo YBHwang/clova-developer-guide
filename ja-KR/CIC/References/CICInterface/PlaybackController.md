@@ -1,6 +1,6 @@
 # PlaybackController
 
-PlaybackControllerは、クライアントのオーディオ再生およびスピーカー出力をコントロールする際に使用する名前空間です。PlaybackControllerでは、次のイベントとディレクティブを提供しています。
+PlaybackControllerインターフェースは、クライアントのオーディオ再生およびスピーカー出力をコントロールする際に使用する名前空間です。PlaybackControllerでは、次のイベントとディレクティブを提供しています。
 
 | メッセージ         | タイプ  | 説明                                   |
 |------------------|-----------|---------------------------------------------|
@@ -147,6 +147,7 @@ PlaybackControllerは、クライアントのオーディオ再生およびス�
 * [`PlaybackController.ExpectResumeCommand`](#ExpectResumeCommand)
 * [`PlaybackController.ExpectStopCommand`](#ExpectStopCommand)
 * [`PlaybackController.PauseCommandIssued`](#PauseCommandIssued)
+* [オーディオ再生をコントロールする](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
 
 ## ExpectPlayCommandディレクティブ {#ExpectPlayCommand}
 ユーザーがクライアント上で「再生」ボタン(Play)を押して、その効果が発生したときのように、クライアントが[`PlaybackController.PlayCommandIssued`](#PlayCommandIssued)イベントをCICに送信するように指示します。このディレクティブは、現在再生しているオーディオストリームを別のデバイスで再生しようとするときにも受信することがあります。クライアントはこのディレクティブを受信すると、関連する動作を処理して、[`PlaybackController.PlayCommandIssued`](#PlayCommandIssued)イベントをCICに送信する必要があります。
@@ -246,6 +247,7 @@ PlaybackControllerは、クライアントのオーディオ再生およびス�
 * [`PlaybackController.ExpectPreviousCommand`](#ExpectPreviousCommand)
 * [`PlaybackController.ExpectStopCommand`](#ExpectStopCommand)
 * [`PlaybackController.ResumeCommandIssued`](#ResumeCommandIssued)
+* [オーディオ再生をコントロールする](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
 
 ## ExpectStopCommandディレクティブ {#ExpectStopCommand}
 ユーザーがクライアント上で「停止」ボタン(Stop)を押して、その効果が発生したときのように、クライアントが[`PlaybackController.StopCommandIssued`](#StopCommandIssued)イベントをCICに送信するように指示します。クライアントはこのディレクティブを受信すると、[`PlaybackController.StopCommandIssued`](#StopCommandIssued)イベントをCICに送信する必要があります。
@@ -277,6 +279,7 @@ PlaybackControllerは、クライアントのオーディオ再生およびス�
 * [`PlaybackController.ExpectPreviousCommand`](#ExpectPreviousCommand)
 * [`PlaybackController.ExpectResumeCommand`](#ExpectResumeCommand)
 * [`PlaybackController.StopCommandIssued`](#StopCommandIssued)
+* [オーディオ再生をコントロールする](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
 
 ## Muteディレクティブ {#Mute}
 クライアントに、オーディオプレーヤーをミュートにするように指示します。クライアントはこのディレクティブを受信すると、オーディオストリームの再生に関連するスピーカーをミュートにする必要があります。
@@ -332,6 +335,7 @@ Clovaは、スピーカーの出力に関連するコントロールの場合、
 {% endraw %}
 
 ### 次の項目も参照してください。
+* [`PlaybackController.Previous`](#Previous)
 * [`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)
 
 ## NextCommandIssuedイベント {#NextCommandIssued}
@@ -415,6 +419,7 @@ Clovaは、スピーカーの出力に関連するコントロールの場合、
 ### 次の項目も参照してください。
 * [`AudioPlayer.PlayPaused`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)
 * [`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)
+* [オーディオ再生をコントロールする](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
 
 ## PauseCommandIssuedイベント {#PauseCommandIssued}
 ユーザーがクライアントデバイスで「一時停止」ボタン(Pause)を押したり、CICから[`PlaybackController.ExpectPauseCommand`](#ExpectPauseCommand)ディレクティブを受信した場合、クライアントはこのイベントをCICに送信する必要があります。CICはこのイベントを受信すると、適切なディレクティブをクライアントに送信します。
@@ -470,6 +475,7 @@ Clovaは、スピーカーの出力に関連するコントロールの場合、
 * [`PlaybackController.ResumeCommandIssued`](#ResumeCommandIssued)
 * [`PlaybackController.SetRepeatModeCommandIssued`](#SetRepeatModeCommandIssued)
 * [`PlaybackController.StopCommandIssued`](#StopCommandIssued)
+* [オーディオ再生をコントロールする](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
 
 ## PlayCommandIssuedイベント {#PlayCommandIssued}
 ユーザーがクライアントデバイスで「再生」ボタン(Play)を押したり、CICから[`PlaybackController.ExpectPlayCommand`](#ExpectPlayCommand)ディレクティブを受信した場合、クライアントはこのイベントをCICに送信する必要があります。CICはこのイベントを受信すると、適切なディレクティブをクライアントに送信します。CICから送信された[`PlaybackController.ExpectPlayCommand`](#ExpectPlayCommand)ディレクティブの`payload`に`handover`フィールドが含まれている場合、そのまま使用してオーディオ再生の引き継ぐ必要があります。
@@ -521,6 +527,7 @@ Clovaは、スピーカーの出力に関連するコントロールの場合、
 {% endraw %}
 
 ### 次の項目も参照してください。
+* [`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)
 * [`PlaybackController.CustomCommandIssued`](#CustomCommandIssued)
 * [`PlaybackController.ExpectPlayCommand`](#ExpectNextCommand)
 * [`PlaybackController.NextCommandIssued`](#NextCommandIssued)
@@ -554,6 +561,7 @@ Clovaは、スピーカーの出力に関連するコントロールの場合、
 {% endraw %}
 
 ### 次の項目も参照してください。
+* [`PlaybackController.Next`](#Next)
 * [`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)
 
 
@@ -639,6 +647,7 @@ Clovaは、スピーカーの出力に関連するコントロールの場合、
 * [`PlaybackController.Pause`](#Pause)
 * [`PlaybackController.Resume`](#Resume)
 * [`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)
+* [オーディオ再生をコントロールする](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
 
 ## Resumeディレクティブ {#Resume}
 クライアントに、オーディオストリームの再生を再開するように指示します。クライアントは、このディレクティブを受信すると、オーディオストリームの再生を再開する必要があります。
@@ -666,6 +675,7 @@ Clovaは、スピーカーの出力に関連するコントロールの場合、
 ### 次の項目も参照してください。
 * [`AudioPlayer.PlayResumed`](/CIC/References/CICInterface/AudioPlayer.md#PlayResumed)
 * [`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)
+* [オーディオ再生をコントロールする](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
 
 ## ResumeCommandIssuedイベント {#ResumeCommandIssued}
 ユーザーがクライアントデバイスで「再開」ボタン(Resume)を押したり、CICから[`PlaybackController.ExpectResumeCommand`](#ExpectResumeCommand)ディレクティブを受信した場合、クライアントはこのイベントをCICに送信する必要があります。CICはこのイベントを受信すると、適切なディレクティブをクライアントに送信します。
@@ -721,6 +731,7 @@ Clovaは、スピーカーの出力に関連するコントロールの場合、
 * [`PlaybackController.PreviousCommandIssued`](#PreviousCommandIssued)
 * [`PlaybackController.SetRepeatModeCommandIssued`](#SetRepeatModeCommandIssued)
 * [`PlaybackController.StopCommandIssued`](#StopCommandIssued)
+* [オーディオ再生をコントロールする](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
 
 ## SetRepeatModeディレクティブ {#SetRepeatMode}
 
@@ -843,6 +854,7 @@ Clovaは、スピーカーの出力に関連するコントロールの場合、
 ### 次の項目も参照してください。
 * [`AudioPlayer.PlayStopped`](/CIC/References/CICInterface/AudioPlayer.md#PlayStopped)
 * [`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)
+* [オーディオ再生をコントロールする](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
 
 ## StopCommandIssuedイベント {#StopCommandIssued}
 ユーザーがクライアントデバイスで「再開」ボタン(Resume)を押したり、CICから[`PlaybackController.ExpectStopCommand`](#ExpectStopCommand)ディレクティブを受信した場合、クライアントはこのイベントをCICに送信する必要があります。CICはこのイベントを受信すると、適切なディレクティブをクライアントに送信します。
@@ -898,6 +910,7 @@ Clovaは、スピーカーの出力に関連するコントロールの場合、
 * [`PlaybackController.PreviousCommandIssued`](#PreviousCommandIssued)
 * [`PlaybackController.ResumeCommandIssued`](#ResumeCommandIssued)
 * [`PlaybackController.SetRepeatModeCommandIssued`](#SetRepeatModeCommandIssued)
+* [オーディオ再生をコントロールする](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
 
 ## TurnOffRepeatModeディレクティブ {#TurnOffRepeatMode}
 **(非推奨)** クライアントに、1曲リピート再生モードを無効にするように指示します。

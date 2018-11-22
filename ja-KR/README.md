@@ -56,6 +56,9 @@ Clovaプラットフォームでは、クライアント開発者とExtension開
           <li>ガイド</li>
           <ul>
             <li><a href="/CIC/Guides/Interact_with_CIC.md">CICと連携する</a></li>
+            <li><a href="/CIC/Guides/Implement_Client_Features.md#HandleDelegation">委任されたユーザーのリクエストを処理する</a></li>
+            <li><a href="/CIC/Guides/Implement_Client_Features.md#HandleAlerts">アラームを処理する</a></li>
+            <li><a href="/CIC/Guides/Implement_Client_Features.md#PlayAudioStream">オーディオ再生を処理する</a></li>
           </ul>
           <li>リファレンス</li>
           <ul>

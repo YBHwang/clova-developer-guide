@@ -21,18 +21,6 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 | [`StreamRequested`](#StreamRequested) | イベント     | オーディオストリームを再生するために、ストリーミングのURLなど、追加の情報をCICにリクエストするイベントです。               |
 {% if book.DocMeta.TargetReaderType == "Internal" %}| [`SynchronizePlaybackState`](#SynchronizePlaybackState) | ディレクティブ | クライアントのストリーム再生状態を同期するように指示します。`AudioPlayer.RequestPlaybackState`イベントを送信したクライアントは、`AudioPlayer.SynchronizePlaybackState`ディレクティブを受信します。|{% endif %}
 
-## ストリームの再生状態を共有する {#SharePlaybackState}
-
-1つのクライアントは、ユーザーのアカウントに登録されているすべてのクライアントまたは特定のクライアントと、ストリームの再生状態を共有することができます。ストリームの再生状態を共有される動作の流れは、次の通りです。
-
-![](/CIC/Resources/Images/CIC_Playback_State_Sync_Work_Flow.png)
-
-1. Clovaアプリは、{{ "[`AudioPlayer.RequestPlaybackState`](#RequestPlaybackState)イベントを使用して" if book.DocMeta.TargetReaderType == "Internal" }}CICに対して、ユーザーのアカウントに登録されているすべてのクライアント、または特定のクライアントのストリーム再生状態をリクエストします。
-2. CICは、[`AudioPlayer.ExpectReportPlaybackState`](#ExpectReportPlaybackState)ディレクティブで、ユーザーのアカウントに登録されているすべてのクライアント、または特定のクライアントに、現在のストリーム再生状態をレポートするように指示します。
-3. ストリームの再生状態をレポートするように指示されたクライアントは、[`AudioPlayer.ReportPlaybackState`](#ReportPlaybackState)イベントで、CICに現在のストリームの再生状態をレポートします。
-4. CICは、{{ "[`AudioPlayer.SynchronizePlaybackState`](#SynchronizePlaybackState)を使用して" if book.DocMeta.TargetReaderType == "Internal" }}他のクライアントのストリーム再生状態をリクエストしたクライアントに状態情報を送信し、同期するように指示します。
-
-
 ## ClearQueueディレクティブ {#ClearQueue}
 クライアントに対して、オーディオストリームの再生キューをクリアするように指示します。このディレクティブの`clearBehavior`フィールドの値は、キューをクリアする動作を区分します。クライアントがキューをクリアし、それと同時に現在再生中のオーディオストリームを中止するかを指定します。
 
@@ -97,7 +85,7 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 
 ### 次の項目も参照してください。
 * [`AudioPlayer.ReportPlaybackState`](#ReportPlaybackState)
-* [ストリームの再生状態を共有する](#SharePlaybackState)
+* [オーディオ再生状態を共有する](/CIC/Guides/Implement_Client_Features.md#ShareAuidoPlaybackState)
 
 ## Playディレクティブ {#Play}
 クライアントに対して、特定のオーディオストリームを再生するか、または再生キューに追加するように指示します。
@@ -224,6 +212,7 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 * [`AudioPlayer.ProgressReportIntervalPassed`](#ProgressReportIntervalPassed)
 * [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
 * [`AudioPlayer.StreamRequested`](#StreamRequested)
+* [オーディオを再生する](/CIC/Guides/Implement_Client_Features.md#PlayAudioStream)
 
 ## PlayFinishedイベント {#PlayFinished}
 クライアントがオーディオストリームの再生を終了するとき、そのオーディオストリームの情報をCICにレポートするために使用します。
@@ -272,6 +261,7 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 
 ### 次の項目も参照してください。
 * [`AudioPlayer.Play`](#Play)
+* [オーディオ再生の進行状況をレポートする](/CIC/Guides/Implement_Client_Features.md#ReportAudioPlaybackProgress)
 
 ## PlayPausedイベント {#PlayPaused}
 クライアントがオーディオストリームの再生を一時停止するとき、そのオーディオストリームの情報をCICにレポートするために使用します。このイベントを送信するには、次のような事前のシナリオが必要です。
@@ -326,6 +316,7 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.PlayResumed`](#PlayResumed)
 * [`PlaybackController.Pause`](/CIC/References/CICInterface/PlaybackController.md#Pause)
+* [オーディオ再生をコントロールする](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
 
 ## PlayResumedイベント {#PlayResumed}
 
@@ -381,6 +372,7 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.PlayPaused`](#PlayPaused)
 * [`PlaybackController.Resume`](/CIC/References/CICInterface/PlaybackController.md#Resume)
+* [オーディオ再生をコントロールする](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
 
 ## PlayStartedイベント {#PlayStarted}
 クライアントがオーディオストリームの再生を開始するとき、そのオーディオストリームの情報をCICにレポートするために使用します。
@@ -430,6 +422,8 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 ### 次の項目も参照してください。
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.PlayStopped`](#PlayStopped)
+* [オーディオを再生する](/CIC/Guides/Implement_Client_Features.md#PlayAudioStream)
+* [オーディオ再生をコントロールする](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
 
 ## PlayStoppedイベント {#PlayStopped}
 クライアントがオーディオストリームの再生を停止するとき、そのオーディオストリームの情報をCICにレポートするために使用します。このイベントを送信するには、次のような事前のシナリオが必要です。
@@ -484,6 +478,7 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.PlayStarted`](#PlayStarted)
 * [`PlaybackController.Stop`](/CIC/References/CICInterface/PlaybackController.md#Stop)
+* [オーディオ再生をコントロールする](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
 
 ## ProgressReportDelayPassedイベント {#ProgressReportDelayPassed}
 オーディオストリームの再生が開始してから、指定された遅延期間が経過したタイミングの再生状態([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState))をCICにレポートするために使用します。オーディオストリームの遅延期間は、[`AudioPlayer.Play`](#Play)ディレクティブがクライアントに送信されるときに確認できます。
@@ -534,6 +529,7 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.ProgressReportIntervalPassed`](#ProgressReportIntervalPassed)
 * [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
+* [オーディオ再生の進行状況をレポートする](/CIC/Guides/Implement_Client_Features.md#ReportAudioPlaybackProgress)
 
 ## ProgressReportIntervalPassedイベント {#ProgressReportIntervalPassed}
 オーディオストリームの再生が開始してから、指定された間隔ごとの再生状態([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState))を、CICにレポートします。レポートする間隔は、[`AudioPlayer.Play`](#Play)ディレクティブがクライアントに送信されるときに確認できます。
@@ -584,6 +580,7 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.ProgressReportDelayPassed`](#ProgressReportDelayPassed)
 * [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
+* [オーディオ再生の進行状況をレポートする](/CIC/Guides/Implement_Client_Features.md#ReportAudioPlaybackProgress)
 
 ## ProgressReportPositionPassedイベント {#ProgressReportPositionPassed}
 オーディオストリームの再生が開始してから、指定されたタイミングに、そのときの再生状態([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState))をCICにレポートします。レポートするタイミングは、[`AudioPlayer.Play`](#Play)ディレクティブがクライアントに送信されるときに確認できます。
@@ -634,6 +631,7 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.ProgressReportDelayPassed`](#ProgressReportDelayPassed)
 * [`AudioPlayer.ProgressReportIntervalPassed`](#ProgressReportIntervalPassed)
+* [オーディオ再生の進行状況をレポートする](/CIC/Guides/Implement_Client_Features.md#ReportAudioPlaybackProgress)
 
 ## ReportPlaybackStateイベント {#ReportPlaybackState}
 
@@ -687,7 +685,7 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 ### 次の項目も参照してください。
 * [`AudioPlayer.ExpectReportPlaybackState`](#ExpectReportPlaybackState)
 * [`AudioPlayer.Play`](#Play)
-* [ストリームの再生状態を共有する](#SharePlaybackState)
+* [オーディオ再生状態を共有する](/CIC/Guides/Implement_Client_Features.md#ShareAuidoPlaybackState)
 
 {% if book.DocMeta.TargetReaderType == "Internal" %}
 ## RequestPlaybackStateイベント {#RequestPlaybackState}
@@ -736,7 +734,7 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 ### 次の項目も参照してください。
 * [`AudioPlayer.ExpectReportPlaybackState`](#ExpectReportPlaybackState)
 * [`AudioPlayer.Play`](#Play)
-* [ストリームの再生状態を共有する](#SharePlaybackState)
+* [オーディオ再生状態を共有する](/CIC/Guides/Implement_Client_Features.md#ShareAuidoPlaybackState)
 {% endif %}
 
 ## StreamDeliverディレクティブ {#StreamDeliver}
@@ -764,11 +762,18 @@ AudioPlayerインターフェースは、クライアントからオーディオ
       "messageId": "4e4080d6-c440-498a-bb73-ae86c6312806"
     },
     "payload": {
-        "audioItemId": "5313c879-25bb-461c-93fc-f85d95edf2a0",
-        "stream": {
-            "token": "b767313e-6790-4c28-ac18-5d9f8e432248",
-            "url": "https://musicservice.example.net/b767313e.mp3"
-        }
+      "audioItemId": "9CPWU-8362fe7c-f75c-42c6-806b-6f3e00aba8f1-c1862201",
+      "audioStream": {
+          "format": "audio/mpeg",
+          "progressReport": {
+            "progressReportDelayInMilliseconds": null,
+            "progressReportIntervalInMilliseconds": null,
+            "progressReportPositionInMilliseconds": 60000
+          },
+          "token": "TR-NM-17716562",
+          "url": "https://musicservice.example.net/b767313e.mp3",
+          "urlPlayable": true
+      }
     }
   }
 }
@@ -779,6 +784,7 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 ### 次の項目も参照してください。
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.StreamRequested`](#StreamRequested)
+* [オーディオを再生する](/CIC/Guides/Implement_Client_Features.md#PlayAudioStream)
 
 ## StreamRequestedイベント {#StreamRequested}
 オーディオストリームを再生するために、ストリーミングのURLなど、追加の情報をCICにリクエストするイベントです。
@@ -818,17 +824,18 @@ AudioPlayerインターフェースは、クライアントからオーディオ
       "messageId": "198cf12-4020-b98a-b73b-1234ab312806"
     },
     "payload": {
-      "audioItemId": "ac192f4c-8f12-4a58-8ace-e3127eb297a4",
+      "audioItemId": "9CPWU-8362fe7c-f75c-42c6-806b-6f3e00aba8f1-c1862201",
       "audioStream": {
         "beginAtInMilliseconds": 0,
+        "durationInMilliseconds": 60000,
         "progressReport": {
-            "progressReportDelayInMilliseconds": null,
-            "progressReportIntervalInMilliseconds": null,
-            "progressReportPositionInMilliseconds": 60000
+          "progressReportDelayInMilliseconds": null,
+          "progressReportIntervalInMilliseconds": null,
+          "progressReportPositionInMilliseconds": 60000
         },
-        "token": "TR-NM-4435786",
-        "urlPlayable": false,
-        "url": "clova:TR-NM-4435786"
+        "token": "TR-NM-17716562",
+        "url": "clova:TR-NM-17716562",
+        "urlPlayable": false
       }
     }
   }
@@ -840,6 +847,7 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 ### 次の項目も参照してください。
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.StreamDeliver`](#StreamDeliver)
+* [オーディオを再生する](/CIC/Guides/Implement_Client_Features.md#PlayAudioStream)
 
 {% if book.DocMeta.TargetReaderType == "Internal" %}
 ## SynchronizePlaybackStateディレクティブ {#SynchronizePlaybackState}
@@ -887,7 +895,7 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 
 ### 次の項目も参照してください。
 * [`AudioPlayer.ReportPlaybackState`](#ReportPlaybackState)
-* [ストリームの再生状態を共有する](#SharePlaybackState)
+* [オーディオ再生状態を共有する](/CIC/Guides/Implement_Client_Features.md#ShareAuidoPlaybackState)
 {% endif %}
 
 ## 共有オブジェクト
@@ -904,15 +912,15 @@ AudioPlayer APIを使ってイベントまたはディレクティブを送信�
 | フィールド名       | データ型    | 説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:-------------:|
 | `beginAtInMilliseconds`  | number | 再生を開始するオフセット。ミリ秒単位で、この値が指定されている場合、クライアントは、そのオーディオストリームを指定されたオフセットから再生する必要があります。この値が0に設定されている場合、ストリームを最初から再生します。          |  |
-| `customData`             | string | 現在のストリームに関連して、任意の形式を持つメタデータ情報。特定のカテゴリに分類されたり、定義されないストリーミング情報は、このフィールドに含まれるか、または入力される必要があります。オーディオストリーム再生のコンテキストに必要な追加の値を、サービスプロバイダーがカスタムで追加できます。<div class="danger"><p><strong>注意</strong></p><p>クライアントは、このフィールドの値を任意に使用してはなりません。問題が発生する恐れがあります。また、このフィールドの値はストリームの再生状態を送信する際、<a href="/CIC/References/Context_Objects.html#PlaybackState">PlaybackStateコンテキスト</a>の<code>stream</code>フィールドにそのまま含まれる必要があります。</p></div> | 任意/条件付き  |
+| `customData`             | string | 現在のストリームに関連して、任意の形式を持つメタデータ情報。特定のカテゴリに分類されたり、定義されないストリーミング情報は、このフィールドに含まれるか、または入力される必要があります。オーディオストリーム再生のコンテキストに必要な追加の値を、サービスプロバイダーがカスタムで追加できます。<div class="danger"><p><strong>注意</strong></p><p>クライアントは、このフィールドの値を任意に使用してはなりません。問題が発生する恐れがあります。また、このフィールドの値は、オーディオ再生状態を送信する際、<a href="/CIC/References/Context_Objects.md#PlaybackState">PlaybackStateコンテキスト</a>の<code>stream</code>フィールドにそのまま含まれる必要があります。</p></div> | 任意/条件付き  |
 | `durationInMilliseconds` | number | オーディオストリームの再生時間。クライアントは、`beginAtInMilliseconds`フィールドに指定されている再生のオフセットから、このフィールドに指定されている再生時間だけ、そのオーディオストリームをシークおよび再生できます。例えば、`beginAtInMilliseconds`フィールドの値が`10000`で、このフィールドの値が`60000`の場合、そのオーディオストリームの10秒から70秒までの区間を再生およびシークすることができます。ミリ秒単位です。   | 任意/条件付き  |
-| `format`                 | string  | メディア形式(MIMEタイプ)このフィールドから、HLS(HTTP Live Streaming)コンテンツかどうかを確認できます。次の値を持ちます。デフォルト値は`"audio/mpeg"`です。<ul><li><code>"audio/mpeg"</code></li><li><code>"audio/mpegurl"</code></li><li><code> "audio/aac"</code></li><li><code>"application/vnd.apple.mpegurl"</code></li></ul><div class="note"><p><strong>メモ</strong></p><p>HLSでコンテンツを提供するExtensionの開発者は、<a href="mailto:{{ book.ServiceEnv.ExtensionAdminEmail }}">{{ book.ServiceEnv.ExtensionAdminEmail }}</a>までご連絡ください。</p></div>   | 任意/条件付き  |
+| `format`                 | string  | メディア形式(MIMEタイプ)このフィールドから、HLS(HTTP Live Streaming)コンテンツかどうかを確認できます。次の値を持ちます。デフォルト値は`"audio/mpeg"`です。<ul><li><code>"audio/mpeg"</code></li><li><code>"audio/mpegurl"</code></li><li><code>"audio/aac"</code></li><li><code>"application/vnd.apple.mpegurl"</code></li></ul><div class="note"><p><strong>メモ</strong></p><p>HLSでコンテンツを提供するExtensionの開発者は、<a href="mailto:{{ book.ServiceEnv.ExtensionAdminEmail }}">{{ book.ServiceEnv.ExtensionAdminEmail }}</a>までご連絡ください。</p></div>   | 任意/条件付き  |
 | `progressReport`         | object  | 再生が開始してから、再生状態をレポートするタイミングを指定するオブジェクト                                                  | 任意/条件付き |
 | `progressReport.progressReportDelayInMilliseconds`    | number | 再生が開始してから、指定された時間が経過した後に、再生状態をレポートするように指定する値です。ミリ秒単位で、このフィールドの値はnullの場合があります。  | 任意/条件付き |
 | `progressReport.progressReportIntervalInMilliseconds` | number | 再生中に、指定された間隔ごとに再生状態をレポートするように指定する値です。ミリ秒単位で、このフィールドの値はnullの場合があります。        | 任意/条件付き |
 | `progressReport.progressReportPositionInMilliseconds` | number | 再生中に、指定された再生位置を経過する度に、再生状態をレポートするように指定する値です。ミリ秒単位で、このフィールドの値はnullの場合があります。    | 任意/条件付き |
 | `token`                  | string  | オーディオストリームのトークン                                                                                   |  |
-| `url`                    | string  | オーディオストリームのURL<div class="note"><p><strong>メモ</strong></p><p>提供するオーディオコンテンツは、<a href="/Design/Design_Guideline_For_Client_Hardware.html#SupportedAudioCompressionFormat">プラットフォームでサポートされている音声圧縮形式</a>である必要があります。</p></div>  |  |
+| `url`                    | string  | オーディオストリームのURL<div class="note"><p><strong>メモ</strong></p><p>提供するオーディオコンテンツは、<a href="/Design/Design_Guideline_For_Client_Hardware.md#SupportedAudioCompressionFormat">プラットフォームでサポートされている音声圧縮形式</a>である必要があります。</p></div>  |  |
 | `urlPlayable`            | boolean | `url`フィールドのオーディオストリームのURLがすぐに再生できるかを示す値。<ul><li><code>true</code>：すぐに再生できるURL</li><li><code>false</code>：すぐに再生できないURL。<a href="#StreamRequested"><code>AudioPlayer.StreamRequested</code></a>イベントでオーディオストリームの情報を追加でリクエストする必要があります。</li></ul>        |  |
 
 #### 備考
