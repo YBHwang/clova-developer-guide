@@ -170,7 +170,7 @@ A client may have to play other audio content during audio playback. In this cas
 The rules for audio playback are as follows:
 
 * For physical buttons, the sound effects must be played instantly being output in the mixing method.
-* audio content must be played instantly. If an audio content is playing, it must be processed as background audio to play the new audio.
+* Audio content must be played instantly. If an audio content is playing, it must be processed as background audio to play the new audio.
 * However, if the [Content type](#AudioInterruptionRule) of the audio playing and the new audio is the same, follow the process below.
   - **Alert, Content, Dialogue, Feedback type**: Cancel the audio content playing and play the new audio content.
   - For **Notification type**: Continue playing the audio content and keep the new audio content in the playback queue. After finishing the current audio content, play the following audio content in the queue order.
