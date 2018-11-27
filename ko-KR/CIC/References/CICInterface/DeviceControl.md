@@ -678,11 +678,13 @@ CIC는 이 이벤트 메시지를 수신하면 사용자 계정에 등록된 모
 | 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
 |---------------|---------|-----------------------------|:---------:|
 | `target`      | string  | 제어 대상.<ul><li><code>"channel"</code>: TV 채널</li><li><code>"screenbrightness"</code>: 화면 밝기</li><li><code>"volume"</code>: 스피커 볼륨</li></ul> | 항상     |
+| `value`       | string  | 변경할 밝기나 볼륨의 크기 정보       | 조건부    |
 
 ### Remarks
 
-* 기본 단위는 클라이언트측에서 직접 결정하면 됩니다.
+* `value` 필드의 값이 없을 경우 크기 변경의 기본 단위는 클라이언트측에서 직접 결정하면 됩니다.
 * 클라이언트는 맥락 정보인 [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) 객체를 이용해 수시로 스피커 볼륨 정보와 화면 밝기 정보를 CIC에 전달해야 합니다.
+* 사용자가 기기가 표현할 수 있는 화면의 밝기나 볼륨의 범위를 벗어나는 값 변경 요청을 하더라도 Clova는 기기에 맞게 크기 정보를 조절하여 이 지시 메시지를 보냅니다.
 * 클라이언트는 이 지시 메시지에 해당하는 내용을 처리한 후 [`DeviceControl.ActionExecuted`](#ActionExecuted) 또는 [`DeviceControl.ActionFailed`](#ActionFailed) 이벤트 메시지를 이용하여 결과를 CIC에 전달해야 합니다.
 * Clova는 보통 기기 제어에 대한 지시 메시지를 클라이언트에게 전달할 때 음성 안내([`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) 지시 메시지)를 함께 제공합니다. 다만, `target` 필드가 `"volume"`으로 설정된 것처럼 스피커 출력과 관계된 제어이면 [`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) 지시 메시지를 통해 안내 문구를 내려보내지 않습니다. 이는 사용자의 음악 감상 등과 같은 UX를 고려한 사항이며, 이때는 음성 안내 대신 클라이언트 기기의 조명이나 짧은 효과음 통해 볼륨이 조절되었음을 알리도록 구현해야 합니다.
 
@@ -691,6 +693,7 @@ CIC는 이 이벤트 메시지를 수신하면 사용자 계정에 등록된 모
 {% raw %}
 
 ```json
+// 크기 정보 없이 볼륨을 내려달라고 한 경우
 {
   "directive": {
     "header": {
@@ -700,7 +703,23 @@ CIC는 이 이벤트 메시지를 수신하면 사용자 계정에 등록된 모
       "dialogRequestId": "3c6eef8b-8427-4b46-a367-0a7a46432519"
     },
     "payload": {
-      "target": "screenbrightness"
+      "target": "volume"
+    }
+  }
+}
+
+// 특정 크기 만큼 볼륨을 내려달라고 한 경우
+{
+  "directive": {
+    "header": {
+      "namespace": "DeviceControl",
+      "name": "Decrease",
+      "messageId": "23bdfff7-b655-46d4-8655-8bb473bf2bf5",
+      "dialogRequestId": "3c6eef8b-8427-4b46-a367-0a7a46432519"
+    },
+    "payload": {
+      "target": "volume",
+      "value": "3"
     }
   }
 }
@@ -766,10 +785,12 @@ CIC는 이 이벤트 메시지를 수신하면 사용자 계정에 등록된 모
 | 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
 |---------------|---------|-----------------------------|:---------:|
 | `target`      | string  | 제어 대상.<ul><li><code>"channel"</code>: TV 채널</li><li><code>"screenbrightness"</code>: 화면 밝기</li><li><code>"volume"</code>: 스피커 볼륨</li></ul> | 항상     |
+| `value`       | string  | 변경할 밝기나 볼륨의 크기 정보       | 조건부    |
 
 ### Remarks
 
-* 기본 단위는 클라이언트측에서 직접 결정하면 됩니다.
+* `value` 필드의 값이 없을 경우 크기 변경의 기본 단위는 클라이언트측에서 직접 결정하면 됩니다.
+* 사용자가 기기가 표현할 수 있는 화면의 밝기나 볼륨의 범위를 벗어나는 값 변경 요청을 하더라도 Clova는 기기에 맞게 크기 정보를 조절하여 이 지시 메시지를 보냅니다.
 * 클라이언트는 맥락 정보인 [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) 객체를 이용해 수시로 스피커 볼륨 정보와 화면 밝기 정보를 CIC에 전달해야 합니다.
 * 클라이언트는 이 지시 메시지에 해당하는 내용을 처리한 후 [`DeviceControl.ActionExecuted`](#ActionExecuted) 또는 [`DeviceControl.ActionFailed`](#ActionFailed) 이벤트 메시지를 이용하여 결과를 CIC에 전달해야 합니다.
 * Clova는 보통 기기 제어에 대한 지시 메시지를 클라이언트에게 전달할 때 음성 안내([`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) 지시 메시지)를 함께 제공합니다. 다만, `target` 필드가 `"volume"`으로 설정된 것처럼 스피커 출력과 관계된 제어이면 [`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) 지시 메시지를 통해 안내 문구를 내려보내지 않습니다. 이는 사용자의 음악 감상 등과 같은 UX를 고려한 사항이며, 이때는 음성 안내 대신 클라이언트 기기의 조명이나 짧은 효과음 통해 볼륨이 조절되었음을 알리도록 구현해야 합니다.
@@ -779,6 +800,7 @@ CIC는 이 이벤트 메시지를 수신하면 사용자 계정에 등록된 모
 {% raw %}
 
 ```json
+// 크기 정보 없이 볼륨을 올려달라고 한 경우
 {
   "directive": {
     "header": {
@@ -788,7 +810,23 @@ CIC는 이 이벤트 메시지를 수신하면 사용자 계정에 등록된 모
       "dialogRequestId": "3c6eef8b-8427-4b46-a367-0a7a46432519"
     },
     "payload": {
-      "target": "screenbrightness"
+      "target": "volume"
+    }
+  }
+}
+
+// 특정 크기 만큼 볼륨을 올려달라고 한 경우
+{
+  "directive": {
+    "header": {
+      "namespace": "DeviceControl",
+      "name": "Increase",
+      "messageId": "23bdfff7-b655-46d4-8655-8bb473bf2bf5",
+      "dialogRequestId": "3c6eef8b-8427-4b46-a367-0a7a46432519"
+    },
+    "payload": {
+      "target": "volume",
+      "value": "3"
     }
   }
 }

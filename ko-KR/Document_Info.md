@@ -21,10 +21,11 @@
   </thead>
   <tbody>
     <tr>
-      <td>v3.45.0</td><td>미적용</td><td>2018-11-23</td>
+      <td>v3.45.0</td><td>미적용</td><td>2018-11-30</td>
       <td>
         <ul>
-          <li>[CIC] 대화 모델의 설명을 <a href="">간접 대화 구조</a>와 <a href="/CIC/Guides/Implement_Client_Features.md#ManageDialogueIDAndHandleTasks">대화 ID 관리 및 작업 처리하기</a>로 설명을 나누고 내용을 보완함</li>
+          <li>[CIC] 대화 모델의 설명을 <a href="/CIC/CIC_Overview.md#IndirectDialogue">간접 대화 구조</a>와 <a href="/CIC/Guides/Implement_Client_Features.md#ManageDialogueIDAndHandleTasks">대화 ID 관리 및 작업 처리하기</a>로 설명을 나누고 내용을 보완함</li>
+          <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.md#Decrease">DeviceControl.Decrease</a>와 <a href="/CIC/References/CICInterface/DeviceControl.md#Increase">DeviceControl.Increase</a> 지시 메시지에 value 필드를 추가하여 특정 크기 만큼 기기의 화면 밝기나 볼륨을 조정할 수 있도록 지원함</li>
         </ul>
       </td>
     </tr>
