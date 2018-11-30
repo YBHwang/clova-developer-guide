@@ -28,8 +28,8 @@ IoT 기기 정보 확인 및 기기 제어와 관련된 요청 및 응답을 수
 | [`GetAwakeDurationResponse`](#GetAwakeDurationResponse)                       | Response | [`GetAwakeDurationRequest`](#GetAwakeDurationRequest) 메시지에 대한 응답으로 대상 기기가 측정한 사용자의 취침 후 비수면 시간, 즉 사용자가 취침을 시작한 순간부터 수면에 진입한 순간까지의 시간을 CEK에게 전달합니다.  |
 | [`GetBatteryInfoRequest`](#GetBatteryInfoRequest)                             | Request  | 대상 기기의 배터리 정보를 Clova Home extension에게 요청합니다. |
 | [`GetBatteryInfoResponse`](#GetBatteryInfoResponse)                           | Response | [`GetBatteryInfoRequest`](#GetBatteryInfoRequest) 메시지에 대한 응답으로 대상 기기의 배터리 정보를 CEK에게 전달합니다. |
-| [`GetCleaningCycleRequest`](#GetCleaningCycleRequest)                                                   | Request  | 기기의 세척 주기를 확인할 때 사용되며, 대상 기기의 다음 세척 주기까지 남은 시간에 대한 정보를 Clova Home extension에게 요청합니다.  |
-| [`GetCleaningCycleResponse`](#GetCleaningCycleResponse)                                                  | Response | [`GetCleaningCycleRequest`](#GetCleaningCycleRequest) 메시지에 대한 응답으로 대상 기기의 다음 세척 주기까지 남은 시간을 CEK에게 전달합니다.  |
+| [`GetCleaningCycleRequest`](#GetCleaningCycleRequest)                         | Request  | 기기의 세척 주기를 확인할 때 사용되며, 대상 기기의 다음 세척 주기까지 남은 시간에 대한 정보를 Clova Home extension에게 요청합니다.  |
+| [`GetCleaningCycleResponse`](#GetCleaningCycleResponse)                       | Response | [`GetCleaningCycleRequest`](#GetCleaningCycleRequest) 메시지에 대한 응답으로 대상 기기의 다음 세척 주기까지 남은 시간을 CEK에게 전달합니다.  |
 | [`GetCloseTimeRequest`](#GetCloseTimeRequest)                                 | Request  | 주로 열림 감지 센서가 감지한 내용 중 감지 대상이 마지막으로 닫혔던 시점의 시간 정보를 Clova Home extension에게 요청합니다. |
 | [`GetCloseTimeResponse`](#GetCloseTimeResponse)                               | Response | [`GetCloseTimeRequest`](#GetCloseTimeRequest) 메시지에 대한 응답으로 대상 기기가 감지한 내용 중 감지 대상이 마지막으로 닫혔던 시점의 시간 정보를 CEK에게 전달합니다.  |
 | [`GetConsumptionRequest`](#GetConsumptionRequest)                             | Request  | 주로 스마트 플러그나 스마트 멀티탭과 같은 기기에서 현재까지 측정된 에너지 또는 자원 사용량을 확인할 때 사용되며, 대상 기기가 측정한 에너지 또는 자원 사용량 정보를 Clova Home extension에게 요청합니다.  |
@@ -98,6 +98,8 @@ IoT 기기 정보 확인 및 기기 제어와 관련된 요청 및 응답을 수
 | [`MuteRequest`](#MuteRequest)                                                 | Request  | 대상 기기의 소리를 끄도록(음소거) Clova Home extension에게 요청합니다. |
 | [`OpenConfirmation`](#OpenConfirmation)                                       | Response | [`OpenRequest`](#OpenRequest) 메시지에 대한 응답으로 스마트 커튼이 일광 차단을 해제하거나, 비데의 뚜껑을 열도록 요청한 후 처리된 결과를 CEK에게 전달합니다. |
 | [`OpenRequest`](#OpenRequest)                                                 | Request  | 스마트 커튼이나 비데 등의 제품을 제어할 때 사용되며, 스마트 커튼이 일광 차단을 해제하거나, 비데의 뚜껑을 열도록 Clova Home extension에게 요청합니다.  |
+| [`PreheatConfirmation`](#PreheatConfirmation)                                 | Response | [`PreheatRequest`](#PreheatRequest) 메시지에 대한 응답으로 예열 요청을 처리한 후 그 결과를 CEK에게 전달합니다.  |
+| [`PreheatRequest`](#PreheatRequest)                                           | Response | 주로 오븐과 같은 기기를 제어할 때 사용되며, 대상 기기가 예열하도록 Clova Home extension에게 요청합니다.                        |
 | [`RaiseConfirmation`](#RaiseConfirmation)                                     | Response | [`RaiseRequest`](#RaiseRequest) 메시지에 대한 응답으로 대상 기기의 높낮이를 높이도록 요청한 후 처리된 결과를 CEK에게 전달합니다.  |
 | [`RaiseRequest`](#RaiseRequest)                                               | Request  | 주로 커튼이나 블라인드, 침대 같은 기기를 제어할 때 사용되며, 대상 기기의 높낮이를 높이도록 Clova Home extension에게 요청합니다.  |
 | [`ReleaseModeConfirmation`](#ReleaseModeConfirmation)                         | Response | [`ReleaseModeRequest`](#ReleaseModeRequest) 메시지에 대한 응답으로 현재 기기의 운전 모드(operation mode)를 해제하도록 요청한 후 처리된 결과를 CEK에게 전달합니다.  |
@@ -3665,6 +3667,84 @@ IoT 기기 정보 확인 및 기기 제어와 관련된 요청 및 응답을 수
 
 ### See also
 * [`OpenConfirmation`](#OpenConfirmation)
+
+## PreheatConfirmation {#PreheatConfirmation}
+[`PreheatRequest`](#PreheatRequest) 메시지에 대한 응답으로 예열 요청을 처리한 후 그 결과를 CEK에게 전달합니다.
+
+### Payload fields
+
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `targetTemperature`               | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | 대상 기기에 설정되었거나 extension이 대상 기기에게 설정하도록 요청한 희망 예열 온도 정보를 담고 있는 객체                                | 선택    |
+
+### Remarks
+
+대상 기기에서 payload에 입력할 정보를 얻어올 수 없으면 값을 입력하지 않아도 됩니다. 이때 사용자에게 구체적인 정보 없이 기기 제어 요청이 정상 처리되었음을 알려줍니다.
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "ec9ab261-528e-4b19-94e5-6e35a2494a6d",
+    "name": "PreheatConfirmation",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "targetTemperature": {
+      "value": 180
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### See also
+* [`PreheatRequest`](#PreheatRequest)
+
+## PreheatRequest {#PreheatRequest}
+주로 오븐과 같은 기기를 제어할 때 사용되며, 대상 기기가 예열하도록 Clova Home extension에게 요청합니다. 희망 예열 온도가 메시지에 포함될 수 있습니다. 이 요청에 대한 응답으로 [`PreheatConfirmation`](#PreheatConfirmation) 메시지를 사용해야 합니다.
+
+### Payload fields
+
+| 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `accessToken`   | string | IoT 서비스의 사용자 계정의 access token. CEK는 외부 서비스의 인증 서버로부터 획득한 사용자 계정의 access token을 전달합니다. 자세한 설명은 [사용자 계정 연결하기](/CEK/Guides/Link_User_Account.md)를 참조합니다.                          | 항상    |
+| `appliance`     | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) | 대상 기기 정보를 담고 있는 객체. `applianceId` 필드는 필수입니다. | 항상    |
+| `targetTemperature`       | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | 희망 예열 온도 정보를 담고 있는 객체             | 선택    |
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "d68661e9-dc78-4556-a0db-87ffb3ad30c5",
+    "name": "PreheatRequest",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "accessToken": "92ebcb67fe33",
+    "appliance": {
+      "applianceId": "device-044"
+    },
+    "targetTemperature": {
+      "value": 180
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### See also
+* [`PreheatConfirmation`](#PreheatConfirmation)
 
 ## RaiseConfirmation {#RaiseConfirmation}
 [`RaiseRequest`](#RaiseRequest) 메시지에 대한 응답으로 대상 기기의 높낮이를 높이도록 요청한 후 처리된 결과를 CEK에게 전달합니다.

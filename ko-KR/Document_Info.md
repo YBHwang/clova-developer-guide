@@ -26,6 +26,17 @@
         <ul>
           <li>[CIC] 대화 모델의 설명을 <a href="/CIC/CIC_Overview.md#IndirectDialogue">간접 대화 구조</a>와 <a href="/CIC/Guides/Implement_Client_Features.md#ManageDialogueIDAndHandleTasks">대화 ID 관리 및 작업 처리하기</a>로 설명을 나누고 내용을 보완함</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.md#Decrease">DeviceControl.Decrease</a>와 <a href="/CIC/References/CICInterface/DeviceControl.md#Increase">DeviceControl.Increase</a> 지시 메시지에 value 필드를 추가하여 특정 크기 만큼 기기의 화면 밝기나 볼륨을 조정할 수 있도록 지원함</li>
+          <li>[CEK] Clova Home extension API에 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.md#PreheatConfirmation">PreheatConfirmation</a>, <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#PreheatRequest">PreheatRequest</a> 추가</li>
+          <li>[CEK] Clova Home extension API <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">공유 객체</a> <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a>의 Remarks에 다음의 내용을 업데이트함
+            <ul>
+              <li>스마트락(SMARTLOCK) 기기 타입 추가</li>
+              <li>와인 셀러(WINECELLAR) 기기 타입 추가</li>
+              <li>공기청정기(AIRPURIFIER) 타입에 GetCurrentTemperature, GetHumidity 동작 추가</li>
+              <li>스마트 조명 기기(LIGHT) 타입에 ReleaseMode 동작 추가</li>
+              <li>오븐(OVEN) 타입에 SetPreheat 동작 추가</li>
+              <li>환풍기(VENTILATOR) 타입에 GetCurrentTemperature 동작 추가</li>
+            </ul>
+          </li>
         </ul>
       </td>
     </tr>
