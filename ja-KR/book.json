@@ -136,5 +136,5 @@
     },
     "paperSize": "a3"
   },
-  "plugins": ["-search", "-lunr"]
+  "plugins": "-search"
 }

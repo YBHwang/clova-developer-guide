@@ -24,7 +24,7 @@
 | DeviceControl      | [`BtConnectByPINCode`](/CIC/References/CICInterface/DeviceControl.md#BtConnectByPINCode) | Instructs the client to connect to the Bluetooth speaker that has requested a PIN code.                      |
 | DeviceControl      | [`BtDisconnect`](/CIC/References/CICInterface/DeviceControl.md#BtDisconnect)    | Instructs the client to disconnect from the Bluetooth speaker.                                       |
 | DeviceControl      | [`BtDelete`](/CIC/References/CICInterface/DeviceControl.md#BtDelete)            | Instructs the client to remove a specific device from the Bluetooth pairing list.                        |
-| DeviceControl      | [`BtPlay`](/CIC/References/CICInterface/DeviceControl.md#BtPlay)                | Instructs the client to play audio contents through the connected Bluetooth device.                          |
+| DeviceControl      | [`BtPlay`](/CIC/References/CICInterface/DeviceControl.md#BtPlay)                | Instructs the client to play audio content through the connected Bluetooth device.                          |
 | DeviceControl      | [`BtRescan`](/CIC/References/CICInterface/DeviceControl.md#BtRescan)            | Instructs the client to rescan for Bluetooth devices.                               |
 | DeviceControl      | [`BtStartPairing`](/CIC/References/CICInterface/DeviceControl.md#BtStartPairing) | Instructs the client to start the Bluetooth pairing mode.                                              |
 | DeviceControl      | [`BtStopPairing`](/CIC/References/CICInterface/DeviceControl.md#BtStopPairing)   | Instructs the client to turn off the Bluetooth pairing mode.                                              |

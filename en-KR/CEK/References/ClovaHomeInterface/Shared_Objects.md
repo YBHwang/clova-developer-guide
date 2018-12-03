@@ -208,50 +208,50 @@ If the user requests the appliance list using the [`DiscoverAppliancesRequest`](
 
 | applianceTypes | Description         | Permitted actions                                  |
 |----------------|-------------|-------------------------------------------------|
-| `"AIRCONDITIONER"`  | Type of an air conditioner         | DecrementFanSpeed, DecrementTargetTemperature, GetCurrentTemperature, GetTargetTemperature, HealthCheck, IncrementFanSpeed, IncrementTargetTemperature, SetFanSpeed, SetMode, SetTargetTemperature, TurnOff, TurnOn               |
-| `"AIRPURIFIER"`     | Type of an air purifier        | DecrementFanSpeed, GetAirQuality, GetFineDust, GetUltraFineDust, HealthCheck, IncrementFanSpeed, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn    |
-| `"AIRSENSOR"`       | Type of an air sensor     | GetAirQuality, GetCurrentTemperature, GetFineDust, GetHumidity, GetUltraFineDust, HealthCheck                                     |
-| `"BIDET"`           | Type of a bidet            | Close, GetDeviceState, GetExpendableState, HealthCheck, Open, TurnOff, TurnOn                                                     |
-| `"BODYWEIGHTSCALE"` | Type of a weighing scale           | GetDeviceState, HealthCheck                                                                                                       |
-| `"CLOTHESCAREMACHINE"` | Type of a clothing care machine    | GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                          |
-| `"CLOTHESDRYER"`    | Type of a drying machine       | GetDeviceState, GetPhase, HealthCheck, TurnOff, TurnOn                                                                            |
-| `"CLOTHESWASHER"`   | Type of a washing machine       | GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                          |
-| `"DEHUMIDIFIER"`    | Type of a dehumidifier           | GetCurrentTemperature, GetHumidity, HealthCheck, SetFanSpeed, TurnOff, TurnOn                                                     |
-| `"DISHWASHER"`      | Type of a dishwasher       | GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                          |
-| `"ELECTRICKETTLE"`  | Type of an electric kettle       | GetCurrentTemperature, HealthCheck, TurnOff, TurnOn                                                                               |
-| `"ELECTRICTOOTHBRUSH"` | Type of an electric toothbrush     | GetDeviceState, HealthCheck                                                                                                       |
-| `"FAN"`             | Type of a fan           | HealthCheck, SetMode, TurnOff, TurnOn                                                                                             |
-| `"HEATER"`          | Type of a heater            | DecrementTargetTemperature, GetCurrentTemperature, GetTargetTemperature, HealthCheck, IncrementTargetTemperature, TurnOff, TurnOn |
-| `"HUMIDIFIER"`      | Type of a humidifier           | GetCurrentTemperature, GetHumidity, HealthCheck, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn                               |
-| `"KIMCHIREFRIGERATOR"` | Type of a kimchi refrigerator    | GetDeviceState, HealthCheck                                                                                                       |
-| `"LIGHT"`           | Type of a smart lighting   | DecrementBrightness, DecrementVolume HealthCheck, IncrementBrightness, IncrementVolume SetBrightness, SetColor, SetColorTemperature, SetMode, TurnOff, TurnOn            |
-| `"MASSAGECHAIR"`    | Type of a massage chair        | DecrementIntensityLevel, HealthCheck, IncrementIntensityLevel, TurnOff, TurnOn                                                     |
-| `"MICROWAVE"`       | Type of a microwave      | GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                                      |
-| `"MOTIONSENSOR"`    | Type of a motion detector    | GetDeviceState, HealthCheck                                                                                                         |
-| `"OPENCLOSESENSOR"` | Type of an open-close sensor    | GetCloseTime, GetDeviceState, GetOpenState, GetOpenTime, HealthCheck                                                                |
-| `"OVEN"`            | Type of an oven            | GetDeviceState, HealthCheck                                                                                                         |
-| `"POWERSTRIP"`      | Type of a power strip         | GetConsumption, GetEstimateBill, GetProgressiveTaxBracket, HealthCheck, TurnOff, TurnOn                                             |
-| `"PURIFIER"`        | Type of a water purifier          | GetDeviceState, GetExpendableState, HealthCheck, ReleaseMode, SetMode, SetTargetTemperature                                         |
-| `"RANGE"`           | Type of an electric range          | GetDeviceState, HealthCheck                                                                                                         |
-| `"RANGEHOOD"`       | Type of a range hood      | HealthCheck, TurnOff, TurnOn                                                                                                        |
-| `"REFRIGERATOR"`    | Type of a refrigerator          | GetDeviceState, HealthCheck, ReleaseMode, SetMode, SetTargetTemperature                                                             |
+| `"AIRCONDITIONER"`  | Type of an air conditioner         | DecrementFanSpeed, DecrementTargetTemperature, GetCurrentTemperature, GetDeviceState, GetTargetTemperature, HealthCheck, IncrementFanSpeed, IncrementTargetTemperature, SetFanSpeed, SetMode, SetTargetTemperature, TurnOff, TurnOn               |
+| `"AIRPURIFIER"`     | Type of an air purifier        | DecrementFanSpeed, GetAirQuality, GetDeviceState, GetFineDust, GetUltraFineDust, HealthCheck, IncrementFanSpeed, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn  |
+| `"AIRSENSOR"`       | Type of an air sensor     | GetAirQuality, GetCurrentTemperature, GetDeviceState, GetFineDust, GetHumidity, GetUltraFineDust, HealthCheck                                     |
+| `"BIDET"`           | Type of a bidet            | Close, GetDeviceState, GetExpendableState, HealthCheck, Open, TurnOff, TurnOn                                                                     |
+| `"BODYWEIGHTSCALE"` | Type of a weighing scale           | GetDeviceState, HealthCheck                                                                                                                       |
+| `"CLOTHESCAREMACHINE"` | Type of a clothing care machine    | GetDeviceState, GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                          |
+| `"CLOTHESDRYER"`    | Type of a drying machine       | GetDeviceState, GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                          |
+| `"CLOTHESWASHER"`   | Type of a washing machine       | GetDeviceState, GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                          |
+| `"DEHUMIDIFIER"`    | Type of a dehumidifier           | GetCurrentTemperature, GetDeviceState, GetHumidity, HealthCheck, SetFanSpeed, TurnOff, TurnOn                                                     |
+| `"DISHWASHER"`      | Type of a dishwasher       | GetDeviceState, GetPhase, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                          |
+| `"ELECTRICKETTLE"`  | Type of an electric kettle       | GetCurrentTemperature, GetDeviceState, HealthCheck, TurnOff, TurnOn                                                                               |
+| `"ELECTRICTOOTHBRUSH"` | Type of an electric toothbrush     | GetDeviceState, HealthCheck                                                                                                                        |
+| `"FAN"`             | Type of a fan           | GetDeviceState, HealthCheck, SetMode, TurnOff, TurnOn                                                                                             |
+| `"HEATER"`          | Type of a heater            | DecrementTargetTemperature, GetCurrentTemperature, GetDeviceState, GetTargetTemperature, HealthCheck, IncrementTargetTemperature, TurnOff, TurnOn |
+| `"HUMIDIFIER"`      | Type of a humidifier           | GetCurrentTemperature, GetDeviceState, GetHumidity, HealthCheck, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn                               |
+| `"KIMCHIREFRIGERATOR"` | Type of a kimchi refrigerator    | GetDeviceState, HealthCheck                                                                                                                       |
+| `"LIGHT"`           | Type of a smart lighting   | DecrementBrightness, DecrementVolume HealthCheck, GetDeviceState, IncrementBrightness, IncrementVolume SetBrightness, SetColor, SetColorTemperature, SetMode, TurnOff, TurnOn            |
+| `"MASSAGECHAIR"`    | Type of a massage chair        | DecrementIntensityLevel, GetDeviceState, HealthCheck, IncrementIntensityLevel, TurnOff, TurnOn                                                     |
+| `"MICROWAVE"`       | Type of a microwave      | GetDeviceState, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                                      |
+| `"MOTIONSENSOR"`    | Type of a motion detector    | GetDeviceState, HealthCheck                                                                                                                        |
+| `"OPENCLOSESENSOR"` | Type of an open-close sensor    | GetCloseTime, GetDeviceState, GetOpenState, GetOpenTime, HealthCheck                                                                               |
+| `"OVEN"`            | Type of an oven            | GetDeviceState, GetRemainingTime, HealthCheck                                                                                                      |
+| `"POWERSTRIP"`      | Type of a power strip         | GetConsumption, GetDeviceState, GetEstimateBill, GetProgressiveTaxBracket, HealthCheck, TurnOff, TurnOn                                             |
+| `"PURIFIER"`        | Type of a water purifier          | GetDeviceState, GetExpendableState, HealthCheck, ReleaseMode, SetMode, SetTargetTemperature                                                         |
+| `"RANGE"`           | Type of an electric range          | GetDeviceState, HealthCheck                                                                                                                         |
+| `"RANGEHOOD"`       | Type of a range hood      | GetDeviceState, HealthCheck, TurnOff, TurnOn                                                                                                        |
+| `"REFRIGERATOR"`    | Type of a refrigerator          | GetDeviceState, HealthCheck, ReleaseMode, SetMode, SetTargetTemperature                                                                             |
 | `"RICECOOKER"`      | Type of a rice cooker        | GetCleaningCycle, GetDeviceState, GetExpendableState, GetKeepWarmTime, GetPhase, GetRemainingTime, HealthCheck, ReleaseMode, SetMode, Stop, TurnOff, TurnOn          |
-| `"ROBOTVACUUM"`     | Type of a robot vacuum       | Charge, GetBatteryInfo, HealthCheck, TurnOff, TurnOn                                                                               |
-| `"SETTOPBOX"`       | Type of a set-top box     | DecrementChannel, DecrementVolume, HealthCheck, IncrementChannel, IncrementVolume, Mute, SetChannel, SetChannelByName, TurnOff, TurnOn, Unmute |
-| `"SLEEPINGMONITOR"` | Type of a sleep sensor        | GetAsleepDuration, GetAwakeDuration, GetDeviceState, GetSleepScore, GetSleepStartTime, HealthCheck, TurnOff, TurnOn                |
-| `"SMARTBED"`        | Type of a smart bed      | HealthCheck, Lower, Raise, Stop                                                                                                     |
-| `"SMARTCHAIR"`      | Type of a smart chair      | GetCurrentSittingState, GetDeviceState, GetRightPostureRatio, GetUsageTime, HealthCheck                                             |
-| `"SMARTCURTAIN"`    | Type of a smart curtain      | Close, HealthCheck, Open, Stop                                                                                                      |
-| `"SMARTHUB"`        | Type of a smart hub      | GetCurrentTemperature, GetHumidity, GetTargetTemperature, HealthCheck, SetMode                                                      |
-| `"SMARTMETER"`      | Type of a smart meter      | GetConsumption, GetCurrentBill, GetEstimateBill, GetProgressiveTaxBracket, HealthCheck                                              |
-| `"SMARTPLUG"`       | Type of a smart plug     | GetConsumption, GetEstimateBill, HealthCheck, TurnOff, TurnOn                                                                       |
-| `"SMARTTV"`         | Type of a smart TV       | DecrementChannel, DecrementVolume, HealthCheck, IncrementChannel, IncrementVolume, Mute, SetChannel, SetChannelByName, TurnOff, TurnOn, Unmute |
-| `"SMARTVALVE"`      | Type of a smart valve      | GetLockState, SetLockState                                                                                                           |
-| `"SMOKESENSOR"`     | Type of a smoke sensor       | GetDeviceState, HealthCheck                                                                                                          |
-| `"SWITCH"`          | Type of a switch to control outlets in homes | HealthCheck, TurnOff, TurnOn                                                                                          |
+| `"ROBOTVACUUM"`     | Type of a robot vacuum       | Charge, GetBatteryInfo, GetDeviceState, HealthCheck, TurnOff, TurnOn                                                                               |
+| `"SETTOPBOX"`       | Type of a set-top box     | DecrementChannel, DecrementVolume, GetDeviceState, HealthCheck, IncrementChannel, IncrementVolume, Mute, SetChannel, SetChannelByName, TurnOff, TurnOn, Unmute |
+| `"SLEEPINGMONITOR"` | Type of a sleep sensor        | GetAsleepDuration, GetAwakeDuration, GetDeviceState, GetSleepScore, GetSleepStartTime, HealthCheck, TurnOff, TurnOn                                |
+| `"SMARTBED"`        | Type of a smart bed      | GetDeviceState, HealthCheck, Lower, Raise, Stop                                                                                                     |
+| `"SMARTCHAIR"`      | Type of a smart chair      | GetCurrentSittingState, GetDeviceState, GetRightPostureRatio, GetUsageTime, HealthCheck                                                             |
+| `"SMARTCURTAIN"`    | Type of a smart curtain      | Close, GetDeviceState, HealthCheck, Open, Stop                                                                                                      |
+| `"SMARTHUB"`        | Type of a smart hub      | GetCurrentTemperature, GetDeviceState, GetHumidity, GetTargetTemperature, HealthCheck, SetMode                                                      |
+| `"SMARTMETER"`      | Type of a smart meter      | GetConsumption, GetCurrentBill, GetDeviceState, GetEstimateBill, GetProgressiveTaxBracket, HealthCheck                                              |
+| `"SMARTPLUG"`       | Type of a smart plug     | GetConsumption, GetDeviceState, GetEstimateBill, HealthCheck, TurnOff, TurnOn                                                                       |
+| `"SMARTTV"`         | Type of a smart TV       | DecrementChannel, DecrementVolume, GetDeviceState, HealthCheck, IncrementChannel, IncrementVolume, Mute, SetChannel, SetChannelByName, TurnOff, TurnOn, Unmute |
+| `"SMARTVALVE"`      | Type of a smart valve      | GetDeviceState, GetLockState, SetLockState                                                                                                           |
+| `"SMOKESENSOR"`     | Type of a smoke sensor        | GetDeviceState, HealthCheck                                                                                                                         |
+| `"SWITCH"`          | Type of a switch to control outlets in homes | GetDeviceState, HealthCheck, TurnOff, TurnOn                                                                                          |
 | `"THERMOSTAT"`      | Type of a thermostat   | DecrementTargetTemperature, GetConsumption, GetCurrentTemperature, GetDeviceState, GetEstimateConsumption, GetTargetTemperature, HealthCheck, IncrementTargetTemperature, SetMode, SetTargetTemperature TurnOff, TurnOn       |
-| `"VENTILATOR"`      | Type of a ventilator          | GetAirQuality, GetDeviceState, GetHumidity, GetTargetTemperature, HealthCheck, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn    |
-| `"WATERBOILER"`     | Type of a water boiler          | HealthCheck, SetMode, TurnOff, TurnOn                                                                                                |
+| `"VENTILATOR"`      | Type of a ventilator          | GetAirQuality, GetDeviceState, GetHumidity, GetTargetTemperature, HealthCheck, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn                    |
+| `"WATERBOILER"`     | Type of a water boiler          | GetDeviceState, HealthCheck, SetMode, TurnOff, TurnOn                                                                                                |
 
 <div class="note">
 <p><strong>Note!</strong></p>
@@ -1347,7 +1347,7 @@ PeriodInfoObject contains information for periods used to retrieve measured data
 Expressions such as "today," "this week," or "this month" used by the user are defined by the following range of time:
 
 * "Today": The time range begins at 00:00:00 of the current date and ends at 23:59:59 of the current date.
-* "This week": The time range begins at 00:00:00 of the {{ book.ServiceEnv.FirstDayOfWeekInClovaHome }}of the current week and ends at 23:59:59 of the {{ book.ServiceEnv.LastDayOfWeekInClovaHome }} of the current week.
+* "This week": The time range begins at 00:00:00 of the {{ book.ServiceEnv.FirstDayOfWeekInClovaHome }} of the current week and ends at 23:59:59 of the {{ book.ServiceEnv.LastDayOfWeekInClovaHome }} of the current week.
 * "This month": The time range begins at 00:00:00 of the first day of the current month and ends at 23:59:59 of the last day of the current month.
 
 At the time of processing a request, the end time (`end`) of the period used in special expressions like above can be a time in the future that is yet to come. Depending on the situation, data must be handled by considering the handling time as the end time.

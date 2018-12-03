@@ -21,6 +21,26 @@
   </thead>
   <tbody>
     <tr>
+      <td>v3.45.0</td><td>미적용</td><td>2018-11-30</td>
+      <td>
+        <ul>
+          <li>[CIC] 대화 모델의 설명을 <a href="/CIC/CIC_Overview.md#IndirectDialogue">간접 대화 구조</a>와 <a href="/CIC/Guides/Implement_Client_Features.md#ManageDialogueIDAndHandleTasks">대화 ID 관리 및 작업 처리하기</a>로 설명을 나누고 내용을 보완함</li>
+          <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.md#Decrease">DeviceControl.Decrease</a>와 <a href="/CIC/References/CICInterface/DeviceControl.md#Increase">DeviceControl.Increase</a> 지시 메시지에 value 필드를 추가하여 특정 크기 만큼 기기의 화면 밝기나 볼륨을 조정할 수 있도록 지원함</li>
+          <li>[CEK] Clova Home extension API에 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.md#PreheatConfirmation">PreheatConfirmation</a>, <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#PreheatRequest">PreheatRequest</a> 추가</li>
+          <li>[CEK] Clova Home extension API <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">공유 객체</a> <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a>의 Remarks에 다음의 내용을 업데이트함
+            <ul>
+              <li>스마트락(SMARTLOCK) 기기 타입 추가</li>
+              <li>와인 셀러(WINECELLAR) 기기 타입 추가</li>
+              <li>공기청정기(AIRPURIFIER) 타입에 GetCurrentTemperature, GetHumidity 동작 추가</li>
+              <li>스마트 조명 기기(LIGHT) 타입에 ReleaseMode 동작 추가</li>
+              <li>오븐(OVEN) 타입에 SetPreheat 동작 추가</li>
+              <li>환풍기(VENTILATOR) 타입에 GetCurrentTemperature 동작 추가</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.44.0</td><td>미적용</td><td>2018-11-16</td>
       <td>
         <ul>
@@ -142,7 +162,7 @@
       <td>v3.37.1</td><td>미적용</td><td>2018-08-09</td>
       <td>
         <ul>
-          <li>[CIC] <a href="/CIC/CIC_Overview.html#DialogModel">대화 모델</a>에 대한 설명을 보완</li>
+          <li>[CIC] 대화 모델에 대한 설명을 보완</li>
           <li>[CEK] <a href="/CEK/Guides/Build_Custom_Extension.html#ProvidingMetaDataForDisplay">오디오 콘텐츠의 메타 정보 제공</a> 절에서 일부 오타 수정</li>
         </ul>
       </td>
@@ -595,7 +615,7 @@
       <td>v3.2.0</td><td>v0.9</td><td>2017-08-14</td>
       <td>
         <ul>
-          <li>[CIC] <a href="/CIC/CIC_Overview.html#DialogModel">대화 모델</a> 설명 추가</li>
+          <li>[CIC] 대화 모델 설명 추가</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> API 추가</li>
           <li>[CIC] <a href="/CIC/References/Context_Objects.html">Device.DeviceState</a> payload 필드 추가: airplane, battery, bluetooth, brightness, flashLight, gps, powerSavingMode, soundMode, volume, wifi</li>
           <li>[CEK] <a href="/CEK/Guides/Build_Custom_Extension.html#DoMultiturnDialog">Multi-turn 대화 수행하기</a>절 추가 및 sessionAttributes 필드 설명 업데이트</li>

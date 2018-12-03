@@ -57,7 +57,7 @@ CEK uses request messages (via HTTP request) to send user intents analyzed by Cl
 | Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:---------:|
 | `context`                                  | object  | The object that has the context information of the client.                                | Always |
-| `context.AudioPlayer`                      | object  | The object that holds the details of media content currently being played or that was played last. | Conditional |
+| `context.AudioPlayer`                      | object  | The object that holds the details of the media content currently playing or played last. | Conditional |
 | `context.AudioPlayer.offsetInMilliseconds` | number  | The most recent playback position (offset) of the recently played media. The unit is milliseconds and this field value may be empty if the `playerActivity` value is `"IDLE"`.                                       | Conditional |
 | `context.AudioPlayer.playerActivity`       | string  | The value for indicating the state of player. Available values are:<ul><li><code>"IDLE"</code>: Deactivated</li><li><code>"PLAYING"</code>: Playing</li><li><code>"PAUSED"</code>: Paused</li><li><code>"STOPPED"</code>: Stopped</li></ul> | Always |
 | `context.AudioPlayer.stream`               | [AudioStreamInfoObject](/CIC/References/CICInterface/AudioPlayer.md#AudioStreamInfoObject) | The object that contains the details of the currently playing media. This field value may be empty if the `playerActivity` value is `"IDLE"`.    | Conditional |
@@ -597,7 +597,7 @@ SpeechInfoObject is an object reused in the `response.outputSpeech` of a respons
 #### Message example
 {% raw %}
 ```json
-// Example 1: Return SimpleSpeech voice information - regular text
+// Example 1: Returning SimpleSpeech voice information - regular text
 {
   "version": "0.1.0",
   "sessionAttributes": {},
@@ -616,7 +616,7 @@ SpeechInfoObject is an object reused in the `response.outputSpeech` of a respons
   }
 }
 
-// Example 2: Return SpeechList voice information - use regular text, URL type
+// Example 2: Returning SpeechList voice information - use regular text, URL type
 {
   "version": "0.1.0",
   "sessionAttributes": {},
@@ -642,7 +642,7 @@ SpeechInfoObject is an object reused in the `response.outputSpeech` of a respons
   }
 }
 
-// Example 3: Return SpeechSet voice information - summary, detailed voice information
+// Example 3: Returning SpeechSet voice information - summary, detailed voice information
 {
   "version": "0.1.0",
   "sessionAttributes": {},
@@ -677,7 +677,7 @@ SpeechInfoObject is an object reused in the `response.outputSpeech` of a respons
   }
 }
 
-// Example 4: Store intermediate information in multi-turn dialogue - use of sessionAttributes
+// Example 4: Storing intermediate information in multi-turn dialogue - use of sessionAttributes
 {
   "version": "0.1.0",
   "sessionAttributes": {
@@ -699,7 +699,7 @@ SpeechInfoObject is an object reused in the `response.outputSpeech` of a respons
   }
 }
 
-// Example 5: Encourages additional user utterances in multi-turn dialogue - use of reprompt
+// Example 5: Encouraging additional user utterances in multi-turn dialogue - use of reprompt
 {
   "version": "0.1.0",
   "sessionAttributes": {
@@ -730,7 +730,7 @@ SpeechInfoObject is an object reused in the `response.outputSpeech` of a respons
   }
 }
 
-// Example 6: Directs the client to play the audio content (uses the response.directives[] field)
+// Example 6: Directing the client to play audio content (uses the response.directives[] field)
 {
   "version": "0.1.0",
   "sessionAttributes": {},
@@ -1410,7 +1410,7 @@ Instructs the client to display the sent playback metadata such as a playlist, a
 | `controls[].name`           | string       | The button name. Available values are:<ul><li><code>"NEXT"</code>: Next</li><li><code>"PLAY_PAUSE"</code>: Play/Pause</li><li><code>"PREVIOUS"</code>: Previous</li></ul>  | Always  |
 | `controls[].selected`       | boolean      | Indicates whether the media content is selected. This value can be used for displaying user preferences. For example, if this value is set as `true`, the content must be expressed on the relevant UI of the media player since the user has selected it as a preference. <ul><li><code>true</code>: Selected</li><li><code>false</code>: Not selected</li></ul> | Always  |
 | `controls[].type`           | string       | The type of button. Currently, only the `"BUTTON"` value is available.  | Always |
-| `playableItems[]`           | object array | The object containing the list of media contents that can be played. This field can be an empty array.  | Always |
+| `playableItems[]`           | object array | The object containing the list of media content that can be played. This field can be an empty array.  | Always |
 | `playableItems[].artImageUrl`  | string    | The URL of the image on the media content. This URL is the location of the album cover image or other relevant icons.      | Conditional |
 | `playableItems[].controls[]`                | object array  | The object array of button information that must be displayed when playing a specific media content. This object array is omissible.  | Conditional |
 | `playableItems[].controls[].enabled`        | boolean      | Indicates whether the buttons specified in `playableItems[].controls[].name` must be enabled on the media player.<ul><li><code>true</code>: Enable</li><li><code>false</code>: Disable</li></ul>  | Always  |
@@ -1546,7 +1546,7 @@ Requests CIC for playback metadata such as a playlist, album image, and lyrics t
 | `token`        | string  | The token of the audio stream that becomes a reference point to start when importing the playback metadata. | Required |
 | `range`        | object  | The scope of the playback metadata. If this field is empty, the client will receive a random number of metadata.   | Optional  |
 | `range.before` | number  | Requests n number of playback metadata included in the previous playlist from the base media content.  | Optional  |
-| `range.after`  | number  | Requests n number of playback metadata included in the next playlist from the existing media content. For example, if the value of `range.after` is set as `5` without specifying the value of `range.before` field, the playback metadata equivalent to a total of six media contents, including the base media content, is received. | Optional  |
+| `range.after`  | number  | Requests n number of playback metadata included in the next playlist from the existing media content. For example, if the value of `range.after` is set as `5` without specifying the value of `range.before` field, the playback metadata equivalent to a total of six media content, including the base media content, is received. | Optional  |
 
 #### Message example
 

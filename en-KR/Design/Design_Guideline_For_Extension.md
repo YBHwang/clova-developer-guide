@@ -10,12 +10,12 @@ It is possible to create an extension for web service information lookup, shoppi
 * [Defining an interaction model](#DefineInteractionModel)
 * [Deciding the sound output type](#DecideSoundOutputType)
 * [Supported audio compression formats](#SupportedAudioCompressionFormat)
-* [Guidelines for providing contents](#ContentGuideline)
+* [Guidelines for providing content](#ContentGuideline)
 * [Continuous updates](#ContinuousUpdate)
 
 ## Setting goals {#SettingGoal}
 
-The first thing you need to do when designing an extension is set the goals of the extension. Setting goals of an extension is a process of deciding what and how to deliver to users and the method that will be used for delivering it. This process becomes the basis for anticipating the functions to provide to users later on and the user scenarios for using the functions. It may be a single basic and abstract goal for the extension, as shown below.
+The first thing you need to do when designing an extension is to set the goals of the extension. Setting goals of an extension is a process of deciding what and how to deliver to users and the method that will be used for delivering it. This process becomes the basis for anticipating the functions to provide to users later on and the user scenarios for using the functions. It may be a single basic and abstract goal for the extension, as shown below.
 
 ```
 Provide a pizza delivery service to users.
@@ -219,12 +219,12 @@ The built-in intent is a specification declared by the Clova platform for shared
 | `Clova.CancelIntent`        | Undo action request        | "Cancel.", "Cancel please."                                          |
 | `Clova.GuideIntent`         | Help request          | "What can you do?", "Tell me how to use it."                           |
 | `Clova.NextIntent`          | Next content request      | "Next.", "Play the next song."                                       |
-| `Clova.NoIntent`            | Negative response (e.g., No.) | "No.", "No, thank you.", "Absolutely not."                                     |
+| `Clova.NoIntent`            | Negative response (e.g., No.) | "No," "No, thank you," "Absolutely not"                                     |
 | `Clova.PauseIntent`         | Pause request.   | "Pause for a moment.", "Pause."                                       |
 | `Clova.PreviousIntent`      | Previous content request      | "Previous.", "Play the previous song."                                      |
 | `Clova.ResumeIntent`        | Resume play request       | "Play again.", "Play the song again."                                  |
 | `Clova.StopIntent`          | Cancel play request       | "Stop."                                                 |
-| `Clova.YesIntent`           | Positive response (e.g., Yes.)   | "Yes.", "Sure.", "All right.", "Certainly.", "Okay."                   |
+| `Clova.YesIntent`           | Positive response (e.g., Yes.)   | "Yes," "Sure," "All right," "Certainly," "Okay"                   |
 
 ### Slot {#Slot}
 
@@ -243,7 +243,7 @@ The built-in slot type is an information type pre-defined by Clova which defines
 | ----------------------|------------------------------------------------|
 | `CLOVA.DATETIME`      | Information indicating date and time (e.g., "10 mins 30 secs," "9 am," "1 hour ago," "12 pm," "Noon," "August 4, 2017," "Last day of previous month"). |
 | `CLOVA.DURATION`      | Information indicating a period of time (e.g., "One day," "Overnight," "One month," "Next week," "Weekend"). |
-| `CLOVA.NUMBER`        | Information indicating numbers. It includes quantity nouns (e.g., "Once," "7 people," "One," "30 years old," "Around 8," "16 columns"). |
+| `CLOVA.NUMBER`        | Information indicating numbers including quantity nouns (e.g., "Once," "7 people," "One," "30 years old," "Around 8," "16 columns"). |
 | `CLOVA.RELATIVETIME`  | Information indicating relative time expressions (e.g., "From now on," "Later," "In a bit," "Just now," "Earlier"). |
 | `CLOVA.UNIT`          | Information indicating unit expressions (e.g., "374 square meters," "100 MB," "25 miles"). |
 | `CLOVA.ORDER`        | Information indicating sequencing expressions (e.g., "Next," "Front," "Before," "Last," "This," "Previous"). |
@@ -557,7 +557,7 @@ The skills must comply with the privacy responsibilities by following the guidel
 
 ### Other precautions {#OtherPrecautions}
 
-The following precautions apply when providing skill contents:
+The following precautions apply when providing skill content:
 
 * If the skill is linked to your device, Clova device, or a third-party device (e.g., an IoT device), the Clova administrator may ask for the device to be submitted for review.
 * Your skill must not be in violation of the [Clova Extensions Kit Terms and Conditions](https://developers.naver.com/console/clova/cek/#/terms) along with the details mentioned above.
@@ -582,7 +582,7 @@ It is recommended that you follow the sound attributes and loudness for each aud
 
 | Audio content type        | Sampling frequency, bit depth, and channel | Loudness  | Remark                                     |
 |-----------------------|-------------------------|--------------- |----------------------------------------|
-| Music                   | 44100 Hz, 16-bit, stereo  | -10(±1) LUFS  | -17(±1) LUFS for beatboxing. |
+| Music                   | 44100 Hz, 16-bit, stereo  | -10(±1) LUFS  | -17(±1) LUFS for beat box music. |
 | Sound effect       | 44100 Hz, 16-bit, stereo  | -18(±1) LUFS  |                                         |
 | Audio book               | 44100 Hz, 16-bit, stereo  | -12(±1) LUFS  |                                         |
 | Music or sound in the ambient genre  | 44100 Hz, 16-bit, stereo  | -25(±1) LUFS  | Examples of this type of audio content are wave sounds or rain sounds. The loudness must be adjusted according to the characteristics of each content. |

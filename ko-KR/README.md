@@ -26,7 +26,7 @@
       <td>
         <ul>
           <li><a href="/CIC/CIC_Overview.md#WhatisCIC">CIC란?</a></li>
-          <li><a href="/CIC/CIC_Overview.md#DialogModel">대화 모델</a></li>
+          <li><a href="/CIC/CIC_Overview.md#IndirectDialogue">간접 대화 구조</a></li>
         </ul>
       </td>
       <td>
@@ -56,6 +56,7 @@
           <li>가이드</li>
           <ul>
             <li><a href="/CIC/Guides/Interact_with_CIC.md">CIC 연동하기</a></li>
+            <li><a href="/CIC/Guides/Implement_Client_Features.md#ManageDialogueIDAndHandleTasks">대화 ID 관리 및 작업 처리하기</a></li>
             <li><a href="/CIC/Guides/Implement_Client_Features.md#HandleDelegation">위임된 사용자 요청 처리하기</a></li>
             <li><a href="/CIC/Guides/Implement_Client_Features.md#HandleAlerts">알람 처리하기</a></li>
             <li><a href="/CIC/Guides/Implement_Client_Features.md#PlayAudioStream">음원 재생 처리하기</a></li>

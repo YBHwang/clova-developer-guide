@@ -21,18 +21,6 @@ The AudioPlayer namespace provides interfaces for playing an audio stream or rep
 | [`StreamRequested`](#StreamRequested) | Event     | Requests CIC for additional information needed for audio stream playback such as a streaming URL.               |
 {% if book.DocMeta.TargetReaderType == "Internal" %}| [`SynchronizePlaybackState`](#SynchronizePlaybackState) | Directive | Instructs the client to synchronize the audio playback state. The client that had sent the `AudioPlayer.RequestPlaybackState` event will receive the `AudioPlayer.SynchronizePlaybackState` directive. |{% endif %}
 
-## Sharing the audio playback state {#SharePlaybackState}
-
-The client can receive a shared sound source playback state from all other or specific clients registered in the user account. The process to receive the shared audio playback state is as follows:
-
-![](/CIC/Resources/Images/CIC_Playback_State_Sync_Work_Flow.png)
-
-1. Clova app requests the audio playback state of all or specific clients registered in the user account to CIC {{ "using the [`AudioPlayer.RequestPlaybackState`](#RequestPlaybackState) event " if book.DocMeta.TargetReaderType == "Internal" }}.
-2. CIC instructs all or specific clients registered in the [`AudioPlayer.ExpectReportPlaybackState`](#ExpectReportPlaybackState) user account to report the current audio playback state.
-3. After receiving the report request, the client reports the current audio playback state using [`AudioPlayer.ReportPlaybackState`](#ReportPlaybackState) event.
-4. CIC instructs the client that made the request to synchronize information by sending the states of the information {{ "using [`AudioPlayer.SynchronizePlaybackState`](#SynchronizePlaybackState)" if book.DocMeta.TargetReaderType == "Internal" }}
-
-
 ## ClearQueue directive {#ClearQueue}
 Instructs the client to initialize the playback queue of the audio stream. The `clearBehavior` field value of this directive distinguishes the reset action and the client determines whether or not to stop the currently playing audio stream by resetting the playback queue.
 
@@ -97,7 +85,7 @@ None
 
 ### See also
 * [`AudioPlayer.ReportPlaybackState`](#ReportPlaybackState)
-* [Sharing the audio playback state](#SharePlaybackState)
+* [Sharing audio playback state](/CIC/Guides/Implement_Client_Features.md#ShareAuidoPlaybackState)
 
 ## Play directive {#Play}
 Instructs the client to either play or add to the playback queue the specified audio stream.
@@ -224,6 +212,7 @@ Based on the policy of music service providers, certain information required for
 * [`AudioPlayer.ProgressReportIntervalPassed`](#ProgressReportIntervalPassed)
 * [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
 * [`AudioPlayer.StreamRequested`](#StreamRequested)
+* [Playing audio stream](/CIC/Guides/Implement_Client_Features.md#PlayAudioStream)
 
 ## PlayFinished event {#PlayFinished}
 Reports to CIC that the client has finished playback with the information on the audio stream.
@@ -272,6 +261,7 @@ Reports to CIC that the client has finished playback with the information on the
 
 ### See also
 * [`AudioPlayer.Play`](#Play)
+* [Reporting audio playback progress](/CIC/Guides/Implement_Client_Features.md#ReportAudioPlaybackProgress)
 
 ## PlayPaused event {#PlayPaused}
 Reports to CIC that the client has paused playback with the information on the audio stream. Send this event in the following scenario:
@@ -326,6 +316,7 @@ Reports to CIC that the client has paused playback with the information on the a
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.PlayResumed`](#PlayResumed)
 * [`PlaybackController.Pause`](/CIC/References/CICInterface/PlaybackController.md#Pause)
+* [Controlling audio playback](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
 
 ## PlayResumed event {#PlayResumed}
 
@@ -381,6 +372,7 @@ Reports to CIC that the client has resumed playback with the information on the 
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.PlayPaused`](#PlayPaused)
 * [`PlaybackController.Resume`](/CIC/References/CICInterface/PlaybackController.md#Resume)
+* [Controlling audio playback](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
 
 ## PlayStarted event {#PlayStarted}
 Reports to CIC that the client has started playback with the information on the audio stream.
@@ -430,6 +422,8 @@ Reports to CIC that the client has started playback with the information on the 
 ### See also
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.PlayStopped`](#PlayStopped)
+* [Playing audio stream](/CIC/Guides/Implement_Client_Features.md#PlayAudioStream)
+* [Controlling audio playback](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
 
 ## PlayStopped event {#PlayStopped}
 Reports to CIC that the client has stopped playback with the information on the audio stream. Send this event in the following scenario:
@@ -484,6 +478,7 @@ Reports to CIC that the client has stopped playback with the information on the 
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.PlayStarted`](#PlayStarted)
 * [`PlaybackController.Stop`](/CIC/References/CICInterface/PlaybackController.md#Stop)
+* [Controlling audio playback](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
 
 ## ProgressReportDelayPassed event {#ProgressReportDelayPassed}
 Reports to CIC the current playback state ([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState)) after the delay, specified period of time, has passed. The delay is a period of time specified in the [`AudioPlayer.Play`](#Play) directive.
@@ -534,6 +529,7 @@ Reports to CIC the current playback state ([`AudioPlayer.PlaybackState`](/CIC/Re
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.ProgressReportIntervalPassed`](#ProgressReportIntervalPassed)
 * [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
+* [Reporting audio playback progress](/CIC/Guides/Implement_Client_Features.md#ReportAudioPlaybackProgress)
 
 ## ProgressReportIntervalPassed event {#ProgressReportIntervalPassed}
 Reports to CIC the current playback state ([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState)), by the specified interval, after playback has started. The interval is specified in the [`AudioPlayer.Play`](#Play) directive.
@@ -584,6 +580,7 @@ Reports to CIC the current playback state ([`AudioPlayer.PlaybackState`](/CIC/Re
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.ProgressReportDelayPassed`](#ProgressReportDelayPassed)
 * [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
+* [Reporting audio playback progress](/CIC/Guides/Implement_Client_Features.md#ReportAudioPlaybackProgress)
 
 ## ProgressReportPositionPassed event {#ProgressReportPositionPassed}
 Reports to CIC the current playback state ([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState)) at the specified time, which is measured from the start of the audio stream. The reporting time is specified in the [`AudioPlayer.Play`](#Play) directive.
@@ -634,6 +631,7 @@ Reports to CIC the current playback state ([`AudioPlayer.PlaybackState`](/CIC/Re
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.ProgressReportDelayPassed`](#ProgressReportDelayPassed)
 * [`AudioPlayer.ProgressReportIntervalPassed`](#ProgressReportIntervalPassed)
+* [Reporting audio playback progress](/CIC/Guides/Implement_Client_Features.md#ReportAudioPlaybackProgress)
 
 ## ReportPlaybackState event {#ReportPlaybackState}
 
@@ -687,7 +685,7 @@ Reports to CIC the current playback state of the client. If the [`AudioPlayer.Ex
 ### See also
 * [`AudioPlayer.ExpectReportPlaybackState`](#ExpectReportPlaybackState)
 * [`AudioPlayer.Play`](#Play)
-* [Sharing the audio playback state](#SharePlaybackState)
+* [Sharing audio playback state](/CIC/Guides/Implement_Client_Features.md#ShareAuidoPlaybackState)
 
 {% if book.DocMeta.TargetReaderType == "Internal" %}
 ## RequestPlaybackState event {#RequestPlaybackState}
@@ -736,7 +734,7 @@ Requests CIC for the current playback state of the client. Upon receiving the `A
 ### See also
 * [`AudioPlayer.ExpectReportPlaybackState`](#ExpectReportPlaybackState)
 * [`AudioPlayer.Play`](#Play)
-* [Sharing the audio playback state](#SharePlaybackState)
+* [Sharing audio playback state](/CIC/Guides/Implement_Client_Features.md#ShareAuidoPlaybackState)
 {% endif %}
 
 ## StreamDeliver directive {#StreamDeliver}
@@ -764,11 +762,18 @@ Some contents of the `AudioStreamInfoObject` object provided by the `StreamDeliv
       "messageId": "4e4080d6-c440-498a-bb73-ae86c6312806"
     },
     "payload": {
-        "audioItemId": "5313c879-25bb-461c-93fc-f85d95edf2a0",
-        "stream": {
-            "token": "b767313e-6790-4c28-ac18-5d9f8e432248",
-            "url": "https://musicservice.example.net/b767313e.mp3"
-        }
+      "audioItemId": "9CPWU-8362fe7c-f75c-42c6-806b-6f3e00aba8f1-c1862201",
+      "audioStream": {
+          "format": "audio/mpeg",
+          "progressReport": {
+            "progressReportDelayInMilliseconds": null,
+            "progressReportIntervalInMilliseconds": null,
+            "progressReportPositionInMilliseconds": 60000
+          },
+          "token": "TR-NM-17716562",
+          "url": "https://musicservice.example.net/b767313e.mp3",
+          "urlPlayable": true
+      }
     }
   }
 }
@@ -779,6 +784,7 @@ Some contents of the `AudioStreamInfoObject` object provided by the `StreamDeliv
 ### See also
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.StreamRequested`](#StreamRequested)
+* [Playing audio stream](/CIC/Guides/Implement_Client_Features.md#PlayAudioStream)
 
 ## StreamRequested event {#StreamRequested}
 Requests CIC for additional information needed for audio stream playback such as a streaming URL.
@@ -818,17 +824,18 @@ Based on the policy of music service providers, certain information required for
       "messageId": "198cf12-4020-b98a-b73b-1234ab312806"
     },
     "payload": {
-      "audioItemId": "ac192f4c-8f12-4a58-8ace-e3127eb297a4",
+      "audioItemId": "9CPWU-8362fe7c-f75c-42c6-806b-6f3e00aba8f1-c1862201",
       "audioStream": {
         "beginAtInMilliseconds": 0,
+        "durationInMilliseconds": 60000,
         "progressReport": {
-            "progressReportDelayInMilliseconds": null,
-            "progressReportIntervalInMilliseconds": null,
-            "progressReportPositionInMilliseconds": 60000
+          "progressReportDelayInMilliseconds": null,
+          "progressReportIntervalInMilliseconds": null,
+          "progressReportPositionInMilliseconds": 60000
         },
-        "token": "TR-NM-4435786",
-        "urlPlayable": false,
-        "url": "clova:TR-NM-4435786"
+        "token": "TR-NM-17716562",
+        "url": "clova:TR-NM-17716562",
+        "urlPlayable": false
       }
     }
   }
@@ -840,6 +847,7 @@ Based on the policy of music service providers, certain information required for
 ### See also
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.StreamDeliver`](#StreamDeliver)
+* [Playing audio stream](/CIC/Guides/Implement_Client_Features.md#PlayAudioStream)
 
 {% if book.DocMeta.TargetReaderType == "Internal" %}
 ## SynchronizePlaybackState directive {#SynchronizePlaybackState}
@@ -887,7 +895,7 @@ Instructs the client to synchronize the audio playback state. The client that ha
 
 ### See also
 * [`AudioPlayer.ReportPlaybackState`](#ReportPlaybackState)
-* [Sharing the audio playback state](#SharePlaybackState)
+* [Sharing audio playback state](/CIC/Guides/Implement_Client_Features.md#ShareAuidoPlaybackState)
 {% endif %}
 
 ## Shared objects
@@ -904,15 +912,15 @@ The object containing streaming details of an audio stream. This object is used 
 | Field name       | Data type    | Description                     | Required/Included |
 |---------------|---------|-----------------------------|:-------------:|
 | `beginAtInMilliseconds`  | number | The playback start point. The unit is in milliseconds. If this field is specified, play the audio stream from the specified point of the stream. If set to 0, play the audio stream from the beginning.          | Required/Always |
-| `customData`             | string | The metadata on the current audio in a random format. Any streaming information that cannot be classified into a specific category or defined must be included or entered in this field. Streaming service providers can add custom values to the context of audio stream playback.<div class="danger"><p><strong>Caution!</strong></p><p>Clients must not use the value of this field, as it can cause problems. Make sure to insert these field values in the <code>stream</code> field of the <a href="/CIC/References/Context_Objects.html#PlaybackState">PlaybackState context</a> without any changes, when reporting the playback state to CIC.</p></div> | Optional/Conditional  |
+| `customData`             | string | The metadata on the current audio in a random format. Any streaming information that cannot be classified into a specific category or defined must be included or entered in this field. Streaming service providers can add custom values to the context of audio stream playback.<div class="danger"><p><strong>Caution!</strong></p><p>Clients must not use the value of this field, as it can cause problems. Make sure to insert these field values in the <code>stream</code> field of the <a href="/CIC/References/Context_Objects.md#PlaybackState">PlaybackState context</a> without any changes, when reporting the playback state to CIC.</p></div> | Optional/Conditional  |
 | `durationInMilliseconds` | number | The length of the audio stream. The client can play and navigate audio from the playback time specified in the `beginAtInMilliseconds` field by the amount of time defined in this field. For example, if the value of `beginAtInMilliseconds` field is `10000` and the value of this field is `60000`, you can play and navigate within 10-70 seconds of the audio track. The unit is in milliseconds.   | Optional/Conditional  |
-| `format`                 | string  | The media format (MIME type). This field can be used to identify whether the content uses the HTTP Live Streaming (HLS) protocol. Available values are: The default value is `"audio/mpeg"`.<ul><li><code>"audio/mpeg"</code></li><li><code>"audio/mpegurl"</code></li><li><code> "audio/aac"</code></li><li><code>"application/vnd.apple.mpegurl"</code></li></ul> <div class="note"><p><strong>Note!</strong></p><p>If you want to develop an extension that provides content using the HLS protocol, email <a href="mailto:{{ book.ServiceEnv.ExtensionAdminEmail }}">{{ book.ServiceEnv.ExtensionAdminEmail }}</a>.</p></div>   | Optional/Conditional  |
+| `format`                 | string  | The media format (MIME type). This field can be used to identify whether the content uses the HTTP Live Streaming (HLS) protocol. Available values are: The default value is `"audio/mpeg"`.<ul><li><code>"audio/mpeg"</code></li><li><code>"audio/mpegurl"</code></li><li><code>"audio/aac"</code></li><li><code>"application/vnd.apple.mpegurl"</code></li></ul> <div class="note"><p><strong>Note!</strong></p><p>If you want to develop an extension that provides content using the HLS protocol, email <a href="mailto:{{ book.ServiceEnv.ExtensionAdminEmail }}">{{ book.ServiceEnv.ExtensionAdminEmail }}</a>.</p></div>   | Optional/Conditional  |
 | `progressReport`         | object  | The time specified to receive the playback state after the audio starts.                                                  | Optional/Conditional |
 | `progressReport.progressReportDelayInMilliseconds`    | number | The duration of time specified to receive the playback state after the audio starts. The unit is in milliseconds. This field can have a null value.  | Optional/Conditional |
 | `progressReport.progressReportIntervalInMilliseconds` | number | The interval specified to receive the playback state while audio is playing. The unit is in milliseconds. This field can have a null value.        | Optional/Conditional |
 | `progressReport.progressReportPositionInMilliseconds` | number | The point of time specified to receive the playback state to while audio is playing. The unit is in milliseconds. This field can have a null value.    | Optional/Conditional |
 | `token`                  | string  | The token of the audio stream.                                                                                   | Required/Always |
-| `url`                    | string  | The audio stream URL.<div class="note"><p><strong>Note!</strong></p><p>The audio content provided must be in an <a href="/Design/Design_Guideline_For_Client_Hardware.html#SupportedAudioCompressionFormat">audio compression format supported by the platform.</a></p></div>  | Required/Always |
+| `url`                    | string  | The audio stream URL.<div class="note"><p><strong>Note!</strong></p><p>The audio content provided must be in an <a href="/Design/Design_Guideline_For_Client_Hardware.md#SupportedAudioCompressionFormat">audio compression format supported by the platform.</a></p></div>  | Required/Always |
 | `urlPlayable`            | boolean | Indicates whether the audio stream URL in the `url` field can be played immediately. <ul><li><code>true</code>: The client can play the audio without additional information.</li><li><code>false</code>: The client requires additional information. To obtain additional information on audio streaming, send the <a href="#StreamRequested"><code>AudioPlayer.StreamRequested</code></a> event to CIC.</li></ul>        | Required/Always |
 
 #### Remarks

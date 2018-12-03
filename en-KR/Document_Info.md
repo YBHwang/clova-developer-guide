@@ -21,10 +21,32 @@ The revision history of this document is as follows:
   </thead>
   <tbody>
     <tr>
+      <td>v3.43.0</td><td>Not applied</td><td>2018-11-09</td>
+      <td>
+        <ul>
+          <li>[CIC] Added the guide for <a href="/CIC/Guides/Implement_Client_Features.html#HandleAudioPlayback">Handling audio playback</a> related to audio playback and playback control in <a href="/CIC/Guides/Implement_Client_Features.html">Implementing client features</a> (and includes the following content)
+            <ul>
+              <li><a href="/CIC/Guides/Implement_Client_Features.html#PlayAudioStream">Playing audio stream</a></li>
+              <li><a href="/CIC/Guides/Implement_Client_Features.html#ReportAudioPlaybackProgress">Reporting audio playback progress</a></li>
+              <li><a href="/CIC/Guides/Implement_Client_Features.html#ControlAudioPlayback">Controlling audio playback</a></li>
+              <li><a href="/CIC/Guides/Implement_Client_Features.html#ShareAudioPlaybackState">Sharing audio playback state</a></li>
+            </ul>
+          </li>
+          <li>[CEK] Updated the following details to the Remarks of <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a> that is a <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">shared object</a> of Clova Home extension API:
+            <ul>
+              <li>Added the GetDeviceState action to all appliance types</li>
+              <li>Added the GetRemainingTime action to the OVEN type</li>
+              <li>Added the GetRemainingTime action that was omitted in the CLOTHESDRYER type</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.42.0</td><td>Not applied</td><td>2018-10-20</td>
       <td>
         <ul>
-          <li>[CIC] Added the <a href="/CIC/References/CICInterface/DeviceControl.html#BtDelete">DeviceControl.BtDelete</a> and <a href="/CIC/References/CICInterface/DeviceControl.htmlBtRescan">DeviceControl.BtRescan</a> directives to rescan or remove a Bluetooth device in the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace</li>
+          <li>[CIC] Added the <a href="/CIC/References/CICInterface/DeviceControl.html#BtDelete">DeviceControl.BtDelete</a> and <a href="/CIC/References/CICInterface/DeviceControl.html#BtRescan">DeviceControl.BtRescan</a> directives to rescan or remove a Bluetooth device in the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace</li>
           <li>[CIC] Added the <a href="/CIC/References/CICInterface/DeviceControl.html#BtPlay">DeviceControl.BtPlay</a> directive to play music through a Bluetooth device in the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace</li>
           <li>[CIC] Added fields to the <a href="/CIC/References/CICInterface/DeviceControl.html#BtConnect">DeviceControl.BtConnect</a> and <a href="/CIC/References/CICInterface/DeviceControl.html#BtDisconnect">DeviceControl.BtDisconnect</a> directives of the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace to enable connection or disconnection of a specific device or a device with a specific role</li>
           <li>[CIC] Added connecting, pairing, playerinfo, and scanning fields to <a href="/CIC/References/Context_Objects.html#BluetoothInfoObject">BluetoothInfoObject</a> of the <a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a> context object to add Bluetooth-related state information of the client</li>
@@ -63,9 +85,9 @@ The revision history of this document is as follows:
       <td>v3.40.0</td><td>Not applied</td><td>2018-09-21</td>
       <td>
         <ul>
-          <li>[CIC] Added the format field to the payload of <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a> <a href="/CIC/References/CICInterface/AudioPlayer.html#AudioStreamInfoObject">AudioStreamInfoObject</a> to specify the MIME type of contents</li>
-          <li>[CIC] Added SubscribeCommandIssued and UnsubscribeCommandIssued events, and UpdateLike and UpdateSubscribe directives to the <a href="/CIC/References/CICInterface/TemplateRuntime.html">TemplateRuntime</a> namespace to handle Like and Subscribe features when playing media contents</li>
-          <li>[CIC] Added the button information that must be displayed when playing media contents or the type of UI control to the <a href="/CIC/References/CICInterface/TemplateRuntime.html#RenderPlayerInfo">TemplateRuntime.RenderPlayerInfo</a> directive</li>
+          <li>[CIC] Added the format field to the payload of <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a> <a href="/CIC/References/CICInterface/AudioPlayer.html#AudioStreamInfoObject">AudioStreamInfoObject</a> to specify the MIME type of content</li>
+          <li>[CIC] Added SubscribeCommandIssued and UnsubscribeCommandIssued events, and UpdateLike and UpdateSubscribe directives to the <a href="/CIC/References/CICInterface/TemplateRuntime.html">TemplateRuntime</a> namespace to handle Like and Subscribe features when playing media content</li>
+          <li>[CIC] Added the button information that must be displayed when playing media content or the type of UI control to the <a href="/CIC/References/CICInterface/TemplateRuntime.html#RenderPlayerInfo">TemplateRuntime.RenderPlayerInfo</a> directive</li>
           <li>[CEK] Added the actions missing in the Actions items under the description of <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">appliances that are supported</a> by the Clova Home extension API</li>
           <li>[CEK] Added the description of the SignatureCEK field added in the <a href="/CEK/References/CEK_API.html#HTTPHeader">HTTP header</a> to verify that the messages sent from Clova, and added a section on verifying each request message to <a href="/CEK/Guides/Build_Custom_Extension.html">Creating a custom extension</a> and <a href="/CEK/Guides/Build_Clova_Home_Extension.html">Creating a Clova Home extension</a></li>
           <li>[CEK] Added the <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ActionTemporarilyBlockedError">ActionTemporarilyBlockedError</a> and <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ValueNotSupportedError">ValueNotSupportedError</a> messages to the <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html">error messages</a> of the Clova Home extension API</li>
@@ -134,7 +156,7 @@ The revision history of this document is as follows:
       <td>
         <ul>
           <li>[Design] Added a guideline for <a href="/Design/Design_Guideline_For_Extension.html#DefineInvocationName">defining the name</a> of the extension</li>
-          <li>[Design] Added a guideline for <a href="/Design/Design_Guideline_For_Extension.html#ContentGuideline">providing contents</a> of the extension</li>
+          <li>[Design] Added a guideline for <a href="/Design/Design_Guideline_For_Extension.html#ContentGuideline">providing content</a> of the extension</li>
           <li>[CIC] Added the <a href="/CIC/References/CICInterface/Settings.html">Settings</a> namespace to update and synchronize the settings information of the client device</li>
         </ul>
       </td>

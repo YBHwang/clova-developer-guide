@@ -21,10 +21,32 @@
   </thead>
   <tbody>
     <tr>
+      <td>v3.43.0</td><td>未適用</td><td>2018/11/09</td>
+      <td>
+        <ul>
+          <li>[CIC] <a href="/CIC/Guides/Implement_Client_Features.html">クライアントの機能を実装する</a>にオーディオ再生および再生のコントロールに関連する<a href="/CIC/Guides/Implement_Client_Features.html#HandleAudioPlayback">オーディオ再生を処理する</a>ガイドを追加(以下の内容を含む)
+            <ul>
+              <li><a href="/CIC/Guides/Implement_Client_Features.html#PlayAudioStream">オーディオを再生する</a></li>
+              <li><a href="/CIC/Guides/Implement_Client_Features.html#ReportAudioPlaybackProgress">オーディオ再生の進行状況をレポートする</a></li>
+              <li><a href="/CIC/Guides/Implement_Client_Features.html#ControlAudioPlayback">オーディオ再生をコントロールする</a></li>
+              <li><a href="/CIC/Guides/Implement_Client_Features.html#ShareAudioPlaybackState">オーディオ再生状態を共有する</a></li>
+            </ul>
+          </li>
+          <li>[CEK] Clova Home Extension APIの<a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">共有オブジェクト</a><a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a>の備考に以下の内容を更新
+            <ul>
+              <li>すべてのデバイスタイプにGetDeviceStateアクションを追加</li>
+              <li>オーブン(OVEN)タイプにGetRemainingTimeアクションを追加</li>
+              <li>衣類乾燥機(CLOTHESDRYER)タイプに抜け落ちていたGetRemainingTimeアクションを追加</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.42.0</td><td>未適用</td><td>2018/10/20</td>
       <td>
         <ul>
-          <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a>名前空間に、Bluetoothデバイスを再スキャンしたり、Bluetoothデバイスを削除する<a href="/CIC/References/CICInterface/DeviceControl.html#BtDelete">DeviceControl.BtDelete</a>と<a href="/CIC/References/CICInterface/DeviceControl.htmlBtRescan">DeviceControl.BtRescan</a>ディレクティブを追加</li>
+          <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a>名前空間に、Bluetoothデバイスを再スキャンしたり、Bluetoothデバイスを削除する<a href="/CIC/References/CICInterface/DeviceControl.html#BtDelete">DeviceControl.BtDelete</a>と<a href="/CIC/References/CICInterface/DeviceControl.html#BtRescan">DeviceControl.BtRescan</a>ディレクティブを追加</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a>名前空間に、Bluetoothデバイスで音楽を再生するように指示する<a href="/CIC/References/CICInterface/DeviceControl.html#BtPlay">DeviceControl.BtPlay</a>ディレクティブを追加</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a>名前空間の<a href="/CIC/References/CICInterface/DeviceControl.html#BtConnect">DeviceControl.BtConnect</a>と<a href="/CIC/References/CICInterface/DeviceControl.html#BtDisconnect">DeviceControl.BtDisconnect</a>ディレクティブにフィールドを追加し、特定の役割を持つデバイスまたは特定のデバイスと接続したり、接続解除する機能を追加</li>
           <li>[CIC] <a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a>コンテキストオブジェクトの<a href="/CIC/References/Context_Objects.html#BluetoothInfoObject">BluetoothInfoObject</a>にconnecting、pairing、playerinfo、scanningフィールドを追加し、クライアントのBluetooth関連状態を追加</li>

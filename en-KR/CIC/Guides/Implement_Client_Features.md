@@ -3,14 +3,17 @@ To implement service features that the users want to use on the CIC-connected cl
 
 Follow the guide provided below to learn how to develop a client.
 
-1. [Handling delegated user requests](#HandleDelegation)
-2. [Handling alerts](#HandleAlerts)
+* [Handling delegated user requests](#HandleDelegation)
+* [Handling alarms](#HandleAlerts)
+* [Handling audio playback](/CIC/Guides/Implement_Client_Features.md#HandleAudioPlayback)
+
+<div class="note">
+<p><strong>Note!</strong></p>
+<p>The guide to implement client features using the CIC interface will continue to be added in the future.</p>
+</div>
 
 {% include "/CIC/Guides/ImplementClientFeatures/Handle_Delegation.md" %}
 
 {% include "/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md" %}
 
-<div class="note">
-<p><strong>Note!</strong></p>
-<p>The method for implementing client features that use other interfaces will be added in the future.</p>
-</div>
+{% include "/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md" %}
