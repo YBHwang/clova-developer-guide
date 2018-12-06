@@ -209,7 +209,7 @@ If the user requests the appliance list using the [`DiscoverAppliancesRequest`](
 | applianceTypes | Description         | Permitted actions                                  |
 |----------------|-------------|-------------------------------------------------|
 | `"AIRCONDITIONER"`  | Type of an air conditioner         | DecrementFanSpeed, DecrementTargetTemperature, GetCurrentTemperature, GetDeviceState, GetTargetTemperature, HealthCheck, IncrementFanSpeed, IncrementTargetTemperature, SetFanSpeed, SetMode, SetTargetTemperature, TurnOff, TurnOn               |
-| `"AIRPURIFIER"`     | Type of an air purifier        | DecrementFanSpeed, GetAirQuality, GetDeviceState, GetFineDust, GetUltraFineDust, HealthCheck, IncrementFanSpeed, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn  |
+| `"AIRPURIFIER"`     | Type of an air purifier        | DecrementFanSpeed, GetAirQuality, GetCurrentTemperature, GetDeviceState, GetFineDust, GetHumidity, GetUltraFineDust, HealthCheck, IncrementFanSpeed, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn  |
 | `"AIRSENSOR"`       | Type of an air sensor     | GetAirQuality, GetCurrentTemperature, GetDeviceState, GetFineDust, GetHumidity, GetUltraFineDust, HealthCheck                                     |
 | `"BIDET"`           | Type of a bidet            | Close, GetDeviceState, GetExpendableState, HealthCheck, Open, TurnOff, TurnOn                                                                     |
 | `"BODYWEIGHTSCALE"` | Type of a weighing scale           | GetDeviceState, HealthCheck                                                                                                                       |
@@ -224,12 +224,12 @@ If the user requests the appliance list using the [`DiscoverAppliancesRequest`](
 | `"HEATER"`          | Type of a heater            | DecrementTargetTemperature, GetCurrentTemperature, GetDeviceState, GetTargetTemperature, HealthCheck, IncrementTargetTemperature, TurnOff, TurnOn |
 | `"HUMIDIFIER"`      | Type of a humidifier           | GetCurrentTemperature, GetDeviceState, GetHumidity, HealthCheck, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn                               |
 | `"KIMCHIREFRIGERATOR"` | Type of a kimchi refrigerator    | GetDeviceState, HealthCheck                                                                                                                       |
-| `"LIGHT"`           | Type of a smart lighting   | DecrementBrightness, DecrementVolume HealthCheck, GetDeviceState, IncrementBrightness, IncrementVolume SetBrightness, SetColor, SetColorTemperature, SetMode, TurnOff, TurnOn            |
+| `"LIGHT"`           | Type of a smart lighting   | DecrementBrightness, DecrementVolume HealthCheck, GetDeviceState, IncrementBrightness, IncrementVolume SetBrightness, ReleaseMode, SetColor, SetColorTemperature, SetMode, TurnOff, TurnOn            |
 | `"MASSAGECHAIR"`    | Type of a massage chair        | DecrementIntensityLevel, GetDeviceState, HealthCheck, IncrementIntensityLevel, TurnOff, TurnOn                                                     |
 | `"MICROWAVE"`       | Type of a microwave      | GetDeviceState, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                                      |
 | `"MOTIONSENSOR"`    | Type of a motion detector    | GetDeviceState, HealthCheck                                                                                                                        |
 | `"OPENCLOSESENSOR"` | Type of an open-close sensor    | GetCloseTime, GetDeviceState, GetOpenState, GetOpenTime, HealthCheck                                                                               |
-| `"OVEN"`            | Type of an oven            | GetDeviceState, GetRemainingTime, HealthCheck                                                                                                      |
+| `"OVEN"`            | Type of an oven            | GetDeviceState, GetRemainingTime, HealthCheck, Preheat                                                                                             |
 | `"POWERSTRIP"`      | Type of a power strip         | GetConsumption, GetDeviceState, GetEstimateBill, GetProgressiveTaxBracket, HealthCheck, TurnOff, TurnOn                                             |
 | `"PURIFIER"`        | Type of a water purifier          | GetDeviceState, GetExpendableState, HealthCheck, ReleaseMode, SetMode, SetTargetTemperature                                                         |
 | `"RANGE"`           | Type of an electric range          | GetDeviceState, HealthCheck                                                                                                                         |
@@ -243,6 +243,7 @@ If the user requests the appliance list using the [`DiscoverAppliancesRequest`](
 | `"SMARTCHAIR"`      | Type of a smart chair      | GetCurrentSittingState, GetDeviceState, GetRightPostureRatio, GetUsageTime, HealthCheck                                                             |
 | `"SMARTCURTAIN"`    | Type of a smart curtain      | Close, GetDeviceState, HealthCheck, Open, Stop                                                                                                      |
 | `"SMARTHUB"`        | Type of a smart hub      | GetCurrentTemperature, GetDeviceState, GetHumidity, GetTargetTemperature, HealthCheck, SetMode                                                      |
+| `"SMARTLOCK"`       | Type of a smart lock (door lock)  | GetDeviceState, GetLockState, HealthCheck, SetLockState                                                                                             |
 | `"SMARTMETER"`      | Type of a smart meter      | GetConsumption, GetCurrentBill, GetDeviceState, GetEstimateBill, GetProgressiveTaxBracket, HealthCheck                                              |
 | `"SMARTPLUG"`       | Type of a smart plug     | GetConsumption, GetDeviceState, GetEstimateBill, HealthCheck, TurnOff, TurnOn                                                                       |
 | `"SMARTTV"`         | Type of a smart TV       | DecrementChannel, DecrementVolume, GetDeviceState, HealthCheck, IncrementChannel, IncrementVolume, Mute, SetChannel, SetChannelByName, TurnOff, TurnOn, Unmute |
@@ -250,8 +251,9 @@ If the user requests the appliance list using the [`DiscoverAppliancesRequest`](
 | `"SMOKESENSOR"`     | Type of a smoke sensor        | GetDeviceState, HealthCheck                                                                                                                         |
 | `"SWITCH"`          | Type of a switch to control outlets in homes | GetDeviceState, HealthCheck, TurnOff, TurnOn                                                                                          |
 | `"THERMOSTAT"`      | Type of a thermostat   | DecrementTargetTemperature, GetConsumption, GetCurrentTemperature, GetDeviceState, GetEstimateConsumption, GetTargetTemperature, HealthCheck, IncrementTargetTemperature, SetMode, SetTargetTemperature TurnOff, TurnOn       |
-| `"VENTILATOR"`      | Type of a ventilator          | GetAirQuality, GetDeviceState, GetHumidity, GetTargetTemperature, HealthCheck, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn                    |
+| `"VENTILATOR"`      | Type of a ventilator          | GetAirQuality, GetCurrentTemperature, GetDeviceState, GetHumidity, GetTargetTemperature, HealthCheck, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn  |
 | `"WATERBOILER"`     | Type of a water boiler          | GetDeviceState, HealthCheck, SetMode, TurnOff, TurnOn                                                                                                |
+| `"WINECELLAR"`      | Type of a wine cellar        | GetDeviceState, HealthCheck, ReleaseMode, SetMode, SetTargetTemperature, TurnOff, TurnOn                                                             |
 
 <div class="note">
 <p><strong>Note!</strong></p>
@@ -310,6 +312,7 @@ The table below lists the [interfaces](/CEK/References/CEK_API.md#ClovaHomeExtIn
 | Lower                      | [`LowerConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#LowerConfirmation), [`LowerRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#LowerRequest)  |
 | Mute                       | [`MuteConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#MuteConfirmation), [`MuteRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#MuteRequest) |
 | Open                       | [`OpenConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#OpenConfirmation), [`OpenRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#OpenRequest)  |
+| Preheat                    | [`PreheatConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#PreheatConfirmation), [`PreheatRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#PreheatRequest)  |
 | Raise                      | [`RaiseConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#RaiseConfirmation), [`RaiseRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#RaiseRequest)  |
 | ReleaseMode              | [`ReleaseModeConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#ReleaseModeConfirmation), [`ReleaseModeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#ReleaseModeRequest)  |
 | SetBrightness              | [`SetBrightnessConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetBrightnessConfirmation), [`SetBrightnessRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetBrightnessRequest)  |

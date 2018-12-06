@@ -15,14 +15,14 @@ You must implement the following on a client, using the Alerts interfaces:
 * Upon receiving a directive from CIC, add, change, or remove the alarm as instructed by the directive.
 * Ring the alarm at the set time.
 * Report to CIC when adding, changing, removing, starting, or stopping the alarm. Only then will a corresponding result be returned to the client from CIC.
-* Include the [`Alerts.AlertsState`](/CIC/References/Context_Objects.md#AlertsState) context object in your events to report to CIC the alarm state of the client.
+* Include the [`Alerts.AlertsState`](/CIC/References/Context_Objects.md#AlertsState) context object in your event messages to report to CIC the alarm state of the client.
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>For more information on the workflow of registering, modifying, deleting, starting, or stopping an alarm, see <a href="/CIC/Guides/Implement_Client_Features.md#HandleAlerts">Handling alarms</a>.</p>
+  <p>For more information on how to implement the methods of registering, modifying, deleting, starting, or stopping an alarm, see <a href="/CIC/Guides/Implement_Client_Features.md#HandleAlerts">Handling alerts</a>.</p>
 </div>
 
-The Alerts namespace provides the following events and directives.
+The Alerts namespace provides the following event messages and directive messages.
 
 | Message name         | Type  | Description                                   |
 |------------------|-----------|---------------------------------------------|
@@ -39,7 +39,7 @@ The Alerts namespace provides the following events and directives.
 | [`StopAlert`](#StopAlert)                       | Directive | Instructs the client to stop the specified alarm.  |
 | [`SynchronizeAlert`](#SynchronizeAlert)         | Directive | Instructs the client to synchronize the alarm data of a user in the `payload` field.  |
 
-Among the messages above, the [`RequestSynchronizeAlert`](#RequestSynchronizeAlert) event and [`SynchronizeAlert`](#SynchronizeAlert) directive are used when synchronizing information related to user accounts such as alarms and schedules between Clova and the client. Such synchronization is needed in the following cases:
+Among the messages above, the [`RequestSynchronizeAlert`](#RequestSynchronizeAlert) event message and [`SynchronizeAlert`](#SynchronizeAlert) directive message are used when synchronizing information related to user accounts such as alarms and schedules between Clova and the client. Such synchronization is needed in the following cases:
 
 * When a user has added another client to their account.
 * When the client is reconnected to CIC due to a network error or other issues.
@@ -53,7 +53,7 @@ Among the messages above, the [`RequestSynchronizeAlert`](#RequestSynchronizeAle
 
 ## AlertStarted event {#AlertStarted}
 
-Reports to CIC that the client has started ringing an alarm. Once the alarm starts, the client must send this event to CIC.
+Reports to CIC that the client has started ringing an alarm. Once the alarm starts, the client must send this event message to CIC.
 
 ### Context fields
 
@@ -103,7 +103,7 @@ Reports to CIC that the client has started ringing an alarm. Once the alarm star
 
 ## AlertStopped event {#AlertStopped}
 
-Reports to CIC that the client has stopped ringing an alarm. Once the ringing alarm stops, the client must send this event to CIC.
+Reports to CIC that the client has stopped ringing an alarm. Once the ringing alarm stops, the client must send this event message to CIC.
 * **When a regular alarm is stopped,** the client receives a [`Alerts.DeleteAlert`](#DeleteAlert) directive from CIC.
 * **When a repeated alarm is stopped,** the client receives a [`Alerts.SetAlert`](#SetAlert) directive from CIC to set the next repeated alarm.
 
@@ -155,7 +155,7 @@ Reports to CIC that the client has stopped ringing an alarm. Once the ringing al
 
 ## DeleteAlert directive {#DeleteAlert}
 
-Instructs the client to delete the specified alarm. Upon receipt, the client must delete the specified alarm and report the result to CIC using either one of the events below.
+Instructs the client to delete the specified alarm. Upon receipt, the client must delete the specified alarm and report the result to CIC using either one of the event messages below.
 
 * [`Alerts.DeleteAlertSucceeded`](#DeleteAlertSucceeded) event: When the client has successfully deleted the specified alarm.
 * [`Alerts.DeleteAlertFailed`](#DeleteAlertFailed) event: When the client has failed to delete the specified alarm.
@@ -196,7 +196,7 @@ Instructs the client to delete the specified alarm. Upon receipt, the client mus
 
 ## DeleteAlertFailed event {#DeleteAlertFailed}
 
-Reports to CIC that the client has failed to delete the specified alarm. The client must send this event to CIC if it fails to delete the specified alarm for the [Alerts.DeleteAlert](#DeleteAlert) directive.
+Reports to CIC that the client has failed to delete the specified alarm. The client must send this event message to CIC if it fails to delete the specified alarm for the [Alerts.DeleteAlert](#DeleteAlert) directive.
 
 ### Context fields
 
@@ -247,7 +247,7 @@ Reports to CIC that the client has failed to delete the specified alarm. The cli
 
 ## DeleteAlertSucceeded event {#DeleteAlertSucceeded}
 
-Reports to CIC that the client has successfully deleted the specified alarm. The client must send this event to CIC once it successfully deletes the specified alarm for the [Alerts.DeleteAlert](#DeleteAlert) directive.
+Reports to CIC that the client has successfully deleted the specified alarm. The client must send this event message to CIC once it successfully deletes the specified alarm for the [Alerts.DeleteAlert](#DeleteAlert) directive message.
 
 ### Context fields
 
@@ -298,7 +298,7 @@ Reports to CIC that the client has successfully deleted the specified alarm. The
 
 ## RequestAlertStop event {#RequestAlertStop}
 
-Requests to CIC to stop the ringing alarm. The client must send this event to CIC when the user stops the alarm—not with a voice command, but by pressing a button on the client device or the client app. CIC will send the [`Alerts.StopAlert`](#StopAlert) directive as a response to this event.
+Requests to CIC to stop the ringing alarm. The client must send this event message to CIC when the user stops the alarm, not with a voice command, but by pressing a button on the client device or the client app. CIC will send the [`Alerts.StopAlert`](#StopAlert) directive message as a response to this event message.
 
 ### Context fields
 
@@ -312,7 +312,7 @@ Requests to CIC to stop the ringing alarm. The client must send this event to CI
 | `type`    | string | The alarm type. Available values are: <ul><li><code>"ACTIONTIMER"</code></li><li><code>"ALARM"</code></li><li><code>"REMINDER"</code></li><li><code>"TIMER"</code></li></ul>  | Required |
 
 ### Remarks
-Stopping a ringing alarm requires informing CIC of the stoppage and getting confirmation from CIC to stop. So, a user pressing a button to stop the alarm is not the end of the task. You need to send this event to CIC and receive the [`Alerts.StopAlert`](#StopAlert) directive. This process guarantees consistency in stopping an alarm and is helpful for synchronizing alarm information between clients and CIC. But, to provide a seamless UX to users, you have the option to remove the alarm display or mute the alarm while waiting for the [`Alerts.StopAlert`](#StopAlert) directive from CIC.
+Stopping a ringing alarm requires informing CIC of the stoppage and getting confirmation from CIC to stop. So, a user pressing a button to stop the alarm is not the end of the task. You need to send this event message to CIC and receive the [`Alerts.StopAlert`](#StopAlert) directive message. This process guarantees consistency in stopping an alarm and is helpful for synchronizing alarm information between clients and CIC. But, to provide a seamless UX to users, you have the option to remove the alarm display or mute the alarm while waiting for the [`Alerts.StopAlert`](#StopAlert) directive from CIC.
 
 ### Message example
 {% raw %}
@@ -398,7 +398,7 @@ Instructs the client to add an alarm or to change the specified alarm. Add an al
 * Add an alarm **if the client has no alarm with the ID identical to the `token` field** of this directive.
 * Make a change on the alarm **if the client already has an alarm with the ID identical to the `token` field** of this directive.
 
-Report the result of executing the instruction to CIC using either one of the following events:
+Report the result of executing the instruction to CIC using either one of the following event messages:
 
 * [`Alerts.SetAlertSucceeded`](#SetAlertSucceeded) event: When the client has successfully added or changed or changed the specified alarm.
 * [`Alerts.SetAlertFailed`](#SetAlertFailed) event: When the client has failed to add or change the specified alarm.
@@ -462,7 +462,7 @@ Report the result of executing the instruction to CIC using either one of the fo
 
 ## SetAlertFailed event {#SetAlertFailed}
 
-Reports to CIC that the client has failed to add or change the specified alarm. The client must send this event to CIC if it fails to add or change the specified alarm for the [Alerts.SetAlert](#SetAlert) directive.
+Reports to CIC that the client has failed to add or change the specified alarm. The client must send this event message to CIC if it fails to add or change the specified alarm for the [Alerts.SetAlert](#SetAlert) directive message.
 
 ### Context fields
 
@@ -514,7 +514,7 @@ Reports to CIC that the client has failed to add or change the specified alarm. 
 
 ## SetAlertSucceeded event {#SetAlertSucceeded}
 
-Reports to CIC that the client has successfully added or changed the specified alarm. Send this event when you succeed in adding or changing the specified alarm for the [Alerts.SetAlert](#SetAlert) directive.
+Reports to CIC that the client has successfully added or changed the specified alarm. Send this event message when you succeed in adding or changing the specified alarm for the [Alerts.SetAlert](#SetAlert) directive.
 
 ### Context fields
 
@@ -566,7 +566,7 @@ Reports to CIC that the client has successfully added or changed the specified a
 
 ## StopAlert directive {#StopAlert}
 
-Instructs the client to stop the specified alarm. Upon receiving the directive, the client must stop the specified alarm and report the result to CIC with the [`AlertStopped`](#AlertStopped) event.
+Instructs the client to stop the specified alarm. Upon receiving the directive, the client must stop the specified alarm and report the result to CIC with the [`AlertStopped`](#AlertStopped) event message.
 
 
 ### Payload fields

@@ -28,8 +28,8 @@ These control interfaces are used to check IoT device information and carry out 
 | [`GetAwakeDurationResponse`](#GetAwakeDurationResponse)                       | Response | Sends the awake time of the user after going to bed measured by the target appliance. In other words, the amount of time from going to bed until falling asleep, to CEK as a response to the [`GetAwakeDurationRequest`](#GetAwakeDurationRequest) message.  |
 | [`GetBatteryInfoRequest`](#GetBatteryInfoRequest)                             | Request  | Requests the Clova Home extension for the battery information of the target appliance. |
 | [`GetBatteryInfoResponse`](#GetBatteryInfoResponse)                           | Response | Sends the battery information of the target appliance to CEK as a response to the [`GetBatteryInfoRequest`](#GetBatteryInfoRequest) message. |
-| [`GetCleaningCycleRequest`](#GetCleaningCycleRequest)                                                   | Request  | Used to check the cleaning cycle of an appliance. Requests the Clova Home extension for the information on the remaining time until the next cleaning cycle of the target appliance.  |
-| [`GetCleaningCycleResponse`](#GetCleaningCycleResponse)                                                  | Response | Sends the information on the time remaining until the next cleaning cycle of the target appliance to CEK as a response to the [`GetCleaningCycleRequest`](#GetCleaningCycleRequest) message.  |
+| [`GetCleaningCycleRequest`](#GetCleaningCycleRequest)                         | Request  | Used to check the cleaning cycle of an appliance. Requests the Clova Home extension for the information on the remaining time until the next cleaning cycle of the target appliance.  |
+| [`GetCleaningCycleResponse`](#GetCleaningCycleResponse)                       | Response | Sends the information on the time remaining until the next cleaning cycle of the target appliance to CEK as a response to the [`GetCleaningCycleRequest`](#GetCleaningCycleRequest) message.  |
 | [`GetCloseTimeRequest`](#GetCloseTimeRequest)                                 | Request  | Requests the Clova Home extension for the recent close time of the target, mainly from the detection details of the open-close sensor. |
 | [`GetCloseTimeResponse`](#GetCloseTimeResponse)                               | Response | Sends the recent close time of the target from the detection details of the open-close sensor to CEK as a response to the [`GetCloseTimeRequest`](#GetCloseTimeRequest) message.  |
 | [`GetConsumptionRequest`](#GetConsumptionRequest)                             | Request  | Mainly used to check for energy or resource consumption to date measured on appliances such as smart plugs or smart power strips. Requests the Clova Home extension for the energy or resource consumption information measured by the target appliance.  |
@@ -98,6 +98,8 @@ These control interfaces are used to check IoT device information and carry out 
 | [`MuteRequest`](#MuteRequest)                                                 | Request  | Requests the Clova Home extension to mute the target appliance. |
 | [`OpenConfirmation`](#OpenConfirmation)                                       | Response | Sends the result of opening the smart curtain or the bidet lid to CEK as a response to the [`OpenRequest`](#OpenRequest) message. |
 | [`OpenRequest`](#OpenRequest)                                                 | Request  | Used to control appliances such as smart curtains or bidets. Requests the Clova Home extension to open the smart curtain or the bidet lid.  |
+| [`PreheatConfirmation`](#PreheatConfirmation)                                 | Response | Sends the result of handing the preheat request to CEK as a response to the [`PreheatRequest`](#PreheatRequest) message.  |
+| [`PreheatRequest`](#PreheatRequest)                                           | Response | Mainly used to control an appliance such as an oven. Requests the Clova Home extension to preheat the target appliance.                        |
 | [`RaiseConfirmation`](#RaiseConfirmation)                                     | Response | Sends the result of requesting the target appliance to raise the height to CEK as a response to the [`RaiseRequest`](#RaiseRequest) message.  |
 | [`RaiseRequest`](#RaiseRequest)                                               | Request  | Mainly used to control appliances such as curtains, blinds, or beds. Requests the Clova Home extension to raise the height of the target appliance.  |
 | [`ReleaseModeConfirmation`](#ReleaseModeConfirmation)                         | Response | Sends the result of requesting to disable the operation mode of the current appliance to CEK as a response to the [`ReleaseModeRequest`](#ReleaseModeRequest) message.  |
@@ -3665,6 +3667,84 @@ Used to control appliances such as smart curtains or bidets. Requests the Clova 
 
 ### See also
 * [`OpenConfirmation`](#OpenConfirmation)
+
+## PreheatConfirmation {#PreheatConfirmation}
+Sends the result of handing the preheat request to CEK as a response to the [`PreheatRequest`](#PreheatRequest) message.
+
+### Payload fields
+
+| Field name       | Data type    | Description                     | Required |
+|---------------|---------|-----------------------------|:---------:|
+| `targetTemperature`               | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | Object containing the desired preheat temperature information to set on the target appliance or that the extension has requested to be set on the target appliance.                                | Optional    |
+
+### Remarks
+
+You do not have to enter the value if the information to enter for the payload cannot be retrieved from the target appliance. You can simply notify the user that the appliance control request is successfully processed without stating specific information.
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "ec9ab261-528e-4b19-94e5-6e35a2494a6d",
+    "name": "PreheatConfirmation",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "targetTemperature": {
+      "value": 180
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### See also
+* [`PreheatRequest`](#PreheatRequest)
+
+## PreheatRequest {#PreheatRequest}
+Mainly used to control an appliance such as an oven. Requests the Clova Home extension to preheat the target appliance. The information of the desired preheat temperature may be contained in the message. The extension must use the [`PreheatConfirmation`](#PreheatConfirmation) message as a response to this request.
+
+### Payload fields
+
+| Field name       | Data type    | Description                     | Included |
+|---------------|---------|-----------------------------|:---------:|
+| `accessToken`   | string | Access token of the user account for an IoT service. CEK sends the access token of a user account acquired from the authorization server of a third-party service. For more information, see [Linking user accounts](/CEK/Guides/Link_User_Account.md).                          | Always    |
+| `appliance`     | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) | Object containing target appliance information. The `applianceId` field is a required field. | Always    |
+| `targetTemperature`       | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | Object containing information on the desired preheat temperature.             | Optional    |
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "d68661e9-dc78-4556-a0db-87ffb3ad30c5",
+    "name": "PreheatRequest",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "accessToken": "92ebcb67fe33",
+    "appliance": {
+      "applianceId": "device-044"
+    },
+    "targetTemperature": {
+      "value": 180
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### See also
+* [`PreheatConfirmation`](#PreheatConfirmation)
 
 ## RaiseConfirmation {#RaiseConfirmation}
 Sends the result of requesting the target appliance to raise the height to CEK as a response to the [`RaiseRequest`](#RaiseRequest) message.

@@ -21,6 +21,34 @@ The revision history of this document is as follows:
   </thead>
   <tbody>
     <tr>
+      <td>v3.45.0</td><td>Not applied</td><td>2018-11-30</td>
+      <td>
+        <ul>
+          <li>[CIC] Separated the description of the dialogue model into <a href="/CIC/CIC_Overview.md#IndirectDialogue">Indirect dialogue structure</a> and <a href="/CIC/Guides/Implement_Client_Features.md#ManageDialogueIDAndHandleTasks">Handling tasks and managing dialogue IDs,</a>, and supplemented the content</li>
+          <li>[CIC] Added a value field to the <a href="/CIC/References/CICInterface/DeviceControl.md#Decrease">DeviceControl.Decrease</a> and <a href="/CIC/References/CICInterface/DeviceControl.md#Increase">DeviceControl.Increase</a> directives to support adjustment of the screen brightness or volume of a device by a specific amount</li>
+          <li>[CEK] Added <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.md#PreheatConfirmation">PreheatConfirmation</a> and <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#PreheatRequest">PreheatRequest</a> to the Clova Home extension API</li>
+          <li>[CEK] Updated the following details to the Remarks of <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a> that is a <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">shared object</a> of the Clova Home extension API:
+            <ul>
+              <li>Added the SMARTLOCK device type</li>
+              <li>Added the WINECELLAR device type</li>
+              <li>Added the GetCurrentTemperature and GetHumidity actions to the AIRPURIFIER type</li>
+              <li>Added the ReleaseMode action to the LIGHT type</li>
+              <li>Added the SetPreheat action to the OVEN type</li>
+              <li>Added the GetCurrentTemperature action to the VENTILATOR type</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.44.0</td><td>Not applied</td><td>2018-11-16</td>
+      <td>
+        <ul>
+          <li>[CIC] Added a guide for <a href="/CIC/Guides/Implement_Client_Features.html#HandleSettings">Handling settings</a> related to the settings information in <a href="/CIC/Guides/Implement_Client_Features.html">Implementing client features</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.43.0</td><td>Not applied</td><td>2018-11-09</td>
       <td>
         <ul>
@@ -32,7 +60,7 @@ The revision history of this document is as follows:
               <li><a href="/CIC/Guides/Implement_Client_Features.html#ShareAudioPlaybackState">Sharing audio playback state</a></li>
             </ul>
           </li>
-          <li>[CEK] Updated the following details to the Remarks of <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a> that is a <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">shared object</a> of Clova Home extension API:
+          <li>[CEK] Updated the following details to the Remarks of <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a> that is a <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">shared object</a> of the Clova Home extension API:
             <ul>
               <li>Added the GetDeviceState action to all appliance types</li>
               <li>Added the GetRemainingTime action to the OVEN type</li>
@@ -50,7 +78,7 @@ The revision history of this document is as follows:
           <li>[CIC] Added the <a href="/CIC/References/CICInterface/DeviceControl.html#BtPlay">DeviceControl.BtPlay</a> directive to play music through a Bluetooth device in the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace</li>
           <li>[CIC] Added fields to the <a href="/CIC/References/CICInterface/DeviceControl.html#BtConnect">DeviceControl.BtConnect</a> and <a href="/CIC/References/CICInterface/DeviceControl.html#BtDisconnect">DeviceControl.BtDisconnect</a> directives of the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace to enable connection or disconnection of a specific device or a device with a specific role</li>
           <li>[CIC] Added connecting, pairing, playerinfo, and scanning fields to <a href="/CIC/References/Context_Objects.html#BluetoothInfoObject">BluetoothInfoObject</a> of the <a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a> context object to add Bluetooth-related state information of the client</li>
-          <li>[CEK] Updated the following details to the Remarks of <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a> that is a <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">shared object</a> of Clova Home extension API:
+          <li>[CEK] Updated the following details to the Remarks of <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a> that is a <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">shared object</a> of the Clova Home extension API:
             <ul>
               <li>Added GetPhase action to the CLOTHESCAREMACHINE type and the CLOTHESDRYER type</li>
               <li>Added ReleaseMode action to the REFRIGERATOR type</li>
@@ -134,7 +162,7 @@ The revision history of this document is as follows:
       <td>v3.37.1</td><td>Not applied</td><td>2018-08-09</td>
       <td>
         <ul>
-          <li>[CIC] Supplemented the description of the <a href="/CIC/CIC_Overview.html#DialogModel">dialogue model</a></li>
+          <li>[CIC] Supplemented the description of the dialogue model</li>
           <li>[CEK] Emended typos in the section on <a href="/CEK/Guides/Build_Custom_Extension.html#ProvidingMetaDataForDisplay">Providing audio content metadata for display</a></li>
         </ul>
       </td>
@@ -587,7 +615,7 @@ The revision history of this document is as follows:
       <td>v3.2.0</td><td>v0.9</td><td>2017-08-14</td>
       <td>
         <ul>
-          <li>[CIC] Added description on the <a href="/CIC/CIC_Overview.html#DialogModel">dialogue model</a> </li>
+          <li>[CIC] Added description on the dialogue model</li>
           <li>[CIC] Added <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> API</li>
           <li>[CIC] Added payload fields in <a href="/CIC/References/Context_Objects.html">Device.DeviceState</a>: airplane, battery, bluetooth, brightness, flashLight, gps, powerSavingMode, soundMode, volume, and wifi</li>
           <li>[CEK] Added the section on <a href="/CEK/Guides/Build_Custom_Extension.html#DoMultiturnDialog">Engaging in multi-turn dialogues</a> and updated the description on the sessionAttributes field</li>

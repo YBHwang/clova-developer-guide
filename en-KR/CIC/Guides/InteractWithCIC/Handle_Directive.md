@@ -1,5 +1,5 @@
 ## Handling directives {#HandleDirective}
-CIC returns directives to instruct a client to perform specific actions. A directive is either a response to an [event](#SendEvent) or a message initiated by CIC. Directive messages are sent to a client through the downchannel and those that are responses are usually sent as a [multipart message](/CIC/References/CIC_API.md#MultipartMessage). The first part of a multipart message contains the [directive](/CIC/References/CIC_API.md#Directive) itself in JSON and is followed by subsequent parts specified according to the [CIC API](/CIC/References/CIC_API.md) specification that contains the following additional information.
+CIC returns directives to instruct a client to perform specific actions. A directive is either a response to an [event](#SendEvent) or a message initiated by CIC. Directives that are messages are sent to a client through the downchannel and those that are responses are usually sent as a [multipart message](/CIC/References/CIC_API.md#MultipartMessage). The first part of a multipart message contains the [directive](/CIC/References/CIC_API.md#Directive) itself in JSON and is followed by subsequent parts specified according to the [CIC API](/CIC/References/CIC_API.md) specification that contains the following additional information.
 
 | Content Type            | Description                                             |
 |---------------------|-------------------------------------------------|
@@ -31,7 +31,7 @@ To process directives received on a client:
 }
 </code></pre>
   </li>
-  <li>Check whether the <a href="/CIC/CIC_Overview.html#DialogModel">dialogue ID</a> (<code>dialogRequestId</code>) of the directive matches the latest dialogue ID kept on the client.
+  <li>Check whether the <a href="/CIC/Guides/Implement_Client_Features.md#ManageDialogueIDAndHandleTasks">dialogue ID</a> (<code>dialogRequestId</code>) of the received directive matches the latest dialogue ID saved on the client.
     <ul>
       <li>
         <p><strong>If the two dialogue IDs match</strong>, the client performs the required action in the API reference. Generally, you can distinguish the additional information (audio data) required for the client action on the <a href="#ManageMessageQ">message queue</a> <a href="/CIC/References/CICInterface/SpeechSynthesizer.html#Speak">using the <code>cid</code> value</a> in the <code>payload</code> of the directive. <code>cid</code> refers to the <code>Content-ID</code> message header of the audio data, as shown below, that is sent as a part of the multipart message.</p>
@@ -50,5 +50,5 @@ Content-Type: application/octet-stream<br />
 
 <div class="danger">
   <p><strong>Caution!</strong></p>
-  <p>The client must ignore any unsupported or unknown directives received. It is important to note that a client can receive many directives from CIC at once as a multipart message. Then a client must only ignore unsupported or unknown directives from this message.</p>
+  <p>The client must ignore any unsupported or unknown directives if they are received. Because the client can receive many directives from CIC at once as a multipart message, it is particularly important that the client only ignores the unsupported or unknown directives among the received directives.</p>
 </div>

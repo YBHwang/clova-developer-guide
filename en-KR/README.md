@@ -26,7 +26,7 @@ For client and extension developers, Clova platform provides Clova Interface Con
       <td>
         <ul>
           <li><a href="/CIC/CIC_Overview.md#WhatisCIC">What is CIC?</a></li>
-          <li><a href="/CIC/CIC_Overview.md#DialogModel">Dialogue model</a></li>
+          <li><a href="/CIC/CIC_Overview.md#IndirectDialogue">Indirect dialogue structure</a></li>
         </ul>
       </td>
       <td>
@@ -56,9 +56,11 @@ For client and extension developers, Clova platform provides Clova Interface Con
           <li>Guide</li>
           <ul>
             <li><a href="/CIC/Guides/Interact_with_CIC.md">Interacting with CIC</a></li>
+            <li><a href="/CIC/Guides/Implement_Client_Features.md#ManageDialogueIDAndHandleTasks">Handling tasks and managing dialogue IDs</a></li>
             <li><a href="/CIC/Guides/Implement_Client_Features.md#HandleDelegation">Handling delegated user requests</a></li>
-            <li><a href="/CIC/Guides/Implement_Client_Features.md#HandleAlerts">Handling alarms</a></li>
+            <li><a href="/CIC/Guides/Implement_Client_Features.md#HandleAlerts">Handling alerts</a></li>
             <li><a href="/CIC/Guides/Implement_Client_Features.md#PlayAudioStream">Handling audio playback</a></li>
+            <li><a href="/CIC/Guides/Implement_Client_Features.md#HandleSettings">Handling settings</a></li>
           </ul>
           <li>Reference</li>
           <ul>
