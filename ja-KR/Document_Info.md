@@ -21,6 +21,34 @@
   </thead>
   <tbody>
     <tr>
+      <td>v3.45.0</td><td>未適用</td><td>2018/11/30</td>
+      <td>
+        <ul>
+          <li>[CIC] 対話モデルの説明を<a href="/CIC/CIC_Overview.md#IndirectDialogue">間接対話</a>と<a href="/CIC/Guides/Implement_Client_Features.md#ManageDialogueIDAndHandleTasks">ダイアログIDを管理し、作業を処理する</a>に分け、内容を補充</li>
+          <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.md#Decrease">DeviceControl.Decrease</a>と<a href="/CIC/References/CICInterface/DeviceControl.md#Increase">DeviceControl.Increase</a>ディレクティブにvalueフィールドを追加し、デバイスの画面の明るさや音量を特定のレベルだけ調整することに対応</li>
+          <li>[CEK] Clova Home Extension APIに<a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.md#PreheatConfirmation">PreheatConfirmation</a>、<a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#PreheatRequest">PreheatRequest</a>を追加</li>
+          <li>[CEK] Clova Home Extension APIの<a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">共有オブジェクト</a><a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a>の備考に以下の内容を更新
+            <ul>
+              <li>スマートロック(SMARTLOCK)デバイスタイプを追加</li>
+              <li>ワインセラー(WINECELLAR)デバイスタイプを追加</li>
+              <li>空気清浄機(AIRPURIFIER)タイプにGetCurrentTemperature、GetHumidityアクションを追加</li>
+              <li>スマート照明(LIGHT)タイプにReleaseModeアクションを追加</li>
+              <li>オーブン(OVEN)タイプにSetPreheatアクションを追加</li>
+              <li>換気扇(VENTILATOR)タイプにGetCurrentTemperatureアクションを追加</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.44.0</td><td>未適用</td><td>2018/11/16</td>
+      <td>
+        <ul>
+          <li>[CIC] <a href="/CIC/Guides/Implement_Client_Features.html">クライアントの機能を実装する</a>に、設定情報に関する<a href="/CIC/Guides/Implement_Client_Features.html#HandleSettings">設定情報を処理する</a>ガイドを追加</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.43.0</td><td>未適用</td><td>2018/11/09</td>
       <td>
         <ul>
@@ -134,7 +162,7 @@
       <td>v3.37.1</td><td>未適用</td><td>2018/08/09</td>
       <td>
         <ul>
-          <li>[CIC] <a href="/CIC/CIC_Overview.html#DialogModel">ダイアログモデル</a>の説明を補充</li>
+          <li>[CIC] 対話モデルの説明を補充</li>
           <li>[CEK] <a href="/CEK/Guides/Build_Custom_Extension.html#ProvidingMetaDataForDisplay">オーディオコンテンツのメタデータを提供する</a>セクションで一部の誤字・脱字を訂正</li>
         </ul>
       </td>
@@ -587,7 +615,7 @@
       <td>v3.2.0</td><td>v0.9</td><td>2017/08/14</td>
       <td>
         <ul>
-          <li>[CIC] <a href="/CIC/CIC_Overview.html#DialogModel">対話モデル</a>の説明を追加</li>
+          <li>[CIC] 対話モデルの説明を追加</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> APIを追加</li>
           <li>[CIC] <a href="/CIC/References/Context_Objects.html">Device.DeviceState</a>のpayloadフィールドを追加：airplane、battery、bluetooth、brightness、flashLight、gps、powerSavingMode、soundMode、volume、wifi</li>
           <li>[CEK] <a href="/CEK/Guides/Build_Custom_Extension.html#DoMultiturnDialog">マルチターン対話をする</a>セクションを追加およびsessionAttributesフィールドの説明を更新</li>
