@@ -4,29 +4,46 @@ skinparam shadowing false
 skinparam roundcorner 10
 skinparam padding 10
 skinparam defaultFontSize 12
-skinparam defaultFontName "Yu Gothic", sans-serif
+skinparam defaultFontName "Malgun Gothic", sans-serif
+
+skinparam note {
+  BackgroundColor #9EA0CA
+  BorderColor #ffffff
+  FontColor #ffffff
+  FontSize 14
+  FontStyle bold
+}
+
 skinparam sequence {
-	ArrowColor #000000
-	ActorBorderColor #000000
-	ActorFontStyle Bolder
+  ArrowColor #000000
+  ActorBorderColor #000000
+  ActorFontStyle Bolder
 
-	LifeLineBorderColor #000000
-	LifeLineBackgroundColor transparent
-	ParticipantBorderColor transparent
-	ParticipantFontSize 14
-	ParticipantFontColor #ffffff
-	ParticipantFontStyle bold
 
-	BoxBorderColor #000000
-	BoxFontColor #ffffff
+  LifeLineBorderColor #000000
+  LifeLineBackgroundColor transparent
+  ParticipantBorderColor transparent
+  ParticipantFontSize 14
+  ParticipantFontColor #ffffff
+  ParticipantFontStyle bold
+
+  BoxBorderColor #000000
+  BoxFontColor #ffffff
     BoxFontSize 14
     BoxFontStyle bold
 }
-skinparam note {
-	BackgroundColor #9EA0CA
-	BorderColor #ffffff
-	FontColor #ffffff
-	FontSize 14
-	FontStyle bold
-}
 hide footbox
+
+skinparam activity {
+  BackgroundColor #9EA0CA
+  BarColor #ffffff
+  BorderColor #ffffff
+  DiamondBackgroundColor #05D686
+  DiamondBorderColor #ffffff
+  DiamondFontColor #ffffff
+  DiamondFontSize 14
+  DiamondFontStyle bold
+  FontColor #ffffff 
+  FontSize 14
+  FontStyle bold
+}
