@@ -15,7 +15,7 @@ Authorization: Bearer XHapQasdfsdfFsdfasdflQQ7w-Example
 Content-Type: multipart/form-data; boundary=Boundary-Text
 </code></pre>
   </li>
-  <li>イベントに含める<a href="/CIC/CIC_Overview.html#DialogModel">ダイアログID</a>(<code>dialogRequestId</code>)とメッセージID(<code>messageId</code>)をUUID形式に作成します。後ほど<a href="#ManageMessageQ">メッセージキュー</a>でディレクティブを確認できるように、識別できるダイアログIDとメッセージIDを作成して送信します。</li>
+  <li>イベントに含まれる<a href="/CIC/Guides/Implement_Client_Features.md#ManageDialogueIDAndHandleTasks">ダイアログID</a>(<code>dialogRequestId</code>)とメッセージID(<code>messageId</code>)をUUID形式に作成します。後ほど<a href="#ManageMessageQ">メッセージキュー</a>でディレクティブを確認できるように、識別できるダイアログIDとメッセージIDを作成して送信します。</li>
   <li>
     <p>最初のメッセージパートに、<a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize"><code>SpeechRecognizer.Recognize</code></a>API仕様に準じて作成されたJSON形式のイベントとメッセージヘッダーを入力して、CICに送信します。</p>
     <pre><code>--Boundary-Text

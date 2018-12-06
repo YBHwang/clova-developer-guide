@@ -114,7 +114,7 @@ Clovaがユーザーに提供する拡張機能やサービスなどをいいま
 [インテント(Intent)](#Intent)に宣言されたリクエストを処理する際に必要な情報です。インテントを定義するとき、共に定義する必要があります。Clovaはユーザーのリクエストを解析して、スロットに該当する情報を抽出します。詳細については、[対話モデルを定義する](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel)ドキュメントを参照してください。
 
 ### ダイアログID {#DialogID}
-ダイアログIDは、ユーザーが新しい発話を開始するたびに生成され、クライアントが[Recognize](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)[イベント](#Event)を[Clova Interface Connect](#CIC)に渡す際に含まれます。ダイアログIDは、サーバー側からレスポンスを返す際に、どのイベントに対するレスポンスか結び付けるために使用され、[ディレクティブ](#Directive)にも含まれます。クライアントはディレクティブに含まれたダイアログIDから、どのイベントに対するレスポンスかを判断する必要があります。もしクライアントが現在持っているダイアログIDとディレクティブのダイアログIDが異なる場合、受信したディレクティブを無視する必要があります。詳細については、[ダイアログモデル](/CIC/CIC_Overview.md#DialogModel)ドキュメントを参照してください。
+ダイアログIDは、ユーザーが新しい発話を開始するたびに生成され、クライアントが[Recognize](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)[イベント](#Event)を[Clova Interface Connect](#CIC)に渡す際に含まれます。ダイアログIDは、サーバー側からレスポンスを返す際に、どのイベントに対するレスポンスか結び付けるために使用され、[ディレクティブ](#Directive)にも含まれます。クライアントはディレクティブに含まれたダイアログIDから、どのイベントに対するレスポンスかを判断する必要があります。もしクライアントが現在持っているダイアログIDとディレクティブのダイアログIDが異なる場合、受信したディレクティブを無視する必要があります。詳細については、[対話モデル](/CIC/Guides/Implement_Client_Features.md#ManageDialogueIDAndHandleTasks)ドキュメントを参照してください。
 
 ### コンテクスト {#Context}
 コンテクストは、クライアントの様々な状態を意味します。[コンテクストオブジェクト](#ContextObjects)として表現されます。詳細については、[コンテクスト](/CIC/References/Context_Objects.md)ドキュメントを参照してください。
