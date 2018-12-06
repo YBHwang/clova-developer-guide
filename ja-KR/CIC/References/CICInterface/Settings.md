@@ -10,37 +10,8 @@ Settingsインターフェースは、Clovaとクライアントの間で、ク�
 
 <div class="note">
   <p><strong>メモ</strong></p>
-  <p>設定を更新したり、同期したりする流れは、<a href="#WorkFlow">仕組み</a>を参照してください。</p>
+  <p>設定情報の更新や同期についてはは、<a href="/CIC/Guides/Implement_Client_Features.md#HandleSettings">設定情報を処理する</a>を参照してください。</p>
 </div>
-
-## 仕組み {#WorkFlow}
-
-以下の状況で、Settingsを使って設定を更新したり、同期したりする必要があります。
-
-* ユーザーがClovaアプリでクライアントデバイスの設定を照会するとき、**設定を同期する**必要があります。
-* ユーザーがクライアントデバイスの**設定をClovaアプリで変更**したとき、それをデバイスの設定に反映する必要があります。
-* ユーザーがクライアントデバイスで**直接に設定を変更**したとき、それをClovaアプリに反映する必要があります。
-
-Settingsを使って設定を更新したり、同期したりする仕組みは、以下の通りです。
-
-![](/CIC/Resources/Images/CIC_Settings_Work_Flow.png)
-
-CICがClovaアプリからクライアントデバイスの**設定同期**のリクエストを受け取ると、 CICとクライアントデバイスは、以下の順序で処理を行います。
-
-1. CICは、`Settings.ExpectReport`ディレクティブを該当するクライアントデバイスに送信します。
-2. クライアントデバイスは、`Settings.Report`イベントで現在の設定をCICに送信する必要があります。
-3. CICは受信した設定をClovaアプリに送信します。
-
-ユーザーがクライアントデバイスの**設定をClovaアプリで変更**したとき、CICはそのデバイスの設定変更に対するリクエストを受信します。そのとき、CICとクライアントデバイスは、以下の順序で処理を行います。
-
-1. CICは、`Settings.Update`ディレクティブを該当するクライアントデバイスに送信します。
-2. クライアントデバイスは、`Settings.Report`イベントで変更された設定をCICに送信する必要があります。
-3. CICは受信した設定をClovaアプリに送信します。
-
-もし、ユーザーがクライアントデバイスで**直接に設定を変更**したときは、以下の順序でClovaアプリの設定を更新します。
-
-1. クライアントデバイスは、`Settings.Report`イベントで変更された設定をCICに送信する必要があります。
-2. CICは受信した設定をClovaアプリに送信します。
 
 ## ExpectReportディレクティブ {#ExpectReport}
 クライアントに対して、現在の設定をレポートするように指示します。クライアントはこのディレクティブを受信すると、[`Settings.Report`](#Report)イベントをCICに送信する必要があります。
@@ -70,6 +41,7 @@ CICがClovaアプリからクライアントデバイスの**設定同期**の�
 
 ### 次の項目も参照してください。
 * [`Settings.Report`](#Report)
+* [設定情報を処理する](/CIC/Guides/Implement_Client_Features.md#HandleSettings)
 
 ## Reportイベント {#Report}
 クライアントが現在の設定をCICにレポートします。クライアントがCICから[`Settings.ExpectReport`](#ExpectReport)ディレクティブを受信した場合、`Settings.Report`イベントをCICに送信する必要があります。
@@ -82,7 +54,7 @@ CICがClovaアプリからクライアントデバイスの**設定同期**の�
 
 | フィールド名       | データ型    | 説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:---------:|
-| `configuration` | object | 事前に定義されたクライアント設定を持つオブジェクト。このオブジェクトのサブフィールドは、すべてstringのデータ型になります。<div class="note"><p><strong>メモ</strong></p><p>クライアント設定の事前定義については、提携担当者までお問い合わせください。</p></div> |    |
+| `configuration` | object | 事前に定義されたクライアント設定を持つオブジェクト。このオブジェクトのサブフィールドは、すべて文字列型になります。<div class="note"><p><strong>メモ</strong></p><p>設定データは、クライアントによって異なる形式で定義することができます。クライアント設定の事前定義については、提携担当者までお問い合わせください。</p></div> |    |
 
 ### Message example
 {% raw %}
@@ -118,6 +90,7 @@ CICがClovaアプリからクライアントデバイスの**設定同期**の�
 
 ### 次の項目も参照してください。
 * [`Settings.ExpectReport`](#ExpectReport)
+* [設定情報を処理する](/CIC/Guides/Implement_Client_Features.md#HandleSettings)
 
 ## Updateディレクティブ {#Update}
 クライアントに対して、`payload`に指定されている値を設定値として適用するように指示します。
@@ -159,3 +132,4 @@ CICがClovaアプリからクライアントデバイスの**設定同期**の�
 
 ### 次の項目も参照してください。
 * [`Settings.Report`](#Report)
+* [設定情報を処理する](/CIC/Guides/Implement_Client_Features.md#HandleSettings)
