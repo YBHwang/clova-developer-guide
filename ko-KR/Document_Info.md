@@ -21,10 +21,21 @@
   </thead>
   <tbody>
     <tr>
+      <td>v3.47.0</td><td>미적용</td><td>2019-01-04</td>
+      <td>
+        <ul>
+          <li>[CIC] <a href=/CIC/Guides/Implement_Client_Features.md#HandleDeviceControl>클라이언트 동작 제어 처리하기</a> 가이드 문서 추가</li>
+          <li>[CIC] <a href=/CIC/Guides/Implement_Client_Features.md#HandleBluetoothControl>클라이언트 블루투스 제어 처리하기</a> 가이드 문서 추가</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.46.0</td><td>미적용</td><td>2018-12-24</td>
       <td>
         <ul>
           <li>[Design] <a href="/Design/Design_Guideline_For_Extension.html">Extension 디자인 가이드라인</a> 문서의 오디오 콘텐츠 재생 유형 설명에서 예제 시나리오에 잘못 표기된 지시 메시지의 이름을 수정함</li>
+          <li>[CIC] <a href=/CIC/Guides/Implement_Client_Features.md#HandleDeviceControl>클라이언트 동작 제어 처리하기</a> 가이드 문서 추가</li>
+          <li>[CIC] <a href=/CIC/Guides/Implement_Client_Features.md#HandleBluetoothControl>클라이언트 블루투스 제어 처리하기</a> 가이드 문서 추가</li>
           <li>[CIC] <a href="/CIC/References/ContentTemplates/TodayWeather.md">TodayWeather</a> 템플릿에 현재 날씨 정보와 관련된 nowTemperatureImageCode 필드와 nowTemperatureImageUrl 필드를 추가</li>
           <li>[CIC] <a href="/CIC/References/ContentTemplates/TodayWeather.md">TodayWeather</a> 템플릿에 문서 오류 수</li>
           <li>[CEK] <a href="/CEK/Guides/Build_Custom_Extension.html#ProvideAudioContent">오디오 콘텐츠 제공하기</a> 설명에서 CIC 명세 도입 시 이를 독자가 인지할 수 있도록 표현을 수정</li>
