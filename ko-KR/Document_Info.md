@@ -21,9 +21,10 @@
   </thead>
   <tbody>
     <tr>
-      <td>v3.45.1</td><td>미적용</td><td>2018-12-22</td>
+      <td>v3.46.0</td><td>미적용</td><td>2018-12-22</td>
       <td>
         <ul>
+          <li>[CIC] <a href="/CIC/References/ContentTemplates/TodayWeather.md">TodayWeather</a> 템플릿에 현재 날씨 정보와 관련된 nowTemperatureImageCode 필드와 nowTemperatureImageUrl 필드를 추가</li>
           <li>[CEK] <a href="/CEK/Guides/Link_User_Account.md">사용자 계정 연결하기</a> 가이드의 <a href="/CEK/Guides/Link_User_Account.md#BuildAuthServer">인증 서버 구축</a> 설명에서 redirect_uri 파라미터 중 잘못 명시된 vendorId 필드를 제거함</li>
         </ul>
       </td>
