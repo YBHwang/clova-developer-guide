@@ -23,9 +23,9 @@
 | `lastUpdate`                | [DateTimeObject](/CIC/References/ContentTemplates/Shared_Objects.md#DateTimeObject) | 날씨 정보가 최종 업데이트된 시간 정보가 담긴 객체. 이 객체의 `value` 필드는 빈 문자열(`""`)을 가질 수도 있습니다. |
 | `location`                  | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | 지역 정보가 담긴 객체 |
 | `nowTemperature`            | [TemperatureCObject](/CIC/References/ContentTemplates/Shared_Objects.md#TemperatureCObject) | 현재 온도 정보가 담긴 객체 |
-| `nowTemperatureImageCode`   | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | 현재 날씨   |
+| `nowTemperatureImageCode`   | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | 현재 [날씨 코드](#WeatherCode) 정보가 담긴 객체   |
 | `nowTemperatureImageUrl`    | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | 현재 날씨 이미지 파일의 URL 정보가 담긴 객체 |
-| `nowWeather`                | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | 현재 [날씨 코드](#WeatherCode) 정보가 담긴 객체  |
+| `nowWeather`                | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | 현재 날씨 정보가 담긴 객체  |
 | `referenceText`             | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | 참조한 서비스의 정보가 담긴 객체. 이 객체의 `value` 필드는 빈 문자열(`""`)을 가질 수도 있습니다.  |
 | `referenceUrl`              | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | 참조한 서비스의 이용 결과 URL 정보가 담긴 객체. 이 객체의 `value` 필드는 빈 문자열(`""`)을 가질 수도 있습니다.   |
 | `type`                      | string | Content template 구분자. `"TodayWeather"` 값을 가집니다. |
