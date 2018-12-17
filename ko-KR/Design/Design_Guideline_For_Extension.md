@@ -476,9 +476,9 @@ Extension은 사용자의 요청을 처리한 후 그 결과를 Clova를 통해 
 > <p class="rdiag">"네, 비발디의 사계 1 악장을 들려드릴게요."(TTS)</p>
 > <p class="rdiag">AudioPlayer.Play: 비발디 사계 1 악장</p>
 > <p class="ldiag">"클로바, 잠깐 멈춰줘."</p>
-> <p class="rdiag">AudioPlayer.Pause: 재생 중지</p>
+> <p class="rdiag">PlaybackController.Pause: 재생 중지</p>
 > <p class="ldiag">"클로바, 다시 재생해줘."</p>
-> <p class="rdiag">AudioPlayer.Resume: 재생 재개</p>
+> <p class="rdiag">PlaybackController.Resume: 재생 재개</p>
 > <p class="ldiag">"다음"</p>
 > <p class="rdiag">AudioPlayer.Play: 비발디 사계 2 악장</p>
 
