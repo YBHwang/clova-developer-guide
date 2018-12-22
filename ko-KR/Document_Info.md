@@ -21,6 +21,14 @@
   </thead>
   <tbody>
     <tr>
+      <td>v3.45.1</td><td>미적용</td><td>2018-12-22</td>
+      <td>
+        <ul>
+          <li>[CEK] <a href="/CEK/Guides/Link_User_Account.md">사용자 계정 연결하기</a> 가이드의 <a href="/CEK/Guides/Link_User_Account.md#BuildAuthServer">인증 서버 구축</a> 설명에서 redirect_uri 파라미터 중 잘못 명시된 vendorId 필드를 제거함</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.45.0</td><td>미적용</td><td>2018-11-30</td>
       <td>
         <ul>
