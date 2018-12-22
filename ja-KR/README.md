@@ -26,7 +26,7 @@ Clovaプラットフォームでは、クライアント開発者とExtension開
       <td>
         <ul>
           <li><a href="/CIC/CIC_Overview.md#WhatisCIC">CICとは?</a></li>
-          <li><a href="/CIC/CIC_Overview.md#DialogModel">ダイアログモデル</a></li>
+          <li><a href="/CIC/CIC_Overview.md#IndirectDialogue">間接対話</a></li>
         </ul>
       </td>
       <td>
@@ -56,9 +56,11 @@ Clovaプラットフォームでは、クライアント開発者とExtension開
           <li>ガイド</li>
           <ul>
             <li><a href="/CIC/Guides/Interact_with_CIC.md">CICと連携する</a></li>
+            <li><a href="/CIC/Guides/Implement_Client_Features.md#ManageDialogueIDAndHandleTasks">ダイアログIDを管理し、作業を処理する</a></li>
             <li><a href="/CIC/Guides/Implement_Client_Features.md#HandleDelegation">委任されたユーザーのリクエストを処理する</a></li>
             <li><a href="/CIC/Guides/Implement_Client_Features.md#HandleAlerts">アラームを処理する</a></li>
             <li><a href="/CIC/Guides/Implement_Client_Features.md#PlayAudioStream">オーディオ再生を処理する</a></li>
+            <li><a href="/CIC/Guides/Implement_Client_Features.md#HandleSettings">設定情報を処理する</a></li>
           </ul>
           <li>リファレンス</li>
           <ul>

@@ -678,11 +678,13 @@ CICは、このイベントを受信すると、ユーザーのアカウント�
 | フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `target`      | string  | コントロールする対象。<ul><li><code>"channel"</code>：テレビのチャンネル</li><li><code>"screenbrightness"</code>：画面の明るさ</li><li><code>"volume"</code>：スピーカーの音量</li></ul> |      |
+| `value`       | string  | 変更する明るさまたは音量のレベル       | 条件付き    |
 
 ### 備考
 
-* 基本値は、クライアント側で直接設定します。
+* `value`フィールドが値を持っていない場合、クライアント側で変更するレベルを指定します。
 * クライアントは、コンテキストの[`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState)オブジェクトで、スピーカーの音量と画面の明るさをCICに随時送信する必要があります。
+* ユーザーから、デバイスで実現できる画面の明るさまたは音量の範囲を超える値をリクエストされた場合、Clovaはデバイスに合わせてレベルを調節してからこのディレクティブを送信します。
 * クライアントは、このディレクティブを処理して、その結果を[`DeviceControl.ActionExecuted`](#ActionExecuted)または[`DeviceControl.ActionFailed`](#ActionFailed)イベントでCICに送信する必要があります。
 * 通常、Clovaからデバイスのコントロールに関するディレクティブをクライアントに送信するとき、ユーザーに通知するためのオーディオファイル([`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak)ディレクティブ)が添付されます。ただし、`target`フィールドが`"volume"`に設定されているなど、スピーカーの出力に関するコントロールの場合には、[`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak)ディレクティブにオーディオファイルが添付されません。それは、ユーザーの音楽鑑賞などのUXを向上させるためで、その場合には音声案内の代わりに、クライアントデバイスのライトや、短い効果音などで音量が調節されたことをユーザーに通知する必要があります。
 
@@ -691,6 +693,7 @@ CICは、このイベントを受信すると、ユーザーのアカウント�
 {% raw %}
 
 ```json
+// レベルの指定なしに音量を下げるようにリクエストした場合
 {
   "directive": {
     "header": {
@@ -700,7 +703,23 @@ CICは、このイベントを受信すると、ユーザーのアカウント�
       "dialogRequestId": "3c6eef8b-8427-4b46-a367-0a7a46432519"
     },
     "payload": {
-      "target": "screenbrightness"
+      "target": "volume"
+    }
+  }
+}
+
+// 特定のレベルだけ音量を下げるようにリクエストした場合
+{
+  "directive": {
+    "header": {
+      "namespace": "DeviceControl",
+      "name": "Decrease",
+      "messageId": "23bdfff7-b655-46d4-8655-8bb473bf2bf5",
+      "dialogRequestId": "3c6eef8b-8427-4b46-a367-0a7a46432519"
+    },
+    "payload": {
+      "target": "volume",
+      "value": "3"
     }
   }
 }
@@ -766,10 +785,12 @@ CICは、このイベントを受信すると、ユーザーのアカウント�
 | フィールド名       | データ型    | 説明                     | 任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `target`      | string  | コントロールする対象。<ul><li><code>"channel"</code>：テレビのチャンネル</li><li><code>"screenbrightness"</code>：画面の明るさ</li><li><code>"volume"</code>：スピーカーの音量</li></ul> |      |
+| `value`       | string  | 変更する明るさまたは音量のレベル       | 条件付き    |
 
 ### 備考
 
-* 基本値は、クライアント側で直接設定します。
+* `value`フィールドが値を持っていない場合、クライアント側で変更するレベルを指定します。
+* ユーザーから、デバイスで実現できる画面の明るさまたは音量の範囲を超える値をリクエストされた場合、Clovaはデバイスに合わせてレベルを調節してからこのディレクティブを送信します。
 * クライアントは、コンテキストの[`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState)オブジェクトで、スピーカーの音量と画面の明るさをCICに随時送信する必要があります。
 * クライアントは、このディレクティブを処理して、その結果を[`DeviceControl.ActionExecuted`](#ActionExecuted)または[`DeviceControl.ActionFailed`](#ActionFailed)イベントでCICに送信する必要があります。
 * 通常、Clovaからデバイスのコントロールに関するディレクティブをクライアントに送信するとき、ユーザーに通知するためのオーディオファイル([`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak)ディレクティブ)が添付されます。ただし、`target`フィールドが`"volume"`に設定されているなど、スピーカーの出力に関するコントロールの場合には、[`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak)ディレクティブにオーディオファイルが添付されません。それは、ユーザーの音楽鑑賞などのUXを向上させるためで、その場合には音声案内の代わりに、クライアントデバイスのライトや、短い効果音などで音量が調節されたことをユーザーに通知する必要があります。
@@ -779,6 +800,7 @@ CICは、このイベントを受信すると、ユーザーのアカウント�
 {% raw %}
 
 ```json
+// レベルの指定なしに音量を上げるようにリクエストした場合
 {
   "directive": {
     "header": {
@@ -788,7 +810,23 @@ CICは、このイベントを受信すると、ユーザーのアカウント�
       "dialogRequestId": "3c6eef8b-8427-4b46-a367-0a7a46432519"
     },
     "payload": {
-      "target": "screenbrightness"
+      "target": "volume"
+    }
+  }
+}
+
+// 特定のレベルだけ音量を上げるようにリクエストした場合
+{
+  "directive": {
+    "header": {
+      "namespace": "DeviceControl",
+      "name": "Increase",
+      "messageId": "23bdfff7-b655-46d4-8655-8bb473bf2bf5",
+      "dialogRequestId": "3c6eef8b-8427-4b46-a367-0a7a46432519"
+    },
+    "payload": {
+      "target": "volume",
+      "value": "3"
     }
   }
 }
@@ -1085,7 +1123,7 @@ CICは、このイベントを受信すると、ユーザーのアカウント�
 
 ### 備考
 
-`DeviceControl.SynchronizeState`ディレクティブは、[ダウンチャネル](/CIC/Guides/Interact_with_CIC.md#CreateConnection)でユーザーのアカウントに登録されているすべてのクライアントにブロードキャストされます。その際、[ダイアログID(`dialogRequestId`)](/CIC/CIC_Overview.md#DialogModel)はありません。
+`DeviceControl.SynchronizeState`ディレクティブは、[ダウンチャネル](/CIC/Guides/Interact_with_CIC.md#CreateConnection)でユーザーのアカウントに登録されているすべてのクライアントにブロードキャストされ、[ダイアログID(`dialogRequestId`)](/CIC/Guides/Implement_Client_Features.md#HandleDirectivesByDialogueID)を持ちません。
 
 ### Message example
 

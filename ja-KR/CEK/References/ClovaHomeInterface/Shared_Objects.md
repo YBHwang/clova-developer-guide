@@ -209,7 +209,7 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 | applianceTypes | 説明         | サポートされる動作                                  |
 |----------------|-------------|-------------------------------------------------|
 | `"AIRCONDITIONER"`  | 冷暖房機         | DecrementFanSpeed, DecrementTargetTemperature, GetCurrentTemperature, GetDeviceState, GetTargetTemperature, HealthCheck, IncrementFanSpeed, IncrementTargetTemperature, SetFanSpeed, SetMode, SetTargetTemperature, TurnOff, TurnOn               |
-| `"AIRPURIFIER"`     | 空気清浄機        | DecrementFanSpeed, GetAirQuality, GetDeviceState, GetFineDust, GetUltraFineDust, HealthCheck, IncrementFanSpeed, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn  |
+| `"AIRPURIFIER"`     | 空気清浄機        | DecrementFanSpeed, GetAirQuality, GetCurrentTemperature, GetDeviceState, GetFineDust, GetHumidity, GetUltraFineDust, HealthCheck, IncrementFanSpeed, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn  |
 | `"AIRSENSOR"`       | 空気質測定器     | GetAirQuality, GetCurrentTemperature, GetDeviceState, GetFineDust, GetHumidity, GetUltraFineDust, HealthCheck                                     |
 | `"BIDET"`           | 温水洗浄便座            | Close、GetDeviceState、GetExpendableState、HealthCheck、Open、TurnOff、TurnOn                                                                     |
 | `"BODYWEIGHTSCALE"` | 体重計           | GetDeviceState、HealthCheck                                                                                                                       |
@@ -224,12 +224,12 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 | `"HEATER"`          | ヒーター            | DecrementTargetTemperature, GetCurrentTemperature, GetDeviceState, GetTargetTemperature, HealthCheck, IncrementTargetTemperature, TurnOff, TurnOn |
 | `"HUMIDIFIER"`      | 加湿器           | GetCurrentTemperature, GetDeviceState, GetHumidity, HealthCheck, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn                               |
 | `"KIMCHIREFRIGERATOR"` | キムチ冷蔵庫    | GetDeviceState、HealthCheck                                                                                                                       |
-| `"LIGHT"`           | スマート照明   | DecrementBrightness, DecrementVolume HealthCheck, GetDeviceState, IncrementBrightness, IncrementVolume SetBrightness, SetColor, SetColorTemperature, SetMode, TurnOff, TurnOn            |
+| `"LIGHT"`           | スマート照明   | DecrementBrightness, DecrementVolume HealthCheck, GetDeviceState, IncrementBrightness, IncrementVolume SetBrightness, ReleaseMode, SetColor, SetColorTemperature, SetMode, TurnOff, TurnOn            |
 | `"MASSAGECHAIR"`    | マッサージチェア        | DecrementIntensityLevel, GetDeviceState, HealthCheck, IncrementIntensityLevel, TurnOff, TurnOn                                                     |
 | `"MICROWAVE"`       | 電子レンジ      | GetDeviceState, GetRemainingTime, HealthCheck, TurnOff, TurnOn                                                                                      |
 | `"MOTIONSENSOR"`    | モーションセンサー    | GetDeviceState、HealthCheck                                                                                                                        |
 | `"OPENCLOSESENSOR"` | 開閉センサー    | GetCloseTime、GetDeviceState、GetOpenState、GetOpenTime、HealthCheck                                                                               |
-| `"OVEN"`            | オーブン            | GetDeviceState, GetRemainingTime, HealthCheck                                                                                                      |
+| `"OVEN"`            | オーブン            | GetDeviceState, GetRemainingTime, HealthCheck, Preheat                                                                                             |
 | `"POWERSTRIP"`      | テーブルタップ         | GetConsumption, GetDeviceState, GetEstimateBill, GetProgressiveTaxBracket, HealthCheck, TurnOff, TurnOn                                             |
 | `"PURIFIER"`        | 浄水器          | GetDeviceState、GetExpendableState、HealthCheck、ReleaseMode、SetMode、SetTargetTemperature                                                         |
 | `"RANGE"`           | クッキングヒーター・コンロ          | GetDeviceState、HealthCheck                                                                                                                         |
@@ -243,6 +243,7 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 | `"SMARTCHAIR"`      | スマートチェア      | GetCurrentSittingState, GetDeviceState, GetRightPostureRatio, GetUsageTime, HealthCheck                                                             |
 | `"SMARTCURTAIN"`    | スマートカーテン      | Close, GetDeviceState, HealthCheck, Open, Stop                                                                                                      |
 | `"SMARTHUB"`        | スマートハブ      | GetCurrentTemperature, GetDeviceState, GetHumidity, GetTargetTemperature, HealthCheck, SetMode                                                      |
+| `"SMARTLOCK"`       | スマートロック(ドアロック)  | GetDeviceState, GetLockState, HealthCheck, SetLockState                                                                                             |
 | `"SMARTMETER"`      | 電力量計      | GetConsumption, GetCurrentBill, GetDeviceState, GetEstimateBill, GetProgressiveTaxBracket, HealthCheck                                              |
 | `"SMARTPLUG"`       | スマートプラグ     | GetConsumption, GetDeviceState, GetEstimateBill, HealthCheck, TurnOff, TurnOn                                                                       |
 | `"SMARTTV"`         | スマートテレビ       | DecrementChannel, DecrementVolume, GetDeviceState, HealthCheck, IncrementChannel, IncrementVolume, Mute, SetChannel, SetChannelByName, TurnOff, TurnOn, Unmute |
@@ -250,8 +251,9 @@ IoTデバイスの情報を持っているオブジェクトです。ユーザ�
 | `"SMOKESENSOR"`     | 煙センサー        | GetDeviceState、HealthCheck                                                                                                                         |
 | `"SWITCH"`          | 家庭内のコンセントの電源を制御するスイッチ | GetDeviceState, HealthCheck, TurnOff, TurnOn                                                                                          |
 | `"THERMOSTAT"`      | 温度調節器   | DecrementTargetTemperature, GetConsumption, GetCurrentTemperature, GetDeviceState, GetEstimateConsumption, GetTargetTemperature, HealthCheck, IncrementTargetTemperature, SetMode, SetTargetTemperature TurnOff, TurnOn       |
-| `"VENTILATOR"`      | 換気扇          | GetAirQuality, GetDeviceState, GetHumidity, GetTargetTemperature, HealthCheck, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn                    |
+| `"VENTILATOR"`      | 換気扇          | GetAirQuality, GetCurrentTemperature, GetDeviceState, GetHumidity, GetTargetTemperature, HealthCheck, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn  |
 | `"WATERBOILER"`     | 温水器          | GetDeviceState, HealthCheck, SetMode, TurnOff, TurnOn                                                                                                |
+| `"WINECELLAR"`      | ワインセラー        | GetDeviceState, HealthCheck, ReleaseMode, SetMode, SetTargetTemperature, TurnOff, TurnOn                                                             |
 
 <div class="note">
 <p><strong>メモ</strong></p>
@@ -310,6 +312,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 | Lower                      | [`LowerConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#LowerConfirmation), [`LowerRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#LowerRequest)  |
 | Mute                       | [`MuteConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#MuteConfirmation), [`MuteRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#MuteRequest) |
 | Open                       | [`OpenConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#OpenConfirmation), [`OpenRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#OpenRequest)  |
+| Preheat                    | [`PreheatConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#PreheatConfirmation), [`PreheatRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#PreheatRequest)  |
 | Raise                      | [`RaiseConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#RaiseConfirmation), [`RaiseRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#RaiseRequest)  |
 | ReleaseMode              | [`ReleaseModeConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#ReleaseModeConfirmation), [`ReleaseModeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#ReleaseModeRequest)  |
 | SetBrightness              | [`SetBrightnessConfirmation`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetBrightnessConfirmation), [`SetBrightnessRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#SetBrightnessRequest)  |

@@ -31,7 +31,7 @@
 }
 </code></pre>
   </li>
-  <li>受信したディレクティブの<a href="/CIC/CIC_Overview.html#DialogModel">ダイアログID</a>(<code>dialogRequestId</code>)が、クライアントに保存されているものと一致するかを確認します。
+  <li>受信したディレクティブの<a href="/CIC/Guides/Implement_Client_Features.md#ManageDialogueIDAndHandleTasks">ダイアログID</a>(<code>dialogRequestId</code>)が、クライアントが保管しているものと一致するかを確認します。
     <ul>
       <li>
         <p><strong>クライアントに保存されている最終のダイアログIDと一致する場合、</strong>、APIリファレンスに基づいて、必要なアクションを実行します。通常、ディレクティブの<code>payload</code>に含まれた<a href="/CIC/References/CICInterface/SpeechSynthesizer.html#Speak"><code>cid</code>値を使用</a>すると、クライアントのアクションに必要な追加の情報(音声データ)を<a href="#ManageMessageQ">メッセージキュー</a>から識別できます。<code>cid</code>は、次のようにマルチパートメッセージのうち、1つのパートとして送信された音声データの<code>Content-ID</code>メッセージヘッダーを表します。</p>

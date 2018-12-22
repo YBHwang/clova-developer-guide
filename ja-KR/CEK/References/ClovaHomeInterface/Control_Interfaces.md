@@ -28,8 +28,8 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 | [`GetAwakeDurationResponse`](#GetAwakeDurationResponse)                       | Response | [`GetAwakeDurationRequest`](#GetAwakeDurationRequest)メッセージに対するレスポンスです。デバイスで測定されたユーザーの入眠潜時、つまりユーザーが就寝してから睡眠状態に入るまでの時間をCEKに返します。  |
 | [`GetBatteryInfoRequest`](#GetBatteryInfoRequest)                             | Request  | デバイスの電池の情報をClova Home Extensionにリクエストします。 |
 | [`GetBatteryInfoResponse`](#GetBatteryInfoResponse)                           | Response | [`GetBatteryInfoRequest`](#GetBatteryInfoRequest)メッセージに対するレスポンスです。デバイスの電池の情報をCEKに返します。 |
-| [`GetCleaningCycleRequest`](#GetCleaningCycleRequest)                                                   | Request  | デバイスをクリーニングする周期を確認する際に使用します。デバイスの次のクリーニング周期までの残り時間をClova Home extensionにリクエストします。  |
-| [`GetCleaningCycleResponse`](#GetCleaningCycleResponse)                                                  | Response | [`GetCleaningCycleRequest`](#GetCleaningCycleRequest)メッセージに対するレスポンスです。デバイスの次のクリーニング周期までの残り時間をCEKに返します。  |
+| [`GetCleaningCycleRequest`](#GetCleaningCycleRequest)                         | Request  | デバイスをクリーニングする周期を確認する際に使用します。デバイスの次のクリーニング周期までの残り時間をClova Home extensionにリクエストします。  |
+| [`GetCleaningCycleResponse`](#GetCleaningCycleResponse)                       | Response | [`GetCleaningCycleRequest`](#GetCleaningCycleRequest)メッセージに対するレスポンスです。デバイスの次のクリーニング周期までの残り時間をCEKに返します。  |
 | [`GetCloseTimeRequest`](#GetCloseTimeRequest)                                 | Request  | 開閉センサーで検知された開閉状況のうち、検知対象が最後に閉まったときの日時情報をClova Home Extensionにリクエストします。 |
 | [`GetCloseTimeResponse`](#GetCloseTimeResponse)                               | Response | [`GetCloseTimeRequest`](#GetCloseTimeRequest)メッセージに対するレスポンスです。開閉センサーの検知対象が最後に閉まったときの日時情報をCEKに返します。  |
 | [`GetConsumptionRequest`](#GetConsumptionRequest)                             | Request  | 主にスマートプラグやスマートテーブルタップのようなデバイスで測定された、現在までのエネルギーまたはリソースの使用量を確認する際に使用します。エネルギーまたはリソースの使用量情報をClova Home Extensionにリクエストします。  |
@@ -98,6 +98,8 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 | [`MuteRequest`](#MuteRequest)                                                 | Request  | デバイスの音をミュートにするようClova Home Extensionにリクエストします。 |
 | [`OpenConfirmation`](#OpenConfirmation)                                       | Response | [`OpenRequest`](#OpenRequest)メッセージに対するレスポンスです。スマートカーテンや温水洗浄便座の蓋を開けるようにリクエストした後、その処理結果をCEKに返します。 |
 | [`OpenRequest`](#OpenRequest)                                                 | Request  | スマートカーテンや温水洗浄便座などのデバイスを制御する際に使用します。スマートカーテンや温水洗浄便座の蓋を開けるようClova Home Extensionにリクエストします。  |
+| [`PreheatConfirmation`](#PreheatConfirmation)                                 | Response | [`PreheatRequest`](#PreheatRequest)メッセージに対するレスポンスです。予熱のリクエストを処理した後、その結果をCEKに返します。  |
+| [`PreheatRequest`](#PreheatRequest)                                           | Response | 主にオーブンなどのデバイスをコントロールするために使用します。デバイスを予熱するようにClova Home Extensionにリクエストします。                        |
 | [`RaiseConfirmation`](#RaiseConfirmation)                                     | Response | [`RaiseRequest`](#RaiseRequest)メッセージに対するレスポンスです。デバイスの高さを上げるようにリクエストした後、その処理結果をCEKに返します。  |
 | [`RaiseRequest`](#RaiseRequest)                                               | Request  | 主にカーテンやブラインド、ベッドなどのデバイスを制御する際に使用します。デバイスの高さを上げるようClova Home Extensionにリクエストします。  |
 | [`ReleaseModeConfirmation`](#ReleaseModeConfirmation)                         | Response | [`ReleaseModeRequest`](#ReleaseModeRequest)メッセージに対するレスポンスです。デバイスの現在の運転モード(operation mode)を解除するようにリクエストした後、その処理結果をCEKに返します。  |
@@ -3665,6 +3667,84 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 
 ### 次の項目も参照してください。
 * [`OpenConfirmation`](#OpenConfirmation)
+
+## PreheatConfirmation {#PreheatConfirmation}
+[`PreheatRequest`](#PreheatRequest)メッセージに対するレスポンスです。予熱のリクエストを処理した後、その結果をCEKに返します。
+
+### Payload fields
+
+| フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
+|---------------|---------|-----------------------------|:---------:|
+| `targetTemperature`               | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | デバイスに設定された温度、またはExtensionからリクエストされた予熱の設定温度を持つオブジェクト                                | 任意    |
+
+### 備考
+
+デバイスからペイロードに入力する情報を取得できない場合、値を省略できます。その場合、ユーザーには具体的な情報なしに、リクエストが正常に処理されたことを通知します。
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "ec9ab261-528e-4b19-94e5-6e35a2494a6d",
+    "name": "PreheatConfirmation",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "targetTemperature": {
+      "value": 180
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`PreheatRequest`](#PreheatRequest)
+
+## PreheatRequest {#PreheatRequest}
+主にオーブンなどのデバイスをコントロールするために使用します。デバイスを予熱するようにClova Home Extensionにリクエストします。メッセージに予熱の設定温度を含めることができます。このリクエストに対するレスポンスとして、[`PreheatConfirmation`](#PreheatConfirmation)メッセージを使用する必要があります。
+
+### Payload fields
+
+| フィールド名       | データ型    | フィールドの説明                     | 任意 |
+|---------------|---------|-----------------------------|:---------:|
+| `accessToken`   | string | IoTサービスのユーザーアカウントのアクセストークン。CEKは、外部サービスの認可サーバーから取得したユーザーアカウントのアクセストークンを渡します。詳細については、[ユーザーアカウントを連携する](/CEK/Guides/Link_User_Account.md)を参照してください。                          |     |
+| `appliance`     | [ApplianceInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject) | デバイスの情報を持つオブジェクト。`applianceId`フィールドは必須です。 |     |
+| `targetTemperature`       | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | 予熱の設定温度を持つオブジェクト             | 任意    |
+
+### Message example
+
+{% raw %}
+
+```json
+{
+  "header": {
+    "messageId": "d68661e9-dc78-4556-a0db-87ffb3ad30c5",
+    "name": "PreheatRequest",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "accessToken": "92ebcb67fe33",
+    "appliance": {
+      "applianceId": "device-044"
+    },
+    "targetTemperature": {
+      "value": 180
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`PreheatConfirmation`](#PreheatConfirmation)
 
 ## RaiseConfirmation {#RaiseConfirmation}
 [`RaiseRequest`](#RaiseRequest)メッセージに対するレスポンスです。デバイスの高さを上げるようにリクエストした後、その処理結果をCEKに返します。

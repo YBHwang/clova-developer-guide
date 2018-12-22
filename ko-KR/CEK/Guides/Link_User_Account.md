@@ -108,15 +108,13 @@ Extension에 계정 연결을 적용하려면 우선 사용자가 계정 인증�
 
 | 파라미터 이름  | 설명                                                                                                                                                      |
 |:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `vendorId`     | Extension 개발자에게 부여된 ID. 외부 서비스 또는 기업을 구분하기 위해 Clova developer console에 등록된 ID입니다. `redirect_uri`에 미리 포함되어 있습니다. |
 | `state`        | 인증 세션의 시간 만료 여부를 확인하는 상태 값. **Authorization URL**을 통해 전달받은 `state` 파라미터를 그대로 입력합니다.                                |
 | `code`         | Authorization code. `response_type` 값이 `"code"`이면, 이 파라미터에 authorization code를 입력합니다.                                                     |
 | `token_type`   | Access token의 타입. `access_token`과 함께 전달해야 하며, `"Bearer"`로 고정됩니다.                                                                        |
 
 다음은 사용자의 계정 인증이 완료된 후 이동할 redirect URL 예입니다.
 
-<pre><code>{{ book.ServiceEnv.RedirectURLforAccountLinking }}?vendorId=YourServiceOrCompanyID
-                                &state=qwer123
+<pre><code>{{ book.ServiceEnv.RedirectURLforAccountLinking }}?&state=qwer123
                                 &code=nl__eCSTdsdlkjfweyuxXvnl
 </code></pre>
 
