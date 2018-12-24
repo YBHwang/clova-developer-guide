@@ -21,10 +21,23 @@
   </thead>
   <tbody>
     <tr>
-      <td>v3.46.0</td><td>미적용</td><td>2018-12-22</td>
+      <td>v3.46.0</td><td>미적용</td><td>2018-12-24</td>
       <td>
         <ul>
+          <li>[Design] <a href="/Design/Design_Guideline_For_Extension.html">Extension 디자인 가이드라인</a> 문서의 오디오 콘텐츠 재생 유형 설명에서 예제 시나리오에 잘못 표기된 지시 메시지의 이름을 수정함</li>
           <li>[CIC] <a href="/CIC/References/ContentTemplates/TodayWeather.md">TodayWeather</a> 템플릿에 현재 날씨 정보와 관련된 nowTemperatureImageCode 필드와 nowTemperatureImageUrl 필드를 추가</li>
+          <li>[CIC] <a href="/CIC/References/ContentTemplates/TodayWeather.md">TodayWeather</a> 템플릿에 문서 오류 수</li>
+          <li>[CEK] <a href="/CEK/Guides/Build_Custom_Extension.html#ProvideAudioContent">오디오 콘텐츠 제공하기</a> 설명에서 CIC 명세 도입 시 이를 독자가 인지할 수 있도록 표현을 수정</li>
+          <li>[CEK] Clova Home extension 명세에 일부 잘못된 표기 오류를 수정</li>
+          <li>[Common] <a href="/README.md">시작하기 전에</a> 페이지에 추가된 문서의 링크를 추가함</li>
+          <li>[Common] 일부 시퀀스 다이어그램에 잘못 표기된 노드의 유형을 수정함</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.45.1</td><td>미적용</td><td>2018-12-22</td>
+      <td>
+        <ul>
           <li>[CEK] <a href="/CEK/Guides/Link_User_Account.md">사용자 계정 연결하기</a> 가이드의 <a href="/CEK/Guides/Link_User_Account.md#BuildAuthServer">인증 서버 구축</a> 설명에서 redirect_uri 파라미터 중 잘못 명시된 vendorId 필드를 제거함</li>
         </ul>
       </td>
