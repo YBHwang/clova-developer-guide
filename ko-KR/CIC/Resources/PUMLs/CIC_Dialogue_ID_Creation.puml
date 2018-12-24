@@ -1,6 +1,6 @@
 !include ../../../styles/PlantUML_StyleSheet.puml
 
-participant 사용자 as user #9EA0CA
+actor 사용자 as user #9EA0CA
 participant 클라이언트 as client #9EA0CA
 participant CIC as cic #05D686
 
@@ -8,7 +8,7 @@ user ->> client: "클래식 음악 들려줘"
 
 activate client
 
-  client -> client: 대화 ID(A) 생성 
+  client -> client: 대화 ID(A) 생성
 
   alt 음성 요청
 
@@ -21,7 +21,7 @@ activate client
   end
 
   client -> client: 마지막 대화 ID 갱신
-  
+
   note left: lastDialogueID: A
 
   ... 요청 처리 중 ...
@@ -35,7 +35,7 @@ user -->> client: "현재 날씨 알려줘"
     client ->> cic: SpeechRecognizer.Recognize 이벤트 메시지 전송\n(header.dialogRequestId: B)
 
     client -> client: 마지막 대화 ID 갱신
-  
+
     note left: lastDialogueID: B
 
     client -> client: 이전 대화 ID(A)와 관련된 작업 처리 중지
