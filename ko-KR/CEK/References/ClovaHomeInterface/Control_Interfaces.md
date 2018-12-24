@@ -86,7 +86,7 @@ IoT 기기 정보 확인 및 기기 제어와 관련된 요청 및 응답을 수
 | [`IncrementChannelRequest`](#IncrementChannelRequest)                         | Request  | 대상 기기가 지정한 수준만큼 TV 채널을 높이도록 Clova Home extension에게 요청합니다. |
 | [`IncrementFanSpeedConfirmation`](#IncrementFanSpeedConfirmation)             | Response | [`IncrementFanSpeedRequest`](#IncrementFanSpeedRequest) 메시지에 대한 응답으로 대상 기기가 팬의 속도를 높이도록 요청한 후 처리된 결과를 CEK에게 전달합니다. |
 | [`IncrementFanSpeedRequest`](#IncrementFanSpeedRequest)                       | Request | 대상 기기가 지정한 값만큼 팬 속도를 높이도록 Clova Home extension에게 요청합니다. |
-| [`IncrementIntensityLevelConfirmation`](#IncrementIntensityLevelConfirmation) | Response | [`DecrementIntensityLevelRequest`](#DecrementIntensityLevelRequest) 메시지에 대한 응답으로 대상 기기가 압력이나 수압 등의 세기를 높이도록 요청한 후 처리된 결과를 CEK에게 전달합니다.  |
+| [`IncrementIntensityLevelConfirmation`](#IncrementIntensityLevelConfirmation) | Response | [`IncrementIntensityLevelRequest`](#IncrementIntensityLevelRequest) 메시지에 대한 응답으로 대상 기기가 압력이나 수압 등의 세기를 높이도록 요청한 후 처리된 결과를 CEK에게 전달합니다.  |
 | [`IncrementIntensityLevelRequest`](#IncrementIntensityLevelRequest)           | Request  | 대상 기기가 지정한 값만큼 압력이나 수압의 세기를 높이도록 Clova Home extension에게 요청합니다. |
 | [`IncrementTargetTemperatureConfirmation`](#IncrementTargetTemperatureConfirmation) | Response | [`IncrementTargetTemperatureRequest`](#IncrementTargetTemperatureRequest) 메시지에 대한 응답으로 대상 기기가 온도를 높이도록 요청한 후 처리된 결과를 CEK에게 전달합니다. |
 | [`IncrementTargetTemperatureRequest`](#IncrementTargetTemperatureRequest)     | Request  | 대상 기기가 지정한 값만큼 온도를 높이도록 Clova Home extension에게 요청합니다.     |
@@ -2650,7 +2650,7 @@ IoT 기기 정보 확인 및 기기 제어와 관련된 요청 및 응답을 수
 | 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:---------:|
 | `applianceResponseTimestamp` | string  | 기기에서 요청한 정보를 확인한 시간(Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | 선택    |
-| `startTimestampList[]`       | string  | 날짜 순서대로 수면 시작 시간을 저장하고 있는 배열                                      | 필수    |
+| `startTimestampList[]`       | string array  | 날짜 순서대로 수면 시작 시간을 저장하고 있는 배열                                      | 필수    |
 
 ### Message example
 
@@ -3146,7 +3146,7 @@ IoT 기기 정보 확인 및 기기 제어와 관련된 요청 및 응답을 수
 |---------------|---------|-----------------------------|:---------:|
 | `fanSpeed`            | [SpeedInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SpeedInfoObject) | 현재 팬의 속도 정보를 담고 있는 객체. 팬의 속도는 풍속을 의미하며 팬 속도를 다음과 같은 값으로 제한합니다.<ul><li><code>1</code>: 약한 바람(1단)</li><li><code>2</code>: 중간 바람(2단)</li><li><code>3</code>: 강한 바람(3단)</li></ul> | 선택    |
 | `previousState`          | object                      | 기기의 이전 상황 정보를 담고 있는 객체                 | 선택    |
-| `previousState.FanSpeed` | [SpeedInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SpeedInfoObject) | 이전 팬의 속도 정보를 담고 있는 객체. 팬의 속도는 풍속을 의미하며 팬 속도를 다음과 같은 값으로 제한합니다.<ul><li><code>1</code>: 약한 바람(1단)</li><li><code>2</code>: 중간 바람(2단)</li><li><code>3</code>: 강한 바람(3단)</li></ul> | 선택    |
+| `previousState.fanSpeed` | [SpeedInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SpeedInfoObject) | 이전 팬의 속도 정보를 담고 있는 객체. 팬의 속도는 풍속을 의미하며 팬 속도를 다음과 같은 값으로 제한합니다.<ul><li><code>1</code>: 약한 바람(1단)</li><li><code>2</code>: 중간 바람(2단)</li><li><code>3</code>: 강한 바람(3단)</li></ul> | 선택    |
 
 ### Remarks
 
