@@ -150,7 +150,7 @@ Extension을 설계할 때 가장 먼저 할 일은 extension의 목표를 정�
     </tr>
     <tr>
       <td>이용 약관을 위반하지 않는 이름이어야 함</td>
-      <td>[Clova Extensions Kit 이용약관](https://developers.naver.com/console/clova/cek/#/terms)을 준수해야 합니다. 제 3자의 권리 침해나 외설적인 표현을 사용한 이름을 허용하지 않습니다.</td>
+      <td><a href="https://developers.naver.com/console/clova/cek/#/terms" target="_blank">Clova Extensions Kit 이용약관</a>을 준수해야 합니다. 제 3자의 권리 침해나 외설적인 표현을 사용한 이름을 허용하지 않습니다.</td>
     </tr>
     <tr>
       <td>기타 유의 사항</td>
