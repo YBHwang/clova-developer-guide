@@ -16,15 +16,32 @@
 <table>
   <thead>
     <tr>
+<<<<<<< HEAD
       <th style="width:12%">신규 버전 규칙</th><th style="width:12%">이전 버전 규칙</th><th style="width:16%">배포 일자</th><th style="width:70%">이력 사항</th>
+=======
+      <th style="width:10%">버전 규칙</th><th style="width:15%">배포 일자</th><th style="width:75%">이력 사항</th>
+>>>>>>> doc-KR
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>v3.46.0</td><td>미적용</td><td>2018-12-24</td>
+      <td>v3.47.0</td><td>2019-01-04</td>
+      <td>
+        <ul>
+          <li>[CIC] <a href=/CIC/Guides/Implement_Client_Features.md#HandleDeviceControl>클라이언트 동작 제어 처리하기</a> 가이드 문서 추가</li>
+          <li>[CIC] <a href=/CIC/Guides/Implement_Client_Features.md#HandleBluetoothControl>클라이언트 블루투스 제어 처리하기</a> 가이드 문서 추가</li>
+          <li>[CIC] <a href="/CIC/References/CICInterface/AudioPlayer.md">AudioPlayer API</a>에 재생 대기열 초기화 동작을 보고하기 위한 [`AudioPlayer.PlaybackQueueCleared`](/CIC/References/CICInterface/AudioPlayer.md#PlaybackQueueCleared) 이벤트 메시지 추가</li>
+          <li>[CEK] Clova Home extension 명세 중 <a href="/ClovaHomeInterface/Shared_Objects.md#ModeInfoObject">ModeInfoObject</a>에 AIRCONDITIONER 타입 기기의 모드에 난방 모드(heat)와 송풍 모드(fan)를 추가함</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.46.0</td><td>2018-12-24</td>
       <td>
         <ul>
           <li>[Design] <a href="/Design/Design_Guideline_For_Extension.html">Extension 디자인 가이드라인</a> 문서의 오디오 콘텐츠 재생 유형 설명에서 예제 시나리오에 잘못 표기된 지시 메시지의 이름을 수정함</li>
+          <li>[CIC] <a href=/CIC/Guides/Implement_Client_Features.md#HandleDeviceControl>클라이언트 동작 제어 처리하기</a> 가이드 문서 추가</li>
+          <li>[CIC] <a href=/CIC/Guides/Implement_Client_Features.md#HandleBluetoothControl>클라이언트 블루투스 제어 처리하기</a> 가이드 문서 추가</li>
           <li>[CIC] <a href="/CIC/References/ContentTemplates/TodayWeather.md">TodayWeather</a> 템플릿에 현재 날씨 정보와 관련된 nowTemperatureImageCode 필드와 nowTemperatureImageUrl 필드를 추가</li>
           <li>[CIC] <a href="/CIC/References/ContentTemplates/TodayWeather.md">TodayWeather</a> 템플릿에 문서 오류 수</li>
           <li>[CEK] <a href="/CEK/Guides/Build_Custom_Extension.html#ProvideAudioContent">오디오 콘텐츠 제공하기</a> 설명에서 CIC 명세 도입 시 이를 독자가 인지할 수 있도록 표현을 수정</li>
@@ -35,7 +52,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.45.1</td><td>미적용</td><td>2018-12-22</td>
+      <td>v3.45.1</td><td>2018-12-22</td>
       <td>
         <ul>
           <li>[CEK] <a href="/CEK/Guides/Link_User_Account.md">사용자 계정 연결하기</a> 가이드의 <a href="/CEK/Guides/Link_User_Account.md#BuildAuthServer">인증 서버 구축</a> 설명에서 redirect_uri 파라미터 중 잘못 명시된 vendorId 필드를 제거함</li>
@@ -43,7 +60,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.45.0</td><td>미적용</td><td>2018-11-30</td>
+      <td>v3.45.0</td><td>2018-11-30</td>
       <td>
         <ul>
           <li>[CIC] 대화 모델의 설명을 <a href="/CIC/CIC_Overview.md#IndirectDialogue">간접 대화 구조</a>와 <a href="/CIC/Guides/Implement_Client_Features.md#ManageDialogueIDAndHandleTasks">대화 ID 관리 및 작업 처리하기</a>로 설명을 나누고 내용을 보완함</li>
@@ -63,7 +80,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.44.0</td><td>미적용</td><td>2018-11-16</td>
+      <td>v3.44.0</td><td>2018-11-16</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/Guides/Implement_Client_Features.html">클라이언트 기능 구현하기</a>에 설정 정보와 관련한 <a href="/CIC/Guides/Implement_Client_Features.html#HandleSettings">설정 정보 처리하기</a> 가이드 추가</li>
@@ -71,7 +88,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.43.0</td><td>미적용</td><td>2018-11-09</td>
+      <td>v3.43.0</td><td>2018-11-09</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/Guides/Implement_Client_Features.html">클라이언트 기능 구현하기</a>에 음원 재생 및 재생 제어와 관련한 <a href="/CIC/Guides/Implement_Client_Features.html#HandleAudioPlayback">음원 재생 처리하기</a> 가이드 추가(다음과 같은 내용 포함)
@@ -93,7 +110,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.42.0</td><td>미적용</td><td>2018-10-20</td>
+      <td>v3.42.0</td><td>2018-10-20</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> 네임스페이스에 블루투스 기기를 재탐지(rescan)하거나 블루투스 기기의 제거하게 하는 <a href="/CIC/References/CICInterface/DeviceControl.html#BtDelete">DeviceControl.BtDelete</a>와 <a href="/CIC/References/CICInterface/DeviceControl.html#BtRescan">DeviceControl.BtRescan</a> 지시 메시지 추가</li>
@@ -112,7 +129,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.41.0</td><td>미적용</td><td>2018-10-13</td>
+      <td>v3.41.0</td><td>2018-10-13</td>
       <td>
         <ul>
           <li>[CEK] Clova Home extension API에 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetEstimateConsumptionRequest">GetEstimateConsumptionRequest</a>, <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetEstimateConsumptionResponse">GetEstimateConsumptionResponse</a> 추가</li>
@@ -123,7 +140,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.40.1</td><td>미적용</td><td>2018-10-05</td>
+      <td>v3.40.1</td><td>2018-10-05</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CIC_API.html#Error">CIC 오류 메시지</a>의 구조 및 예제를 실제 구현에 맞게 교정</li>
@@ -132,7 +149,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.40.0</td><td>미적용</td><td>2018-09-21</td>
+      <td>v3.40.0</td><td>2018-09-21</td>
       <td>
         <ul>
           <li>[CIC] 콘텐츠의 MIME type을 명시하기 위해 <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a> <a href="/CIC/References/CICInterface/AudioPlayer.html#AudioStreamInfoObject">AudioStreamInfoObject</a>의 payload에 format 필드를 추가</li>
@@ -149,7 +166,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.39.0</td><td>미적용</td><td>2018-09-07</td>
+      <td>v3.39.0</td><td>2018-09-07</td>
       <td>
         <ul>
           <li>[Design] Extension 디자인 가이드라인의 <a href="/Design/Design_Guideline_For_Extension.html#SupportedAudioCompressionFormat">플랫폼 지원 오디오 압축 포맷</a>에 오디오 콘텐츠별 음질 관련 속성과 음량에 대한 권고 사항 추가</li>
@@ -159,7 +176,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.38.0</td><td>미적용</td><td>2018-08-29</td>
+      <td>v3.38.0</td><td>2018-08-29</td>
       <td>
         <ul>
           <li>[Design] <a href="/Design/Design_Guideline_For_Client_Hardware.html">클라이언트 기기 디자인 가이드라인</a>에 <a href="/Design/Design_Guideline_For_Client_Hardware.html#LightColor">조명 색상</a>의 RGB 값 변경</li>
@@ -171,7 +188,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.37.2</td><td>미적용</td><td>2018-08-24</td>
+      <td>v3.37.2</td><td>2018-08-24</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/Alerts.html#StopAlert">Alerts.StopAlert</a> 지시 메시지의 예제에서 오류 수정</li>
@@ -181,7 +198,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.37.1</td><td>미적용</td><td>2018-08-09</td>
+      <td>v3.37.1</td><td>2018-08-09</td>
       <td>
         <ul>
           <li>[CIC] 대화 모델에 대한 설명을 보완</li>
@@ -190,7 +207,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.37.0</td><td>미적용</td><td>2018-07-23</td>
+      <td>v3.37.0</td><td>2018-07-23</td>
       <td>
         <ul>
           <li>[Design] <a href="/Design/Design_Guideline_For_Client_Hardware.html">클라이언트 기기 디자인 가이드라인</a>의 <a href="/Design/Design_Guideline_For_Client_Hardware.html#SoundEffect">효과음</a> 중 Attending 상태 진입에 대한 효과음 업데이트</li>
@@ -202,7 +219,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.36.0</td><td>미적용</td><td>2018-07-09</td>
+      <td>v3.36.0</td><td>2018-07-09</td>
       <td>
         <ul>
           <li>[Design] Extension의 <a href="/Design/Design_Guideline_For_Extension.html#DefineInvocationName">이름 정의</a>에 대한 가이드라인 추가</li>
@@ -212,7 +229,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.35.0</td><td>v4.6</td><td>2018-06-25</td>
+      <td>v3.35.0</td><td>2018-06-25</td>
       <td>
         <ul>
           <li>[Design] Extension의 <a href="/Design/Design_Guideline_For_Extension.html#DecideSoundOutputType">응답 유형</a>에 대한 가이드라인 추가</li>
@@ -222,7 +239,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.34.2</td><td>v4.5</td><td>2018-06-17</td>
+      <td>v3.34.2</td><td>2018-06-17</td>
       <td>
         <ul>
           <li>[CIC] 실시간 방송 콘텐츠를 구분하기 위해 <a href="/CIC/References/CICInterface/TemplateRuntime.html#RenderPlayerInfo">TemplateRuntime.RenderPlayerInfo</a>에 isLive 필드 추가</li>
@@ -232,7 +249,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.34.1</td><td>v4.4</td><td>2018-05-28</td>
+      <td>v3.34.1</td><td>2018-05-28</td>
       <td>
         <ul>
           <li>[CEK] Clova Home extension API <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ConditionsNotMetError">ConditionsNotMetError</a>에 state 필드 추가</li>
@@ -241,7 +258,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.34.0</td><td>v4.3</td><td>2018-05-21</td>
+      <td>v3.34.0</td><td>2018-05-21</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a> 맥락 객체의 <a href="/CIC/References/Context_Objects.html#BluetoothInfoObject">BluetoothInfoObject</a>에 빠진 필드(btlist[].role) 추가</li>
@@ -250,7 +267,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.33.0</td><td>v4.2</td><td>2018-05-14</td>
+      <td>v3.33.0</td><td>2018-05-14</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/Clova.html#LaunchURI">LaunchURI</a> 지시 메시지를 DeviceControl 네임스페이스에서 <a href="/CIC/References/CICInterface/Clova.html">Clova</a> 네임스페이스로 이전</li>
@@ -259,7 +276,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.32.0</td><td>v4.1</td><td>2018-05-07</td>
+      <td>v3.32.0</td><td>2018-05-07</td>
       <td>
         <ul>
           <li>[CIC] DeviceControl 네임스페이스에 LaunchURI 지시 메시지 추가</li>
@@ -268,7 +285,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.31.0</td><td>v4.0</td><td>2018-04-30</td>
+      <td>v3.31.0</td><td>2018-04-30</td>
       <td>
         <ul>
           <li>[CEK] Clova Home extension API에 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetOpenStateRequest">GetOpenStateRequest</a>, <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetOpenStateResponse">GetOpenStateResponse</a> 추가</li>
@@ -276,7 +293,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.30.0</td><td>v3.9</td><td>2018-04-23</td>
+      <td>v3.30.0</td><td>2018-04-23</td>
       <td>
         <ul>
           <li>[CEK] Clova Home extension API에 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#ReleaseModeConfirmation">ReleaseModeConfirmation</a>, <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#ReleaseModeRequest">ReleaseModeRequest</a> 추가</li>
@@ -284,7 +301,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.29.0</td><td>v3.8</td><td>2018-04-16</td>
+      <td>v3.29.0</td><td>2018-04-16</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a> 이벤트 메시지의 wakeWord 필드 설명 및 Audio data 설명 업데이트</li>
@@ -295,7 +312,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.28.1</td><td>v3.7</td><td>2018-04-09</td>
+      <td>v3.28.1</td><td>2018-04-09</td>
       <td>
         <ul>
           <li>[CIC] 클라이언트 기기 디자인 가이드라인에서 <a href="Design/Design_Guideline_For_Client_Hardware.html#BootingScreen">부팅 화면</a> 관련 설명 및 예제 이미지를 업데이트</li>
@@ -304,7 +321,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.28.0</td><td>v3.6</td><td>2018-04-02</td>
+      <td>v3.28.0</td><td>2018-04-02</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a> 네임스페이스에 메시지 스펙 추가 및 일부 필드 업데이트
@@ -336,7 +353,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.27.0</td><td>v3.5</td><td>2018-03-19</td>
+      <td>v3.27.0</td><td>2018-03-19</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a>에 <a href="/CIC/References/Context_Objects.html#SoundOutputInfoObject">SoundOutputInfoObject</a> 추가</li>
@@ -347,7 +364,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.26.0</td><td>v3.4</td><td>2018-03-05</td>
+      <td>v3.26.0</td><td>2018-03-05</td>
       <td>
         <ul>
           <li>[CIC] <a  href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a> 이벤트 메시지 initiator 필드의 설명을 수정</li>
@@ -358,7 +375,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.25.0</td><td>v3.3</td><td>2018-02-26</td>
+      <td>v3.25.0</td><td>2018-02-26</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a> 이벤트 메시지 initiator 필드에 deviceUUID 필드를 추가</li>
@@ -368,7 +385,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.24.0</td><td>v3.2</td><td>2018-02-19</td>
+      <td>v3.24.0</td><td>2018-02-19</td>
       <td>
         <ul>
           <li>[CIC] 사용자의 호출을 정확히 판단하기 위해 <a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a> 이벤트 메시지에 initiator 필드를 추가</li>
@@ -378,7 +395,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.23.0</td><td>v3.1</td><td>2018-02-05</td>
+      <td>v3.23.0</td><td>2018-02-05</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/AudioPlayer.html#AudioStreamInfoObject">AudioStreamInfoObject</a>의 durationInMilliseconds 필드에 대한 설명 수정</li>
@@ -392,7 +409,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.22.0</td><td>v3.0</td><td>2018-01-29</td>
+      <td>v3.22.0</td><td>2018-01-29</td>
       <td>
         <ul>
           <li>[Design] <a href="/Design/Design_Guideline_For_Client_Hardware.html">클라이언트 기기 디자인 가이드라인</a>에 <a href="/Design/Design_Guideline_For_Client_Hardware.html#SoundEffect">Reminder용 효과음</a> 추가</li>
@@ -406,7 +423,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.21.0</td><td>v2.9</td><td>2018-01-22</td>
+      <td>v3.21.0</td><td>2018-01-22</td>
       <td>
         <ul>
           <li>[Design] 플랫폼 지원 오디오 압축 포맷 내용을 <a href="/Design/Design_Guideline_For_Client_Hardware.html#SupportedAudioCompressionFormat">클라이언트 기기 디자인 가이드라인</a>과 <a href="/Design/Design_Guideline_For_Extension.html#SupportedAudioCompressionFormat">extension 디자인 가이드라인</a>에 각각 추가</li>
@@ -417,7 +434,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.20.0</td><td>v2.8</td><td>2018-01-15</td>
+      <td>v3.20.0</td><td>2018-01-15</td>
       <td>
         <ul>
           <li>[Design] <a href="/Design/Design_Guideline_For_Client_Hardware.html">클라이언트 기기 디자인 가이드라인</a>에 알람, 리마인더, 타이머에 대한 조명 효과 및 효과음 가이드라인 설명 추가 </li>
@@ -425,7 +442,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.19.0</td><td>v2.7</td><td>2018-01-08</td>
+      <td>v3.19.0</td><td>2018-01-08</td>
       <td>
         <ul>
           <li>[Design] 플랫폼 구현 상황에 맞게 <a href="/Design/Design_Guideline_For_Extension.html#DefineInteractionModel">built-in intent</a>에 대한 설명 수정</li>
@@ -440,7 +457,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.18.1</td><td>v2.6</td><td>2018-01-02</td>
+      <td>v3.18.1</td><td>2018-01-02</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CIC_API.html#EstablishDownchannel">Downchannel 구성</a>절 내용에 429 오류 코드 및 관련 설명 Remarks 항목에 추가</li>
@@ -450,7 +467,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.18.0</td><td>v2.5</td><td>2017-12-18</td>
+      <td>v3.18.0</td><td>2017-12-18</td>
       <td>
         <ul>
           <li>[Design] <a href="/DevConsole/Guides/CEK/Register_Interaction_Model.html">Interaction 모델 등록하기</a>에서 <a href="/Design/Design_Guideline_For_Extension.html#DefineInteractionModel">interaction 모델 정의</a> 절 내용을 <a href="/Design/Design_Guideline_For_Extension.html">Extension 디자인 가이드라인</a> 문서로 이동</li>
@@ -464,7 +481,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.17.0</td><td>v2.4</td><td>2017-12-11</td>
+      <td>v3.17.0</td><td>2017-12-11</td>
       <td>
         <ul>
           <li>[Design] <a href="/Design/Design_Guideline_For_Extension.html">Extension 디자인 가이드라인</a> 추가</li>
@@ -473,7 +490,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.16.0</td><td>v2.3</td><td>2017-12-04</td>
+      <td>v3.16.0</td><td>2017-12-04</td>
       <td>
         <ul>
           <li>[Design] <a href="/Design/Design_Guideline_For_Client_Hardware.html#AudioInterruptionRule">오디오 재생 규칙(audio interruption rule)</a>을 <a href="/Design/Design_Guideline_For_Client_Hardware.html">클라이언트 기기 디자인 가이드라인</a>에 추가</li>
@@ -486,7 +503,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.15.0</td><td>v2.2</td><td>2017-11-20</td>
+      <td>v3.15.0</td><td>2017-11-20</td>
       <td>
         <ul>
           <li>[Design] <a href="/Design/Design_Guideline_For_Client_Hardware.html">클라이언트 기기 디자인 가이드라인</a> 추가</li>
@@ -498,7 +515,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.14.0</td><td>v2.1</td><td>2017-11-13</td>
+      <td>v3.14.0</td><td>2017-11-13</td>
       <td>
         <ul>
           <li>[CIC] 볼륨 제어 관련 지시 메시지(<a href="/CIC/References/CICInterface/DeviceControl.html#Decrease">DeviceControl.Decrease</a>, <a href="/CIC/References/CICInterface/DeviceControl.html#Increase">DeviceControl.Increase</a>, <a href="/CIC/References/CICInterface/DeviceControl.html#SetValue">DeviceControl.SetValue</a>, <a href="/CIC/References/CICInterface/PlaybackController.html#Mute">PlaybackController.Mute</a>, <a href="/CIC/References/CICInterface/PlaybackController.html#Unmute">PlaybackController.Unmute</a>)의 Remarks 항목에 UX 관련 내용 추가</li>
@@ -507,7 +524,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.13.0</td><td>v2.0</td><td>2017-11-06</td>
+      <td>v3.13.0</td><td>2017-11-06</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/SpeechRecognizer.html#KeepRecording">SpeechRecognizer.KeepRecording</a> 지시 메시지 추가</li>
@@ -518,7 +535,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.12.0</td><td>v1.9</td><td>2017-10-30</td>
+      <td>v3.12.0</td><td>2017-10-30</td>
       <td>
         <ul>
           <li>[Dev. console] <a href="/DevConsole/ClovaDevConsole_Overview.html">Clova developer console 개요</a> 설명 추가</li>
@@ -529,7 +546,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.11.0</td><td>v1.8</td><td>2017-10-23</td>
+      <td>v3.11.0</td><td>2017-10-23</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/ContentTemplates/Text.html">Text</a> 템플릿에 emotionCode 필드와 motionCode 필드를 추가</li>
@@ -540,7 +557,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.10.0</td><td>v1.7</td><td>2017-10-16</td>
+      <td>v3.10.0</td><td>2017-10-16</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/PlaybackController.html">PlaybackController</a> 네임스페이스에 <a href="/CIC/References/CICInterface/PlaybackController.html#Replay">Replay</a> 지시 메시지 추가</li>
@@ -551,7 +568,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.9.0</td><td>v1.6</td><td>2017-10-02</td>
+      <td>v3.9.0</td><td>2017-10-02</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/Alerts.html">Alerts</a> 네임스페이스 및 알람 관련 인터페이스 추가</li>
@@ -566,7 +583,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.8.0</td><td>v1.5</td><td>2017-09-25</td>
+      <td>v3.8.0</td><td>2017-09-25</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/PlaybackController.html">PlaybackController API</a>에 음악 재생 제어용 <a href="/CIC/References/CICInterface/PlaybackController.html#NextCommandIssued">PlaybackController.NextCommandIssued</a> 이벤트 메시지와 <a href="/CIC/References/CICInterface/PlaybackController.html#PreviousCommandIssued">PlaybackController.PreviousCommandIssued</a> 이벤트 메시지 추가</li>
@@ -578,7 +595,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.7.0</td><td>v1.4</td><td>2017-09-18</td>
+      <td>v3.7.0</td><td>2017-09-18</td>
       <td>
         <ul>
           <li>[CIC] DeviceControl API에 <a href="/CIC/References/CICInterface/DeviceControl.html#ExpectReportState">DeviceControl.ExpectReportState</a> 지시 메시지, <a href="/CIC/References/CICInterface/DeviceControl.html#ReportState">DeviceControl.ReportState</a> 이벤트 메시지, <a href="/CIC/References/CICInterface/DeviceControl.html#RequestStateSynchronization">DeviceControl.RequestStateSynchronization</a> 이벤트 메시지 추가 및 DeviceControl.UpdateDeviceState 지시 메시지를 <a href="/CIC/References/CICInterface/DeviceControl.html#SynchronizeState">DeviceControl.SynchronizeState</a>로 이름 변경</li>
@@ -592,7 +609,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.6.0</td><td>v1.3</td><td>2017-09-11</td>
+      <td>v3.6.0</td><td>2017-09-11</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/SpeechRecognizer.html#ExpectSpeech">SpeechRecognizer.ExpectSpeech</a> 지시 메시지에 explicit 필드 추가</li>
@@ -601,7 +618,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.5.0</td><td>v1.2</td><td>2017-09-04</td>
+      <td>v3.5.0</td><td>2017-09-04</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/Clova.html#Help">Clova.Help</a> 지시 메시지 추가</li>
@@ -614,7 +631,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.4.0</td><td>v1.1</td><td>2017-08-28</td>
+      <td>v3.4.0</td><td>2017-08-28</td>
       <td>
         <ul>
           <li>[CIC] 셋톱박스용 TV 채널 정보 스펙과 전원 상태 정보 스펙을 <a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a>와 <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl API</a>에 추가</li>
@@ -626,7 +643,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.3.0</td><td>v1.0</td><td>2017-08-21</td>
+      <td>v3.3.0</td><td>2017-08-21</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/Guides/Interact_with_CIC.html#ManageConnection">Access token 갱신</a>절 추가 및 /token API 내용 업데이트</li>
@@ -634,7 +651,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.2.0</td><td>v0.9</td><td>2017-08-14</td>
+      <td>v3.2.0</td><td>2017-08-14</td>
       <td>
         <ul>
           <li>[CIC] 대화 모델 설명 추가</li>
@@ -645,7 +662,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.1.0</td><td>v0.8</td><td>2017-08-04</td>
+      <td>v3.1.0</td><td>2017-08-04</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/Clova.html#Hello">Clova.Hello</a> 지시 메시지 추가</li>
@@ -659,7 +676,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.0.0</td><td>v0.7</td><td>2017-07-28</td>
+      <td>v3.0.0</td><td>2017-07-28</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a>의 PlayNext, Stop 제거 (<a href="/CIC/References/CICInterface/PlaybackController.html">PlaybackController</a>에 병합)</li>
@@ -671,7 +688,7 @@
       </td>
     </tr>
     <tr>
-      <td>v2.2.1</td><td>v0.6</td><td>2017-07-14</td>
+      <td>v2.2.1</td><td>2017-07-14</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/AudioPlayer.html#AudioStreamInfoObject">AudioStreamInfoObject</a> 객체 beginAtInMilliseconds 필드 내용 추가</li>
@@ -679,7 +696,7 @@
       </td>
     </tr>
     <tr>
-      <td>v2.2.0</td><td>v0.5</td><td>2017-07-07</td>
+      <td>v2.2.0</td><td>2017-07-07</td>
       <td>
         <ul>
           <li>[CEK] <a href="/CEK/References/CEK_API.html#CustomExtResponseMessage">Custom extension 응답 메시지</a>의 <a href="/CEK/References/CEK_API.html#CustomExtResponseMessage">outputSpeech</a> 객체 구성 업데이트 반영</li>
@@ -689,7 +706,7 @@
       </td>
     </tr>
     <tr>
-      <td>v2.1.0</td><td>v0.4</td><td>2017-07-03</td>
+      <td>v2.1.0</td><td>2017-07-03</td>
       <td>
         <ul>
           <li>[CEK] CEK 문서 이미지 내용 업데이트</li>
@@ -698,7 +715,7 @@
       </td>
     </tr>
     <tr>
-      <td>v2.0.0</td><td>v0.3</td><td>2017-06-19</td>
+      <td>v2.0.0</td><td>2017-06-19</td>
       <td>
         <ul>
           <li>[CEK] CEK 문서 파트 작성</li>
@@ -707,7 +724,7 @@
       </td>
     </tr>
     <tr>
-      <td>v1.1.0</td><td>v0.2</td><td>2017-06-08</td>
+      <td>v1.1.0</td><td>2017-06-08</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/Guides/Interact_with_CIC.html">CIC 연동하기</a>에 <a href="/CIC/Guides/Interact_with_CIC.html#ManageConnection">연결 관리하기</a> 추가 (HTTP Ping)</li>
@@ -715,7 +732,7 @@
       </td>
     </tr>
     <tr>
-      <td>v1.0.0</td><td>v0.1</td><td>2017-05-29</td>
+      <td>v1.0.0</td><td>2017-05-29</td>
       <td>
         <ul>
           <li>[CIC] CIC 문서 파트 작성</li>

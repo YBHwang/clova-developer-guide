@@ -7,6 +7,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 | [`ClearQueue`](#ClearQueue)           | Directive | 클라이언트에게 오디오 스트림 재생 대기열(queue)을 초기화하도록 지시합니다.                              |
 | [`ExpectReportPlaybackState`](#ExpectReportPlaybackState) | Directive | 클라이언트에게 현재 재생 상태를 보고하도록 지시합니다. 클라이언트는 이 지시 메시지를 받으면 [`AudioPlayer.ReportPlaybackState`](#ReportPlaybackState) 이벤트 메시지를 CIC로 전송해야 합니다. |
 | [`Play`](#Play)                       | Directive | 클라이언트에게 특정 오디오 스트림을 재생하거나 재생 대기열에 추가하도록 지시합니다.                         |
+| [`PlaybackQueueCleared`](PlaybackQueueCleared) | Event   | 클라이언트가 CIC로부터 [AudioPlayer.ClearQueue](#ClearQueue) 지시 메시지를 받았다면 재생 대기열(queue)를 초기화한 후 `PlaybackQueueCleared` 이벤트 메시지를 전송해야 합니다.       |
 | [`PlayFinished`](#PlayFinished)       | Event     | 클라이언트가 오디오 스트림 재생을 완료할 때 재생 완료된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다.     |
 | [`PlayPaused`](#PlayPaused)           | Event     | 클라이언트가 오디오 스트림 재생을 일시 정지할 때 일시 정지된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다. |
 | [`PlayResumed`](#PlayResumed)         | Event     | 클라이언트가 오디오 스트림 재생을 재개할 때 재개된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다.         |
@@ -53,6 +54,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 
 ### See also
 * [`AudioPlayer.Play`](#Play)
+* [`AudioPlayer.PlaybackQueueCleared`](#PlaybackQueueCleared)
 * [`AudioPlayer.PlayStarted`](#PlayStarted)
 * [`AudioPlayer.PlayStopped`](#PlayStopped)
 
@@ -213,6 +215,53 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 * [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
 * [`AudioPlayer.StreamRequested`](#StreamRequested)
 * [음원 재생하기](/CIC/Guides/Implement_Client_Features.md#PlayAudioStream)
+
+## PlaybackQueueCleared event {#PlaybackQueueCleared}
+클라이언트가 CIC로부터 [AudioPlayer.ClearQueue](#ClearQueue) 지시 메시지를 받았다면 재생 대기열(queue)를 초기화한 후 `PlaybackQueueCleared` 이벤트 메시지를 전송해야 합니다.
+
+### Context fields
+
+{% include "/CIC/References/CICInterface/Context_Objects_List.md" %}
+
+### Payload fields
+
+| 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `clearBehavior` | string | [`AudioPlayer.ClearQueue`](#ClearQueue) 지시 메시지의 `clearBehavior` 필드 값. 초기화 동작을 결정하는 구분자로서 해당 내용에 상응하는 작업을 처리한 후 이 필드 값을 채워 보내야 합니다.<ul><li><code>"CLEAR_ALL"</code>: 재생 대기열을 모두 비우고, 현재 재생 중인 오디오 스트림의 재생을 즉시 멈춥니다.</li><li><code>"CLEAR_ENQUEUED"</code>: 재생 대기열만 비우고, 현재 재생 중인 오디오 스트림은 계속 재생합니다.</li></ul> | 필수 |
+
+
+### Message example
+{% raw %}
+
+```json
+{
+  "context": [
+    {{Alerts.AlertsState}},
+    {{AudioPlayer.PlayerState}},
+    {{Device.DeviceState}},
+    {{Device.Display}},
+    {{Clova.Location}},
+    {{Clova.SavedPlace}},
+    {{Speaker.VolumeState}},
+    {{SpeechSynthesizer.SpeechState}}
+  ],
+  "event": {
+    "header": {
+      "namespace": "AudioPlayer",
+      "name": "PlaybackQueueCleared",
+      "messageId": "1e1d8d52-9b51-454c-9fac-7597dc5f5246"
+    },
+    "payload": {
+        "clearBehavior": "CLEAR_ALL"
+    }
+}
+}
+```
+
+{% endraw %}
+
+### See also
+* [`AudioPlayer.ClearQueue`](#ClearQueue)
 
 ## PlayFinished event {#PlayFinished}
 클라이언트가 오디오 스트림 재생을 완료할 때 재생 완료된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다.

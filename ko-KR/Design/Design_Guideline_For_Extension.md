@@ -68,8 +68,8 @@ Extension을 설계할 때 가장 먼저 할 일은 extension의 목표를 정�
 다음은 사용 시나리오를 연속되는 사용자 요청 방식과 일시적 명령 방식으로 나누어 스크립트를 작성한 예입니다.
 * 연속되는 사용자 요청 시나리오
 
-| 발화 주체   | 발화 예시                                                                                                         | 관련 세부 목표     |
-|-----------|-----------------------------------------------------------------------------------------------------------------|----------------|
+| 발화 주체           | 발화 예시                                                                   | 관련 세부 목표     |
+|-------------------|---------------------------------------------------------------------------|----------------|
 | 사용자     | 피자봇 시작해줘.                                                                                                    | #1             |
 | Extension | 안녕하세요. 피자봇입니다. 무엇을 도와드릴까요?                                                                             | #2             |
 | 사용자      | 무슨 피자 있어?                                                                                                    | #3             |
@@ -150,7 +150,7 @@ Extension을 설계할 때 가장 먼저 할 일은 extension의 목표를 정�
     </tr>
     <tr>
       <td>이용 약관을 위반하지 않는 이름이어야 함</td>
-      <td>[Clova Extensions Kit 이용약관](https://developers.naver.com/console/clova/cek/#/terms)을 준수해야 합니다. 제 3자의 권리 침해나 외설적인 표현을 사용한 이름을 허용하지 않습니다.</td>
+      <td><a href="https://developers.naver.com/console/clova/cek/#/terms" target="_blank">Clova Extensions Kit 이용약관</a>을 준수해야 합니다. 제 3자의 권리 침해나 외설적인 표현을 사용한 이름을 허용하지 않습니다.</td>
     </tr>
     <tr>
       <td>기타 유의 사항</td>
@@ -474,13 +474,13 @@ Extension은 사용자의 요청을 처리한 후 그 결과를 Clova를 통해 
 > <p class="rdiag">"어떤 클래식 음악 틀어드릴까요?"(TTS)</p>
 > <p class="ldiag">"비발디의 사계 틀어줘"</p>
 > <p class="rdiag">"네, 비발디의 사계 1 악장을 들려드릴게요."(TTS)</p>
-> <p class="rdiag">AudioPlayer.Play: 비발디 사계 1 악장</p>
+> <p class="rdiag">비발디 사계 1 악장 재생 지시(AudioPlayer.Play)</p>
 > <p class="ldiag">"클로바, 잠깐 멈춰줘."</p>
-> <p class="rdiag">PlaybackController.Pause: 재생 중지</p>
+> <p class="rdiag">재생 중지 지시(PlaybackController.Pause)</p>
 > <p class="ldiag">"클로바, 다시 재생해줘."</p>
-> <p class="rdiag">PlaybackController.Resume: 재생 재개</p>
+> <p class="rdiag">재생 재개 지시(PlaybackController.Resume)</p>
 > <p class="ldiag">"다음"</p>
-> <p class="rdiag">AudioPlayer.Play: 비발디 사계 2 악장</p>
+> <p class="rdiag">비발디 사계 2 악장 재생 지시(AudioPlayer.Play)</p>
 
 <div class="note">
   <p><strong>Note!</strong></p>

@@ -10,7 +10,7 @@ Clova는 사용자 요청에 따라 음원을 재생하거나 재생과 관련�
 ### 음원 재생하기 {#PlayAudioStream}
 사용자가 음악 재생을 요청하면 Clova는 CIC를 통해 사용자가 요청한 음원을 재생하도록 클라이언트에게 지시합니다. 음원을 재생하는 동작의 흐름은 다음과 같습니다.
 
-![](/CIC/Resources/Images/CIC_Audio_Play_Work_Flow.png)
+![](/CIC/Resources/Images/CIC_Audio_Play_Work_Flow.svg)
 
 사용자가 음원 재생을 요청하면 가장 먼저 CIC는 클라이언트에게 [`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play) 지시 메시지를 보냅니다. 이 지시 메시지에는 오디오 재생에 필요한 정보가 포함되어 있으며, 이 정보를 활용하여 음원 데이터를 찾거나 오디오 플레이어에 음원 정보를 표시해야 합니다. 다음과 같은 [`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play) 지시 메시지를 받을 수 있습니다.
 
@@ -171,7 +171,7 @@ Clova는 사용자 요청에 따라 음원을 재생하거나 재생과 관련�
 
 Clova가 사용자가 현재 음원 재생과 관련하여 어떤 상황에 있는지 이해하기 위해 클라이언트는 음원 재생을 시작한 후 다음과 같이 재생 경과 보고를 CIC에게 해야 합니다.
 
-![](/CIC/Resources/Images/CIC_Audio_Play_Progress_Reporting.png)
+![](/CIC/Resources/Images/CIC_Audio_Play_Progress_Reporting.svg)
 
 위 동작 흐름과 같이 일부 재생 경과 보고는 [`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play) 지시 메시지의 `audioItem.stream.progressReport` 필드나 [`AudioPlayer.StreamDeliver`](/CIC/References/CICInterface/AudioPlayer.md#StreamDeliver) 지시 메시지의 `audioStream.progressReport` 필드에 설정된 값에 따라 보고 여부가 달라집니다. 다음 표는 재생 경과 보고를 해야하는 상황과 조건 그리고 사용해야 하는 이벤트 메시지를 나타냅니다.
 
@@ -216,7 +216,7 @@ Clova는 사용자의 음원 재생 상황을 파악해야 하기 때문에 음�
 
 다음은 음원 재생이 일시 정지되는 동작의 흐름을 나타냅니다.
 
-![](/CIC/Resources/Images/CIC_Audio_Playback_Control_Flow.png)
+![](/CIC/Resources/Images/CIC_Audio_Playback_Control_Flow.svg)
 
 일반적으로 사용자의 발화를 통한 재생 제어는 Clova가 분석하여 그에 상응하는 재생 제어 지시 메시지([`PlaybackController.Pause`](/CIC/References/CICInterface/PlaybackController.md#Pause))가 클라이언트로 전달됩니다. 하지만, 사용자가 클라이언트에서 버튼을 눌러 일시 정지를 요청했다면 다음과 같은 [`PlaybackController.PauseCommandIssued`](/CIC/References/CICInterface/PlaybackController.md#PauseCommandIssued) 이벤트 메시지를 이용하여 일시 정지 버튼이 눌러졌음을 Clova에게 보고해야 합니다.
 
@@ -294,7 +294,7 @@ Clova는 사용자가 요청한 재생 제어를 다음과 같은 지시 메시�
 
 한 클라이언트는 사용자 계정에 등록된 다른 모든 클라이언트 또는 특정 클라이언트로부터 음원 재생 상태를 공유받을 수 있습니다. 음원 재생 상태를 공유 받는 동작의 흐름은 다음과 같습니다.
 
-![](/CIC/Resources/Images/CIC_Playback_State_Sync_Work_Flow.png)
+![](/CIC/Resources/Images/CIC_Playback_State_Sync_Work_Flow.svg)
 
 1. Clova 앱은 {{ "[`AudioPlayer.RequestPlaybackState`](/CIC/References/CICInterface/AudioPlayer.md#RequestPlaybackState) 이벤트 메시지를 사용하여 " if book.DocMeta.TargetReaderType == "Internal" }}CIC에게 사용자 계정에 등록된 모든 클라이언트 또는 특정 클라이언트의 음원 재생 상태 정보를 요청합니다.
 2. CIC는 [`AudioPlayer.ExpectReportPlaybackState`](/CIC/References/CICInterface/AudioPlayer.md#ExpectReportPlaybackState) 지시 메시지를 이용하여 사용자 계정에 등록된 모든 클라이언트 또는 특정 클라이언트에게 현재 음원 재생 상태를 보고하도록 지시합니다.
