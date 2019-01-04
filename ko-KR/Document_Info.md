@@ -16,11 +16,7 @@
 <table>
   <thead>
     <tr>
-<<<<<<< HEAD
-      <th style="width:12%">신규 버전 규칙</th><th style="width:12%">이전 버전 규칙</th><th style="width:16%">배포 일자</th><th style="width:70%">이력 사항</th>
-=======
       <th style="width:10%">버전 규칙</th><th style="width:15%">배포 일자</th><th style="width:75%">이력 사항</th>
->>>>>>> doc-KR
     </tr>
   </thead>
   <tbody>
