@@ -26,7 +26,7 @@
         <ul>
           <li>[CIC] <a href=/CIC/Guides/Implement_Client_Features.md#HandleDeviceControl>클라이언트 동작 제어 처리하기</a> 가이드 문서 추가</li>
           <li>[CIC] <a href=/CIC/Guides/Implement_Client_Features.md#HandleBluetoothControl>클라이언트 블루투스 제어 처리하기</a> 가이드 문서 추가</li>
-          <li>[CIC] <a href="/CIC/References/CICInterface/AudioPlayer.md">AudioPlayer API</a>에 재생 대기열 초기화 동작을 보고하기 위한 [`AudioPlayer.PlaybackQueueCleared`](/CIC/References/CICInterface/AudioPlayer.md#PlaybackQueueCleared) 이벤트 메시지 추가</li>
+          <li>[CIC] <a href="/CIC/References/CICInterface/AudioPlayer.md">AudioPlayer API</a>에 재생 대기열 초기화 동작을 보고하기 위한 <a href="/CIC/References/CICInterface/AudioPlayer.md#PlaybackQueueCleared">AudioPlayer.PlaybackQueueCleared</a> 이벤트 메시지 추가</li>
           <li>[CEK] Clova Home extension 명세 중 <a href="/ClovaHomeInterface/Shared_Objects.md#ModeInfoObject">ModeInfoObject</a>에 AIRCONDITIONER 타입 기기의 모드에 난방 모드(heat)와 송풍 모드(fan)를 추가함</li>
         </ul>
       </td>
