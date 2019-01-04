@@ -7,7 +7,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 | [`ClearQueue`](#ClearQueue)           | Directive | 클라이언트에게 오디오 스트림 재생 대기열(queue)을 초기화하도록 지시합니다.                              |
 | [`ExpectReportPlaybackState`](#ExpectReportPlaybackState) | Directive | 클라이언트에게 현재 재생 상태를 보고하도록 지시합니다. 클라이언트는 이 지시 메시지를 받으면 [`AudioPlayer.ReportPlaybackState`](#ReportPlaybackState) 이벤트 메시지를 CIC로 전송해야 합니다. |
 | [`Play`](#Play)                       | Directive | 클라이언트에게 특정 오디오 스트림을 재생하거나 재생 대기열에 추가하도록 지시합니다.                         |
-| [`PlaybackQueueCleared`](PlaybackQueueCleared) | Event   | 클라이언트가 CIC로부터 [AudioPlayer.ClearQueue](#ClearQueue) 지시 메시지를 받았다면 재생 대기열(queue)를 초기화한 후 `PlaybackQueueCleared` 이벤트 메시지를 전송해야 합니다.       |
+| [`PlaybackQueueCleared`](#PlaybackQueueCleared) | Event   | 클라이언트가 CIC로부터 [`AudioPlayer.ClearQueue`](#ClearQueue) 지시 메시지를 받았다면 재생 대기열(queue)를 초기화한 후 `PlaybackQueueCleared` 이벤트 메시지를 전송해야 합니다.       |
 | [`PlayFinished`](#PlayFinished)       | Event     | 클라이언트가 오디오 스트림 재생을 완료할 때 재생 완료된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다.     |
 | [`PlayPaused`](#PlayPaused)           | Event     | 클라이언트가 오디오 스트림 재생을 일시 정지할 때 일시 정지된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다. |
 | [`PlayResumed`](#PlayResumed)         | Event     | 클라이언트가 오디오 스트림 재생을 재개할 때 재개된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다.         |
@@ -217,7 +217,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 * [음원 재생하기](/CIC/Guides/Implement_Client_Features.md#PlayAudioStream)
 
 ## PlaybackQueueCleared event {#PlaybackQueueCleared}
-클라이언트가 CIC로부터 [AudioPlayer.ClearQueue](#ClearQueue) 지시 메시지를 받았다면 재생 대기열(queue)를 초기화한 후 `PlaybackQueueCleared` 이벤트 메시지를 전송해야 합니다.
+클라이언트가 CIC로부터 [`AudioPlayer.ClearQueue`](#ClearQueue) 지시 메시지를 받았다면 재생 대기열(queue)를 초기화한 후 `PlaybackQueueCleared` 이벤트 메시지를 전송해야 합니다.
 
 ### Context fields
 

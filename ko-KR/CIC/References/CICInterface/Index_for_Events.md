@@ -10,7 +10,7 @@
 | Alerts            | [`RequestSynchronizeAlert`](/CIC/References/CICInterface/Alerts.md#RequestSynchronizeAlert) | 클라이언트가 Clova의 클라우드 환경에 저장된 사용자의 알람 정보를 동기화해야 할 때 이 이벤트 메시지를 CIC로 전송합니다. |
 | Alerts            | [`SetAlertFailed`](/CIC/References/CICInterface/Alerts.md#SetAlertFailed)             | 클라이언트가 특정 알람을 추가 또는 수정하는데 실패했음을 CIC로 보고하기 위해 사용됩니다. |
 | Alerts            | [`SetAlertSucceeded`](/CIC/References/CICInterface/Alerts.md#SetAlertSucceeded)       | 클라이언트가 특정 알람을 추가 또는 수정하는데 성공했음을 CIC로 보고하기 위해 사용됩니다. |
-| AudioPlayer       | [`PlaybackQueueCleared`](/CIC/References/CICInterface/AudioPlayer.md#PlaybackQueueCleared) | 클라이언트가 CIC로부터 [AudioPlayer.ClearQueue](/CIC/References/CICInterface/AudioPlayer.md#ClearQueue) 지시 메시지를 받았다면 재생 대기열(queue)를 초기화한 후 `PlaybackQueueCleared` 이벤트 메시지를 전송해야 합니다.   |
+| AudioPlayer       | [`PlaybackQueueCleared`](/CIC/References/CICInterface/AudioPlayer.md#PlaybackQueueCleared) | 클라이언트가 CIC로부터 [`AudioPlayer.ClearQueue`](/CIC/References/CICInterface/AudioPlayer.md#ClearQueue) 지시 메시지를 받았다면 재생 대기열(queue)를 초기화한 후 `PlaybackQueueCleared` 이벤트 메시지를 전송해야 합니다.   |
 | AudioPlayer       | [`PlayFinished`](/CIC/References/CICInterface/AudioPlayer.md#PlayFinished) | 클라이언트가 오디오 스트림 재생을 완료할 때 재생 완료된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다.        |
 | AudioPlayer       | [`PlayPaused`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)     | 클라이언트가 오디오 스트림 재생을 일시 정지할 때 일시 정지된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다.    |
 | AudioPlayer       | [`PlayResumed`](/CIC/References/CICInterface/AudioPlayer.md#PlayResumed)   | 클라이언트가 오디오 스트림 재생을 재개할 때 재개된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다.            |
