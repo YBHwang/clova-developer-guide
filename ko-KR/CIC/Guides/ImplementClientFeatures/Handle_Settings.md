@@ -8,7 +8,7 @@
 
 사용자가 Clova 앱에서 클라이언트 기기의 설정 정보를 조회할 때 Clova 앱은 클라이언트 기기의 최신 설정 정보를 사용자에게 제공해야 합니다. 이런 **설정 정보 동기화**는 다음과 같은 동작 흐름을 가집니다.
 
-![](/CIC/Resources/Images/CIC_Settings_Synchronize_Settings_Info.png)
+![](/CIC/Resources/Images/CIC_Settings_Synchronize_Settings_Info.svg)
 
 설정 정보를 동기화할 때 CIC는 다음과 같은 [`Settings.ExpectReport`](/CIC/References/CICInterface/Settings.md#ExpectReport) 지시 메시지를 클라이언트로 보냅니다.
 
@@ -56,7 +56,7 @@
 
 사용자가 클라이언트 기기의 **설정을 Clova 앱에서 원격으로 변경**하면 이를 클라이언트 기기의 설정 정보에 반영해야 합니다. 이런 원격 설정 변경은 다음과 같은 동작 흐름으로 구현됩니다.
 
-![](/CIC/Resources/Images/CIC_Settings_Change_Settings_Via_Clova_App.png)
+![](/CIC/Resources/Images/CIC_Settings_Change_Settings_Via_Clova_App.svg)
 
 사용자가 Clova 앱에서 클라이언트의 설정을 원격으로 바꿨을 때 CIC는 다음과 같은 [`Settings.Update`](/CIC/References/CICInterface/Settings.md#Update) 지시 메시지를 클라이언트 기기에 전송합니다.
 
@@ -105,7 +105,7 @@
 
 사용자가 직접 클라이언트 기기에서 **직접 설정을 변경**할 수 있으며 동작 흐름은 다음과 같습니다. 이때 클라이언트는 사용자가 변경한 후의 설정 정보를 [`Settings.Report`](/CIC/References/CICInterface/Settings.md#Report) 이벤트 메시지를 이용하여 CIC로 전송하면 됩니다.
 
-![](/CIC/Resources/Images/CIC_Settings_Change_Settings_On_Device.png)
+![](/CIC/Resources/Images/CIC_Settings_Change_Settings_On_Device.svg)
 
 <div class="note">
   <p><strong>Note!</strong></p>

@@ -19,7 +19,7 @@ CIC API를 통해 클라이언트와 CIC 사이에 다양한 커뮤니케이션�
 
 다음은 CIC와 클라이언트 사이의 메시지 송수신 동작 예를 나타낸 시퀀스 다이어그램입니다.
 
-![](/CIC/Resources/Images/CIC_Interaction_Example_in_Sequence_Diagram.png)
+![](/CIC/Resources/Images/CIC_Interaction_Example_in_Sequence_Diagram.svg)
 
 
 * [대화 ID와 클라이언트의 동작](#DialogIDandClientOP)

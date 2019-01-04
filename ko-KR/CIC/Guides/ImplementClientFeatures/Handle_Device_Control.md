@@ -23,7 +23,7 @@
 
 기기 설정을 활성화하거나 비활성화하는 것을 처리하는 흐름은 다음과 같습니다.
 
-![](/CIC/Resources/Images/CIC_DeviceControl_Work_Flow1.png)
+![](/CIC/Resources/Images/CIC_DeviceControl_Work_Flow1.svg)
 
 사용자가 클라이언트의 제어를 발화로 요청([`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize))합니다. 
 클라이언트는 사용자의 요청을 이벤트 메시지로 전달합니다. 이때, 이벤트 메시지에는 [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) 맥락 정보가 포함되어 있어야 합니다.
@@ -69,8 +69,6 @@ CIC는 [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) �
 * 사용자가 클라이언트에서 버튼으로 볼륨 조정을 시도
 * 사용자가 Clova 앱에서 원격으로 특정 클라이언트의 볼륨 조정을 시도
 
-![](/CIC/Resources/Images/CIC_DeviceControl_IncreaseDecrease.png)
-
 사용자는 발화([`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)) 또는 기기 조작으로 볼륨을 조정할 것을 요청할 수 있습니다. 사용자가 이런 요청을 하면 Clova는 사용자의 발화를 분석하고 사용자의 클라이언트에서 특정 기능을 활성화할 수 있도록 [`DeviceControl.Increase`](/CIC/References/CICInterface/DeviceControl.md#Increase) 지시 메시지를 보냅니다. 또한 클라이언트는 맥락 정보인 [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) 객체를 이용해 수시로 블루투스 기기 정보를 CIC에 전달해야 합니다. 
 
 클라이언트는 사용자가 볼륨을 증가시키거나 감소시키거나 지정함에 따라 다음과 같은 지시 메시지를 받게 되며, 해당 지시 메시지의 내용을 확인하여 클라이언트에서 볼륨을 조정해야 합니다.
@@ -105,7 +103,7 @@ CIC는 [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) �
 
 Clova 앱이 사용자의 계정에 등록된 클라이언트의 상태를 파악하기 위해 다음과 같이 상태 정보를 요청할 때도 있습니다.
 
-![](/CIC/Resources/Images/CIC_DeviceControl_Work_Flow2.png)
+![](/CIC/Resources/Images/CIC_DeviceControl_Work_Flow2.svg)
 
 1. 클라이언트(주로 Clova 앱)가 [`DeviceControl.RequestStateSynchronization`](/CIC/References/CICInterface/DeviceControl.md#RequestStateSynchronization) 이벤트 메시지를 CIC에게 전송합니다.
 2. CIC는 사용자 계정에 등록된 모든 클라이언트(Clova 앱 제외)에게 [`DeviceControl.ExpectReportState`](/CIC/References/CICInterface/DeviceControl.md#ExpectReportState) 지시 메시지를 [downchannel](/CIC/Guides/Interact_with_CIC.md#CreateConnection)로 전송합니다.
