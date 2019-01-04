@@ -66,7 +66,7 @@ Clova는 [custom extension](/CEK/Guides/Build_Custom_Extension.md)이나 [Clova 
 Extension에 계정 연결을 적용하려면 우선 사용자가 계정 인증을 수행할 수 있는 로그인 페이지를 제공해야 하며, 인증 처리 후 access token을 발급하는 서버를 구축해야 합니다.
 
 사용자 인증을 위해 제공할 로그인 페이지는 다음과 같은 사항을 만족하거나 수행해야 합니다.
-* HTTPS 프로토콜로 페이지를 제공해야 합니다.
+* **HTTPS 프로토콜**로 페이지를 제공해야 하며, 이때, 반드시 **443 포트**를 사용해야 합니다.
 * 모바일용 페이지를 지원해야 합니다.
 * 팝업 형태의 창을 제공하면 안됩니다.
 * 인증이 완료되면 redirect URL(`redirect_uri`)로 이동해야 합니다. 이때, authorization code를 파라미터로 전송해야 합니다.

@@ -69,10 +69,10 @@ $ curl "https://example.com/pizzabot" -X POST
 <ol>
   <li>Extension 정보 입력 UI에서 위쪽에 있는 <strong>{{ book.DevConsole.cek_configuration }}</strong> 탭을 클릭합니다.</li>
   <li>Extension 서버 URL(endpoint) 정보를 <strong>{{ book.DevConsole.cek_service_endpoint_url }}</strong> 항목에 입력합니다.
-    <div class="note">
-    <p><strong>Note!</strong></p>
-    <p>테스트 단계에서는 HTTP도 가능하나 정식 서비스를 위해서는 HTTPS여야 합니다. Extension 서버는 HTTP일 때 80번 포트를 HTTPS일 때 443번 포트를 사용해야 합니다.</p>
-  </div>
+    <div class="danger">
+      <p><strong>Caution!</strong></p>
+      <p>테스트 단계에서는 HTTP도 가능하나 정식 서비스를 위해서는 HTTPS여야 합니다. Extension 서버는 HTTP일 때 80번 포트를 HTTPS일 때 443번 포트를 사용해야 합니다.</p>
+    </div>
   </li>
   <li>(Extension이 제공하는 서비스의 사용자 계정과 Clova의 사용자 계정 간에 연결이 필요하다면 <strong>{{ book.DevConsole.cek_account_linking }}</strong> 항목을 <strong>{{ book.DevConsole.cek_yes }}</strong>로 선택합니다. 계정 연결에 대한 자세한 설명은 <a href="#SetAccountLinking">계정 연결 설정</a>을 참조합니다.</li>
   <li><strong>{{ book.DevConsole.cek_ssl_certificate }}</strong> 항목의 라디오 버튼을 클릭합니다. Extension을 제공하는 서버는 반드시 공인된 인증 기관의 인증서를 사용해야 합니다. (Self-signed 인증서 사용 불가)</li>
