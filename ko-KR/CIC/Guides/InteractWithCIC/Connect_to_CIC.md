@@ -12,7 +12,7 @@
 * **GUI 미제공 클라이언트**: 화면이 없는 스피커나 가전 제품에 임베드된 형태로 Clova 서비스를 제공하는 클라이언트입니다. 이런 타입의 클라이언트는 사용자가 계정을 인증할 때 기기를 통해 인증 정보를 입력할 방법이 없거나 불편하기 때문에 이를 보조하기 위한 연동 앱(companion app)을 제공하거나 Clova 앱과 연동되어야 합니다.
 * **GUI 제공 클라이언트**: 화면이 있는 제품에 임베드된 형태로 Clova 서비스를 제공하는 클라이언트이거나 Clova 앱과 같이 소프트웨어 형태로 Clova 서비스를 제공하는 클라이언트입니다.
 
-![](/CIC/Resources/Images/CIC_Authorization.png)
+![](/CIC/Resources/Images/CIC_Authorization.svg)
 
 Clova access token을 획득하는 절차는 다음과 같습니다.
 

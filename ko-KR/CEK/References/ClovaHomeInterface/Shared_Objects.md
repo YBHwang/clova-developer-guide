@@ -1105,9 +1105,8 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
           <li><code>"auto"</code>: 자동 모드. 주로 에어컨 기기에서 사용되는 모드입니다.</li>
           <li><code>"cool"</code>: 냉방 모드. 주로 에어컨 기기에서 사용되는 모드입니다.</li>
           <li><code>"dehumidify"</code>: 제습 모드. 주로 에어컨이나 제습기와 같은 기기에서 사용되는 모드입니다.</li>
-          {% if book.L10N.TargetCountryCode == "JP" %}
+          <li><code>"fan"</code>: 송풍 모드. 주로 에어컨 기기에서 사용되는 모드입니다.</li>
           <li><code>"heat"</code>: 난방 모드. 주로 에어컨 기기에서 사용되는 모드입니다.</li>
-          {% endif %}
           <li><code>"sleep"</code>: 취침 모드. 주로 스마트 허브와 같은 기기에서 사용되는 모드입니다.</li>
         </ul>
       </td>
