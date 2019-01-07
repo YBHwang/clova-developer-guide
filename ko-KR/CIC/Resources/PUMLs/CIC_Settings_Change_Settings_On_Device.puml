@@ -1,6 +1,6 @@
 !include ../../../styles/PlantUML_StyleSheet.puml
 
-actor 사용자 as user #9EA0CA
+actor 사용자 as user
 participant "Clova 앱" as ca #9EA0CA
 participant "클라이언트 기기" as cli #9EA0CA
 participant CIC as cic #05D686

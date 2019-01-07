@@ -1,6 +1,6 @@
 !include ../../../styles/PlantUML_StyleSheet.puml
 
-actor 사용자 as user #9EA0CA
+actor 사용자 as user
 participant "블루투스 기기" as device #9EA0CA
 participant 클라이언트 as client #9EA0CA
 participant "Clova" as clova #05D686
