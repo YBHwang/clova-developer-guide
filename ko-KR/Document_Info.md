@@ -21,6 +21,15 @@
   </thead>
   <tbody>
     <tr>
+      <td>v3.47.1</td><td>2019-01-07</td>
+      <td>
+        <ul>
+          <li>[Common] 문서에 사용되 일부 UML 다이어그램의 스타일 통일</li>
+          <li>[Common] 문서 이력의 일부 표기 오류 수정</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.47.0</td><td>2019-01-04</td>
       <td>
         <ul>
