@@ -1,9 +1,9 @@
 ## Handling tasks and managing dialogue IDs {#ManageDialogueIDAndHandleTasks}
 
-To overcome the issues with the [indirect dialogue structure](/CIC/CIC_Overview.md#IndirectDialogue), the concept of **dialogue ID** is used. The client must perform the following processes regarding dialogue IDs:
+To solve the issues with the [indirect dialogue structure](/CIC/CIC_Overview.md#IndirectDialogue), the concept of **dialogue ID** is used. The client must perform the following processes regarding dialogue IDs:
 
 * [Creating a dialogue ID](#CreatingDialogueID)
-* [Handling directives by dialogue ID](#HandleDirectivesByDialogueID)
+* [Handling directive messages by dialogue ID](#HandleDirectivesByDialogueID)
 
 ### Creating a dialogue ID {#CreatingDialogueID}
 
@@ -22,7 +22,7 @@ The following actions are required by the client regarding the dialogue IDs:
 
 <div class="danger">
 <p><strong>Caution!</strong></p>
-<p>The latest dialogue ID <strong>must be updated after the process of <a href="/CIC/References/CICInterface/SpeechRecognizer.md#Recognize">SpeechRecognizer.Recognize</a> event message or the <a href="/CIC/References/CICInterface/TextRecognizer.md#Recognize">TextRecognizer.Recognize</a> event message</strong> is complete.</p>
+<p>The latest dialogue ID <strong>must be updated after the process of the <a href="/CIC/References/CICInterface/SpeechRecognizer.md#Recognize">SpeechRecognizer.Recognize</a> event message or the <a href="/CIC/References/CICInterface/TextRecognizer.md#Recognize">TextRecognizer.Recognize</a> event message</strong> is complete.</p>
 </div>
 
 Once the latest dialogue ID is updated, the client must perform the following in order to [handle the directives containing the dialogue ID](#HandleDirectivesByDialogueID):
@@ -30,7 +30,7 @@ Once the latest dialogue ID is updated, the client must perform the following in
 * If the details of directives containing old dialogue IDs are provided to the user, this must be stopped by referring to the [Rules for basic audio playback](/Design/Design_Guideline_For_Client_Hardware.md#AudioInterruptionRule) or [Audio playback rules for user utterances](/Design/Design_Guideline_For_Client_Hardware.md#AudioInterruptionRuleForUserUtterance).
 * All directives containing old dialogue IDs must be discarded from the [message queue](/CIC/Guides/Interact_with_CIC.md#ManageMessageQ).
 
-### Handling directives by dialogue ID {#HandleDirectivesByDialogueID}
+### Handling directive messages by dialogue ID {#HandleDirectivesByDialogueID}
 
 In general, CIC sends a directive to the client as a response to the user request and embeds the [dialogue ID created by the client](#CreatingDialogueID) in the directive. In short, dialogue IDs help you identify whether the response from Clova corresponds to the latest user request. The client must handle the received directives according to the dialogue ID, as shown below.
 

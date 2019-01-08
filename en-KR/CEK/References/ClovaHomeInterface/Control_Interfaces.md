@@ -3675,7 +3675,7 @@ Sends the result of handing the preheat request to CEK as a response to the [`Pr
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `targetTemperature`               | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | Object containing the desired preheat temperature information to set on the target appliance or that the extension has requested to be set on the target appliance.                                | Optional    |
+| `targetTemperature`               | [TemperatureInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#TemperatureInfoObject) | Object containing the desired preheat temperature information set on the target appliance, or to be set on the target appliance through a request from the extension.                                | Optional    |
 
 ### Remarks
 
@@ -3707,7 +3707,7 @@ You do not have to enter the value if the information to enter for the payload c
 * [`PreheatRequest`](#PreheatRequest)
 
 ## PreheatRequest {#PreheatRequest}
-Mainly used to control an appliance such as an oven. Requests the Clova Home extension to preheat the target appliance. The information of the desired preheat temperature may be contained in the message. The extension must use the [`PreheatConfirmation`](#PreheatConfirmation) message as a response to this request.
+Mainly used to control appliances such as ovens. Requests the Clova Home extension to preheat the target appliance. The information of the desired preheat temperature may be contained in the message. The extension must use the [`PreheatConfirmation`](#PreheatConfirmation) message as a response to this request.
 
 ### Payload fields
 

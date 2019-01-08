@@ -23,7 +23,7 @@ user ->> ca: Change device settings
 
     deactivate cli
 
-  cic ->> ca: Direct to synchronized to the changed settings
+  cic ->> ca: Direct to synchronize to the changed settings
 
   deactivate cic
 

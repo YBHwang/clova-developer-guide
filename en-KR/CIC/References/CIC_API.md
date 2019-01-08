@@ -230,7 +230,7 @@ Content-Type: application/json; charset=utf-8
 POST /v1/events
 ```
 
-Clients use event messages to send user voice requests or the current client state to CIC. Events are sent as HTTP requests and an HTTP response is returned containing directive messages. For more information, see [Sending events](/CIC/Guides/Interact_with_CIC.md#SendEvent) and [Handling directives](/CIC/Guides/Interact_with_CIC.md#HandleDirective).
+Clients use event messages to send user voice requests or the current client state to CIC. Events are sent as HTTP requests and an HTTP response is returned containing directive messages. For more information, see [Sending events](/CIC/Guides/Interact_with_CIC.md#SendEvent) and [Handling directive messages](/CIC/Guides/Interact_with_CIC.md#HandleDirective).
 
 ### Request header
 

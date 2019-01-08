@@ -222,7 +222,7 @@ None
 ### Remarks
 
 * If the received directive message does not contain the `payload`, the client must attempt connection with one of the paired Bluetooth devices.
-* If the received message only contains the `role` field is received in the `payload`, connection must be attempted with one of the paired Bluetooth devices according to the client role.
+* If the received message only contains the `role` field in the `payload`, connection must be attempted with one of the paired Bluetooth devices according to the client role.
 * The client must send the result of handling this directive message to CIC using the [`DeviceControl.ActionExecuted`](#ActionExecuted) or [`DeviceControl.ActionFailed`](#ActionFailed) event message.
 * When reporting to CIC, the client must include the actual connection result in the [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) context of the [`DeviceControl.ReportState`](#ReportState) event message.
 
@@ -682,9 +682,9 @@ Instructs the client to turn down the speaker volume or lower the screen brightn
 
 ### Remarks
 
-* If the `value` field is empty, the basic unit of the amount of change can be decided from the client side.
+* You can determine what the default amount of change will be in case the `value` field is empty.
 * The client must frequently report the current speaker volume and screen brightness to CIC using the [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) context object.
-* Even if the user request a change of value that exceeds the range of screen brightness or volume that the device can express, Clova sends this directive by adjusting the amount information to the device.
+* Even if the user requests a change of value that exceeds the range of screen brightness or volume that the device can express, Clova sends this directive by adjusting the requested amount to the device.
 * The client must send the result of handling this directive message to CIC using the [`DeviceControl.ActionExecuted`](#ActionExecuted) or [`DeviceControl.ActionFailed`](#ActionFailed) event message.
 * Clova normally provides a voice guide ([`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) directive) when sending a directive to the client for device control. However, if the control is related to speaker output like the `"volume"` is set in the `target` field, Clova does not provide a voice guide with the [`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) directive. This is in consideration of the UX such as for a user listening to music. For this, you must implement an action to inform the user that the volume has been changed using the lights or a simple sound effect on the client.
 
@@ -693,7 +693,7 @@ Instructs the client to turn down the speaker volume or lower the screen brightn
 {% raw %}
 
 ```json
-// When a request is made to lower the volume without the amount information
+// When a request is made to lower the volume without a requested amount
 {
   "directive": {
     "header": {
@@ -708,7 +708,7 @@ Instructs the client to turn down the speaker volume or lower the screen brightn
   }
 }
 
-// When a request is made to lower the volume with the amount information
+// When a request is made to lower the volume with a requested amount
 {
   "directive": {
     "header": {
@@ -735,7 +735,7 @@ Instructs the client to turn down the speaker volume or lower the screen brightn
 
 ## ExpectReportState directive {#ExpectReportState}
 
-Instructs the client to report the current state of the client to CIC. Upon receiving this directive, the client must immediately report its current state by sending the [`DeviceControl.ReportState`](#ReportState) event to CIC message. After reporting, the client shall report the state at every interval in the `intervalInSeconds` field for the duration in the `durationInSeconds` field.
+Instructs the client to report the current state of the client to CIC. Upon receiving this directive, the client must immediately report its current state by sending the [`DeviceControl.ReportState`](#ReportState) event message to CIC. After reporting, the client must report the state at every interval in the `intervalInSeconds` field for the duration in the `durationInSeconds` field.
 
 ### Payload fields
 
@@ -789,8 +789,8 @@ Instructs the client to turn up the speaker volume or increase the screen bright
 
 ### Remarks
 
-* If the `value` field is empty, the basic unit of the amount of change can be decided from the client side.
-* Even if the user request a change of value that exceeds the range of screen brightness or volume that the device can express, Clova sends this directive by adjusting the amount information to the device.
+* You can determine what the default amount of change will be in case the `value` field is empty.
+* Even if the user requests a change of value that exceeds the range of screen brightness or volume that the device can express, Clova sends this directive by adjusting the requested amount to the device.
 * The client must frequently report the current speaker volume and screen brightness to CIC using the [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) context object.
 * The client must send the result of handling this directive message to CIC using the [`DeviceControl.ActionExecuted`](#ActionExecuted) or [`DeviceControl.ActionFailed`](#ActionFailed) event message.
 * Clova normally provides a voice guide ([`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) directive) when sending a directive to the client for device control. However, if the control is related to speaker output like the `"volume"` is set in the `target` field, Clova does not provide a voice guide with the [`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) directive. This is in consideration of the UX such as for a user listening to music. For this, you must implement an action to inform the user that the volume has been changed using the lights or a simple sound effect on the client.
@@ -800,7 +800,7 @@ Instructs the client to turn up the speaker volume or increase the screen bright
 {% raw %}
 
 ```json
-// // When a request is made to increase the volume without the amount information
+// // When a request is made to increase the volume without a requested amount
 {
   "directive": {
     "header": {
@@ -815,7 +815,7 @@ Instructs the client to turn up the speaker volume or increase the screen bright
   }
 }
 
-// // When a request is made to increase the volume with the amount information
+// // When a request is made to increase the volume with a requested amount
 {
   "directive": {
     "header": {

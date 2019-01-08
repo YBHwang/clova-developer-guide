@@ -67,7 +67,7 @@
     * [Getting authentications](/CIC/Guides/Interact_with_CIC.md#Authorization)
     * [Managing connections](/CIC/Guides/Interact_with_CIC.md#ManageConnection)
   * [Sending events](/CIC/Guides/Interact_with_CIC.md#SendEvent)
-  * [Handling directives](/CIC/Guides/Interact_with_CIC.md#HandleDirective)
+  * [Handling directive messages](/CIC/Guides/Interact_with_CIC.md#HandleDirective)
   * [Managing message queues](/CIC/Guides/Interact_with_CIC.md#ManageMessageQ)
 * [Implementing client features](/CIC/Guides/Implement_Client_Features.md)
   * [Handling tasks and managing dialogue IDs](/CIC/Guides/Implement_Client_Features.md#ManageDialogueIDAndHandleTasks)

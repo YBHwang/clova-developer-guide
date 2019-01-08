@@ -1,6 +1,6 @@
 ## Handling settings {#HandleSettings}
 
-Users can change the client settings from the client device or Clova app, or look up the settings of a specific client from the Clova app. To do this, Clova sends a directive to the client to report or change the settings. [`Settings`](/CIC/References/CICInterface/Settings.md) interface is used for this process and requires the following tasks to be completed:
+Users can change the client settings from the client device or Clova app, or look up the settings of a specific client from the Clova app. To do this, Clova sends a directive to the client to report or change the settings. The [`Settings`](/CIC/References/CICInterface/Settings.md) interface is used for this process and requires the following tasks to be completed:
 
 * When the user looks up the client device settings from the Clova app, **the settings information needs to be synchronized**.
 * When the user has **changed the settings remotely from the Clova app**, the new settings must be applied to the device settings.
@@ -79,7 +79,7 @@ When the user has changed the client settings remotely from the Clova app, CIC s
 }
 ```
 
-Change the client settings according to the settings information defined in the above directive. Then, send the [`Settings.Report`](/CIC/References/CICInterface/Settings.md#Report) event message containing the current settings to CIC. The user will be able to check the changed settings from the Clova app.
+Have the client change its settings according to the settings information defined in the above directive. Then, send the [`Settings.Report`](/CIC/References/CICInterface/Settings.md#Report) event message containing the current settings to CIC. The user will be able to check the changed settings from the Clova app.
 
 ```json
 {

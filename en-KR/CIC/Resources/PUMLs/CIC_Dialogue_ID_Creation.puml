@@ -42,7 +42,7 @@ user -->> client: Tell me the current weather
 
     client -> client: Discard all directives related to the dialogue ID (A) from the message queue
 
-  else 예외 상황 발생으로 인한 이벤트 메시지 전송 취소: Cancel sending event messages that occurred due to exceptions
+  else Cancel sending event messages that occurred due to exceptions
 
     client -> client: Stop processing tasks related to the dialogue ID (A) (continued)
 

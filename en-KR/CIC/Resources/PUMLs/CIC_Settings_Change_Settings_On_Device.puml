@@ -14,7 +14,7 @@ deactivate cli
 
 activate cic
 
-  cic ->> ca: Direct to synchronized to the changed settings
+  cic ->> ca: Direct to synchronize to the changed settings
 
 deactivate cic
 
