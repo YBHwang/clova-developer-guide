@@ -81,7 +81,12 @@ Clovaプラットフォームでは、クライアント開発者とExtension開
           </ul>
           <li>ガイド</li>
           <ul>
-            <li><a href="/CEK/Guides/Build_Custom_Extension.md">Custom Extensionを作成する</a></li>
+            <li><a href="/CEK/Guides/Build_Custom_Extension.md">Custom Extensionを作成する</a>
+              <ul>
+                <li><a href="/CEK/Guides/Build_Custom_Extension.md#DoMultiturnDialog">マルチターン対話をする</a></li>
+                <li><a href="/CEK/Guides/Build_Custom_Extension.md#ProvideAudioContent">オーディオコンテンツを提供する</a></li>
+              </ul>
+            </li>
             <li><a href="/CEK/Guides/Build_Clova_Home_Extension.md">Clova Home Extensionを作成する</a></li>
             <li><a href="/CEK/Guides/Link_User_Account.md">ユーザーアカウントを連携する</a></li>
             <li><a href="/DevConsole/Guides/CEK/Register_Extension.md">Extensionを登録する</a></li>
