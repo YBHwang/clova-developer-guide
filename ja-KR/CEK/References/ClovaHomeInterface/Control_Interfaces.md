@@ -86,7 +86,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 | [`IncrementChannelRequest`](#IncrementChannelRequest)                         | Request  | テレビのチャンネルを指定された値に上げるようClova Home Extensionにリクエストします。 |
 | [`IncrementFanSpeedConfirmation`](#IncrementFanSpeedConfirmation)             | Response | [`IncrementFanSpeedRequest`](#IncrementFanSpeedRequest)メッセージに対するレスポンスです。ファンの速度を上げるようにリクエストした後、その処理結果をCEKに返します。 |
 | [`IncrementFanSpeedRequest`](#IncrementFanSpeedRequest)                       | Request | ファンの速度を指定された値に上げるようClova Home Extensionにリクエストします。 |
-| [`IncrementIntensityLevelConfirmation`](#IncrementIntensityLevelConfirmation) | Response | [`DecrementIntensityLevelRequest`](#DecrementIntensityLevelRequest)メッセージに対するレスポンスです。圧力や水圧などの強度を上げるようにリクエストした後、その処理結果をCEKに返します。  |
+| [`IncrementIntensityLevelConfirmation`](#IncrementIntensityLevelConfirmation) | Response | [`IncrementIntensityLevelRequest`](#IncrementIntensityLevelRequest)メッセージに対するレスポンスです。圧力や水圧などの強度を上げるようにリクエストした後、その処理結果をCEKに返します。  |
 | [`IncrementIntensityLevelRequest`](#IncrementIntensityLevelRequest)           | Request  | 圧力や水圧などの強度を指定された値に上げるようClova Home Extensionにリクエストします。 |
 | [`IncrementTargetTemperatureConfirmation`](#IncrementTargetTemperatureConfirmation) | Response | [`IncrementTargetTemperatureRequest`](#IncrementTargetTemperatureRequest)メッセージに対するレスポンスです。温度を上げるようにリクエストした後、その処理結果をCEKに返します。 |
 | [`IncrementTargetTemperatureRequest`](#IncrementTargetTemperatureRequest)     | Request  | 温度を指定された値に上げるようClova Home Extensionにリクエストします。     |
@@ -2650,7 +2650,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 | フィールド名       | データ型    | フィールドの説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:---------:|
 | `applianceResponseTimestamp` | string  | リクエストがデバイスで確認された日時(タイムスタンプ、<a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)     | 任意    |
-| `startTimestampList[]`       | string  | 日時順で睡眠開始時間を保存している配列                                      |     |
+| `startTimestampList[]`       | string array  | 日時順で睡眠開始時間を保存している配列                                      |     |
 
 ### Message example
 
@@ -3146,7 +3146,7 @@ IoTデバイスの情報の確認、デバイス操作のリクエストおよ�
 |---------------|---------|-----------------------------|:---------:|
 | `fanSpeed`            | [SpeedInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SpeedInfoObject) | 現在のファンの速度情報を持つオブジェクト。ファンの速度とは風速のことで、次のいずれかになります。<ul><li><code>1</code>：弱風(1段階)</li><li><code>2</code>：中風(2段階)</li><li><code>3</code>：強風(3段階)</li></ul> | 任意    |
 | `previousState`          | object                      | デバイスの前の状況情報を持つオブジェクト                 | 任意    |
-| `previousState.FanSpeed` | [SpeedInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SpeedInfoObject) | 前のファンの速度情報を持つオブジェクト。ファンの速度とは風速のことで、次のいずれかになります。<ul><li><code>1</code>：弱風(1段階)</li><li><code>2</code>：中風(2段階)</li><li><code>3</code>：強風(3段階)</li></ul> | 任意    |
+| `previousState.fanSpeed` | [SpeedInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SpeedInfoObject) | 前のファンの速度情報を持つオブジェクト。ファンの速度とは風速のことで、次のいずれかになります。<ul><li><code>1</code>：弱風(1段階)</li><li><code>2</code>：中風(2段階)</li><li><code>3</code>：強風(3段階)</li></ul> | 任意    |
 
 ### 備考
 
