@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1054px" preserveAspectRatio="none" style="width:835px;height:1054px;" version="1.1" viewBox="0 0 835 1054" width="835px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="30" style="stroke: #000000; stroke-width: 1.0;" width="10" x="779" y="251.4121"/><rect fill="#FFFFFF" height="162.9297" style="stroke: #000000; stroke-width: 1.0;" width="10" x="779" y="465.8242"/><rect fill="#FFFFFF" height="258.377" style="stroke: #000000; stroke-width: 1.0;" width="10" x="779" y="695.7188"/><rect fill="#FFFFFF" height="232.377" rx="5" ry="5" style="stroke: #000000; stroke-width: 2.0;" width="496" x="327" y="346.8945"/><rect fill="#FFFFFF" height="105.4473" style="stroke: none; stroke-width: 1.0;" width="496" x="327" y="473.8242"/><rect fill="#FFFFFF" height="126.9297" rx="5" ry="5" style="stroke: #000000; stroke-width: 2.0;" width="496" x="327" y="710.7188"/><rect fill="#FFFFFF" height="173.9297" rx="5" ry="5" style="stroke: #000000; stroke-width: 2.0;" width="496" x="327" y="851.6484"/><line style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="47" x2="47" y1="102.4824" y2="1042.5781"/><line style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="399" x2="399" y1="102.4824" y2="1042.5781"/><line style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="784" x2="784" y1="102.4824" y2="1042.5781"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="52" x="18" y="89.8457">ユーザー</text><ellipse cx="47" cy="13" fill="#9EA0CA" rx="8" ry="8" style="stroke: #000000; stroke-width: 2.0;"/><path d="M47,21 L47,48 M34,29 L60,29 M47,48 L34,63 M47,48 L60,63 " fill="none" style="stroke: #000000; stroke-width: 2.0;"/><rect fill="#9EA0CA" height="53.2295" rx="5" ry="5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="124" x="337" y="48.2529"/><text fill="#FFFFFF" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="90" x="354" y="81.4063">クライアント</text><rect fill="#05D686" height="53.2295" rx="5" ry="5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="58" x="755" y="48.2529"/><text fill="#FFFFFF" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="24" x="772" y="81.4063">CIC</text><rect fill="#FFFFFF" height="30" style="stroke: #000000; stroke-width: 1.0;" width="10" x="779" y="251.4121"/><rect fill="#FFFFFF" height="162.9297" style="stroke: #000000; stroke-width: 1.0;" width="10" x="779" y="465.8242"/><rect fill="#FFFFFF" height="258.377" style="stroke: #000000; stroke-width: 1.0;" width="10" x="779" y="695.7188"/><line style="stroke: #000000; stroke-width: 1.0;" x1="399" x2="441" y1="154.9648" y2="154.9648"/><line style="stroke: #000000; stroke-width: 1.0;" x1="441" x2="441" y1="154.9648" y2="167.9648"/><line style="stroke: #000000; stroke-width: 1.0;" x1="400" x2="441" y1="167.9648" y2="167.9648"/><polygon fill="#000000" points="410,163.9648,400,167.9648,410,171.9648,406,167.9648" style="stroke: #000000; stroke-width: 1.0;"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="120" x="416" y="140.3281">アラームが開始される</text><line style="stroke: #000000; stroke-width: 1.0;" x1="777" x2="767" y1="251.4121" y2="247.4121"/><line style="stroke: #000000; stroke-width: 1.0;" x1="777" x2="767" y1="251.4121" y2="255.4121"/><line style="stroke: #000000; stroke-width: 1.0;" x1="399" x2="778" y1="251.4121" y2="251.4121"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="144" x="454" y="203.8105">アラームの開始を報告する</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="161" x="454" y="220.293">(Alerts.AlertStartedイベント、</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="270" x="454" y="236.7754">Alert.AlertsStateのactivateAlertsフィールドは必須)</text><line style="stroke: #000000; stroke-width: 1.0;" x1="397" x2="387" y1="331.8945" y2="327.8945"/><line style="stroke: #000000; stroke-width: 1.0;" x1="397" x2="387" y1="331.8945" y2="335.8945"/><line style="stroke: #000000; stroke-width: 1.0;" x1="47" x2="398" y1="331.8945" y2="331.8945"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="308" x="69" y="317.2578">アラームの停止をリクエストする(発話または物理ボタン)</text><path d="M332,346.8945 L406,346.8945 L406,374.8945 L396,384.8945 L327,384.8945 L327,351.8945 " fill="#EEEEEE" style="stroke: #000000; stroke-width: 1.0;"/><rect fill="none" height="232.377" rx="5" ry="5" style="stroke: #000000; stroke-width: 2.0;" width="496" x="327" y="346.8945"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="14" x="352" y="371.7402">alt</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="314" x="431" y="372.7402">[アラーム停止リクエストのタイプ == ユーザーの発話]</text><line style="stroke: #000000; stroke-width: 1.0;" x1="777" x2="767" y1="465.8242" y2="461.8242"/><line style="stroke: #000000; stroke-width: 1.0;" x1="777" x2="767" y1="465.8242" y2="469.8242"/><line style="stroke: #000000; stroke-width: 1.0;" x1="399" x2="778" y1="465.8242" y2="465.8242"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="192" x="493" y="434.7051">アラーム停止リクエストを送信する</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="221" x="478.5" y="451.1875">(SpeechRecognizer.Recognizeイベント)</text><line style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="327" x2="823" y1="474.8242" y2="474.8242"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="288" x="342" y="498.6699">[アラーム停止リクエストのタイプ == 物理ボタン]</text><line style="stroke: #000000; stroke-width: 1.0;" x1="777" x2="767" y1="571.2715" y2="567.2715"/><line style="stroke: #000000; stroke-width: 1.0;" x1="777" x2="767" y1="571.2715" y2="575.2715"/><line style="stroke: #000000; stroke-width: 1.0;" x1="399" x2="778" y1="571.2715" y2="571.2715"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="192" x="493" y="540.1523">アラーム停止リクエストを送信する</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="186" x="496" y="556.6348">(Alerts.RequestAlertStopイベント)</text><line style="stroke: #000000; stroke-width: 1.0;" x1="399" x2="409" y1="628.7539" y2="624.7539"/><line style="stroke: #000000; stroke-width: 1.0;" x1="399" x2="409" y1="628.7539" y2="632.7539"/><line style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="399" x2="783" y1="628.7539" y2="628.7539"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="227" x="478" y="614.1172">Alerts.StopAlertディレクティブを送信する</text><line style="stroke: #000000; stroke-width: 1.0;" x1="777" x2="767" y1="695.7188" y2="691.7188"/><line style="stroke: #000000; stroke-width: 1.0;" x1="777" x2="767" y1="695.7188" y2="699.7188"/><line style="stroke: #000000; stroke-width: 1.0;" x1="399" x2="778" y1="695.7188" y2="695.7188"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="168" x="505" y="664.5996">アラームの停止結果を報告する</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="160" x="509" y="681.082">(Alerts.AlertStoppedイベント)</text><path d="M332,710.7188 L410,710.7188 L410,738.7188 L400,748.7188 L327,748.7188 L327,715.7188 " fill="#EEEEEE" style="stroke: #000000; stroke-width: 1.0;"/><rect fill="none" height="126.9297" rx="5" ry="5" style="stroke: #000000; stroke-width: 2.0;" width="496" x="327" y="710.7188"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="18" x="352" y="735.5645">opt</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="171" x="435" y="736.5645">[アラームの繰り返し == はい]</text><line style="stroke: #000000; stroke-width: 1.0;" x1="399" x2="409" y1="829.6484" y2="825.6484"/><line style="stroke: #000000; stroke-width: 1.0;" x1="399" x2="409" y1="829.6484" y2="833.6484"/><line style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="399" x2="778" y1="829.6484" y2="829.6484"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="192" x="493" y="798.5293">アラームの次の繰り返しを送信する</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="168" x="505" y="815.0117">(Alerts.SetAlertディレクティブ)</text><path d="M332,851.6484 L410,851.6484 L410,879.6484 L400,889.6484 L327,889.6484 L327,856.6484 " fill="#EEEEEE" style="stroke: #000000; stroke-width: 1.0;"/><rect fill="none" height="173.9297" rx="5" ry="5" style="stroke: #000000; stroke-width: 2.0;" width="496" x="327" y="851.6484"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="18" x="352" y="876.4941">opt</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="236" x="435" y="877.4941">[アラームタイプ == アクションタイマー]</text><line style="stroke: #000000; stroke-width: 1.0;" x1="399" x2="409" y1="954.0957" y2="950.0957"/><line style="stroke: #000000; stroke-width: 1.0;" x1="399" x2="409" y1="954.0957" y2="958.0957"/><line style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="399" x2="783" y1="954.0957" y2="954.0957"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="336" x="423.5" y="939.459">ユーザーが予約した動作を実行するディレクティブを送信する</text><line style="stroke: #000000; stroke-width: 1.0;" x1="399" x2="441" y1="1004.5781" y2="1004.5781"/><line style="stroke: #000000; stroke-width: 1.0;" x1="441" x2="441" y1="1004.5781" y2="1017.5781"/><line style="stroke: #000000; stroke-width: 1.0;" x1="400" x2="441" y1="1017.5781" y2="1017.5781"/><polygon fill="#000000" points="410,1013.5781,400,1017.5781,410,1021.5781,406,1017.5781" style="stroke: #000000; stroke-width: 1.0;"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="144" x="416" y="989.9414">予約された動作を実行する</text><!--
+@startuml
+scale max 880 width
+skinparam sequenceMessageAlign center
+skinparam shadowing false
+skinparam roundcorner 10
+skinparam padding 10
+skinparam defaultFontSize 12
+skinparam defaultFontName "Malgun Gothic", sans-serif
+
+skinparam note {
+  BackgroundColor #9EA0CA
+  BorderColor #ffffff
+  FontColor #ffffff
+  FontSize 14
+  FontStyle bold
+}
+
+skinparam sequence {
+  ArrowColor #000000
+  ActorBorderColor #000000
+  ActorFontStyle Bolder
+
+
+  LifeLineBorderColor #000000
+  LifeLineBackgroundColor transparent
+  ParticipantBorderColor transparent
+  ParticipantFontSize 14
+  ParticipantFontColor #ffffff
+  ParticipantFontStyle bold
+
+  BoxBorderColor #000000
+  BoxFontColor #ffffff
+    BoxFontSize 14
+    BoxFontStyle bold
+}
+hide footbox
+
+skinparam activity {
+  BackgroundColor #9EA0CA
+  BarColor #ffffff
+  BorderColor #ffffff
+  DiamondBackgroundColor #05D686
+  DiamondBorderColor #ffffff
+  DiamondFontColor #ffffff
+  DiamondFontSize 14
+  DiamondFontStyle bold
+  FontColor #ffffff 
+  FontSize 14
+  FontStyle bold
+}
+
+actor ユーザー as user #9EA0CA
+participant クライアント as client #9EA0CA
+participant CIC as cic #05D686
+
+
+client -> client : アラームが開始される
+client ->> cic : アラームの開始を報告する\n(Alerts.AlertStartedイベント、\lAlert.AlertsStateのactivateAlertsフィールドは必須)
+
+activate cic
+deactivate cic
+
+user ->> client : アラームの停止をリクエストする(発話または物理ボタン)
+
+alt アラーム停止リクエストのタイプ == ユーザーの発話
+
+  client ->> cic : アラーム停止リクエストを送信する\n(SpeechRecognizer.Recognizeイベント)
+
+activate cic
+
+else アラーム停止リクエストのタイプ == 物理ボタン
+
+  client ->> cic : アラーム停止リクエストを送信する\n(Alerts.RequestAlertStopイベント)
+
+end
+
+cic - ->> client : Alerts.StopAlertディレクティブを送信する
+
+deactivate cic
+
+client ->> cic : アラームの停止結果を報告する\n(Alerts.AlertStoppedイベント)
+
+activate cic
+
+  opt アラームの繰り返し == はい
+
+    cic - ->> client : アラームの次の繰り返しを送信する\n(Alerts.SetAlertディレクティブ)
+
+  end
+
+  opt アラームタイプ == アクションタイマー
+
+    cic - ->> client : ユーザーが予約した動作を実行するディレクティブを送信する
+
+deactivate cic
+    client -> client : 予約された動作を実行する
+
+  end
+
+@enduml
+
+PlantUML version 1.2018.12(Sun Oct 21 19:15:15 KST 2018)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_191-b12
+Operating System: Windows 10
+OS Version: 10.0
+Default Encoding: MS949
+Language: en
+Country: US
+--></g></svg>
