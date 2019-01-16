@@ -7,6 +7,7 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 | [`ClearQueue`](#ClearQueue)           | ディレクティブ | クライアントに対して、オーディオストリームの再生キューをクリアするように指示します。                              |
 | [`ExpectReportPlaybackState`](#ExpectReportPlaybackState) | ディレクティブ | クライアントに対して、現在の再生状態をレポートするように指示します。クライアントはこのディレクティブを受信すると、[`AudioPlayer.ReportPlaybackState`](#ReportPlaybackState)イベントをCICに送信する必要があります。 |
 | [`Play`](#Play)                       | ディレクティブ | クライアントに対して、特定のオーディオストリームを再生するか、または再生キューに追加するように指示します。                         |
+| [`PlaybackQueueCleared`](#PlaybackQueueCleared) | イベント   | クライアントがCICから[`AudioPlayer.ClearQueue`](#ClearQueue)ディレクティブを受信した場合、再生キューをクリアし、`PlaybackQueueCleared`を送信する必要があります。       |
 | [`PlayFinished`](#PlayFinished)       | イベント     | クライアントがオーディオストリームの再生を終了するとき、そのオーディオストリームの情報をCICにレポートするために使用します。     |
 | [`PlayPaused`](#PlayPaused)           | イベント     | クライアントがオーディオストリームの再生を一時停止するとき、そのオーディオストリームの情報をCICにレポートするために使用します。 |
 | [`PlayResumed`](#PlayResumed)         | イベント     | クライアントがオーディオストリームの再生を再開するとき、そのオーディオストリームの情報をCICにレポートするために使用します。         |
@@ -53,6 +54,7 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 
 ### 次の項目も参照してください。
 * [`AudioPlayer.Play`](#Play)
+* [`AudioPlayer.PlaybackQueueCleared`](#PlaybackQueueCleared)
 * [`AudioPlayer.PlayStarted`](#PlayStarted)
 * [`AudioPlayer.PlayStopped`](#PlayStopped)
 
@@ -213,6 +215,53 @@ AudioPlayerインターフェースは、クライアントからオーディオ
 * [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
 * [`AudioPlayer.StreamRequested`](#StreamRequested)
 * [オーディオを再生する](/CIC/Guides/Implement_Client_Features.md#PlayAudioStream)
+
+## PlaybackQueueClearedイベント {#PlaybackQueueCleared}
+クライアントがCICから[`AudioPlayer.ClearQueue`](#ClearQueue)ディレクティブを受信した場合、再生キューをクリアし、`PlaybackQueueCleared`を送信する必要があります。
+
+### Context fields
+
+{% include "/CIC/References/CICInterface/Context_Objects_List.md" %}
+
+### Payload fields
+
+| フィールド名       | データ型    | 説明                     | 必須/任意 |
+|---------------|---------|-----------------------------|:---------:|
+| `clearBehavior` | string | [`AudioPlayer.ClearQueue`](#ClearQueue)ディレクティブの`clearBehavior`フィールドの値。クリアするかどうかを示すフィールドです。このフィールドの内容に応じて処理してから、フィールドに値を設定して送信する必要があります。<ul><li><code>"CLEAR_ALL"</code>：再生キューをクリアし、現在再生中のオーディオストリームを中止します。</li><li><code>"CLEAR_ENQUEUED"</code>：再生キューをクリアし、現在再生中のオーディオストリームを続けて再生します。</li></ul> |  |
+
+
+### Message example
+{% raw %}
+
+```json
+{
+  "context": [
+    {{Alerts.AlertsState}},
+    {{AudioPlayer.PlayerState}},
+    {{Device.DeviceState}},
+    {{Device.Display}},
+    {{Clova.Location}},
+    {{Clova.SavedPlace}},
+    {{Speaker.VolumeState}},
+    {{SpeechSynthesizer.SpeechState}}
+  ],
+  "event": {
+    "header": {
+      "namespace": "AudioPlayer",
+      "name": "PlaybackQueueCleared",
+      "messageId": "1e1d8d52-9b51-454c-9fac-7597dc5f5246"
+    },
+    "payload": {
+        "clearBehavior": "CLEAR_ALL"
+    }
+}
+}
+```
+
+{% endraw %}
+
+### 次の項目も参照してください。
+* [`AudioPlayer.ClearQueue`](#ClearQueue)
 
 ## PlayFinishedイベント {#PlayFinished}
 クライアントがオーディオストリームの再生を終了するとき、そのオーディオストリームの情報をCICにレポートするために使用します。

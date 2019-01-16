@@ -10,6 +10,7 @@
 | Alerts            | [`RequestSynchronizeAlert`](/CIC/References/CICInterface/Alerts.md#RequestSynchronizeAlert) | クライアントから、Clovaのクラウドに保存されたユーザーのアラームデータを同期する必要がある場合、CICにこのイベントを送信します。 |
 | Alerts            | [`SetAlertFailed`](/CIC/References/CICInterface/Alerts.md#SetAlertFailed)             | クライアントから、特定のアラームを追加または編集できなかったことをCICにレポートします。 |
 | Alerts            | [`SetAlertSucceeded`](/CIC/References/CICInterface/Alerts.md#SetAlertSucceeded)       | クライアントから、特定のアラームを正常に追加または編集したことをCICにレポートします。 |
+| AudioPlayer       | [`PlaybackQueueCleared`](/CIC/References/CICInterface/AudioPlayer.md#PlaybackQueueCleared) | クライアントがCICから[`AudioPlayer.ClearQueue`](/CIC/References/CICInterface/AudioPlayer.md#ClearQueue)ディレクティブを受信した場合、再生キューをクリアし、`PlaybackQueueCleared`を送信する必要があります。   |
 | AudioPlayer       | [`PlayFinished`](/CIC/References/CICInterface/AudioPlayer.md#PlayFinished) | クライアントがオーディオストリームの再生を終了するとき、そのオーディオストリームの情報をCICにレポートするために使用します。
         |
 | AudioPlayer       | [`PlayPaused`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)     | クライアントがオーディオストリームの再生を一時停止するとき、そのオーディオストリームの情報をCICにレポートするために使用します。
