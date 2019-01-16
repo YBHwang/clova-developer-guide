@@ -19,7 +19,7 @@ CIC APIを使って、クライアントとCICの間でさまざまな通信が�
 
 次は、CICとクライアントの間で行われるメッセージのやり取りを表すシーケンス図です。
 
-![](/CIC/Resources/Images/CIC_Interaction_Example_in_Sequence_Diagram.png)
+![](/CIC/Resources/Images/CIC_Interaction_Example_in_Sequence_Diagram.svg)
 
 
 * [ダイアログIDとクライアントの動作](#DialogIDandClientOP)

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1170px" preserveAspectRatio="none" style="width:790px;height:1170px;" version="1.1" viewBox="0 0 790 1170" width="790px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="1082.2666" style="stroke: #000000; stroke-width: 1.0;" width="10" x="99.5" y="67.2295"/><rect fill="#FFFFFF" height="229.8945" style="stroke: #000000; stroke-width: 1.0;" width="10" x="389.5" y="250.3887"/><rect fill="#FFFFFF" height="478.5361" style="stroke: #000000; stroke-width: 1.0;" width="10" x="389.5" y="597.7305"/><rect fill="#FFFFFF" height="1082.2666" style="stroke: #000000; stroke-width: 1.0;" width="10" x="707.5" y="67.2295"/><rect fill="#FFFFFF" height="232.377" rx="5" ry="5" style="stroke: #000000; stroke-width: 2.0;" width="437" x="322.5" y="131.459"/><rect fill="#FFFFFF" height="105.4473" style="stroke: none; stroke-width: 1.0;" width="437" x="322.5" y="258.3887"/><rect fill="#FFFFFF" height="588.9834" rx="5" ry="5" style="stroke: #000000; stroke-width: 2.0;" width="766" x="13" y="495.2832"/><rect fill="#FFFFFF" height="229.6416" rx="5" ry="5" style="stroke: #000000; stroke-width: 2.0;" width="446.5" x="322.5" y="612.7305"/><line style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="104" x2="104" y1="57.2295" y2="1158.4961"/><line style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="394.5" x2="394.5" y1="57.2295" y2="1158.4961"/><line style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="712.5" x2="712.5" y1="57.2295" y2="1158.4961"/><rect fill="#9EA0CA" height="53.2295" rx="5" ry="5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="163" x="23" y="3"/><text fill="#FFFFFF" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="129" x="40" y="36.1533">Bluetoothデバイス</text><rect fill="#9EA0CA" height="53.2295" rx="5" ry="5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="124" x="332.5" y="3"/><text fill="#FFFFFF" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="90" x="349.5" y="36.1533">クライアント</text><rect fill="#05D686" height="53.2295" rx="5" ry="5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="74" x="675.5" y="3"/><text fill="#FFFFFF" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="40" x="692.5" y="36.1533">Clova</text><rect fill="#FFFFFF" height="1082.2666" style="stroke: #000000; stroke-width: 1.0;" width="10" x="99.5" y="67.2295"/><rect fill="#FFFFFF" height="229.8945" style="stroke: #000000; stroke-width: 1.0;" width="10" x="389.5" y="250.3887"/><rect fill="#FFFFFF" height="478.5361" style="stroke: #000000; stroke-width: 1.0;" width="10" x="389.5" y="597.7305"/><rect fill="#FFFFFF" height="1082.2666" style="stroke: #000000; stroke-width: 1.0;" width="10" x="707.5" y="67.2295"/><polygon fill="#9EA0CA" points="57,72.2295,758,72.2295,768,95.2295,758,119.2295,57,119.2295,47,95.2295,57,72.2295" style="stroke: #FFFFFF; stroke-width: 1.0;"/><text fill="#FFFFFF" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="309" x="253.25" y="102.3828">Bluetoothデバイスとの接続をリクエストする</text><path d="M327.5,131.459 L401.5,131.459 L401.5,159.459 L391.5,169.459 L322.5,169.459 L322.5,136.459 " fill="#EEEEEE" style="stroke: #000000; stroke-width: 1.0;"/><rect fill="none" height="232.377" rx="5" ry="5" style="stroke: #000000; stroke-width: 2.0;" width="437" x="322.5" y="131.459"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="14" x="347.5" y="156.3047">alt</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="236" x="426.5" y="157.3047">[特定のデバイスが指定されたか == はい]</text><line style="stroke: #000000; stroke-width: 1.0;" x1="399.5" x2="409.5" y1="250.3887" y2="246.3887"/><line style="stroke: #000000; stroke-width: 1.0;" x1="399.5" x2="409.5" y1="250.3887" y2="254.3887"/><line style="stroke: #000000; stroke-width: 1.0;" x1="399.5" x2="706.5" y1="250.3887" y2="250.3887"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="216" x="445.5" y="219.2695">DeviceControl.BtConnect (with payload)</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="144" x="481.5" y="235.752">ディレクティブを送信する</text><line style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="322.5" x2="759.5" y1="259.3887" y2="259.3887"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="249" x="337.5" y="283.2344">[特定のデバイスが指定されたか == いいえ]</text><line style="stroke: #000000; stroke-width: 1.0;" x1="399.5" x2="409.5" y1="355.8359" y2="351.8359"/><line style="stroke: #000000; stroke-width: 1.0;" x1="399.5" x2="409.5" y1="355.8359" y2="359.8359"/><line style="stroke: #000000; stroke-width: 1.0;" x1="399.5" x2="706.5" y1="355.8359" y2="355.8359"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="233" x="437" y="324.7168">DeviceControl.BtConnect (without payload)</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="144" x="481.5" y="341.1992">ディレクティブを送信する</text><line style="stroke: #000000; stroke-width: 1.0;" x1="109.5" x2="119.5" y1="413.3184" y2="409.3184"/><line style="stroke: #000000; stroke-width: 1.0;" x1="109.5" x2="119.5" y1="413.3184" y2="417.3184"/><line style="stroke: #000000; stroke-width: 1.0;" x1="109.5" x2="388.5" y1="413.3184" y2="413.3184"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="120" x="189.5" y="398.6816">接続をリクエストする</text><line style="stroke: #000000; stroke-width: 1.0;" x1="705.5" x2="695.5" y1="480.2832" y2="476.2832"/><line style="stroke: #000000; stroke-width: 1.0;" x1="705.5" x2="695.5" y1="480.2832" y2="484.2832"/><line style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="394.5" x2="706.5" y1="480.2832" y2="480.2832"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="264" x="419" y="449.1641">DeviceControl.ActionExecuted (with DeviceState)</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="108" x="497" y="465.6465">イベントを送信する</text><path d="M18,495.2832 L96,495.2832 L96,523.2832 L86,533.2832 L13,533.2832 L13,500.2832 " fill="#EEEEEE" style="stroke: #000000; stroke-width: 1.0;"/><rect fill="none" height="588.9834" rx="5" ry="5" style="stroke: #000000; stroke-width: 2.0;" width="766" x="13" y="495.2832"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="18" x="38" y="520.1289">opt</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="287" x="121" y="521.1289">[接続するデバイスがPINコードを必要とする場合]</text><line style="stroke: #000000; stroke-width: 1.0;" x1="387.5" x2="377.5" y1="597.7305" y2="593.7305"/><line style="stroke: #000000; stroke-width: 1.0;" x1="387.5" x2="377.5" y1="597.7305" y2="601.7305"/><line style="stroke: #000000; stroke-width: 1.0;" x1="109.5" x2="388.5" y1="597.7305" y2="597.7305"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="152" x="173.5" y="583.0938">PINコードをリクエストする</text><path d="M327.5,612.7305 L587.5,612.7305 L587.5,640.7305 L577.5,650.7305 L322.5,650.7305 L322.5,617.7305 " fill="#EEEEEE" style="stroke: #000000; stroke-width: 1.0;"/><rect fill="none" height="229.6416" rx="5" ry="5" style="stroke: #000000; stroke-width: 2.0;" width="446.5" x="322.5" y="612.7305"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="200" x="347.5" y="637.5762">"ユーザーがPINコードを入力する"</text><line style="stroke: #000000; stroke-width: 1.0;" x1="705.5" x2="695.5" y1="710.1777" y2="706.1777"/><line style="stroke: #000000; stroke-width: 1.0;" x1="705.5" x2="695.5" y1="710.1777" y2="714.1777"/><line style="stroke: #000000; stroke-width: 1.0;" x1="399.5" x2="706.5" y1="710.1777" y2="710.1777"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="206" x="450.5" y="679.0586">DeviceControl.BtRequestForPINCode</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="108" x="499.5" y="695.541">イベントを送信する</text><polygon fill="#9EA0CA" points="357,723.1777,749,723.1777,759,746.1777,749,770.1777,357,770.1777,347,746.1777,357,723.1777" style="stroke: #FFFFFF; stroke-width: 1.0;"/><text fill="#FFFFFF" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="308" x="399" y="753.3311">ユーザーから入力されたPINコードを処理する</text><line style="stroke: #000000; stroke-width: 1.0;" x1="399.5" x2="409.5" y1="834.3721" y2="830.3721"/><line style="stroke: #000000; stroke-width: 1.0;" x1="399.5" x2="409.5" y1="834.3721" y2="838.3721"/><line style="stroke: #000000; stroke-width: 1.0;" x1="399.5" x2="706.5" y1="834.3721" y2="834.3721"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="200" x="453.5" y="803.2529">DeviceControl.BtConnectByPINCode</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="144" x="481.5" y="819.7354">ディレクティブを送信する</text><line style="stroke: #000000; stroke-width: 1.0;" x1="109.5" x2="119.5" y1="891.8545" y2="887.8545"/><line style="stroke: #000000; stroke-width: 1.0;" x1="109.5" x2="119.5" y1="891.8545" y2="895.8545"/><line style="stroke: #000000; stroke-width: 1.0;" x1="109.5" x2="388.5" y1="891.8545" y2="891.8545"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="236" x="131.5" y="877.2178">PINコードで接続するようにリクエストする</text><line style="stroke: #000000; stroke-width: 1.0;" x1="705.5" x2="695.5" y1="958.8193" y2="954.8193"/><line style="stroke: #000000; stroke-width: 1.0;" x1="705.5" x2="695.5" y1="958.8193" y2="962.8193"/><line style="stroke: #000000; stroke-width: 1.0;" x1="399.5" x2="706.5" y1="958.8193" y2="958.8193"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="163" x="472" y="927.7002">DeviceControl.ActionExecuted</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="108" x="499.5" y="944.1826">イベントを送信する</text><line style="stroke: #000000; stroke-width: 1.0;" x1="387.5" x2="377.5" y1="1009.3018" y2="1005.3018"/><line style="stroke: #000000; stroke-width: 1.0;" x1="387.5" x2="377.5" y1="1009.3018" y2="1013.3018"/><line style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="109.5" x2="388.5" y1="1009.3018" y2="1009.3018"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="144" x="177.5" y="994.665">デバイスの接続を許可する</text><line style="stroke: #000000; stroke-width: 1.0;" x1="705.5" x2="695.5" y1="1076.2666" y2="1072.2666"/><line style="stroke: #000000; stroke-width: 1.0;" x1="705.5" x2="695.5" y1="1076.2666" y2="1080.2666"/><line style="stroke: #000000; stroke-width: 1.0;" x1="394.5" x2="706.5" y1="1076.2666" y2="1076.2666"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="145" x="478.5" y="1045.1475">DeviceControl.ReportState</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="108" x="497" y="1061.6299">イベントを送信する</text><polygon fill="#9EA0CA" points="57,1096.2666,758,1096.2666,768,1119.2666,758,1143.2666,57,1143.2666,47,1119.2666,57,1096.2666" style="stroke: #FFFFFF; stroke-width: 1.0;"/><text fill="#FFFFFF" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="135" x="340.25" y="1126.4199">接続結果を共有する</text><!--
+@startuml
+scale max 880 width
+skinparam sequenceMessageAlign center
+skinparam shadowing false
+skinparam roundcorner 10
+skinparam padding 10
+skinparam defaultFontSize 12
+skinparam defaultFontName "Malgun Gothic", sans-serif
+
+skinparam note {
+  BackgroundColor #9EA0CA
+  BorderColor #ffffff
+  FontColor #ffffff
+  FontSize 14
+  FontStyle bold
+}
+
+skinparam sequence {
+  ArrowColor #000000
+  ActorBorderColor #000000
+  ActorFontStyle Bolder
+
+
+  LifeLineBorderColor #000000
+  LifeLineBackgroundColor transparent
+  ParticipantBorderColor transparent
+  ParticipantFontSize 14
+  ParticipantFontColor #ffffff
+  ParticipantFontStyle bold
+
+  BoxBorderColor #000000
+  BoxFontColor #ffffff
+    BoxFontSize 14
+    BoxFontStyle bold
+}
+hide footbox
+
+skinparam activity {
+  BackgroundColor #9EA0CA
+  BarColor #ffffff
+  BorderColor #ffffff
+  DiamondBackgroundColor #05D686
+  DiamondBorderColor #ffffff
+  DiamondFontColor #ffffff
+  DiamondFontSize 14
+  DiamondFontStyle bold
+  FontColor #ffffff 
+  FontSize 14
+  FontStyle bold
+}
+
+participant "Bluetoothデバイス" as device #9EA0CA
+participant クライアント as client #9EA0CA
+participant "Clova" as clova #05D686
+
+activate clova
+activate device
+hnote over device, clova : Bluetoothデバイスとの接続をリクエストする
+ alt 特定のデバイスが指定されたか == はい
+	clova ->> client : DeviceControl.BtConnect (with payload)\nディレクティブを送信する
+
+	activate client
+ else 特定のデバイスが指定されたか == いいえ
+    clova ->> client : DeviceControl.BtConnect (without payload)\nディレクティブを送信する
+end
+
+  client ->> device : 接続をリクエストする
+  client - ->> clova : DeviceControl.ActionExecuted (with DeviceState)\nイベントを送信する
+
+	deactivate client
+opt 接続するデバイスがPINコードを必要とする場合
+	device ->> client : PINコードをリクエストする
+
+	activate client
+
+  group "ユーザーがPINコードを入力する"
+    client ->> clova : DeviceControl.BtRequestForPINCode\nイベントを送信する
+    hnote over client, clova : ユーザーから入力されたPINコードを処理する
+    clova ->> client : DeviceControl.BtConnectByPINCode\nディレクティブを送信する
+  end
+  client ->> device : PINコードで接続するようにリクエストする
+  client ->> clova: DeviceControl.ActionExecuted\nイベントを送信する
+	device - ->> client : デバイスの接続を許可する
+  client ->> clova : DeviceControl.ReportState\nイベントを送信する
+deactivate client
+end
+hnote over device, clova : 接続結果を共有する
+
+@enduml
+
+PlantUML version 1.2018.12(Sun Oct 21 19:15:15 KST 2018)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_191-b12
+Operating System: Windows 10
+OS Version: 10.0
+Default Encoding: MS949
+Language: en
+Country: US
+--></g></svg>

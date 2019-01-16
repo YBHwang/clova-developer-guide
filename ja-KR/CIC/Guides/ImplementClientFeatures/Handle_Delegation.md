@@ -4,7 +4,7 @@
 
 Clovaアプリがリクエストの処理を委任すると、委任されるクライアントがダウンチャネルで不意にディレクティブを受信します。次は、ユーザーがリクエストを委任する仕組みを示します。**次の説明のうち、委任されるクライアントの動作を実装する必要があります。**
 
-![](/CIC/Resources/Images/CIC_Handle_Event_Delegation.png)
+![](/CIC/Resources/Images/CIC_Handle_Event_Delegation.svg)
 
 <ol>
   <li>Clovaアプリは、CICにユーザーのリクエストを送信する際、別のクライアントデバイスに委任を要求します。</li>
