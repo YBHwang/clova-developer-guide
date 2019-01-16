@@ -1,7 +1,7 @@
 ## オーディオコンテンツを提供する {#ProvideAudioContent}
 
 {% if book.L10N.TargetCountryCode == "KR" %}
-Custom Extensionで、ユーザーに音楽やポッドキャストなどのオーディオコンテンツを提供することができます。そのためには、[Custom Extensionのメッセージ](/CEK/References/CEK_API.md#CustomExtMessage)の仕様のうち、[CIC API](/CIC/References/CIC_API.md)を使用する必要があります。ユーザーにオーディオコンテンツを提供するには、次の内容をExtensionに実装する必要があります。**特に、必須の実装項目は必ず実装される必要があります。**
+Custom Extensionで、ユーザーに音楽やポッドキャストなどのオーディオコンテンツを提供することができます。そのためには、[Custom Extensionのメッセージ](/CEK/References/CEK_API.md#CustomExtMessage)の[`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージと[レスポンスメッセージ](/CEK/References/CEK_API.md#CustomExtResponseMessage)の仕様のうち、クライアント(ユーザーのデバイスまたはClovaアプリ)のためのメッセージ形式であるオーディオコンテンツ再生関連の[CIC API](/CIC/References/CIC_API.md)を使用する必要があります。ユーザーにオーディオコンテンツを提供するには、次の内容をExtensionに実装する必要があります。以下は、その詳細についての説明です。**特に、必須の実装項目は必ず実装してください。**
 
 * 必須
   * [オーディオコンテンツの再生を指示する](#DirectClientToPlayAudio)
@@ -18,7 +18,7 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
   <p>オーディオコンテンツを再生するCustom Extensionを作成するには、<a href="/DevConsole/Guides/CEK/Register_Extension.html">Clova Developer CenterにExtensionを登録する</a>とき、<a href="/DevConsole/Guides/CEK/Register_Extension.html#InputExtensionInfo">基本情報</a>の{{ book.DevConsole.cek_audioplayer }}項目で<strong>はい</strong>を選択する必要があります。</p>
 </div>
 {% elif book.L10N.TargetCountryCode == "JP" %}
-Custom Extensionで、ユーザーに音楽やポッドキャストなどのオーディオコンテンツを提供することができます。そのためには、[Custom Extensionのメッセージ](/CEK/References/CEK_API.md#CustomExtMessage)の[`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージと[レスポンスメッセージ](/CEK/References/CEK_API.md#CustomExtResponseMessage)の仕様のうち、[オーディオコンテンツ再生関連のCIC API](/CEK/References/CEK_API.md#CICAPIforAudioPlayback)を使用する必要があります。ユーザーにオーディオコンテンツを提供するには、次の内容をExtensionに実装する必要があります。
+Custom Extensionで、ユーザーに音楽やポッドキャストなどのオーディオコンテンツを提供することができます。そのためには、[Custom Extensionのメッセージ](/CEK/References/CEK_API.md#CustomExtMessage)の[`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージと[レスポンスメッセージ](/CEK/References/CEK_API.md#CustomExtResponseMessage)の仕様のうち、クライアント(ユーザーのデバイスまたはClovaアプリ)のためのメッセージ形式である[オーディオコンテンツ再生関連のCIC API](/CEK/References/CEK_API.md#CICAPIforAudioPlayback)を使用する必要があります。ユーザーにオーディオコンテンツを提供するには、次の内容をExtensionに実装する必要があります。以下は、その詳細についての説明です。  **特に、必須の実装項目は必ず実装してください。**
 
 * 必須
   * [オーディオコンテンツの再生を指示する](#DirectClientToPlayAudio)
@@ -38,7 +38,7 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
 
 ### オーディオコンテンツの再生を指示する {#DirectClientToPlayAudio}
 
-ユーザーから、音楽やまたは音楽のような形でオーディオコンテンツの再生をリクエストされたとき、そのオーディオコンテンツをクライアントに渡す必要があります。ユーザーからのオーディオコンテンツ再生のリクエストが[`IntentRequest`](/CEK/References/CEK_API.md#CustomExtIntentRequest)タイプのリクエストでCustom Extensionに渡され、Custom Extensionはその`IntentRequest`タイプのリクエストメッセージに対する[レスポンスメッセージ](/CEK/References/CEK_API.md#CustomExtResponseMessage)を返す必要があります。そのとき、そのメッセージにクライアントがオーディオコンテンツを再生するように指示する{{ "[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)" if book.L10N.TargetCountryCode == "KR" else "[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)" }}ディレクティブを含めます。
+ユーザーから、音楽、または音楽のような形でオーディオコンテンツの再生をリクエストされたとき、そのオーディオコンテンツをユーザーのクライアントに送信する必要があります。ユーザーからのオーディオコンテンツ再生のリクエストが[`IntentRequest`](/CEK/References/CEK_API.md#CustomExtIntentRequest)タイプのリクエストでCustom Extensionに渡され、Custom Extensionはその`IntentRequest`タイプのリクエストメッセージに対する[レスポンスメッセージ](/CEK/References/CEK_API.md#CustomExtResponseMessage)を返す必要があります。そのとき、そのメッセージにクライアントがオーディオコンテンツを再生するように指示する{{ "[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)" if book.L10N.TargetCountryCode == "KR" else "[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)" }}ディレクティブ(クライアントを制御するためのメッセージ、{{ "[CIC API](/CIC/References/CIC_API.md)" if book.L10N.TargetCountryCode == "KR" else "[`CIC API`](/CEK/References/CEK_API.md#CICAPIforAudioPlayback)" }})が含まれる必要があります。
 
 <div class="note">
   <p><strong>メモ</strong></p>
@@ -50,7 +50,8 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
   <p>再生指示に関連する内容は、オーディオコンテンツを提供するCustom Extensionの主要な機能で、必須の実装項目です。</p>
 </div>
 
-以下は、`AudioPlayer.Play`ディレクティブをCustom Extensionのレスポンスメッセージに含めたサンプルです。
+{{ "[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)" if book.L10N.TargetCountryCode == "KR" else "[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)" }}ディレクティブの仕様を確認し、クライアントに送信するオーディオの情報を、次のようにCustom Extensionのレスポンスメッセージに含める必要があります。持っているオーディオの情報や特徴によって、作成するフィールドとオーディオの情報が異なることがあります。
+
 ```json
 {
   "version": "0.1.0",
@@ -100,7 +101,7 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
 </div>
 
 ### オーディオコンテンツの再生をコントロールする {#ControlAudioPlayback}
-クライアントがオーディオを再生しているときに、ユーザーが「前」「次」などのように再生のコントロールに関連する発話を発した場合、ユーザーのリクエストが`IntentRequest`タイプのリクエストメッセージでCustom Extensionに送信されることがあります。現在、CEKはCustom Extensionで再生のコントロールに関連するユーザーのインテントを、以下のような[ビルトインインテント](/Design/Design_Guideline_For_Extension.md#BuiltinIntent)として渡すようになっています。
+ユーザーのクライアントがオーディオを再生しているときに、ユーザーが「前」「次」などのように再生制御に関連するフレーズを発した場合、ユーザーのリクエストが`IntentRequest`タイプのリクエストメッセージでCustom Extensionに送信されることがあります。現在、CEKはCustom Extensionで再生のコントロールに関連するユーザーのインテントを、以下のような[ビルトインインテント](/Design/Design_Guideline_For_Extension.md#BuiltinIntent)として渡すようになっています。
 
 * `Clova.NextIntent`
 * `Clova.PauseIntent`
@@ -113,7 +114,7 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
   <p>再生のコントロールに関連する内容は、必須の実装項目です。特に、<code>Clova.PauseIntent</code>と<code>Clova.StopIntent</code>ビルトインインテントに対応するアクションが実装されていないと、ユーザーにとって、サービスを「使いにくい」と感じる原因となります。</p>
 </div>
 
-ユーザーが「ちょっと止めて」「再生を再開して」「停止して」などのように発話した場合、Custom Extensionは再生の一時停止、再生再開、再生停止のリクエストに対応する必要があります。その際、クライアントはそれぞれのリクエストに対し、`Clova.PauseIntent`、`Clova.ResumeIntent`、`Clova.StopIntent`ビルトインインテントを`IntentRequest`タイプのリクエストメッセージで受け取ります。Custom Extensionは、それに対応して、それぞれ以下のディレクティブを[レスポンスメッセージ](/CEK/References/CEK_API.md#CustomExtResponseMessage)でCEKに送信する必要があります。
+ユーザーが「ちょっと止めて」「再生を再開して」「停止して」などのように発話した場合、Custom Extensionは再生の一時停止、再生再開、再生停止のリクエストに対応する必要があります。その際、クライアントはそれぞれのリクエストに対し、`Clova.PauseIntent`、`Clova.ResumeIntent`、`Clova.StopIntent`ビルトインインテントを`IntentRequest`タイプのリクエストメッセージで受け取ります。Custom Extensionは、それに対応して、それぞれ以下のディレクティブ(クライアントを制御するためのメッセージ、{{ "[CIC API](/CIC/References/CIC_API.md)" if book.L10N.TargetCountryCode == "KR" else "[`CIC API`](/CEK/References/CEK_API.md#CICAPIforAudioPlayback)" }})を[レスポンスメッセージ](/CEK/References/CEK_API.md#CustomExtResponseMessage)でCEKに送信する必要があります。
 
 {% if book.L10N.TargetCountryCode == "KR" %}
 * [`PlaybackController.Pause`](/CIC/References/CICInterface/PlaybackController.md#Pause)ディレクティブ：クライアントに、再生中のオーディオストリームを一時停止するように指示する
@@ -158,9 +159,9 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
 
 ### オーディオコンテンツのメタデータを提供する {#ProvidingMetaDataForDisplay}
 
-[オーディオコンテンツの再生を指示する](#DirectClientToPlayAudio){{ "[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)" if book.L10N.TargetCountryCode == "KR" else "[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)" }}ディレクティブには、タイトル、アルバム、歌詞などの情報は含まれていません。Custom Extensionは、クライアントからリクエストされると、そのようなメタデータを提供する必要があります。
+ユーザーのクライアントに[オーディオコンテンツの再生を指示する](#DirectClientToPlayAudio){{ "[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)" if book.L10N.TargetCountryCode == "KR" else "[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)" }}ディレクティブ(クライアントを制御するためのメッセージ、{{ "[CIC API](/CIC/References/CIC_API.md)" if book.L10N.TargetCountryCode == "KR" else "[`CIC API`](/CEK/References/CEK_API.md#CICAPIforAudioPlayback)" }})には、タイトル、アルバム、歌詞などの情報は含まれていません。ただし、ユーザーがClovaアプリまたは画面のあるクライアントデバイスを使用している場合には、Custom Extensionは、クライアントがそのような情報を表示できるようにメタデータを提供する必要があります。
 
-クライアントは、コンテンツの再生メタデータを取得するために、{{ "[`TemplateRuntime.RequestPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#RequestPlayerInfo)" if book.L10N.TargetCountryCode == "KR" else "[`TemplateRuntime.RequestPlayerInfo`](/CEK/References/CEK_API.md#RequestPlayerInfo)" }}イベントをClovaに送信します。そのとき、イベントの内容は[`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージで、以下のように送信されます。ちなみに、以下のサンプルは`eJyr5lIqSSyITy4tKs4vUrJSUE`トークンを持つコンテンツを基準に、次の10曲のメタデータをリクエストしたことを表しています。
+クライアントはオーディオコンテンツの再生メタデータを取得するために、{{ "[`TemplateRuntime.RequestPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#RequestPlayerInfo)" if book.L10N.TargetCountryCode == "KR" else "[`TemplateRuntime.RequestPlayerInfo`](/CEK/References/CEK_API.md#RequestPlayerInfo)" }}イベント(クライアントからのリクエストを渡すためのメッセージ、{{ "[CIC API](/CIC/References/CIC_API.md)" if book.L10N.TargetCountryCode == "KR" else "[`CIC API`](/CEK/References/CEK_API.md#CICAPIforAudioPlayback)" }})をClovaに送信します。そのとき、イベントの内容は[`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージで、以下のように送信されます。ちなみに、以下のサンプルは`eJyr5lIqSSyITy4tKs4vUrJSUE`トークンを持つコンテンツを基準に、次の10曲のメタデータをクライアントからリクエストしたことを表しています。
 
 ```json
 {
@@ -191,7 +192,7 @@ Custom Extensionで、ユーザーに音楽やポッドキャストなどのオ�
 }
 ```
 
-Custom Extensionは、レスポンスメッセージを使って、クライアントからリクエストされたコンテンツのメタデータを返す必要があります。{{ "[`TemplateRuntime.RenderPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#RenderPlayerInfo)" if book.L10N.TargetCountryCode == "KR" else "[`TemplateRuntime.RenderPlayerInfo`](/CEK/References/CEK_API.md#RenderPlayerInfo)" }}ディレクティブがレスポンスメッセージに含まれる必要があります。
+Custom Extensionは、レスポンスメッセージを使って、クライアントからリクエストされたコンテンツのメタデータを返す必要があります。以下のように{{ "[`TemplateRuntime.RenderPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#RenderPlayerInfo)" if book.L10N.TargetCountryCode == "KR" else "[`TemplateRuntime.RenderPlayerInfo`](/CEK/References/CEK_API.md#RenderPlayerInfo)" }}ディレクティブをレスポンスメッセージに含めて、メタデータを送信します。
 
 ```json
 {
@@ -297,7 +298,7 @@ Custom Extensionは、レスポンスメッセージを使って、クライア�
 ### 再生状態の変更および進行状況のレポートを収集する {#CollectPlaybackStatusAndProgress}
 
 {% if book.L10N.TargetCountryCode == "KR" %}
-[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)ディレクティブでオーディオを再生するクライアントは、再生が開始、一時停止、再開、終了するタイミングで、[`AudioPlayer.PlayStarted`](/CIC/References/CICInterface/AudioPlayer.md#PlayStarted)、[`AudioPlayer.PlayPaused`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)、[`AudioPlayer.PlayResumed`](/CIC/References/CICInterface/AudioPlayer.md#PlayResumed)、[`AudioPlayer.PlayStopped`](/CIC/References/CICInterface/AudioPlayer.md#PlayStopped)、[`AudioPlayer.PlayFinished`](/CIC/References/CICInterface/AudioPlayer.md#PlayFinished)のようなイベントをClovaに送信します。そのとき、Clovaはそのイベントの内容を[`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージでCustom Extensionに送信します。
+[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)ディレクティブ(クライアントを制御するためのメッセージ、[CIC API](/CIC/References/CIC_API.md))によってオーディオを再生するユーザーのクライアントは、再生を開始・一時停止・再開・停止・終了するタイミングで[`AudioPlayer.PlayStarted`](/CIC/References/CICInterface/AudioPlayer.md#PlayStarted)、[`AudioPlayer.PlayPaused`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)、[`AudioPlayer.PlayResumed`](/CIC/References/CICInterface/AudioPlayer.md#PlayResumed)、[`AudioPlayer.PlayStopped`](/CIC/References/CICInterface/AudioPlayer.md#PlayStopped)、[`AudioPlayer.PlayFinished`](/CIC/References/CICInterface/AudioPlayer.md#PlayFinished)のようなイベント(クライアントからのリクエストを渡すためのメッセージ、[CIC API](/CIC/References/CIC_API.md))をClovaに送信します。そのとき、Clovaはそのイベントの内容を[`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージでCustom Extensionに送信します。
 
 また、クライアントは[オーディオコンテンツを再生するように指示(`AudioPlayer.Play`)](#DirectClientToPlayAudio)を受けた後、`AudioPlayer.Play`ディレクティブの`progressReport`フィールドに定義されている設定に従って再生の進行状況をレポートします。その内容もまた、[`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージでCustom Extensionに送信されます。クライアントは、進行状況をレポートするために、以下のイベントを送信します。
 
@@ -305,7 +306,7 @@ Custom Extensionは、レスポンスメッセージを使って、クライア�
 * [`AudioPlayer.ProgressReportPositionPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportPositionPassed)イベント：オーディオコンテンツの特定の位置(オフセット)を再生するときに、進行状況をレポートする
 * [`AudioPlayer.ProgressReportIntervalPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportIntervalPassed)イベント：再生中に、特定の間隔で繰り返し進行状況をレポートする
 {% elif book.L10N.TargetCountryCode == "JP" %}
-[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)ディレクティブでオーディオを再生するクライアントは、再生が開始、一時停止、再開、終了するタイミングで、[`AudioPlayer.PlayStarted`](/CEK/References/CEK_API.md#PlayStarted)、[`AudioPlayer.PlayPaused`](/CEK/References/CEK_API.md#PlayPaused)、[`AudioPlayer.PlayResumed`](/CEK/References/CEK_API.md#PlayResumed)、[`AudioPlayer.PlayStopped`](/CEK/References/CEK_API.md#PlayStopped)、[`AudioPlayer.PlayFinished`](/CEK/References/CEK_API.md#PlayFinished)のようなイベントをClovaに送信します。そのとき、Clovaはそのイベントの内容を[`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージでCustom Extensionに送信します。
+[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)ディレクティブ(クライアントを制御するためのメッセージ、[`CIC API`](/CEK/References/CEK_API.md#CICAPIforAudioPlayback))によってオーディオを再生するユーザーのクライアントは、再生を開始・一時停止・再開・停止・終了するタイミングで[`AudioPlayer.PlayStarted`](/CEK/References/CEK_API.md#PlayStarted)、[`AudioPlayer.PlayPaused`](/CEK/References/CEK_API.md#PlayPaused)、[`AudioPlayer.PlayResumed`](/CEK/References/CEK_API.md#PlayResumed)、[`AudioPlayer.PlayStopped`](/CEK/References/CEK_API.md#PlayStopped)、[`AudioPlayer.PlayFinished`](/CEK/References/CEK_API.md#PlayFinished)のようなイベント(クライアントからのリクエストを渡すためのメッセージ、[`CIC API`](/CEK/References/CEK_API.md#CICAPIforAudioPlayback))をClovaに送信します。そのとき、Clovaはそのイベントの内容を[`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージでCustom Extensionに送信します。
 
 また、クライアントは[オーディオコンテンツを再生するように指示(`AudioPlayer.Play`)](#DirectClientToPlayAudio)を受けた後、`AudioPlayer.Play`ディレクティブの`progressReport`フィールドに定義されている設定に従って再生の進行状況をレポートします。その内容もまた、[`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージでCustom Extensionに送信されます。クライアントは、進行状況をレポートするために、以下のイベントを送信します。
 
@@ -381,7 +382,7 @@ Custom Extensionは、レスポンスメッセージを使って、クライア�
 
 ### セキュリティのためにオーディオコンテンツのURLを更新する {#UpdateAudioURLForSecurity}
 
-Custom Extensionがクライアントに[オーディオコンテンツの再生を指示する](#DirectClientToPlayAudio)とき、[レスポンスメッセージ](/CEK/References/CEK_API.md#CustomExtResponseMessage)に{{ "[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)" if book.L10N.TargetCountryCode == "KR" else "[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)" }}ディレクティブを含める必要があります。そのとき、`AudioPlayer.Play`ディレクティブの`audioItem.stream.url`フィールドにオーディオコンテンツを再生できるURLを設定して送信します。
+Custom Extensionがユーザーのクライアントに[オーディオコンテンツの再生を指示する](#DirectClientToPlayAudio)とき、[レスポンスメッセージ](/CEK/References/CEK_API.md#CustomExtResponseMessage)に{{ "[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)" if book.L10N.TargetCountryCode == "KR" else "[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)" }}ディレクティブ(クライアントを制御するためのメッセージ、{{ "[CIC API](/CIC/References/CIC_API.md)" if book.L10N.TargetCountryCode == "KR" else "[`CIC API`](/CEK/References/CEK_API.md#CICAPIforAudioPlayback)" }})を含める必要があります。そのとき、`AudioPlayer.Play`ディレクティブの`audioItem.stream.url`フィールドにオーディオコンテンツを再生できるURLを設定して送信します。
 
 ただし、サービスの提供元によっては、セキュリティ上の問題により、永久に有効なURLを含めることができないことがあります。例えば、そのURLがさらされた場合、コンテンツを盗み取るための攻撃が発生する可能性がある場合などが考えられます。そのため、大抵の場合、比較的短い有効期限を持つインスタンスURLを使用します。また、クライアントが`AudioPlayer.Play`ディレクティブを受信していても、より優先順位の高いタスクや、先に開始したタスク、またはネットワークの状況によって、オーディオコンテンツの再生開始が遅延することがあります。その場合、URLの有効期限が切れ、オーディオコンテンツを正常に再生できない可能性があります。
 
@@ -409,7 +410,7 @@ Custom Extensionがクライアントに[オーディオコンテンツの再生
 }
 ```
 
-後にクライアントが`AudioPlayer.Play`ディレクティブを処理するとき、`urlPlayable`フィールドが`false`に指定されていると、有効なオーディオコンテンツのURLを取得するために{{ "[`AudioPlayer.StreamRequested`](/CIC/References/CICInterface/AudioPlayer.md#StreamRequested)" if book.L10N.TargetCountryCode == "KR" else "[`AudioPlayer.StreamRequested`](/CEK/References/CEK_API.md#StreamRequested)" }}イベントをClovaに送信します。そのとき、イベントの内容は[`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージで、以下のように送信されます。
+後でクライアントが`AudioPlayer.Play`ディレクティブを処理するとき、`urlPlayable`フィールドが`false`に指定されていると、有効なオーディオコンテンツのURLを取得するために{{ "[`AudioPlayer.StreamRequested`](/CIC/References/CICInterface/AudioPlayer.md#StreamRequested)" if book.L10N.TargetCountryCode == "KR" else "[`AudioPlayer.StreamRequested`](/CEK/References/CEK_API.md#StreamRequested)" }}イベント(クライアントからのリクエストを渡すためのメッセージ、{{ "[CIC API](/CIC/References/CIC_API.md)" if book.L10N.TargetCountryCode == "KR" else "[`CIC API`](/CEK/References/CEK_API.md#CICAPIforAudioPlayback)" }})をClovaに送信します。そのとき、イベントの内容は[`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest)タイプのリクエストメッセージで、以下のように送信されます。
 
 ```json
 {
@@ -481,7 +482,7 @@ Custom Extensionは、そのタイミングで、再生できるオーディオ�
 
 ### 再生コントロールの動作方法を変更する {#CustomizePlaybackControl}
 
-オーディオコンテンツを提供するサービスやコンテンツの特性によって、再生の一時停止、再生再開、再生停止などの[再生コントロール](#ControlAudioPlayback)の動作を少し違った形で実装する必要があることがあります。例えば、リアルタイムのストリーミングコンテンツは、一時停止機能を適用できない可能性があります。その場合、ユーザーから`Clova.PauseIntent`[ビルトインインテント](/Design/Design_Guideline_For_Extension.md#BuiltinIntent)のリクエストがあっても、そのリクエストを処理できないと応答したり、または`Clova.StopIntent`のような対応を処理したりすることができます。`Clova.StopIntent`のような対応を処理する場合、[レスポンスメッセージ](/CEK/References/CEK_API.md#CustomExtResponseMessage)に{{ "[`PlaybackController.Pause`](/CIC/References/CICInterface/PlaybackController.md#Pause)" if book.L10N.TargetCountryCode == "KR" else "[`PlaybackController.Pause`](/CEK/References/CEK_API.md#Pause)" }}ディレクティブの代わりに{{ "[`PlaybackController.Stop`](/CIC/References/CICInterface/PlaybackController.md#Stop)" if book.L10N.TargetCountryCode == "KR" else "[`PlaybackController.Stop`](/CEK/References/CEK_API.md#Stop)" }}ディレクティブを応答として返すように実装することができます。
+オーディオコンテンツを提供するサービスやコンテンツの特性によって、再生の一時停止、再生再開、再生停止などの[再生コントロール](#ControlAudioPlayback)の動作を少し違った形で実装する必要があることがあります。例えば、リアルタイムのストリーミングコンテンツは、一時停止機能を適用できない可能性があります。その場合、ユーザーから`Clova.PauseIntent`[ビルトインインテント](/Design/Design_Guideline_For_Extension.md#BuiltinIntent)のリクエストがあっても、そのリクエストを処理できないと応答したり、または`Clova.StopIntent`のような対応を処理したりすることができます。`Clova.StopIntent`のような対応を処理する場合、[レスポンスメッセージ](/CEK/References/CEK_API.md#CustomExtResponseMessage)に{{ "[`PlaybackController.Pause`](/CIC/References/CICInterface/PlaybackController.md#Pause)" if book.L10N.TargetCountryCode == "KR" else "[`PlaybackController.Pause`](/CEK/References/CEK_API.md#Pause)" }}ディレクティブ(クライアントを制御するためのメッセージ、{{ "[CIC API](/CIC/References/CIC_API.md)" if book.L10N.TargetCountryCode == "KR" else "[`CIC API`](/CEK/References/CEK_API.md#CICAPIforAudioPlayback)" }})の代わりに{{ "[`PlaybackController.Stop`](/CIC/References/CICInterface/PlaybackController.md#Stop)" if book.L10N.TargetCountryCode == "KR" else "[`PlaybackController.Stop`](/CEK/References/CEK_API.md#Stop)" }}ディレクティブを応答として返すように実装することができます。
 
 <div class="note">
   <p><strong>メモ</strong></p>
