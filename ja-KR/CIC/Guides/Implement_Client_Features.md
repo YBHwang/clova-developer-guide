@@ -5,6 +5,8 @@ CICと連携したクライアントでユーザーが使用するサービス�
 
 * [ダイアログIDを管理し、作業を処理する](#ManageDialogueIDAndHandleTasks)
 * [委任されたユーザーのリクエストを処理する](#HandleDelegation)
+* [クライアントの動作制御を処理する](#HandleDeviceControl)
+* [クライアントのBluetooth制御を処理する](#HandleBluetoothControl)
 * [アラームを処理する](#HandleAlerts)
 * [オーディオ再生を処理する](#HandleAudioPlayback)
 * [設定情報を処理する](#HandleSettings)
@@ -18,6 +20,10 @@ CICと連携したクライアントでユーザーが使用するサービス�
 {% include "/CIC/Guides/ImplementClientFeatures/Manage_Dialogue_ID_And_Handle_Tasks.md" %}
 
 {% include "/CIC/Guides/ImplementClientFeatures/Handle_Delegation.md" %}
+
+{% include "/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md" %}
+
+{% include "/CIC/Guides/ImplementClientFeatures/Handle_Bluetooth_Control.md" %}
 
 {% include "/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md" %}
 
