@@ -20,7 +20,7 @@ Clovaは、[Custom Extension](/CEK/Guides/Build_Custom_Extension.md)、または
 ### アカウント連携を設定する {#SetupAccountLinking}
 ユーザーがアカウント認証の必要なCustom ExtensionまたはClova Home Extensionをアクティブにすると、次のようにアカウント連携の設定が開始されます。
 
-![](/CEK/Resources/Images/CEK_Account_Linking_Setup_Sequence_Diagram.png)
+![](/CEK/Resources/Images/CEK_Account_Linking_Setup_Sequence_Diagram.svg)
 
 1. ユーザーが特定のCustom ExtensionまたはClova Home Extensionを有効にします。
 
@@ -66,7 +66,7 @@ Clovaは、[Custom Extension](/CEK/Guides/Build_Custom_Extension.md)、または
 Extensionにアカウント連携を適用するには、ユーザーがアカウント認証を行うログインページと、認証後にアクセストークンを発行するサーバーを構築する必要があります。
 
 ユーザー認証のために提供するログインページは、次の項目を満足させる必要があります。
-* HTTPSプロトコルでページを提供します。
+* **HTTPSプロトコル**でページを提供する必要があります。そのとき、**443ポート**を使用しなければなりません。
 * モバイル用のページをサポートします。
 * ポップアップウィンドウを提供しません。
 * 認証が完了すると、リダイレクトURL(`redirect_uri`)に移動します。その際、認可コードをパラメータで送信する必要があります。
@@ -75,8 +75,8 @@ Extensionにアカウント連携を適用するには、ユーザーがアカ�
 
 ユーザーがアカウントを認証できるようにログインUIを提供するページのアドレスを**認証URL**と呼びます。認証URLは、Clova Developer Centerで[Extensionを登録する](/DevConsole/Guides/CEK/Register_Extension.md)ときに入力します。ユーザーがExtensionの[アカウント連携を使用するように設定](/DevConsole/Guides/CEK/Register_Extension.md#SetAccountLinking)する際、その**認証URL**が次のパラメータと一緒に呼び出されます。
 
-| パラメータ名   | 説明                                                                                                                                                                                                                                                                                             |
-|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| パラメータ名     | 説明                                                       |
+|----------------|-----------------------------------------------------------|
 | `state`         | 認証セッションの期限切れを確認するステータス値この値は5分後に期限切れとなるため、ユーザーが5分以内に認証を済まさない場合、再度認証を行う必要があります。                                                                                                                                                   |
 | `client_id`     | Clovaが外部サービスのアクセストークンを取得するために使用するID開発者は、Clova Developer Centerであらかじめ`cliend_id`を登録しておく必要があります。                                                                                                                                                     |
 | `response_type` | OAuth 2.0認可グラントタイプを定義したパラメータ。`"code"`タイプを使用します。Clova Developer Centerで指定します。現在、`"code"`タイプのみサポートしています。              |
@@ -106,17 +106,15 @@ Extensionにアカウント連携を適用するには、ユーザーがアカ�
 
 アカウント連携後にリダイレクトするURL(`redirect_uri`)に、次のパラメータを渡す必要があります。
 
-| パラメータ名  | 説明                                                                                                                                                      |
-|:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `vendorId`     | Extensionの開発者に発行されたID外部サービスまたは会社を区別するために、Clova Developer Centerに登録されているIDです。`redirect_uri`にあらかじめ含まれています。 |
+| パラメータ名     | 説明                                                       |
+|----------------|-----------------------------------------------------------|
 | `state`        | 認証セッションの期限切れを確認するステータス値**認証URL**から渡された`state`パラメータをそのまま入力します。                                |
 | `code`         | 認可コード`response_type`の値が`"code"`の場合、このパラメータに認可コードを入力します。                                                     |
 | `token_type`   | アクセストークンのタイプ`access_token`と一緒に渡される必要があります。`"Bearer"`で固定されます。                                                                        |
 
 次は、ユーザーのアカウント認証が完了してから移動されるリダイレクトURLの例です。
 
-<pre><code>{{ book.ServiceEnv.RedirectURLforAccountLinking }}?vendorId=YourServiceOrCompanyID
-                                &state=qwer123
+<pre><code>{{ book.ServiceEnv.RedirectURLforAccountLinking }}?&state=qwer123
                                 &code=nl__eCSTdsdlkjfweyuxXvnl
 </code></pre>
 
@@ -205,8 +203,8 @@ Clovaは、ユーザーアカウントを連携するために認可コードを
 ### アカウント連携情報を登録する {#RegisterAccountLinkingInfo}
 認可サーバーの構築とExtensionのアカウント連携が完了すると、[Clova Developer Center](/DevConsole/ClovaDevConsole_Overview.md)に、[認可サーバーを構築する](#BuildAuthServer)で説明されている情報を登録する必要があります。Clova Developer Centerに登録されているExtensionで、以下のような[アカウント連携情報を入力](/DevConsole/Guides/CEK/Register_Extension.md#SetAccountLinking)します。
 
-| フィールド名                    | 説明                                                                                                                                                                             |
-|:-----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| パラメーター     | 説明                                                       |
+|----------------|-----------------------------------------------------------|
 | 認証URL            | ユーザーが[アカウント認証](#SetupAccountLinking)のためにアクセスするURL                                                                                                                     |
 | Client ID                    | ユーザー[アカウント認証](#SetupAccountLinking)ページをリクエストする際に、サービスを識別するために付与したクライアントID                                                                          |
 | Authorization Grant Type     | OAuth 2.0の認可グラントタイプ。現在、Authorization code grantタイプのみサポートしています。 |

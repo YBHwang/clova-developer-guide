@@ -9,9 +9,9 @@
 	* **{{ book.DevConsole.cek_service_endpoint_url }}**：Clovaと通信するExtensionのREST APIサーバーです。外部からアクセスできるURLにする必要があります。
 		ステップ1でサンプルサイコロのソースコードを実行したサーバーのURLを入力します。
 
-		<div class="note">
-	    <p><strong>メモ</strong></p>
-	    <p>テスト段階ではHTTPも使用できますが、正式なサービスのためにはHTTPSを使用する必要があります。Extensionのサーバーは、HTTPで80ポート、HTTPSで443ポートに設定してください。</p>
+		<div class="danger">
+			<p><strong>注意</strong></p>
+			<p>テスト段階ではHTTPも使用できますが、正式なサービスのためにはHTTPSを使用する必要があります。Extensionのサーバーは、HTTPで80ポート、HTTPSで443ポートに設定してください。</p>
 		</div>
 
 	* **{{ book.DevConsole.cek_account_linking }}**：認可サーバー(OAuth 2.0)を介して、サードパーティサービスの会員情報と連携する場合にのみ使用されます。

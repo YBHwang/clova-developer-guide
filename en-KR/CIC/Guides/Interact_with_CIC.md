@@ -6,7 +6,7 @@ Follow the guide provided below to learn how to develop a client for Clova.
 1. [Prerequisites](#Preparation)
 2. [Connecting with CIC](#ConnectToCIC)
 3. [Sending events](#SendEvent)
-4. [Handling directives](#HandleDirective)
+4. [Handling directive messages](#HandleDirective)
 5. [Managing message queues](#ManageMessageQ)
 
 {% include "/CIC/Guides/InteractWithCIC/Preparation.md" %}

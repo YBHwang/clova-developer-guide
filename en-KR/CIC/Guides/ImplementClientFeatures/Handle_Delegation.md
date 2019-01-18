@@ -4,7 +4,7 @@ A user can delegate another client device of the user, that is not the Clova app
 
 Once the Clova app delegates handling of user request, the delegated client can receive directives through the downchannel at any time. Below is an explanation of the interaction structure for delegating a user request. **You must implement the action of the delegated client in the explanation for your client.**
 
-![](/CIC/Resources/Images/CIC_Handle_Event_Delegation.png)
+![](/CIC/Resources/Images/CIC_Handle_Event_Delegation.svg)
 
 <ol>
   <li>The Clova app requests delegation to another client device when sending the user request to CIC.</li>

@@ -13,7 +13,7 @@
 
 クライアントは、次のように動作する必要があります。
 
-![](/CIC/Resources/Images/CIC_Dialogue_ID_Creation.png)
+![](/CIC/Resources/Images/CIC_Dialogue_ID_Creation.svg)
 
 1. ユーザーが新しい対話を開始する度に、**新しいダイアログIDを作成**します(UUID形式をお勧めします）。
 2. [SpeechRecognizer.Recognize](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)イベントでユーザーのリクエストをCICに送信します。テキストのリクエストは、[TextRecognizer.Recognize](/CIC/References/CICInterface/TextRecognizer.md#Recognize)イベントを使用します。
@@ -34,7 +34,7 @@
 
 通常、CICは、リクエストに対する応答としてクライアントにディレクティブを送信します。そのディレクティブに、[クライアントが作成したダイアログID](#CreatingDialogueID)が含まれます。クライアントはダイアログIDから、CICから受信した結果が現在のリクエストに適切な応答かどうかを確認できます。クライアントは、ダイアログIDによって、以下のようにディレクティブを処理する必要があります。
 
-![](/CIC/Resources/Images/CIC_Handle_Directives_By_Dialogue_ID.png)
+![](/CIC/Resources/Images/CIC_Handle_Directives_By_Dialogue_ID.svg)
 
 最初に、クライアントはCICから受信した[ディレクティブのヘッダー」(/CIC/References/CIC_API.md#Directive)にダイアログIDが含まれているかを確認します。受信したディレクティブにダイアログIDが含まれている場合、**最終ダイアログID**と比較し、その結果によって以下のように処理します。
 

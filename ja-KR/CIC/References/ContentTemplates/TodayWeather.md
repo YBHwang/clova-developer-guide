@@ -23,6 +23,8 @@
 | `lastUpdate`                | [DateTimeObject](/CIC/References/ContentTemplates/Shared_Objects.md#DateTimeObject) | 天気情報の最終更新時間を持つオブジェクト。このオブジェクトの`value`フィールドは、空文字列(`""`)を持つ場合があります。 |
 | `location`                  | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | 地域の情報を持つオブジェクト |
 | `nowTemperature`            | [TemperatureCObject](/CIC/References/ContentTemplates/Shared_Objects.md#TemperatureCObject) | 現在の気温情報を持つオブジェクト |
+| `nowTemperatureImageCode`   | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | 現在の[天気コード](#WeatherCode)を持つオブジェクト   |
+| `nowTemperatureImageUrl`    | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | 現在の天気の画像ファイルのURLを持つオブジェクト |
 | `nowWeather`                | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | 現在の天気情報を持つオブジェクト  |
 | `referenceText`             | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | 参照したサービスの情報を持つオブジェクト。このオブジェクトの`value`フィールドは、空文字列(`""`)を持つ場合があります。  |
 | `referenceUrl`              | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | 参照したサービスの利用結果ページのURLを持つオブジェクト。このオブジェクトの`value`フィールドは、空文字列(`""`)を持つ場合があります。   |
@@ -95,7 +97,7 @@
       },
       "hourlyTime": {
         "type": "datetime",
-        "value": "20170727 0:00"
+        "value": "20170727 00:00"
       },
       "rainfallProbability": {
         "type": "percentage",
@@ -117,7 +119,7 @@
       },
       "hourlyTime": {
         "type": "datetime",
-        "value": "20170727 3:00"
+        "value": "20170727 03:00"
       },
       "rainfallProbability": {
         "type": "percentage",
@@ -139,7 +141,7 @@
       },
       "hourlyTime": {
         "type": "datetime",
-        "value": "20170727 6:00"
+        "value": "20170727 06:00"
       },
       "rainfallProbability": {
         "type": "percentage",
@@ -161,7 +163,7 @@
       },
       "hourlyTime": {
         "type": "datetime",
-        "value": "20170727 9:00"
+        "value": "20170727 09:00"
       },
       "rainfallProbability": {
         "type": "percentage",
@@ -272,6 +274,14 @@
   "nowTemperature": {
     "type": "temperature-c",
     "value": "31"
+  },
+  "nowTemperatureImageCode": {
+  "type": "string",
+  "value": "5"
+  },
+  "nowTemperatureImageUrl": {
+    "type": "url",
+    "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
   },
   "nowWeather": {
     "type": "string",

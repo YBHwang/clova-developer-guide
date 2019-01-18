@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="623.2318px" preserveAspectRatio="none" style="width:884px;height:623px;" version="1.1" viewBox="0 0 884 623" width="884.0628px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="268.8423" style="stroke: #000000; stroke-width: 0.8125577100646353;" width="8.1256" x="284.3952" y="330.1762"/><rect fill="#FFFFFF" height="54.4128" style="stroke: #000000; stroke-width: 0.8125577100646353;" width="8.1256" x="571.2281" y="125.9179"/><rect fill="#FFFFFF" height="309.8622" style="stroke: #000000; stroke-width: 0.8125577100646353;" width="8.1256" x="571.2281" y="289.1563"/><rect fill="#FFFFFF" height="418.6878" style="stroke: #000000; stroke-width: 0.8125577100646353;" width="8.1256" x="832.0591" y="180.3307"/><rect fill="#FFFFFF" height="352.8992" rx="4.0628" ry="4.0628" style="stroke: #000000; stroke-width: 1.6251154201292706;" width="863.7488" x="10.5633" y="192.519"/><rect fill="#FFFFFF" height="167.7218" style="stroke: none; stroke-width: 0.8125577100646353;" width="863.7488" x="10.5633" y="377.6965"/><line style="stroke: #000000; stroke-width: 0.8125577100646353; stroke-dasharray: 5.0,5.0;" x1="50.3786" x2="50.3786" y1="83.2729" y2="613.6445"/><line style="stroke: #000000; stroke-width: 0.8125577100646353; stroke-dasharray: 5.0,5.0;" x1="288.0517" x2="288.0517" y1="83.2729" y2="613.6445"/><line style="stroke: #000000; stroke-width: 0.8125577100646353; stroke-dasharray: 5.0,5.0;" x1="575.2909" x2="575.2909" y1="83.2729" y2="613.6445"/><line style="stroke: #000000; stroke-width: 0.8125577100646353; stroke-dasharray: 5.0,5.0;" x1="836.1219" x2="836.1219" y1="83.2729" y2="613.6445"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="9.7507" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="42.253" x="26.8144" y="73.0048">ユーザー</text><ellipse cx="50.3786" cy="10.5633" fill="#FEFECE" rx="6.5005" ry="6.5005" style="stroke: #000000; stroke-width: 1.6251154201292706;"/><path d="M50.3786,17.0637 L50.3786,39.0028 M39.8153,23.5642 L60.9418,23.5642 M50.3786,39.0028 L39.8153,51.1911 M50.3786,39.0028 L60.9418,51.1911 " fill="none" style="stroke: #000000; stroke-width: 1.6251154201292706;"/><rect fill="#9EA0CA" height="43.252" rx="4.0628" ry="4.0628" style="stroke: #FFFFFF; stroke-width: 1.2188365650969528;" width="132.4469" x="222.2345" y="39.2083"/><text fill="#FFFFFF" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="11.3758" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="104.8199" x="236.048" y="66.1473">Bluetoothデバイス</text><rect fill="#9EA0CA" height="43.252" rx="4.0628" ry="4.0628" style="stroke: #FFFFFF; stroke-width: 1.2188365650969528;" width="100.7572" x="524.9123" y="39.2083"/><text fill="#FFFFFF" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="11.3758" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="73.1302" x="538.7258" y="66.1473">クライアント</text><rect fill="#05D686" height="43.252" rx="4.0628" ry="4.0628" style="stroke: #FFFFFF; stroke-width: 1.2188365650969528;" width="60.1293" x="806.0572" y="39.2083"/><text fill="#FFFFFF" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="11.3758" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="32.5023" x="819.8707" y="66.1473">Clova</text><rect fill="#FFFFFF" height="268.8423" style="stroke: #000000; stroke-width: 0.8125577100646353;" width="8.1256" x="284.3952" y="330.1762"/><rect fill="#FFFFFF" height="54.4128" style="stroke: #000000; stroke-width: 0.8125577100646353;" width="8.1256" x="571.2281" y="125.9179"/><rect fill="#FFFFFF" height="309.8622" style="stroke: #000000; stroke-width: 0.8125577100646353;" width="8.1256" x="571.2281" y="289.1563"/><rect fill="#FFFFFF" height="418.6878" style="stroke: #000000; stroke-width: 0.8125577100646353;" width="8.1256" x="832.0591" y="180.3307"/><line style="stroke: #000000; stroke-width: 0.8125577100646353;" x1="569.603" x2="561.4774" y1="125.9179" y2="122.6676"/><line style="stroke: #000000; stroke-width: 0.8125577100646353;" x1="569.603" x2="561.4774" y1="125.9179" y2="129.1681"/><line style="stroke: #000000; stroke-width: 0.8125577100646353;" x1="50.3786" x2="570.4155" y1="125.9179" y2="125.9179"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="9.7507" lengthAdjust="spacingAndGlyphs" textLength="195.0139" x="213.2964" y="114.0247">オーディオを再生するようにリクエストする</text><line style="stroke: #000000; stroke-width: 0.8125577100646353;" x1="830.434" x2="822.3084" y1="180.3307" y2="177.0804"/><line style="stroke: #000000; stroke-width: 0.8125577100646353;" x1="830.434" x2="822.3084" y1="180.3307" y2="183.5809"/><line style="stroke: #000000; stroke-width: 0.8125577100646353;" x1="575.2909" x2="831.2465" y1="180.3307" y2="180.3307"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="9.7507" lengthAdjust="spacingAndGlyphs" textLength="134.072" x="636.639" y="155.0446">SpeechRecognizer.Recognize</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="9.7507" lengthAdjust="spacingAndGlyphs" textLength="87.7562" x="659.7969" y="168.4375">イベントを送信する</text><path d="M14.626,192.519 L74.7553,192.519 L74.7553,215.2707 L66.6297,223.3962 L10.5633,223.3962 L10.5633,196.5818 " fill="#EEEEEE" style="stroke: #000000; stroke-width: 0.8125577100646353;"/><rect fill="none" height="352.8992" rx="4.0628" ry="4.0628" style="stroke: #000000; stroke-width: 1.6251154201292706;" width="863.7488" x="10.5633" y="192.519"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="9.7507" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="11.3758" x="30.8772" y="212.7076">alt</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="9.7507" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="147.8855" x="95.0693" y="213.5202">[クライアントのロール == sink]</text><line style="stroke: #000000; stroke-width: 0.8125577100646353;" x1="579.3536" x2="587.4792" y1="289.1563" y2="285.906"/><line style="stroke: #000000; stroke-width: 0.8125577100646353;" x1="579.3536" x2="587.4792" y1="289.1563" y2="292.4065"/><line style="stroke: #000000; stroke-width: 0.8125577100646353;" x1="579.3536" x2="831.2465" y1="289.1563" y2="289.1563"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="9.7507" lengthAdjust="spacingAndGlyphs" textLength="92.6316" x="659.3906" y="263.8702">DeviceControl.BtPlay</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="9.7507" lengthAdjust="spacingAndGlyphs" textLength="117.0083" x="647.2022" y="277.2631">ディレクティブを送信する</text><polygon fill="#000000" points="561.4774,326.9259,569.603,330.1762,561.4774,333.4264,564.7276,330.1762" style="stroke: #000000; stroke-width: 0.8125577100646353;"/><line style="stroke: #000000; stroke-width: 0.8125577100646353;" x1="292.5208" x2="566.3527" y1="330.1762" y2="330.1762"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="9.7507" lengthAdjust="spacingAndGlyphs" textLength="247.0175" x="308.3657" y="318.283">Bluetoothデバイスからオーディオストリームを受信する</text><polygon fill="#000000" points="59.3167,367.9458,51.1911,371.196,59.3167,374.4463,56.0665,371.196" style="stroke: #000000; stroke-width: 0.8125577100646353;"/><line style="stroke: #000000; stroke-width: 0.8125577100646353;" x1="54.4414" x2="570.4155" y1="371.196" y2="371.196"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="9.7507" lengthAdjust="spacingAndGlyphs" textLength="156.0111" x="232.7978" y="359.3029">スピーカーでオーディオを再生する</text><line style="stroke: #000000; stroke-width: 0.8125577100646353; stroke-dasharray: 2.0,2.0;" x1="10.5633" x2="874.3121" y1="378.5091" y2="378.5091"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="9.7507" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="160.8864" x="22.7516" y="397.8851">[クライアントのロール == source]</text><polygon fill="#000000" points="588.2918,453.6278,580.1662,456.878,588.2918,460.1283,585.0416,456.878" style="stroke: #000000; stroke-width: 0.8125577100646353;"/><line style="stroke: #000000; stroke-width: 0.8125577100646353;" x1="583.4164" x2="831.2465" y1="456.878" y2="456.878"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="9.7507" lengthAdjust="spacingAndGlyphs" textLength="73.9428" x="668.735" y="431.5919">AudioPlayer.Play</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="9.7507" lengthAdjust="spacingAndGlyphs" textLength="117.0083" x="647.2022" y="444.9849">ディレクティブを送信する</text><polygon fill="#000000" points="301.4589,494.6477,293.3333,497.8979,301.4589,501.1481,298.2087,497.8979" style="stroke: #000000; stroke-width: 0.8125577100646353;"/><line style="stroke: #000000; stroke-width: 0.8125577100646353;" x1="296.5836" x2="570.4155" y1="497.8979" y2="497.8979"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="9.7507" lengthAdjust="spacingAndGlyphs" textLength="198.2641" x="332.7424" y="486.0047">Bluetoothスピーカーにオーディオを送信する</text><polygon fill="#000000" points="59.3167,535.6676,51.1911,538.9178,59.3167,542.168,56.0665,538.9178" style="stroke: #000000; stroke-width: 0.8125577100646353;"/><line style="stroke: #000000; stroke-width: 0.8125577100646353;" x1="54.4414" x2="283.5826" y1="538.9178" y2="538.9178"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="9.7507" lengthAdjust="spacingAndGlyphs" textLength="198.2641" x="68.2548" y="527.0246">Bluetoothスピーカーでオーディオを再生する</text><polygon fill="#000000" points="826.3712,595.7683,834.4968,599.0185,826.3712,602.2687,829.6214,599.0185" style="stroke: #000000; stroke-width: 0.8125577100646353;"/><line style="stroke: #000000; stroke-width: 0.8125577100646353; stroke-dasharray: 2.0,2.0;" x1="575.2909" x2="831.2465" y1="599.0185" y2="599.0185"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="9.7507" lengthAdjust="spacingAndGlyphs" textLength="214.5152" x="597.2299" y="573.7324">DeviceControl.ActionExecuted (with DeviceState)</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="9.7507" lengthAdjust="spacingAndGlyphs" textLength="87.7562" x="661.8283" y="587.1253">イベントを送信する</text><!--
+@startuml
+scale max 880 width
+skinparam sequenceMessageAlign center
+skinparam shadowing false
+skinparam roundcorner 10
+skinparam padding 10
+skinparam defaultFontSize 12
+skinparam defaultFontName "Malgun Gothic", sans-serif
+
+skinparam note {
+  BackgroundColor #9EA0CA
+  BorderColor #ffffff
+  FontColor #ffffff
+  FontSize 14
+  FontStyle bold
+}
+
+skinparam sequence {
+  ArrowColor #000000
+  ActorBorderColor #000000
+  ActorFontStyle Bolder
+
+
+  LifeLineBorderColor #000000
+  LifeLineBackgroundColor transparent
+  ParticipantBorderColor transparent
+  ParticipantFontSize 14
+  ParticipantFontColor #ffffff
+  ParticipantFontStyle bold
+
+  BoxBorderColor #000000
+  BoxFontColor #ffffff
+    BoxFontSize 14
+    BoxFontStyle bold
+}
+hide footbox
+
+skinparam activity {
+  BackgroundColor #9EA0CA
+  BarColor #ffffff
+  BorderColor #ffffff
+  DiamondBackgroundColor #05D686
+  DiamondBorderColor #ffffff
+  DiamondFontColor #ffffff
+  DiamondFontSize 14
+  DiamondFontStyle bold
+  FontColor #ffffff 
+  FontSize 14
+  FontStyle bold
+}
+
+actor ユーザー as user
+participant "Bluetoothデバイス" as device #9EA0CA
+participant クライアント as client #9EA0CA
+participant "Clova" as clova #05D686
+
+user ->> client : オーディオを再生するようにリクエストする
+activate client
+client ->> clova : SpeechRecognizer.Recognize\nイベントを送信する
+deactivate client
+activate clova
+alt クライアントのロール == sink
+  clova ->> client : DeviceControl.BtPlay\nディレクティブを送信する
+
+activate client
+
+	device -> client : Bluetoothデバイスからオーディオストリームを受信する
+  activate device
+    client -> user : スピーカーでオーディオを再生する
+else クライアントのロール == source
+        clova -> client : AudioPlayer.Play\nディレクティブを送信する
+        client -> device : Bluetoothスピーカーにオーディオを送信する
+    device -> user : Bluetoothスピーカーでオーディオを再生する
+end
+  client - -> clova : DeviceControl.ActionExecuted (with DeviceState) \nイベントを送信する
+deactivate client
+deactivate device
+deactivate clova
+
+@enduml
+
+PlantUML version 1.2018.12(Sun Oct 21 19:15:15 KST 2018)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_191-b12
+Operating System: Windows 10
+OS Version: 10.0
+Default Encoding: MS949
+Language: en
+Country: US
+--></g></svg>

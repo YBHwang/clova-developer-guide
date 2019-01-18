@@ -823,7 +823,7 @@ actions項目と関連する[インターフェース](/CEK/References/CEK_API.m
 |---------------|---------|-----------------------------|:-------------:|
 | `name`        | string            | デバイスのステータス情報や測定対象を示す任意の名前。ユーザーに応答する際、このフィールドに入力された値が音声で出力されます。 |  |
 | `value`       | numberまたはstring | ステータス値または測定値                                                                             |  |
-| `unit`        | string            | デバイスのステータス値または測定値の単位。`value`フィールドの型がstringの場合には省略され、numberの場合には次の値を持ちます。<ul><li><code>"celcius"</code>：摂氏温度</li><li><code>"percentage"</code>：パーセント</li></ul> | 任意 |
+| `unit`        | string            | デバイスのステータス値または測定値の単位。`value`フィールドの型がstringの場合には省略され、numberの場合には次の値を持ちます。<ul><li><code>"celsius"</code>：摂氏温度</li><li><code>"percentage"</code>：パーセント</li></ul> | 任意 |
 
 ### Object Example
 {% raw %}
@@ -1105,9 +1105,8 @@ PM10の情報を持っているオブジェクトです。デバイスが測定�
           <li><code>"auto"</code>：自動モード。主にエアコンで使用されるモードです。</li>
           <li><code>"cool"</code>：冷房モード。主にエアコンで使用されるモードです。</li>
           <li><code>"dehumidify"</code>：除湿モード。主にエアコンや除湿器のようなデバイスで使用されるモードです。</li>
-          {% if book.L10N.TargetCountryCode == "JP" %}
+          <li><code>"fan"</code>：送風モード。主にエアコンで使用されるモードです。</li>
           <li><code>"heat"</code>：暖房モード。主にエアコンで使用されるモードです。</li>
-          {% endif %}
           <li><code>"sleep"</code>：スリープモード。主にスマートハブのようなデバイスで使用されるモードです。</li>
         </ul>
       </td>

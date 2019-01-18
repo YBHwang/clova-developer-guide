@@ -26,7 +26,7 @@ For client and extension developers, Clova platform provides Clova Interface Con
       <td>
         <ul>
           <li><a href="/CIC/CIC_Overview.md#WhatisCIC">What is CIC?</a></li>
-          <li><a href="/CIC/CIC_Overview.md#DialogModel">Dialogue model</a></li>
+          <li><a href="/CIC/CIC_Overview.md#IndirectDialogue">Indirect dialogue structure</a></li>
         </ul>
       </td>
       <td>
@@ -56,9 +56,11 @@ For client and extension developers, Clova platform provides Clova Interface Con
           <li>Guide</li>
           <ul>
             <li><a href="/CIC/Guides/Interact_with_CIC.md">Interacting with CIC</a></li>
+            <li><a href="/CIC/Guides/Implement_Client_Features.md#ManageDialogueIDAndHandleTasks">Handling tasks and managing dialogue IDs</a></li>
             <li><a href="/CIC/Guides/Implement_Client_Features.md#HandleDelegation">Handling delegated user requests</a></li>
-            <li><a href="/CIC/Guides/Implement_Client_Features.md#HandleAlerts">Handling alarms</a></li>
+            <li><a href="/CIC/Guides/Implement_Client_Features.md#HandleAlerts">Handling alerts</a></li>
             <li><a href="/CIC/Guides/Implement_Client_Features.md#PlayAudioStream">Handling audio playback</a></li>
+            <li><a href="/CIC/Guides/Implement_Client_Features.md#HandleSettings">Handling settings</a></li>
           </ul>
           <li>Reference</li>
           <ul>
@@ -79,7 +81,12 @@ For client and extension developers, Clova platform provides Clova Interface Con
           </ul>
           <li>Guide</li>
           <ul>
-            <li><a href="/CEK/Guides/Build_Custom_Extension.md">Creating a custom extension</a></li>
+            <li><a href="/CEK/Guides/Build_Custom_Extension.md">Creating a custom extension</a>
+              <ul>
+                <li><a href="/CEK/Guides/Build_Custom_Extension.md#DoMultiturnDialog">Engaging in a multi-turn dialogues</a></li>
+                <li><a href="/CEK/Guides/Build_Custom_Extension.md#ProvideAudioContent">Providing audio content</a></li>
+              </ul>
+            </li>
             <li><a href="/CEK/Guides/Build_Clova_Home_Extension.md">Creating a Clova Home extension</a></li>
             <li><a href="/CEK/Guides/Link_User_Account.md">Linking user accounts</a></li>
             <li><a href="/DevConsole/Guides/CEK/Register_Extension.md">Registering an extension</a></li>

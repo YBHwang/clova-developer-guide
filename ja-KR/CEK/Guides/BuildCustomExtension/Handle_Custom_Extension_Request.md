@@ -1,11 +1,11 @@
 ## Custom Extensionリクエストを処理する {#HandleCustomExtensionRequest}
 Custom ExtensionはCEKから[Custom Extensionのメッセージ](/CEK/References/CEK_API.md#CustomExtMessage)形式のユーザーリクエストを受信します(HTTPリクエスト)。Custom Extensionは通常、次のようにリクエストを処理し、レスポンスする必要があります。
 
-![](/CEK/Resources/Images/CEK_Custom_Extension_Sequence_Diagram.png)
+![](/CEK/Resources/Images/CEK_Custom_Extension_Sequence_Diagram.svg)
 
 このようなユーザーのリクエストは一度で終わるリクエストの場合もありますが、次のように脈絡が維持される必要のあるマルチターン対話の場合もあります。
 
-![](/CEK/Resources/Images/CEK_Custom_Extension_Multi-turn_Sequence_Diagram.png)
+![](/CEK/Resources/Images/CEK_Custom_Extension_Multi-turn_Sequence_Diagram.svg)
 
 そのため、ユーザーのリクエストを3つのタイプに区分しています。Custom Extensionの開発者は、リクエストのタイプに応じて適切に処理する必要があります。
 3つのリクエストタイプと、各リクエストタイプのユーザーの発話パターンは次のとおりです。

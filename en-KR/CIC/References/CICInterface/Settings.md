@@ -10,37 +10,8 @@ The Settings namespace provides an interface to update or synchronize the client
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>See the <a href="#WorkFlow">interaction structure</a> for updating or synchronizing the settings information.</p>
+  <p>For more information on updating or synchronizing the settings, see <a href="/CIC/Guides/Implement_Client_Features.md#HandleSettings">Handling settings</a>.</p>
 </div>
-
-## Interaction structure {#WorkFlow}
-
-You must update or synchronize the settings information using Settings in the following situations:
-
-* When the user is looking up the client device settings information from the Clova app, **the settings information needs to be synchronized**.
-* When the user has **changed the device settings information from the Clova app**, you need to update the changes in the device settings information.
-* When the user has **changed the settings information directly** from the client device, you need to update the changes in the Clova app.
-
-The structure for updating or synchronizing the settings information using Settings is shown below.
-
-![](/CIC/Resources/Images/CIC_Settings_Work_Flow.png)
-
-Once CIC receives the request for **synchronizing the settings information** of the client device from the Clova app, CIC and the client device operates in the following order:
-
-1. CIC sends the `Settings.ExpectReport` directive to the client device.
-2. The client device must send the current settings information to CIC using the `Settings.Report` event.
-3. CIC sends the reported settings information to the Clova app.
-
-When the user has **changed the settings information of the client device** from the Clova app, CIC receives a request to update the device settings. Here, CIC and the client device operates in the following order:
-
-1. CIC sends the `Settings.Update` directive to the client device.
-2. The client device must send the changed settings information to CIC using the `Settings.Report` event.
-3. CIC sends the reported settings information to the Clova app.
-
-When the user has **changed the settings information directly** on the client device, the action of updating the settings information of the Clova app is performed as follows:
-
-1. The client device must send the settings information with changed settings to CIC using the `Settings.Report` event.
-2. CIC sends the reported settings information to the Clova app.
 
 ## ExpectReport directive {#ExpectReport}
 Instructs the client to report the current settings information. Upon receiving the directive, the client must send the [`Settings.Report`](#Report) event to CIC.
@@ -51,7 +22,7 @@ None
 
 ### Remarks
 
-* This directive is sent through a [downchannel](/CIC/Guides/Interact_with_CIC.md#CreateConnection), not as a response to an event.
+* This directive message is sent through a [downchannel](/CIC/Guides/Interact_with_CIC.md#CreateConnection), not as a response to an event message.
 
 ### Message example
 
@@ -70,6 +41,7 @@ None
 
 ### See also
 * [`Settings.Report`](#Report)
+* [Handling settings](/CIC/Guides/Implement_Client_Features.md#HandleSettings)
 
 ## Report event {#Report}
 The client reports the current settings information to CIC. If the [`Settings.ExpectReport`](#ExpectReport) directive is received from CIC, the client must send the `Settings.Report` event to CIC.
@@ -82,7 +54,7 @@ The client reports the current settings information to CIC. If the [`Settings.Ex
 
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
-| `configuration` | object | Object containing the settings information of the predefined client. All sub-fields of this object have a string type.<div class="note"><p><strong>Note!</strong></p><p>Contact the Clova partnership team to predefine the client settings information.</p></div> | Required   |
+| `configuration` | object | Object containing the predefined settings information of the client. All sub-fields of this object have a string type.<div class="note"><p><strong>Note!</strong></p><p>The settings information may be defined differently for each client. For any inquiries about predefining the client settings information, contact the Clova partnership team.</p></div> | Required   |
 
 ### Message example
 {% raw %}
@@ -118,6 +90,7 @@ The client reports the current settings information to CIC. If the [`Settings.Ex
 
 ### See also
 * [`Settings.ExpectReport`](#ExpectReport)
+* [Handling settings](/CIC/Guides/Implement_Client_Features.md#HandleSettings)
 
 ## Update directive {#Update}
 Instructs the client to apply the values saved to `payload` as the setting value.
@@ -126,11 +99,11 @@ Instructs the client to apply the values saved to `payload` as the setting value
 
 | Field name       | Data type    | Description                     | Included |
 |---------------|---------|-----------------------------|:---------:|
-| `configuration` | object | Object containing the settings information of the predefined client. All sub-fields of this object have a string type.<div class="note"><p><strong>Note!</strong></p><p>Contact the Clova partnership team to predefine the client settings information.</p></div> | Always   |
+| `configuration` | object | Object containing the predefined settings information of the client. All sub-fields of this object have a string type.<div class="note"><p><strong>Note!</strong></p><p>For any inquiries about predefining the client settings information, contact the Clova partnership team.</p></div> | Always   |
 
 ### Remarks
 
-* This directive is sent through a [downchannel](/CIC/Guides/Interact_with_CIC.md#CreateConnection), not as a response to an event.
+* This directive message is sent through a [downchannel](/CIC/Guides/Interact_with_CIC.md#CreateConnection), not as a response to an event message.
 
 ### Message example
 
@@ -159,3 +132,4 @@ Instructs the client to apply the values saved to `payload` as the setting value
 
 ### See also
 * [`Settings.Report`](#Report)
+* [Handling settings](/CIC/Guides/Implement_Client_Features.md#HandleSettings)

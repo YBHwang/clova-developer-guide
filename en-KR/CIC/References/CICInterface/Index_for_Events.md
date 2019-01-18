@@ -10,6 +10,7 @@
 | Alerts            | [`RequestSynchronizeAlert`](/CIC/References/CICInterface/Alerts.md#RequestSynchronizeAlert) | Reports to CIC that the client needs to synchronize the alarm information of the user stored in Clova cloud. |
 | Alerts            | [`SetAlertFailed`](/CIC/References/CICInterface/Alerts.md#SetAlertFailed)             | Reports to CIC that the client has failed to add or change the specified alarm. |
 | Alerts            | [`SetAlertSucceeded`](/CIC/References/CICInterface/Alerts.md#SetAlertSucceeded)       | Reports to CIC that the client has successfully added or changed the specified alarm. |
+| AudioPlayer       | [`PlaybackQueueCleared`](/CIC/References/CICInterface/AudioPlayer.md#PlaybackQueueCleared) | If the [`AudioPlayer.ClearQueue`](/CIC/References/CICInterface/AudioPlayer.md#ClearQueue) directive message is received from CIC, the client must send the `PlaybackQueueCleared` event message after initializing the playback queue.   |
 | AudioPlayer       | [`PlayFinished`](/CIC/References/CICInterface/AudioPlayer.md#PlayFinished) | Reports to CIC that the client has finished playback with the information on the audio stream.        |
 | AudioPlayer       | [`PlayPaused`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)     | Reports to CIC that the client has paused playback with the information on the audio stream.    |
 | AudioPlayer       | [`PlayResumed`](/CIC/References/CICInterface/AudioPlayer.md#PlayResumed)   | Reports to CIC that the client has resumed playback with the information on the audio stream.            |

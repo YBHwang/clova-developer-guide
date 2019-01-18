@@ -16,12 +16,56 @@
 <table>
   <thead>
     <tr>
-      <th style="width:10%">新しいバージョンのルール</th><th style="width:10%">以前のバージョンのルール</th><th style="width:15%">配布日時</th><th style="width:75%">変更履歴</th>
+      <th style="width:10%">バージョン</th><th style="width:15%">配布日時</th><th style="width:75%">履歴</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>v3.45.0</td><td>未適用</td><td>2018/11/30</td>
+      <td>v3.47.1</td><td>2019/01/07</td>
+      <td>
+        <ul>
+          <li>[Common] ドキュメントで使用されている一部のUMLダイアグラムのスタイルを統一</li>
+          <li>[Common] ドキュメント履歴のうち、一部の表記の誤りを訂正</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.47.0</td><td>2019/01/04</td>
+      <td>
+        <ul>
+          <li>[CIC] <a href=/CIC/Guides/Implement_Client_Features.md#HandleDeviceControl>クライアントの動作制御を処理する</a>ガイドドキュメントを追加</li>
+          <li>[CIC] <a href=/CIC/Guides/Implement_Client_Features.md#HandleBluetoothControl>クライアントのBluetooth制御を処理する</a>ガイドドキュメントを追加</li>
+          <li>[CIC] <a href="/CIC/References/CICInterface/AudioPlayer.md">AudioPlayer API</a>に、再生キューのクリアをレポートするための<a href="/CIC/References/CICInterface/AudioPlayer.md#PlaybackQueueCleared">AudioPlayer.PlaybackQueueCleared</a>イベントを追加</li>
+          <li>[CEK] Clova Home Extensionの仕様のうち、<a href="/ClovaHomeInterface/Shared_Objects.md#ModeInfoObject">ModeInfoObject</a>にAIRCONDITIONERタイプのデバイスのモードに暖房(heat)と送風(fan)を追加</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.46.0</td><td>2018/12/24</td>
+      <td>
+        <ul>
+          <li>[Design] <a href="/Design/Design_Guideline_For_Extension.html">Extensionデザインガイドライン</a>ドキュメントのオーディオコンテンツの再生タイプの説明のうち、サンプルのシナリオで誤りがあったディレクティブ名を訂正</li>
+          <li>[CIC] <a href=/CIC/Guides/Implement_Client_Features.md#HandleDeviceControl>クライアントの動作制御を処理する</a>ガイドドキュメントを追加</li>
+          <li>[CIC] <a href=/CIC/Guides/Implement_Client_Features.md#HandleBluetoothControl>クライアントのBluetooth制御を処理する</a>ガイドドキュメントを追加</li>
+          <li>[CIC] <a href="/CIC/References/ContentTemplates/TodayWeather.md">TodayWeather</a>テンプレートに、現在の天気に関するnowTemperatureImageCodeフィールドとnowTemperatureImageUrlフィールドを追加</li>
+          <li>[CIC] <a href="/CIC/References/ContentTemplates/TodayWeather.md">TodayWeather</a>テンプレートで、ドキュメントの誤りを訂正</li>
+          <li>[CEK] <a href="/CEK/Guides/Build_Custom_Extension.html#ProvideAudioContent">オーディオコンテンツを提供する</a>で、CIC仕様の説明を読者にわかりやすい表現に修正</li>
+          <li>[CEK] Clova Home Extensionの仕様で、一部の表記の誤りを訂正</li>
+          <li>[Common] <a href="/README.md">はじめに</a>ページに追加されたドキュメントのリンク先を追加</li>
+          <li>[Common] 一部のシーケンスダイアグラムで、表記に誤りがあったノード型を訂正</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.45.1</td><td>2018/12/22</td>
+      <td>
+        <ul>
+          <li>[CEK] <a href="/CEK/Guides/Link_User_Account.md">ユーザーアカウントを連携する</a>ガイドの<a href="/CEK/Guides/Link_User_Account.md#BuildAuthServer">認可サーバーを構築する</a>で、redirect_uriパラメータのうち、誤りがあったvendorIdフィールドを削除</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.45.0</td><td>2018/11/30</td>
       <td>
         <ul>
           <li>[CIC] 対話モデルの説明を<a href="/CIC/CIC_Overview.md#IndirectDialogue">間接対話</a>と<a href="/CIC/Guides/Implement_Client_Features.md#ManageDialogueIDAndHandleTasks">ダイアログIDを管理し、作業を処理する</a>に分け、内容を補充</li>
@@ -41,7 +85,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.44.0</td><td>未適用</td><td>2018/11/16</td>
+      <td>v3.44.0</td><td>2018/11/16</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/Guides/Implement_Client_Features.html">クライアントの機能を実装する</a>に、設定情報に関する<a href="/CIC/Guides/Implement_Client_Features.html#HandleSettings">設定情報を処理する</a>ガイドを追加</li>
@@ -49,7 +93,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.43.0</td><td>未適用</td><td>2018/11/09</td>
+      <td>v3.43.0</td><td>2018/11/09</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/Guides/Implement_Client_Features.html">クライアントの機能を実装する</a>にオーディオ再生および再生のコントロールに関連する<a href="/CIC/Guides/Implement_Client_Features.html#HandleAudioPlayback">オーディオ再生を処理する</a>ガイドを追加(以下の内容を含む)
@@ -71,7 +115,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.42.0</td><td>未適用</td><td>2018/10/20</td>
+      <td>v3.42.0</td><td>2018/10/20</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a>名前空間に、Bluetoothデバイスを再スキャンしたり、Bluetoothデバイスを削除する<a href="/CIC/References/CICInterface/DeviceControl.html#BtDelete">DeviceControl.BtDelete</a>と<a href="/CIC/References/CICInterface/DeviceControl.html#BtRescan">DeviceControl.BtRescan</a>ディレクティブを追加</li>
@@ -90,7 +134,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.41.0</td><td>未適用</td><td>2018/10/13</td>
+      <td>v3.41.0</td><td>2018/10/13</td>
       <td>
         <ul>
           <li>[CEK] Clova Home Extension APIに<a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetEstimateConsumptionRequest">GetEstimateConsumptionRequest</a>、<a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetEstimateConsumptionResponse">GetEstimateConsumptionResponse</a>を追加</li>
@@ -101,7 +145,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.40.1</td><td>未適用</td><td>2018/10/05</td>
+      <td>v3.40.1</td><td>2018/10/05</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CIC_API.html#Error">CICエラーメッセージ</a>の構造およびサンプルを実際の実装に合わせて訂正</li>
@@ -110,7 +154,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.40.0</td><td>未適用</td><td>2018/09/21</td>
+      <td>v3.40.0</td><td>2018/09/21</td>
       <td>
         <ul>
           <li>[CIC] コンテンツのMIMEタイプを表すために、<a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a> <a href="/CIC/References/CICInterface/AudioPlayer.html#AudioStreamInfoObject">AudioStreamInfoObject</a>のpayloadにformatフィールドを追加</li>
@@ -127,7 +171,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.39.0</td><td>未適用</td><td>2018/09/07</td>
+      <td>v3.39.0</td><td>2018/09/07</td>
       <td>
         <ul>
           <li>[Design] Extensionのデザインガイドラインの<a href="/Design/Design_Guideline_For_Extension.html#SupportedAudioCompressionFormat">プラットフォームでサポートされるオーディオ圧縮形式</a>に、オーディオコンテンツごとのオーディオ属性とラウドネスに関する推奨事項を追加</li>
@@ -137,7 +181,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.38.0</td><td>未適用</td><td>2018/08/29</td>
+      <td>v3.38.0</td><td>2018/08/29</td>
       <td>
         <ul>
           <li>[Design] <a href="/Design/Design_Guideline_For_Client_Hardware.html">クライアントデバイスのデザインガイドライン</a>で<a href="/Design/Design_Guideline_For_Client_Hardware.html#LightColor">ライトの色</a>のRGB値を変更</li>
@@ -149,7 +193,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.37.2</td><td>未適用</td><td>2018/08/24</td>
+      <td>v3.37.2</td><td>2018/08/24</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/Alerts.html#StopAlert">Alerts.StopAlert</a>ディレクティブのサンプルで誤りを訂正</li>
@@ -159,7 +203,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.37.1</td><td>未適用</td><td>2018/08/09</td>
+      <td>v3.37.1</td><td>2018/08/09</td>
       <td>
         <ul>
           <li>[CIC] 対話モデルの説明を補充</li>
@@ -168,7 +212,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.37.0</td><td>未適用</td><td>2018/07/23</td>
+      <td>v3.37.0</td><td>2018/07/23</td>
       <td>
         <ul>
           <li>[Design] <a href="/Design/Design_Guideline_For_Client_Hardware.html">クライアントデバイスのデザインガイドライン</a>の<a href="/Design/Design_Guideline_For_Client_Hardware.html#SoundEffect">効果音</a>のうち、Attending状態への遷移に対する効果音を更新</li>
@@ -180,7 +224,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.36.0</td><td>未適用</td><td>2018/07/09</td>
+      <td>v3.36.0</td><td>2018/07/09</td>
       <td>
         <ul>
           <li>[Design] Extensionの<a href="/Design/Design_Guideline_For_Extension.html#DefineInvocationName">名前を定義する</a>のガイドラインを追加</li>
@@ -190,7 +234,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.35.0</td><td>v4.6</td><td>2018/06/25</td>
+      <td>v3.35.0</td><td>2018/06/25</td>
       <td>
         <ul>
           <li>[Design] Extensionの<a href="/Design/Design_Guideline_For_Extension.html#DecideSoundOutputType">応答タイプ</a>のガイドラインを追加</li>
@@ -200,7 +244,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.34.2</td><td>v4.5</td><td>2018/06/17</td>
+      <td>v3.34.2</td><td>2018/06/17</td>
       <td>
         <ul>
           <li>[CIC] リアルタイム配信コンテンツを区別するために、<a href="/CIC/References/CICInterface/TemplateRuntime.html#RenderPlayerInfo">TemplateRuntime.RenderPlayerInfo</a>にisLiveフィールドを追加</li>
@@ -210,7 +254,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.34.1</td><td>v4.4</td><td>2018/05/28</td>
+      <td>v3.34.1</td><td>2018/05/28</td>
       <td>
         <ul>
           <li>[CEK] Clova Home Extension APIの<a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ConditionsNotMetError">ConditionsNotMetError</a>にstateフィールドを追加</li>
@@ -219,7 +263,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.34.0</td><td>v4.3</td><td>2018/05/21</td>
+      <td>v3.34.0</td><td>2018/05/21</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a>コンテキストオブジェクトの<a href="/CIC/References/Context_Objects.html#BluetoothInfoObject">BluetoothInfoObject</a>に抜け落ちの(btlist[].role)を追加</li>
@@ -228,7 +272,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.33.0</td><td>v4.2</td><td>2018/05/14</td>
+      <td>v3.33.0</td><td>2018-05-14</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/Clova.html#LaunchURI">LaunchURI</a>ディレクティブをDeviceControl名前空間から<a href="/CIC/References/CICInterface/Clova.html">Clova</a>名前空間に移動</li>
@@ -237,7 +281,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.32.0</td><td>v4.1</td><td>2018/05/07</td>
+      <td>v3.32.0</td><td>2018/05/07</td>
       <td>
         <ul>
           <li>[CIC] DeviceControl名前空間にLaunchURIディレクティブを追加</li>
@@ -246,7 +290,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.31.0</td><td>v4.0</td><td>2018/04/30</td>
+      <td>v3.31.0</td><td>2018/04/30</td>
       <td>
         <ul>
           <li>[CEK] Clova Home extension APIに<a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetOpenStateRequest">GetOpenStateRequest</a>、<a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetOpenStateResponse">GetOpenStateResponse</a>を追加</li>
@@ -254,7 +298,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.30.0</td><td>v3.9</td><td>2018/04/23</td>
+      <td>v3.30.0</td><td>2018/04/23</td>
       <td>
         <ul>
           <li>[CEK] Clova Home extension APIに<a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#ReleaseModeConfirmation">ReleaseModeConfirmation</a>、<a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#ReleaseModeRequest">ReleaseModeRequest</a>を追加</li>
@@ -262,7 +306,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.29.0</td><td>v3.8</td><td>2018/04/16</td>
+      <td>v3.29.0</td><td>2018/04/16</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a>イベントのwakeWordフィールドの説明およびAudio dataの説明を更新</li>
@@ -273,7 +317,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.28.1</td><td>v3.7</td><td>2018/04/09</td>
+      <td>v3.28.1</td><td>2018/04/09</td>
       <td>
         <ul>
           <li>[CIC] クライアントデバイスのデザインガイドラインで、<a href="Design/Design_Guideline_For_Client_Hardware.html#BootingScreen">起動画面</a>に関する説明およびサンプル画像を更新</li>
@@ -282,7 +326,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.28.0</td><td>v3.6</td><td>2018/04/02</td>
+      <td>v3.28.0</td><td>2018/04/02</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a>名前空間にメッセージ仕様を追加および一部のフィールドを更新
@@ -314,7 +358,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.27.0</td><td>v3.5</td><td>2018/03/19</td>
+      <td>v3.27.0</td><td>2018/03/19</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a>に<a href="/CIC/References/Context_Objects.html#SoundOutputInfoObject">SoundOutputInfoObject</a>を追加</li>
@@ -325,7 +369,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.26.0</td><td>v3.4</td><td>2018/03/05</td>
+      <td>v3.26.0</td><td>2018/03/05</td>
       <td>
         <ul>
           <li>[CIC] <a  href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a>イベントのinitiatorフィールドの説明を修正</li>
@@ -336,7 +380,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.25.0</td><td>v3.3</td><td>2018/02/26</td>
+      <td>v3.25.0</td><td>2018/02/26</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a>イベントのinitiatorフィールドにdeviceUUIDフィールドを追加</li>
@@ -346,7 +390,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.24.0</td><td>v3.2</td><td>2018/02/19</td>
+      <td>v3.24.0</td><td>2018/02/19</td>
       <td>
         <ul>
           <li>[CIC] ユーザーの呼び出しを正確に認識するため、<a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a>イベントにinitiatorフィールドを追加</li>
@@ -356,7 +400,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.23.0</td><td>v3.1</td><td>2018/02/05</td>
+      <td>v3.23.0</td><td>2018/02/05</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/AudioPlayer.html#AudioStreamInfoObject">AudioStreamInfoObject</a>のdurationInMillisecondsフィールドの説明を修正</li>
@@ -370,7 +414,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.22.0</td><td>v3.0</td><td>2018/01/29</td>
+      <td>v3.22.0</td><td>2018/01/29</td>
       <td>
         <ul>
           <li>[Design] <a href="/Design/Design_Guideline_For_Client_Hardware.html">クライアントデバイスのデザインガイドライン</a>に<a href="/Design/Design_Guideline_For_Client_Hardware.html#SoundEffect">リマインダーのための効果音</a>を追加</li>
@@ -384,7 +428,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.21.0</td><td>v2.9</td><td>2018/01/22</td>
+      <td>v3.21.0</td><td>2018/01/22</td>
       <td>
         <ul>
           <li>[Design] プラットフォームでサポートされる音声圧縮形式を<a href="/Design/Design_Guideline_For_Client_Hardware.html#SupportedAudioCompressionFormat">クライアントデバイスのデザインガイドライン</a>および<a href="/Design/Design_Guideline_For_Extension.html#SupportedAudioCompressionFormat">Extensionのデザインガイドライン</a>に追加</li>
@@ -395,7 +439,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.20.0</td><td>v2.8</td><td>2018/01/15</td>
+      <td>v3.20.0</td><td>2018/01/15</td>
       <td>
         <ul>
           <li>[Design] <a href="/Design/Design_Guideline_For_Client_Hardware.html">クライアントデバイスのデザインガイドライン</a>にアラーム、リマインダー、タイマーの照明効果および効果音のガイドラインの説明を追加</li>
@@ -403,7 +447,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.19.0</td><td>v2.7</td><td>2018/01/08</td>
+      <td>v3.19.0</td><td>2018/01/08</td>
       <td>
         <ul>
           <li>[Design] プラットフォームの実装状況に合わせて<a href="/Design/Design_Guideline_For_Extension.html#DefineInteractionModel">ビルトインインテント</a>の説明を修正</li>
@@ -418,7 +462,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.18.1</td><td>v2.6</td><td>2018/01/02</td>
+      <td>v3.18.1</td><td>2018/01/02</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CIC_API.html#EstablishDownchannel">ダウンチャネルを構成する</a>セクションに429エラーコードおよび関連説明を備考に追加</li>
@@ -428,7 +472,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.18.0</td><td>v2.5</td><td>2017/12/18</td>
+      <td>v3.18.0</td><td>2017/12/18</td>
       <td>
         <ul>
           <li>[Design] <a href="/DevConsole/Guides/CEK/Register_Interaction_Model.html">対話モデルを登録する</a>で<a href="/Design/Design_Guideline_For_Extension.html#DefineInteractionModel">対話モデルを定義する</a>セクションの内容を<a href="/Design/Design_Guideline_For_Extension.html">Extensionデザインガイドライン</a>ドキュメントに移動</li>
@@ -442,7 +486,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.17.0</td><td>v2.4</td><td>2017/12/11</td>
+      <td>v3.17.0</td><td>2017/12/11</td>
       <td>
         <ul>
           <li>[Design] <a href="/Design/Design_Guideline_For_Extension.html">Extensionのデザインガイドライン</a>を追加</li>
@@ -451,7 +495,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.16.0</td><td>v2.3</td><td>2017/12/04</td>
+      <td>v3.16.0</td><td>2017/12/04</td>
       <td>
         <ul>
           <li>[Design] <a href="/Design/Design_Guideline_For_Client_Hardware.html#AudioInterruptionRule">オーディオ再生のルール(audio interruption rule)</a>を<a href="/Design/Design_Guideline_For_Client_Hardware.html">クライアントデバイスのデザインガイドライン</a>に追加</li>
@@ -464,7 +508,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.15.0</td><td>v2.2</td><td>2017/11/20</td>
+      <td>v3.15.0</td><td>2017/11/20</td>
       <td>
         <ul>
           <li>[Design] <a href="/Design/Design_Guideline_For_Client_Hardware.html">クライアントデバイスのデザインガイドライン</a>を追加</li>
@@ -476,7 +520,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.14.0</td><td>v2.1</td><td>2017/11/13</td>
+      <td>v3.14.0</td><td>2017/11/13</td>
       <td>
         <ul>
           <li>[CIC] ボリュームのコントロールに関連するディレクティブ(<a href="/CIC/References/CICInterface/DeviceControl.html#Decrease">DeviceControl.Decrease</a>、<a href="/CIC/References/CICInterface/DeviceControl.html#Increase">DeviceControl.Increase</a>、<a href="/CIC/References/CICInterface/DeviceControl.html#SetValue">DeviceControl.SetValue</a>、<a href="/CIC/References/CICInterface/PlaybackController.html#Mute">PlaybackController.Mute</a>、<a href="/CIC/References/CICInterface/PlaybackController.html#Unmute">PlaybackController.Unmute</a>)の備考にUX関連内容を追加</li>
@@ -485,7 +529,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.13.0</td><td>v2.0</td><td>2017/11/06</td>
+      <td>v3.13.0</td><td>2017/11/06</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/SpeechRecognizer.html#KeepRecording">SpeechRecognizer.KeepRecording</a>ディレクティブを追加</li>
@@ -496,7 +540,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.12.0</td><td>v1.9</td><td>2017/10/30</td>
+      <td>v3.12.0</td><td>2017/10/30</td>
       <td>
         <ul>
           <li>[Dev.console] <a href="/DevConsole/ClovaDevConsole_Overview.html">Clova Developer Centerの概要</a>の説明を追加</li>
@@ -507,7 +551,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.11.0</td><td>v1.8</td><td>2017/10/23</td>
+      <td>v3.11.0</td><td>2017/10/23</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/ContentTemplates/Text.html">Text</a>テンプレートにemotionCodeフィールドとmotionCodeフィールドを追加</li>
@@ -518,7 +562,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.10.0</td><td>v1.7</td><td>2017/10/16</td>
+      <td>v3.10.0</td><td>2017/10/16</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/PlaybackController.html">PlaybackController</a>名前空間に<a href="/CIC/References/CICInterface/PlaybackController.html#Replay">Replay</a>ディレクティブを追加</li>
@@ -529,7 +573,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.9.0</td><td>v1.6</td><td>2017/10/02</td>
+      <td>v3.9.0</td><td>2017/10/02</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/Alerts.html">Alerts</a>名前空間およびアラーム関連インターフェースを追加</li>
@@ -544,7 +588,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.8.0</td><td>v1.5</td><td>2017/09/25</td>
+      <td>v3.8.0</td><td>2017/09/25</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/PlaybackController.html">PlaybackController API</a>にオーディオ再生コントロールのための<a href="/CIC/References/CICInterface/PlaybackController.html#NextCommandIssued">PlaybackController.NextCommandIssued</a>イベントと<a href="/CIC/References/CICInterface/PlaybackController.html#PreviousCommandIssued">PlaybackController.PreviousCommandIssued</a>イベントを追加</li>
@@ -556,7 +600,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.7.0</td><td>v1.4</td><td>2017/09/18</td>
+      <td>v3.7.0</td><td>2017/09/18</td>
       <td>
         <ul>
           <li>[CIC] DeviceControl APIに<a href="/CIC/References/CICInterface/DeviceControl.html#ExpectReportState">DeviceControl.ExpectReportState</a>ディレクティブ、<a href="/CIC/References/CICInterface/DeviceControl.html#ReportState">DeviceControl.ReportState</a>イベント、<a href="/CIC/References/CICInterface/DeviceControl.html#RequestStateSynchronization">DeviceControl.RequestStateSynchronization</a>イベントを追加およびDeviceControl.UpdateDeviceStateディレクティブを<a href="/CIC/References/CICInterface/DeviceControl.html#SynchronizeState">DeviceControl.SynchronizeState</a>に名前を変更</li>
@@ -570,7 +614,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.6.0</td><td>v1.3</td><td>2017/09/11</td>
+      <td>v3.6.0</td><td>2017/09/11</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/SpeechRecognizer.html#ExpectSpeech">SpeechRecognizer.ExpectSpeech</a>ディレクティブにexplicitフィールドを追加</li>
@@ -579,7 +623,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.5.0</td><td>v1.2</td><td>2017/09/04</td>
+      <td>v3.5.0</td><td>2017/09/04</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/Clova.html#Help">Clova.Help</a>ディレクティブを追加</li>
@@ -592,7 +636,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.4.0</td><td>v1.1</td><td>2017/08/28</td>
+      <td>v3.4.0</td><td>2017/08/28</td>
       <td>
         <ul>
           <li>[CIC] セットトップボックスのためのテレビチャンネル情報の仕様と電源状態情報の仕様を<a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a>と<a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl API</a>に追加</li>
@@ -604,7 +648,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.3.0</td><td>v1.0</td><td>2017/08/21</td>
+      <td>v3.3.0</td><td>2017/08/21</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/Guides/Interact_with_CIC.html#ManageConnection">アクセストークンを更新する</a>セクションを追加および/token APIの内容を更新</li>
@@ -612,7 +656,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.2.0</td><td>v0.9</td><td>2017/08/14</td>
+      <td>v3.2.0</td><td>2017/08/14</td>
       <td>
         <ul>
           <li>[CIC] 対話モデルの説明を追加</li>
@@ -623,7 +667,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.1.0</td><td>v0.8</td><td>2017/08/04</td>
+      <td>v3.1.0</td><td>2017/08/04</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/Clova.html#Hello">Clova.Hello</a>ディレクティブを追加</li>
@@ -637,7 +681,7 @@
       </td>
     </tr>
     <tr>
-      <td>v3.0.0</td><td>v0.7</td><td>2017/07/28</td>
+      <td>v3.0.0</td><td>2017/07/28</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a>のPlayNext、Stopを削除(<a href="/CIC/References/CICInterface/PlaybackController.html">PlaybackController</a>に併合)</li>
@@ -649,7 +693,7 @@
       </td>
     </tr>
     <tr>
-      <td>v2.2.1</td><td>v0.6</td><td>2017/07/14</td>
+      <td>v2.2.1</td><td>2017/07/14</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/CICInterface/AudioPlayer.html#AudioStreamInfoObject">AudioStreamInfoObject</a>オブジェクトのbeginAtInMillisecondsフィールドの内容を追加</li>
@@ -657,7 +701,7 @@
       </td>
     </tr>
     <tr>
-      <td>v2.2.0</td><td>v0.5</td><td>2017/07/07</td>
+      <td>v2.2.0</td><td>2017/07/07</td>
       <td>
         <ul>
           <li>[CEK] <a href="/CEK/References/CEK_API.html#CustomExtResponseMessage">Custom Extensionレスポンスメッセージ</a>の<a href="/CEK/References/CEK_API.html#CustomExtResponseMessage">outputSpeech</a>オブジェクト構成の更新を反映</li>
@@ -667,7 +711,7 @@
       </td>
     </tr>
     <tr>
-      <td>v2.1.0</td><td>v0.4</td><td>2017/07/03</td>
+      <td>v2.1.0</td><td>2017/07/03</td>
       <td>
         <ul>
           <li>[CEK] CEKドキュメントの画像を更新</li>
@@ -676,7 +720,7 @@
       </td>
     </tr>
     <tr>
-      <td>v2.0.0</td><td>v0.3</td><td>2017/06/19</td>
+      <td>v2.0.0</td><td>2017/06/19</td>
       <td>
         <ul>
           <li>[CEK] CEKのドキュメント部分を作成</li>
@@ -685,7 +729,7 @@
       </td>
     </tr>
     <tr>
-      <td>v1.1.0</td><td>v0.2</td><td>2017/06/08</td>
+      <td>v1.1.0</td><td>2017/06/08</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/Guides/Interact_with_CIC.html">CICと連携する</a>に<a href="/CIC/Guides/Interact_with_CIC.html#ManageConnection">接続を管理する</a>を追加(HTTP Ping)</li>
@@ -693,7 +737,7 @@
       </td>
     </tr>
     <tr>
-      <td>v1.0.0</td><td>v0.1</td><td>2017/05/29</td>
+      <td>v1.0.0</td><td>2017/05/29</td>
       <td>
         <ul>
           <li>[CIC] CICのドキュメント部分を作成</li>

@@ -8,7 +8,7 @@
 
 ユーザーがClovaアプリでクライアントデバイスの設定情報を照会するとき、Clovaアプリは、クライアントデバイスの最新の設定情報をユーザーに提供する必要があります。以下の図は、このような**設定情報の同期**の動作の流れを示しています。
 
-![](/CIC/Resources/Images/CIC_Settings_Synchronize_Settings_Info.png)
+![](/CIC/Resources/Images/CIC_Settings_Synchronize_Settings_Info.svg)
 
 設定情報を同期するとき、CICは、次のような[`Settings.ExpectReport`](/CIC/References/CICInterface/Settings.md#ExpectReport)ディレクティブをクライアントに送信します。
 
@@ -56,7 +56,7 @@
 
 ユーザーがクライアントデバイスの**設定をClovaアプリからリモートで変更**したとき、それをデバイスの設定に反映する必要があります。そのようなリモートでの設定変更は、以下のような動作の流れで実装されます。
 
-![](/CIC/Resources/Images/CIC_Settings_Change_Settings_Via_Clova_App.png)
+![](/CIC/Resources/Images/CIC_Settings_Change_Settings_Via_Clova_App.svg)
 
 ユーザーがClovaアプリからクライアントの設定をリモートで変更すると、CICは次のような[`Settings.Update`](/CIC/References/CICInterface/Settings.md#Update)ディレクティブをクライアントデバイスに送信します。
 
@@ -105,7 +105,7 @@
 
 ユーザーがクライアントデバイスで**設定を直接変更する**こともできます。その場合の動作の流れは、以下のとおりです。クライアントは、変更済みの設定情報を[`Settings.Report`](/CIC/References/CICInterface/Settings.md#Report)イベントでCICに送信する必要があります。
 
-![](/CIC/Resources/Images/CIC_Settings_Change_Settings_On_Device.png)
+![](/CIC/Resources/Images/CIC_Settings_Change_Settings_On_Device.svg)
 
 <div class="note">
   <p><strong>メモ</strong></p>

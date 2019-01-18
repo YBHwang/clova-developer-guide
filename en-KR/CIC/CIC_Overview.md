@@ -19,43 +19,28 @@ Through the CIC API, various communications are made between clients and CIC in 
 
 The following sequence diagram shows how messages are sent back and forth between CIC and a client.
 
-![](/CIC/Resources/Images/CIC_Interaction_Example_in_Sequence_Diagram.png)
+![](/CIC/Resources/Images/CIC_Interaction_Example_in_Sequence_Diagram.svg)
 
-## Dialogue model {#DialogModel}
-This section covers the following topics to provide an understanding of the CIC dialogue model:
 
-* [Indirect dialogue structure](#IndirectDialog)
 * [Dialogue ID and client behavior](#DialogIDandClientOP)
 
-### Indirect dialogue structure {#IndirectDialog}
+### Indirect dialogue structure {#IndirectDialogue}
 Users can have a series of dialogues with Clova. In general, users make requests to Clova to get information or to perform certain actions. Clova returns requested information or performs the requested action. Such dialogues between users and Clova are relayed by clients and CIC.
 
-Dialogues between users and Clova usually proceed as followings:
+![](/CIC/Resources/Images/CIC_Structure_Of_Indirect_Dialogue.png)
+
+Dialogues between users and Clova usually proceed as follows:
 
 1. A user starts to speak to Clova.
 2. The client records the user speech and sends the recording to CIC.
-3. CIC returns result to the client. The client delivers the result to the user through synthesized speech or display.
+3. CIC receives the user request from the client and sends the result of Clova handling the request back to the client.
+4. CIC returns result to the client. The client delivers the result to the user through synthesized speech or display.
 
-Having CIC and a client in between, dialogues between users and Clova are rather indirect and have the following limitations:
+Having CIC and a client in between, dialogues between users and Clova are indirect and have the following limitations:
 
-* Delivering requests and receiving responses take more time compared to direct dialogues.
+* Delivering requests and receiving responses take longer than direct dialogues.
 * Response is not immediate when new requests are made or new dialogues are initiated by users.
 
-Suppose a user asks Clova, "How's the weather today?" But before Clova responds or while Clova is responding, the user makes another request: "Play some upbeat music." At this time, the user will probably no longer want a response to "How's the weather today?" Had the dialogue been direct, you would simply ignore the weather information returned. However, since dialogues are relayed by a client to Clova, the client must recognize the dialogue status and take appropriate actions to provide what user wants.
+Suppose that a user asks Clova, "How's the weather today?" and then immediately proceeds to make the request, "Play some upbeat music." before Clova responds or while Clova is in the process of responding to the previous request. In this case, the user probably no longer wants a response to "How's the weather today?"
 
-### Dialogue ID and client action {#DialogIDandClientOP}
-
-To overcome the restrictions of indirect dialogues, we use a **dialogue ID**. To identify individual user request, a **dialogue ID** is created every time a user starts speaking to Clova. Keep a copy of the dialogue ID of the latest user request sent to CIC. Update the latest dialogue ID every time you send a user request to CIC.
-
-A directive, returned from CIC as a response to the user request, contains a dialogue ID. This dialogue ID is identical to the one that had been embedded in the user request. In short, dialogue IDs help you identify whether the Clova response corresponds to the latest user request or not. To use dialogue IDs:
-
-1. Create a **new dialogue ID** every time a user initiates a dialogue.
-  * For voice utterances, use the [SpeechRecognizer.Recognize](/CIC/References/CICInterface/SpeechRecognizer.md) event to send the user request to CIC. For text commands, use the [TextRecognizer.Recognize](/CIC/References/CICInterface/TextRecognizer.md) event.
-  * Here, the client must include the newly created dialogue ID in the [header of the event](/CIC/References/CIC_API.md#Event) and save this ID as the **latest dialogue ID**.
-2. Upon receiving a directive from CIC, the client must compare the dialogue ID included in the [header of the directive](/CIC/References/CIC_API.md#Directive) and the latest saved dialogue ID.
-  * **If the directive does not contain a dialogue ID**, **immediately** send the relevant result that corresponds to the received directive to the user.
-  * If the directive contains a dialogue ID and **if the compared dialogue IDs match**, add the received message to the [message queue](/CIC/Guides/Interact_with_CIC.md#ManageMessageQ) and send the relevant information to the user when its turn comes.
-  * If the directive contains a dialogue ID and **if the compared dialogue IDs do not match**, discard the received directive.
-  * In order to handle a received directive containing a new dialogue ID, the client must be able to perform the following:
-    * If the directive contains the old dialogue ID, the client may have to immediately stop providing the details of the directive to the user.
-    * See [Rules for basic audio playback](/Design/Design_Guideline_For_Client_Hardware.md#AudioInterruptionRule) or the [Audio playback rules for user utterances](/Design/Design_Guideline_For_Client_Hardware.md#AudioInterruptionRuleForUserUtterance).and discard all directives containing old dialogue IDs from the message queue. For this, the client must always check the dialogue ID of directives in the message queue.
+Had the dialogue been direct, you would simply ignore the weather information returned. However, since dialogues are relayed by a client to Clova, the client must recognize the dialogue status and take appropriate actions to provide what user wants. For this, the client must use a dialogue ID when [creating dialogue IDs and handling tasks](/CIC/Guides/Implement_Client_Features.md#ManageDialogueIDAndHandleTasks).

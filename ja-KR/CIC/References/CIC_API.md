@@ -162,8 +162,8 @@ CICは、HTTPレスポンスでクライアントに[Clova.Hello](/CIC/Reference
 
 ### Status codes
 
-| ステータスコード       | 説明                     |
-|---------------|-------------------------|
+| ステータスコード       | 説明                                  |
+|---------------|--------------------------------------|
 | 200 OK                    | ダウンチャネルが正常に接続および設定されたことを示します。これにより、CICで開始される(Cloud-initiated)ディレクティブを受信することができます。        |
 | 400 Bad Request           | リクエストに誤りがあったことを示します。                                                                       |
 | 401 Unauthorized          | ユーザー認証に失敗したことを示します。[ユーザー認証](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken)を再度行う必要があります。                       |
@@ -349,8 +349,8 @@ CICはHTTPレスポンスで、クライアントに動作を実行するよう�
 
 ### Status codes
 
-| ステータスコード       | 説明                     |
-|---------------|-------------------------|
+| ステータスコード       | 説明                                  |
+|---------------|--------------------------------------|
 | 200 OK                    | クライアントから送信したイベントがCICで正常に受信され、レスポンスにクライアントが実行するディレクティブが1つ以上含まれていることを示します。 |
 | 204 No Content            | クライアントから送信したイベントがCICで正常に受信され、レスポンスにクライアントが実行するディレクティブが含まれていないことを示します。                    |
 | 400 Bad Request           | イベントに誤りがあったことを示します。                                                  |
@@ -482,14 +482,14 @@ CIC APIで使用されるメッセージは、次のようなものがあり、�
 
 | フィールド名       | データ型    | 説明                     | 必須/任意 |
 |---------------|---------|-----------------------------|:---------:|
-| `context[]`                      | object array | CICに送るクライアントのステータス情報を持つオブジェクト。次のような[コンテキスト](/CIC/References/Context_Objects.md)オブジェクトをこの配列の要素として含めることができます。状況に応じて、必要なコンテキストをイベントに含めます。<ul><li><a href="/CIC/References/Context_Objects.html#AlertsState"><code>Alerts.AlertsState</code></a>：アラームまたはタイマーのステータス情報</li><li><a href="/CIC/References/Context_Objects.html#PlaybackState"><code>AudioPlayer.PlaybackState</code></a>：最近の再生情報</li><li><a href="/CIC/References/Context_Objects.html#DeviceState"><code>Device.DeviceState</code></a>：クライアントのデバイス情報</li><li><a href="/CIC/References/Context_Objects.html#Display"><code>Device.Display</code></a>：クライアントのディスプレイ情報</li><li><a href="/CIC/References/Context_Objects.html#Location"><code>Clova.Location</code></a>：クライアントの位置情報</li><li><a href="/CIC/References/Context_Objects.html#SavedPlace"><code>Clova.SavedPlace</code></a>：事前定義された位置情報</li><li><a href="/CIC/References/Context_Objects.html#VolumeState"><code>Speaker.VolumeState</code></a>：スピーカーの情報</li></ul> | 必須 |
-| `event`                        | object       | イベントのヘッダーと必要なデータ(payload)を持つオブジェクト                                                                 | 必須 |
-| `event.header`                 | object       | イベントのヘッダー                                                                                                 | 必須 |
+| `context[]`                      | object array | CICに送るクライアントのステータス情報を持つオブジェクト。次のような[コンテキスト](/CIC/References/Context_Objects.md)オブジェクトをこの配列の要素として含めることができます。状況に応じて、必要なコンテキストをイベントに含めます。<ul><li><a href="/CIC/References/Context_Objects.html#AlertsState"><code>Alerts.AlertsState</code></a>：アラームまたはタイマーのステータス情報</li><li><a href="/CIC/References/Context_Objects.html#PlaybackState"><code>AudioPlayer.PlaybackState</code></a>：最近の再生情報</li><li><a href="/CIC/References/Context_Objects.html#DeviceState"><code>Device.DeviceState</code></a>：クライアントのデバイス情報</li><li><a href="/CIC/References/Context_Objects.html#Display"><code>Device.Display</code></a>：クライアントのディスプレイ情報</li><li><a href="/CIC/References/Context_Objects.html#Location"><code>Clova.Location</code></a>：クライアントの位置情報</li><li><a href="/CIC/References/Context_Objects.html#SavedPlace"><code>Clova.SavedPlace</code></a>：事前定義された位置情報</li><li><a href="/CIC/References/Context_Objects.html#VolumeState"><code>Speaker.VolumeState</code></a>：スピーカーの情報</li></ul> |  |
+| `event`                        | object       | イベントのヘッダーと必要なデータ(payload)を持つオブジェクト                                                                 |  |
+| `event.header`                 | object       | イベントのヘッダー                                                                                                 |  |
 | `event.header.dialogRequestId` | string       | ダイアログID(Dialog ID)。クライアントは、[`SpeechRecognizer.Regcognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)と[`TextRecognizer.Recognize`](/CIC/References/CICInterface/TextRecognizer.md#Recognize)イベントを送信するとき、必ず[ダイアログIDを作成](/CIC/Guides/Implement_Client_Features.md#CreatingDialogueID)してこのフィールドに入力する必要があります。|任意 |
-| `event.header.messageId`       | string       | メッセージID。メッセージを区別するための識別子です。                                                                 | 必須 |
-| `event.header.name`            | string       | イベントのAPI名                                                                                             | 必須 |
-| `event.header.namespace`       | string       | イベントのAPI名前空間                                                                                       | 必須 |
-| `event.payload`                | object       | イベントに関連する情報を持つオブジェクト。使用されている[CICメッセージインターフェース](#CICInterface)によって、ペイロードの構成とフィールド値が異なります。 | 必須 |
+| `event.header.messageId`       | string       | メッセージID。メッセージを区別するための識別子です。                                                                 |  |
+| `event.header.name`            | string       | イベントのAPI名                                                                                             |  |
+| `event.header.namespace`       | string       | イベントのAPI名前空間                                                                                       |  |
+| `event.payload`                | object       | イベントに関連する情報を持つオブジェクト。使用されている[CICメッセージインターフェース](#CICInterface)によって、ペイロードの構成とフィールド値が異なります。 |  |
 
 #### Message example
 {% raw %}
@@ -696,7 +696,7 @@ CIC APIで使用されるメッセージは、次のようなものがあり、�
 
 ## インターフェース {#CICInterface}
 
-CICメッセージはその機能と用途ごとに、それぞれ別のインターフェースとして定義され、提供されています。各インターフェースは名前空間で分けられています。クライアントは、CICに送信するイベントを作成したり、CICから受信したディレクティブを解析する際、このインターフェースを使用する必要があります。
+CICメッセージはその機能と用途ごとに、それぞれ別のインターフェースとして定義され、各インターフェースは名前空間で分けられています。クライアントは、CICに送信するイベントを作成したり、CICから受信したディレクティブを解析する際、このインターフェースを使用する必要があります。
 
 次のような名前空間が提供されています。リンクはその名前空間に属するインターフェースについて詳しく説明しています。
 

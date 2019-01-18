@@ -9,9 +9,9 @@ The main items are as follows:
 	* **{{ book.DevConsole.cek_service_endpoint_url }}**: The REST API server of the extension to communicate with Clova. It must be a publicly accessible URL.
 		In Step 1, enter the URL of the server that executed the Sample Dice code.
 
-		<div class="note">
-	    <p><strong>Note!</strong></p>
-	    <p>An HTTP connection can be used for testing, but an HTTPS connection is required for the official service. The extension server must use ports 80 and 443 for HTTP and HTTPS connection respectively.</p>
+		<div class="danger">
+			<p><strong>Caution!</strong></p>
+			<p>An HTTP connection can be used for testing but an HTTPS connection is required for the official service. The extension server must use ports 80 and 443 for HTTP and HTTPS connections respectively.</p>
 		</div>
 
 	* **{{ book.DevConsole.cek_account_linking }}**: Only use when connecting with the membership information of a third-party using an authorization server (based on OAuth 2.0).

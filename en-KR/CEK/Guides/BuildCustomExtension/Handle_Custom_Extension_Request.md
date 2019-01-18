@@ -1,11 +1,11 @@
 ## Handling a custom extension request {#HandleCustomExtensionRequest}
 The custom extension receives user requests in the format of [custom extension messages](/CEK/References/CEK_API.md#CustomExtMessage) from CEK (HTTP request). The customer extension must typically handle and respond as shown below.
 
-![](/CEK/Resources/Images/CEK_Custom_Extension_Sequence_Diagram.png)
+![](/CEK/Resources/Images/CEK_Custom_Extension_Sequence_Diagram.svg)
 
 A user request, like in this example, may be a single-turn dialogue, but it can also be a multi-turn dialogue that needs to maintain the context of a conversation.
 
-![](/CEK/Resources/Images/CEK_Custom_Extension_Multi-turn_Sequence_Diagram.png)
+![](/CEK/Resources/Images/CEK_Custom_Extension_Multi-turn_Sequence_Diagram.svg)
 
 User requests for multi-turn dialogues are classified into three types. A custom extension developer must design the code to handle jobs corresponding to the message.
 The three types of requests and the user utterance patterns for each request type are as follows:

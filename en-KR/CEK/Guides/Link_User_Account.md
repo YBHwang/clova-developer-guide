@@ -20,7 +20,7 @@ Before applying account linking to the extension, you must first understand how 
 ### Setting up account linking {#SetupAccountLinking}
 When a user enables a custom extension or Clova Home extension that requires authentication, the account linking setup is performed as follows:
 
-![](/CEK/Resources/Images/CEK_Account_Linking_Setup_Sequence_Diagram.png)
+![](/CEK/Resources/Images/CEK_Account_Linking_Setup_Sequence_Diagram.svg)
 
 1. The user enables a custom extension or Clova Home extension.
 
@@ -66,17 +66,17 @@ To apply account linking to the extension under development, complete the follow
 To apply account linking to an extension, there must be a login page for the user to authenticate their account and also a server to issue an access token once authentication is complete.
 
 The login page for user authentication must meet the following requirements:
-* The page must be provided using the HTTPS protocol.
+* The page must be provided using the **HTTPS protocol** and **port 443** must be used at this time.
 * The page must support mobile browsing.
 * The page must not contain pop-up windows.
-* The page must move to the redirect URL(`redirect_uri`) once authentication is complete. At this time, the authorization code must be sent as a parameter.
-* The page must continue sending the `state` parameter to the redirect URL(`redirect_uri`).
+* The page must move to the redirect URL (`redirect_uri`) once authentication is complete. At this time, the authorization code must be sent as a parameter.
+* The page must continue sending the `state` parameter to the redirect URL (`redirect_uri`).
 
 
 The URL of the page providing the login UI for user account authentication is referred to as the **Authorization URL** and it must be entered when [registering the extension](/DevConsole/Guides/CEK/Register_Extension.md) on the Clova developer console. When a user [sets up account linking](/DevConsole/Guides/CEK/Register_Extension.md#SetAccountLinking) for the extension, **Authorization URL** is called along with the following parameters:
 
-| Parameter name   | Description                                                                                                                                                                                                                                                                                             |
-|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Parameter name     | Description                                                       |
+|----------------|-----------------------------------------------------------|
 | `state`         | State value used to check whether the authentication session has expired. This value expires after 5 minutes, so the user must re-authenticate once the session expires.                                                                                                                                                   |
 | `client_id`     | The ID used by Clova to get the access token for the third-party service. You must register `cliend_id` in advance on the Clova developer console.                                                                                                                                                     |
 | `response_type` | Parameter that has a defined OAuth 2.0 authorization type. Use the `"code"` type. You can specify the type on the Clova developer console. Currently, only `"code"` type is supported.              |
@@ -106,17 +106,15 @@ The <p><code>redirect_uri</code> can be found on the <a href="/DevConsole/Guides
 
 The URL to move after authentication (`redirect_uri`) must deliver the following parameters:
 
-| Parameter name  | Description                                                                                                                                                      |
-|:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `vendorId`     | The ID assigned to the extension developer. This is an ID registered in the Clova developer console to differentiate a company or a third-party service. It is included in `redirect_uri` in advance. |
+| Parameter name     | Description                                                       |
+|----------------|-----------------------------------------------------------|
 | `state`        | State value used to check whether the authentication session has expired. Enter the `state` parameter received from **Authorization URL**.                                |
 | `code`         | Authorization code. If the `response_type` value is `"code"`, enter the authorization code in the parameter.                                                     |
 | `token_type`   | Type of access token. It must be delivered with `access_token` and the value is always set as `"Bearer"`.                                                                        |
 
 Here is an example of a redirect URL the user is sent to once user account authentication is complete.
 
-<pre><code>{{ book.ServiceEnv.RedirectURLforAccountLinking }}?vendorId=YourServiceOrCompanyID
-                                &state=qwer123
+<pre><code>{{ book.ServiceEnv.RedirectURLforAccountLinking }}?&state=qwer123
                                 &code=nl__eCSTdsdlkjfweyuxXvnl
 </code></pre>
 
@@ -205,8 +203,8 @@ Once you obtain the access token from the fields below, you must check the exist
 ### Registering account linking information {#RegisterAccountLinkingInfo}
 After building an authorization server and applying account linking to the extension, you need to register the information mentioned in [Building an authorization server](#BuildAuthServer) on the [Clova developer console](/DevConsole/ClovaDevConsole_Overview.md). In the extension registered on the Clova developer console, [enter the account linking information](/DevConsole/Guides/CEK/Register_Extension.md#SetAccountLinking) as follows:
 
-| Field name                    | Description                                                                                                                                                                             |
-|:-----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Parameter name     | Description                                                       |
+|----------------|-----------------------------------------------------------|
 | Authorization URL            | URL the user will access for [account authentication](#SetupAccountLinking)                                                                                                                     |
 | Client ID                    | Client ID granted to differentiate services when requesting the user [account authentication](#SetupAccountLinking) page                                                                          |
 | Authorization grant type     | Authorization method of OAuth 2.0. Currently, only the authorization code grant method is supported. |

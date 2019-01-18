@@ -68,8 +68,8 @@ Extensionの設計は、まず最初にExtensionの目標を設定すること�
 以下は、ユーザーシナリオを、連続するユーザーリクエストタイプと一時的な指示タイプに分けてスクリプトを作成した例です。
 * 連続するユーザーリクエストタイプのシナリオ
 
-| 発話の主体   | サンプル発話                                                                                                         | 関連詳細目標     |
-|---------|-----------------------------------------------------------------------------------------------------------------|----------------|
+| 発話の主体           | サンプル発話                                                                   | 関連詳細目標     |
+|-------------------|---------------------------------------------------------------------------|----------------|
 | ユーザー     | ピザボットを起動して。                                                                                                    | #1             |
 | Extension | こんにちは。ピザボットです。どういったご用件ですか?                                                                             | #2             |
 | ユーザー      | ピザの種類は何があるの?                                                                                                    | #3             |
@@ -150,7 +150,7 @@ Extensionの設計は、まず最初にExtensionの目標を設定すること�
     </tr>
     <tr>
       <td>利用規約に違反していないこと</td>
-      <td>[Clova Extensions Kit利用規約](https://developers.naver.com/console/clova/cek/#/terms)を遵守しなければなりません。第三者の権利を侵害したり、わいせつな表現を用いたりした名前であってはなりません。</td>
+      <td><a href="https://developers.naver.com/console/clova/cek/#/terms" target="_blank">Clova Extensions Kit利用規約</a>を遵守しなければなりません。第三者の権利を侵害したり、わいせつな表現を用いたりした名前であってはなりません。</td>
     </tr>
     <tr>
       <td>その他の注意事項</td>
@@ -474,13 +474,13 @@ Extensionは、ユーザーのリクエストを処理し、その結果をClova
 > <p class="rdiag">「どんなクラシック音楽を再生しますか?」(TTS)</p>
 > <p class="ldiag">「ヴィヴァルディの四季を再生して」</p>
 > <p class="rdiag">「はい。ヴィヴァルディの四季を再生します」(TTS)</p>
-> <p class="rdiag">AudioPlayer.Play: ヴィヴァルディの四季第1楽章</p>
+> <p class="rdiag">ヴィヴァルディの四季第1楽章を再生するように指示する(AudioPlayer.Play)</p>
 > <p class="ldiag">「Clova、ちょっと止めて」</p>
-> <p class="rdiag">AudioPlayer.Pause: 再生を停止する</p>
+> <p class="rdiag">再生を一時停止するように指示する(PlaybackController.Pause)</p>
 > <p class="ldiag">「Clova、再生を再開して」</p>
-> <p class="rdiag">AudioPlayer.Resume: 再生を再開する</p>
+> <p class="rdiag">再生を再開するように指示する(PlaybackController.Resume)</p>
 > <p class="ldiag">「次」</p>
-> <p class="rdiag">AudioPlayer.Play: ヴィヴァルディの四季第2楽章</p>
+> <p class="rdiag">ヴィヴァルディの四季第2楽章を再生するように指示する(AudioPlayer.Play)</p>
 
 <div class="note">
   <p><strong>メモ</strong></p>

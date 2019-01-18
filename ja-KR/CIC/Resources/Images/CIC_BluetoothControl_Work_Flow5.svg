@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="337px" preserveAspectRatio="none" style="width:436px;height:337px;" version="1.1" viewBox="0 0 436 337" width="436px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="66.9648" style="stroke: #000000; stroke-width: 1.0;" width="10" x="65" y="183.4238"/><rect fill="#FFFFFF" height="249.3887" style="stroke: #000000; stroke-width: 1.0;" width="10" x="383" y="67.2295"/><line style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="70" x2="70" y1="57.2295" y2="325.6182"/><line style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="388" x2="388" y1="57.2295" y2="325.6182"/><rect fill="#9EA0CA" height="53.2295" rx="5" ry="5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="124" x="8" y="3"/><text fill="#FFFFFF" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="90" x="25" y="36.1533">クライアント</text><rect fill="#05D686" height="53.2295" rx="5" ry="5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="74" x="351" y="3"/><text fill="#FFFFFF" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="40" x="368" y="36.1533">Clova</text><rect fill="#FFFFFF" height="66.9648" style="stroke: #000000; stroke-width: 1.0;" width="10" x="65" y="183.4238"/><rect fill="#FFFFFF" height="249.3887" style="stroke: #000000; stroke-width: 1.0;" width="10" x="383" y="67.2295"/><polygon fill="#9EA0CA" points="33,72.2295,425,72.2295,435,95.2295,425,119.2295,33,119.2295,23,95.2295,33,72.2295" style="stroke: #FFFFFF; stroke-width: 1.0;"/><text fill="#FFFFFF" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="354" x="52" y="102.3828">Bluetoothデバイスを削除するようにリクエストする</text><line style="stroke: #000000; stroke-width: 1.0;" x1="75" x2="85" y1="183.4238" y2="179.4238"/><line style="stroke: #000000; stroke-width: 1.0;" x1="75" x2="85" y1="183.4238" y2="187.4238"/><line style="stroke: #000000; stroke-width: 1.0;" x1="75" x2="382" y1="183.4238" y2="183.4238"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="206" x="126" y="152.3047">DeviceControl.BtDelete (with payload)</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="144" x="157" y="168.7871">ディレクティブを送信する</text><line style="stroke: #000000; stroke-width: 1.0;" x1="381" x2="371" y1="250.3887" y2="246.3887"/><line style="stroke: #000000; stroke-width: 1.0;" x1="381" x2="371" y1="250.3887" y2="254.3887"/><line style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="70" x2="382" y1="250.3887" y2="250.3887"/><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="264" x="94.5" y="219.2695">DeviceControl.ActionExecuted (with DeviceState)</text><text fill="#000000" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="108" x="172.5" y="235.752">イベントを送信する</text><polygon fill="#9EA0CA" points="33,263.3887,425,263.3887,435,286.3887,425,310.3887,33,310.3887,23,286.3887,33,263.3887" style="stroke: #FFFFFF; stroke-width: 1.0;"/><text fill="#FFFFFF" font-family="&quot;Malgun Gothic&quot;, sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="240" x="109" y="293.542">デバイスを削除した結果を共有する</text><!--
+@startuml
+scale max 880 width
+skinparam sequenceMessageAlign center
+skinparam shadowing false
+skinparam roundcorner 10
+skinparam padding 10
+skinparam defaultFontSize 12
+skinparam defaultFontName "Malgun Gothic", sans-serif
+
+skinparam note {
+  BackgroundColor #9EA0CA
+  BorderColor #ffffff
+  FontColor #ffffff
+  FontSize 14
+  FontStyle bold
+}
+
+skinparam sequence {
+  ArrowColor #000000
+  ActorBorderColor #000000
+  ActorFontStyle Bolder
+
+
+  LifeLineBorderColor #000000
+  LifeLineBackgroundColor transparent
+  ParticipantBorderColor transparent
+  ParticipantFontSize 14
+  ParticipantFontColor #ffffff
+  ParticipantFontStyle bold
+
+  BoxBorderColor #000000
+  BoxFontColor #ffffff
+    BoxFontSize 14
+    BoxFontStyle bold
+}
+hide footbox
+
+skinparam activity {
+  BackgroundColor #9EA0CA
+  BarColor #ffffff
+  BorderColor #ffffff
+  DiamondBackgroundColor #05D686
+  DiamondBorderColor #ffffff
+  DiamondFontColor #ffffff
+  DiamondFontSize 14
+  DiamondFontStyle bold
+  FontColor #ffffff 
+  FontSize 14
+  FontStyle bold
+}
+
+participant クライアント as client #9EA0CA
+participant "Clova" as clova #05D686
+
+hnote over client, clova : Bluetoothデバイスを削除するようにリクエストする
+activate clova
+  clova ->> client : DeviceControl.BtDelete (with payload)\nディレクティブを送信する
+  activate client
+  client - ->> clova : DeviceControl.ActionExecuted (with DeviceState)\nイベントを送信する
+  deactivate client
+hnote over client, clova : デバイスを削除した結果を共有する
+
+@enduml
+
+PlantUML version 1.2018.12(Sun Oct 21 19:15:15 KST 2018)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_191-b12
+Operating System: Windows 10
+OS Version: 10.0
+Default Encoding: MS949
+Language: en
+Country: US
+--></g></svg>

@@ -114,7 +114,7 @@ A page to display skills registered in the Skill Store. It is a term used to ref
 Information necessary for processing a request declared in an [intent](#Intent). It must be defined in pair with the intent. Clova analyzes a user request and extracts information specific to the slots. For more information, see [Defining an interaction model](/Design/Design_Guideline_For_Extension.md#DefineInteractionModel).
 
 ### Dialogue ID {#DialogID}
-A dialogue ID is created every time a user initiates new speech input. It is included when clients send [Recognize](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize) [event messages](#Event) to [Clova Interface Connect](#CIC). Dialogue IDs are also included in [directive messages](#Directive) when responses are returned from a server side to map those responses to corresponding event messages. Clients check the dialogue ID included in a directive message and determine which directive message is responding to which event message. If the dialogue ID at the client side is different from that of the directive message, the directive message must be disregarded. For more information, see [Dialogue model](/CIC/CIC_Overview.md#DialogModel).
+A dialogue ID is created every time a user initiates new speech input. It is included when clients send [Recognize](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize) [event messages](#Event) to [Clova Interface Connect](#CIC). Dialogue IDs are also included in [directive messages](#Directive) when responses are returned from a server side to map those responses to corresponding event messages. Clients check the dialogue ID included in a directive message and determine which directive message is responding to which event message. If the dialogue ID at the client side is different from that of the directive message, the directive message must be disregarded. For more information, see [Dialogue model](/CIC/Guides/Implement_Client_Features.md#ManageDialogueIDAndHandleTasks).
 
 ### Context {#Context}
 Various states of a client. It is expressed with [context objects](#ContextObjects). For more information, see [Context](/CIC/References/Context_Objects.md).
@@ -136,7 +136,7 @@ A session identifier used by [extensions](#ClovaExtension) to distinguish contex
 Messages that are sent from clients to [CIC](#CIC). Event messages are used to send user requests (speech input) or notify that a client state has changed.
 
 ### Directive message {#Directive}
-Messages that are sent from [CIC](#CIC) to the client to control client actions. Directives are used when CIC returns responses to events from clients or when CIC sends information to clients under certain conditions.
+Messages that are sent from [CIC](#CIC) to the client to control client actions. Directive messages are used when CIC returns responses to event messages from clients or when CIC sends information to clients under certain conditions.
 
 ### Client credentials {#ClientCredentialInfo}
 Credentials obtained by registering a client in the [Clova developer console](#ClovaDeveloperConsole). Credentials are used to obtain [Clova access tokens](#ClovaAccessToken). For more information, see [Creating Clova access tokens](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken).

@@ -10,7 +10,7 @@ Clovaはユーザーのリクエストに応じて、オーディオを再生し
 ### オーディオを再生する {#PlayAudioStream}
 ユーザーがオーディオの再生をリクエストすると、ClovaはCICを介して、ユーザーからリクエストされたオーディオアイテムを再生するようにクライアントに指示します。次は、オーディオを再生する動作の流れを示します。
 
-![](/CIC/Resources/Images/CIC_Audio_Play_Work_Flow.png)
+![](/CIC/Resources/Images/CIC_Audio_Play_Work_Flow.svg)
 
 ユーザーがオーディオの再生をリクエストすると、CICは、最初にクライアントに[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)ディレクティブを送信します。このディレクティブには、オーディオの再生に必要な情報が含まれています。この情報を使って、オーディオファイルを探したり、プレイヤーにオーディオアイテムの情報を表示したりする必要があります。次の[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)ディレクティブを受信します。
 
@@ -171,7 +171,7 @@ Clovaはユーザーのリクエストに応じて、オーディオを再生し
 
 Clovaは、オーディオ再生に関連して、ユーザーが今どのような状況にいるかを知る必要があります。クライアントはオーディオの再生を開始すると、次のように再生の進行状況をCICにレポートする必要があります。
 
-![](/CIC/Resources/Images/CIC_Audio_Play_Progress_Reporting.png)
+![](/CIC/Resources/Images/CIC_Audio_Play_Progress_Reporting.svg)
 
 上記の流れのとおり、一部の再生の進行状況は、[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)ディレクティブの`audioItem.stream.progressReport`フィールド、または[`AudioPlayer.StreamDeliver`](/CIC/References/CICInterface/AudioPlayer.md#StreamDeliver)ディレクティブの`audioStream.progressReport`フィールドの値によって、レポートするかどうかが決まります。次の表は、再生の進行状況をレポートする必要がある状況と条件、使用するイベントを示します。
 
@@ -216,7 +216,7 @@ Clovaは、ユーザーのオーディオ再生状況を把握する必要があ
 
 次は、オーディオの再生が一時停止する動作の流れを示します。
 
-![](/CIC/Resources/Images/CIC_Audio_Playback_Control_Flow.png)
+![](/CIC/Resources/Images/CIC_Audio_Playback_Control_Flow.svg)
 
 通常、ユーザーの発話から行われる再生のコントロールは、Clovaで解析され、該当する再生コントロールのディレクティブ([`PlaybackController.Pause`](/CIC/References/CICInterface/PlaybackController.md#Pause))がクライアントに送信されます。ユーザーがクライアントのボタンを押して一時停止するようにリクエストした場合、次のような[`PlaybackController.PauseCommandIssued`](/CIC/References/CICInterface/PlaybackController.md#PauseCommandIssued)イベントで一時停止ボタンが押されたことをClovaにレポートする必要があります。
 
@@ -294,7 +294,7 @@ Clovaは、ユーザーからリクエストされた再生コントロールを
 
 1つのクライアントは、ユーザーのアカウントに登録されているすべてのクライアントまたは特定のクライアントと、オーディオ再生状態を共有することができます。次は、オーディオ再生状態を共有される動作の流れを示します。
 
-![](/CIC/Resources/Images/CIC_Playback_State_Sync_Work_Flow.png)
+![](/CIC/Resources/Images/CIC_Playback_State_Sync_Work_Flow.svg)
 
 1. Clovaアプリは、{{ "[`AudioPlayer.RequestPlaybackState`](/CIC/References/CICInterface/AudioPlayer.md#RequestPlaybackState)イベントを使用して" if book.DocMeta.TargetReaderType == "Internal" }}CICに対して、ユーザーのアカウントに登録されているすべてのクライアント、または特定のクライアントのオーディオ再生状態をリクエストします。
 2. CICは、[`AudioPlayer.ExpectReportPlaybackState`](/CIC/References/CICInterface/AudioPlayer.md#ExpectReportPlaybackState)ディレクティブで、ユーザーのアカウントに登録されているすべてのクライアント、または特定のクライアントに、現在のオーディオ再生状態をレポートするように指示します。

@@ -18,7 +18,7 @@
 
 ユーザーの発話からアラームを設定する流れは、次の通りです。
 
-![](/CIC/Resources/Images/CIC_Alerts_Add_Work_Flow.png)
+![](/CIC/Resources/Images/CIC_Alerts_Add_Work_Flow.svg)
 
 ユーザーがアラームを設定するよう発話でリクエスト([`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize))すると、Clovaはユーザーの発話を解析し、ユーザーのクライアントデバイスがアラームを追加するように[`Alerts.SetAlert`](/CIC/References/CICInterface/Alerts.md#SetAlert)ディレクティブを送信します。
 
@@ -119,7 +119,7 @@ Clovaは、アラームを設定した結果をユーザーに通知するため
 
 設定された時刻になると、Clovaはアラームを開始するためにディレクティブを送信します。アラームが開始される仕組みは、以下の通りです。
 
-![](/CIC/Resources/Images/CIC_Alerts_Ring_Work_Flow.png)
+![](/CIC/Resources/Images/CIC_Alerts_Ring_Work_Flow.svg)
 
 アラームが設定された時刻になると、クライアントはアラームを実行し、そのことを[`Alerts.AlertStarted`](/CIC/References/CICInterface/Alerts.md#AlertStarted)イベントでCICにレポートする必要があります。
 

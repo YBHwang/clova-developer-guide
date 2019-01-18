@@ -68,8 +68,8 @@ See the following recommendations for writing user scenario scripts:
 Next is an example of writing a script by dividing the usage scenario into multi-turn requests and single-turn requests.
 * Multi-turn request scenario
 
-| Speaker   | Sample utterance                                                                                                         | Relevant detailed goal     |
-|-----------|-----------------------------------------------------------------------------------------------------------------|----------------|
+| Speaker           | Sample utterance                                                                   | Relevant detailed goal     |
+|-------------------|---------------------------------------------------------------------------|----------------|
 | User     | Start Pizzabot.                                                                                                    | #1             |
 | Extension | Hello, this is Pizzabot. What can I do for you?                                                                             | #2             |
 | User      | What kind of pizzas do you have?                                                                                                    | #3             |
@@ -150,7 +150,7 @@ The **skill name** and **invocation name** must satisfy the following conditions
     </tr>
     <tr>
       <td>No names that violate the Terms and Conditions</td>
-      <td>The names must comply with the [Clova Extensions Kit Terms and Conditions](https://developers.naver.com/console/clova/cek/#/terms). Names that infringe on the rights of a third party or use obscene expressions are not allowed.</td>
+      <td>The names must comply with the <a href="https://developers.naver.com/console/clova/cek/#/terms" target="_blank">Clova extensions kit Terms and Conditions</a>. Names that infringe on the rights of a third party or use obscene expressions are not allowed.</td>
     </tr>
     <tr>
       <td>Other precautions</td>
@@ -474,13 +474,13 @@ Below is a simple usage scenario of audio content play type.
 > <p class="rdiag">"Which classical music should I turn on?" (TTS)</p>
 > <p class="ldiag">"Play Vivaldi's Four Seasons."</p>
 > <p class="rdiag">"Okay. Here is the first movement of Vivaldi's Four Seasons." (TTS)</p>
-> <p class="rdiag">AudioPlayer.Play: First movement of Vivaldi's Four Seasons</p>
+> <p class="rdiag">Direct to play the first movement of Vivaldi's Four Seasons (AudioPlayer.Play)</p>
 > <p class="ldiag">"Clova, pause for a moment."</p>
-> <p class="rdiag">AudioPlayer.Pause: Cancel play</p>
+> <p class="rdiag">Direct to pause (PlaybackController.Pause)</p>
 > <p class="ldiag">"Clova, play again."</p>
-> <p class="rdiag">AudioPlayer.Resume: Resume play</p>
+> <p class="rdiag">Direct to resume (PlaybackController.Pause)</p>
 > <p class="ldiag">"Next"</p>
-> <p class="rdiag">AudioPlayer.Play: Second movement of Vivaldi's Four Seasons</p>
+> <p class="rdiag">Direct to play the second movement of Vivaldi's Four Seasons (AudioPlayer.Play)</p>
 
 <div class="note">
   <p><strong>Note!</strong></p>
