@@ -2,8 +2,8 @@
 
 The Alerts namespace provides interfaces for you to add, change, remove, start, or stop an alert. Available alarm types are as follows:
 
-| Alarm type | Description                                |
-|---------|------------------------------------|
+| Alarm type       | Description                                |
+|---------------|------------------------------------|
 | Action timer (`"ACTIONTIMER"`) | Performs a specified action after a set time has elapsed.                               |
 | Alarm (`"ALARM"`)            | Sounds at a specified date and time.                                            |
 | Reminder (`"REMINDER"`)      | Displays or reads content input by the user at a specified date and time. If the user makes a request to "Ring the alarm tomorrow at 7 p.m. to take the medicine," the alarm will be scheduled to ring at 7 p.m. and "Take the medicine" will be the alarm message. When it is time to ring the alarm, play, or display the alarm message provided by CIC.       |
@@ -12,7 +12,7 @@ The Alerts namespace provides interfaces for you to add, change, remove, start, 
 A user can add an alarm by voice request or through the Clova app, but changing or removing the alarm is only available through the app. Clova stores alarm details on the cloud and informs clients to alert users through CIC. For repeated alarms, Clova informs the client only of the first upcoming alarm, instead of giving the bulk alarm information at once. After the first upcoming alarm rings and stops, Clova lets the client know of the next repeated alarm.
 
 You must implement the following on a client, using the Alerts interfaces:
-* Upon receiving a directive from CIC, add, change, or remove the alarm as instructed by the directive.
+* Upon receiving a directive message from CIC, add, change, or remove the alarm as instructed by the directive message.
 * Ring the alarm at the set time.
 * Report to CIC when adding, changing, removing, starting, or stopping the alarm. Only then will a corresponding result be returned to the client from CIC.
 * Include the [`Alerts.AlertsState`](/CIC/References/Context_Objects.md#AlertsState) context object in your event messages to report to CIC the alarm state of the client.
@@ -22,7 +22,7 @@ You must implement the following on a client, using the Alerts interfaces:
   <p>For more information on how to implement registering, modifying, deleting, starting, or stopping alarms, see <a href="/CIC/Guides/Implement_Client_Features.md#HandleAlerts">Handling alerts</a>.</p>
 </div>
 
-The Alerts namespace provides the following event messages and directive messages.
+The Alerts namespace provides the following event messages and directive message.
 
 | Message name         | Type  | Description                                   |
 |------------------|-----------|---------------------------------------------|

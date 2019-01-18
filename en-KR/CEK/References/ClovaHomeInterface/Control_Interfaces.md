@@ -86,7 +86,7 @@ These control interfaces are used to check IoT device information and carry out 
 | [`IncrementChannelRequest`](#IncrementChannelRequest)                         | Request  | Requests the Clova Home extension to set the target appliance to channel up the TV by the designated amount. |
 | [`IncrementFanSpeedConfirmation`](#IncrementFanSpeedConfirmation)             | Response | Sends the result of requesting the target appliance to increase the fan speed to CEK as a response to the [`IncrementFanSpeedRequest`](#IncrementFanSpeedRequest) message. |
 | [`IncrementFanSpeedRequest`](#IncrementFanSpeedRequest)                       | Request | Requests the Clova Home extension to set the target appliance to increase the fan speed by the designated amount. |
-| [`IncrementIntensityLevelConfirmation`](#IncrementIntensityLevelConfirmation) | Response | Sends the result of requesting the target appliance to increase the pressure level, such as air or water pressure, to CEK as a response to the [`DecrementIntensityLevelRequest`](#DecrementIntensityLevelRequest) message.  |
+| [`IncrementIntensityLevelConfirmation`](#IncrementIntensityLevelConfirmation) | Response | Sends the result of requesting the target appliance to increase the pressure level, such as air or water pressure, to CEK as a response to the [`IncrementIntensityLevelRequest`](#IncrementIntensityLevelRequest) message.  |
 | [`IncrementIntensityLevelRequest`](#IncrementIntensityLevelRequest)           | Request  | Requests the Clova Home extension to set the target appliance to increase the pressure level, such as air or water pressure, by the designated amount. |
 | [`IncrementTargetTemperatureConfirmation`](#IncrementTargetTemperatureConfirmation) | Response | Sends the result of requesting the target appliance to increase the temperature to CEK as a response to the [`IncrementTargetTemperatureRequest`](#IncrementTargetTemperatureRequest) message. |
 | [`IncrementTargetTemperatureRequest`](#IncrementTargetTemperatureRequest)     | Request  | Requests the Clova Home extension to set the target appliance to increase the temperature by the designated amount.     |
@@ -99,7 +99,7 @@ These control interfaces are used to check IoT device information and carry out 
 | [`OpenConfirmation`](#OpenConfirmation)                                       | Response | Sends the result of opening the smart curtain or the bidet lid to CEK as a response to the [`OpenRequest`](#OpenRequest) message. |
 | [`OpenRequest`](#OpenRequest)                                                 | Request  | Used to control appliances such as smart curtains or bidets. Requests the Clova Home extension to open the smart curtain or the bidet lid.  |
 | [`PreheatConfirmation`](#PreheatConfirmation)                                 | Response | Sends the result of handing the preheat request to CEK as a response to the [`PreheatRequest`](#PreheatRequest) message.  |
-| [`PreheatRequest`](#PreheatRequest)                                           | Response | Mainly used to control an appliance such as an oven. Requests the Clova Home extension to preheat the target appliance.                        |
+| [`PreheatRequest`](#PreheatRequest)                                           | Response | Mainly used to control appliances such as ovens. Requests the Clova Home extension to preheat the target appliance.                        |
 | [`RaiseConfirmation`](#RaiseConfirmation)                                     | Response | Sends the result of requesting the target appliance to raise the height to CEK as a response to the [`RaiseRequest`](#RaiseRequest) message.  |
 | [`RaiseRequest`](#RaiseRequest)                                               | Request  | Mainly used to control appliances such as curtains, blinds, or beds. Requests the Clova Home extension to raise the height of the target appliance.  |
 | [`ReleaseModeConfirmation`](#ReleaseModeConfirmation)                         | Response | Sends the result of requesting to disable the operation mode of the current appliance to CEK as a response to the [`ReleaseModeRequest`](#ReleaseModeRequest) message.  |
@@ -2650,7 +2650,7 @@ Sends the information on sleep start time of the user measured by the target app
 | Field name       | Data type    | Description                     | Required |
 |---------------|---------|-----------------------------|:---------:|
 | `applianceResponseTimestamp` | string  | The time of checking the requested information from the appliance (Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>).     | Optional    |
-| `startTimestampList[]`       | string  | The array of sleep start time in date order.                                      | Required    |
+| `startTimestampList[]`       | string array  | The array of sleep start time in date order.                                      | Required    |
 
 ### Message example
 
@@ -3146,7 +3146,7 @@ Sends the result of requesting the target appliance to increase the fan speed to
 |---------------|---------|-----------------------------|:---------:|
 | `fanSpeed`            | [SpeedInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SpeedInfoObject) | Object containing the information on the current fan speed. The fan speed represents wind speed and is limited to the following values.<ul><li><code>1</code>: Low wind (phase 1)</li><li><code>2</code>: Medium wind (phase 2)</li><li><code>3</code>: High wind (phase 3)</li></ul> | Optional    |
 | `previousState`          | object                      | Object containing the information on the previous state of the appliance.                 | Optional    |
-| `previousState.FanSpeed` | [SpeedInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SpeedInfoObject) | Object containing information on the previous fan speed. The fan speed represents wind speed and is limited to the following values.<ul><li><code>1</code>: Low wind (phase 1)</li><li><code>2</code>: Medium wind (phase 2)</li><li><code>3</code>: High wind (phase 3)</li></ul> | Optional    |
+| `previousState.fanSpeed` | [SpeedInfoObject](/CEK/References/ClovaHomeInterface/Shared_Objects.md#SpeedInfoObject) | Object containing information on the previous fan speed. The fan speed represents wind speed and is limited to the following values.<ul><li><code>1</code>: Low wind (phase 1)</li><li><code>2</code>: Medium wind (phase 2)</li><li><code>3</code>: High wind (phase 3)</li></ul> | Optional    |
 
 ### Remarks
 

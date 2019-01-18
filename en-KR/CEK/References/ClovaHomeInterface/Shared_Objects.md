@@ -823,7 +823,7 @@ CustomInfoObject contains information directly entered by the user such as custo
 |---------------|---------|-----------------------------|:-------------:|
 | `name`        | string            | The customized name to indicate an appliance state or measurement target. When responding to the user, the state name entered in this field is output as speech. | Required |
 | `value`       | number or string | The state value or measurement value.                                                                             | Required |
-| `unit`        | string            | The value of the appliance state or the unit information of the measurement. This is omitted if the data type of the `value` field is a string and may have the following units if it is a numeric value.<ul><li><code>"celcius"</code>: Celsius</li><li><code>"percentage"</code>: Percentage</li></ul> | Optional |
+| `unit`        | string            | The value of the appliance state or the unit information of the measurement. This is omitted if the data type of the `value` field is a string and may have the following units if it is a numeric value.<ul><li><code>"celsius"</code>: Celsius</li><li><code>"percentage"</code>: Percentage</li></ul> | Optional |
 
 ### Object Example
 {% raw %}
@@ -1105,9 +1105,8 @@ ModeInfoObject contains information on the operation mode. This is used to indic
           <li><code>"auto"</code>: Auto mode. A mode mainly used in air conditioners.</li>
           <li><code>"cool"</code>: Cooling mode. A mode mainly used in air conditioners.</li>
           <li><code>"dehumidify"</code>: Dehumidifier mode. A mode mainly used in appliances such as air conditioners or dehumidifiers.</li>
-          {% if book.L10N.TargetCountryCode == "JP" %}
+          <li><code>"fan"</code>: Fan mode. A mode mainly used in air conditioners.</li>
           <li><code>"heat"</code>: Heating mode. A mode mainly used in air conditioners.</li>
-          {% endif %}
           <li><code>"sleep"</code>: Sleep mode. A mode mainly used in appliances such as smart hubs.</li>
         </ul>
       </td>

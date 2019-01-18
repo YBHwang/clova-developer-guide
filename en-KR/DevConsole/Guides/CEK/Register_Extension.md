@@ -69,10 +69,10 @@ Follow the steps below to set up a connection with the server.
 <ol>
   <li>Click on the <strong>{{ book.DevConsole.cek_configuration }}</strong> tab above the extension information input UI.</li>
   <li>Enter the endpoint URL of the extension server in the <strong>{{ book.DevConsole.cek_service_endpoint_url }}</strong> item.
-    <div class="note">
-    <p><strong>Note!</strong></p>
-    <p>An HTTP connection can be used for testing but an HTTPS connection is required for the official service. The extension server must use ports 80 and 443 for HTTP and HTTPS connections respectively.</p>
-  </div>
+    <div class="danger">
+      <p><strong>Caution!</strong></p>
+      <p>An HTTP connection can be used for testing but an HTTPS connection is required for the official service. The extension server must use ports 80 and 443 for HTTP and HTTPS connections respectively.</p>
+    </div>
   </li>
   <li>If there is a need for linking the user account of the extension service and the Clova user account, select <strong>{{ book.DevConsole.cek_yes }}</strong> for the <strong>{{ book.DevConsole.cek_account_linking }}</strong> item. For more information on account linking, see <a href="#SetAccountLinking">setting up account linking</a>.</li>
   <li>Click the radio button of the <strong>{{ book.DevConsole.cek_ssl_certificate }}</strong> item. The extension server must use the certificate of an authorized certificate agency.  (Self-signed certificates cannot be used.)</li>

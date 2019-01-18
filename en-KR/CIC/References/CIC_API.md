@@ -2,7 +2,7 @@
 The CIC API is a set of REST APIs provided for clients. The following covers topics related to CIC API.
 * [API basic information](#BasicInfo)
 * [Establishing a downchannel](#EstablishDownchannel)
-* [Sending events](#SendEvent)
+* [Sending event messages](#SendEvent)
 * [Message format](#CICMessageFormat)
 * [Interface](#CICInterface)
 
@@ -162,8 +162,8 @@ As a response to the client request, CIC returns an HTTP response containing the
 
 ### Status codes
 
-| Status code       | Description                     |
-|---------------|-------------------------|
+| Status code       | Description                                  |
+|---------------|--------------------------------------|
 | 200 OK                    | Successful connection setup of a downchannel. This will be followed by a cloud-initiated directive.        |
 | 400 Bad Request           | User request format is wrong.                                                                       |
 | 401 Unauthorized          | Failed to authenticate the user. Try [user authentication](/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken) again.                       |
@@ -224,13 +224,13 @@ Content-Type: application/json; charset=utf-8
 ```
 {% endraw %}
 
-## Sending events {#SendEvent}
+## Sending event messages {#SendEvent}
 
 ```
 POST /v1/events
 ```
 
-Clients use event messages to send user voice requests or the current client state to CIC. Events are sent as HTTP requests and an HTTP response is returned containing directive messages. For more information, see [Sending events](/CIC/Guides/Interact_with_CIC.md#SendEvent) and [Handling directive messages](/CIC/Guides/Interact_with_CIC.md#HandleDirective).
+Send event messages to send user voice requests or the current client state to CIC. Events are sent as HTTP requests and an HTTP response is returned containing directive messages. For more information, see [Sending event messages](/CIC/Guides/Interact_with_CIC.md#SendEvent) and [Handling directive messages](/CIC/Guides/Interact_with_CIC.md#HandleDirective).
 
 ### Request header
 
@@ -341,7 +341,7 @@ Content-Type: application/octet-stream
 | Response message header | Description                                                                |
 |-------------------------|--------------------------------------------------------------------|
 | Content-disposition     | The content metadata for internal use.                                         |
-| Content-ID              | The message ID.:<ul><li>UUID format</li><li>A client can identify the messages to process by the <code>cid:[UUID]</code> in the <code>payload</code> field of a directive</li></ul> |
+| Content-ID              | The message ID.:<ul><li>UUID format</li><li>A client can identify the messages to process by the <code>cid:[UUID]</code> in the <code>payload</code> field of a directive message</li></ul> |
 | Content-type            | <ul><li>JSON data: <code>application/json; charset=UTF-8</code></li><li>Binary audio data: <code>application/octet-stream</code></li></ul>                     |
 
 ### Response message
@@ -349,8 +349,8 @@ CIC returns an HTTP response containing the [directive](#Directive) telling a cl
 
 ### Status codes
 
-| Status code       | Description                     |
-|---------------|-------------------------|
+| Status code       | Description                                  |
+|---------------|--------------------------------------|
 | 200 OK                    | CIC has successfully received an event message from a client and the response contains at least one directive message for the client. |
 | 204 No Content            | CIC has successfully received an event message from a client and contains no directive message for the client.                    |
 | 400 Bad Request           | Event message is delivered using an incorrect method or in an invalid format.                                                  |
@@ -563,7 +563,7 @@ Directive messages are used when CIC returns responses to event messages from cl
 
 <div class="danger">
   <p><strong>Caution!</strong></p>
-  <p>The client must ignore any unsupported or unknown directives if they are received. Because the client can receive many directives from CIC at once as a multipart message, it is particularly important that the client only ignores the unsupported or unknown directives among the received directives.</p>
+  <p>The client must ignore any unsupported or unknown directive messages. Because the client can receive many directive messages from CIC at once as a multipart message, it is particularly important that the client only ignores the unsupported or unknown directive messages among the received directive messages.</p>
 </div>
 
 #### Message structure

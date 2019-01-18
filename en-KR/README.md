@@ -81,7 +81,12 @@ For client and extension developers, Clova platform provides Clova Interface Con
           </ul>
           <li>Guide</li>
           <ul>
-            <li><a href="/CEK/Guides/Build_Custom_Extension.md">Creating a custom extension</a></li>
+            <li><a href="/CEK/Guides/Build_Custom_Extension.md">Creating a custom extension</a>
+              <ul>
+                <li><a href="/CEK/Guides/Build_Custom_Extension.md#DoMultiturnDialog">Engaging in a multi-turn dialogues</a></li>
+                <li><a href="/CEK/Guides/Build_Custom_Extension.md#ProvideAudioContent">Providing audio content</a></li>
+              </ul>
+            </li>
             <li><a href="/CEK/Guides/Build_Clova_Home_Extension.md">Creating a Clova Home extension</a></li>
             <li><a href="/CEK/Guides/Link_User_Account.md">Linking user accounts</a></li>
             <li><a href="/DevConsole/Guides/CEK/Register_Extension.md">Registering an extension</a></li>

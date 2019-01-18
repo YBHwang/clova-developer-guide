@@ -16,12 +16,56 @@ The revision history of this document is as follows:
 <table>
   <thead>
     <tr>
-      <th style="width:10%">New version rules</th><th style="width:10%">Previous version rules</th><th style="width:15%">Release date</th><th style="width:75%">History</th>
+      <th style="width:10%">Version</th><th style="width:15%">Release date</th><th style="width:75%">History</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>v3.45.0</td><td>Not applied</td><td>2018-11-30</td>
+      <td>v3.47.1</td><td>2019-01-07</td>
+      <td>
+        <ul>
+          <li>[Common] Unified the style of some UML diagrams used in the document</li>
+          <li>[Common] Revised some notation errors in the document history</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.47.0</td><td>2019-01-04</td>
+      <td>
+        <ul>
+          <li>[CIC] Added the <a href=/CIC/Guides/Implement_Client_Features.md#HandleDeviceControl>Handling client action control</a> guide</li>
+          <li>[CIC] Added the <a href=/CIC/Guides/Implement_Client_Features.md#HandleBluetoothControl>Handling client Bluetooth control</a> guide</li>
+          <li>[CIC] Added the <a href="/CIC/References/CICInterface/AudioPlayer.md#PlaybackQueueCleared">AudioPlayer.PlaybackQueueCleared</a> event to report the playback queue initialization action to the <a href="/CIC/References/CICInterface/AudioPlayer.md">AudioPlayer API</a></li>
+          <li>[CEK] Added heat and fan modes to the modes of AIRCONDITIONER type appliances to the <a href="/ClovaHomeInterface/Shared_Objects.md#ModeInfoObject">ModeInfoObject</a> of the Clova Home extension specification</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.46.0</td><td>2018-12-24</td>
+      <td>
+        <ul>
+          <li>[Design] Revised the notation error of the directive message name in the example scenario of the audio content playback type description of the <a href="/Design/Design_Guideline_For_Extension.html">Design guidelines for extensions</a></li>
+          <li>[CIC] Added the <a href=/CIC/Guides/Implement_Client_Features.md#HandleDeviceControl>Handling client action control</a> guide</li>
+          <li>[CIC] Added the <a href=/CIC/Guides/Implement_Client_Features.md#HandleBluetoothControl>Handling client Bluetooth control</a> guide</li>
+          <li>[CIC] Added the nowTemperatureImageCode field and the nowTemperatureImageUrl field related to the current weather information in the <a href="/CIC/References/ContentTemplates/TodayWeather.md">TodayWeather</a> template</li>
+          <li>[CIC] Revised documentation errors in the <a href="/CIC/References/ContentTemplates/TodayWeather.md">TodayWeather</a> template</li>
+          <li>[CEK] Revised the expression for introducing the CIC specification for the readers to be aware of the situation in <a href="/CEK/Guides/Build_Custom_Extension.html#ProvideAudioContent">Providing audio content</a></li>
+          <li>[CEK] Revised some notation errors in the Clova Home extension specification</li>
+          <li>[Common] Added the link of the added document in <a href="/README.md">Before getting started</a></li>
+          <li>[Common] Revised the notation error in the note type of some sequence diagrams</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.45.1</td><td>2018-12-22</td>
+      <td>
+        <ul>
+          <li>[CEK] Removed the vendorId field of redirect_uri parameters that was incorrectly stated in the <a href="/CEK/Guides/Link_User_Account.md#BuildAuthServer">Building an authorization server</a> description of the <a href="/CEK/Guides/Link_User_Account.md">Linking user accounts</a> guide</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>v3.45.0</td><td>2018-11-30</td>
       <td>
         <ul>
           <li>[CIC] Separated the description of the dialogue model into <a href="/CIC/CIC_Overview.md#IndirectDialogue">Indirect dialogue structure</a> and <a href="/CIC/Guides/Implement_Client_Features.md#ManageDialogueIDAndHandleTasks">Handling tasks and managing dialogue IDs,</a>, and supplemented the content</li>
@@ -41,7 +85,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.44.0</td><td>Not applied</td><td>2018-11-16</td>
+      <td>v3.44.0</td><td>2018-11-16</td>
       <td>
         <ul>
           <li>[CIC] Added a guide for <a href="/CIC/Guides/Implement_Client_Features.html#HandleSettings">Handling settings</a> related to the settings information in <a href="/CIC/Guides/Implement_Client_Features.html">Implementing client features</a></li>
@@ -49,7 +93,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.43.0</td><td>Not applied</td><td>2018-11-09</td>
+      <td>v3.43.0</td><td>2018-11-09</td>
       <td>
         <ul>
           <li>[CIC] Added the guide for <a href="/CIC/Guides/Implement_Client_Features.html#HandleAudioPlayback">Handling audio playback</a> related to audio playback and playback control in <a href="/CIC/Guides/Implement_Client_Features.html">Implementing client features</a> (and includes the following content)
@@ -71,7 +115,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.42.0</td><td>Not applied</td><td>2018-10-20</td>
+      <td>v3.42.0</td><td>2018-10-20</td>
       <td>
         <ul>
           <li>[CIC] Added the <a href="/CIC/References/CICInterface/DeviceControl.html#BtDelete">DeviceControl.BtDelete</a> and <a href="/CIC/References/CICInterface/DeviceControl.html#BtRescan">DeviceControl.BtRescan</a> directives to rescan or remove a Bluetooth device in the <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl</a> namespace</li>
@@ -90,7 +134,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.41.0</td><td>Not applied</td><td>2018-10-13</td>
+      <td>v3.41.0</td><td>2018-10-13</td>
       <td>
         <ul>
           <li>[CEK] Added <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetEstimateConsumptionRequest">GetEstimateConsumptionRequest</a> and <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetEstimateConsumptionResponse">GetEstimateConsumptionResponse</a> to the Clova Home extension API</li>
@@ -101,7 +145,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.40.1</td><td>Not applied</td><td>2018-10-05</td>
+      <td>v3.40.1</td><td>2018-10-05</td>
       <td>
         <ul>
           <li>[CIC] Emended the structure and examples of <a href="/CIC/References/CIC_API.html#Error">CIC error messages</a> according to the actual implementation</li>
@@ -110,7 +154,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.40.0</td><td>Not applied</td><td>2018-09-21</td>
+      <td>v3.40.0</td><td>2018-09-21</td>
       <td>
         <ul>
           <li>[CIC] Added the format field to the payload of <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a> <a href="/CIC/References/CICInterface/AudioPlayer.html#AudioStreamInfoObject">AudioStreamInfoObject</a> to specify the MIME type of content</li>
@@ -127,7 +171,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.39.0</td><td>Not applied</td><td>2018-09-07</td>
+      <td>v3.39.0</td><td>2018-09-07</td>
       <td>
         <ul>
           <li>[Design] Added recommendations on attributes and loudness for sound quality by audio content type in the <a href="/Design/Design_Guideline_For_Extension.html#SupportedAudioCompressionFormat">Supported audio compression formats</a> section of Design guidelines for extensions</li>
@@ -137,7 +181,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.38.0</td><td>Not applied</td><td>2018-08-29</td>
+      <td>v3.38.0</td><td>2018-08-29</td>
       <td>
         <ul>
           <li>[Design] Changed the RGB value of the <a href="/Design/Design_Guideline_For_Client_Hardware.html#LightColor">light colors</a> in the <a href="/Design/Design_Guideline_For_Client_Hardware.html">Design guidelines for client devices</a></li>
@@ -149,7 +193,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.37.2</td><td>Not applied</td><td>2018-08-24</td>
+      <td>v3.37.2</td><td>2018-08-24</td>
       <td>
         <ul>
           <li>[CIC] Revised an error in the example for the <a href="/CIC/References/CICInterface/Alerts.html#StopAlert">Alerts.StopAlert</a> directive</li>
@@ -159,7 +203,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.37.1</td><td>Not applied</td><td>2018-08-09</td>
+      <td>v3.37.1</td><td>2018-08-09</td>
       <td>
         <ul>
           <li>[CIC] Supplemented the description of the dialogue model</li>
@@ -168,7 +212,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.37.0</td><td>Not applied</td><td>2018-07-23</td>
+      <td>v3.37.0</td><td>2018-07-23</td>
       <td>
         <ul>
           <li>[Design] Updated the sound effect of entering the attending state among the <a href="/Design/Design_Guideline_For_Client_Hardware.html#SoundEffect">sound effects</a> of the <a href="/Design/Design_Guideline_For_Client_Hardware.html">Design guidelines for client devices</a></li>
@@ -180,7 +224,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.36.0</td><td>Not applied</td><td>2018-07-09</td>
+      <td>v3.36.0</td><td>2018-07-09</td>
       <td>
         <ul>
           <li>[Design] Added a guideline for <a href="/Design/Design_Guideline_For_Extension.html#DefineInvocationName">defining the name</a> of the extension</li>
@@ -190,7 +234,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.35.0</td><td>v4.6</td><td>2018-06-25</td>
+      <td>v3.35.0</td><td>2018-06-25</td>
       <td>
         <ul>
           <li>[Design] Added a guideline for the <a href="/Design/Design_Guideline_For_Extension.html#DecideSoundOutputType">response types</a> of the extension</li>
@@ -200,7 +244,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.34.2</td><td>v4.5</td><td>2018-06-17</td>
+      <td>v3.34.2</td><td>2018-06-17</td>
       <td>
         <ul>
           <li>[CIC] Added the isLive field to <a href="/CIC/References/CICInterface/TemplateRuntime.html#RenderPlayerInfo">TemplateRuntime.RenderPlayerInfo</a> to distinguish real-time broadcasting content</li>
@@ -210,7 +254,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.34.1</td><td>v4.4</td><td>2018-05-28</td>
+      <td>v3.34.1</td><td>2018-05-28</td>
       <td>
         <ul>
           <li>[CEK] Added a state field to <a href="/CEK/References/ClovaHomeInterface/Error_Interfaces.html#ConditionsNotMetError">ConditionsNotMetError</a> of the Clova Home extension API</li>
@@ -219,7 +263,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.34.0</td><td>v4.3</td><td>2018-05-21</td>
+      <td>v3.34.0</td><td>2018-05-21</td>
       <td>
         <ul>
           <li>[CIC] Added the missing field (btlist[].role) in <a href="/CIC/References/Context_Objects.html#BluetoothInfoObject">BluetoothInfoObject</a> of the <a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a> context object</li>
@@ -228,7 +272,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.33.0</td><td>v4.2</td><td>2018-05-14</td>
+      <td>v3.33.0</td><td>2018-05-14</td>
       <td>
         <ul>
           <li>[CIC] Moved the <a href="/CIC/References/CICInterface/Clova.html#LaunchURI">LaunchURI</a> directive from the DeviceControl namespace to the <a href="/CIC/References/CICInterface/Clova.html">Clova</a> namespace</li>
@@ -237,7 +281,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.32.0</td><td>v4.1</td><td>2018-05-07</td>
+      <td>v3.32.0</td><td>2018-05-07</td>
       <td>
         <ul>
           <li>[CIC] Added the LaunchURI directive to the DeviceControl namespace</li>
@@ -246,7 +290,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.31.0</td><td>v4.0</td><td>2018-04-30</td>
+      <td>v3.31.0</td><td>2018-04-30</td>
       <td>
         <ul>
           <li>[CEK] Added <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetOpenStateRequest">GetOpenStateRequest</a> and <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#GetOpenStateResponse">GetOpenStateResponse</a> to the Clova Home extension API</li>
@@ -254,7 +298,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.30.0</td><td>v3.9</td><td>2018-04-23</td>
+      <td>v3.30.0</td><td>2018-04-23</td>
       <td>
         <ul>
           <li>[CEK] Added <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#ReleaseModeConfirmation">ReleaseModeConfirmation</a> and <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#ReleaseModeRequest">ReleaseModeRequest</a> to the Clova Home extension API</li>
@@ -262,7 +306,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.29.0</td><td>v3.8</td><td>2018-04-16</td>
+      <td>v3.29.0</td><td>2018-04-16</td>
       <td>
         <ul>
           <li>[CIC] Updated the description of the wakeWord field and audio data of the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a> event</li>
@@ -273,7 +317,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.28.1</td><td>v3.7</td><td>2018-04-09</td>
+      <td>v3.28.1</td><td>2018-04-09</td>
       <td>
         <ul>
           <li>[CIC] Updated the description and example image for the <a href="Design/Design_Guideline_For_Client_Hardware.html#BootingScreen">bootscreen</a> in the Design guidelines for client devices</li>
@@ -282,7 +326,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.28.0</td><td>v3.6</td><td>2018-04-02</td>
+      <td>v3.28.0</td><td>2018-04-02</td>
       <td>
         <ul>
           <li>[CIC] Added message specifications to the <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a> namespace and updated some fields
@@ -314,7 +358,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.27.0</td><td>v3.5</td><td>2018-03-19</td>
+      <td>v3.27.0</td><td>2018-03-19</td>
       <td>
         <ul>
           <li>[CIC] Added <a href="/CIC/References/Context_Objects.html#SoundOutputInfoObject">SoundOutputInfoObject</a> to <a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a></li>
@@ -325,7 +369,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.26.0</td><td>v3.4</td><td>2018-03-05</td>
+      <td>v3.26.0</td><td>2018-03-05</td>
       <td>
         <ul>
           <li>[CIC] Modified the description of the initiator field of the <a  href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a> event</li>
@@ -336,7 +380,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.25.0</td><td>v3.3</td><td>2018-02-26</td>
+      <td>v3.25.0</td><td>2018-02-26</td>
       <td>
         <ul>
           <li>[CIC] Added the deviceUUID field to the initiator field of the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a> event</li>
@@ -346,7 +390,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.24.0</td><td>v3.2</td><td>2018-02-19</td>
+      <td>v3.24.0</td><td>2018-02-19</td>
       <td>
         <ul>
           <li>[CIC] Added the initiator field to the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#Recognize">SpeechRecognizer.Recognize</a> event to accurately identify the user invocation</li>
@@ -356,7 +400,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.23.0</td><td>v3.1</td><td>2018-02-05</td>
+      <td>v3.23.0</td><td>2018-02-05</td>
       <td>
         <ul>
           <li>[CIC] Modified the description of the durationInMilliseconds field of <a href="/CIC/References/CICInterface/AudioPlayer.html#AudioStreamInfoObject">AudioStreamInfoObject</a></li>
@@ -370,7 +414,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.22.0</td><td>v3.0</td><td>2018-01-29</td>
+      <td>v3.22.0</td><td>2018-01-29</td>
       <td>
         <ul>
           <li>[Design] Added <a href="/Design/Design_Guideline_For_Client_Hardware.html#SoundEffect">sound effects for reminders</a> in the <a href="/Design/Design_Guideline_For_Client_Hardware.html">Design guidelines for client devices</a></li>
@@ -384,7 +428,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.21.0</td><td>v2.9</td><td>2018-01-22</td>
+      <td>v3.21.0</td><td>2018-01-22</td>
       <td>
         <ul>
           <li>[Design] Added a section on supported audio compression formats in the <a href="/Design/Design_Guideline_For_Client_Hardware.html#SupportedAudioCompressionFormat">Design guidelines for client devices</a> and <a href="/Design/Design_Guideline_For_Extension.html#SupportedAudioCompressionFormat">Design guidelines for extensions</a></li>
@@ -395,7 +439,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.20.0</td><td>v2.8</td><td>2018-01-15</td>
+      <td>v3.20.0</td><td>2018-01-15</td>
       <td>
         <ul>
           <li>[Design] Added guideline descriptions on light and sound effects for alarms, reminders, and timers to the <a href="/Design/Design_Guideline_For_Client_Hardware.html">Design guidelines for client devices</a></li>
@@ -403,7 +447,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.19.0</td><td>v2.7</td><td>2018-01-08</td>
+      <td>v3.19.0</td><td>2018-01-08</td>
       <td>
         <ul>
           <li>[Design] Modified the description of the <a href="/Design/Design_Guideline_For_Extension.html#DefineInteractionModel">built-in intent</a> based on platform implementation</li>
@@ -418,7 +462,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.18.1</td><td>v2.6</td><td>2018-01-02</td>
+      <td>v3.18.1</td><td>2018-01-02</td>
       <td>
         <ul>
           <li>[CIC] Added error code 429 and its description in the Remarks of the section <a href="/CIC/References/CIC_API.html#EstablishDownchannel">Establishing a downchannel</a></li>
@@ -428,7 +472,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.18.0</td><td>v2.5</td><td>2017-12-18</td>
+      <td>v3.18.0</td><td>2017-12-18</td>
       <td>
         <ul>
           <li>[Design] Moved the section on <a href="/Design/Design_Guideline_For_Extension.html#DefineInteractionModel">Defining an interaction model</a> in <a href="/DevConsole/Guides/CEK/Register_Interaction_Model.html">Registering interaction model</a> to <a href="/Design/Design_Guideline_For_Extension.html">Design guidelines for extensions</a></li>
@@ -442,7 +486,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.17.0</td><td>v2.4</td><td>2017-12-11</td>
+      <td>v3.17.0</td><td>2017-12-11</td>
       <td>
         <ul>
           <li>[Design] Added <a href="/Design/Design_Guideline_For_Extension.html">Design guidelines for extensions</a></li>
@@ -451,20 +495,20 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.16.0</td><td>v2.3</td><td>2017-12-04</td>
+      <td>v3.16.0</td><td>2017-12-04</td>
       <td>
         <ul>
           <li>[Design] Added <a href="/Design/Design_Guideline_For_Client_Hardware.html#AudioInterruptionRule">audio interruption rules</a> to the <a href="/Design/Design_Guideline_For_Client_Hardware.html">Design guidelines for client devices</a></li>
           <li>[Design] Improved the images in <a href="/Design/Design_Guideline_For_Client_Hardware.html">Design guidelines for client devices</a></li>
           <li>[CIC] Added the section on <a href="/CIC/Guides/Interact_with_CIC.html#UserAgentString">user-agent strings</a> for prerequisites before interacting with CIC</li>
-          <li>[CIC] Added the description of the 412 Precondition failed code in the <a href="/CIC/References/CIC_API.html#SendEvent">Sending events</a> section of the <a href="/CIC/References/CIC_API.html">CIC API reference</a></li>
+          <li>[CIC] Added the description of the 412 Precondition failed code in the <a href="/CIC/References/CIC_API.html#SendEvent">Sending event messages</a> section of the <a href="/CIC/References/CIC_API.html">CIC API reference</a></li>
           <li>[CEK] Added a reprompt field in the <a href="/CEK/References/CEK_API.html#CustomExtResponseMessage">response message</a> to encourage multi-turn dialogues with the user</li>
           <li>[CEK] Emended errors in the document</li>
         </ul>
       </td>
     </tr>
     <tr>
-      <td>v3.15.0</td><td>v2.2</td><td>2017-11-20</td>
+      <td>v3.15.0</td><td>2017-11-20</td>
       <td>
         <ul>
           <li>[Design] Added <a href="/Design/Design_Guideline_For_Client_Hardware.html">Design guidelines for client devices</a></li>
@@ -476,7 +520,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.14.0</td><td>v2.1</td><td>2017-11-13</td>
+      <td>v3.14.0</td><td>2017-11-13</td>
       <td>
         <ul>
           <li>[CIC] Added UX details in the Remarks of directive messages for volume control (<a href="/CIC/References/CICInterface/DeviceControl.html#Decrease">DeviceControl.Decrease</a>, <a href="/CIC/References/CICInterface/DeviceControl.html#Increase">DeviceControl.Increase</a>, <a href="/CIC/References/CICInterface/DeviceControl.html#SetValue">DeviceControl.SetValue</a>, <a href="/CIC/References/CICInterface/PlaybackController.html#Mute">PlaybackController.Mute</a>, and <a href="/CIC/References/CICInterface/PlaybackController.html#Unmute">PlaybackController.Unmute</a>)</li>
@@ -485,7 +529,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.13.0</td><td>v2.0</td><td>2017-11-06</td>
+      <td>v3.13.0</td><td>2017-11-06</td>
       <td>
         <ul>
           <li>[CIC] Added the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#KeepRecording">SpeechRecognizer.KeepRecording</a> directive</li>
@@ -496,7 +540,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.12.0</td><td>v1.9</td><td>2017-10-30</td>
+      <td>v3.12.0</td><td>2017-10-30</td>
       <td>
         <ul>
           <li>[Dev. console] Added the description for the <a href="/DevConsole/ClovaDevConsole_Overview.html">Clova developer console overview</a></li>
@@ -507,7 +551,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.11.0</td><td>v1.8</td><td>2017-10-23</td>
+      <td>v3.11.0</td><td>2017-10-23</td>
       <td>
         <ul>
           <li>[CIC] Added emotionCode and motionCode fields to the <a href="/CIC/References/ContentTemplates/Text.html">Text</a> template</li>
@@ -518,7 +562,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.10.0</td><td>v1.7</td><td>2017-10-16</td>
+      <td>v3.10.0</td><td>2017-10-16</td>
       <td>
         <ul>
           <li>[CIC] Added <a href="/CIC/References/CICInterface/PlaybackController.html#Replay">Replay</a> directive message to the <a href="/CIC/References/CICInterface/PlaybackController.html">PlaybackController</a> namespace</li>
@@ -529,7 +573,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.9.0</td><td>v1.6</td><td>2017-10-02</td>
+      <td>v3.9.0</td><td>2017-10-02</td>
       <td>
         <ul>
           <li>[CIC] Added the <a href="/CIC/References/CICInterface/Alerts.html">Alerts</a> namespace and alarm related interface</li>
@@ -544,7 +588,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.8.0</td><td>v1.5</td><td>2017-09-25</td>
+      <td>v3.8.0</td><td>2017-09-25</td>
       <td>
         <ul>
           <li>[CIC] Added the <a href="/CIC/References/CICInterface/PlaybackController.html#NextCommandIssued">PlaybackController.NextCommandIssued</a> and <a href="/CIC/References/CICInterface/PlaybackController.html#PreviousCommandIssued">PlaybackController.PreviousCommandIssued</a> events for music playback control to the <a href="/CIC/References/CICInterface/PlaybackController.html">PlaybackController API</a></li>
@@ -556,7 +600,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.7.0</td><td>v1.4</td><td>2017-09-18</td>
+      <td>v3.7.0</td><td>2017-09-18</td>
       <td>
         <ul>
           <li>[CIC] Added the <a href="/CIC/References/CICInterface/DeviceControl.html#ExpectReportState">DeviceControl.ExpectReportState</a> directive, <a href="/CIC/References/CICInterface/DeviceControl.html#ReportState">DeviceControl.ReportState</a> event, and <a href="/CIC/References/CICInterface/DeviceControl.html#RequestStateSynchronization">DeviceControl.RequestStateSynchronization</a> event to DeviceControl API and changed the name of the DeviceControl.UpdateDeviceState directive to <a href="/CIC/References/CICInterface/DeviceControl.html#SynchronizeState">DeviceControl.SynchronizeState</a></li>
@@ -570,7 +614,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.6.0</td><td>v1.3</td><td>2017-09-11</td>
+      <td>v3.6.0</td><td>2017-09-11</td>
       <td>
         <ul>
           <li>[CIC] Added the explicit field to the <a href="/CIC/References/CICInterface/SpeechRecognizer.html#ExpectSpeech">SpeechRecognizer.ExpectSpeech</a> directive message</li>
@@ -579,7 +623,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.5.0</td><td>v1.2</td><td>2017-09-04</td>
+      <td>v3.5.0</td><td>2017-09-04</td>
       <td>
         <ul>
           <li>[CIC] Added the <a href="/CIC/References/CICInterface/Clova.html#Help">Clova.Help</a> directive</li>
@@ -592,7 +636,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.4.0</td><td>v1.1</td><td>2017-08-28</td>
+      <td>v3.4.0</td><td>2017-08-28</td>
       <td>
         <ul>
           <li>[CIC] Added the set-top box specification on TV channels and specifications for the power state to <a href="/CIC/References/Context_Objects.html#DeviceState">Device.DeviceState</a> and <a href="/CIC/References/CICInterface/DeviceControl.html">DeviceControl API</a></li>
@@ -604,7 +648,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.3.0</td><td>v1.0</td><td>2017-08-21</td>
+      <td>v3.3.0</td><td>2017-08-21</td>
       <td>
         <ul>
           <li>[CIC] Added the section on <a href="/CIC/Guides/Interact_with_CIC.html#ManageConnection">Renewing a Clova access token</a> and updated content on token APIs</li>
@@ -612,7 +656,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.2.0</td><td>v0.9</td><td>2017-08-14</td>
+      <td>v3.2.0</td><td>2017-08-14</td>
       <td>
         <ul>
           <li>[CIC] Added description on the dialogue model</li>
@@ -623,7 +667,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.1.0</td><td>v0.8</td><td>2017-08-04</td>
+      <td>v3.1.0</td><td>2017-08-04</td>
       <td>
         <ul>
           <li>[CIC] Added the <a href="/CIC/References/CICInterface/Clova.html#Hello">Clova.Hello</a> directive message</li>
@@ -637,7 +681,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v3.0.0</td><td>v0.7</td><td>2017-07-28</td>
+      <td>v3.0.0</td><td>2017-07-28</td>
       <td>
         <ul>
           <li>[CIC] Removed PlayNext and Stop from <a href="/CIC/References/CICInterface/AudioPlayer.html">AudioPlayer</a> (merged into <a href="/CIC/References/CICInterface/PlaybackController.html">PlaybackController</a>)</li>
@@ -649,7 +693,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v2.2.1</td><td>v0.6</td><td>2017-07-14</td>
+      <td>v2.2.1</td><td>2017-07-14</td>
       <td>
         <ul>
           <li>[CIC] Added beginAtInMilliseconds field contents of <a href="/CIC/References/CICInterface/AudioPlayer.html#AudioStreamInfoObject">AudioStreamInfoObject</a></li>
@@ -657,7 +701,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v2.2.0</td><td>v0.5</td><td>2017-07-07</td>
+      <td>v2.2.0</td><td>2017-07-07</td>
       <td>
         <ul>
           <li>[CEK] Updated the <a href="/CEK/References/CEK_API.html#CustomExtResponseMessage">outputSpeech</a> object configuration in the <a href="/CEK/References/CEK_API.html#CustomExtResponseMessage">response message of custom extensions</a></li>
@@ -667,7 +711,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v2.1.0</td><td>v0.4</td><td>2017-07-03</td>
+      <td>v2.1.0</td><td>2017-07-03</td>
       <td>
         <ul>
           <li>[CEK] Updated images in the CEK document</li>
@@ -676,7 +720,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v2.0.0</td><td>v0.3</td><td>2017-06-19</td>
+      <td>v2.0.0</td><td>2017-06-19</td>
       <td>
         <ul>
           <li>[CEK] Completed the first draft of the CEK document</li>
@@ -685,7 +729,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v1.1.0</td><td>v0.2</td><td>2017-06-08</td>
+      <td>v1.1.0</td><td>2017-06-08</td>
       <td>
         <ul>
           <li>[CIC] Added the section on <a href="/CIC/Guides/Interact_with_CIC.html#ManageConnection">Managing connections</a> (HTTP PING) to <a href="/CIC/Guides/Interact_with_CIC.html">Interacting with CIC</a></li>
@@ -693,7 +737,7 @@ The revision history of this document is as follows:
       </td>
     </tr>
     <tr>
-      <td>v1.0.0</td><td>v0.1</td><td>2017-05-29</td>
+      <td>v1.0.0</td><td>2017-05-29</td>
       <td>
         <ul>
           <li>[CIC] Completed the first draft of the CIC document</li>

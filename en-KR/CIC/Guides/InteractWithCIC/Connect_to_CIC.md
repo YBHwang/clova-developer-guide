@@ -12,7 +12,7 @@ The following diagram illustrates the process of a client obtaining a Clova acce
 * **Client without GUI**: Clients without a display embedded in devices like speakers or home appliances. Since users cannot enter their credentials on this type of device for account authentication and it can be frustrating, the client should provide a companion app or be linked to the Clova app.
 * **Client with GUI**: Clients with a display embedded in devices like speakers or home appliances, or clients with an app, just like the Clova app.
 
-![](/CIC/Resources/Images/CIC_Authorization.png)
+![](/CIC/Resources/Images/CIC_Authorization.svg)
 
 Obtain a Clova access token by following the instructions provided below:
 
@@ -117,7 +117,7 @@ When the above connect request is successfully completed, CIC responds with the 
   <ul>
     <li>The client must maintain one open downchannel with CIC at all times. When there is an open downchannel and an additional request to create a downchannel is made to <code>/v1/directives</code>, the existing downchannel will be closed.</li>
     <li>For more information on the user-agent field that should be included in the HTTP header, see <a href="#UserAgentString">User-agent string</a>.</li>
-    <li>For more information on the authorization field that should be included in the HTTP header, see <a href="#Authorization">Getting authorization</a>.</li>
+    <li>For more information on the authorization field that should be included in the HTTP header, see <a href="#Authorization">Getting authorizations</a>.</li>
   </ul>
 </div>
 
@@ -126,7 +126,7 @@ When the above connect request is successfully completed, CIC responds with the 
   <p>Make sure that event message are sent to CIC using the <a href="#CreateConnection">connection created when establishing the downchannel</a>.</p>
 </div>
 
-### Getting authorization {#Authorization}
+### Getting authorizations {#Authorization}
 When the client sends a request to CIC, the request must include the [Clova access token](#CreateClovaAccessToken). Enter the type and value of the Clova access token, separated by a space, in the Authorization field of the header as shown below. For more information, see [CIC API reference](/CIC/References/CIC_API.md).
 
 {% raw %}

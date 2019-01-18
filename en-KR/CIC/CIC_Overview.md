@@ -19,7 +19,7 @@ Through the CIC API, various communications are made between clients and CIC in 
 
 The following sequence diagram shows how messages are sent back and forth between CIC and a client.
 
-![](/CIC/Resources/Images/CIC_Interaction_Example_in_Sequence_Diagram.png)
+![](/CIC/Resources/Images/CIC_Interaction_Example_in_Sequence_Diagram.svg)
 
 
 * [Dialogue ID and client behavior](#DialogIDandClientOP)

@@ -8,7 +8,7 @@ Users can change the client settings from the client device or Clova app, or loo
 
 When the user looks up the client device settings from the Clova app, the Clova app must provide the latest settings of the client device to the user. **Synchronization of settings information** is implemented in the following action flow:
 
-![](/CIC/Resources/Images/CIC_Settings_Synchronize_Settings_Info.png)
+![](/CIC/Resources/Images/CIC_Settings_Synchronize_Settings_Info.svg)
 
 When synchronizing the settings information, CIC sends the [`Settings.ExpectReport`](/CIC/References/CICInterface/Settings.md#ExpectReport) directive below to the client..
 
@@ -56,7 +56,7 @@ After receiving the directive above, the client sends the [`Settings.Report`](/C
 
 When the user has **changed the settings remotely from the Clova app**, the new settings must be applied to the client device settings. Remote change of settings information is implemented in the following action flow:
 
-![](/CIC/Resources/Images/CIC_Settings_Change_Settings_Via_Clova_App.png)
+![](/CIC/Resources/Images/CIC_Settings_Change_Settings_Via_Clova_App.svg)
 
 When the user has changed the client settings remotely from the Clova app, CIC sends the [`Settings.Update`](/CIC/References/CICInterface/Settings.md#Update) directive below to the client device.
 
@@ -79,7 +79,7 @@ When the user has changed the client settings remotely from the Clova app, CIC s
 }
 ```
 
-Have the client change its settings according to the settings information defined in the above directive. Then, send the [`Settings.Report`](/CIC/References/CICInterface/Settings.md#Report) event message containing the current settings to CIC. The user will be able to check the changed settings from the Clova app.
+Have the client change its settings according to the settings information defined in the above directive message. Then, send the [`Settings.Report`](/CIC/References/CICInterface/Settings.md#Report) event message containing the current settings C. The user will be able to check the changed settings from the Clova app.
 
 ```json
 {
@@ -105,7 +105,7 @@ Have the client change its settings according to the settings information define
 
 The user can **change the settings directly** from the client device, and this is implemented in the action flow as shown below. Here, the client can send the changed settings information to CIC using the [`Settings.Report`](/CIC/References/CICInterface/Settings.md#Report) event message.
 
-![](/CIC/Resources/Images/CIC_Settings_Change_Settings_On_Device.png)
+![](/CIC/Resources/Images/CIC_Settings_Change_Settings_On_Device.svg)
 
 <div class="note">
   <p><strong>Note!</strong></p>

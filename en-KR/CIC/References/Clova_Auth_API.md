@@ -61,8 +61,8 @@ Typically, user authentication is processed on the pair app. However, transferri
 
 ### Status codes
 
-| Status code       | Description                     |
-|---------------|-------------------------|
+| Status code       | Description                                  |
+|---------------|--------------------------------------|
 | 200 OK           | The request has been successfully processed.                      |
 | 400 Bad Request  | Required parameters such as `client_id` are missing or invalid parameters have been used. |
 | 403 Forbidden    | The {{ book.ServiceEnv.TargetServiceForClientAuth }} access token specified in the header is invalid. |
@@ -150,8 +150,8 @@ This API requests for a Clova access token to the Clova authorization server wit
 
 ### Status codes
 
-| Status code       | Description                     |
-|---------------|-------------------------|
+| Status code       | Description                                  |
+|---------------|--------------------------------------|
 | 200 OK        | The request has been processed successfully.                                                                                   |
 | 400 Bad Request  | Required parameters such as `client_id` are missing or invalid parameters have been used. |
 | 500 Internal Server Error | Failed to issue an access token due to an internal server error.                                             |
@@ -225,8 +225,8 @@ This API renews the Clova access token with a refresh token.
 
 ### Status codes
 
-| Status code       | Description                     |
-|---------------|-------------------------|
+| Status code       | Description                                  |
+|---------------|--------------------------------------|
 | 200 OK                    | The request has been processed successfully.                                                                                |
 | 400 Bad Request           | Required parameters such as `client_id` are missing or invalid parameters have been used. |
 | 500 Internal Server Error | Failed to refresh an access token due to an internal server error.                                                      |
@@ -298,8 +298,8 @@ This API deletes the [issued Clova access token](#RequestClovaAccessToken). The 
 
 ### Status codes
 
-| Status code       | Description                     |
-|---------------|-------------------------|
+| Status code       | Description                                  |
+|---------------|--------------------------------------|
 | 200 OK                    | The request has been processed successfully.                                                                                                                       |
 | 400 Bad Request           | Required parameters such as `client_id` are missing or invalid parameters have been used.                                        |
 | 401 Unauthorized          | Invalid client credentials (`client_id` or `client_secret`) or user information (`device_id` or `model_id`) are received as parameters. |

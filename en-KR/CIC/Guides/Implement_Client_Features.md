@@ -5,6 +5,8 @@ Follow the guide provided below to learn how to develop a client.
 
 * [Handling tasks and managing dialogue IDs](#ManageDialogueIDAndHandleTasks)
 * [Handling delegated user requests](#HandleDelegation)
+* [Handling client action control](#HandleDeviceControl)
+* [Handling client Bluetooth control](#HandleBluetoothControl)
 * [Handling alerts](#HandleAlerts)
 * [Handling audio playback](#HandleAudioPlayback)
 * [Handling settings](#HandleSettings)
@@ -18,6 +20,10 @@ Follow the guide provided below to learn how to develop a client.
 {% include "/CIC/Guides/ImplementClientFeatures/Manage_Dialogue_ID_And_Handle_Tasks.md" %}
 
 {% include "/CIC/Guides/ImplementClientFeatures/Handle_Delegation.md" %}
+
+{% include "/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md" %}
+
+{% include "/CIC/Guides/ImplementClientFeatures/Handle_Bluetooth_Control.md" %}
 
 {% include "/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md" %}
 

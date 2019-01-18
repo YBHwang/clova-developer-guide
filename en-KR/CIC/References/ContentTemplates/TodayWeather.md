@@ -23,6 +23,8 @@ The TodayWeather template is used in providing today's weather for the client to
 | `lastUpdate`                | [DateTimeObject](/CIC/References/ContentTemplates/Shared_Objects.md#DateTimeObject) | The last update time of the weather information. The `value` field of this object can have an empty string (`""`). |
 | `location`                  | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information on the region. |
 | `nowTemperature`            | [TemperatureCObject](/CIC/References/ContentTemplates/Shared_Objects.md#TemperatureCObject) | The current temperature. |
+| `nowTemperatureImageCode`   | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information on the current [weather code](#WeatherCode).   |
+| `nowTemperatureImageUrl`    | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | The URL of the current weather image file. |
 | `nowWeather`                | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The current weather.  |
 | `referenceText`             | [StringObject](/CIC/References/ContentTemplates/Shared_Objects.md#StringObject) | The information of the referred service. The `value` field of this object can have an empty string (`""`).  |
 | `referenceUrl`              | [URLObject](/CIC/References/ContentTemplates/Shared_Objects.md#URLObject)       | The information on the usage result URL of the referred service. The `value` field of this object can have an empty string (`""`).   |
@@ -272,6 +274,14 @@ The TodayWeather template is used in providing today's weather for the client to
   "nowTemperature": {
     "type": "temperature-c",
     "value": "31"
+  },
+  "nowTemperatureImageCode": {
+  "type": "string",
+  "value": "5"
+  },
+  "nowTemperatureImageUrl": {
+    "type": "url",
+    "value": "https://ssl.pstatic.example.net/static/clova/service/weather/icon_05.png"
   },
   "nowWeather": {
     "type": "string",

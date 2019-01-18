@@ -13,7 +13,7 @@ To identify individual user requests, a **dialogue ID** is created every time a 
 
 The following actions are required by the client regarding the dialogue IDs:
 
-![](/CIC/Resources/Images/CIC_Dialogue_ID_Creation.png)
+![](/CIC/Resources/Images/CIC_Dialogue_ID_Creation.svg)
 
 1. Create a **new dialogue ID** (UUID format recommended) every time a user initiates a dialogue.
 2. Send the user request to CIC using the [SpeechRecognizer.Recognize](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize) event message. (For requests in text, use the [TextRecognizer.Recognize](/CIC/References/CICInterface/TextRecognizer.md#Recognize) event message.)
@@ -25,16 +25,16 @@ The following actions are required by the client regarding the dialogue IDs:
 <p>The latest dialogue ID <strong>must be updated after the process of the <a href="/CIC/References/CICInterface/SpeechRecognizer.md#Recognize">SpeechRecognizer.Recognize</a> event message or the <a href="/CIC/References/CICInterface/TextRecognizer.md#Recognize">TextRecognizer.Recognize</a> event message</strong> is complete.</p>
 </div>
 
-Once the latest dialogue ID is updated, the client must perform the following in order to [handle the directives containing the dialogue ID](#HandleDirectivesByDialogueID):
+Once the latest dialogue ID is updated, the client must perform the following in order to [handle the directive messages containing the dialogue ID](#HandleDirectivesByDialogueID):
 
-* If the details of directives containing old dialogue IDs are provided to the user, this must be stopped by referring to the [Rules for basic audio playback](/Design/Design_Guideline_For_Client_Hardware.md#AudioInterruptionRule) or [Audio playback rules for user utterances](/Design/Design_Guideline_For_Client_Hardware.md#AudioInterruptionRuleForUserUtterance).
-* All directives containing old dialogue IDs must be discarded from the [message queue](/CIC/Guides/Interact_with_CIC.md#ManageMessageQ).
+* If the details containing old dialogue IDs are provided to the user, this must be stopped by referring to the [Rules for basic audio playback](/Design/Design_Guideline_For_Client_Hardware.md#AudioInterruptionRule) or [Audio playback rules for user utterances](/Design/Design_Guideline_For_Client_Hardware.md#AudioInterruptionRuleForUserUtterance).
+* All directive messages containing old dialogue IDs must be discarded from the [message queue](/CIC/Guides/Interact_with_CIC.md#ManageMessageQ).
 
 ### Handling directive messages by dialogue ID {#HandleDirectivesByDialogueID}
 
-In general, CIC sends a directive to the client as a response to the user request and embeds the [dialogue ID created by the client](#CreatingDialogueID) in the directive. In short, dialogue IDs help you identify whether the response from Clova corresponds to the latest user request. The client must handle the received directives according to the dialogue ID, as shown below.
+In general, CIC sends a directive to the client as a response to the user request and embeds the [dialogue ID created by the client](#CreatingDialogueID) in the directive message. In short, dialogue IDs help you identify whether the response from Clova corresponds to the latest user request. The client must handle the received directives according to the dialogue ID, as shown below.
 
-![](/CIC/Resources/Images/CIC_Handle_Directives_By_Dialogue_ID.png)
+![](/CIC/Resources/Images/CIC_Handle_Directives_By_Dialogue_ID.svg)
 
 First, the client must check whether the directive received from CIC contains a dialogue ID in the [header of the directive](/CIC/References/CIC_API.md#Directive). If the received directive contains a dialogue ID, compare the ID to the **latest dialogue ID** and handle as follows, depending on the result:
 
