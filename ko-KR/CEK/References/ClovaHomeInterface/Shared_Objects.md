@@ -1390,8 +1390,11 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 ### See also
 * [`GetAsleepDurationRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetAsleepDurationRequest)
 * [`GetAwakeDurationRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetAwakeDurationRequest)
+* [`GetConsumptionRequest`](CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetConsumptionRequest)
+* [`GetCurrentBillRequest`](CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentBillRequest)
 * [`GetCurrentSittingStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentSittingStateResponse)
 * [`GetDeviceStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateRequest)
+* [`GetEstimateBillRequest`](CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateBillRequest)
 * [`GetRightPostureRatioRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetRightPostureRatioRequest)
 * [`GetSleepScoreRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetSleepScoreRequest)
 * [`GetSleepStartTimeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetSleepStartTimeRequest)
