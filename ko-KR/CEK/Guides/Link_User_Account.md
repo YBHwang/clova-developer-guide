@@ -24,7 +24,7 @@ Clova는 [custom extension](/CEK/Guides/Build_Custom_Extension.md)이나 [Clova 
 
 1. 사용자가 특정 custom extension이나 Clova Home extension을 활성화합니다.
 
-2. 클라이언트 앱 또는 클라이언트 기기와 페어링하는 앱에서 외부 서비스의 로그인 페이지를 표시합니다. 이때, extension 개발자가 미리 등록해 둔 인증 서버의 **[Authorization URL](#BuildAuthServer)**을 이용합니다.
+2. Clova 앱 또는 클라이언트 기기와 페어링하는 앱에서 외부 서비스의 로그인 페이지를 표시합니다. 이때, extension 개발자가 미리 등록해 둔 인증 서버의 **[Authorization URL](#BuildAuthServer)**을 이용합니다.
 
 3. 사용자가 계정 인증을 완료하면 authorization code가 반환됩니다.
 
