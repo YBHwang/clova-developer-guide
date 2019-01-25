@@ -27,10 +27,10 @@ Clova access token을 획득하는 절차는 다음과 같습니다.
     <p>우선, 사용자가 {{ book.ServiceEnv.TargetServiceForClientAuth }} 계정을 인증할 수 있는 인터페이스를 제공합니다(<a href="{{ book.ServiceEnv.LoginAPIofTargetService }}" target="_blank">{{ book.ServiceEnv.TargetServiceForClientAuth }} 아이디로 로그인하기</a>).<br /><strong>GUI 미제공 클라이언트</strong>는 사용자 음성 입력만으로 계정 인증을 할 수 없기 때문에 반드시 Clova 앱이나 연동 앱(companion app)을 사용해야 합니다.</p>
   </li>
   <li>
-    <p>{{ book.ServiceEnv.TargetServiceForClientAuth }} 계정의 {{ "authorization code" if book.L10N.TargetCountryCode == "JP" else "access token" }}을 획득합니다. {{ "authorization code" if book.L10N.TargetCountryCode == "JP" else "access token" }}을 획득할 때, 사용자가 입력한 {{ book.ServiceEnv.TargetServiceForClientAuth }} 계정 정보를 이용합니다.</p>
+    <p>{{ book.ServiceEnv.TargetServiceForClientAuth }} 계정의 {{ "authorization code를" if book.L10N.TargetCountryCode == "JP" else "access token을" }} 획득합니다. {{ "authorization code를" if book.L10N.TargetCountryCode == "JP" else "access token을" }} 획득할 때, 사용자가 입력한 {{ book.ServiceEnv.TargetServiceForClientAuth }} 계정 정보를 이용합니다.</p>
   </li>
   <li>
-    <p><a href="/CIC/References/Clova_Auth_API.html#RequestAuthorizationCode">authorization code를 요청</a>합니다. Authorization code를 요청할 때, 2번 단계에서 획득한 {{ book.ServiceEnv.TargetServiceForClientAuth }} 계정의 {{ "authorization code" if book.L10N.TargetCountryCode == "JP" else "access token" }}과 <a href="#ClientAuthInfo">클라이언트 인증 정보</a> 등의 정보를 이용합니다. <code>device_id</code> 필드의 값으로 클라이언트의 MAC 주소를 사용하거나 UUID 해쉬 값을 생성해서 사용하면 됩니다.<br />다음은 authorization code를 요청한 예입니다.</p>
+    <p><a href="/CIC/References/Clova_Auth_API.html#RequestAuthorizationCode">authorization code를 요청</a>합니다. Authorization code를 요청할 때, 2번 단계에서 획득한 {{ book.ServiceEnv.TargetServiceForClientAuth }} 계정의 {{ "authorization code와" if book.L10N.TargetCountryCode == "JP" else "access token과" }} <a href="#ClientAuthInfo">클라이언트 인증 정보</a> 등의 정보를 이용합니다. <code>device_id</code> 필드의 값으로 클라이언트의 MAC 주소를 사용하거나 UUID 해쉬 값을 생성해서 사용하면 됩니다.<br />다음은 authorization code를 요청한 예입니다.</p>
     <pre><code>$ curl -H "Authorization: Bearer QHSDAKLFJASlk12jlkf+asldkjasdf=sldkjf123dsalsdflkvpasdFMrjvi23scjaf123klv"
     {{ book.ServiceEnv.AuthServerBaseURL }}authorize \
     --data-urlencode "client_id=c2Rmc2Rmc2FkZ2Fasdkjh234zZnNhZGZ" \
