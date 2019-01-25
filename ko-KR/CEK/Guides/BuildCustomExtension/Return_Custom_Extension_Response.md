@@ -77,7 +77,7 @@
   <p>단문이나 복문 형태의 음성 정보 외에도 스크린 없는 기기와 같이 상세 내용을 GUI로 표현하기 힘든 클라이언트를 위해 복합 형태(SpeechSet)의 음성 정보도 지원하고 있습니다. 자세한 사항은 custom extension 메시지 포맷의 <a href="/CEK/References/CEK_API.md#CustomExtResponseMessage">응답 메시지</a>를 참조합니다.</p>
 </div>
 
-음성 출력뿐만 아니라 클라이언트 기기의 화면이나 클라이언트 앱 화면에 원하는 데이터를 출력해야 한다면 다음과 같이 `response.card` 필드에 [content template](/CIC/References/Content_Templates.md)에 맞춰 표시할 콘텐츠를 채우면 됩니다.
+음성 출력뿐만 아니라 클라이언트 기기의 화면이나 Clova 앱 화면에 원하는 데이터를 출력해야 한다면 다음과 같이 `response.card` 필드에 [content template](/CIC/References/Content_Templates.md)에 맞춰 표시할 콘텐츠를 채우면 됩니다.
 
 {% raw %}
 ```json

@@ -1,8 +1,8 @@
 # Shared objects {#SharedObjects}
 [Clova Home extension 메시지](/CEK/References/CEK_API.md#ClovaHomeExtMessage)를 보낼 때 메시지 `payload`에 다음과 같은 공유 객체(shared objects)가 사용됩니다.
 
-| 객체 이름            | 객체 설명                                            |
-|--------------------|---------------------------------------------------|
+| 객체 이름                 | 객체 설명                                         |
+|-------------------------|------------------------------------------------|
 | [ActionInfoObject](#ActionInfoObject)                   | 기기 제어 동작 정보가 담긴 객체  |
 | [AirQualityInfoObject](#AirQualityInfoObject)             | 공기질 정보가 담긴 객체            |
 | [ApplianceInfoObject](#ApplianceInfoObject)               | IoT 기기의 정보가 담긴 객체        |
@@ -206,8 +206,8 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 ### Remarks
 [`DiscoverAppliancesRequest`](/CEK/References/ClovaHomeInterface/Discovery_Interfaces.md#DiscoverAppliancesRequest) 메시지를 통해 사용자 기기 목록을 요청하면 Clova Home extension은 `additionalApplianceDetails` 필드를 제외한 모든 필드의 정보를 채워서 전달해야 합니다. 이때, `actions` 필드의 값은 보통 `applianceTypes` 필드에 의해 결정되며, `applianceTypes` 필드 값에 따라 다음과 같은 값을 가질 수 있습니다.
 
-| applianceTypes | 설명         | 허용되는 actions                                  |
-|----------------|-------------|-------------------------------------------------|
+| applianceTypes     | 설명             | 허용되는 actions                              |
+|--------------------|-----------------|---------------------------------------------|
 | `"AIRCONDITIONER"`  | 냉난방기 타입         | DecrementFanSpeed, DecrementTargetTemperature, GetCurrentTemperature, GetDeviceState, GetTargetTemperature, HealthCheck, IncrementFanSpeed, IncrementTargetTemperature, SetFanSpeed, SetMode, SetTargetTemperature, TurnOff, TurnOn               |
 | `"AIRPURIFIER"`     | 공기청정기 타입        | DecrementFanSpeed, GetAirQuality, GetCurrentTemperature, GetDeviceState, GetFineDust, GetHumidity, GetUltraFineDust, HealthCheck, IncrementFanSpeed, ReleaseMode, SetFanSpeed, SetMode, TurnOff, TurnOn  |
 | `"AIRSENSOR"`       | 공기질 측정기 타입     | GetAirQuality, GetCurrentTemperature, GetDeviceState, GetFineDust, GetHumidity, GetUltraFineDust, HealthCheck                                     |
@@ -1094,7 +1094,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 <table>
   <thead>
     <tr>
-      <th style="width:20%">기기 타입</th><th style="width:80%">운전 모드 목록 및 설명</th>
+      <th style="width:30%">기기 타입</th><th style="width:70%">운전 모드 목록 및 설명</th>
     </tr>
   </thead>
   <tdoby>
@@ -1390,8 +1390,11 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 ### See also
 * [`GetAsleepDurationRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetAsleepDurationRequest)
 * [`GetAwakeDurationRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetAwakeDurationRequest)
+* [`GetConsumptionRequest`](CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetConsumptionRequest)
+* [`GetCurrentBillRequest`](CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentBillRequest)
 * [`GetCurrentSittingStateResponse`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetCurrentSittingStateResponse)
 * [`GetDeviceStateRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetDeviceStateRequest)
+* [`GetEstimateBillRequest`](CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetEstimateBillRequest)
 * [`GetRightPostureRatioRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetRightPostureRatioRequest)
 * [`GetSleepScoreRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetSleepScoreRequest)
 * [`GetSleepStartTimeRequest`](/CEK/References/ClovaHomeInterface/Control_Interfaces.md#GetSleepStartTimeRequest)
