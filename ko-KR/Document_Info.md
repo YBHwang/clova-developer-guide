@@ -21,6 +21,16 @@
   </thead>
   <tbody>
     <tr>
+      <td>v3.47.2</td><td>2019-01-25</td>
+      <td>
+        <ul>
+          <li>[CIC] <a href="/CIC/Guides/Interact_with_CIC.md">CIC 연동하기</a> 문서의 일부 설명 개선</li>
+          <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.md#"></a>, <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.md#"></a>, <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.md#"></a> 메시지에 period 필드 추가</li>
+          <li>[Common] 다이어그램 일부 스타일 수정 및 표의 열 간격 조정</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.47.1</td><td>2019-01-07</td>
       <td>
         <ul>
