@@ -21,7 +21,7 @@
   </thead>
   <tbody>
     <tr>
-      <td>v3.47.2</td><td>2019-01-25</td>
+      <td>v3.48.0</td><td>2019-01-25</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/Guides/Interact_with_CIC.md">CIC 연동하기</a> 문서의 일부 설명 개선</li>
