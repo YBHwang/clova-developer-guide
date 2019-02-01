@@ -54,12 +54,12 @@
       <td>v3.46.0</td><td>2018-12-24</td>
       <td>
         <ul>
-          <li>[Design] <a href="/Design/Design_Guideline_For_Extension.html">Extension 디자인 가이드라인</a> 문서의 오디오 콘텐츠 재생 유형 설명에서 예제 시나리오에 잘못 표기된 지시 메시지의 이름을 수정함</li>
+          <li>[Design] <a href="/Design/Design_Guideline_For_Extension.md">Extension 디자인 가이드라인</a> 문서의 오디오 콘텐츠 재생 유형 설명에서 예제 시나리오에 잘못 표기된 지시 메시지의 이름을 수정함</li>
           <li>[CIC] <a href=/CIC/Guides/Implement_Client_Features.md#HandleDeviceControl>클라이언트 동작 제어 처리하기</a> 가이드 문서 추가</li>
           <li>[CIC] <a href=/CIC/Guides/Implement_Client_Features.md#HandleBluetoothControl>클라이언트 블루투스 제어 처리하기</a> 가이드 문서 추가</li>
           <li>[CIC] <a href="/CIC/References/ContentTemplates/TodayWeather.md">TodayWeather</a> 템플릿에 현재 날씨 정보와 관련된 nowTemperatureImageCode 필드와 nowTemperatureImageUrl 필드를 추가</li>
           <li>[CIC] <a href="/CIC/References/ContentTemplates/TodayWeather.md">TodayWeather</a> 템플릿에 문서 오류 수</li>
-          <li>[CEK] <a href="/CEK/Guides/Build_Custom_Extension.html#ProvideAudioContent">오디오 콘텐츠 제공하기</a> 설명에서 CIC 명세 도입 시 이를 독자가 인지할 수 있도록 표현을 수정</li>
+          <li>[CEK] <a href="/CEK/Guides/Build_Custom_Extension.md#ProvideAudioContent">오디오 콘텐츠 제공하기</a> 설명에서 CIC 명세 도입 시 이를 독자가 인지할 수 있도록 표현을 수정</li>
           <li>[CEK] Clova Home extension 명세에 일부 잘못된 표기 오류를 수정</li>
           <li>[Common] <a href="/README.md">시작하기 전에</a> 페이지에 추가된 문서의 링크를 추가함</li>
           <li>[Common] 일부 시퀀스 다이어그램에 잘못 표기된 노드의 유형을 수정함</li>
@@ -80,8 +80,8 @@
         <ul>
           <li>[CIC] 대화 모델의 설명을 <a href="/CIC/CIC_Overview.md#IndirectDialogue">간접 대화 구조</a>와 <a href="/CIC/Guides/Implement_Client_Features.md#ManageDialogueIDAndHandleTasks">대화 ID 관리 및 작업 처리하기</a>로 설명을 나누고 내용을 보완함</li>
           <li>[CIC] <a href="/CIC/References/CICInterface/DeviceControl.md#Decrease">DeviceControl.Decrease</a>와 <a href="/CIC/References/CICInterface/DeviceControl.md#Increase">DeviceControl.Increase</a> 지시 메시지에 value 필드를 추가하여 특정 크기 만큼 기기의 화면 밝기나 볼륨을 조정할 수 있도록 지원함</li>
-          <li>[CEK] Clova Home extension API에 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.md#PreheatConfirmation">PreheatConfirmation</a>, <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.html#PreheatRequest">PreheatRequest</a> 추가</li>
-          <li>[CEK] Clova Home extension API <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html">공유 객체</a> <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.html#ApplianceInfoObject">ApplianceInfoObject</a>의 Remarks에 다음의 내용을 업데이트함
+          <li>[CEK] Clova Home extension API에 <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.md#PreheatConfirmation">PreheatConfirmation</a>, <a href="/CEK/References/ClovaHomeInterface/Control_Interfaces.md#PreheatRequest">PreheatRequest</a> 추가</li>
+          <li>[CEK] Clova Home extension API <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.md">공유 객체</a> <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject">ApplianceInfoObject</a>의 Remarks에 다음의 내용을 업데이트함
             <ul>
               <li>스마트락(SMARTLOCK) 기기 타입 추가</li>
               <li>와인 셀러(WINECELLAR) 기기 타입 추가</li>
