@@ -134,7 +134,7 @@ GET /v1/directives
 | Request header | 설명                                                                |
 |----------------|--------------------------------------------------------------------|
 | Authorization  | <p>획득한 Clova access token을 입력합니다.</p><pre><code>Bearer [Clova access token]</code></pre> |
-| User-Agent     | <p><a href="/CIC/Guides/Interact_with_CIC.html#UserAgentString">User agent string</a>을 입력합니다.</p><pre><code>User-Agent: [User-Agent string]</code></pre>  |
+| User-Agent     | <p><a href="/CIC/Guides/Interact_with_CIC.md#UserAgentString">User agent string</a>을 입력합니다.</p><pre><code>User-Agent: [User-Agent string]</code></pre>  |
 
 ### Request example
 
@@ -238,7 +238,7 @@ POST /v1/events
 |-----------------|--------------------------------------------------------------------|
 | Authorization   | <p>획득한 Clova access token을 입력합니다.</p><pre><code>Bearer [Clova access token]</code></pre> |
 | Content-Type    | <p><a href="#MultipartMessage">Multipart 메시지</a> 타입 및 경계 문구 선언:</p><pre><code>multipart/form-data; boundary=[boundary_term]</code></pre>  |
-| User-Agent      | <p><a href="/CIC/Guides/Interact_with_CIC.html#UserAgentString">User agent string</a>을 입력합니다.</p><pre><code>User-Agent: [User-Agent string]</code></pre>  |
+| User-Agent      | <p><a href="/CIC/Guides/Interact_with_CIC.md#UserAgentString">User agent string</a>을 입력합니다.</p><pre><code>User-Agent: [User-Agent string]</code></pre>  |
 
 ### Request message header
 
@@ -482,7 +482,7 @@ CIC API에서 사용되는 메시지는 다음과 같이 구분되며, 각각 �
 
 | 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:---------:|
-| `context[]`                      | object array | CIC에 전달할 클라이언트의 상태 정보를 담고 있는 배열. 다음과 같은 [맥락 정보](/CIC/References/Context_Objects.md) 객체를 이 배열의 원소로 포함시킬 수 있습니다. 이벤트 메시지에 상황에 따라 필요한 맥락 정보를 포함시키면 됩니다.<ul><li><a href="/CIC/References/Context_Objects.html#AlertsState"><code>Alerts.AlertsState</code></a>: 알람 또는 타이머 상태 정보</li><li><a href="/CIC/References/Context_Objects.html#PlaybackState"><code>AudioPlayer.PlaybackState</code></a>: 최근 재생 정보</li><li><a href="/CIC/References/Context_Objects.html#DeviceState"><code>Device.DeviceState</code></a>: 클라이언트의 기기 정보</li><li><a href="/CIC/References/Context_Objects.html#Display"><code>Device.Display</code></a>: 클라이언트의 디스플레이 정보</li><li><a href="/CIC/References/Context_Objects.html#Location"><code>Clova.Location</code></a>: 클라이언트의 위치 정보</li><li><a href="/CIC/References/Context_Objects.html#SavedPlace"><code>Clova.SavedPlace</code></a>: 사전 정의 위치 정보</li><li><a href="/CIC/References/Context_Objects.html#VolumeState"><code>Speaker.VolumeState</code></a>: 스피커 정보</li></ul> | 필수 |
+| `context[]`                      | object array | CIC에 전달할 클라이언트의 상태 정보를 담고 있는 배열. 다음과 같은 [맥락 정보](/CIC/References/Context_Objects.md) 객체를 이 배열의 원소로 포함시킬 수 있습니다. 이벤트 메시지에 상황에 따라 필요한 맥락 정보를 포함시키면 됩니다.<ul><li><a href="/CIC/References/Context_Objects.md#AlertsState"><code>Alerts.AlertsState</code></a>: 알람 또는 타이머 상태 정보</li><li><a href="/CIC/References/Context_Objects.md#PlaybackState"><code>AudioPlayer.PlaybackState</code></a>: 최근 재생 정보</li><li><a href="/CIC/References/Context_Objects.md#DeviceState"><code>Device.DeviceState</code></a>: 클라이언트의 기기 정보</li><li><a href="/CIC/References/Context_Objects.md#Display"><code>Device.Display</code></a>: 클라이언트의 디스플레이 정보</li><li><a href="/CIC/References/Context_Objects.md#Location"><code>Clova.Location</code></a>: 클라이언트의 위치 정보</li><li><a href="/CIC/References/Context_Objects.md#SavedPlace"><code>Clova.SavedPlace</code></a>: 사전 정의 위치 정보</li><li><a href="/CIC/References/Context_Objects.md#VolumeState"><code>Speaker.VolumeState</code></a>: 스피커 정보</li></ul> | 필수 |
 | `event`                        | object       | 이벤트 메시지의 헤더와 필요한 데이터(payload)를 가지고 있는 객체                                                                 | 필수 |
 | `event.header`                 | object       | 이벤트 메시지의 헤더                                                                                                 | 필수 |
 | `event.header.dialogRequestId` | string       | 대화 ID(Dialogue ID). 클라이언트는 [`SpeechRecognizer.Regcognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)와 [`TextRecognizer.Recognize`](/CIC/References/CICInterface/TextRecognizer.md#Recognize) 이벤트 메시지를 전송할 때 반드시 [대화 ID를 생성](/CIC/Guides/Implement_Client_Features.md#CreatingDialogueID)하여 이 필드에 입력해야 합니다.| 선택 |

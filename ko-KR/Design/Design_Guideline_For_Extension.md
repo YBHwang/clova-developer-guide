@@ -167,7 +167,7 @@ Extension을 설계할 때 가장 먼저 할 일은 extension의 목표를 정�
 
 <div class="note">
 <p><strong>Note!</strong></p>
-<p>Skill 이름에 대한 규칙은 언제든지 변경될 수 있으며, 이미 허가된 이름이 정책에 따라 사용 불가 판정을 받을 수도 있습니다. 이점 미리 양해 부탁드립니다. 이에 대한 판단이 어렵다면 <a href="/DevConsole/Guides/CEK/Deploy_Extension.html#RequestExtensionSubmission">심사 시</a>에 의견을 입력해주십시오.</p>
+<p>Skill 이름에 대한 규칙은 언제든지 변경될 수 있으며, 이미 허가된 이름이 정책에 따라 사용 불가 판정을 받을 수도 있습니다. 이점 미리 양해 부탁드립니다. 이에 대한 판단이 어렵다면 <a href="/DevConsole/Guides/CEK/Deploy_Extension.md#RequestExtensionSubmission">심사 시</a>에 의견을 입력해주십시오.</p>
 </div>
 
 ## Interaction 모델 정의 {#DefineInteractionModel}
@@ -328,7 +328,7 @@ BBQ 피자 하나만 배달시켜줄래?
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>추후 <a href="/DevConsole/Guides/CEK/Test_Extension.html#TestInteractionModel">interaction 모델 테스트</a>나 실제 사용자 로그를 통해 완성도를 높여 나갈 수 있습니다. Interaction 모델을 테스트할 때는 발화 예시를 작성한 사람이 아닌 다른 사람이 테스트해보는 것이 좋습니다. 이 방법은 새로운 표현 패턴을 찾는데 도움이 됩니다.</p>
+  <p>추후 <a href="/DevConsole/Guides/CEK/Test_Extension.md#TestInteractionModel">interaction 모델 테스트</a>나 실제 사용자 로그를 통해 완성도를 높여 나갈 수 있습니다. Interaction 모델을 테스트할 때는 발화 예시를 작성한 사람이 아닌 다른 사람이 테스트해보는 것이 좋습니다. 이 방법은 새로운 표현 패턴을 찾는데 도움이 됩니다.</p>
 </div>
 
 
@@ -455,7 +455,7 @@ Extension은 사용자의 요청을 처리한 후 그 결과를 Clova를 통해 
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>음성 출력 유형의 응답에 대한 구현 설명은 <a href="/CEK/Guides/Build_Custom_Extension.html#ReturnCustomExtensionResponse">Custom extension 응답 반환하기</a>를 참조합니다.</p>
+  <p>음성 출력 유형의 응답에 대한 구현 설명은 <a href="/CEK/Guides/Build_Custom_Extension.md#ReturnCustomExtensionResponse">Custom extension 응답 반환하기</a>를 참조합니다.</p>
 </div>
 
 
@@ -484,7 +484,7 @@ Extension은 사용자의 요청을 처리한 후 그 결과를 Clova를 통해 
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>오디오 콘텐츠 재생 유형으로 응답하는 방법은 <a href="/CEK/Guides/Build_Custom_Extension.html#ProvideAudioContent">오디오 콘텐츠 제공하기</a>를 참조합니다.</p>
+  <p>오디오 콘텐츠 재생 유형으로 응답하는 방법은 <a href="/CEK/Guides/Build_Custom_Extension.md#ProvideAudioContent">오디오 콘텐츠 제공하기</a>를 참조합니다.</p>
 </div>
 
 ## 콘텐츠 제공 시 준수 사항 {#ContentGuideline}
@@ -564,7 +564,7 @@ Skill 콘텐츠 제공과 관련하여 다음과 같은 유의 사항이 있습�
 
 <div class="note">
 <p><strong>Note!</strong></p>
-<p>일부 예외가 있을 수 있기 때문에 판단이 어려울 수 있으며, 이에 대한 판단이 어렵다면 <a href="/DevConsole/Guides/CEK/Deploy_Extension.html#RequestExtensionSubmission">심사 시</a>에 의견을 입력해주십시오.</p>
+<p>일부 예외가 있을 수 있기 때문에 판단이 어려울 수 있으며, 이에 대한 판단이 어렵다면 <a href="/DevConsole/Guides/CEK/Deploy_Extension.md#RequestExtensionSubmission">심사 시</a>에 의견을 입력해주십시오.</p>
 </div>
 
 ## 플랫폼 지원 오디오 압축 포맷 {#SupportedAudioCompressionFormat}

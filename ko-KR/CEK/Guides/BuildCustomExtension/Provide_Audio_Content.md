@@ -15,7 +15,7 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>오디오 콘텐츠를 재생하는 custom extension을 구현하려면 <a href="/DevConsole/Guides/CEK/Register_Extension.html">Clova developer console에 extension을 등록</a>할 때 <a href="/DevConsole/Guides/CEK/Register_Extension.html#InputExtensionInfo">기본 정보</a>로 {{ book.DevConsole.cek_audioplayer }} 항목을 <strong>네</strong>로 선택해야 합니다.</p>
+  <p>오디오 콘텐츠를 재생하는 custom extension을 구현하려면 <a href="/DevConsole/Guides/CEK/Register_Extension.md">Clova developer console에 extension을 등록</a>할 때 <a href="/DevConsole/Guides/CEK/Register_Extension.md#InputExtensionInfo">기본 정보</a>로 {{ book.DevConsole.cek_audioplayer }} 항목을 <strong>네</strong>로 선택해야 합니다.</p>
 </div>
 {% elif book.L10N.TargetCountryCode == "JP" %}
 Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디오 콘텐츠를 제공할 수 있습니다. 이를 위해 [Custom extension 메시지](/CEK/References/CEK_API.md#CustomExtMessage)의 [`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest) 타입의 요청 메시지와 [응답 메시지](/CEK/References/CEK_API.md#CustomExtResponseMessage) 명세에서 클라이언트(사용자 기기나 Clova 앱)용 메시지 포맷인 [오디오 콘텐츠 재생 관련 CIC API](/CEK/References/CEK_API.md#CICAPIforAudioPlayback)를 활용해야 합니다. 오디오 콘텐츠를 사용자에게 제공하려면 다음에 해당하는 내용을 extension에 구현해야 하며, 각 절에서는 구체적인 설명을 다룹니다.  **특히, 필수 구현 항목은 반드시 구현해야 합니다.**
@@ -32,7 +32,7 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>오디오 콘텐츠를 재생하는 custom extension을 구현하려면 <a href="/DevConsole/Guides/CEK/Register_Extension.html">Clova developer console에 extension을 등록</a>할 때 <a href="/DevConsole/Guides/CEK/Register_Extension.html#InputExtensionInfo">기본 정보</a>로 {{ book.DevConsole.cek_audioplayer }} 항목을 <strong>네</strong>로 선택해야 합니다.</p>
+  <p>오디오 콘텐츠를 재생하는 custom extension을 구현하려면 <a href="/DevConsole/Guides/CEK/Register_Extension.md">Clova developer console에 extension을 등록</a>할 때 <a href="/DevConsole/Guides/CEK/Register_Extension.md#InputExtensionInfo">기본 정보</a>로 {{ book.DevConsole.cek_audioplayer }} 항목을 <strong>네</strong>로 선택해야 합니다.</p>
 </div>
 {% endif %}
 
@@ -42,7 +42,7 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>제공하려는 오디오 콘텐츠는 <a href="/Design/Design_Guideline_For_Client_Hardware.html#SupportedAudioCompressionFormat">플랫폼이 지원하는 오디오 압축 포맷</a>이어야 합니다.</p>
+  <p>제공하려는 오디오 콘텐츠는 <a href="/Design/Design_Guideline_For_Client_Hardware.md#SupportedAudioCompressionFormat">플랫폼이 지원하는 오디오 압축 포맷</a>이어야 합니다.</p>
 </div>
 
 <div class="danger">
@@ -97,7 +97,7 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p><a href="/CEK/Guides/Build_Custom_Extension.html#ReturnCustomExtensionResponse">응답 메시지로 반환</a>할 때 <code>response.outputSpeech</code> 필드도 함께 지정할 수 있습니다. 예를 들면 "요청하신 오디오를 들려드릴게요" 라는 음성 출력(TTS)을 먼저 사용자에게 들려준 후 오디오의 재생을 시작할 수 있습니다.</p>
+  <p><a href="/CEK/Guides/Build_Custom_Extension.md#ReturnCustomExtensionResponse">응답 메시지로 반환</a>할 때 <code>response.outputSpeech</code> 필드도 함께 지정할 수 있습니다. 예를 들면 "요청하신 오디오를 들려드릴게요" 라는 음성 출력(TTS)을 먼저 사용자에게 들려준 후 오디오의 재생을 시작할 수 있습니다.</p>
 </div>
 
 ### 오디오 콘텐츠 재생 제어 {#ControlAudioPlayback}
@@ -154,7 +154,7 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>만약, 이전이나 다음에 해당하는 오디오 콘텐츠가 없거나 유효하지 않으면 "재생할 수 있는 이전 또는 다음 곡이 없습니다."와 같은 음성 출력을 <a href="/CEK/Guides/Build_Custom_Extension.html#ReturnCustomExtensionResponse">응답 메시지로 반환</a>하면 됩니다.</p>
+  <p>만약, 이전이나 다음에 해당하는 오디오 콘텐츠가 없거나 유효하지 않으면 "재생할 수 있는 이전 또는 다음 곡이 없습니다."와 같은 음성 출력을 <a href="/CEK/Guides/Build_Custom_Extension.md#ReturnCustomExtensionResponse">응답 메시지로 반환</a>하면 됩니다.</p>
 </div>
 
 ### 오디오 콘텐츠의 메타 정보 제공 {#ProvidingMetaDataForDisplay}
