@@ -592,7 +592,7 @@ SpeechInfoObject 객체는 응답 메시지의 `response.outputSpeech`에서 재
 |----------------|--------------|--------------------------------------------------------------------|:-----:|
 | `lang`           | string       | 음성 합성을 할 때 사용할 언어의 코드. 현재 다음과 같은 값을 가집니다.<ul><li><code>"en"</code>: 영어</li><li><code>"ja"</code>: 일본어</li><li><code>"ko"</code>: 한국어</li><li><code>""</code>: <code>type</code> 필드의 값이 <code>"URL"</code>이면 이 필드는 빈 문자열(empty string)을 가집니다.</li></ul>         | 필수 |
 | `type`           | string       | 재생할 음성의 타입. 이 필드의 값에 따라 `value` 필드 값의 형태가 달라집니다. 현재 다음과 같은 값을 가집니다.<ul><li><code>"PlainText"</code>: 일반 텍스트</li><li><code>"URL"</code>: 음성 및 음악을 재생할 수 있는 파일의 URI</li></ul>            | 필수 |
-| `value`          | string       | 음성 합성할 내용 또는 음성 파일의 URI.<div class="note"><p><strong>Note!</strong></p><p>Clova가 지원하는 음성 파일 형식에 대한 내용은 <a href="/Design/Design_Guideline_For_Extension.html#SupportedAudioCompressionFormat">플랫폼 지원 오디오 압축 포맷</a>을 참조합니다.</p></div>     | 필수 |
+| `value`          | string       | 음성 합성할 내용 또는 음성 파일의 URI.<div class="note"><p><strong>Note!</strong></p><p>Clova가 지원하는 음성 파일 형식에 대한 내용은 <a href="/Design/Design_Guideline_For_Extension.md#SupportedAudioCompressionFormat">플랫폼 지원 오디오 압축 포맷</a>을 참조합니다.</p></div>     | 필수 |
 
 #### Message example
 {% raw %}
@@ -1581,7 +1581,7 @@ CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 
 | 필드 이름       | 자료형    | 필드 설명                     | 필수/포함 여부 |
 |---------------|---------|-----------------------------|:-------------:|
 | `beginAtInMilliseconds`  | number | 재생을 시작할 지점. 단위는 밀리초이며, 이 값이 지정되면 클라이언트는 해당 오디오 스트림을 지정된 위치부터 재생해야 합니다. 이 값이 0이면 해당 스트림을 처음부터 재생해야 합니다.          | 필수/항상 |
-| `customData`             | string | 현재 음원과 관련하여 임의의 형식을 가지는 메타 데이터 정보. 특정 범주로 분류되거나 정의될 수 없는 스트리밍 정보는 이 필드에 포함되거나 입력되어야 합니다. 오디오 스트림 재생 문맥에 추가로 필요한 값을 서비스 제공자 임의대로 추가할 수 있습니다.<div class="danger"><p><strong>Caution!</strong></p><p>이 필드의 값을 클라이언트가 임의로 이용해서는 안되며 이는 문제를 발생시킬 수 있습니다. 또한, 이 필드 값은 오디오 재생 상태를 전달할 때 <a href="/CIC/References/Context_Objects.html#PlaybackState">PlaybackState 문맥 정보</a>의 `stream` 필드에 그대로 첨부되어야 합니다.</p></div> | 선택/조건부  |
+| `customData`             | string | 현재 음원과 관련하여 임의의 형식을 가지는 메타 데이터 정보. 특정 범주로 분류되거나 정의될 수 없는 스트리밍 정보는 이 필드에 포함되거나 입력되어야 합니다. 오디오 스트림 재생 문맥에 추가로 필요한 값을 서비스 제공자 임의대로 추가할 수 있습니다.<div class="danger"><p><strong>Caution!</strong></p><p>이 필드의 값을 클라이언트가 임의로 이용해서는 안되며 이는 문제를 발생시킬 수 있습니다. 또한, 이 필드 값은 오디오 재생 상태를 전달할 때 <a href="/CIC/References/Context_Objects.md#PlaybackState">PlaybackState 문맥 정보</a>의 `stream` 필드에 그대로 첨부되어야 합니다.</p></div> | 선택/조건부  |
 | `durationInMilliseconds` | number | 오디오 스트림의 재생 시간. 클라이언트는 `beginAtInMilliseconds` 필드에 지정된 재생 시작 시점부터 이 필드에 지정된 재생 시간만큼 해당 오디오 스트림을 탐색 및 재생할 수 있습니다. 예를 들면, `beginAtInMilliseconds` 필드의 값이 `10000`이고, 이 필드의 값이 `60000`이면 해당 오디오 스트림의 10초부터 70초까지의 구간을 재생 및 탐색할 수 있게 됩니다. 단위는 밀리 초입니다.   | 선택/조건부  |
 | `format`                 | string  | 미디어 포맷(MIME 타입). 이 필드를 통해 HLS(HTTP Live Streaming) 방식의 콘텐츠인지 구분할 수 있습니다. 다음과 같은 값을 가질 수 있습니다. 기본 값은 `"audio/mpeg"`입니다.<ul><li><code>"audio/mpeg"</code></li><li><code>"audio/mpegurl"</code></li><li><code> "audio/aac"</code></li><li><code>"application/vnd.apple.mpegurl"</code></li></ul> <div class="note"><p><strong>Note!</strong></p><p>HLS 방식으로 콘텐츠를 제공하려는 extension 개발자는 <a href="mailto:{{ book.ServiceEnv.ExtensionAdminEmail }}">{{ book.ServiceEnv.ExtensionAdminEmail }}</a>로 연락합니다.</p></div>   | 선택/조건부  |
 | `progressReport`         | object  | 재생 후 재생 상태 정보를 보고 받기 위해 보고 시간을 정해둔 객체                                                  | 선택/조건부 |

@@ -100,7 +100,7 @@ Extension에 계정 연결을 적용하려면 우선 사용자가 계정 인증�
 
 <div class="note">
 <p><strong>Note!</strong></p>
-<p><code>redirect_uri</code>는 Clova developer console의 <a href="/DevConsole/Guides/CEK/Register_Extension.html#RedirectURI">계정 연결을 설정</a>하는 화면에 확인할 수 있습니다.</p>
+<p><code>redirect_uri</code>는 Clova developer console의 <a href="/DevConsole/Guides/CEK/Register_Extension.md#RedirectURI">계정 연결을 설정</a>하는 화면에 확인할 수 있습니다.</p>
 </div>
 
 

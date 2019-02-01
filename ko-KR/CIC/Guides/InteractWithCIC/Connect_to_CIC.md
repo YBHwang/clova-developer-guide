@@ -30,7 +30,7 @@ Clova access token을 획득하는 절차는 다음과 같습니다.
     <p>{{ book.ServiceEnv.TargetServiceForClientAuth }} 계정의 {{ "authorization code를" if book.L10N.TargetCountryCode == "JP" else "access token을" }} 획득합니다. {{ "authorization code를" if book.L10N.TargetCountryCode == "JP" else "access token을" }} 획득할 때, 사용자가 입력한 {{ book.ServiceEnv.TargetServiceForClientAuth }} 계정 정보를 이용합니다.</p>
   </li>
   <li>
-    <p><a href="/CIC/References/Clova_Auth_API.html#RequestAuthorizationCode">authorization code를 요청</a>합니다. Authorization code를 요청할 때, 2번 단계에서 획득한 {{ book.ServiceEnv.TargetServiceForClientAuth }} 계정의 {{ "authorization code와" if book.L10N.TargetCountryCode == "JP" else "access token과" }} <a href="#ClientAuthInfo">클라이언트 인증 정보</a> 등의 정보를 이용합니다. <code>device_id</code> 필드의 값으로 클라이언트의 MAC 주소를 사용하거나 UUID 해쉬 값을 생성해서 사용하면 됩니다.<br />다음은 authorization code를 요청한 예입니다.</p>
+    <p><a href="/CIC/References/Clova_Auth_API.md#RequestAuthorizationCode">authorization code를 요청</a>합니다. Authorization code를 요청할 때, 2번 단계에서 획득한 {{ book.ServiceEnv.TargetServiceForClientAuth }} 계정의 {{ "authorization code와" if book.L10N.TargetCountryCode == "JP" else "access token과" }} <a href="#ClientAuthInfo">클라이언트 인증 정보</a> 등의 정보를 이용합니다. <code>device_id</code> 필드의 값으로 클라이언트의 MAC 주소를 사용하거나 UUID 해쉬 값을 생성해서 사용하면 됩니다.<br />다음은 authorization code를 요청한 예입니다.</p>
     <pre><code>$ curl -H "Authorization: Bearer QHSDAKLFJASlk12jlkf+asldkjasdf=sldkjf123dsalsdflkvpasdFMrjvi23scjaf123klv"
     {{ book.ServiceEnv.AuthServerBaseURL }}authorize \
     --data-urlencode "client_id=c2Rmc2Rmc2FkZ2Fasdkjh234zZnNhZGZ" \
@@ -66,7 +66,7 @@ Clova access token을 획득하는 절차는 다음과 같습니다.
     <p>(GUI 미제공 클라이언트이면) authorization code를 실제 클라이언트 기기로 전송합니다.</p>
   </li>
   <li>
-    <p><a href="/CIC/References/Clova_Auth_API.html#RequestClovaAccessToken">Clova access token을 요청</a>합니다. 요청할 때 이전에 획득한 authorization code와 <a href="#ClientAuthInfo">클라이언트 인증 정보</a> 등을 파라미터로 입력합니다. <br />다음은 Clova access token을 요청한 예입니다.</p>
+    <p><a href="/CIC/References/Clova_Auth_API.md#RequestClovaAccessToken">Clova access token을 요청</a>합니다. 요청할 때 이전에 획득한 authorization code와 <a href="#ClientAuthInfo">클라이언트 인증 정보</a> 등을 파라미터로 입력합니다. <br />다음은 Clova access token을 요청한 예입니다.</p>
     <pre><code>$ curl {{ book.ServiceEnv.AuthServerBaseURL }}token?grant_type=authorization_code \
     --data-urlencode "client_id=c2Rmc2Rmc2FkZ2Fasdkjh234zZnNhZGZ" \
     --data-urlencode "client_secret=66qo65asdfasdfaA7JasdfasfOqwnOq1rOyfgeydtCDrvYasfasf%3D" \
