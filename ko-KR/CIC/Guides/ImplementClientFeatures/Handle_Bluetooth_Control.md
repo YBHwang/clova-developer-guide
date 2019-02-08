@@ -4,16 +4,14 @@
 
 여기서 설명할 내용은 다음과 같습니다.
 
-* [블루투스 페어링 모드 제어 처리하기](#HandleBluetoothPairing)
-* [새로운 블루투스 기기에 대한 연결 요청 처리하기](#HandleBluetoothConnect)
-* [저장된 블루투스 기기에 대한 연결 요청 처리하기](#HandleBluetoothConnectExistingDevice)
+* [블루투스 기기에 대한 연결 요청 처리하기](#HandleBluetoothConnect)
 * [블루투스 기기를 통한 음원 재생 처라히가](#HandleBluetoothPlayAudio)
 * [블루투스 기기 연결 해제 처리하기](#HandleBluetoothDisconnect)
 * [페어링된 블루투스 기기 삭제 처리하기](#HandleBluetoothDelete)
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>클라이언트에서 지시 메시지를 받은 후 처리에 성공하거나 실패할 때마다 응답 결과를 항상 <code>DeviceControl.ActionExecuted</code>나 <code>DeviceControl.ActionFailed</code> 이벤트 메시지를 통해 CIC에 보고해야합니다. 자세한 내용은 <a href=/CIC/ImplementClientFeatures/Handle_Device_Control.md>클라이언트 동작 제어 처리하기</a>의 <a href=/CIC/ImplementClientFeatures/Handle_Device_Control.md#HandleActionExecutedResponse>처리 결과 보고하기</a> 절을 참고합니다.</p>
+  <p>클라이언트에서 지시 메시지를 받은 후 처리에 성공하거나 실패할 때마다 응답 결과를 항상 <code>DeviceControl.ActionExecuted</code>나 <code>DeviceControl.ActionFailed</code> 이벤트 메시지를 통해 CIC에 보고해야합니다. 자세한 내용은 <a href="/CIC/ImplementClientFeatures/Handle_Device_Control.md">클라이언트 동작 제어 처리하기</a>의 <a href="/CIC/ImplementClientFeatures/Handle_Device_Control.md#HandleActionExecutedResponse">처리 결과 보고하기</a> 절을 참고합니다.</p>
 </div>
 
 ## 블루투스 기기에 대한 연결 요청 처리하기 {#HandleBluetoothConnect}
@@ -51,7 +49,7 @@
 
 ![](/CIC/Resources/Images/CIC_BluetoothControl_Work_Flow2.svg)
 
-사용자가 연결할 기기를 지정하면 CIC는 클라이언트에게 지정된 기기와 연결하도록 [`DeviceControl.BtConnect`](/CIC/References/CICInterface/AudioPlayer.md#BtConnect) 지시 메시지를 보냅니다. 다음과 같은 [`DeviceControl.BtConnect`](/CIC/References/CICInterface/AudioPlayer.md#BtConnect) 지시 메시지를 받을 수 있습니다.
+사용자가 연결할 기기를 지정하면 CIC는 클라이언트에게 지정된 기기와 연결하도록 [`DeviceControl.BtConnect`](/CIC/References/CICInterface/DeviceControl.md#BtConnect) 지시 메시지를 보냅니다. 다음과 같은 [`DeviceControl.BtConnect`](/CIC/References/CICInterface/DeviceControl.md#BtConnect) 지시 메시지를 받을 수 있습니다.
 
 ```json
 {
@@ -80,7 +78,7 @@
 * `name`: 제거할 블루투스 기기의 이름
 * `role`: 해당 블루투스 기기와 연결 시 클라이언트의 역할
 
-새로운 블루투스 기기와 연결할 때는 블루투스 기기에서 PIN 코드를 요청합니다. 블루투스 기기에서 PIN 코드를 요청하면 [`DeviceControl.BtRequestForPINCode`](/CIC/References/CICInterface/AudioPlayer.md#BtRequestForPINCode) 이벤트 메시지를 이용하여 CIC에 요청을 전달해야 합니다.
+새로운 블루투스 기기와 연결할 때는 블루투스 기기에서 PIN 코드를 요청합니다. 블루투스 기기에서 PIN 코드를 요청하면 [`DeviceControl.BtRequestForPINCode`](/CIC/References/CICInterface/DeviceControl.md#BtRequestForPINCode) 이벤트 메시지를 이용하여 CIC에 요청을 전달해야 합니다.
 
 ```json
 {
@@ -100,7 +98,7 @@
 }
 ```
 
-[`DeviceControl.BtRequestForPINCode`](/CIC/References/CICInterface/AudioPlayer.md#BtRequestForPINCode) 이벤트 메시지를 전달받은 뒤 사용자가 PIN 코드 입력을 처리하면 CIC에서는 [`DeviceControl.BtConnectByPINCode`](/CIC/References/CICInterface/AudioPlayer.md#BtConnectByPINCode) 지시 메시지를 통해 클라이언트가 PIN 코드를 요청한 블루투스 기기와 연결하도록 지시합니다. CIC는 연결을 위해 사용된 `pincode` 필드의 값을 클라이언트로 전송합니다.
+[`DeviceControl.BtRequestForPINCode`](/CIC/References/CICInterface/DeviceControl.md#BtRequestForPINCode) 이벤트 메시지를 전달받은 뒤 사용자가 PIN 코드 입력을 처리하면 CIC에서는 [`DeviceControl.BtConnectByPINCode`](/CIC/References/CICInterface/DeviceControl.md#BtConnectByPINCode) 지시 메시지를 통해 클라이언트가 PIN 코드를 요청한 블루투스 기기와 연결하도록 지시합니다. CIC는 연결을 위해 사용된 `pincode` 필드의 값을 클라이언트로 전송합니다.
 
 ```json
 {

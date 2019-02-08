@@ -2,7 +2,7 @@
 
 DeviceControl 인터페이스는 클라이언트 기기를 제어하거나 클라이언트 기기 제어 수행 결과를 CIC로 보고할 때 사용되는 네임스페이스입니다.
 
-일부 사용자의 요청은 클라이언트 기기를 제어하는 요청일 수 있습니다. 분석된 사용자의 요청이 클라이언트 기기를 제어하는 요청이면 네임스페이스 `DeviceControl`인 지시 메시지를 받게 되며 클라이언트는 수신한 지시 메시지에 맞게 클라이언트 기기를 제어해야 합니다. 클라이언트 기기 제어를 수행한 후 그 결과를 이벤트 메시지를 사용하여 CIC에 전송해야 합니다. 자세한 설명은 [클라이언트 기기 제어 동작 구조](#DeviceControlWorkFlow)를 참조합니다.
+일부 사용자의 요청은 클라이언트 기기를 제어하는 요청일 수 있습니다. 분석된 사용자의 요청이 클라이언트 기기를 제어하는 요청이면 네임스페이스 `DeviceControl`인 지시 메시지를 받게 되며 클라이언트는 수신한 지시 메시지에 맞게 클라이언트 기기를 제어해야 합니다. 클라이언트 기기 제어를 수행한 후 그 결과를 이벤트 메시지를 사용하여 CIC에 전송해야 합니다. 자세한 설명은 [클라이언트 동작 제어 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md)를 참조합니다.
 
 클라이언트 기기는 `DeviceControl`의 메시지를 통해 외부 블루투스 기기와 연결할 수 있습니다. CIC는 클라이언트에게 블루투스 페어링 및 연결을 위한 지시 메시지를 보내 외부 블루투스 기기와 연결하도록 지시하며, 클라이언트는 [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) 맥락 정보의 [`BluetoothInfoObject`](/CIC/References/Context_Objects.md#BluetoothInfoObject)를 통해 페어링된 기기 정보 등의 블루투스 관련 정보를 수시로 CIC에게 보고하게 됩니다. 자세한 연결 방법은 각 지시 메시지 및 이벤트 메시지를 참조합니다.
 
@@ -234,10 +234,8 @@ CIC는 이 이벤트 메시지를 수신하면 사용자 계정에 등록된 모
 * [`DeviceControl.BtStopPairing`](#BtStopPairing)
 * [`DeviceControl.TurnOff`](#TurnOff)
 * [`DeviceControl.TurnOn`](#TurnOn)
-* [블루투스 기기 연결 해제 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothDisconnect)
-* [블루투스 페어링 모드 제어 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothPairing)
-* [새로운 블루투스 기기에 대한 연결 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothConnect)
-* [저장된 블루투스 기기에 대한 연결 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothConnectExistingDevice)
+* [블루투스 기기 연결 해제 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Bluetooth_Control.md#HandleBluetoothDisconnect)
+* [블루투스 기기에 대한 연결 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Bluetooth_Control.md#HandleBluetoothConnect)
 * [처리 결과 보고하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleActionExecutedResponse)
 * [클라이언트 기기 설정 활성화하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleClientFeatureToggle)
 
@@ -283,7 +281,7 @@ CIC는 이 이벤트 메시지를 수신하면 사용자 계정에 등록된 모
 * [`DeviceControl.BtConnect`](#BtConnect)
 * [`DeviceControl.BtRequestForPINCode`](#BtRequestForPINCode)
 * [`DeviceControl.ReportState`](#ReportState)
-* [새로운 블루투스 기기에 대한 연결 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothConnect)
+* [블루투스 기기에 대한 연결 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Bluetooth_Control.md#HandleBluetoothConnect)
 * [처리 결과 보고하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleActionExecutedResponse)
 
 ## BtDelete directive {#BtDelete}
@@ -335,11 +333,9 @@ CIC는 이 이벤트 메시지를 수신하면 사용자 계정에 등록된 모
 * [`DeviceControl.BtConnect`](#BtConnect)
 * [`DeviceControl.BtStartPairing`](#BtStartPairing)
 * [`DeviceControl.BtStopPairing`](#BtStopPairing)
-* [블루투스 페어링 모드 제어 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothPairing)
-* [새로운 블루투스 기기에 대한 연결 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothConnect)
-* [저장된 블루투스 기기에 대한 연결 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothConnectExistingDevice)
+* [블루투스 기기에 대한 연결 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Bluetooth_Control.md#HandleBluetoothConnect)
 * [처리 결과 보고하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleActionExecutedResponse)
-* [페어링된 블루투스 기기 삭제 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothDelete)
+* [페어링된 블루투스 기기 삭제 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Bluetooth_Control.md#HandleBluetoothDelete)
 
 ## BtDisconnect directive {#BtDisconnect}
 
@@ -393,12 +389,10 @@ CIC는 이 이벤트 메시지를 수신하면 사용자 계정에 등록된 모
 * [`DeviceControl.BtStopPairing`](#BtStopPairing)
 * [`DeviceControl.TurnOff`](#TurnOff)
 * [`DeviceControl.TurnOn`](#TurnOn)
-* [블루투스 기기 연결 해제 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothDisconnect)
-* [블루투스 페어링 모드 제어 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothPairing)
-* [새로운 블루투스 기기에 대한 연결 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothConnect)
-* [저장된 블루투스 기기에 대한 연결 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothConnectExistingDevice)
+* [블루투스 기기 연결 해제 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Bluetooth_Control.md#HandleBluetoothDisconnect)
+* [블루투스 기기에 대한 연결 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Bluetooth_Control.md#HandleBluetoothConnect)
 * [처리 결과 보고하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleActionExecutedResponse)
-* [페어링된 블루투스 기기 삭제 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothDelete)
+* [페어링된 블루투스 기기 삭제 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Bluetooth_Control.md#HandleBluetoothDelete)
 
 ## BtPlay directive {#BtPlay}
 
@@ -494,8 +488,7 @@ CIC는 이 이벤트 메시지를 수신하면 사용자 계정에 등록된 모
 * [`DeviceControl.BtConnect`](#BtConnect)
 * [`DeviceControl.BtConnectByPINCode`](#BtConnectByPINCode)
 * [`DeviceControl.BtRequestToCancelPinCodeInput`](#BtRequestToCancelPinCodeInput)
-* [블루투스 페어링 모드 제어 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothPairing)
-* [새로운 블루투스 기기에 대한 연결 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothConnect)
+* [블루투스 기기에 대한 연결 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Bluetooth_Control.md#HandleBluetoothConnect)
 
 ## BtRequestToCancelPinCodeInput event {#BtRequestToCancelPinCodeInput}
 
@@ -543,7 +536,7 @@ CIC는 이 이벤트 메시지를 수신하면 사용자 계정에 등록된 모
 ### See also
 
 * [`DeviceControl.BtRequestForPINCode`](#BtRequestForPINCode)
-* [새로운 블루투스 기기에 대한 연결 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothConnect)
+* [블루투스 기기에 대한 연결 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Bluetooth_Control.md#HandleBluetoothConnect)
 
 ## BtRescan directive {#BtRescan}
 
@@ -584,11 +577,9 @@ CIC는 이 이벤트 메시지를 수신하면 사용자 계정에 등록된 모
 * [`DeviceControl.BtConnect`](#BtConnect)
 * [`DeviceControl.BtStartPairing`](#BtStartPairing)
 * [`DeviceControl.BtStopPairing`](#BtStopPairing)
-* [블루투스 페어링 모드 제어 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothPairing)
-* [새로운 블루투스 기기에 대한 연결 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothConnect)
-* [저장된 블루투스 기기에 대한 연결 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothConnectExistingDevice)
+* [블루투스 기기에 대한 연결 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Bluetooth_Control.md#HandleBluetoothConnect)
 * [처리 결과 보고하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleActionExecutedResponse)
-* [페어링된 블루투스 기기 삭제 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothDelete)
+* [페어링된 블루투스 기기 삭제 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Bluetooth_Control.md#HandleBluetoothDelete)
 
 ## BtStartPairing directive {#BtStartPairing}
 
@@ -631,10 +622,8 @@ CIC는 이 이벤트 메시지를 수신하면 사용자 계정에 등록된 모
 * [`DeviceControl.BtStopPairing`](#BtStopPairing)
 * [`DeviceControl.TurnOff`](#TurnOff)
 * [`DeviceControl.TurnOn`](#TurnOn)
-* [블루투스 기기 연결 해제 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothDisconnect)
-* [블루투스 페어링 모드 제어 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothPairing)
-* [새로운 블루투스 기기에 대한 연결 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothConnect)
-* [저장된 블루투스 기기에 대한 연결 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothConnectExistingDevice)
+* [블루투스 기기 연결 해제 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Bluetooth_Control.md#HandleBluetoothDisconnect)
+* [블루투스 기기에 대한 연결 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Bluetooth_Control.md#HandleBluetoothConnect)
 * [처리 결과 보고하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleActionExecutedResponse)
 
 ## BtStopPairing directive {#BtStopPairing}
@@ -678,10 +667,8 @@ CIC는 이 이벤트 메시지를 수신하면 사용자 계정에 등록된 모
 * [`DeviceControl.BtStartPairing`](#BtStopPairing)
 * [`DeviceControl.TurnOff`](#TurnOff)
 * [`DeviceControl.TurnOn`](#TurnOn)
-* [블루투스 기기 연결 해제 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothDisconnect)
-* [블루투스 페어링 모드 제어 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothPairing)
-* [새로운 블루투스 기기에 대한 연결 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothConnect)
-* [저장된 블루투스 기기에 대한 연결 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleBluetoothConnectExistingDevice)
+* [블루투스 기기 연결 해제 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Bluetooth_Control.md#HandleBluetoothDisconnect)
+* [블루투스 기기에 대한 연결 요청 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Bluetooth_Control.md#HandleBluetoothConnect)
 * [처리 결과 보고하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleActionExecutedResponse)
 * [클라이언트 기기 설정 활성화하기](/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleClientFeatureToggle)
 

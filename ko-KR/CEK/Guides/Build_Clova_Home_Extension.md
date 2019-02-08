@@ -20,6 +20,8 @@ Clova Home extension을 만들기 위해 사전에 준비해야 할 것이 무�
 
 {% include "/CEK/Guides/BuildClovaHomeExtension/Handle_Clova_Home_Extension_Request.md" %}
 
+{% include "/CEK/Guides/SharedContent/Validating_Request_Message.md" %}
+
 {% include "/CEK/Guides/BuildCustomExtension/Handle_Custom_Extension_Request.md" %}
 
 {% include "/CEK/Guides/BuildClovaHomeExtension/Return_Clova_Home_Extension_Response.md" %}
