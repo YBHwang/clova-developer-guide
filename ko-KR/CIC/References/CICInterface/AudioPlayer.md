@@ -87,7 +87,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 
 ### See also
 * [`AudioPlayer.ReportPlaybackState`](#ReportPlaybackState)
-* [음원 재생 상태 공유하기](/CIC/Guides/Implement_Client_Features.md#ShareAuidoPlaybackState)
+* [음원 재생 상태 공유하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#ShareAudioPlaybackState)
 
 ## Play directive {#Play}
 클라이언트에게 특정 오디오 스트림을 재생하거나 재생 대기열에 추가하도록 지시합니다.
@@ -214,7 +214,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 * [`AudioPlayer.ProgressReportIntervalPassed`](#ProgressReportIntervalPassed)
 * [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
 * [`AudioPlayer.StreamRequested`](#StreamRequested)
-* [음원 재생하기](/CIC/Guides/Implement_Client_Features.md#PlayAudioStream)
+* [음원 재생하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#PlayAudioStream)
 
 ## PlaybackQueueCleared event {#PlaybackQueueCleared}
 클라이언트가 CIC로부터 [`AudioPlayer.ClearQueue`](#ClearQueue) 지시 메시지를 받았다면 재생 대기열(queue)를 초기화한 후 `PlaybackQueueCleared` 이벤트 메시지를 전송해야 합니다.
@@ -310,7 +310,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 
 ### See also
 * [`AudioPlayer.Play`](#Play)
-* [음원 재생 경과 보고하기](/CIC/Guides/Implement_Client_Features.md#ReportAudioPlaybackProgress)
+* [음원 재생 경과 보고하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#ReportAudioPlaybackProgress)
 
 ## PlayPaused event {#PlayPaused}
 클라이언트가 오디오 스트림 재생을 일시 정지할 때 일시 정지된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다. 이 이벤트 메시지를 보내기 위해 필요한 사전 시나리오는 다음과 같습니다.
@@ -365,7 +365,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.PlayResumed`](#PlayResumed)
 * [`PlaybackController.Pause`](/CIC/References/CICInterface/PlaybackController.md#Pause)
-* [음원 재생 제어하기](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
+* [음원 재생 제어하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#ControlAudioPlayback)
 
 ## PlayResumed event {#PlayResumed}
 
@@ -421,7 +421,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.PlayPaused`](#PlayPaused)
 * [`PlaybackController.Resume`](/CIC/References/CICInterface/PlaybackController.md#Resume)
-* [음원 재생 제어하기](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
+* [음원 재생 제어하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#ControlAudioPlayback)
 
 ## PlayStarted event {#PlayStarted}
 클라이언트가 오디오 스트림 재생을 시작할 때 재생이 시작된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다.
@@ -471,8 +471,8 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 ### See also
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.PlayStopped`](#PlayStopped)
-* [음원 재생하기](/CIC/Guides/Implement_Client_Features.md#PlayAudioStream)
-* [음원 재생 제어하기](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
+* [음원 재생하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#PlayAudioStream)
+* [음원 재생 제어하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#ControlAudioPlayback)
 
 ## PlayStopped event {#PlayStopped}
 클라이언트가 오디오 스트림 재생을 중지할 때 재생이 중지된 오디오 스트림 정보를 CIC로 보고하기 위해 사용됩니다. 이 이벤트 메시지를 보내기 위해 필요한 사전 시나리오는 다음과 같습니다.
@@ -527,7 +527,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.PlayStarted`](#PlayStarted)
 * [`PlaybackController.Stop`](/CIC/References/CICInterface/PlaybackController.md#Stop)
-* [음원 재생 제어하기](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
+* [음원 재생 제어하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#ControlAudioPlayback)
 
 ## ProgressReportDelayPassed event {#ProgressReportDelayPassed}
 오디오 스트림 재생이 시작된 후 지정된 지연 시간만큼 시간이 지났을 때 현재 재생 상태([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState))를 CIC로 보고하기 위해 사용됩니다. 각 오디오 스트림의 지연 시간은 [`AudioPlayer.Play`](#Play) 지시 메시지가 클라이언트로 전달될 때 확인할 수 있습니다.
@@ -578,7 +578,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.ProgressReportIntervalPassed`](#ProgressReportIntervalPassed)
 * [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
-* [음원 재생 경과 보고하기](/CIC/Guides/Implement_Client_Features.md#ReportAudioPlaybackProgress)
+* [음원 재생 경과 보고하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#ReportAudioPlaybackProgress)
 
 ## ProgressReportIntervalPassed event {#ProgressReportIntervalPassed}
 오디오 스트림 재생이 시작된 후 지정된 간격마다 현재 재생 상태([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState))를 CIC로 보고하기 위해 사용됩니다. 각 오디오 스트림의 보고 간격은 [`AudioPlayer.Play`](#Play) 지시 메시지가 클라이언트로 전달될 때 확인할 수 있습니다.
@@ -629,7 +629,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.ProgressReportDelayPassed`](#ProgressReportDelayPassed)
 * [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
-* [음원 재생 경과 보고하기](/CIC/Guides/Implement_Client_Features.md#ReportAudioPlaybackProgress)
+* [음원 재생 경과 보고하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#ReportAudioPlaybackProgress)
 
 ## ProgressReportPositionPassed event {#ProgressReportPositionPassed}
 오디오 스트림 재생이 시작된 후 지정된 보고 시점에 현재 재생 상태([`AudioPlayer.PlaybackState`](/CIC/References/Context_Objects.md#PlaybackState))를 CIC로 보고하기 위해 사용됩니다. 각 오디오 스트림의 보고 시점은 [`AudioPlayer.Play`](#Play) 지시 메시지가 클라이언트로 전달될 때 확인할 수 있습니다.
@@ -680,7 +680,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.ProgressReportDelayPassed`](#ProgressReportDelayPassed)
 * [`AudioPlayer.ProgressReportIntervalPassed`](#ProgressReportIntervalPassed)
-* [음원 재생 경과 보고하기](/CIC/Guides/Implement_Client_Features.md#ReportAudioPlaybackProgress)
+* [음원 재생 경과 보고하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#ReportAudioPlaybackProgress)
 
 ## ReportPlaybackState event {#ReportPlaybackState}
 
@@ -734,7 +734,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 ### See also
 * [`AudioPlayer.ExpectReportPlaybackState`](#ExpectReportPlaybackState)
 * [`AudioPlayer.Play`](#Play)
-* [음원 재생 상태 공유하기](/CIC/Guides/Implement_Client_Features.md#ShareAuidoPlaybackState)
+* [음원 재생 상태 공유하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#ShareAudioPlaybackState)
 
 {% if book.DocMeta.TargetReaderType == "Internal" %}
 ## RequestPlaybackState event {#RequestPlaybackState}
@@ -783,7 +783,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 ### See also
 * [`AudioPlayer.ExpectReportPlaybackState`](#ExpectReportPlaybackState)
 * [`AudioPlayer.Play`](#Play)
-* [음원 재생 상태 공유하기](/CIC/Guides/Implement_Client_Features.md#ShareAuidoPlaybackState)
+* [음원 재생 상태 공유하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#ShareAudioPlaybackState)
 {% endif %}
 
 ## StreamDeliver directive {#StreamDeliver}
@@ -833,7 +833,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 ### See also
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.StreamRequested`](#StreamRequested)
-* [음원 재생하기](/CIC/Guides/Implement_Client_Features.md#PlayAudioStream)
+* [음원 재생하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#PlayAudioStream)
 
 ## StreamRequested event {#StreamRequested}
 오디오 스트림 재생을 위해 CIC로 스트리밍 URL과 같은 추가 정보를 요청하는 이벤트 메시지입니다.
@@ -896,7 +896,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 ### See also
 * [`AudioPlayer.Play`](#Play)
 * [`AudioPlayer.StreamDeliver`](#StreamDeliver)
-* [음원 재생하기](/CIC/Guides/Implement_Client_Features.md#PlayAudioStream)
+* [음원 재생하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#PlayAudioStream)
 
 {% if book.DocMeta.TargetReaderType == "Internal" %}
 ## SynchronizePlaybackState directive {#SynchronizePlaybackState}
@@ -944,7 +944,7 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 
 ### See also
 * [`AudioPlayer.ReportPlaybackState`](#ReportPlaybackState)
-* [음원 재생 상태 공유하기](/CIC/Guides/Implement_Client_Features.md#ShareAuidoPlaybackState)
+* [음원 재생 상태 공유하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#ShareAudioPlaybackState)
 {% endif %}
 
 ## Shared objects

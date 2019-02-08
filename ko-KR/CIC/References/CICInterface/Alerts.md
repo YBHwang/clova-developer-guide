@@ -19,7 +19,7 @@ Alerts 인터페이스는 클라이언트에서 알람을 등록/수정/제거/�
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>알람이 등록, 수정, 제거, 시작, 중지를 구현하는 방법은 <a href="/CIC/Guides/Implement_Client_Features.md#HandleAlerts">알람 처리하기</a>를 참조합니다.</p>
+  <p>알람이 등록, 수정, 제거, 시작, 중지를 구현하는 방법은 <a href="/CIC/Guides/ImplementClientFeatures/Handle_Alerts.md">알람 처리하기</a>를 참조합니다.</p>
 </div>
 
 Alerts가 제공하는 이벤트 메시지와 지시 메시지는 다음과 같습니다.

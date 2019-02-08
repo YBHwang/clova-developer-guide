@@ -1,4 +1,4 @@
-## 클라이언트 동작 제어 처리하기 {#HandleDeviceControl}
+# 클라이언트 동작 제어 처리하기
 
 사용자는 발화 또는 조작을 통하여 클라이언트의 동작을 제어할 수 있습니다. Clova는 이런 요청을 받으면 사용자가 요청한 동작을 수행하도록 지시 메시지를 클라이언트로 보냅니다. 클라이언트는 Clova가 동작 제어와 관련하여 전달하는 지시 메시지를 상황에 맞게 처리해야 합니다.
 
@@ -14,7 +14,7 @@
   <p>클라이언트에서 지시 메시지를 받은 후 처리에 성공하거나 실패할 때마다 응답 결과를 항상 <code>DeviceControl.ActionExecuted</code>나 <code>DeviceControl.ActionFailed</code> 이벤트 메시지를 통해 CIC에 보고해야합니다. 자세한 내용은 <a href=#HandleActionExecutedResponse>처리 결과 보고하기</a> 절을 참고합니다.</p>
 </div>
 
-### 클라이언트 기기 설정 활성화하기 {#HandleClientFeatureToggle}
+## 클라이언트 기기 설정 활성화하기 {#HandleClientFeatureToggle}
 
 사용자는 클라이언트 기기의 특정 설정이 필요할 때 활성화하고 필요하지 않다면 비활성화할 수 있습니다. 기기 설정 활성화는 다음과 같이 두 가지 방식으로 요청할 수 있습니다.
 
@@ -61,7 +61,7 @@ CIC는 [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) �
 
 클라이언트는 이 지시 메시지에 해당하는 내용을 처리한 후 [`DeviceControl.ActionExecuted`](/CIC/References/CICInterface/DeviceControl.md#ActionExecuted) 또는 [`DeviceControl.ActionFailed`](/CIC/References/CICInterface/DeviceControl.md#ActionFailed) 이벤트 메시지를 이용하여 결과를 CIC에 전달해야 합니다.
 
-### 클라이언트 볼륨 조정하기 {#HandleDeviceVolume}
+## 클라이언트 볼륨 조정하기 {#HandleDeviceVolume}
 
 사용자는 음원을 재생 중인 클라이언트 기기의 볼륨을 조정하도록 Clova에게 요청할 수 있습니다. 이러한 볼륨 조정은 다음과 같이 세 가지 방식으로 요청할 수 있습니다.
 
@@ -99,7 +99,7 @@ CIC는 [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) �
 
 클라이언트는 이 지시 메시지에 해당하는 내용을 처리한 후 [`DeviceControl.ActionExecuted`](/CIC/References/CICInterface/DeviceControl.md#ActionExecuted) 또는 [`DeviceControl.ActionFailed`](/CIC/References/CICInterface/DeviceControl.md#ActionFailed) 이벤트 메시지를 이용하여 결과를 CIC에 전달해야 합니다.
 
-### 기기 상태 정보 공유하기 {#HandleDeviceStateReport}
+## 기기 상태 정보 공유하기 {#HandleDeviceStateReport}
 
 Clova 앱이 사용자의 계정에 등록된 클라이언트의 상태를 파악하기 위해 다음과 같이 상태 정보를 요청할 때도 있습니다.
 
@@ -116,7 +116,7 @@ Clova 앱이 사용자의 계정에 등록된 클라이언트의 상태를 파�
   <p>클라이언트는 사용자 계정에 새로이 추가되거나 CIC에 다시 연결되었을 때 <a href="/CIC/References/CICInterface/DeviceControl.md#ExpectReportState"><code>DeviceControl.ExpectReportState</code></a> 지시 메시지를 받게 됩니다. 이때, 클라이언트는 Clova 앱에 상태를 공유할 때처럼 동작하면 됩니다.</p>
 </div>
 
-### 처리 결과 보고하기 {#HandleActionExecutedResponse}
+## 처리 결과 보고하기 {#HandleActionExecutedResponse}
 
 클라이언트 제어에 성공하거나 실패할 때마다 응답 결과를 항상 `DeviceControl.ActionExecuted`나 `DeviceControl.ActionFailed` 이벤트 메시지를 통해 CIC에 보고해야합니다. 제어에 성공했을 때 다음과 같은 [`DeviceControl.ActionExecuted`](/CIC/References/CICInterface/DeviceControl.md#ActionExecuted) 이벤트 메시지를 CIC에 전송합니다.
 
