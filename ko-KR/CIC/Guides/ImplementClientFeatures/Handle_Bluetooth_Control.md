@@ -11,7 +11,7 @@
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>클라이언트에서 지시 메시지를 받은 후 처리에 성공하거나 실패할 때마다 응답 결과를 항상 <code>DeviceControl.ActionExecuted</code>나 <code>DeviceControl.ActionFailed</code> 이벤트 메시지를 통해 CIC에 보고해야합니다. 자세한 내용은 <a href="/CIC/ImplementClientFeatures/Handle_Device_Control.md">클라이언트 동작 제어 처리하기</a>의 <a href="/CIC/ImplementClientFeatures/Handle_Device_Control.md#HandleActionExecutedResponse">처리 결과 보고하기</a> 절을 참고합니다.</p>
+  <p>클라이언트에서 지시 메시지를 받은 후 처리에 성공하거나 실패할 때마다 응답 결과를 항상 <code>DeviceControl.ActionExecuted</code>나 <code>DeviceControl.ActionFailed</code> 이벤트 메시지를 통해 CIC에 보고해야합니다. 자세한 내용은 <a href="/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md">클라이언트 동작 제어 처리하기</a>의 <a href="/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleActionExecutedResponse">처리 결과 보고하기</a> 절을 참고합니다.</p>
 </div>
 
 ## 블루투스 기기에 대한 연결 요청 처리하기 {#HandleBluetoothConnect}
