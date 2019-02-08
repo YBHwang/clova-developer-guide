@@ -1,6 +1,6 @@
 ### 요청 메시지 검증 {#RequestMessageValidation}
 
-Extension이 CEK로부터 HTTP 요청을 받을 때, 해당 요청이 제 3자가 아닌 Clova로부터 전송된 신뢰할 수 있는 요청인지 검증할 필요가 있습니다. [HTTP 헤더](#HTTPHeader)에 있는 `SignatureCEK`와 RSA 공개 키를 사용하여 다음과 같이 요청 메시지를 검증할 수 있습니다.
+Extension이 CEK로부터 HTTP 요청을 받을 때, 해당 요청이 제 3자가 아닌 Clova로부터 전송된 신뢰할 수 있는 요청인지 검증할 필요가 있습니다. [HTTP 헤더](/CEK/References/CEK_API.md#HTTPHeader)에 있는 `SignatureCEK`와 RSA 공개 키를 사용하여 다음과 같이 요청 메시지를 검증할 수 있습니다.
 
 <ol>
   <li><p>Clova의 서명용 RSA 공개 키를 아래 URL에서 다운로드 합니다.</p>

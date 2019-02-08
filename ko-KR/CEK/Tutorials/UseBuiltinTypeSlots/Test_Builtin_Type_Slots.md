@@ -4,12 +4,12 @@
 이 튜토리얼에서는 interaction 모델 동작만 확인합니다.
 
 <a href="{{ book.ServiceEnv.DeveloperConsoleURL }}/cek/#/list" target="_blank">Clova developer console</a>에 접속하여 다음과 같이 샘플 주사위 extension이 주사위 개수를 잘 인식하는지 확인합니다.
-1. 샘플 주사위의 **{{ book.DevConsole.cek_interaction_model }}** 항목 내 **{{ book.DevConsole.cek_edit}}** 버튼을 누릅니다.
-2. 화면 좌측 상단의 **{{ book.DevConsole.cek_builder_menu_build }}** 버튼을 눌러 interaction 모델을 빌드합니다.
-3. 빌드가 끝난 후, 왼쪽의 메뉴 목록에서 **{{ book.DevConsole.cek_test }}** 메뉴를 선택합니다.
-4. **{{ book.DevConsole.cek_builder_test_expression_title }}**에 주사위를 여러 개 던져달라는 문장을 입력합니다. 예를 들어, "주사위 두 개 던져볼래"라고 입력합니다.
-5. 엔터키 또는 **{{ book.DevConsole.cek_builder_test_request_test }}** 버튼을 누릅니다.
-6. **{{ book.DevConsole.cek_builder_test_result_title }}**의 **{{ book.DevConsole.cek_builder_test_intent_result }}** 항목에 `ThrowDiceIntent`, **{{ book.DevConsole.cek_builder_test_slot_result }}** 항목에 `diceCount`가 나타나고, **{{ book.DevConsole.cek_builder_test_slot_data}}**에 입력한 주사위 개수가 나타나는지 확인합니다.
+1. 샘플 주사위의 <strong>{{ book.DevConsole.cek_interaction_model }}</strong> 항목 내 <strong>{{ book.DevConsole.cek_edit}}</strong> 버튼을 누릅니다.
+2. 화면 좌측 상단의 <strong>{{ book.DevConsole.cek_builder_menu_build }}</strong> 버튼을 눌러 interaction 모델을 빌드합니다.
+3. 빌드가 끝난 후, 왼쪽의 메뉴 목록에서 <strong>{{ book.DevConsole.cek_test }}</strong> 메뉴를 선택합니다.
+4. <strong>{{ book.DevConsole.cek_builder_test_expression_title }}</strong>에 주사위를 여러 개 던져달라는 문장을 입력합니다. 예를 들어, "주사위 두 개 던져볼래"라고 입력합니다.
+5. 엔터키 또는 <strong>{{ book.DevConsole.cek_builder_test_request_test }}</strong> 버튼을 누릅니다.
+6. <strong>{{ book.DevConsole.cek_builder_test_result_title }}</strong>의 <strong>{{ book.DevConsole.cek_builder_test_intent_result }}</strong> 항목에 `ThrowDiceIntent`, <strong>{{ book.DevConsole.cek_builder_test_slot_result }}</strong> 항목에 `diceCount`가 나타나고, <strong>{{ book.DevConsole.cek_builder_test_slot_data}}</strong>에 입력한 주사위 개수가 나타나는지 확인합니다.
 
 	<img src="/CEK/Resources/Images/CEK_Tutorial_Builtin_Type_Slot_Test.png" style="max-width:800px;"/>
 

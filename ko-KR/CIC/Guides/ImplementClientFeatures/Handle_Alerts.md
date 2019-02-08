@@ -1,4 +1,4 @@
-## 알람 처리하기 {#HandleAlerts}
+# 알람 처리하기
 
 사용자는 발화를 통해 Clova에 알람을 추가하도록 요청할 수 있습니다. Clova는 이런 요청을 받으면 알람을 등록하게 하거나 설정한 시간에 알람이 울릴 수 있도록 지시 메시지를 클라이언트로 보냅니다. 클라이언트는 Clova가 알람과 관련하여 전달하는 메시지를 상황에 맞게 처리해야 합니다.
 
@@ -14,7 +14,7 @@
 <p>알람 처리의 동작 구조로 인해 클라이언트가 네트워크에 연결되지 않으면 알람과 관련된 모든 동작이 올바르게 작동하지 않습니다.</p>
 </div>
 
-### 알람 등록하기 {#RegisterAlert}
+## 알람 등록하기 {#RegisterAlert}
 
 사용자의 발화를 통해 알람을 등록하는 흐름은 다음과 같습니다.
 
@@ -115,7 +115,7 @@
 
 Clova는 알람이 등록된 결과를 사용자에게 알려주기 위해 [`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) 지시 메시지와 [`Clova.RenderTemplate`](/CIC/References/CICInterface/Clova.md#RenderTemplate) 지시 메시지를 클라이언트에게 전달합니다. 클라이언트는 이 지시 메시지의 내용을 사용자에게 전달해야 합니다.
 
-### 알람 시작하기 {#RingAlert}
+## 알람 시작하기 {#RingAlert}
 
 설정한 시간이 되면 Clova는 알람을 울리기 위해 지시 메시지를 보냅니다. 알람을 시작하는 구조는 다음과 같습니다.
 
@@ -146,7 +146,7 @@ Clova는 알람이 등록된 결과를 사용자에게 알려주기 위해 [`Spe
 
 알람이 시작되면 클라이언트는 CIC로 전송하는 모든 이벤트 메시지에 현재 울리고 있는 알람 정보를 채워 보내야 합니다. 이때, [`Alert.AlertsState`](/CIC/References/Context_Objects.md#AlertsState) 맥락 정보의 `activeAlerts` 필드를 사용해야 합니다.
 
-### 알람 중지하기 {#StopAlert}
+## 알람 중지하기 {#StopAlert}
 
 사용자는 발화([`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize))나 물리적 버튼(하드웨어 방식) 또는 GUI 버튼(소프트웨어 방식)으로 알람을 중지하도록 요청할 것입니다. 이때, 클라이언트는 사용자의 알람 중지 요청을 [`Alerts.RequestAlertStop`](/CIC/References/CICInterface/Alerts.md#RequestAlertStop) 이벤트 메시지로 CIC에게 보고해야 합니다.
 
@@ -229,7 +229,7 @@ Clova는 클라이언트가 알람을 중지하도록 클라이언트에게 [`Al
 <p>위의 흐름에서 알람을 수정하거나 삭제할 수 있으며, 오직 Clova 앱을 통해서 수정 및 삭제할 수 있습니다. 참고로 사용자의 발화에 대한 응답으로 전송되는 지시 메시지가 아니면 해당 지시 메시지는 [downchannel](/CIC/Guides/Interact_with_CIC.md#CreateConnection)을 통해 클라이언트에게 전달됩니다.</p>
 </div>
 
-### 알람 수정 또는 삭제하기 {#EditAlert}
+## 알람 수정 또는 삭제하기 {#EditAlert}
 
 사용자가 Clova 앱에서 알람을 수정하거나 삭제를 시도하면 Clova는 사용자 요청을 처리하기 위해 [`Alerts.SetAlert`](/CIC/References/CICInterface/Alerts.md#SetAlert) 지시 메시지 또는 [`Alerts.DeleteAlert`](/CIC/References/CICInterface/Alerts.md#DeleteAlert) 지시 메시지를 클라이언트에게 보냅니다.
 
@@ -306,7 +306,7 @@ Clova는 클라이언트가 알람을 중지하도록 클라이언트에게 [`Al
 ```
 {% endraw %}
 
-### 알람 동기화하기 {#SyncAlert}
+## 알람 동기화하기 {#SyncAlert}
 
 사용자의 클라이언트가 추가되거나 일부 또는 특정 클라이언트가 네트워크 연결이 끊긴 후 재접속되는 상황 또는 클라이언트에 등록된 사용자의 계정이 변경되면 클라이언트는 CIC에 연결 또는 재연결되면 [`System.RequestSynchronizeState`](/CIC/References/CICInterface/System.md#RequestSynchronizeState) 이벤트 메시지를 CIC로 전송한 후, 클라이언트는 CIC로부터 [`System.SynchronizeState`](/CIC/References/CICInterface/System.md#SynchronizeState) 지시 메시지를 수신하게 되며, 이때 `allAlerts` 필드에 있는 알람 데이터를 기기 알람 정보와 동기화 해야 합니다.
 
