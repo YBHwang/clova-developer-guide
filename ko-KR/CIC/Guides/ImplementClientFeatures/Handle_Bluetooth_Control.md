@@ -1,22 +1,20 @@
-## 클라이언트 블루투스 제어 처리하기 {#HandleBluetoothControl}
+# 클라이언트 블루투스 제어 처리하기
 
 사용자는 발화 또는 조작을 통하여 클라이언트의 블루투스 연결 동작을 제어할 수 있습니다. Clova는 이런 요청을 받으면 사용자가 요청한 동작을 수행하도록 지시 메시지를 클라이언트로 보냅니다. 클라이언트는 Clova가 블루투스 제어와 관련하여 전달하는 지시 메시지를 상황에 맞게 처리해야 합니다.
 
 여기서 설명할 내용은 다음과 같습니다.
 
-* [블루투스 페어링 모드 제어 처리하기](#HandleBluetoothPairing)
-* [새로운 블루투스 기기에 대한 연결 요청 처리하기](#HandleBluetoothConnect)
-* [저장된 블루투스 기기에 대한 연결 요청 처리하기](#HandleBluetoothConnectExistingDevice)
+* [블루투스 기기에 대한 연결 요청 처리하기](#HandleBluetoothConnect)
 * [블루투스 기기를 통한 음원 재생 처라히가](#HandleBluetoothPlayAudio)
 * [블루투스 기기 연결 해제 처리하기](#HandleBluetoothDisconnect)
 * [페어링된 블루투스 기기 삭제 처리하기](#HandleBluetoothDelete)
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>클라이언트에서 지시 메시지를 받은 후 처리에 성공하거나 실패할 때마다 응답 결과를 항상 <code>DeviceControl.ActionExecuted</code>나 <code>DeviceControl.ActionFailed</code> 이벤트 메시지를 통해 CIC에 보고해야합니다. 자세한 내용은 <a href=/CIC/ImplementClientFeatures/Handle_Device_Control.md>클라이언트 동작 제어 처리하기</a>의 <a href=/CIC/ImplementClientFeatures/Handle_Device_Control.md#HandleActionExecutedResponse>처리 결과 보고하기</a> 절을 참고합니다.</p>
+  <p>클라이언트에서 지시 메시지를 받은 후 처리에 성공하거나 실패할 때마다 응답 결과를 항상 <code>DeviceControl.ActionExecuted</code>나 <code>DeviceControl.ActionFailed</code> 이벤트 메시지를 통해 CIC에 보고해야합니다. 자세한 내용은 <a href="/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md">클라이언트 동작 제어 처리하기</a>의 <a href="/CIC/Guides/ImplementClientFeatures/Handle_Device_Control.md#HandleActionExecutedResponse">처리 결과 보고하기</a> 절을 참고합니다.</p>
 </div>
 
-### 블루투스 기기에 대한 연결 요청 처리하기 {#HandleBluetoothConnect}
+## 블루투스 기기에 대한 연결 요청 처리하기 {#HandleBluetoothConnect}
 
 사용자가 클라이언트와 이전에 연결을 진행한 적이 없는 블루투스 기기를 연결하기 위해서는 클라이언트가 먼저 블루투스 페어링 모드로 진입해야 합니다. 사용자는 Clova 앱에서 원격으로 특정 클라이언트의 블루투스 페어링 모드 진입을 시도할 수 있습니다.
 
@@ -51,7 +49,7 @@
 
 ![](/CIC/Resources/Images/CIC_BluetoothControl_Work_Flow2.svg)
 
-사용자가 연결할 기기를 지정하면 CIC는 클라이언트에게 지정된 기기와 연결하도록 [`DeviceControl.BtConnect`](/CIC/References/CICInterface/AudioPlayer.md#BtConnect) 지시 메시지를 보냅니다. 다음과 같은 [`DeviceControl.BtConnect`](/CIC/References/CICInterface/AudioPlayer.md#BtConnect) 지시 메시지를 받을 수 있습니다.
+사용자가 연결할 기기를 지정하면 CIC는 클라이언트에게 지정된 기기와 연결하도록 [`DeviceControl.BtConnect`](/CIC/References/CICInterface/DeviceControl.md#BtConnect) 지시 메시지를 보냅니다. 다음과 같은 [`DeviceControl.BtConnect`](/CIC/References/CICInterface/DeviceControl.md#BtConnect) 지시 메시지를 받을 수 있습니다.
 
 ```json
 {
@@ -80,7 +78,7 @@
 * `name`: 제거할 블루투스 기기의 이름
 * `role`: 해당 블루투스 기기와 연결 시 클라이언트의 역할
 
-새로운 블루투스 기기와 연결할 때는 블루투스 기기에서 PIN 코드를 요청합니다. 블루투스 기기에서 PIN 코드를 요청하면 [`DeviceControl.BtRequestForPINCode`](/CIC/References/CICInterface/AudioPlayer.md#BtRequestForPINCode) 이벤트 메시지를 이용하여 CIC에 요청을 전달해야 합니다.
+새로운 블루투스 기기와 연결할 때는 블루투스 기기에서 PIN 코드를 요청합니다. 블루투스 기기에서 PIN 코드를 요청하면 [`DeviceControl.BtRequestForPINCode`](/CIC/References/CICInterface/DeviceControl.md#BtRequestForPINCode) 이벤트 메시지를 이용하여 CIC에 요청을 전달해야 합니다.
 
 ```json
 {
@@ -100,7 +98,7 @@
 }
 ```
 
-[`DeviceControl.BtRequestForPINCode`](/CIC/References/CICInterface/AudioPlayer.md#BtRequestForPINCode) 이벤트 메시지를 전달받은 뒤 사용자가 PIN 코드 입력을 처리하면 CIC에서는 [`DeviceControl.BtConnectByPINCode`](/CIC/References/CICInterface/AudioPlayer.md#BtConnectByPINCode) 지시 메시지를 통해 클라이언트가 PIN 코드를 요청한 블루투스 기기와 연결하도록 지시합니다. CIC는 연결을 위해 사용된 `pincode` 필드의 값을 클라이언트로 전송합니다.
+[`DeviceControl.BtRequestForPINCode`](/CIC/References/CICInterface/DeviceControl.md#BtRequestForPINCode) 이벤트 메시지를 전달받은 뒤 사용자가 PIN 코드 입력을 처리하면 CIC에서는 [`DeviceControl.BtConnectByPINCode`](/CIC/References/CICInterface/DeviceControl.md#BtConnectByPINCode) 지시 메시지를 통해 클라이언트가 PIN 코드를 요청한 블루투스 기기와 연결하도록 지시합니다. CIC는 연결을 위해 사용된 `pincode` 필드의 값을 클라이언트로 전송합니다.
 
 ```json
 {
@@ -122,7 +120,7 @@
   <p>이미 한번 연결을 진행한 기기와 다시 연결할 때는 페어링 모드 진입과 PIN 코드를 확인하는 과정을 생략합니다.</p>
 </div>
 
-### 블루투스 기기를 통한 음원 재생 처리하기 {#HandleBluetoothPlayAudio}
+## 블루투스 기기를 통한 음원 재생 처리하기 {#HandleBluetoothPlayAudio}
 
 사용자가 클라이언트와 연결된 블루투스 기기를 통해 음원을 재생할 것을 요청하면 Clova는 CIC를 통해 클라이언트가 음원을 재생하도록 지시합니다. 블루투스 기기를 통해 음원 재생은 다음과 같이 두 가지 방식으로 요청할 수 있습니다.
 
@@ -152,7 +150,7 @@
 클라이언트의 역할이 `"sink"`이면 연결된 블루투스 기기로부터 오디오 스트림을 수신하여 스피커로 음원을 출력합니다.
 클라이언트의 역할이 `"source"`이면 클라이언트에서 일시 중지했거나 이전에 재생했던 오디오 스트림을 연결된 블루투스 기기를 통해 재생합니다. 만약, 이전에 재생했던 음원이 없거나 특정 음원을 지정할 수 없는 경우라면 사용자가 "음악 들려줘"라는 발화로 요청한 것과 같은 이벤트 메시지를 CIC로 보내거나 제품 UI/UX에 맞는 오디오 콘텐츠 재생 요청을 CIC로 전송합니다.
 
-### 블루투스 기기 연결 해제 처리하기 {#HandleBluetoothDisconnect}
+## 블루투스 기기 연결 해제 처리하기 {#HandleBluetoothDisconnect}
 
 사용자가 현재 연결 되어 있는 블루투스 기기에 대한 연결을 해제할 것을 요청하면 Clova는 CIC를 통해 클라이언트가 블루투스 기기에 대한 연결을 해제하도록 지시합니다. 연결 해제를 처리하는 동작의 흐름은 다음과 같습니다.
 
@@ -174,7 +172,7 @@
 }
 ```
 
-### 페어링된 블루투스 기기 삭제 처리하기 {#HandleBluetoothDelete}
+## 페어링된 블루투스 기기 삭제 처리하기 {#HandleBluetoothDelete}
 
 사용자가 저장된 블루투스 기기를 삭제할 것을 요청하면 Clova는 CIC를 통해 클라이언트가 지정된 블루투스 기기를 삭제하도록 지시합니다. 저장된 블루투스 기리를 삭제를 처리하는 동작의 흐름은 다음과 같습니다.
 
