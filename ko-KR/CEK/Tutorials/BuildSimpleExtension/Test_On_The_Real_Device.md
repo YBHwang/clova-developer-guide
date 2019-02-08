@@ -4,9 +4,9 @@ Interaction 모델이 잘 동작하는 것을 확인했다면, 심사 요청 전
 특정 계정에서만 이 extension을 실행해볼 수 있도록 테스터 ID를 등록합니다.
 
 1. <a href="{{ book.ServiceEnv.DeveloperConsoleURL }}/cek/#/list" target="_blank">Clova developer console</a>에 접속합니다.
-2. 샘플 주사위의 **{{ book.DevConsole.cek_skill_info }}** 항목 내 **{{ book.DevConsole.cek_edit }}** 버튼을 누릅니다.
-3. 나타난 화면에서 **{{ book.DevConsole.cek_tester }}**를 찾아 여러분의 {{ book.ServiceEnv.OrientedService }} 계정 ID를 입력합니다.
-4. **{{ book.DevConsole.cek_save }}** 버튼을 누릅니다.
+2. 샘플 주사위의 <strong>{{ book.DevConsole.cek_skill_info }}</strong> 항목 내 <strong>{{ book.DevConsole.cek_edit }}</strong> 버튼을 누릅니다.
+3. 나타난 화면에서 <strong>{{ book.DevConsole.cek_tester }}</strong>를 찾아 여러분의 {{ book.ServiceEnv.OrientedService }} 계정 ID를 입력합니다.
+4. <strong>{{ book.DevConsole.cek_save }}</strong> 버튼을 누릅니다.
 
 <div class="note">
   <p><strong>Note!</strong></p>

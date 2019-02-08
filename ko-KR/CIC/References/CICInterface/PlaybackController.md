@@ -147,7 +147,7 @@ PlaybackController 인터페이스는 클라이언트의 오디오 재생 및 �
 * [`PlaybackController.ExpectResumeCommand`](#ExpectResumeCommand)
 * [`PlaybackController.ExpectStopCommand`](#ExpectStopCommand)
 * [`PlaybackController.PauseCommandIssued`](#PauseCommandIssued)
-* [음원 재생 제어하기](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
+* [음원 재생 제어하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#ControlAudioPlayback)
 
 ## ExpectPlayCommand directive {#ExpectPlayCommand}
 사용자가 클라이언트 기기에서 재생 버튼(Play)을 누른 효과가 발생한 것처럼 클라이언트가 [`PlaybackController.PlayCommandIssued`](#PlayCommandIssued) 이벤트 메시지를 CIC로 보내도록 지시합니다. 이 지시 메시지는 현재 재생 중인 미디어 스트림을 다른 기기에서 재생하려고 할 때에도 수신될 수 있습니다. 클라이언트는 이 지시 메시지를 받은 후 관련 동작을 수행하고 [`PlaybackController.PlayCommandIssued`](#PlayCommandIssued) 이벤트 메시지를 CIC로 보내야 합니다.
@@ -247,7 +247,7 @@ PlaybackController 인터페이스는 클라이언트의 오디오 재생 및 �
 * [`PlaybackController.ExpectPreviousCommand`](#ExpectPreviousCommand)
 * [`PlaybackController.ExpectStopCommand`](#ExpectStopCommand)
 * [`PlaybackController.ResumeCommandIssued`](#ResumeCommandIssued)
-* [음원 재생 제어하기](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
+* [음원 재생 제어하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#ControlAudioPlayback)
 
 ## ExpectStopCommand directive {#ExpectStopCommand}
 사용자가 클라이언트 기기에서 정지 버튼(Stop)을 누른 효과가 발생한 것처럼 클라이언트가 [`PlaybackController.StopCommandIssued`](#StopCommandIssued) 이벤트 메시지를 CIC로 보내도록 지시합니다. 클라이언트는 이 지시 메시지를 받은 후 [`PlaybackController.StopCommandIssued`](#StopCommandIssued) 이벤트 메시지를 CIC로 보내야 합니다.
@@ -279,7 +279,7 @@ PlaybackController 인터페이스는 클라이언트의 오디오 재생 및 �
 * [`PlaybackController.ExpectPreviousCommand`](#ExpectPreviousCommand)
 * [`PlaybackController.ExpectResumeCommand`](#ExpectResumeCommand)
 * [`PlaybackController.StopCommandIssued`](#StopCommandIssued)
-* [음원 재생 제어하기](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
+* [음원 재생 제어하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#ControlAudioPlayback)
 
 ## Mute directive {#Mute}
 클라이언트에게 오디오 플레이어 볼륨을 음소거하도록 지시합니다. 클라이언트는 이 지시 메시지를 받은 후 오디오 스트림 재생과 관련된 스피커 볼륨을 무음이 되도록 변경해야 합니다.
@@ -419,7 +419,7 @@ Clova는 스피커 출력과 관계된 제어이면 [`SpeechSynthesizer.Speak`](
 ### See also
 * [`AudioPlayer.PlayPaused`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)
 * [`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)
-* [음원 재생 제어하기](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
+* [음원 재생 제어하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#ControlAudioPlayback)
 
 ## PauseCommandIssued event {#PauseCommandIssued}
 사용자가 클라이언트 기기에서 일시 정지 버튼(Pause)을 누르거나 CIC로부터 [`PlaybackController.ExpectPauseCommand`](#ExpectPauseCommand) 지시 메시지를 받았다면 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. 이 이벤트 메시지를 받은 CIC는 상황에 맞는 지시 메시지를 클라이언트에게 전송합니다.
@@ -475,7 +475,7 @@ Clova는 스피커 출력과 관계된 제어이면 [`SpeechSynthesizer.Speak`](
 * [`PlaybackController.ResumeCommandIssued`](#ResumeCommandIssued)
 * [`PlaybackController.SetRepeatModeCommandIssued`](#SetRepeatModeCommandIssued)
 * [`PlaybackController.StopCommandIssued`](#StopCommandIssued)
-* [음원 재생 제어하기](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
+* [음원 재생 제어하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#ControlAudioPlayback)
 
 ## PlayCommandIssued event {#PlayCommandIssued}
 사용자가 클라이언트 기기에서 재생 버튼(Play)을 누르거나 CIC로부터 [`PlaybackController.ExpectPlayCommand`](#ExpectPlayCommand) 지시 메시지를 받았다면 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. 이 이벤트 메시지를 받은 CIC는 상황에 맞는 지시 메시지를 클라이언트에게 전송합니다. 만약, CIC로부터 [`PlaybackController.ExpectPlayCommand`](#ExpectPlayCommand) 지시 메시지의 `payload`에 `handover` 필드가 포함되어 있다면 이를 그대로 사용하여 미디어 재생을 이양 받아야 합니다.
@@ -647,7 +647,7 @@ Clova는 스피커 출력과 관계된 제어이면 [`SpeechSynthesizer.Speak`](
 * [`PlaybackController.Pause`](#Pause)
 * [`PlaybackController.Resume`](#Resume)
 * [`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)
-* [음원 재생 제어하기](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
+* [음원 재생 제어하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#ControlAudioPlayback)
 
 ## Resume directive {#Resume}
 클라이언트에게 오디오 스트림 재생을 재개하도록 지시합니다. 클라이언트는 이 지시 메시지를 받은 후 오디오 스트림 재생을 재개해야 합니다.
@@ -675,7 +675,7 @@ Clova는 스피커 출력과 관계된 제어이면 [`SpeechSynthesizer.Speak`](
 ### See also
 * [`AudioPlayer.PlayResumed`](/CIC/References/CICInterface/AudioPlayer.md#PlayResumed)
 * [`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)
-* [음원 재생 제어하기](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
+* [음원 재생 제어하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#ControlAudioPlayback)
 
 ## ResumeCommandIssued event {#ResumeCommandIssued}
 사용자가 클라이언트 기기에서 재개 버튼(Resume)을 누르거나 CIC로부터 [`PlaybackController.ExpectResumeCommand`](#ExpectResumeCommand) 지시 메시지를 받았다면 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. 이 이벤트 메시지를 받은 CIC는 상황에 맞는 지시 메시지를 클라이언트에게 전송합니다.
@@ -731,7 +731,7 @@ Clova는 스피커 출력과 관계된 제어이면 [`SpeechSynthesizer.Speak`](
 * [`PlaybackController.PreviousCommandIssued`](#PreviousCommandIssued)
 * [`PlaybackController.SetRepeatModeCommandIssued`](#SetRepeatModeCommandIssued)
 * [`PlaybackController.StopCommandIssued`](#StopCommandIssued)
-* [음원 재생 제어하기](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
+* [음원 재생 제어하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#ControlAudioPlayback)
 
 ## SetRepeatMode directive {#SetRepeatMode}
 
@@ -854,7 +854,7 @@ Clova는 스피커 출력과 관계된 제어이면 [`SpeechSynthesizer.Speak`](
 ### See also
 * [`AudioPlayer.PlayStopped`](/CIC/References/CICInterface/AudioPlayer.md#PlayStopped)
 * [`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize)
-* [음원 재생 제어하기](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
+* [음원 재생 제어하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#ControlAudioPlayback)
 
 ## StopCommandIssued event {#StopCommandIssued}
 사용자가 클라이언트 기기에서 재개 버튼(Resume)을 누르거나 CIC로부터 [`PlaybackController.ExpectStopCommand`](#ExpectStopCommand) 지시 메시지를 받았다면 클라이언트는 이 이벤트 메시지를 CIC에게 전송해야 합니다. 이 이벤트 메시지를 받은 CIC는 상황에 맞는 지시 메시지를 클라이언트에게 전송합니다.
@@ -910,7 +910,7 @@ Clova는 스피커 출력과 관계된 제어이면 [`SpeechSynthesizer.Speak`](
 * [`PlaybackController.PreviousCommandIssued`](#PreviousCommandIssued)
 * [`PlaybackController.ResumeCommandIssued`](#ResumeCommandIssued)
 * [`PlaybackController.SetRepeatModeCommandIssued`](#SetRepeatModeCommandIssued)
-* [음원 재생 제어하기](/CIC/Guides/Implement_Client_Features.md#ControlAudioPlayback)
+* [음원 재생 제어하기](/CIC/Guides/ImplementClientFeatures/Handle_Audio_Playback.md#ControlAudioPlayback)
 
 ## TurnOffRepeatMode directive {#TurnOffRepeatMode}
 **(Deprecated)** 클라이언트에게 한 곡 반복 재생 모드를 끄도록 지시합니다.

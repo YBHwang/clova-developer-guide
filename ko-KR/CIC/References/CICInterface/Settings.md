@@ -10,7 +10,7 @@ Settings 인터페이스는 Clova와 클라이언트 사이에서 클라이언�
 
 <div class="note">
   <p><strong>Note!</strong></p>
-  <p>설정 정보를 업데이트하거나 동기화하는 설명은 <a href="/CIC/Guides/Implement_Client_Features.md#HandleSettings">설정 정보 처리하기</a>를 참조합니다.</p>
+  <p>설정 정보를 업데이트하거나 동기화하는 설명은 <a href="/CIC/Guides/ImplementClientFeatures/Handle_Settings.md">설정 정보 처리하기</a>를 참조합니다.</p>
 </div>
 
 ## ExpectReport directive {#ExpectReport}
@@ -41,7 +41,7 @@ Settings 인터페이스는 Clova와 클라이언트 사이에서 클라이언�
 
 ### See also
 * [`Settings.Report`](#Report)
-* [설정 정보 처리하기](/CIC/Guides/Implement_Client_Features.md#HandleSettings)
+* [설정 정보 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Settings.md)
 
 ## Report event {#Report}
 클라이언트가 현재의 설정 정보를 CIC에게 보고합니다. 클라이언트가 CIC로부터 [`Settings.ExpectReport`](#ExpectReport) 지시 메시지를 받았다면 `Settings.Report` 이벤트 메시지를 CIC로 전송해야 합니다.
@@ -90,7 +90,7 @@ Settings 인터페이스는 Clova와 클라이언트 사이에서 클라이언�
 
 ### See also
 * [`Settings.ExpectReport`](#ExpectReport)
-* [설정 정보 처리하기](/CIC/Guides/Implement_Client_Features.md#HandleSettings)
+* [설정 정보 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Settings.md)
 
 ## Update directive {#Update}
 클라이언트에게 `payload`에 저장된 값을 설정값으로 적용하도록 지시합니다.
@@ -132,4 +132,4 @@ Settings 인터페이스는 Clova와 클라이언트 사이에서 클라이언�
 
 ### See also
 * [`Settings.Report`](#Report)
-* [설정 정보 처리하기](/CIC/Guides/Implement_Client_Features.md#HandleSettings)
+* [설정 정보 처리하기](/CIC/Guides/ImplementClientFeatures/Handle_Settings.md)

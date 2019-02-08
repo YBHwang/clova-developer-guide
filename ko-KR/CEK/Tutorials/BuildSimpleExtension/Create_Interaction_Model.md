@@ -5,10 +5,10 @@
 ### 새로운 custom intent 만들기
 여기서는 주사위를 던져달라는 요청에 주사위 1개를 던지도록 간단한 intent를 생성합니다.
 
-1. 샘플 주사위의 **{{ book.DevConsoleUIString.cek_interaction_model }}** 항목 내 **{{ book.DevConsoleUIString.cek_edit }}** 버튼을 누릅니다.
-2. **{{ book.DevConsoleUIString.cek_builder_list_title_intent }}** 오른쪽에 있는 <img class="inlineImage" src="/CEK/Resources/Images/DevConsole_Plus_Button.png" /> 버튼을 누릅니다.
-3. **{{ book.DevConsoleUIString.cek_builder_new_intent }}** 아래 입력창에 "ThrowDiceIntent"라는 이름을 입력합니다.
-4. 엔터키 또는 입력창 오른쪽의 **{{ book.DevConsoleUIString.cek_builder_new_intent_create }}** 버튼을 누릅니다.
+1. 샘플 주사위의 <strong>{{ book.DevConsoleUIString.cek_interaction_model }}</strong> 항목 내 <strong>{{ book.DevConsoleUIString.cek_edit }}</strong> 버튼을 누릅니다.
+2. <strong>{{ book.DevConsoleUIString.cek_builder_list_title_intent }}</strong> 오른쪽에 있는 <img class="inlineImage" src="/CEK/Resources/Images/DevConsole_Plus_Button.png" /> 버튼을 누릅니다.
+3. <strong>{{ book.DevConsoleUIString.cek_builder_new_intent }}</strong> 아래 입력창에 "ThrowDiceIntent"라는 이름을 입력합니다.
+4. 엔터키 또는 입력창 오른쪽의 <strong>{{ book.DevConsoleUIString.cek_builder_new_intent_create }}</strong> 버튼을 누릅니다.
 
 	<img src="/CEK/Resources/Images/CEK_Tutorial_NewIntent.png" style=" max-width:800px;" />
 
@@ -19,27 +19,27 @@
 
 ### 발화 예시 목록에 문장 입력하기
 여기서는 사용자가 어떤 말을 할 때 위에 입력한 intent로 처리할지 지정합니다. 발화 예시는 많을수록 좋지만, 이 튜토리얼에서는 하나만 입력합니다.
-1. **{{ book.DevConsoleUIString.cek_builder_intent_expression_title }}**에서 "주사위 던져줘"라고 입력합니다.
+1. <strong>{{ book.DevConsoleUIString.cek_builder_intent_expression_title }}</strong>에서 "주사위 던져줘"라고 입력합니다.
 2. 엔터키 또는 <img class="inlineImage" src="/CEK/Resources/Images/DevConsole_Plus_Button.png" /> 버튼을 누릅니다.
-3. 모든 발화 예시를 입력하면 **{{ book.DevConsoleUIString.cek_save }}** 버튼을 누릅니다.
+3. 모든 발화 예시를 입력하면 <strong>{{ book.DevConsoleUIString.cek_save }}</strong> 버튼을 누릅니다.
 
 	<img src="/CEK/Resources/Images/CEK_Tutorial_SpeechExample.png" style=" max-width:800px; margin-top:10px; margin-bottom:10px;" />
 
 ### 빌드 및 테스트하기
 Interaction 모델이 입력한대로 동작하는지 확인하기 위해 interaction 모델을 빌드하여 테스트 합니다.
 
-1. **Custom Extension** 화면 좌측 상단의 **{{ book.DevConsoleUIString.cek_builder_menu_build }}** 버튼을 누릅니다.
+1. **Custom Extension** 화면 좌측 상단의 <strong>{{ book.DevConsoleUIString.cek_builder_menu_build }}</strong> 버튼을 누릅니다.
 
 	<div class="note">
 	  <p><strong>Note!</strong></p>
 		<p>빌드는 3~5분 정도 소요됩니다. 빌드가 시작되면 버튼이 <strong>{{ book.DevConsoleUIString.cek_builder_menu_build_in_progress }}</strong>으로 바뀌며, 빌드가 완료된 후 다시 <strong>{{ book.DevConsoleUIString.cek_builder_menu_build }}</strong>로 돌아옵니다.</p>
 	</div>
 
-2. 빌드가 완료되면 **{{ book.DevConsoleUIString.cek_builder_menu_build }}** 버튼 아래의 **{{ book.DevConsoleUIString.cek_test }}** 메뉴를 누릅니다.
+2. 빌드가 완료되면 <strong>{{ book.DevConsoleUIString.cek_builder_menu_build }}</strong> 버튼 아래의 <strong>{{ book.DevConsoleUIString.cek_test }}</strong> 메뉴를 누릅니다.
 
-3. **{{ book.DevConsoleUIString.cek_builder_test_expression_title }}**에 테스트하고자 하는 문장을 입력합니다. 예를 들어, "주사위 던져줄래"라고 입력합니다.
-4. 엔터키 또는 **{{ book.DevConsoleUIString.cek_builder_test_request_test }}** 버튼을 누릅니다.
-5. **{{ book.DevConsoleUIString.cek_builder_test_result_title }}**의 **{{ book.DevConsoleUIString.cek_builder_test_intent_result }}** 항목에 "ThrowDiceIntent"라고 나타나는지 확인합니다.
+3. <strong>{{ book.DevConsoleUIString.cek_builder_test_expression_title }}</strong>에 테스트하고자 하는 문장을 입력합니다. 예를 들어, "주사위 던져줄래"라고 입력합니다.
+4. 엔터키 또는 <strong>{{ book.DevConsoleUIString.cek_builder_test_request_test }}</strong> 버튼을 누릅니다.
+5. <strong>{{ book.DevConsoleUIString.cek_builder_test_result_title }}</strong>의 <strong>{{ book.DevConsoleUIString.cek_builder_test_intent_result }}</strong> 항목에 "ThrowDiceIntent"라고 나타나는지 확인합니다.
 
 	<img src="/CEK/Resources/Images/CEK_Tutorial_Test.png" style="max-width:800px;"/>
 
