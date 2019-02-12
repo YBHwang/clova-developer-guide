@@ -37,9 +37,7 @@ Extension을 만드는 전체적인 과정은 다음과 같습니다.
   <li><p>엔터키 또는 <strong>{{ book.DevConsole.cek_builder_test_request_test }}</strong> 버튼을 누릅니다.</p></li>
   <li>
     <p><strong>{{ book.DevConsole.cek_builder_test_result_title }}</strong>의 <strong>{{ book.DevConsole.cek_builder_test_intent_result }}</strong> 항목에 <code>ThrowDiceIntent</code>, <strong>{{ book.DevConsole.cek_builder_test_slot_result }}</strong> 항목에 <code>diceCount</code>가 나타나고, <strong>{{ book.DevConsole.cek_builder_test_slot_data}}</strong>에 입력한 주사위 개수가 나타나는지 확인합니다.</p>
-
   	<img src="/CEK/Resources/Images/CEK_Tutorial_Builtin_Type_Slot_Test.png" />
-
     <div class="note">
     	<p><strong>Note!</strong></p>
     	<p>외부에서 접근할 수 있는 extension 서버 URL을 등록하지 않았다면, <strong>{{ book.DevConsole.cek_builder_test_service_response }}</strong>은 "{{ book.DevConsole.cek_builder_test_no_response }}"라고 나타납니다.</p>
@@ -78,7 +76,6 @@ Clova는 사용자의 음성 입력을 분석한 결과를 extension 서버에 �
     <ul>
       <li>
         <p><strong>{{ book.DevConsole.cek_service_endpoint_url }}</strong>: Clova와 통신할 extension의 REST API 서버로, 외부에서 접근할 수 있는 URL이어야 합니다. 1단계에서 샘플 주사위 소스 코드를 실행한 서버의 주소를 입력합니다.</p>
-
     		<div class="danger">
     			<p><strong>Caution!</strong></p>
     			<p>테스트 단계에서는 HTTP도 가능하나 정식 서비스를 위해서는 HTTPS여야 합니다. Extension 서버는 HTTP일 때 80번 포트를 HTTPS일 때 443번 포트를 사용해야 합니다.</p>
@@ -106,9 +103,7 @@ Clova는 사용자의 음성 입력을 분석한 결과를 extension 서버에 �
   <li><p><strong>{{ book.DevConsole.cek_builder_new_intent }}</strong> 아래 입력창에 "ThrowDiceIntent"라는 이름을 입력합니다.</p></li>
   <li>
     <p>엔터키 또는 입력창 오른쪽의 <strong>{{ book.DevConsole.cek_builder_new_intent_create }}</strong> 버튼을 누릅니다.</p>
-
   	<img src="/CEK/Resources/Images/CEK_Tutorial_NewIntent.png" />
-
   	<div class="danger">
   	  <p><strong>Caution!</strong></p>
   		<p>Intent 이름의 대소문자에 유의해야 합니다.</p>
@@ -124,7 +119,6 @@ Clova는 사용자의 음성 입력을 분석한 결과를 extension 서버에 �
   <li><p>엔터키 또는 <img class="inlineImage" src="/CEK/Resources/Images/DevConsole_Plus_Button.png" /> 버튼을 누릅니다.</p></li>
   <li>
     <p>모든 발화 예시를 입력하면 <strong>{{ book.DevConsole.cek_save }}</strong> 버튼을 누릅니다.</p>
-
     <img src="/CEK/Resources/Images/CEK_Tutorial_SpeechExample.png" style="margin-top:10px; margin-bottom:10px;" />
   </li>
 </ol>
@@ -135,7 +129,6 @@ Interaction 모델이 입력한대로 동작하는지 확인하기 위해 intera
 <ol>
   <li>
     <p><strong>Custom Extension</strong> 화면 좌측 상단의 <strong>{{ book.DevConsole.cek_builder_menu_build }}</strong> 버튼을 누릅니다.</p>
-
   	<div class="note">
   	  <p><strong>Note!</strong></p>
   		<p>빌드는 3~5분 정도 소요됩니다. 빌드가 시작되면 버튼이 <strong>{{ book.DevConsole.cek_builder_menu_build_in_progress }}</strong>으로 바뀌며, 빌드가 완료된 후 다시 <strong>{{ book.DevConsole.cek_builder_menu_build }}</strong>로 돌아옵니다.</p>
@@ -146,9 +139,7 @@ Interaction 모델이 입력한대로 동작하는지 확인하기 위해 intera
   <li><p>엔터키 또는 <strong>{{ book.DevConsole.cek_builder_test_request_test }}</strong> 버튼을 누릅니다.</p>
   <li>
     <p><strong>{{ book.DevConsole.cek_builder_test_result_title }}</strong>의 <strong>{{ book.DevConsole.cek_builder_test_intent_result }}</strong> 항목에 "ThrowDiceIntent"라고 나타나는지 확인합니다.</p>
-
   	<img src="/CEK/Resources/Images/CEK_Tutorial_Test.png" />
-
   	<div class="note">
     	<p><strong>Note!</strong></p>
     	<p>2단계에서 외부에서 접근할 수 있는 extension 서버 URL을 등록하지 않았다면, <strong>{{ book.DevConsole.cek_builder_test_service_response }}</strong>은 "{{ book.DevConsole.cek_builder_test_no_response }}"라고 나타납니다.</p>
