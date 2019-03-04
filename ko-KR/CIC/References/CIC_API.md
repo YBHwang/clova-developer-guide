@@ -22,9 +22,9 @@ CIC API의 base URL은 다음과 같습니다.
 
 ![](/CIC/Resources/Images/HTTP2_Structure.png)
 
-예를 들면, 사용자의 음성 입력을 CIC로 전달하려면 [SpeechRecognizer.Recognize](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize) 이벤트 메시지와 함께 녹음한 사용자의 음성 데이터를 함께 전송해야 합니다. 클라이언트는 `Content-Type`을 `multipart/form-data`로 설정하고 첫 번째 메시지 블록에는 이벤트 메시지 정보가 담긴 JSON 데이터를 두 번째 메시지 블록에는 사용자의 음성이 담긴 바이너리 데이터를 담아서 보낼 수 있습니다.
+예를 들면, 사용자의 음성 입력을 CIC로 전달하려면 [SpeechRecognizer.Recognize](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize) 이벤트 메시지와 함께 녹음한 사용자의 음성 데이터를 함께 전송해야 합니다. 클라이언트는 `Content-Type`을 `multipart/form-data`로 설정하고 첫 번째 메시지 파트에는 이벤트 메시지 정보가 담긴 JSON 데이터를 두 번째 메시지 파트에는 사용자의 음성이 담긴 바이너리 데이터를 담아서 보낼 수 있습니다.
 
-이때, 메시지를 구분하기 위해 `boundary`에 경계 문구를 지정해야 합니다. 경계 문구는 메시지 블록 사이에 사용될 때 경계 문구 왼쪽에 이중의 하이픈(-) 기호를 붙여야 하며, 마지막 메시지 블록 이후에는 경계 문구 양쪽에 이중의 하이픈(-) 기호를 붙여야 합니다. 또한, 경계 문구는 각 메시지 블록의 본문에서 나타나지 않아야 합니다.
+이때, 메시지를 구분하기 위해 `boundary`에 경계 문구(boundary term)를 지정해야 합니다. 경계 문구는 메시지 파트 사이에 사용될 때 경계 문구 왼쪽에 이중의 하이픈(-) 기호를 붙여야 하며, 마지막 메시지 파트 이후에는 경계 문구 양쪽에 이중의 하이픈(-) 기호를 붙여야 합니다. 또한, 경계 문구는 각 메시지 파트의 본문에서 나타나지 않아야 합니다.
 
 다음은 클라이언트가 CIC로 사용자 요청(이벤트 메시지)을 보낼 때 갖추게 되는 일반적인 메시지 형태입니다.
 
