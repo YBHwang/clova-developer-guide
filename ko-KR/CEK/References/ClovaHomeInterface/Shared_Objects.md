@@ -946,7 +946,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 | 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:-------------:|
 | `name`          | string  | 소모품의 이름                  | 필수 |
-| `remainingTime` | sting   | 소모품의 남은 수명(Duration, <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601</a>)    | 선택 |
+| `remainingTime` | sting   | 소모품의 남은 수명(<a href="https://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO 8601 Durations</a>)    | 선택 |
 | `usage`         | [CustomInfoObject](#CustomInfoObject)          | 소모품의 사용량 (회수 또는 퍼센트로 표현 가능)      | 선택 |
 
 ### Object Example
@@ -1342,8 +1342,8 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 
 | 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
 |---------------|---------|-----------------------------|:-------------:|
-| `end`         | string  | 기간의 종료 시점(Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    | 항상      |
-| `start`       | string  | 기간의 시작 시점(Timestamp, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>)    | 항상      |
+| `end`         | string  | 기간의 종료 시점(`YYYY-MM-DDThh:mm:ss±hh:mm`<a href="https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations" target="_blank">ISO 8601</a> 형식)    | 항상      |
+| `start`       | string  | 기간의 시작 시점(`YYYY-MM-DDThh:mm:ss±hh:mm`<a href="https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations" target="_blank">ISO 8601</a> 형식)    | 항상      |
 
 ### Remarks
 "오늘", "이번 주", "이번 달"와 같은 사용자의 표현이 있는데, 이런 표현은 다음과 같은 범위로 시작 시점과 종료 시점이 지정됩니다.

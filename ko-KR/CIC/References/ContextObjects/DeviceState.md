@@ -44,7 +44,7 @@
 | `energySavingMode` | [EnergySavingModeInfoObject](#EnergySavingModeInfoObject) | 클라이언트 기기의 에너지 절약 모드 정보를 보고할 때 사용하는 객체     | 선택 |
 | `flashLight`      | [FlashLightInfoObject](#FlashLightInfoObject)           | 클라이언트 기기의 플래시 조명 설정 정보를 보고할 때 사용하는 객체       | 선택 |
 | `gps`             | [GPSInfoObject](#GPSInfoObject)                         | 클라이언트 기기의 GPS 설정 정보를 보고할 때 사용하는 객체            | 선택 |
-| `localTime`       | string | 클라이언트 기기에 설정된 현지 시간(<a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a> 포맷)              | 선택 |
+| `localTime`       | string | 클라이언트 기기에 설정된 현지 시간(`YYYY-MM-DDThh:mm:ss.sss±hh:mm`<a href="https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations" target="_blank">ISO 8601</a> 형식)              | 선택 |
 | `power`           | [PowerInfoObject](#PowerInfoObject)                     | 클라이언트 기기의 전원 상태 정보를 보고할 때 사용하는 객체            | 선택 |
 | `screenBrightness` | [ScreenBrightnessInfoObject](#ScreenBrightnessInfoObject) | 클라이언트 기기의 화면 밝기 정보를 보고할 때 사용하는 객체         | 선택 |
 | `soundMode`       | [SoundModeInfoObject](#SoundModeInfoObject)             | 클라이언트 기기의 소리 재생 모드 정보를 보고할 때 사용하는 객체           | 선택 |
