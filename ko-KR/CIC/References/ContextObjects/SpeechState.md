@@ -21,8 +21,8 @@
 
 | 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:---------:|
-| `token`          | string | [`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) 지시 메시지를 통해 전달받은 TTS 식별용 token 값  | 필수     |
 | `playerActivity` | string | TTS 재생 상태 <ul><li><code>PLAYING</code>: 현재 TTS 재생 상태</li><li><code>STOPPED</code>: 사용자의 음성 입력이나 다른 인터럽트로 TTS 재생이 중간에 중지된 상태</li><li><code>FINISHED</code>: TTS 재생이 완료된 상태</li></ul>     | 필수     |
+| `token`          | string | [`SpeechSynthesizer.Speak`](/CIC/References/CICInterface/SpeechSynthesizer.md#Speak) 지시 메시지를 통해 전달받은 TTS 식별용 token 값  | 필수     |
 
 ### Object example
 {% raw %}
