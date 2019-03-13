@@ -31,7 +31,7 @@
 | `places[].latitude`    | string       | 위도                                                                          | 필수 |
 | `places[].longitude`   | string       | 경도                                                                          | 필수 |
 | `places[].name`        | string       | 저장된 위치의 이름. 다음 값을 입력할 수 있습니다. <ul><li><code>"회사"</code></li><li><code>"집"</code></li></ul>       | 필수 |
-| `places[].refreshedAt` | string       | 위치 저장 시간(UTC 기준, <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a> 포맷)  | 필수 |
+| `places[].refreshedAt` | string       | 위치 저장 시간(`YYYY-MM-DDThh:mm:ss±hh:mm`, <a href="https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations" target="_blank">ISO 8601 Combined date and time representations</a> )  | 필수 |
 
 
 ### Object example

@@ -21,6 +21,15 @@
   </thead>
   <tbody>
     <tr>
+      <td>v3.48.1</td><td>2019-03-13</td>
+      <td>
+        <ul>
+          <li>[Common] 일부 레퍼런스 문서의 내용 순서 수정</li>
+          <li>[Common] 내외부 피드백을 문서에 반영</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.48.0</td><td>2019-01-25</td>
       <td>
         <ul>

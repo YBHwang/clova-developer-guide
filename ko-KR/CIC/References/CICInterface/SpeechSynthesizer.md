@@ -22,8 +22,8 @@ CIC에 특정 텍스트를 TTS로 생성하도록 요청합니다.
 ### Payload fields
 | 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:---------:|
-| `text`  | string | TTS 생성을 요청할 대상 텍스트           | 필수    |
 | `lang`  | string | 음성 합성에 사용할 언어. <ul><li><code>"en"</code>: 영어</li><li><code>"ja"</code>: 일본어</li><li><code>"ko"</code>: 한국어</li><li><code>"zh"</code>: 중국어</li></ul> | 필수    |
+| `text`  | string | TTS 생성을 요청할 대상 텍스트           | 필수    |
 
 ### Message example
 {% raw %}
@@ -64,9 +64,9 @@ CIC에 특정 텍스트를 TTS로 생성하도록 요청합니다.
 | 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
 |---------------|---------|-----------------------------|:---------:|
 | `format`               | string  | 파일 포맷. 현재 `"AUDIO_MPEG"`로 고정되어 있습니다. | 항상    |
-| `url`                  | string  | 재생할 음성 파일의 URL                        | 항상    |
 | `token`                | string  | TTS를 식별하는 token 값                    | 항상    |
 | `ttsLang`              | string  | TTS 합성에 사용할 언어. <ul><li><code>"en"</code>: 영어</li><li><code>"ja"</code>: 일본어</li><li><code>"ko"</code>: 한국어</li><li><code>"zh"</code>: 중국어</li></ul> | 조건부    |
+| `url`                  | string  | 재생할 음성 파일의 URL                        | 항상    |
 | `x-clova-pause-before` | number  | 파일 재생 전 유휴 시간. 정수 형태 값이며, 단위는 밀리초(millisecond)입니다.        | 조건부    |
 
 ### Remarks

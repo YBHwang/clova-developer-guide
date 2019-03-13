@@ -274,8 +274,8 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 
 | 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:---------:|
-| `token`                | string | [`AudioPlayer.Play`](#Play) 지시 메시지의 `audioItem.stream.token` 필드 값 | 필수 |
 | `offsetInMilliseconds` | number | 현재 재생하고 있는 음원의 재생 시점. 단위는 밀리 초입니다.                         | 필수  |
+| `token`                | string | [`AudioPlayer.Play`](#Play) 지시 메시지의 `audioItem.stream.token` 필드 값 | 필수 |
 
 ### Message example
 {% raw %}
@@ -327,8 +327,8 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 
 | 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:---------:|
-| `token`                | string | [`AudioPlayer.Play`](#Play) 지시 메시지의 `audioItem.stream.token` 필드 값 | 필수 |
 | `offsetInMilliseconds` | number | 현재 재생하고 있는 음원의 재생 시점. 단위는 밀리 초입니다.                         | 필수  |
+| `token`                | string | [`AudioPlayer.Play`](#Play) 지시 메시지의 `audioItem.stream.token` 필드 값 | 필수 |
 
 ### Message example
 {% raw %}
@@ -383,8 +383,8 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 
 | 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:---------:|
-| `token`                | string | [`AudioPlayer.Play`](#Play) 지시 메시지의 `audioItem.stream.token` 필드 값 | 필수 |
 | `offsetInMilliseconds` | number | 현재 재생하고 있는 음원의 재생 시점. 단위는 밀리 초입니다.                         | 필수  |
+| `token`                | string | [`AudioPlayer.Play`](#Play) 지시 메시지의 `audioItem.stream.token` 필드 값 | 필수 |
 
 ### Message example
 {% raw %}
@@ -434,8 +434,8 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 
 | 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:---------:|
-| `token`                | string | [`AudioPlayer.Play`](#Play) 지시 메시지의 `audioItem.stream.token` 필드 값 | 필수 |
 | `offsetInMilliseconds` | number | 현재 재생하고 있는 음원의 재생 시점. 단위는 밀리 초입니다.                         | 필수  |
+| `token`                | string | [`AudioPlayer.Play`](#Play) 지시 메시지의 `audioItem.stream.token` 필드 값 | 필수 |
 
 ### Message example
 {% raw %}
@@ -489,8 +489,8 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 
 | 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:---------:|
-| `token`                | string | [`AudioPlayer.Play`](#Play) 지시 메시지의 `audioItem.stream.token` 필드 값 | 필수 |
 | `offsetInMilliseconds` | number | 현재 재생하고 있는 음원의 재생 시점. 단위는 밀리 초입니다.                         | 필수  |
+| `token`                | string | [`AudioPlayer.Play`](#Play) 지시 메시지의 `audioItem.stream.token` 필드 값 | 필수 |
 
 ### Message example
 {% raw %}
@@ -540,8 +540,8 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 
 | 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:---------:|
-| `token`                | string | [`AudioPlayer.Play`](#Play) 지시 메시지의 `audioItem.stream.token` 필드 값 | 필수 |
 | `offsetInMilliseconds` | number | 현재 재생하고 있는 음원의 재생 시점. 단위는 밀리 초입니다.                         | 필수  |
+| `token`                | string | [`AudioPlayer.Play`](#Play) 지시 메시지의 `audioItem.stream.token` 필드 값 | 필수 |
 
 ### Message example
 {% raw %}
@@ -591,8 +591,8 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 
 | 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:---------:|
-| `token`                | string | [`AudioPlayer.Play`](#Play) 지시 메시지의 `audioItem.stream.token` 필드 값 | 필수 |
 | `offsetInMilliseconds` | number | 현재 재생하고 있는 음원의 재생 시점. 단위는 밀리 초입니다.                         | 필수  |
+| `token`                | string | [`AudioPlayer.Play`](#Play) 지시 메시지의 `audioItem.stream.token` 필드 값 | 필수 |
 
 ### Message example
 {% raw %}
@@ -642,8 +642,8 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 
 | 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:---------:|
-| `token`                | string | [`AudioPlayer.Play`](#Play) 지시 메시지의 `audioItem.stream.token` 필드 값 | 필수 |
 | `offsetInMilliseconds` | number | 현재 재생하고 있는 음원의 재생 시점. 단위는 밀리 초입니다.                         | 필수  |
+| `token`                | string | [`AudioPlayer.Play`](#Play) 지시 메시지의 `audioItem.stream.token` 필드 값 | 필수 |
 
 ### Message example
 {% raw %}
