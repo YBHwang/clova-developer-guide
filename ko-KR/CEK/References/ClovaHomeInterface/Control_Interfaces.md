@@ -137,7 +137,7 @@ IoT 기기 정보 확인 및 기기 제어와 관련된 요청 및 응답을 수
 
 {% include "/CEK/References/ClovaHomeInterface/ControlInterfacesPerAction/Close.md" %}
 
-{% include "/CEK/References/ClovaHomeInterface/ControlInterfacesPerAction/DecrementBrightness	.md" %}
+{% include "/CEK/References/ClovaHomeInterface/ControlInterfacesPerAction/DecrementBrightness.md" %}
 
 {% include "/CEK/References/ClovaHomeInterface/ControlInterfacesPerAction/DecrementFanSpeed.md" %}
 

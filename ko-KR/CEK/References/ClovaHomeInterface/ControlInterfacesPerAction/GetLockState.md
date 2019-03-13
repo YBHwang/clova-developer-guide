@@ -33,7 +33,7 @@
 
 | 필드 이름       | 자료형    | 필드 설명                     | 필수 여부 |
 |---------------|---------|-----------------------------|:---------:|
-| `applianceResponseTimestamp` | string | 기기에서 요청한 정보를 확인한 시간(`YYYY-MM-DDThh:mm:ss±hh:mm`<a href="https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations" target="_blank">ISO 8601</a> 형식)     | 선택    |
+| `applianceResponseTimestamp` | string | 기기에서 요청한 정보를 확인한 시간(`YYYY-MM-DDThh:mm:ss±hh:mm`, <a href="https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations" target="_blank">ISO 8601 Combined date and time representations</a> )     | 선택    |
 | `lockState`                  | string | 기기 잠금 장치의 잠금 상태. 다음과 같은 값을 가집니다. <ul><li><code>"LOCKED"</code>: 잠금 장치가 잠긴 상태</li><li><code>"UNLOCKED"</code>: 잠금 장치가 잠기지 않은 상태</li></ul> | 필수    |
 
 
