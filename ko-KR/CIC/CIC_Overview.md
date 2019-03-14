@@ -4,7 +4,7 @@
 ## CIC란? {#WhatisCIC}
 CIC는 인공 지능 비서 서비스를 제공하려는 PC/모바일용 앱, 모바일 또는 가전 기기 등의 클라이언트에게 Clova와 연동할 수 있는 인터페이스를 제공하는 플랫폼입니다. CIC가 제공하는 [API](/CIC/References/CIC_API.md)를 통해 사용자의 요청을 Clova로 전달하며 Clova의 응답을 CIC를 통해 클라이언트에게 제공합니다.
 
-![](/CIC/Resources/Images/CIC_Interaction_Structure.png)
+![](/CIC/Assets/Images/CIC_Interaction_Structure.png)
 
 ## CIC 동작 구조 {#CICInteractionStructure}
 클라이언트는 CIC API를 통해 사용자의 요청을 CIC로 전달하며 응답 결과를 CIC로부터 전달받습니다. CIC에 접속하기 위해 [HTTP/2 프로토콜](https://tools.ietf.org/html/rfc7540)을 사용해야 하며, 음성 인식, 음성 출력, 음악 재생, 개인 일정 관리, 알람, 타이머 설정과 같은 기능을 [CIC API](/CIC/References/CIC_API.md)를 통해 제공하고 있습니다.
@@ -19,12 +19,12 @@ CIC API를 통해 클라이언트와 CIC 사이에 다양한 커뮤니케이션�
 
 다음은 CIC와 클라이언트 사이의 메시지 송수신 동작 예를 나타낸 시퀀스 다이어그램입니다.
 
-![](/CIC/Resources/Images/CIC_Interaction_Example_in_Sequence_Diagram.svg)
+![](/CIC/Assets/Images/CIC_Interaction_Example_in_Sequence_Diagram.svg)
 
 ### 간접 대화 구조 {#IndirectDialogue}
 사용자와 Clova는 일련의 대화를 주고 받습니다. 일반적으로 사용자는 Clova에게 원하는 정보를 확인하거나 동작을 수행하도록 요청하고 Clova는 사용자에게 탐색한 정보나 동작 수행 결과를 응답으로 전달합니다. 이 대화를 위해 사용자와 Clova 사이에 중계자 역할을 하는 클라이언트와 CIC가 존재합니다.
 
-![](/CIC/Resources/Images/CIC_Structure_Of_Indirect_Dialogue.png)
+![](/CIC/Assets/Images/CIC_Structure_Of_Indirect_Dialogue.png)
 
 특별한 사항이 없다면 사용자와 Clova 사이의 대화는 다음과 같이 간단히 수행될 수 있습니다.
 

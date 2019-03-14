@@ -23,7 +23,7 @@
 
 기기 설정을 활성화하거나 비활성화하는 것을 처리하는 흐름은 다음과 같습니다.
 
-![](/CIC/Resources/Images/CIC_DeviceControl_Work_Flow1.svg)
+![](/CIC/Assets/Images/CIC_DeviceControl_Work_Flow1.svg)
 
 사용자가 클라이언트의 제어를 발화로 요청([`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize))합니다. 
 클라이언트는 사용자의 요청을 이벤트 메시지로 전달합니다. 이때, 이벤트 메시지에는 [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) 맥락 정보가 포함되어 있어야 합니다.
@@ -103,7 +103,7 @@ CIC는 [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) �
 
 Clova 앱이 사용자의 계정에 등록된 클라이언트의 상태를 파악하기 위해 다음과 같이 상태 정보를 요청할 때도 있습니다.
 
-![](/CIC/Resources/Images/CIC_DeviceControl_Work_Flow2.svg)
+![](/CIC/Assets/Images/CIC_DeviceControl_Work_Flow2.svg)
 
 1. 클라이언트(주로 Clova 앱)가 [`DeviceControl.RequestStateSynchronization`](/CIC/References/CICInterface/DeviceControl.md#RequestStateSynchronization) 이벤트 메시지를 CIC에게 전송합니다.
 2. CIC는 사용자 계정에 등록된 모든 클라이언트(Clova 앱 제외)에게 [`DeviceControl.ExpectReportState`](/CIC/References/CICInterface/DeviceControl.md#ExpectReportState) 지시 메시지를 [downchannel](/CIC/Guides/Interact_with_CIC.md#CreateConnection)로 전송합니다.

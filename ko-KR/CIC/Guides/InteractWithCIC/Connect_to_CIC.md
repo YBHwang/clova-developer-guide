@@ -18,7 +18,7 @@
   </li>
 </ul>
 
-![](/CIC/Resources/Images/CIC_Authorization.svg)
+![](/CIC/Assets/Images/CIC_Authorization.svg)
 
 Clova access token을 획득하는 절차는 다음과 같습니다.
 
@@ -152,7 +152,7 @@ Authorization: Bearer {{ClovaAccessToken}}
 
 클라이언트가 새로운 요청(이벤트 메시지)을 보낼 때마다 다음 그림과 같이 Clova access token을 함께 전달해야 합니다.
 
-![](/CIC/Resources/Images/CIC_Message_Interaction_Diagram.png)
+![](/CIC/Assets/Images/CIC_Message_Interaction_Diagram.png)
 
 ### 연결 관리하기 {#ManageConnection}
 

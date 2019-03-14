@@ -174,7 +174,7 @@ Extension을 설계할 때 가장 먼저 할 일은 extension의 목표를 정�
 
 Clova에서 interaction 모델이란, 음성으로부터 인식된 사용자의 요청을 extension에 전달하기 위해 정형화된 포맷(JSON)으로 바꿔주는 규칙을 명세한 것입니다. 예를 들어, custom extension이 피자 배달 서비스를 제공한다고 가정할 때 "페퍼로니 피자 2판 주문해줘"와 같은 요청이 사용자로부터 입력될 수 있습니다. Interaction 모델은 이런 사용자의 요청을 아래와 같이 서비스 제공에 필요한 포맷(JSON)으로 변경하는 규칙을 정의해 놓은 것이라고 보면 됩니다.
 
-![](/Design/Resources/Images/Extension_Design-Interaction_Model_Analysis_Diagram.png)
+![](/Design/Assets/Images/Extension_Design-Interaction_Model_Analysis_Diagram.png)
 
 Interaction 모델을 Clova developer console에서 정의하기 전에 우선 interaction 모델을 이해하고 설계하는 과정이 필요합니다. 이런 과정 없이 무작정 Clova developer console에서 interaction 모델을 등록하게 되면 작업 효율이 떨어지거나 사용자 요청이 의도된 대로 변환되지 않을 수 있습니다. 사용자의 실제 의도를 잘 파악하는 interaction 모델을 만들려면 interaction 모델을 만들기 전에 다음과 같은 내용을 이해하고 interaction 모델 설계에 반영해야 합니다.
 
@@ -204,7 +204,7 @@ Custom intent는 built-in intent와 달리 제공하려는 서비스에 특화�
 
 이를 토대로 피자 배달 서비스(extension)의 interaction 모델을 정의한다는 것은 메뉴 조회 intent, 주문 intent, 배달 조회 intent와 같은 intent 목록을 선언하고 각 intent에서 어떤 정보(slot)를 취할지 어떤 발화 예시가 있는지 열거하는 것이라고 보면 됩니다. 따라서, **interaction 모델을 정의할 때 가장 먼저 해야 할 일은 extension이 어떤 범주의 요청을 처리해줄 것인지 정의하고 열거하는 것**입니다. 이는 extension을 개발할 때 비즈니스 로직, 즉 프로그램의 분기를 나누는 기준이 되기도 합니다.
 
-![](/Design/Resources/Images/Extension_Design-Design_Interaction_Model.png)
+![](/Design/Assets/Images/Extension_Design-Design_Interaction_Model.png)
 
 **사용자 요청의 범주를 나눴다면 각 범주에 이름을 정의해야 합니다.** 이는 곧 intent의 이름이 됩니다. 피자 배달 서비스의 "주문 intent"와 같은 것은 추상적인 개념과 같은 것이고 이를 extension이 알 수 있는 구체적인 이름 즉 식별될 수 있는 문자열로 선언해야 합니다. 예를 들면, "주문 intent"는 "OrderPizza"와 같은 이름으로 선언할 수 있습니다.
 
@@ -275,7 +275,7 @@ Intent를 정의할 때 다양한 사용자 발화 예시를 열거할 수 있�
 
 발화 예시를 많이 입력하되 패턴이 서로 겹치지 않게 표현에 다양한 변형을 주어야 한다는 의미는 다음 그림을 참조하면 이해하기 쉽습니다.
 
-![](/Design/Resources/Images/Extension_Design-Diagram_for_Utterance_Example.png)
+![](/Design/Assets/Images/Extension_Design-Diagram_for_Utterance_Example.png)
 
 예를 들어, 피자 배달 서비스의 주문과 관련된 intent(OrderPizza)에 다음과 같은 발화 예시를 작성했다고 가정합니다.
 

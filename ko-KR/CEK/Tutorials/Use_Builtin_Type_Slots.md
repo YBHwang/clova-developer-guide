@@ -34,10 +34,10 @@ Clova는 모든 extension이 범용적으로 사용할 수 있도록 일반적�
 
 <ol>
   <li><p>샘플 주사위의 <strong>{{ book.DevConsole.cek_interaction_model }}</strong> 항목 내 <strong>{{ book.DevConsole.cek_edit }}</strong> 버튼을 누릅니다.</p></li>
-  <li><p><strong>{{ book.DevConsole.cek_builder_list_title_slottype }}</strong> 오른쪽에 있는 <img class="inlineImage" src="/CEK/Resources/Images/DevConsole_Plus_Button.png" /> 버튼을 누릅니다.</p></li>
+  <li><p><strong>{{ book.DevConsole.cek_builder_list_title_slottype }}</strong> 오른쪽에 있는 <img class="inlineImage" src="/CEK/Assets/Images/DevConsole_Plus_Button.png" /> 버튼을 누릅니다.</p></li>
   <li>
     <p><strong>{{ book.DevConsole.cek_builder_new_slottype_builtin_title }}</strong> 아래의 테이블에서 <code>CLOVA.NUMBER</code>의 체크박스를 선택합니다.</p>
-    <img src="/CEK/Resources/Images/CEK_Tutorial_Builtin_Type_Slots_Register_Slot_Type.png" />
+    <img src="/CEK/Assets/Images/CEK_Tutorial_Builtin_Type_Slots_Register_Slot_Type.png" />
   </li>
   <li><p><strong>{{ book.DevConsole.cek_builder_new_slottype_builtin_title }}</strong> 오른쪽의 <strong>{{ book.DevConsole.cek_save }}</strong> 버튼을 누릅니다.</p></li>
 </ol>
@@ -49,11 +49,11 @@ Clova는 모든 extension이 범용적으로 사용할 수 있도록 일반적�
 <ol>
   <li><p><strong>{{ book.DevConsole.cek_builder_list_title_intent }}</strong> 아래에 있는 custom intent인 <code>ThrowDiceIntent</code>를 선택합니다.</p></li>
   <li><p><strong>{{ book.DevConsole.cek_builder_intent_slot_title }}</strong> 아래의 입력란에 "diceCount"라고 입력합니다.</p></li>
-  <li><p>엔터키 또는 오른쪽에 있는 <img class="inlineImage" src="/CEK/Resources/Images/DevConsole_Plus_Button.png" /> 버튼을 누릅니다.</p></li>
+  <li><p>엔터키 또는 오른쪽에 있는 <img class="inlineImage" src="/CEK/Assets/Images/DevConsole_Plus_Button.png" /> 버튼을 누릅니다.</p></li>
   <li><p>등록한 "diceCount" 오른쪽 <strong>{{ book.DevConsole.cek_builder_utterance_select_slot }}</strong> 콤보박스를 누릅니다.</p></li>
   <li>
     <p>나타난 목록 중에서 앞서 등록한 <strong>{{ book.DevConsole.cek_builder_select_slottype_builtin }}</strong>의 <code>CLOVA.NUMBER</code>를 선택합니다.</p>
-    <img src="/CEK/Resources/Images/CEK_Tutorial_Builtin_Type_Slots_Add_Slot.png" />
+    <img src="/CEK/Assets/Images/CEK_Tutorial_Builtin_Type_Slots_Add_Slot.png" />
   </li>
   <li><p>화면 오른쪽 상단의 <strong>{{ book.DevConsole.cek_save }}</strong> 버튼을 누릅니다.</p></li>
 </ol>
@@ -66,13 +66,13 @@ Clova는 모든 extension이 범용적으로 사용할 수 있도록 일반적�
 <ol>
   <li>
     <p><strong>{{ book.DevConsole.cek_builder_intent_expression_title }}</strong> 아래의 입력란에 "주사위 두 개 굴려"라고 입력합니다.</p>
-    <img src="/CEK/Resources/Images/CEK_Tutorial_Builtin_Type_Slots_Sample_Utterance.png" />
+    <img src="/CEK/Assets/Images/CEK_Tutorial_Builtin_Type_Slots_Sample_Utterance.png" />
   </li>
-  <li><p>엔터키 또는 <img class="inlineImage" src="/CEK/Resources/Images/DevConsole_Plus_Button.png" /> 버튼을 누릅니다.</p></li>
+  <li><p>엔터키 또는 <img class="inlineImage" src="/CEK/Assets/Images/DevConsole_Plus_Button.png" /> 버튼을 누릅니다.</p></li>
   <li><p>등록된 문장에서 "두 개"라는 단어를 마우스로 드래그하여 선택합니다.</p></li>
   <li>
     <p><strong>{{ book.DevConsole.cek_builder_slot_layer_select_slot }}</strong> 밑에 있는 "diceCount"를 선택합니다.</p>
-    <img src="/CEK/Resources/Images/CEK_Tutorial_Builtin_Type_Slots_Set_Slot.png" />
+    <img src="/CEK/Assets/Images/CEK_Tutorial_Builtin_Type_Slots_Set_Slot.png" />
   </li>
   <li><p>"하나 던져봐", "다섯 개의 주사위 굴려"라는 문장으로 1-4를 반복합니다.</p></li>
 </ol>
@@ -136,7 +136,7 @@ intentRequest(cekResponse) {
   <li><p>엔터키 또는 <strong>{{ book.DevConsole.cek_builder_test_request_test }}</strong> 버튼을 누릅니다.</p></li>
   <li>
     <p><strong>{{ book.DevConsole.cek_builder_test_result_title }}</strong>의 <strong>{{ book.DevConsole.cek_builder_test_intent_result }}</strong> 항목에 <code>ThrowDiceIntent</code>, <strong>{{ book.DevConsole.cek_builder_test_slot_result }}</strong> 항목에 <code>diceCount</code>가 나타나고, <strong>{{ book.DevConsole.cek_builder_test_slot_data}}</strong>에 입력한 주사위 개수가 나타나는지 확인합니다.</p>
-  	<img src="/CEK/Resources/Images/CEK_Tutorial_Builtin_Type_Slot_Test.png" />
+  	<img src="/CEK/Assets/Images/CEK_Tutorial_Builtin_Type_Slot_Test.png" />
     <div class="note">
     	<p><strong>Note!</strong></p>
     	<p>외부에서 접근할 수 있는 extension 서버 URL을 등록하지 않았다면, <strong>{{ book.DevConsole.cek_builder_test_service_response }}</strong>은 "{{ book.DevConsole.cek_builder_test_no_response }}"라고 나타납니다.</p>

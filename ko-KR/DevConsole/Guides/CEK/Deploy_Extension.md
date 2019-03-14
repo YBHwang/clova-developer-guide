@@ -11,11 +11,11 @@ Extension을 배포할 때 일반적으로 다음 항목을 수행해야 합니�
 
 Clova developer console에서 [extension을 등록](/DevConsole/Guides/CEK/Register_Extension.md)과 [Interaction 모델을 등록](/DevConsole/Guides/CEK/Register_Interaction_Model.md)한 후 배포 정보를 입력할 수 있습니다. Extension 등록 메뉴에서 **{{ book.DevConsole.cek_publishing }}**를 선택합니다.
 
-![](/DevConsole/Resources/Images/DevConsole-Deployment_Info_Menu.png)
+![](/DevConsole/Assets/Images/DevConsole-Deployment_Info_Menu.png)
 
 다음와 같이 배포 정보를 입력합니다.
 
-![](/DevConsole/Resources/Images/DevConsole-Input_Deployment_Info.png)
+![](/DevConsole/Assets/Images/DevConsole-Input_Deployment_Info.png)
 
 Extension을 사용자에게 설명하기 위한 정보로서 Clova 앱의 **{{ book.DevConsole.ManageExtensions }}** 메뉴(Skill Store)에서 사용자에게 제공됩니다. 다음과 같은 정보들이 입력됩니다.
 
@@ -33,7 +33,7 @@ Extension을 사용자에게 설명하기 위한 정보로서 Clova 앱의 **{{ 
 
 | {{ book.DevConsole.StoreHome }} | {{ book.DevConsole.ExtensionPage }}   |
 |-------------------|-------------------|
-| ![Extension List](/DevConsole/Resources/Images/DevConsole-Store_UI_Example-Extension_Store_Home.png) | ![Extension Details](/DevConsole/Resources/Images/DevConsole-Store_UI_Example-Extension_Page.png) |
+| ![Extension List](/DevConsole/Assets/Images/DevConsole-Store_UI_Example-Extension_Store_Home.png) | ![Extension Details](/DevConsole/Assets/Images/DevConsole-Store_UI_Example-Extension_Page.png) |
 
 <div class="note">
   <p><strong>Note!</strong></p>
@@ -44,11 +44,11 @@ Extension을 사용자에게 설명하기 위한 정보로서 Clova 앱의 **{{ 
 
 Extension 배포에 필요한 정보를 입력하는 마지막 단계로서 개인 정보 관리 및 규정 준수에 관련된 내용을 입력해야 합니다. Extension 등록 메뉴에서 **{{ book.DevConsole.cek_privacy }}**를 선택합니다.
 
-![](/DevConsole/Resources/Images/DevConsole-Policy_Menu.png)
+![](/DevConsole/Assets/Images/DevConsole-Policy_Menu.png)
 
 다음과 같이 정보를 입력합니다.
 
-![](/DevConsole/Resources/Images/DevConsole-Input_Policy.png)
+![](/DevConsole/Assets/Images/DevConsole-Input_Policy.png)
 
 * **{{ book.DevConsole.cek_allow_purchase }}**: Extension을 사용할 때 사용자가 결제하거나 지불해야 하는 부분이 있으면 **{{ book.DevConsole.cek_yes }}**를 선택합니다.
 * **{{ book.DevConsole.cek_use_personal_info }}**: Extension이 사용자의 개인 정보를 수집한다면 **{{ book.DevConsole.cek_yes }}**를 선택합니다.
@@ -58,7 +58,7 @@ Extension 배포에 필요한 정보를 입력하는 마지막 단계로서 개�
 
 **{{ book.DevConsole.cek_privacy_policy_url }}**과 **{{ book.DevConsole.cek_terms_of_use }}**에 입력된 내용은 **{{ book.DevConsole.ExtensionPage }}**에서 다음과 같이 표시됩니다.
 
-![](/DevConsole/Resources/Images/DevConsole-Store_UI_Example-Extension_Policy.png)
+![](/DevConsole/Assets/Images/DevConsole-Store_UI_Example-Extension_Policy.png)
 
 ## 심사 신청하기 {#RequestExtensionSubmission}
 
@@ -67,19 +67,19 @@ Extension의 [배포 정보](#InputDeploymentInfo)와 [개인 정보 보호 및 
 * Extension이 정상 동작하고 검수 시 특별한 문제 사항이 없다면 extension은 심사를 통과하게 될 것이며, 심사를 통과하면 즉시 extension을 배포할 수 있게 됩니다.
 * 만약, 심사 과정에서 실행 오류가 있거나 사용자 시나리오 상의 심각한 문제 발견되면 운영자에 의해 배포 요청이 거절되며 신사 신청하기 전 단계로 돌아가게 됩니다.
 
-![](/DevConsole/Resources/Images/DevConsole-Extension_Submission_Process.png)
+![](/DevConsole/Assets/Images/DevConsole-Extension_Submission_Process.png)
 
 등록한 extension 목록에서 **{{ book.DevConsole.cek_request_submit }}** 메뉴를 클릭하여 extension 심사를 신청할 수 있습니다.
 
-![](/DevConsole/Resources/Images/DevConsole-Submit_Extension_1.png)
+![](/DevConsole/Assets/Images/DevConsole-Submit_Extension_1.png)
 
 또는 [개인 정보 보호 및 규정 준수 정보](#InputComplianceInfo)를 입력하는 화면 마지막에 있는 **{{ book.DevConsole.cek_request_submit }}** 버튼을 클릭해도 됩니다.
 
-![](/DevConsole/Resources/Images/DevConsole-Submit_Extension_2.png)
+![](/DevConsole/Assets/Images/DevConsole-Submit_Extension_2.png)
 
 **{{ book.DevConsole.cek_request_submit }}**을 클릭하면 다음과 같이 운영자에게 해당 심사 신청에 대한 정보를 남길 수 있습니다. Extension의 첫 번째 심사 신청이라면 최초 심사 요청이라는 메시지와 어떤 extension인지 설명하는 메시지를 남기면 됩니다. Extension의 기능이나 interaction 모델을 업데이트했거나 반려된 extension을 수정하여 재심사를 요청할 때는 개선된 사항이나 반려 의견 반영 여부를 입력하면 됩니다.
 
-![](/DevConsole/Resources/Images/DevConsole-Submission_Request_Message.png)
+![](/DevConsole/Assets/Images/DevConsole-Submission_Request_Message.png)
 
 <div class="danger">
   <p><strong>Caution!</strong></p>
@@ -105,12 +105,12 @@ Extension을 심사할 때 살펴보는 기본 평가 항목은 다음과 같습
 
 심사 중에 **{{ book.DevConsole.cek_cancel_review }}** 메뉴를 클릭하면 언제든지 심사 신청을 취소할 수 있습니다. 심사 신청을 취소하면 이전 상태로 돌아갑니다.
 
-![](/DevConsole/Resources/Images/DevConsole-Cancel_Submission.png)
+![](/DevConsole/Assets/Images/DevConsole-Cancel_Submission.png)
 
 심사에 통과하지 못하면 extension의 **{{ book.DevConsole.cek_status }}**가 **{{ book.DevConsole.cek_status_rejected }}**으로 변경됩니다. 이 상태는 **{{ book.DevConsole.cek_status_dev }}**인 상태와 같은 상태이며 다시 심사를 신청할 수 있습니다.
 
-![](/DevConsole/Resources/Images/DevConsole-Extension_Submission_Rejected.png)
+![](/DevConsole/Assets/Images/DevConsole-Extension_Submission_Rejected.png)
 
 이때, **{{ book.DevConsole.cek_message }}**의 **{{ book.DevConsole.cek_view }}** 메뉴를 클릭하면 심사에 대한 피드백을 확인할 수 있습니다.
 
-![](/DevConsole/Resources/Images/DevConsole-Show_Submission_Feedback.png)
+![](/DevConsole/Assets/Images/DevConsole-Show_Submission_Feedback.png)

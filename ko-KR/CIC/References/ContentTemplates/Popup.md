@@ -225,11 +225,11 @@ Toast, alert, popup으로 표시해야 할 텍스트나 버튼에 대한 정보�
 
 | Toast 형태 | Alert 형태 |
 |-----------|-----------|
-| ![Type1](/CIC/Resources/Images/Content-Template-Toast.png) | ![Type2](/CIC/Resources/Images/Content-Template-Alert.png) |
+| ![Type1](/CIC/Assets/Images/Content-Template-Toast.png) | ![Type2](/CIC/Assets/Images/Content-Template-Alert.png) |
 
 | Popup 형태(버튼 1개) | Popup 형태(버튼 2개) |
 |-------------------|--------------------|
-| ![Type3](/CIC/Resources/Images/Content-Template-Popup_with_One_Button.png) | ![Type](/CIC/Resources/Images/Content-Template-Popup_with_Two_Buttons.png) |
+| ![Type3](/CIC/Assets/Images/Content-Template-Popup_with_One_Button.png) | ![Type](/CIC/Assets/Images/Content-Template-Popup_with_Two_Buttons.png) |
 
 ## See also
 * [CardList](/CIC/References/ContentTemplates/CardList.md)

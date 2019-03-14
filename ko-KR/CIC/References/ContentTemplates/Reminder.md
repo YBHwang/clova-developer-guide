@@ -130,7 +130,7 @@ CIC는 사용자가 리마인더를 생성하면 생성한 리마인더의 정�
 
 다음은 {{ book.ServiceEnv.OrientedService }}가 배포한 모바일용 Clova 앱에서 Reminder 템플릿의 내용을 표현한 UI 예제입니다.
 
-![](/CIC/Resources/Images/Content_Template-Reminder.png)
+![](/CIC/Assets/Images/Content_Template-Reminder.png)
 
 ## See also
 * [Alerts](/CIC/References/CICInterface/Alerts.md) 인터페이스

@@ -5,7 +5,7 @@ Extension이 심사를 통과하여 extension 배포가 승인되면 extension�
 * **{{ book.DevConsole.cek_version_service }}** 버전: 현재 **{{ book.DevConsole.cek_status_prd }}**인 extension의 원본 정보를 가진 버전이며, extension에 대한 정보를 조회만할 수 있습니다.
 * **{{ book.DevConsole.cek_version_test }}** 버전: 배포된 extension의 원본 정보를 복사하여 만든 버전이며, extension을 업데이트할 때 사용됩니다.
 
-![](/DevConsole/Resources/Images/DevConsole-Extension_List_After_Submission.png)
+![](/DevConsole/Assets/Images/DevConsole-Extension_List_After_Submission.png)
 
 **{{ book.DevConsole.cek_version_service }}** 버전의 extension 정보는 현재 서비스 중인 내용 반영하고 있으며 더 이상 수정할 수 없습니다. 따라서 복사된 **{{ book.DevConsole.cek_version_test }}** 버전을 이용하여 extension을 업데이트해야 합니다. Extension에 다음과 같은 업데이트 사항이 생기면 이를 **{{ book.DevConsole.cek_version_test }}** 버전 extension 반영한 후 심사를 다시 신청하면 됩니다.
 * [기본 정보](/DevConsole/Guides/CEK/Register_Extension.md#InputExtensionInfo)
@@ -17,4 +17,4 @@ Extension이 심사를 통과하여 extension 배포가 승인되면 extension�
 
 다음 그림은 Clova developer console에서 extension이 업데이트되는 구조를 보여줍니다.
 
-![](/DevConsole/Resources/Images/DevConsole-Branch_Chart_For_Extension_Update.png)
+![](/DevConsole/Assets/Images/DevConsole-Branch_Chart_For_Extension_Update.png)

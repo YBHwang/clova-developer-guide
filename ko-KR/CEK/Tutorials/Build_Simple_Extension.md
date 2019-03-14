@@ -37,7 +37,7 @@ Extension을 만드는 전체적인 과정은 다음과 같습니다.
   <li><p>엔터키 또는 <strong>{{ book.DevConsole.cek_builder_test_request_test }}</strong> 버튼을 누릅니다.</p></li>
   <li>
     <p><strong>{{ book.DevConsole.cek_builder_test_result_title }}</strong>의 <strong>{{ book.DevConsole.cek_builder_test_intent_result }}</strong> 항목에 <code>ThrowDiceIntent</code>, <strong>{{ book.DevConsole.cek_builder_test_slot_result }}</strong> 항목에 <code>diceCount</code>가 나타나고, <strong>{{ book.DevConsole.cek_builder_test_slot_data}}</strong>에 입력한 주사위 개수가 나타나는지 확인합니다.</p>
-  	<img src="/CEK/Resources/Images/CEK_Tutorial_Builtin_Type_Slot_Test.png" />
+  	<img src="/CEK/Assets/Images/CEK_Tutorial_Builtin_Type_Slot_Test.png" />
     <div class="note">
     	<p><strong>Note!</strong></p>
     	<p>외부에서 접근할 수 있는 extension 서버 URL을 등록하지 않았다면, <strong>{{ book.DevConsole.cek_builder_test_service_response }}</strong>은 "{{ book.DevConsole.cek_builder_test_no_response }}"라고 나타납니다.</p>
@@ -99,11 +99,11 @@ Clova는 사용자의 음성 입력을 분석한 결과를 extension 서버에 �
 
 <ol>
   <li><p>샘플 주사위의 <strong>{{ book.DevConsole.cek_interaction_model }}</strong> 항목 내 <strong>{{ book.DevConsole.cek_edit }}</strong> 버튼을 누릅니다.</p></li>
-  <li><p><strong>{{ book.DevConsole.cek_builder_list_title_intent }}</strong> 오른쪽에 있는 <img class="inlineImage" src="/CEK/Resources/Images/DevConsole_Plus_Button.png" /> 버튼을 누릅니다.</p></li>
+  <li><p><strong>{{ book.DevConsole.cek_builder_list_title_intent }}</strong> 오른쪽에 있는 <img class="inlineImage" src="/CEK/Assets/Images/DevConsole_Plus_Button.png" /> 버튼을 누릅니다.</p></li>
   <li><p><strong>{{ book.DevConsole.cek_builder_new_intent }}</strong> 아래 입력창에 "ThrowDiceIntent"라는 이름을 입력합니다.</p></li>
   <li>
     <p>엔터키 또는 입력창 오른쪽의 <strong>{{ book.DevConsole.cek_builder_new_intent_create }}</strong> 버튼을 누릅니다.</p>
-  	<img src="/CEK/Resources/Images/CEK_Tutorial_NewIntent.png" />
+  	<img src="/CEK/Assets/Images/CEK_Tutorial_NewIntent.png" />
   	<div class="danger">
   	  <p><strong>Caution!</strong></p>
   		<p>Intent 이름의 대소문자에 유의해야 합니다.</p>
@@ -116,10 +116,10 @@ Clova는 사용자의 음성 입력을 분석한 결과를 extension 서버에 �
 
 <ol>
   <li><p><strong>{{ book.DevConsole.cek_builder_intent_expression_title }}</strong>에서 "주사위 던져줘"라고 입력합니다.</p></li>
-  <li><p>엔터키 또는 <img class="inlineImage" src="/CEK/Resources/Images/DevConsole_Plus_Button.png" /> 버튼을 누릅니다.</p></li>
+  <li><p>엔터키 또는 <img class="inlineImage" src="/CEK/Assets/Images/DevConsole_Plus_Button.png" /> 버튼을 누릅니다.</p></li>
   <li>
     <p>모든 발화 예시를 입력하면 <strong>{{ book.DevConsole.cek_save }}</strong> 버튼을 누릅니다.</p>
-    <img src="/CEK/Resources/Images/CEK_Tutorial_SpeechExample.png" style="margin-top:10px; margin-bottom:10px;" />
+    <img src="/CEK/Assets/Images/CEK_Tutorial_SpeechExample.png" style="margin-top:10px; margin-bottom:10px;" />
   </li>
 </ol>
 
@@ -139,7 +139,7 @@ Interaction 모델이 입력한대로 동작하는지 확인하기 위해 intera
   <li><p>엔터키 또는 <strong>{{ book.DevConsole.cek_builder_test_request_test }}</strong> 버튼을 누릅니다.</p>
   <li>
     <p><strong>{{ book.DevConsole.cek_builder_test_result_title }}</strong>의 <strong>{{ book.DevConsole.cek_builder_test_intent_result }}</strong> 항목에 "ThrowDiceIntent"라고 나타나는지 확인합니다.</p>
-  	<img src="/CEK/Resources/Images/CEK_Tutorial_Test.png" />
+  	<img src="/CEK/Assets/Images/CEK_Tutorial_Test.png" />
   	<div class="note">
     	<p><strong>Note!</strong></p>
     	<p>2단계에서 외부에서 접근할 수 있는 extension 서버 URL을 등록하지 않았다면, <strong>{{ book.DevConsole.cek_builder_test_service_response }}</strong>은 "{{ book.DevConsole.cek_builder_test_no_response }}"라고 나타납니다.</p>

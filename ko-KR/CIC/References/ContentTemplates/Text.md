@@ -399,7 +399,7 @@
 
 | 강조하는 형태의 텍스트 | 문단 형태의 텍스트 | 표 형태의 텍스트 |
 |-------|-------|-------|
-| ![Highlight](/CIC/Resources/Images/Content_Template-Highlight_Text.png) | ![Paragraph](/CIC/Resources/Images/Content_Template-Paragragh_Text.png) | ![Table](/CIC/Resources/Images/Content_Template-Table_Text.png) |
+| ![Highlight](/CIC/Assets/Images/Content_Template-Highlight_Text.png) | ![Paragraph](/CIC/Assets/Images/Content_Template-Paragragh_Text.png) | ![Table](/CIC/Assets/Images/Content_Template-Table_Text.png) |
 
 ## See also
 * [CardList](/CIC/References/ContentTemplates/CardList.md)

@@ -20,7 +20,7 @@
 
 블루투스 페어링 모드 진입을 처리하는 동작의 흐름은 다음과 같습니다.
 
-![](/CIC/Resources/Images/CIC_BluetoothControl_Work_Flow1.svg)
+![](/CIC/Assets/Images/CIC_BluetoothControl_Work_Flow1.svg)
 
 사용자가 Clova 앱을 통해 블루투스 페어링 모드 진입을 시도한 후 Clova는 사용자의 클라이언트에서 블루투스 페어링 모드로 진입하도록 [`DeviceControl.BtStartPairing`](/CIC/References/CICInterface/DeviceControl.md#BtStartPairing) 지시 메시지를 보냅니다. 이 지시 메시지를 받은 클라이언트는 블루투스 페어링 모드로 진입해야 합니다. 다음과 같은 [`DeviceControl.BtStartPairing`](/CIC/References/CICInterface/DeviceControl.md#BtStartPairing) 지시 메시지를 받을 수 있습니다.
 
@@ -47,7 +47,7 @@
 
 새로운 블루투스 기기에 대한 연결을 처리하는 흐름은 다음과 같습니다.
 
-![](/CIC/Resources/Images/CIC_BluetoothControl_Work_Flow2.svg)
+![](/CIC/Assets/Images/CIC_BluetoothControl_Work_Flow2.svg)
 
 사용자가 연결할 기기를 지정하면 CIC는 클라이언트에게 지정된 기기와 연결하도록 [`DeviceControl.BtConnect`](/CIC/References/CICInterface/DeviceControl.md#BtConnect) 지시 메시지를 보냅니다. 다음과 같은 [`DeviceControl.BtConnect`](/CIC/References/CICInterface/DeviceControl.md#BtConnect) 지시 메시지를 받을 수 있습니다.
 
@@ -129,7 +129,7 @@
 
 사용자의 발화를 통한 블루투스 기기 음원 재생 요청을 처리하는 흐름은 다음과 같습니다.
 
-![](/CIC/Resources/Images/CIC_BluetoothControl_Work_Flow3.svg)
+![](/CIC/Assets/Images/CIC_BluetoothControl_Work_Flow3.svg)
 
 사용자가 블루투스 기기를 통한 음원 재생을 요청하면 CIC는 클라이언트에게 [`DeviceControl.BtPlay`](/CIC/References/CICInterface/DeviceControl.md#BtPlay) 지시 메시지를 보냅니다. 이 때, 음원이 출력되는 곳은 클라이언트의 역할에 따라 결정됩니다. 또한 클라이언트는 맥락 정보인 [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) 객체를 이용해 수시로 블루투스 기기 정보를 CIC에 전달해야 합니다. 다음과 같은 [`DeviceControl.BtPlay`](/CIC/References/CICInterface/DeviceControl.md#BtPlay) 지시 메시지를 받을 수 있습니다.
 
@@ -154,7 +154,7 @@
 
 사용자가 현재 연결 되어 있는 블루투스 기기에 대한 연결을 해제할 것을 요청하면 Clova는 CIC를 통해 클라이언트가 블루투스 기기에 대한 연결을 해제하도록 지시합니다. 연결 해제를 처리하는 동작의 흐름은 다음과 같습니다.
 
-![](/CIC/Resources/Images/CIC_BluetoothControl_Work_Flow4.svg)
+![](/CIC/Assets/Images/CIC_BluetoothControl_Work_Flow4.svg)
 
 사용자가 블루투스 기기에 대한 연결 해제를 요청하면 CIC는 클라이언트에게 [`DeviceControl.BtDisconnect`](/CIC/References/CICInterface/DeviceControl.md#BtDisconnect) 지시 메시지를 보냅니다. 지시 메시지의 내용에 따라 클라이언트는 지정된 블루투스 기기 또는 모든 연결된 블루투스 기기에 대한 연결을 해제해야 합니다. 또한 클라이언트는 맥락 정보인 [`Device.DeviceState`](/CIC/References/Context_Objects.md#DeviceState) 객체를 이용해 수시로 블루투스 기기 정보를 CIC에 전달해야 합니다. 모든 연결된 블루투스 기기에 대한 연결을 해제하는 경우 다음과 같은 [`DeviceControl.BtDisconnect`](/CIC/References/CICInterface/DeviceControl.md#BtDisconnect) 지시 메시지를 받을 수 있습니다.
 
@@ -176,7 +176,7 @@
 
 사용자가 저장된 블루투스 기기를 삭제할 것을 요청하면 Clova는 CIC를 통해 클라이언트가 지정된 블루투스 기기를 삭제하도록 지시합니다. 저장된 블루투스 기리를 삭제를 처리하는 동작의 흐름은 다음과 같습니다.
 
-![](/CIC/Resources/Images/CIC_BluetoothControl_Work_Flow5.svg)
+![](/CIC/Assets/Images/CIC_BluetoothControl_Work_Flow5.svg)
 
 사용자가 블루투스 기기 삭제를 요청하면 CIC는 클라이언트에게 [`DeviceControl.BtDelete`](/CIC/References/CICInterface/DeviceControl.md#BtDelete) 지시 메시지를 보냅니다. 클라이언트는 받은 지시 메시지를 분석하여 지정한 기기를 삭제합니다. 다음과 같은 [`DeviceControl.BtDelete`](/CIC/References/CICInterface/DeviceControl.md#BtDelete) 지시 메시지를 받을 수 있습니다.
 

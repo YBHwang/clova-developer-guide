@@ -2,7 +2,7 @@
 
 심사 요청하기 이전 단계의 extension이라면 [Extension 기본 정보를 입력](/DevConsole/Guides/CEK/Register_Extension.md#InputExtensionInfo)하는 페이지에서 해당 extension을 삭제할 수 있습니다.
 
-![](/DevConsole/Resources/Images/DevConsole-Remove_Extension.png)
+![](/DevConsole/Assets/Images/DevConsole-Remove_Extension.png)
 
 다만, 다음과 같은 상태의 extension은 삭제할 수 없습니다.
 
@@ -11,7 +11,7 @@
 
 심사 중인 Extension은 언제든지 심사를 취소하고 삭제할 수 있습니다.
 
-![](/DevConsole/Resources/Images/DevConsole-Cancel_Submission.png)
+![](/DevConsole/Assets/Images/DevConsole-Cancel_Submission.png)
 
 만약, extension이 심사를 통과하여 서비스 중인 상태라면 서비스를 중지한 후에 extension을 삭제할 수 있습니다. 서비스를 중지하면 extension의 상태가 **{{ book.DevConsole.cek_status_dev }}**인 상태로 변경됩니다.
 

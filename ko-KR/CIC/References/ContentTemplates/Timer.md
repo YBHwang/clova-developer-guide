@@ -42,7 +42,7 @@ CIC는 사용자가 타이머를 생성하면 생성한 타이머의 정보를 T
 
 다음은 {{ book.ServiceEnv.OrientedService }}가 배포한 모바일용 Clova 앱에서 Timer 템플릿의 내용을 표현한 UI 예제입니다.
 
-![](/CIC/Resources/Images/Content_Template-Timer.png)
+![](/CIC/Assets/Images/Content_Template-Timer.png)
 
 ## See also
 * [Alerts](/CIC/References/CICInterface/Alerts.md) 인터페이스

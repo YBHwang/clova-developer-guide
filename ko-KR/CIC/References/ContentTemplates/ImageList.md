@@ -92,7 +92,7 @@
 
 | 썸네일 목록 | 선택한 이미지 표시 |
 |-------|-------|
-| ![Thumbnail](/CIC/Resources/Images/Content_Template-Thumbnail_List.png) | ![Original](/CIC/Resources/Images/Content_Template-Original_Image.png) |
+| ![Thumbnail](/CIC/Assets/Images/Content_Template-Thumbnail_List.png) | ![Original](/CIC/Assets/Images/Content_Template-Original_Image.png) |
 
 ## See also
 * [CardList](/CIC/References/ContentTemplates/ImageList.md)

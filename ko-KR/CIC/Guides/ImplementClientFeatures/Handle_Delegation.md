@@ -4,7 +4,7 @@
 
 Clova 앱이 사용자 요청 처리를 위임하면 위임을 받게되는 클라이언트가 downchannel을 통해 불시에 지시 메시지를 받게 됩니다. 다음은 사용자가 요청을 위임할 때의 동작 구조를 설명합니다. **아래 설명 중 위임받는 클라이언트의 동작을 구현해야 합니다.**
 
-![](/CIC/Resources/Images/CIC_Handle_Event_Delegation.svg)
+![](/CIC/Assets/Images/CIC_Handle_Event_Delegation.svg)
 
 <ol>
   <li>Clova 앱은 CIC에게 사용자 요청을 전달할 때 다른 클라이언트 기기로 위임을 요청합니다.</li>
