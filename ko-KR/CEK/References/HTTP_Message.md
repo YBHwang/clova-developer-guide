@@ -3,7 +3,6 @@ CEK와 extension이 통신할 때 HTTP/1.1 프로토콜을 사용하며, 기본�
 
 * [HTTP 헤더](#HTTPHeader)
 * [HTTP 본문](#HTTPBody)
-* [요청 메시지 검증](#RequestMessageValidation)
 
 ### HTTP 헤더 {#HTTPHeader}
 CEK가 extension으로 분석된 사용자의 발화 정보를 보낼 때 HTTP 요청을 사용합니다. 이때 HTTP 요청 헤더는 다음과 같이 구성됩니다.
