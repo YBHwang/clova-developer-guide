@@ -1,5 +1,5 @@
 ## GetConsumptionRequest {#GetConsumptionRequest}
-주로 스마트 플러그나 스마트 멀티탭과 같은 기기에서 현재까지 측정된 에너지 또는 자원 사용량을 확인할 때 사용되며, 대상 기기가 측정한 에너지 또는 자원 사용량 정보를 Clova Home extension에게 요청합니다. 이 요청에 대한 응답으로 [`GetConsumptionResponse`](#GetConsumptionResponse) 메시지를 사용해야 합니다.
+전기, 수도 등의 자원을 측정하거나 소모하는 기기에서 현재까지 측정한 정보를 확인할 때 사용되며, 대상 기기가 측정한 정보를 Clova Home extension에게 요청합니다. 이 요청에 대한 응답으로 [`GetConsumptionResponse`](#GetConsumptionResponse) 메시지를 사용해야 합니다.
 
 | 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
 |---------------|---------|-----------------------------|:---------:|
@@ -44,6 +44,7 @@
 ### Message example
 
 ```json
+// 예제 1: 전기 사용량 표현
 {
   "header": {
     "messageId": "33da6561-0149-4532-a30b-e0de8f75c4cf",
@@ -56,10 +57,30 @@
       {
         "name": "전기사용량",
         "value": 79.7,
-        "unit": "kW"
+        "unit": "KW"
       }
     ],
     "applianceResponseTimestamp": "2017-11-23T20:30:54+09:00"
+  }
+}
+
+// 예제 2: 물 사용량 표현
+{
+  "header": {
+    "messageId": "962f7543-05e9-4b4e-8bda-5615e40dca6b",
+    "name": "GetConsumptionResponse",
+    "namespace": "ClovaHome",
+    "payloadVersion": "1.0"
+  },
+  "payload": {
+    "consumption": [
+      {
+        "name": "마신물",
+        "value": 24,
+        "unit": "l"
+      }
+    ],
+    "applianceResponseTimestamp": "2019-12-23T20:30:54+09:00"
   }
 }
 ```
