@@ -4,4 +4,4 @@ Clova developer console은 Clova 플랫폼과 연동하는 기기나 서비스�
 
 클라이언트를 개발하거나 extension을 개발할 때 Clova developer console은 다음과 같은 구조로 사용됩니다.
 
-![](/DevConsole/Resources/Images/DevConsole-Concept_Diagram.png)
+![](/DevConsole/Assets/Images/DevConsole-Concept_Diagram.png)

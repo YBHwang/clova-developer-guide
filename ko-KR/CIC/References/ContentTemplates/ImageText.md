@@ -120,7 +120,7 @@
 
 | 썸네일 이미지와 텍스트 | 지도 이미지와 텍스트 |
 |-------|-------|
-| ![Thumbnail](/CIC/Resources/Images/Content_Template-Thumbimage_and_Text.png) | ![Map and text](/CIC/Resources/Images/Content_Template-Mapimage_and_Text.png) |
+| ![Thumbnail](/CIC/Assets/Images/Content_Template-Thumbimage_and_Text.png) | ![Map and text](/CIC/Assets/Images/Content_Template-Mapimage_and_Text.png) |
 
 ## See also
 * [CardList](/CIC/References/ContentTemplates/CardList.md)

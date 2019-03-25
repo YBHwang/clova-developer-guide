@@ -246,7 +246,7 @@
 
 | 현재 대기 상태 | 내일 대기 상태 |
 |-------------|------------|
-| ![Now](/CIC/Resources/Images/Content-Template-Atmosphere_Now.png) | ![Original](/CIC/Resources/Images/Content-Template-Atmosphere_Tomorrow.png) |
+| ![Now](/CIC/Assets/Images/Content-Template-Atmosphere_Now.png) | ![Original](/CIC/Assets/Images/Content-Template-Atmosphere_Tomorrow.png) |
 
 ## See also
 * [Humidity](/CIC/References/ContentTemplates/Humidity.md)

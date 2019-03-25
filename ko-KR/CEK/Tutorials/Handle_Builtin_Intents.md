@@ -75,7 +75,7 @@ intentRequest(cekResponse) {
   <li><p>엔터키 또는 <strong>{{ book.DevConsole.cek_builder_test_request_test }}</strong> 버튼을 누릅니다.</p></li>
   <li>
     <p><strong>{{ book.DevConsole.cek_builder_test_result_title }}</strong>의 <strong>{{ book.DevConsole.cek_builder_test_intent_result }}</strong> 항목에 "Clova.GuideIntent"라고 나타나는지 확인합니다.</p>
-  	<img src="/CEK/Resources/Images/CEK_Tutorial_Builtin_Intent_Test.png" />
+  	<img src="/CEK/Assets/Images/CEK_Tutorial_Builtin_Intent_Test.png" />
     <div class="note">
     	<p><strong>Note!</strong></p>
     	<p>외부에서 접근할 수 있는 extension 서버 URL을 등록하지 않았다면, <strong>{{ book.DevConsole.cek_builder_test_service_response }}</strong>은 "{{ book.DevConsole.cek_builder_test_no_response }}"라고 나타납니다.</p>

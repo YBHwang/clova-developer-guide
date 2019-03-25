@@ -92,7 +92,7 @@ CIC는 사용자가 알람을 생성하면 생성한 알람의 정보를 Alarm �
 
 다음은 {{ book.ServiceEnv.OrientedService }}가 배포한 모바일용 Clova 앱에서 Alarm 템플릿의 내용을 표현한 UI 예제입니다.
 
-![](/CIC/Resources/Images/Content_Template-Alarm.png)
+![](/CIC/Assets/Images/Content_Template-Alarm.png)
 
 ## See also
 * [AlarmList](/CIC/References/ContentTemplates/AlarmList.md)

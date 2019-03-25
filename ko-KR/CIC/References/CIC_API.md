@@ -20,7 +20,7 @@ CIC API의 base URL은 다음과 같습니다.
 ### Multipart 메시지 {#MultipartMessage}
 클라이언트는 HTTP/2를 이용해 [이벤트 메시지](#Event)를 다음과 같은 multipart 메시지로 전송하게 됩니다.
 
-![](/CIC/Resources/Images/HTTP2_Structure.png)
+![](/CIC/Assets/Images/HTTP2_Structure.png)
 
 예를 들면, 사용자의 음성 입력을 CIC로 전달하려면 [SpeechRecognizer.Recognize](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize) 이벤트 메시지와 함께 녹음한 사용자의 음성 데이터를 함께 전송해야 합니다. 클라이언트는 `Content-Type`을 `multipart/form-data`로 설정하고 첫 번째 메시지 파트에는 이벤트 메시지 정보가 담긴 JSON 데이터를 두 번째 메시지 파트에는 사용자의 음성이 담긴 바이너리 데이터를 담아서 보낼 수 있습니다.
 

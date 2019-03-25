@@ -117,7 +117,7 @@ CIC는 사용자가 액션 타이머를 생성하면 생성한 액션 타이머�
 
 다음은 {{ book.ServiceEnv.OrientedService }}가 배포한 모바일용 Clova 앱에서 ActionTimer 템플릿의 내용을 표현한 UI 예제입니다.
 
-![](/CIC/Resources/Images/Content_Template-ActionTimer.png)
+![](/CIC/Assets/Images/Content_Template-ActionTimer.png)
 
 ## See also
 * [ActionTimerList](/CIC/References/ContentTemplates/ActionTimerList.md)

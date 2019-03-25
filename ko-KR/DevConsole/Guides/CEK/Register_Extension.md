@@ -1,7 +1,7 @@
 # Extension 등록하기
 [Custom extension](/CEK/Guides/Build_Custom_Extension.md) 또는 [Clova Home extension](/CEK/Guides/Build_Clova_Home_Extension.md)을 개발 중이거나 개발하고 있다면 이를 Clova developer console에 등록해야 합니다. CEK 메뉴 페이지에서 페이지 하단에 있는 **{{ book.DevConsole.cek_builder_new_extension_create }}** 버튼을 클릭하면 신규 extension을 등록할 수 있습니다.
 
-![](/DevConsole/Resources/Images/DevConsole-First_Look_of_Extension_List.png)
+![](/DevConsole/Assets/Images/DevConsole-First_Look_of_Extension_List.png)
 
 Extension을 등록할 때 일반적으로 다음 항목을 순차적으로 수행해야 합니다.
 
@@ -19,7 +19,7 @@ Extension을 등록할 때 일반적으로 다음 항목을 순차적으로 수�
 
 Extension을 등록하기 전에 우선 CEK API 서비스 이용 약관과 개인 정보 수집에 동의해야 합니다. 이용 약관 및 개인 정보 수집에 대한 내용 최초 한 번만 표시되며 동의한 이후에는 나타나지 않습니다.
 
-![](/DevConsole/Resources/Images/DevConsole-Agree_Terms_of_Use_and_Collecting_Personal_Info.png)
+![](/DevConsole/Assets/Images/DevConsole-Agree_Terms_of_Use_and_Collecting_Personal_Info.png)
 
 ## Extension 기본 정보 입력 {#InputExtensionInfo}
 
@@ -27,7 +27,7 @@ Extension을 등록하는 과정에서 가장 먼저 할 일은 등록할 extens
 
 다음 절차에 따라 extension을 등록합니다.
 
-![](/DevConsole/Resources/Images/DevConsole-Create_New_Extension.png)
+![](/DevConsole/Assets/Images/DevConsole-Create_New_Extension.png)
 
 <ol>
   <li><strong>{{ book.DevConsole.cek_type }}</strong> 항목에서 등록할 extension의 타입을 선택합니다. Extension 타입을 선택하면 그에 해당하는 입력 필드가 추가로 나타납니다.</li>
@@ -48,7 +48,7 @@ Extension을 등록하는 과정에서 가장 먼저 할 일은 등록할 extens
 
 Extension 기본 정보 입력이 끝나면 생성된 Extension의 정보를 수정하는 화면으로 전환됩니다. 이때부터 페이지 하단에 있는 **{{ book.DevConsole.cek_save }}** 버튼을 클릭하여 중간 내용을 언제든지 저장할 수 있으며, 다음과 같이 CEK 메뉴에서 등록된 Extension 목록을 확인할 수 있습니다.
 
-![](/DevConsole/Resources/Images/DevConsole-Extension_List_After_Creation.png)
+![](/DevConsole/Assets/Images/DevConsole-Extension_List_After_Creation.png)
 
 ## 서버 연동 설정 {#SetServerConnection}
 
@@ -64,7 +64,7 @@ $ curl "https://example.com/pizzabot" -X POST
 
 다음 절차에 따라 서버 연동 설정을 수행합니다.
 
-![](/DevConsole/Resources/Images/DevConsole-Extension_Server_Settings.png)
+![](/DevConsole/Assets/Images/DevConsole-Extension_Server_Settings.png)
 
 <ol>
   <li>Extension 정보 입력 UI에서 위쪽에 있는 <strong>{{ book.DevConsole.cek_configuration }}</strong> 탭을 클릭합니다.</li>
@@ -86,7 +86,7 @@ Extension으로 제공하려는 서비스의 사용자 계정이 Clova의 사용
 다음 절차에 따라 계정 연결 설정에 [필요한 정보](/CEK/Guides/Link_User_Account.md#RegisterAccountLinkingInfo)를 입력합니다.
 
 <ol>
-  <img src="/DevConsole/Resources/Images/DevConsole-Extension_Accoun_Linking_Settings_1.png" />
+  <img src="/DevConsole/Assets/Images/DevConsole-Extension_Accoun_Linking_Settings_1.png" />
   <li><strong>{{ book.DevConsole.cek_account_linking }}</strong> 항목에서 <strong>{{ book.DevConsole.cek_yes }}</strong>를 선택합니다.</li>
   <li>사용자가 계정 인증을 할 수 있도록 UI를 제공하는 Authorization URL을 <strong>{{ book.DevConsole.cek_authorization_url }}</strong> 항목에 입력합니다. 사용자가 extension을 활성화하면 이 페이지로 이동됩니다.</li>
   <li>(만약, 사용자가 본인 계정을 바로 설정할 수 있도록 하고 싶다면) <strong>{{ book.DevConsole.cek_configuration_url }}</strong> 항목에 계정 설정 페이지의 URL을 입력합니다.</li>
@@ -94,7 +94,7 @@ Extension으로 제공하려는 서비스의 사용자 계정이 Clova의 사용
   <li><strong>{{ book.DevConsole.cek_privacy_policy_url }}</strong> 항목에 extension이 제공하는 서비스의 개인 정보 보호 정책과 관련된 내용이 제공되는 페이지의 URL을 입력합니다. 이 페이지의 내용은 추후 스토어에 노출됩니다.</li>
   <li>(만약, <strong>{{ book.DevConsole.cek_authorization_url }}</strong>이나 <strong>{{ book.DevConsole.cek_privacy_policy_url }}</strong>에 등록한 페이지가 다른 도메인에서 자원을 가져온다면) <strong>{{ book.DevConsole.cek_domain_list }}</strong> 항목에 필요한 도메인을 추가합니다.</li>
   <li>(만약, 사용자 계정 연결 시 발급되는 access token의 사용 범위(scope)를 미리 정의했다면) <strong>{{ book.DevConsole.cek_scope }}</strong> 항목에 미리 정의한 범위를 추가합니다.</li>
-  <img src="/DevConsole/Resources/Images/DevConsole-Extension_Accoun_Linking_Settings_2.png" />
+  <img src="/DevConsole/Assets/Images/DevConsole-Extension_Accoun_Linking_Settings_2.png" />
   <li><strong>{{ book.DevConsole.cek_access_token_uri }}</strong> 항목에 서비스의 access token을 발급 받을 수 있는 URL을 입력합니다. 현재 <strong>허가 승인 타입(grant type)은 code grant 방식만 지원</strong>하고 있습니다.</li>
   <li><strong>{{ book.DevConsole.cek_refresh_token_uri }}</strong> 항목에 서비스의 access token을 갱신할 수 있는 URL을 입력합니다.</li>
   <li>서비스의 access token을 획득 시 HTTP 요청에 필요한 <strong>{{ book.DevConsole.cek_client_secret }}</strong>을 입력합니다. 클라이언트 secret은 <a href="/CEK/Guides/Link_User_Account.md#BuildAuthServer">인증 서버를 구축</a>할 때 생성한 값입니다.</li>
@@ -109,5 +109,5 @@ Extension으로 제공하려는 서비스의 사용자 계정이 Clova의 사용
 <div id="RedirectURI" class="note">
   <p><strong>Note!</strong></p>
   <p>계정 인증 후 클라이언트가 이동할 URL(redirect URL)은 <code>{{ book.ServiceEnv.RedirectURLforAccountLinking }}</code>이며, <strong>{{ book.DevConsole.cek_redirect_urls }}</strong> 항목에서 확인할 수 있습니다.</strong></p>
-  <img src="/DevConsole/Resources/Images/DevConsole-Redirect_URL_for_Extension_Accoun_Linking.png" />
+  <img src="/DevConsole/Assets/Images/DevConsole-Redirect_URL_for_Extension_Accoun_Linking.png" />
 </div>

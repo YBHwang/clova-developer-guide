@@ -11,7 +11,7 @@
 
 클라이언트는 다음과 같이 동작을 수행해야 합니다.
 
-![](/CIC/Resources/Images/CIC_Dialogue_ID_Creation.svg)
+![](/CIC/Assets/Images/CIC_Dialogue_ID_Creation.svg)
 
 <ol>
   <li>사용자가 새로운 대화를 시작할 때마다 <strong>새로운 대화 ID를 생성</strong>(UUID 포맷 권장)합니다.</li>
@@ -37,7 +37,7 @@
 
 일반적으로 CIC는 사용자 요청에 대한 응답으로 지시 메시지를 클라이언트에게 보내며, 이 지시 메시지에 [클라이언트가 생성한 대화 ID](#CreatingDialogueID)를 포함시킵니다. 따라서, 대화 ID를 이용하면 CIC로부터 전달된 결과가 현재 사용자의 요청에 부합하는 응답인지 확인할 수 있습니다. 클라이언트는 대화 ID에 따라 지시 메시지를 다음과 같이 처리해야 합니다.
 
-![](/CIC/Resources/Images/CIC_Handle_Directives_By_Dialogue_ID.svg)
+![](/CIC/Assets/Images/CIC_Handle_Directives_By_Dialogue_ID.svg)
 
 우선, 클라이언트는 CIC로부터 수신한 지시 메시지가 [지시 메시지의 헤더](/CIC/References/CIC_API.md#Directive)에에 대화 ID를 포함하고 있는지 확인해야 합니다. 대화 ID가 포함된 지시 메시지를 수신했다면 **마지막 대화 ID**와 비교하고 그 결과에 따라 다음과 같이 처리합니다.
 

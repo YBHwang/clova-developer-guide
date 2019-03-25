@@ -18,7 +18,7 @@
 
 사용자의 발화를 통해 알람을 등록하는 흐름은 다음과 같습니다.
 
-![](/CIC/Resources/Images/CIC_Alerts_Add_Work_Flow.svg)
+![](/CIC/Assets/Images/CIC_Alerts_Add_Work_Flow.svg)
 
 사용자가 알람 등록을 발화로 요청([`SpeechRecognizer.Recognize`](/CIC/References/CICInterface/SpeechRecognizer.md#Recognize))하면 Clova는 사용자의 발화를 분석하고 사용자의 클라이언트 기기가 알람을 추가할 수 있도록 [`Alerts.SetAlert`](/CIC/References/CICInterface/Alerts.md#SetAlert) 지시 메시지를 보냅니다.
 
@@ -119,7 +119,7 @@ Clova는 알람이 등록된 결과를 사용자에게 알려주기 위해 [`Spe
 
 설정한 시간이 되면 Clova는 알람을 울리기 위해 지시 메시지를 보냅니다. 알람을 시작하는 구조는 다음과 같습니다.
 
-![](/CIC/Resources/Images/CIC_Alerts_Ring_Work_Flow.svg)
+![](/CIC/Assets/Images/CIC_Alerts_Ring_Work_Flow.svg)
 
 지정한 시간이 되면 클라이언트는 알람을 울려야 하며, 알람이 시작되었음을 [`Alerts.AlertStarted`](/CIC/References/CICInterface/Alerts.md#AlertStarted) 이벤트 메시지로 CIC에게 보고해야 합니다.
 

@@ -17,7 +17,7 @@ Clova가 탑재된 클라이언트 기기를 사용하는 사용자에게 일관
 
 사용자 음성 입력, Clova 음성 출력, 마이크 상태, 오류 발생(Clova 서비스 오류, 네트워크 오류 등) 등을 사용자가 쉽게 인지하거나 조작할 수 있도록 클라이언트 기기를 설계하거나 구현해야 합니다. 이를 위해 클라이언트 기기가 가지는 상태와 상태 사이의 동작 및 흐름을 이해해야 합니다. 다음은 클라이언트의 상태를 표현한 상태 다이어그램입니다.
 
-![](/Design/Resources/Images/Clova-Client-State_Diagram.png)
+![](/Design/Assets/Images/Clova-Client-State_Diagram.png)
 
 클라이언트의 각 상태에 대한 설명은 다음과 같습니다.
 
@@ -102,7 +102,7 @@ Clova가 탑재된 클라이언트 기기를 사용하는 사용자에게 일관
 
 | Green       | Yellow Green | Red         | Warm White   |
 |-------------|-------------|-------------|-------------|
-| ![](/Design/Resources/Images/Clova-Client-Light-Wave_Green.png) | ![](/Design/Resources/Images/Clova-Client-Light-Wave_Yellow_Green.png) | ![](/Design/Resources/Images/Clova-Client-Light-Wave_Red.png) | ![](/Design/Resources/Images/Clova-Client-Light-Wave_Warm_White.png) |
+| ![](/Design/Assets/Images/Clova-Client-Light-Wave_Green.png) | ![](/Design/Assets/Images/Clova-Client-Light-Wave_Yellow_Green.png) | ![](/Design/Assets/Images/Clova-Client-Light-Wave_Red.png) | ![](/Design/Assets/Images/Clova-Client-Light-Wave_Warm_White.png) |
 
 ### 조명 효과 {#LightEffect}
 
@@ -112,10 +112,10 @@ Clova가 탑재된 클라이언트 기기를 사용하는 사용자에게 일관
 
 | 조명 효과                            | 설명                                      | 예시                                                               |
 |------------------------------------|------------------------------------------|-------------------------------------------------------------------|
-| 점등(Lights up)                     | 특별한 효과 없이 조명을 바로 켠 상태로 전환합니다.   | ![](/Design/Resources/Images/Clova-Client-Light-Wave_Sustain.gif)              |
-| 천천히 점멸 반복(Repeat pulse)         | 조명의 조도를 천천히 높였다가 낮추는 것을 반복합니다. | ![](/Design/Resources/Images/Clova-Client-Light-Wave_Repeat_Blink_Slowly.gif)  |
-| 천천히 소등(Fade out)                 | 조명의 조도를 천천히 낮추면서 마지막에 조명을 끕니다. | ![](/Design/Resources/Images/Clova-Client-Light-Wave_Fade_Out.gif)             |
-| 물결 표현 반복(Repeat Splash)          | 조명이 좌우로 출렁이는 물결이 느껴지도록 조명 효과를 반복합니다. | ![](/Design/Resources/Images/Clova-Client-Light-Wave_Splash.gif)         |
+| 점등(Lights up)                     | 특별한 효과 없이 조명을 바로 켠 상태로 전환합니다.   | ![](/Design/Assets/Images/Clova-Client-Light-Wave_Sustain.gif)              |
+| 천천히 점멸 반복(Repeat pulse)         | 조명의 조도를 천천히 높였다가 낮추는 것을 반복합니다. | ![](/Design/Assets/Images/Clova-Client-Light-Wave_Repeat_Blink_Slowly.gif)  |
+| 천천히 소등(Fade out)                 | 조명의 조도를 천천히 낮추면서 마지막에 조명을 끕니다. | ![](/Design/Assets/Images/Clova-Client-Light-Wave_Fade_Out.gif)             |
+| 물결 표현 반복(Repeat Splash)          | 조명이 좌우로 출렁이는 물결이 느껴지도록 조명 효과를 반복합니다. | ![](/Design/Assets/Images/Clova-Client-Light-Wave_Splash.gif)         |
 
 다음은 클라이언트의 [상태 및 이벤트](#ClientStateAndEvent)를 조명으로 어떻게 표현해야 하는지 나타낸 표입니다.
 
@@ -259,13 +259,13 @@ Clova가 탑재된 클라이언트 기기를 사용하는 사용자에게 일관
 
 | 상태 또는 이벤트              | 효과음 샘플                     | 필수 여부 |
 |---------------------------|------------------------------|:---------:|
-| Attending 상태 진입         | <audio title="Attending" controls><source src="./Resources/Sounds/Clova-Client-Soundeffect-Attending.wav" type="audio/wav" /></audio> | 필수     |
-| Error 상태 진입             | <audio title="Error" controls><source src="./Resources/Sounds/Clova-Client-SoundEffect-Error.wav" type="audio/wav" /></audio>         | 필수     |
-| Mute on 상태 진입           | <audio title="Mute on" controls><source src="./Resources/Sounds/Clova-Client-SoundEffect-Mute_On.wav" type="audio/wav" /></audio>     | 필수     |
-| Mute on 상태 해제           | <audio title="Mute off" controls><source src="./Resources/Sounds/Clova-Client-SoundEffect-Mute_Off.wav" type="audio/wav" /></audio>   | 필수     |
-| 알람(이벤트 발생 시, 효과음 반복 재생) | <audio title="Alarm" controls><source src="./Resources/Sounds/Clova-Client-SoundEffect-Alarm.wav" type="audio/wav" /></audio>         | 필수     |
-| 리마인더(이벤트 발생 시, 효과음과 리마인더 내용 TTS 순서로 반복 재생) | <audio title="Reminder" controls><source src="./Resources/Sounds/Clova-Client-SoundEffect-Reminder.wav" type="audio/wav" /></audio>         | 필수     |
-| 타이머(이벤트 발생 시, 효과음 반복 재생)      | <audio title="Timer" controls><source src="./Resources/Sounds/Clova-Client-SoundEffect-Timer.wav" type="audio/wav" /></audio>         | 필수     |
+| Attending 상태 진입         | <audio title="Attending" controls><source src="./Assets/Sounds/Clova-Client-Soundeffect-Attending.wav" type="audio/wav" /></audio> | 필수     |
+| Error 상태 진입             | <audio title="Error" controls><source src="./Assets/Sounds/Clova-Client-SoundEffect-Error.wav" type="audio/wav" /></audio>         | 필수     |
+| Mute on 상태 진입           | <audio title="Mute on" controls><source src="./Assets/Sounds/Clova-Client-SoundEffect-Mute_On.wav" type="audio/wav" /></audio>     | 필수     |
+| Mute on 상태 해제           | <audio title="Mute off" controls><source src="./Assets/Sounds/Clova-Client-SoundEffect-Mute_Off.wav" type="audio/wav" /></audio>   | 필수     |
+| 알람(이벤트 발생 시, 효과음 반복 재생) | <audio title="Alarm" controls><source src="./Assets/Sounds/Clova-Client-SoundEffect-Alarm.wav" type="audio/wav" /></audio>         | 필수     |
+| 리마인더(이벤트 발생 시, 효과음과 리마인더 내용 TTS 순서로 반복 재생) | <audio title="Reminder" controls><source src="./Assets/Sounds/Clova-Client-SoundEffect-Reminder.wav" type="audio/wav" /></audio>         | 필수     |
+| 타이머(이벤트 발생 시, 효과음 반복 재생)      | <audio title="Timer" controls><source src="./Assets/Sounds/Clova-Client-SoundEffect-Timer.wav" type="audio/wav" /></audio>         | 필수     |
 
 #### 효과음 가이드라인 {#SoundEffectGuideline}
 
@@ -298,12 +298,12 @@ Clova가 탑재된 클라이언트 기기를 사용하는 사용자에게 일관
 <ul>
   <li>
     <p><strong>좋은 예</strong></p>
-    <img src="/Design/Resources/Images/Clova-Client-Partner_Logo_on_Loading_Screen.png" /> <img src="/Design/Resources/Images/Clova-Client-Clova_Logo_on_Loading_Screen.png" />
+    <img src="/Design/Assets/Images/Clova-Client-Partner_Logo_on_Loading_Screen.png" /> <img src="/Design/Assets/Images/Clova-Client-Clova_Logo_on_Loading_Screen.png" />
   </li>
   <li>
     <p><strong>나쁜 예</strong></p>
-    <img src="/Design/Resources/Images/Clova-Client-Logo_on_Loading_Screen_Bad_Example1.png" /> <img src="/Design/Resources/Images/Clova-Client-Logo_on_Loading_Screen_Bad_Example2.png" /><br/>
-    <img src="/Design/Resources/Images/Clova-Client-Logo_on_Loading_Screen_Bad_Example3.png" /> <img src="/Design/Resources/Images/Clova-Client-Logo_on_Loading_Screen_Bad_Example4.png" />
+    <img src="/Design/Assets/Images/Clova-Client-Logo_on_Loading_Screen_Bad_Example1.png" /> <img src="/Design/Assets/Images/Clova-Client-Logo_on_Loading_Screen_Bad_Example2.png" /><br/>
+    <img src="/Design/Assets/Images/Clova-Client-Logo_on_Loading_Screen_Bad_Example3.png" /> <img src="/Design/Assets/Images/Clova-Client-Logo_on_Loading_Screen_Bad_Example4.png" />
   </li>
 </ul>
 
@@ -319,7 +319,7 @@ UI 화면에 Clova 로고를 다음과 같은 레이아웃으로 배치할 수 �
 
 화면 하단의 일부나 전체를 덮는 UI 화면으로 Clova 로고가 좌측 상단에 배치되는 레이아웃입니다.
 
-![](/Design/Resources/Images/Clova-Client-Logo_Display-Layout_A-Bottom_Overlay.png) ![](/Design/Resources/Images/Clova-Client-Logo_Display-Layout_A-Full_Screen_Overlay.png)
+![](/Design/Assets/Images/Clova-Client-Logo_Display-Layout_A-Bottom_Overlay.png) ![](/Design/Assets/Images/Clova-Client-Logo_Display-Layout_A-Full_Screen_Overlay.png)
 
 * Clova 로고는 좌측 상단에 배치되어야 합니다.
 * Clova 로고를 투명하게 만들지 않아야 합니다.
@@ -328,7 +328,7 @@ UI 화면에 Clova 로고를 다음과 같은 레이아웃으로 배치할 수 �
 
 [로고 레이아웃 A](#LogoLayoutA)와 비슷하게 화면 하단의 일부나 전체를 덮는 UI 화면으로 Clova 로고가 우측 상단에 배치되는 레이아웃입니다.
 
-![](/Design/Resources/Images/Clova-Client-Logo_Display-Layout_B-Bottom_Overlay.png) ![](/Design/Resources/Images/Clova-Client-Logo_Display-Layout_B-Full_Screen_Overlay.png)
+![](/Design/Assets/Images/Clova-Client-Logo_Display-Layout_B-Bottom_Overlay.png) ![](/Design/Assets/Images/Clova-Client-Logo_Display-Layout_B-Full_Screen_Overlay.png)
 
 * Clova 로고는 우측 상단에 배치되어야 합니다.
 * Clova 로고를 투명하게 만들지 않아야 합니다.
@@ -337,7 +337,7 @@ UI 화면에 Clova 로고를 다음과 같은 레이아웃으로 배치할 수 �
 
 단순 텍스트 형태의 결과를 표현하는 화면에서 Clova 로고가 상단에 배치되는 레이아웃입니다.
 
-![](/Design/Resources/Images/Clova-Client-Logo_Display-Layout_C.png)
+![](/Design/Assets/Images/Clova-Client-Logo_Display-Layout_C.png)
 
 * Clova 로고는 상단에 배치되어야 합니다.
 * 콘텐츠의 출처는 콘텐츠 하단에 표시해야 합니다.
@@ -365,17 +365,17 @@ Voice agent는 사용자의 음성 입력 수신, Clova 음성 출력 등 Clova 
 
 Bar 타입의 voice agent는 아래와 같이 긴 막대 형태로 표시되며 음성을 텍스트로 표시하는 영역, 상태 표현 색, 로고로 구성되며, 상황에 따라 아이콘이 포함될 수 있습니다. 다음은 Bar 타입의 voice agent가 표시된 예입니다.
 
-![](/Design/Resources/Images/Clova-Client-Voice_Agent-Bar_Type.png)
+![](/Design/Assets/Images/Clova-Client-Voice_Agent-Bar_Type.png)
 
 Bar 타입의 voice agent는 상황에 따라 다음과 같이 표현되어야 합니다.
 
 | 상태 이름                | 애니메이션 효과                                                                  | 예시                                                                             |
 |------------------------|------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
-| Attending              | Green1 색상의 bar가 1초 내로 서서히 표시되어야 합니다.                                  | <img style="width:600px" src="/Design/Resources/Images/Clova-Client-Voice_Agent-Bar_Type-Attending.gif" /> |
-| Listening                | 말소리 크기에 따라 중앙부터 Warm White, Green2 색상 순으로 색상 영역이 확장되어야 합니다.      | <img style="width:600px" src="/Design/Resources/Images/Clova-Client-Voice_Agent-Bar_Type-Listening.gif" /> |
-| Processing & reporting | Warm White 색상 영역이 좌우로 움직여야 합니다.                                        | <img style="width:600px" src="/Design/Resources/Images/Clova-Client-Voice_Agent-Bar_Type-ProcessingAndReporting.gif" /> |
-| Mute on                | Red 색상의 bar와 음소거 또는 마이크 아이콘이 나타나고, 2초 후에 아이콘이 사라져야 합니다.       | <img style="width:600px" src="/Design/Resources/Images/Clova-Client-Voice_Agent-Bar_Type-MuteOn.gif" /> |
-| Error                  | Red 색상의 bar와 오류 아이콘이 나타나고, 2초 후에 아이콘은 사라져야 합니다.                  | <img style="width:600px" src="/Design/Resources/Images/Clova-Client-Voice_Agent-Bar_Type-Error.gif" />  |
+| Attending              | Green1 색상의 bar가 1초 내로 서서히 표시되어야 합니다.                                  | <img style="width:600px" src="/Design/Assets/Images/Clova-Client-Voice_Agent-Bar_Type-Attending.gif" /> |
+| Listening                | 말소리 크기에 따라 중앙부터 Warm White, Green2 색상 순으로 색상 영역이 확장되어야 합니다.      | <img style="width:600px" src="/Design/Assets/Images/Clova-Client-Voice_Agent-Bar_Type-Listening.gif" /> |
+| Processing & reporting | Warm White 색상 영역이 좌우로 움직여야 합니다.                                        | <img style="width:600px" src="/Design/Assets/Images/Clova-Client-Voice_Agent-Bar_Type-ProcessingAndReporting.gif" /> |
+| Mute on                | Red 색상의 bar와 음소거 또는 마이크 아이콘이 나타나고, 2초 후에 아이콘이 사라져야 합니다.       | <img style="width:600px" src="/Design/Assets/Images/Clova-Client-Voice_Agent-Bar_Type-MuteOn.gif" /> |
+| Error                  | Red 색상의 bar와 오류 아이콘이 나타나고, 2초 후에 아이콘은 사라져야 합니다.                  | <img style="width:600px" src="/Design/Assets/Images/Clova-Client-Voice_Agent-Bar_Type-Error.gif" />  |
 
 <div class="note">
   <p><strong>Note!</strong></p>
@@ -386,18 +386,18 @@ Bar 타입의 voice agent는 상황에 따라 다음과 같이 표현되어야 �
 
 Icon A 타입의 voice agent는 아래와 같이 왼쪽에 아이콘 형태로 표시되며 음성을 텍스트로 표시하는 영역, 상태 표현 색, 로고로 구성됩니다. 다음은 Icon A 타입의 voice agent가 표시된 예입니다.
 
-![](/Design/Resources/Images/Clova-Client-Voice_Agent-Icon_A_Type.png)
+![](/Design/Assets/Images/Clova-Client-Voice_Agent-Icon_A_Type.png)
 
 Icon A 타입의 voice agent는 상황에 따라 다음과 같이 표현되어야 합니다.
 
 | 상태 이름                | 애니메이션 효과                                                                  | 예시                                                                              |
 |------------------------|------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
-| Loading                | Green1 색상의 원을 그리며 표시되어야 합니다.                                          | <img style="width:600px" src="/Design/Resources/Images/Clova-Client-Voice_Agent-Icon_A_Type-Loading.gif" /> |
-| Attending              | 애니메이션 효과가 없는 Green1 색상의 원이 표시됩니다.                                   | <img style="width:600px" src="/Design/Resources/Images/Clova-Client-Voice_Agent-Icon_A_Type-Attending.png" /> |
-| Listening                | 말소리 크기에 따라 원의 색을 아래에서 위로 Warm White, Green2 색상 순으로 색상 영역이 확장되어야 합니다. | <img style="width:600px" src="/Design/Resources/Images/Clova-Client-Voice_Agent-Icon_A_Type-Listening.gif" /> |
-| Processing & reporting | Green2, Warm White 색상이 원을 따라 움직여야 합니다.                                  | <img style="width:600px" src="/Design/Resources/Images/Clova-Client-Voice_Agent-Icon_A_Type-ProcessingAndReporting.gif" /> |
-| Mute on                | Red 색상의 음소거 또는 마이크 아이콘이 나타나고, "마이크 음소거 상태입니다."라는 텍스트가 표시되어야 합니다. | <img style="width:600px" src="/Design/Resources/Images/Clova-Client-Voice_Agent-Icon_A_Type-MuteOn.gif" /> |
-| Error                  | Red 색상의 오류 아이콘이 나타나고, 오류를 설명하는 간략한 텍스트가 표시되어야 합니다.            | <img style="width:600px" src="/Design/Resources/Images/Clova-Client-Voice_Agent-Icon_A_Type-Error.gif" /> |
+| Loading                | Green1 색상의 원을 그리며 표시되어야 합니다.                                          | <img style="width:600px" src="/Design/Assets/Images/Clova-Client-Voice_Agent-Icon_A_Type-Loading.gif" /> |
+| Attending              | 애니메이션 효과가 없는 Green1 색상의 원이 표시됩니다.                                   | <img style="width:600px" src="/Design/Assets/Images/Clova-Client-Voice_Agent-Icon_A_Type-Attending.png" /> |
+| Listening                | 말소리 크기에 따라 원의 색을 아래에서 위로 Warm White, Green2 색상 순으로 색상 영역이 확장되어야 합니다. | <img style="width:600px" src="/Design/Assets/Images/Clova-Client-Voice_Agent-Icon_A_Type-Listening.gif" /> |
+| Processing & reporting | Green2, Warm White 색상이 원을 따라 움직여야 합니다.                                  | <img style="width:600px" src="/Design/Assets/Images/Clova-Client-Voice_Agent-Icon_A_Type-ProcessingAndReporting.gif" /> |
+| Mute on                | Red 색상의 음소거 또는 마이크 아이콘이 나타나고, "마이크 음소거 상태입니다."라는 텍스트가 표시되어야 합니다. | <img style="width:600px" src="/Design/Assets/Images/Clova-Client-Voice_Agent-Icon_A_Type-MuteOn.gif" /> |
+| Error                  | Red 색상의 오류 아이콘이 나타나고, 오류를 설명하는 간략한 텍스트가 표시되어야 합니다.            | <img style="width:600px" src="/Design/Assets/Images/Clova-Client-Voice_Agent-Icon_A_Type-Error.gif" /> |
 
 <div class="note">
   <p><strong>Note!</strong></p>
@@ -408,19 +408,19 @@ Icon A 타입의 voice agent는 상황에 따라 다음과 같이 표현되어�
 
 Icon B 타입은 앱 타입의 클라이언트 즉 모바일 기기에서 voice agent를 표현할 때 사용됩니다. 다음은 Icon B 타입의 voice agent가 표시된 예입니다.
 
-![](/Design/Resources/Images/Clova-Client-Voice_Agent-Icon_B_Type.png)
+![](/Design/Assets/Images/Clova-Client-Voice_Agent-Icon_B_Type.png)
 
 Icon B 타입의 voice agent는 상황에 따라 다음과 같이 표현되어야 합니다.
 
 | 상태 이름                  | 애니메이션 효과                                                                | 예시       |
 |--------------------------|----------------------------------------------------------------------------|-----------|
-| Idle                     | 애니메이션 효과가 없는 Warm White 색상의 아이콘을 표시합니다.                           | ![](/Design/Resources/Images/Clova-Client-Voice_Agent-Icon_B_Type-Idle.png) |
-| Loading                  | Green1 색상으로 아이콘 주변의 원을 그리며 표시되어야 합니다.                            | ![](/Design/Resources/Images/Clova-Client-Voice_Agent-Icon_B_Type-Loading.gif) |
-| Attending                | 애니메이션 효과가 없는 Green1 색상의 아이콘을 표시합니다.                                                      | ![](/Design/Resources/Images/Clova-Client-Voice_Agent-Icon_B_Type-Attending.png) |
-| Listening                  | Warm White, Green2 색상 순으로 표시된 영역이 Green1 색상의 원 위에서 원을 그리며 표시되어야 합니다.                 | ![](/Design/Resources/Images/Clova-Client-Voice_Agent-Icon_B_Type-Listening.gif) |
-| Processing & reporting   | Warm White, Green2 색상 순으로 아이콘 주변의 원을 그리며 표시되어야 합니다.                                     | ![](/Design/Resources/Images/Clova-Client-Voice_Agent-Icon_B_Type-ProcessingAndReporting.gif) |
-| Mute on                  | Red 색상의 음소거 또는 마이크 아이콘이 표시되어야 합니다.                                                     | ![](/Design/Resources/Images/Clova-Client-Voice_Agent-Icon_B_Type-MuteOn.gif) |
-| Error                    | Red 색상의 오류 아이콘이 표시되어야 합니다.                                                                | ![](/Design/Resources/Images/Clova-Client-Voice_Agent-Icon_B_Type-Error.gif) |
+| Idle                     | 애니메이션 효과가 없는 Warm White 색상의 아이콘을 표시합니다.                           | ![](/Design/Assets/Images/Clova-Client-Voice_Agent-Icon_B_Type-Idle.png) |
+| Loading                  | Green1 색상으로 아이콘 주변의 원을 그리며 표시되어야 합니다.                            | ![](/Design/Assets/Images/Clova-Client-Voice_Agent-Icon_B_Type-Loading.gif) |
+| Attending                | 애니메이션 효과가 없는 Green1 색상의 아이콘을 표시합니다.                                                      | ![](/Design/Assets/Images/Clova-Client-Voice_Agent-Icon_B_Type-Attending.png) |
+| Listening                  | Warm White, Green2 색상 순으로 표시된 영역이 Green1 색상의 원 위에서 원을 그리며 표시되어야 합니다.                 | ![](/Design/Assets/Images/Clova-Client-Voice_Agent-Icon_B_Type-Listening.gif) |
+| Processing & reporting   | Warm White, Green2 색상 순으로 아이콘 주변의 원을 그리며 표시되어야 합니다.                                     | ![](/Design/Assets/Images/Clova-Client-Voice_Agent-Icon_B_Type-ProcessingAndReporting.gif) |
+| Mute on                  | Red 색상의 음소거 또는 마이크 아이콘이 표시되어야 합니다.                                                     | ![](/Design/Assets/Images/Clova-Client-Voice_Agent-Icon_B_Type-MuteOn.gif) |
+| Error                    | Red 색상의 오류 아이콘이 표시되어야 합니다.                                                                | ![](/Design/Assets/Images/Clova-Client-Voice_Agent-Icon_B_Type-Error.gif) |
 
 <div class="note">
   <p><strong>Note!</strong></p>

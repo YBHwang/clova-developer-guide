@@ -37,7 +37,6 @@
 
 다음과 같이 상황에 따라서 여러 문장을 출력하도록 응답 메시지를 작성할 수도 있고, 인터넷 상에 있는 음성 파일이나 음악 파일을 재생하도록 응답 메시지를 작성할 수도 있습니다.
 
-{% raw %}
 ```json
 {
   "version": "0.1.0",
@@ -64,13 +63,42 @@
   }
 }
 ```
-{% endraw %}
 
 각 `response.outputSpeech` 필드를 설명하면 다음과 같습니다.
 
 * `response.outputSpeech.type`: 복문 타입(SpeechList)의 음성 정보입니다.
 * `response.outputSpeech.values[0]`: 일반 텍스트 형태의 음성 정보이며, 한국어로 "노래를 불러볼게요"라고 발화하도록 설정했습니다.
 * `response.outputSpeech.values[1]`: URL 형태의 음성 정보이며, `value` 필드에 입력된 URL의 파일을 재생하도록 설정했습니다.
+
+HLS 방식의 음원을 제공할 때는 다음과 같이 작성할 수 있습니다. 이때, `response.outputSpeech.values[1].contentType` 필드를 `"application/vnd.apple.mpegurl"`로 지정해야 합니다.
+
+```json
+{
+  "version": "0.1.0",
+  "sessionAttributes": {},
+  "response": {
+    "outputSpeech": {
+      "type": "SpeechList",
+      "values": [
+        {
+          "type": "PlainText",
+          "lang": "ko",
+          "value": "노래를 불러볼게요."
+        },
+        {
+          "contentType": "application/vnd.apple.mpegurl",
+          "type": "URL",
+          "lang": "" ,
+          "value": "https://tts.example.com/song.m3u8"
+        }
+      ]
+    },
+    "card": {},
+    "directives": [],
+    "shouldEndSession": true
+  }
+}
+```
 
 <div class="note">
   <p><strong>Note!</strong></p>

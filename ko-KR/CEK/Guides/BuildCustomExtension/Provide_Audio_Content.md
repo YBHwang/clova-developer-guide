@@ -50,7 +50,7 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
   <p>재생 지시와 관련된 내용은 오디오 콘텐츠를 제공하는 custom extension의 메인 기능이며, 필수 구현 항목입니다.</p>
 </div>
 
-{{ "[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)" if book.L10N.TargetCountryCode == "KR" else "[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)" }} 지시 메시지의 명세를 확인하여 클라이언트에게 전달해야 하는 음원 정보를 다음과 같이 custom extension의 응답 메시지에 포함합니다. 보유하고 있는 음원의 정보나 특징에 따라 작서해야 하는 필드와 음원의 정보가 달라질 수 있습니다.
+{{ "[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)" if book.L10N.TargetCountryCode == "KR" else "[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)" }} 지시 메시지의 명세를 확인하여 클라이언트에게 전달해야 하는 음원 정보를 다음과 같이 custom extension의 응답 메시지에 포함합니다. 보유하고 있는 음원의 정보나 특징에 따라 작성해야 하는 필드와 음원의 정보가 달라질 수 있습니다.
 
 ```json
 {
@@ -135,13 +135,11 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
     "card": {},
     "directives": [
       {
-        "directive": {
-          "header": {
-            "namespace": "PlaybackController",
-            "name": "Pause"
-          },
-          "payload": {}
-        }
+        "header": {
+          "namespace": "PlaybackController",
+          "name": "Pause"
+        },
+        "payload": {}
       }
     ],
     "outputSpeech": {},

@@ -57,7 +57,7 @@ CIC는 사용자가 타이머의 목록을 요청하면 사용자에게 등록�
 
 다음은 {{ book.ServiceEnv.OrientedService }}가 배포한 모바일용 Clova 앱에서 TimerList 템플릿의 내용을 표현한 UI 예제입니다.
 
-![](/CIC/Resources/Images/Content_Template-TimerList.png)
+![](/CIC/Assets/Images/Content_Template-TimerList.png)
 
 ## See also
 * [Alerts](/CIC/References/CICInterface/Alerts.md) 인터페이스

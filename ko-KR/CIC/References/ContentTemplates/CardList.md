@@ -511,11 +511,11 @@
 
 | `Type1` | `Type2` |
 |-------|-------|
-| ![Type1](/CIC/Resources/Images/Content_Template-Content_Card_Type.png) | ![Type2](/CIC/Resources/Images/Content_Template-Content_Card_with_Link_Type.png) |
+| ![Type1](/CIC/Assets/Images/Content_Template-Content_Card_Type.png) | ![Type2](/CIC/Assets/Images/Content_Template-Content_Card_with_Link_Type.png) |
 
 | `Type3` | `Type4` |
 |-------|-------|
-| ![Type3](/CIC/Resources/Images/Content_Template-Video_Card_Type.png) | ![Type4](/CIC/Resources/Images/Content_Template-News_Card_Type.png) |
+| ![Type3](/CIC/Assets/Images/Content_Template-Video_Card_Type.png) | ![Type4](/CIC/Assets/Images/Content_Template-News_Card_Type.png) |
 
 <div class="note">
 <p><strong>Note!</strong></p>
