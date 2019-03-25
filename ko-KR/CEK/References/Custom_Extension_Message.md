@@ -590,6 +590,7 @@ SpeechInfoObject 객체는 응답 메시지의 `response.outputSpeech`에서 재
 
 | 필드 이름        | 자료형         | 설명                                                                | 필수 여부 |
 |----------------|--------------|--------------------------------------------------------------------|:-----:|
+| `contentType`    | string       | HLS 방식의 음원을 제공할 때 `"application/vnd.apple.mpegurl"`을 입력합니다.  | 선택   |
 | `lang`           | string       | 음성 합성을 할 때 사용할 언어의 코드. 현재 다음과 같은 값을 가집니다.<ul><li><code>"en"</code>: 영어</li><li><code>"ja"</code>: 일본어</li><li><code>"ko"</code>: 한국어</li><li><code>""</code>: <code>type</code> 필드의 값이 <code>"URL"</code>이면 이 필드는 빈 문자열(empty string)을 가집니다.</li></ul>         | 필수 |
 | `type`           | string       | 재생할 음성의 타입. 이 필드의 값에 따라 `value` 필드 값의 형태가 달라집니다. 현재 다음과 같은 값을 가집니다.<ul><li><code>"PlainText"</code>: 일반 텍스트</li><li><code>"URL"</code>: 음성 및 음악을 재생할 수 있는 파일의 URI</li></ul>            | 필수 |
 | `value`          | string       | 음성 합성할 내용 또는 음성 파일의 URI.<div class="note"><p><strong>Note!</strong></p><p>Clova가 지원하는 음성 파일 형식에 대한 내용은 <a href="/Design/Design_Guideline_For_Extension.md#SupportedAudioCompressionFormat">플랫폼 지원 오디오 압축 포맷</a>을 참조합니다.</p></div>     | 필수 |
@@ -642,7 +643,34 @@ SpeechInfoObject 객체는 응답 메시지의 `response.outputSpeech`에서 재
   }
 }
 
-// 예제 3: 복합 형태(SpeechSet) 음성 정보 반환 - 요약, 상세 음성 정보
+// 예제 3: 복문 형태(SpeechList) 음성 정보 반환 - 일반 텍스트, URL 타입 사용(HLS 음원 사용)
+{
+  "version": "0.1.0",
+  "sessionAttributes": {},
+  "response": {
+    "outputSpeech": {
+      "type": "SpeechList",
+      "values": [
+        {
+          "type": "PlainText",
+          "lang": "ko",
+          "value": "노래를 불러볼게요."
+        },
+        {
+          "contentType": "application/vnd.apple.mpegurl",
+          "type": "URL",
+          "lang": "" ,
+          "value": "https://tts.example.com/song.m3u8"
+        }
+      ]
+    },
+    "card": {},
+    "directives": [],
+    "shouldEndSession": true
+  }
+}
+
+// 예제 4: 복합 형태(SpeechSet) 음성 정보 반환 - 요약, 상세 음성 정보
 {
   "version": "0.1.0",
   "sessionAttributes": {},
@@ -677,7 +705,7 @@ SpeechInfoObject 객체는 응답 메시지의 `response.outputSpeech`에서 재
   }
 }
 
-// 예제 4: multi-turn 대화에서 대화 중간 정보 저장 - sessionAttributes 사용
+// 예제 5: multi-turn 대화에서 대화 중간 정보 저장 - sessionAttributes 사용
 {
   "version": "0.1.0",
   "sessionAttributes": {
@@ -699,7 +727,7 @@ SpeechInfoObject 객체는 응답 메시지의 `response.outputSpeech`에서 재
   }
 }
 
-// 예제 5: multi-turn 대화에서 사용자 추가 발화 독려 - reprompt 사용
+// 예제 6: multi-turn 대화에서 사용자 추가 발화 독려 - reprompt 사용
 {
   "version": "0.1.0",
   "sessionAttributes": {
@@ -730,7 +758,7 @@ SpeechInfoObject 객체는 응답 메시지의 `response.outputSpeech`에서 재
   }
 }
 
-// 예제 6: 클라이언트에게 오디오 콘텐츠 재생 지시하는 응답(response.directives[] 필드 사용)
+// 예제 7: 클라이언트에게 오디오 콘텐츠 재생 지시하는 응답(response.directives[] 필드 사용)
 {
   "version": "0.1.0",
   "sessionAttributes": {},

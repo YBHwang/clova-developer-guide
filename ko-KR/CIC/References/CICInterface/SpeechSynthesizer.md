@@ -63,6 +63,7 @@ CIC에 특정 텍스트를 TTS로 생성하도록 요청합니다.
 ### Payload fields
 | 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
 |---------------|---------|-----------------------------|:---------:|
+| `contentType`          | string  | 재생할 음성 파일의 MIME 타입. 이 필드는 재생할 음성 파일이 HLS일 때 제공됩니다. | 조건부  |
 | `format`               | string  | 파일 포맷. 현재 `"AUDIO_MPEG"`로 고정되어 있습니다. | 항상    |
 | `token`                | string  | TTS를 식별하는 token 값                    | 항상    |
 | `ttsLang`              | string  | TTS 합성에 사용할 언어. <ul><li><code>"en"</code>: 영어</li><li><code>"ja"</code>: 일본어</li><li><code>"ko"</code>: 한국어</li><li><code>"zh"</code>: 중국어</li></ul> | 조건부    |
@@ -130,6 +131,25 @@ Content-Type: application/octet-stream
       "format": "AUDIO_MPEG",
       "token": "64ffeb07-4b86-4659-9f59-07a77b363a0b",
       "url": "https://ssl.pstatic.example.net/static/clova/service/clova_song/1.mp3"
+    }
+  }
+}
+
+// URL 포맷(HLS 음원)
+--Boundary-Text
+{
+  "directive": {
+    "header": {
+      "namespace": "SpeechSynthesizer",
+      "name": "Speak",
+      "messageId": "0313b471-ad7f-4cdd-b4e1-c046ca8b4b58",
+      "dialogRequestId": "efa43b14-67f4-4f00-86bc-dfa08a08ad0b"
+    },
+    "payload": {
+      "contentType": "application/vnd.apple.mpegurl",
+      "format": "AUDIO_MPEG",
+      "token": "64ffeb07-4b86-4659-9f59-07a77b363a0b",
+      "url": "https://ssl.pstatic.example.net/static/clova/service/clova_song/1.m3u8"
     }
   }
 }
