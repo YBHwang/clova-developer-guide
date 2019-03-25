@@ -24,8 +24,8 @@
       <td>v3.49.1</td><td>2019-03-25</td>
       <td>
         <ul>
-          <li>[CIC] HLS 음원 제공 위해 contentType 필드를 CIC API의 <a href="/CIC/References/CICInterface/SpeechSynthesizer.md#Speak">SpeechSynthesizer.Speak</a> 지시 메시지에 추가</li>
-          <li>[CEK] HLS 음원 제공 위해 contentType 필드를 custom extension 메시지의 <a href="/CEK/References/CEK_API.md#CustomExtSpeechInfoObject">SpeechInfoObject</a>에 추가</li>
+          <li>[CIC] HLS 음원 제공을 위해 contentType 필드를 CIC API의 <a href="/CIC/References/CICInterface/SpeechSynthesizer.md#Speak">SpeechSynthesizer.Speak</a> 지시 메시지에 추가</li>
+          <li>[CEK] HLS 음원 제공을 위해 contentType 필드를 custom extension 메시지의 <a href="/CEK/References/CEK_API.md#CustomExtSpeechInfoObject">SpeechInfoObject</a>에 추가</li>
           <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.md#ConsumptionInfoObject">ConsumptionInfoObject</a>에서 액체류 자원을 위한 부피 단위를 지원함</li>
           <li>[Common] 일부 링크 오류 및 예제 수정</li>
         </ul>
