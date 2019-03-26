@@ -25,3 +25,5 @@ Custom extension이란 Clova가 기본으로 제공하고 있는 기능이나 �
 {% include "/CEK/Guides/BuildCustomExtension/Do_Multiturn_Dialog.md" %}
 
 {% include "/CEK/Guides/BuildCustomExtension/Provide_Audio_Content.md" %}
+
+{% include "/CEK/Guides/BuildCustomExtension/Monitor_TTS_Playback_Status.md" %}
