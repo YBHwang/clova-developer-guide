@@ -22,6 +22,14 @@
   </thead>
   <tbody>
     <tr>
+      <td>2019-04-01</td>
+      <td>
+        <ul>
+          <li>[CEK] Extension이 클라이언트의 음성(TTS) 재생 상태를 보고 받을 수 있도록 <a href="/CEK/References/CEK_API.md#CustomExtSpeechInfoObject">SpeechInfoObject</a>에 token 필드를 추가하고 <a href="/CEK/Guides/Build_Custom_Extension.md#CheckTTSPlaybackStatus">음성 재생 상태 확인하기</a> 가이드 문서를 추가</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>2019-03-25</td>
       <td>
         <ul>

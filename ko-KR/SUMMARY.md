@@ -210,6 +210,7 @@
     * [재생 상태 변경 및 경과 보고 수집](/CEK/Guides/Build_Custom_Extension.md#CollectPlaybackStatusAndProgress)
     * [보안을 위한 오디오 콘텐츠 URL 갱신](/CEK/Guides/Build_Custom_Extension.md#UpdateAudioURLForSecurity)
     * [재생 제어의 동작 방식 변경](/CEK/Guides/Build_Custom_Extension.md#CustomizePlaybackControl)
+  * [음성 재생 상태 확인하기](/CEK/Guides/Build_Custom_Extension.md#CheckTTSPlaybackStatus)
 * [Clova Home extension 만들기](/CEK/Guides/Build_Clova_Home_Extension.md)
   * [사전 준비사항](/CEK/Guides/Build_Clova_Home_Extension.md#Preparation)
   * [Discovery 제공하기](/CEK/Guides/Build_Clova_Home_Extension.md#ProvideDeviceDiscovery)

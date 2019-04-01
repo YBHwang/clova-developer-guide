@@ -122,8 +122,8 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
 * [`PlaybackController.Stop`](/CIC/References/CICInterface/PlaybackController.md#Stop) 지시 메시지: 클라이언트에게 오디오 스트림 재생을 중지하도록 지시
 {% elif book.L10N.TargetCountryCode == "JP" %}
 * [`PlaybackController.Pause`](/CEK/References/CEK_API.md#Pause) 지시 메시지: 클라이언트에게 재생 중인 오디오 스트림을 일시 정지하도록 지시
-* [`PlaybackController.Resume`](/CEK/References/CEK_API.md##Resume) 지시 메시지: 클라이언트에게 오디오 스트림 재생을 재개하도록 지시
-* [`PlaybackController.Stop`](/CEK/References/CEK_API.md##Stop) 지시 메시지: 클라이언트에게 오디오 스트림 재생을 중지하도록 지시
+* [`PlaybackController.Resume`](/CEK/References/CEK_API.md#Resume) 지시 메시지: 클라이언트에게 오디오 스트림 재생을 재개하도록 지시
+* [`PlaybackController.Stop`](/CEK/References/CEK_API.md#Stop) 지시 메시지: 클라이언트에게 오디오 스트림 재생을 중지하도록 지시
 {% endif %}
 
 다음은 `PlaybackController.Pause` 지시 메시지를 custom extension의 응답 메시지에 포함한 예입니다.
@@ -159,7 +159,7 @@ Custom extension을 통해 사용자에게 음악이나 podcast와 같은 오디
 
 사용자의 클라이언트로 하여금 [오디오 콘텐츠의 재생을 지시](#DirectClientToPlayAudio)하는 {{ "[`AudioPlayer.Play`](/CIC/References/CICInterface/AudioPlayer.md#Play)" if book.L10N.TargetCountryCode == "KR" else "[`AudioPlayer.Play`](/CEK/References/CEK_API.md#Play)" }} 지시 메시지(클라이언트 제어용 메시지, {{ "[CIC API](/CIC/References/CIC_API.md)" if book.L10N.TargetCountryCode == "KR" else "[`CIC API`](/CEK/References/CEK_API.md#CICAPIforAudioPlayback)" }})에는 제목, 앨범, 가수, 가사 등과 같은 정보는 포함되어 있지 않습니다. 하지만, 사용자가 Clova 앱이나 화면이 있는 클라이언트 기기 사용하고 있다면 Custom extension은 클라이언트가 이런 정보를 표시할 수 있도록 메타 정보를 제공해야 합니다.
 
-이를 위해 클라이언트는 오디오 콘텐츠에 대한 재생 메타 정보를 얻기 위해 {{ "[`TemplateRuntime.RequestPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#RequestPlayerInfo)" if book.L10N.TargetCountryCode == "KR" else "[`TemplateRuntime.RequestPlayerInfo`](/CEK/References/CEK_API.md#RequestPlayerInfo)" }} 이벤트 메시지(클라이언트 요청 전달용 메시지, {{ "[CIC API](/CIC/References/CIC_API.md)" if book.L10N.TargetCountryCode == "KR" else "[`CIC API`](/CEK/References/CEK_API.md#CICAPIforAudioPlayback)" }})를 Clova에게 전송합니다. 이때, 이벤트 메시지의 내용이 [`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest) 타입의 요청 메시지로 다음과 같이 전달됩니다. 참고로 아래 예는 `eJyr5lIqSSyITy4tKs4vUrJSUE` 토큰을 가지는 콘텐츠를 기준으로 다음 10 곡에 대한 메타 정보를 클라이언트가 요청한 것을 의미합니다.
+이를 위해 클라이언트는 오디오 콘텐츠에 대한 재생 메타 정보를 얻기 위해 {{ "[`TemplateRuntime.RequestPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#RequestPlayerInfo)" if book.L10N.TargetCountryCode == "KR" else "[`TemplateRuntime.RequestPlayerInfo`](/CEK/References/CEK_API.md#RequestPlayerInfo)" }} 이벤트 메시지(클라이언트 요청 전달용 메시지, {{ "[CIC API](/CIC/References/CIC_API.md)" if book.L10N.TargetCountryCode == "KR" else "[`CIC API`](/CEK/References/CEK_API.md#CICAPIforAudioPlayback)" }})를 Clova에게 전송합니다. 이때, 이벤트 메시지의 내용이 [`EventRequest`](/CEK/References/CEK_API.md#CustomExtEventRequest) 타입의 요청 메시지로 다음과 같이 전달됩니다. 참고로 아래 예는 `eJyr5lIqSSyITy4tKs4vUrJSUE` token을 가지는 콘텐츠를 기준으로 다음 10 곡에 대한 메타 정보를 클라이언트가 요청한 것을 의미합니다.
 
 ```json
 {

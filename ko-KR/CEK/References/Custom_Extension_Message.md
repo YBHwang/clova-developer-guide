@@ -281,9 +281,12 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
 
 #### EventRequest {#CustomExtEventRequest}
 {% if book.L10N.TargetCountryCode == "KR" %}
-`EventRequest` 타입은 클라이언트의 상태 변화나 그와 관련된 부수적인 요청을 extension에 전달해야 할 때 사용되는 요청 타입입니다. CEK는 `EventRequest` 요청 타입을 사용하여 클라이언트의 [오디오 재생 상태를 extension에게 보고](/CEK/Guides/Build_Custom_Extension.md#CollectPlaybackStatusAndProgress)하거나 [오디오 재생 관련 부가 정보를 extension에게 요청](/CEK/Guides/Build_Custom_Extension.md#ProvidingMetaDataForDisplay)하기도 합니다. Extension 개발자는 오디오 재생 상태 보고 또는 부가 정보 요청에 상응하는 작업을 처리해야 합니다.
+`EventRequest` 타입은 클라이언트의 상태 변화나 그와 관련된 부수적인 요청을 extension에 전달해야 할 때 사용되는 요청 타입입니다. CEK는 `EventRequest` 요청 타입을 사용하여 다음과 같은 작업을 처리합니다.
+* 클라이언트의 [오디오 재생 상태를 extension에게 보고](/CEK/Guides/Build_Custom_Extension.md#CollectPlaybackStatusAndProgress)
+* [오디오 재생 관련 부가 정보를 extension에게 요청](/CEK/Guides/Build_Custom_Extension.md#ProvidingMetaDataForDisplay)
+* 클라이언트의 [음성(TTS) 재생 상태를 extension에게 보고](/CEK/Guides/Build_Custom_Extension.md#CheckTTSPlaybackStatus)
 
-현재 `EventRequest` 요청 타입을 사용하여 오디오 재생 상태 보고나 부가 정보 요청 정보를 extension으로 전달할 때 다음과 같은 [CIC API](/CIC/References/CIC_API.md)의 [이벤트 메시지](/CIC/References/CIC_API.md#Event)를 이용합니다.
+Extension 개발자는 오디오 또는 음성 재생 상태 보고 또는 부가 정보 요청에 상응하는 작업을 처리해야 합니다. 현재 `EventRequest` 요청 타입을 사용하여 위와 같은 작업을 처리할 때 다음과 같은 [CIC API](/CIC/References/CIC_API.md)의 [이벤트 메시지](/CIC/References/CIC_API.md#Event)를 이용합니다.
 
 * [`AudioPlayer.PlayFinished`](/CIC/References/CICInterface/AudioPlayer.md#PlayFinished)
 * [`AudioPlayer.PlayPaused`](/CIC/References/CICInterface/AudioPlayer.md#PlayPaused)
@@ -294,9 +297,18 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
 * [`AudioPlayer.ProgressReportIntervalPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportIntervalPassed)
 * [`AudioPlayer.ProgressReportPositionPassed`](/CIC/References/CICInterface/AudioPlayer.md#ProgressReportPositionPassed)
 * [`AudioPlayer.StreamRequested`](/CIC/References/CICInterface/AudioPlayer.md#StreamRequested)
+* [`SpeechSynthesizer.SpeechFinished`](/CIC/References/CICInterface/SpeechSynthesizer.md#SpeechFinished)
+* [`SpeechSynthesizer.SpeechStarted`](/CIC/References/CICInterface/SpeechSynthesizer.md#SpeechStarted)
+* [`SpeechSynthesizer.SpeechStopped`](/CIC/References/CICInterface/SpeechSynthesizer.md#SpeechStopped)
 * [`TemplateRuntime.RequestPlayerInfo`](/CIC/References/CICInterface/TemplateRuntime.md#RequestPlayerInfo)
 {% elif book.L10N.TargetCountryCode == "JP" %}
-`EventRequest` 타입은 클라이언트의 상태 변화나 그와 관련된 부수적인 요청을 extension에 전달해야 할 때 사용되는 요청 타입입니다. CEK는 `EventRequest` 요청 타입을 사용하여 사용자가 특정 skill을 활성 또는 비활성화한 결과나 클라이언트의 [오디오 재생 상태를 extension에게 보고](/CEK/Guides/Build_Custom_Extension.md#CollectPlaybackStatusAndProgress)하거나 [오디오 재생 관련 부가 정보를 extension에게 요청](/CEK/Guides/Build_Custom_Extension.md#ProvidingMetaDataForDisplay)하기도 합니다. Extension 개발자는 skill의 활성/비활성화, 오디오 재생 상태 보고 또는 부가 정보 요청에 상응하는 작업을 처리해야 합니다.
+`EventRequest` 타입은 클라이언트의 상태 변화나 그와 관련된 부수적인 요청을 extension에 전달해야 할 때 사용되는 요청 타입입니다. CEK는 `EventRequest` 요청 타입을 사용하여 다음과 같은 작업을 처리합니다.
+* 사용자가 특정 skill을 활성 또는 비활성화한 결과를 보고
+* 클라이언트의 [오디오 재생 상태를 extension에게 보고](/CEK/Guides/Build_Custom_Extension.md#CollectPlaybackStatusAndProgress)
+* [오디오 재생 관련 부가 정보를 extension에게 요청](/CEK/Guides/Build_Custom_Extension.md#ProvidingMetaDataForDisplay)
+* 클라이언트의 [음성(TTS) 재생 상태를 extension에게 보고](/CEK/Guides/Build_Custom_Extension.md#CheckTTSPlaybackStatus)
+
+Extension 개발자는 skill의 활성/비활성화, 오디오 또는 음성 재생 상태 보고 또는 부가 정보 요청에 상응하는 작업을 처리해야 합니다.
 
 `EventRequest` 요청 타입을 사용하여 오디오 재생 상태 보고나 부가 정보 요청 정보를 extension으로 전달할 때 다음과 같은 [CIC API](#CICAPIforAudioPlayback)를 이용합니다.
 
@@ -309,6 +321,9 @@ CEK는 Clova가 분석한 사용자의 요구 사항을 custom extension으로 �
 * [`AudioPlayer.ProgressReportIntervalPassed`](#ProgressReportIntervalPassed)
 * [`AudioPlayer.ProgressReportPositionPassed`](#ProgressReportPositionPassed)
 * [`AudioPlayer.StreamRequested`](#StreamRequested)
+* [`SpeechSynthesizer.SpeechFinished`](#SpeechFinished)
+* [`SpeechSynthesizer.SpeechStarted`](#SpeechStarted)
+* [`SpeechSynthesizer.SpeechStopped`](#SpeechStopped)
 * [`TemplateRuntime.RequestPlayerInfo`](#RequestPlayerInfo)
 {% endif %}
 
@@ -592,7 +607,8 @@ SpeechInfoObject 객체는 응답 메시지의 `response.outputSpeech`에서 재
 |----------------|--------------|--------------------------------------------------------------------|:-----:|
 | `contentType`    | string       | HLS 방식의 음원을 제공할 때 `"application/vnd.apple.mpegurl"`을 입력합니다.  | 선택   |
 | `lang`           | string       | 음성 합성을 할 때 사용할 언어의 코드. 현재 다음과 같은 값을 가집니다.<ul><li><code>"en"</code>: 영어</li><li><code>"ja"</code>: 일본어</li><li><code>"ko"</code>: 한국어</li><li><code>""</code>: <code>type</code> 필드의 값이 <code>"URL"</code>이면 이 필드는 빈 문자열(empty string)을 가집니다.</li></ul>         | 필수 |
-| `type`           | string       | 재생할 음성의 타입. 이 필드의 값에 따라 `value` 필드 값의 형태가 달라집니다. 현재 다음과 같은 값을 가집니다.<ul><li><code>"PlainText"</code>: 일반 텍스트</li><li><code>"URL"</code>: 음성 및 음악을 재생할 수 있는 파일의 URI</li></ul>            | 필수 |
+| `token`          | string       | 제공할 음성의 token. 이 필드에 값을 입력하면 클라이언트에서 해당 음성이 재생된 결과나 재생 상태를 보고 받을 수 있습니다. 음성 재생 상태에 대한 경과 보고는 [`EventRequest` 요청 타입](/CEK/References/CEK_API.html#CustomExtEventRequest)의 메시지를 통해 전달받게 됩니다. UUID 포맷(버전 4)으로 생성해야 합니다.  | 선택  |
+| `type`           | string       | 재공할 음성의 타입. 이 필드의 값에 따라 `value` 필드 값의 형태가 달라집니다. 현재 다음과 같은 값을 가집니다.<ul><li><code>"PlainText"</code>: 일반 텍스트</li><li><code>"URL"</code>: 음성 및 음악을 재생할 수 있는 파일의 URI</li></ul>            | 필수 |
 | `value`          | string       | 음성 합성할 내용 또는 음성 파일의 URI.<div class="note"><p><strong>Note!</strong></p><p>Clova가 지원하는 음성 파일 형식에 대한 내용은 <a href="/Design/Design_Guideline_For_Extension.md#SupportedAudioCompressionFormat">플랫폼 지원 오디오 압축 포맷</a>을 참조합니다.</p></div>     | 필수 |
 
 #### Message example
@@ -795,6 +811,26 @@ SpeechInfoObject 객체는 응답 메시지의 `response.outputSpeech`에서 재
     "shouldEndSession": true
   }
 }
+
+// 예제 8: 음성 token 입력 - 재생 경과 확인용
+{
+  "version": "0.1.0",
+  "sessionAttributes": {},
+  "response": {
+    "outputSpeech": {
+      "type": "SimpleSpeech",
+      "values": {
+          "type": "PlainText",
+          "lang": "en",
+          "token": "19d33bae-6cd5-4534-b0a3-e0036b4742bd",
+          "value": "Hi, nice to meet you"
+      }
+    },
+    "card": {},
+    "directives": [],
+    "shouldEndSession": false
+  }
+}
 ```
 {% endraw %}
 
@@ -825,6 +861,9 @@ CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 
 | PlaybackController | [`Pause`](#Pause)              | Directive | 클라이언트에게 재생 중인 오디오 스트림을 일시 정지하도록 지시합니다.        |
 | PlaybackController | [`Resume`](#Resume)            | Directive | 클라이언트에게 오디오 스트림 재생을 재개하도록 지시합니다.                |
 | PlaybackController | [`Stop`](#Stop)                | Directive | 클라이언트에게 오디오 스트림 재생을 중지하도록 지시합니다.                |
+| SpeechSynthesizer | [`SpeechFinished`](#SpeechFinished) | Event | 클라이언트가 TTS 재생을 완료했음을 보고하기 위해 사용됩니다.  |
+| SpeechSynthesizer | [`SpeechStarted`](#SpeechStarted)   | Event | 클라이언트가 TTS 재생을 시작했음을 보고하기 위해 사용됩니다.  |
+| SpeechSynthesizer | [`SpeechStopped`](#SpeechStopped)   | Event | 클라이언트가 TTS 재생을 중지했음을 보고하기 위해 사용됩니다.  |
 | TemplateRuntime | [`RenderPlayerInfo`](#RenderPlayerInfo)        | Directive | CIC가 클라이언트에게 미디어 플레이어에 표시할 재생 목록, 앨범 이미지, 가사와 같은 재생 메타 정보를 전달하고 이를 표시하도록 지시합니다. |
 | TemplateRuntime | [`RequestPlayerInfo`](#RequestPlayerInfo)      | Event     | 클라이언트가 미디어 플레이어에 표시할 재생 목록, 앨범 이미지, 가사와 같은 재생 메타 정보를 CIC에게 요청합니다. |
 
@@ -1419,11 +1458,116 @@ CIC API는 사용자의 클라이언트 기기가 Clova와 통신할 때 주고 
 ```
 {% endraw %}
 
-### See also
-* [`AudioPlayer.PlayStopped`](/CIC/References/CICInterface/AudioPlayer.md#PlayStopped)
-
 #### See also
 * [`AudioPlayer.PlayResumed`](#PlayResumed)
+
+## SpeechFinished event {#SpeechFinished}
+클라이언트가 TTS 재생을 완료했음을 보고하기 위해 사용됩니다.
+
+### Payload fields
+
+| 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `token`       | string  | TTS 식별용 token 값           | 항상    |
+
+### Message example
+{% raw %}
+
+```json
+{
+  "context": [
+    ...
+  ],
+  "event": {
+    "header": {
+      "namespace": "SpeechSynthesizer",
+      "name": "SpeechFinished",
+      "messageId": "15472673-49a0-4aa1-8cf0-6355669ea473"
+    },
+    "payload": {
+      "token": "cd14ad7a-9611-4b55-8ff5-c9097265950a"
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### See also
+* [`SpeechSynthesizer.SpeechStarted`](#SpeechStarted)
+* [`SpeechSynthesizer.SpeechStopped`](#SpeechStopped)
+
+## SpeechStarted event {#SpeechStarted}
+클라이언트가 TTS 재생을 시작했음을 보고하기 위해 사용됩니다.
+
+### Payload fields
+
+| 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `token`       | string  | TTS 식별용 token 값           | 항상    |
+
+### Message example
+{% raw %}
+
+```json
+{
+  "context": [
+    ...
+  ],
+  "event": {
+    "header": {
+      "namespace": "SpeechSynthesizer",
+      "name": "SpeechStarted",
+      "messageId": "380c805c-0f19-4ed2-84e2-056f2f4016de"
+    },
+    "payload": {
+      "token": "cd14ad7a-9611-4b55-8ff5-c9097265950a"
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### See also
+* [`SpeechSynthesizer.SpeechFinished`](#SpeechFinished)
+* [`SpeechSynthesizer.SpeechStopped`](#SpeechStopped)
+
+## SpeechStopped event {#SpeechStopped}
+클라이언트가 TTS 재생을 중지했음을 보고하기 위해 사용됩니다.
+
+### Payload fields
+
+| 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
+|---------------|---------|-----------------------------|:---------:|
+| `token`       | string  | TTS 식별용 token 값           | 항상    |
+
+### Message example
+{% raw %}
+
+```json
+{
+  "context": [
+    ...
+  ],
+  "event": {
+    "header": {
+      "namespace": "SpeechSynthesizer",
+      "name": "SpeechStopped",
+      "messageId": "9a511e5c-4f20-413a-94cc-48172fc8710e"
+    },
+    "payload": {
+      "token": "cd14ad7a-9611-4b55-8ff5-c9097265950a"
+    }
+  }
+}
+```
+
+{% endraw %}
+
+### See also
+* [`SpeechSynthesizer.SpeechFinished`](#SpeechFinished)
+* [`SpeechSynthesizer.SpeechStarted`](#SpeechStarted)
 
 ### TemplateRuntime.RenderPlayerInfo directive {#RenderPlayerInfo}
 
