@@ -21,6 +21,14 @@
   </thead>
   <tbody>
     <tr>
+      <td>v3.51.1</td><td>2019-04-08</td>
+      <td>
+        <ul>
+          <li>[CIC] <a href="/CIC/References/Clova_Auth_API.md">CIC 인증 API</a>의 <a href="/CIC/References/Clova_Auth_API.md#RequestAuthorizationCode">Authorization code 요청</a> 설명 중 응답의 'redirect_uri' 필드에 'error' 파라미터에 대한 설명 추가</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td>v3.50.1</td><td>2019-04-01</td>
       <td>
         <ul>

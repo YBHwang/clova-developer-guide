@@ -31,8 +31,11 @@ Clova access token을 획득하는 절차는 다음과 같습니다.
   </li>
   <li>
     <p><a href="/CIC/References/Clova_Auth_API.md#RequestAuthorizationCode">Authorization code를 요청</a>합니다. Authorization code를 요청할 때, 2번 단계에서 획득한 {{ book.ServiceEnv.TargetServiceForClientAuth }} 계정의 {{ "authorization code와" if book.L10N.TargetCountryCode == "JP" else "access token과" }} <a href="#ClientAuthInfo">클라이언트 인증 정보</a> 등의 정보를 이용합니다. <code>device_id</code> 필드의 값으로 클라이언트의 MAC 주소를 사용하거나 UUID 해쉬 값을 생성해서 사용하면 됩니다.<br />다음은 authorization code를 요청한 예입니다.</p>
-    <pre><code>$ curl -H "Authorization: Bearer QHSDAKLFJASlk12jlkf+asldkjasdf=sldkjf123dsalsdflkvpasdFMrjvi23scjaf123klv"
+    <pre><code>$ curl -H "Authorization: Bearer Zc3d3QAR6zIxqceOpXoq"
     {{ book.ServiceEnv.AuthServerBaseURL }}authorize \
+    {% if book.L10N.TargetCountryCode == "JP"  -%}
+    --data-urlencode "grant_type=uauth_auth_code_v2" \
+    {% endif -%}
     --data-urlencode "client_id=c2Rmc2Rmc2FkZ2Fasdkjh234zZnNhZGZ" \
     --data-urlencode "device_id=aa123123d6-d900-48a1-b73b-aa6c156353206" \
     --data-urlencode "model_id=test_model" \
@@ -55,10 +58,10 @@ Clova access token을 획득하는 절차는 다음과 같습니다.
 </code></pre>
     <div class="note">
       <p><strong>Note!</strong></p>
-      <p>참고로 사용자가 이용 약관에 동의하지 않으면 다음 단계를 수행할 수 없습니다. 사용자가 이용 약관에 동의하고 동의한 결과를 서버에 전송하면 클라이언트는 <code>302 Found</code>(URL Redirection) 상태 코드를 가진 응답을 다음과 같은 URL과 함께 수신하게 됩니다.</p>
+      <p>사용자가 이용 약관에 동의하고 동의한 결과를 서버에 전송하면 클라이언트는 <code>302 Found</code>(URL Redirection) 상태 코드를 가진 응답을 다음과 같은 URL과 함께 수신하게 됩니다.</p>
       <ul>
         <li><code>clova://agreement-success</code>: 사용자가 이용 약관 동의를 완료함. 클라이언트는 Clova access token 발급을 위해 다음 단계를 계속 진행할 수 있습니다.</li>
-        <li><code>clova://agreement-failure</code>: 서버 오류로 이용 약관 동의에 실패함. 클라이언트는 적절한 예외 처리를 해야 합니다.</li>
+        <li><code>clova://agreement-failure?error=[reason]</code>: 사용자가 약관에 동의하지 않았거나 서버 오류로 이용 약관 동의에 실패함. 클라이언트는 적절한 예외 처리를 해야 합니다.</li>
       </ul>
     </div>
   </li>

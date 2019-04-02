@@ -13,7 +13,7 @@ Clova 인증 서버의 base URL은 다음과 같습니다.
 GET|POST /authorize
 ```
 
-{{ book.ServiceEnv.TargetServiceForClientAuth }} 계정 access token 및 [클라이언트 인증 정보](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo) 등을 파라미터로 전달해 authorization code를 요청합니다. Authorization code는 Clova access token을 발급받을 때 사용됩니다.
+{{ book.ServiceEnv.TargetServiceForClientAuth }} 계정 {{ "authorization code" if book.L10N.TargetCountryCode == "JP" else "access token" }} 및 [클라이언트 인증 정보](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo) 등을 파라미터로 전달해 authorization code를 요청합니다. Authorization code는 Clova access token을 발급받을 때 사용됩니다.
 
 일반적으로 사용자 인증을 받기 위해 클라이언트 기기와 페어링(Pairing)된 앱에서 인증을 처리합니다. 다만, 페어링된 앱에서 클라이언트 쪽으로 Clova access token을 전송하는 것은 보안상 이슈가 있기 때문에 이 코드를 대신 클라이언트로 보냅니다. 클라이언트는 전달받은 authorization code를 다시 Clova 인증 서버로 전달하여 [Clova access token을 요청](#RequestClovaAccessToken)해야 합니다.
 
@@ -22,7 +22,7 @@ GET|POST /authorize
 | Request header | 설명                                                                |
 |----------------|--------------------------------------------------------------------|
 | Accept         | <p>다음 값을 입력합니다.</p><p><pre><code>application/json</code></pre></p>  |
-| Authorization  | <p><a href="/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken">획득한 {{ book.ServiceEnv.TargetServiceForClientAuth }} access token</a>을 입력:</p><p><pre><code>Bearer [{{ book.ServiceEnv.TargetServiceForClientAuth }} access token]</code></pre></p>  |
+| Authorization  | <p><a href="/CIC/Guides/Interact_with_CIC.md#CreateClovaAccessToken">획득한 {{ book.ServiceEnv.TargetServiceForClientAuth }} {{ "authorization code" if book.L10N.TargetCountryCode == "JP" else "access token" }}</a>을 입력:</p><p><pre><code>Bearer [{{ book.ServiceEnv.TargetServiceForClientAuth }} {{ "authorization code" if book.L10N.TargetCountryCode == "JP" else "access token" }}]</code></pre></p>  |
 
 ### Query parameter
 
@@ -30,15 +30,21 @@ GET|POST /authorize
 |---------------|---------|-----------------------------|:---------:|
 | `client_id`     | string  | 클라이언트 ID ([클라이언트 인증 정보](/CIC/Guides/Interact_with_CIC.md#ClientAuthInfo) 참조)          | 필수 |
 | `device_id`     | string  | 클라이언트 기기의 MAC 주소나 생성한 UUID                                                              | 필수 |
+{% if book.L10N.TargetCountryCode == "JP"  -%}
+| `grant_type`    | string  | `uauth_auth_code_v2`를 입력  | 필수  |
+{% endif -%}
 | `model_id`      | string  | 클라이언트 기기의 모델 ID                                                                          | 선택 |
 | `response_type` | string  | 응답 유형. 현재 `"code"`만 지원합니다.                                                             | 필수 |
 | `state`         | string  | 요청 위조(cross-site request forgery) 공격을 방지하기 위해 클라이언트에서 사용하는 상태 token 값(URL 인코딩 적용) | 필수 |
 
 ### Request example
 
-<pre><code>$ curl -H "Authorization: Bearer QHSDAKLFJASlk12jlkf+asldkjasdf=sldkjf123dsalsdflkvpasdFMrjvi23scjaf123klv"
+<pre><code>$ curl -H "Authorization: Bearer Zc3d3QAR6zIxqceOpXoq"
        {{ book.ServiceEnv.AuthServerBaseURL }}authorize \
        --data-urlencode "client_id=c2Rmc2Rmc2FkZ2Fasdkjh234zZnNhZGZ" \
+       {% if book.L10N.TargetCountryCode == "JP"  -%}
+       --data-urlencode "grant_type=uauth_auth_code_v2" \
+       {% endif -%}
        --data-urlencode "device_id=aa123123d6-d900-48a1-b73b-aa6c156353206" \
        --data-urlencode "model_id=test_model" \
        --data-urlencode "response_type=code" \
@@ -56,7 +62,7 @@ GET|POST /authorize
 | 필드 이름       | 자료형    | 필드 설명                     | 포함 여부 |
 |---------------|---------|-----------------------------|:---------:|
 | `code`          | string | 인증 서버로부터 발급받은 authorization code. HTTP 응답 메시지가 `200`이나 `451`의 상태 코드를 가질 때 HTTP 응답 메시지 본문에 포함되는 필드입니다.      | 항상      |
-| `redirect_uri`  | string | 서비스 이용 약관과 관련된 내용을 제공하는 페이지 URI. HTTP 응답 메시지가 `451 Unavailable For Legal Reasons`의 상태 코드를 가질 때 HTTP 응답 메시지 본문에 포함되는 필드입니다. 클라이언트는 이 필드에 포함된 URI로 이동하여 페이지를 표시해야 합니다. 사용자가 이용 약관에 동의하면 클라이언트는 `302 Found`(URL redirection) 상태 코드를 가진 응답을 다음 URL과 함께 수신하게 됩니다. <ul><li><code>clova://agreement-success</code>: 사용자가 이용 약관 동의를 완료함. 클라이언트는 Clova access token 발급을 위해 다음 단계를 계속 진행할 수 있습니다.</li><li><code>clova://agreement-failure</code>: 서버 오류로 이용 약관 동의에 실패함. 클라이언트는 적절한 예외 처리를 해야 합니다.</li></ul> | 항상      |
+| `redirect_uri`  | string | 서비스 이용 약관과 관련된 내용을 제공하는 페이지 URI. HTTP 응답 메시지가 `451 Unavailable For Legal Reasons`의 상태 코드를 가질 때 HTTP 응답 메시지 본문에 포함되는 필드입니다. 클라이언트는 이 필드에 포함된 URI로 이동하여 페이지를 표시해야 합니다. 사용자가 이용 약관에 동의하면 클라이언트는 `302 Found`(URL redirection) 상태 코드를 가진 응답을 다음 URL과 함께 수신하게 됩니다. <ul><li><code>clova://agreement-success</code>: 사용자가 이용 약관 동의를 완료함. 클라이언트는 Clova access token 발급을 위해 다음 단계를 계속 진행할 수 있습니다.</li><li><code>clova://agreement-failure?error=[reason]</code>: 사용자가 이용 약관에 동의하지 않았거나 서버 오류로 이용 약관 동의에 실패함. 클라이언트는 적절한 예외 처리를 해야 합니다. `error` 파라미터의 값으로 다음과 같은 값이 전달될 수 있습니다.<ul><li><code>"server_error"</code>: 내부 서버 오류</li><li><code>"terms_not_agreed"</code>: 필수 약관 동의가 수행되지 않음</li><li><code>"user-disagreement"</code>: 사용자가 약관에 동의하지 않음</li></ul></li></ul> | 항상      |
 | `state`         | string | 요청 위조(cross-site request forgery) 공격을 방지하기 위해 클라이언트에서 전달받은 상태 token을 복호화한 값(URL 디코딩 적용). HTTP 응답 메시지가 `200`이나 `451`의 상태 코드를 가질 때 HTTP 응답 메시지 본문에 포함되는 필드입니다. | 항상      |
 
 ### Status codes
