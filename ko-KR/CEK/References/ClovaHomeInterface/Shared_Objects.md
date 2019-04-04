@@ -231,7 +231,7 @@ IoT 기기의 정보를 담고 있는 객체입니다. 사용자 계정에 등�
 | `"OPENCLOSESENSOR"` | 열림 감지 센서 타입    | GetCloseTime, GetDeviceState, GetOpenState, GetOpenTime, HealthCheck                                                                               |
 | `"OVEN"`            | 오븐 타입            | GetDeviceState, GetRemainingTime, HealthCheck, Preheat                                                                                             |
 | `"POWERSTRIP"`      | 멀티 탭 타입         | GetConsumption, GetDeviceState, GetEstimateBill, GetProgressiveTaxBracket, HealthCheck, TurnOff, TurnOn                                             |
-| `"PURIFIER"`        | 정수기 타입          | GetDeviceState, GetExpendableState, HealthCheck, ReleaseMode, SetMode, SetTargetTemperature                                                         |
+| `"PURIFIER"`        | 정수기 타입          | GetConsumption, GetDeviceState, GetExpendableState, HealthCheck, ReleaseMode, SetMode, SetTargetTemperature                                         |
 | `"RANGE"`           | 레인지 타입          | GetDeviceState, HealthCheck                                                                                                                         |
 | `"RANGEHOOD"`       | 레인지 후드 타입      | GetDeviceState, HealthCheck, TurnOff, TurnOn                                                                                                        |
 | `"REFRIGERATOR"`    | 냉장고 타입          | GetDeviceState, HealthCheck, ReleaseMode, SetMode, SetTargetTemperature                                                                             |
