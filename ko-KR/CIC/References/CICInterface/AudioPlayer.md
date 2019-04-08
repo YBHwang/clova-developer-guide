@@ -914,12 +914,12 @@ AudioPlayer 인터페이스는 클라이언트에서 오디오 스트림 재생�
 | `deviceId`    | string  | 대상 클라이언트의 ID. 임의의 형식으로 된 식별자(Opaque ID)입니다.  | 항상  |
 | `event`       | string  | 클라이언트에서 발생한 이벤트.<ul><li><code>PlayFinished</code></li><li><code>PlayPaused</code></li><li><code>PlayResumed</code></li><li><code>PlayStarted</code></li><li><code>PlayStopped</code></li></ul>  | 조건부  |
 | `playbackState`          | object  | 클라이언트의 재생 상태 정보를 담고 있는 객체             | 조건부  |
-| `playbackState.offsetInMilliseconds`   | number  | 현재 재생하고 있는 음원의 재생 시점. 단위는 밀리 초이며, 이 필드는 null 값을 가질 수 있습니다.  | 조건부  |
+| `playbackState.offsetInMilliseconds`   | number  | 현재 재생하고 있는 음원의 재생 시점. 단위는 밀리 초이며, `playerActivity` 값이 `"IDLE"`이면 이 필드는 포함되지 않습니다.  | 조건부  |
 | `playbackState.playerActivity`         | string  | 오디오 플레이어의 현재 상태.<ul><li><code>"IDLE"</code>: 미사용 상태</li><li><code>"PLAYING"</code>: 재생 중인 상태</li><li><code>"PAUSED"</code>: 일시 중지된 상태</li><li><code>"STOPPED"</code>: 정지된 상태</li></ul>  | 항상  |
 | `playbackState.repeatMode`             | string  | 설정된 반복 재생 모드.<ul><li><code>"NONE"</code>: 반복 재생 안함</li><li><code>"REPEAT_ONE"</code>: 한 곡 반복 재생</li></ul>  | 항상  |
-| `playbackState.stream`                 | [AudioStreamInfoObject](#AudioStreamInfoObject) | 오디오 스트림과 관련된 정보가 담긴 객체                                         | 항상 |
-| `playbackState.token`                  | string  | 음원 재생을 식별하는 token. 이 필드는 빈 문자열(`""`)을 가질 수도 있습니다.                                                    | 항상 |
-| `playbackState.totalInMilliseconds`    | number | 최근 재생 미디어의 전체 길이. 단위는 밀리초이며, 이 필드는 null 값을 가질 수 있습니다.                  | 항상 |
+| `playbackState.stream`                 | [AudioStreamInfoObject](#AudioStreamInfoObject) | 오디오 스트림과 관련된 정보가 담긴 객체. `playerActivity` 값이 `"IDLE"`이면 이 필드는 포함되지 않습니다.  | 조건부 |
+| `playbackState.token`                  | string  | 음원 재생을 식별하는 token. `playerActivity` 값이 `"IDLE"`이면 이 필드는 포함되지 않습니다.                                | 조건부 |
+| `playbackState.totalInMilliseconds`    | number | 최근 재생 미디어의 전체 길이. 단위는 밀리초이며, `playerActivity` 값이 `"IDLE"`이면 이 필드는 포함되지 않습니다.                  | 조건부 |
 
 ### Message example
 {% raw %}
