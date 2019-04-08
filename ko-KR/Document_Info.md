@@ -21,15 +21,16 @@
   </thead>
   <tbody>
     <tr>
-      <td>v3.51.1</td><td>2019-04-08</td>
+      <td>v3.50.1</td><td>2019-04-08</td>
       <td>
         <ul>
           <li>[CIC] <a href="/CIC/References/Clova_Auth_API.md">CIC 인증 API</a>의 <a href="/CIC/References/Clova_Auth_API.md#RequestAuthorizationCode">Authorization code 요청</a> 설명 중 응답의 'redirect_uri' 필드에 'error' 파라미터에 대한 설명 추가</li>
+          <li>[CEK] Clova Home extension API의 <a href="/CEK/References/ClovaHomeInterface/Shared_Objects.md#ApplianceInfoObject">지원 기기</a> 설명 중 PURIFIER 타입의 Action 항목에 빠진 동작(GetConsumption)을 추가</li>
         </ul>
       </td>
     </tr>
     <tr>
-      <td>v3.50.1</td><td>2019-04-01</td>
+      <td>v3.50.0</td><td>2019-04-01</td>
       <td>
         <ul>
           <li>[CEK] Extension이 클라이언트의 음성(TTS) 재생 상태를 보고 받을 수 있도록 <a href="/CEK/References/CEK_API.md#CustomExtSpeechInfoObject">SpeechInfoObject</a>에 token 필드를 추가하고 <a href="/CEK/Guides/Build_Custom_Extension.md#CheckTTSPlaybackStatus">음성 재생 상태 확인하기</a> 가이드 문서를 추가</li>
